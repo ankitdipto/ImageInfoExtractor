@@ -1,0 +1,42 @@
+28.2. Inverting matrices 827
+
+28.1-3
+
+Solve the equation
+15 4 x 12
+20 3 xX J=|{ 9
+5 8 2 X3 5
+
+by using an LUP decomposition.
+
+28.1-4
+Describe the LUP decomposition of a diagonal matrix.
+
+28.1-5
+Describe the LUP decomposition of a permutation matrix A, and prove that it is
+unique.
+
+28.1-6
+Show that for all n > 1, there exists a singular n xn matrix that has an LU decom-
+position.
+
+28.1-7
+In LU-DEcoMposSITION, is it necessary to perform the outermost for loop itera-
+tion when k = n? How about in LUP-DECOMPOSITION?
+
+ 
+
+28.2 Inverting matrices
+
+Although in practice we do not generally use matrix inverses to solve systems of
+linear equations, preferring instead to use more numerically stable techniques such
+as LUP decomposition, sometimes we need to compute a matrix inverse. In this
+section, we show how to use LUP decomposition to compute a matrix inverse.
+We also prove that matrix multiplication and computing the inverse of a matrix
+are equivalently hard problems, in that (subject to technical conditions) we can
+use an algorithm for one to solve the other in the same asymptotic running time.
+Thus, we can use Strassen’s algorithm (see Section 4.2) for matrix multiplication
+to invert a matrix. Indeed, Strassen’s original paper was motivated by the problem
+of showing that a set of a linear equations could be solved more quickly than by
+the usual method.
+

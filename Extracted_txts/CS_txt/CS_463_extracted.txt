@@ -1,0 +1,47 @@
+1016
+
+Chapter 33 Computational Geometry
+
+Pit P2
+
+  
+
+(b)
+
+Figure 33.1 (a) The cross product of vectors p1 and p2 is the signed area of the parallelogram.
+(b) The lightly shaded region contains vectors that are clockwise from p. The darkly shaded region
+contains vectors that are counterclockwise from p.
+
+Cross products
+
+Computing cross products lies at the heart of our line-segment methods. Consider
+vectors p; and p, shown in Figure 33.1(a). We can interpret the cross product
+P1 X P2 as the signed area of the parallelogram formed by the points (0,0), Pi, P2,
+and p; + p2 = (X; + X2. ¥1 +2). An equivalent, but more useful, definition gives
+the cross product as the determinant of a matrix:!
+
+X, X2
+x = det
+Pi X P2 ( yr ye )
+
+= Xiy2-*2V1
+
+—pP2X* pPi-
+
+If p1 X p2 is positive, then p, is clockwise from p2 with respect to the origin (0, 0);
+if this cross product is negative, then p; is counterclockwise from p2. (See Exer-
+cise 33.1-1.) Figure 33.1(b) shows the clockwise and counterclockwise regions
+relative to a vector p. A boundary condition arises if the cross product is 0; in this
+case, the vectors are colinear, pointing in either the same or opposite directions.
+To determine whether a directed segment Pop is closer to a directed seg-
+ment Po P> ina clockwise direction or in a counterclockwise direction with respect
+to their common endpoint po, we simply translate to use po as the origin. That
+is, we let p; — po denote the vector p, = (x}.¥{), Where x} = x1; — Xo and
+Y, = Yi—Yo, and we define p2— po similarly. We then compute the cross product
+
+ 
+
+' actually, the cross product is a three-dimensional concept. It is a vector that is perpendicular to
+both p1 and p2 according to the “right-hand rule” and whose magnitude is [21 y2 —x2)1|. In this
+chapter, however, we find it convenient to treat the cross product simply as the value x1 y2 — x21.
+

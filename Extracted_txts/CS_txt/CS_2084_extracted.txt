@@ -1,0 +1,55 @@
+ 
+
+14.6 Disk Attachment 513
+
+ 
+
+A wide variety of storage devices are suitable for use as host-attached
+storage. Among these are hard disk drives, RAID arrays, and CD, DVD, and
+tape drives.
+
+The I/O commands that initiate data transfers to a host-attached storage
+device are reads and writes of logical data blocks, directed to specifically
+identified storage units (such as bus ID, SCSI ID, and target logical unit, for
+example).
+
+14.6.2 Network-Attached Storage
+
+A network-attached storage device is a special-purpose storage system that is
+accessed remotely over a data network (Figure 14.11). Clients access network-
+attached storage (NAS) via a remote-procedure-call interface such as NFS for
+UNIX systems, or CIFS for Windows machines. The remote procedure calls
+(RPCs) are carried via TCP or UDP over an IP network—usually the same local-
+area network (LAN) that carries all data traffic to the clients. The network-
+attached storage unit is usually implemented as a RAID array with software
+that implements the remote procedure call interface. It is easiest to think of
+NAS as simply another storage-access protocol. For example, rather than using
+a SCSI device driver and SCSI protocols to access storage, a system using NAS
+would use RPC over TCP/IP.
+
+Network-attached storage provides a convenient way for all the computers
+ona LAN to share a pool of storage, with the same ease of naming and access
+enjoyed with local host-attached storage. However, it tends to be less efficient
+and have lower performance than some direct-attached storage options.
+
+14.6.3 Storage-Area Network
+
+One drawback of network-attached storage systems is that the storage I/O
+operations consume bandwidth on the data network, thereby increasing the
+latency of network communication. This problem can be particularly acute
+
+a
+=
+=]
+
+Figure 14.11 Network-attached storage.
+
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+

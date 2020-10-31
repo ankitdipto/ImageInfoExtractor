@@ -1,0 +1,49 @@
+Notes for Chapter 35 1139
+
+Since this early work, thousands of approximation algorithms have been de-
+signed for a wide range of problems, and there is a wealth of literature on this
+field. Recent texts by Ausiello et al. [26], Hochbaum [172], and Vazirani [345]
+deal exclusively with approximation algorithms, as do surveys by Shmoys [315]
+and Klein and Young [207]. Several other texts, such as Garey and Johnson [129]
+and Papadimitriou and Steiglitz [271], have significant coverage of approximation
+algorithms as well. Lawler, Lenstra, Rinnooy Kan, and Shmoys [225] provide an
+extensive treatment of approximation algorithms for the traveling-salesman prob-
+lem.
+
+Papadimitriou and Steiglitz attribute the algorithm APPROX-VERTEX-COVER
+to F. Gavril and M. Yannakakis. The vertex-cover problem has been studied exten-
+sively (Hochbaum [172] lists 16 different approximation algorithms for this prob-
+lem), but all the approximation ratios are at least 2 — o(1).
+
+The algorithm APPROX-TSP-TOUR appears in a paper by Rosenkrantz, Stearns,
+and Lewis [298]. Christofides improved on this algorithm and gave a 3/2-approx-
+imation algorithm for the traveling-salesman problem with the triangle inequality.
+Arora [22] and Mitchell [257] have shown that if the points are in the euclidean
+plane, there is a polynomial-time approximation scheme. Theorem 35.3 is due to
+Sahni and Gonzalez [301].
+
+The analysis of the greedy heuristic for the set-covering problem is modeled
+after the proof published by Chvatal [68] of a more general result; the basic result
+as presented here is due to Johnson [190] and Lovasz [238].
+
+The algorithm APPROX-SUBSET-SUM and its analysis are loosely modeled after
+related approximation algorithms for the knapsack and subset-sum problems by
+Ibarra and Kim [187].
+
+Problem 35-7 is a combinatorial version of a more general result on approximat-
+ing knapsack-type integer programs by Bienstock and McClosky [45].
+
+The randomized algorithm for MAX-3-CNF satisfiability is implicit in the work
+of Johnson [190]. The weighted vertex-cover algorithm is by Hochbaum [171].
+Section 35.4 only touches on the power of randomization and linear program-
+ming in the design of approximation algorithms. A combination of these two ideas
+yields a technique called “randomized rounding,” which formulates a problem as
+an integer linear program, solves the linear-programming relaxation, and interprets
+the variables in the solution as probabilities. These probabilities then help guide
+the solution of the original problem. This technique was first used by Raghavan
+and Thompson [290], and it has had many subsequent uses. (See Motwani, Naor,
+and Raghavan [261] for a survey.) Several other notable recent ideas in the field
+of approximation algorithms include the primal-dual method (see Goemans and
+Williamson [135] for a survey), finding sparse cuts for use in divide-and-conquer
+algorithms [229], and the use of semidefinite programming [134].
+

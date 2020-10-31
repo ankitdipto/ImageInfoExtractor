@@ -1,0 +1,49 @@
+706
+
+Chapter 25 All-Pairs Shortest Paths
+
+c. Describe an efficient algorithm for updating the transitive closure as edges are
+inserted into the graph. For any sequence of 71 insertions, your algorithm should
+run in total time )7/_, f; = O(V), where f; is the time to update the transitive
+closure upon inserting the ith edge. Prove that your algorithm attains this time
+bound.
+
+25-2 Shortest paths in €-dense graphs
+
+A graph G = (V, E) is €-dense if |E| = ©(V'**) for some constant € in the
+range 0 < € < 1. By using d-ary min-heaps (see Problem 6-2) in shortest-paths
+algorithms on €-dense graphs, we can match the running times of Fibonacci-heap-
+based algorithms without using as complicated a data structure.
+
+a. What are the asymptotic running times for INSERT, EXTRACT-MIN, and
+DECREASE-KEY, as a function of d and the number n of elements in a d-ary
+min-heap? What are these running times if we choose d = ©(n”) for some
+constant 0 < @ < 1? Compare these running times to the amortized costs of
+these operations for a Fibonacci heap.
+
+b. Show how to compute shortest paths from a single source on an €-dense directed
+graph G = (V, E) with no negative-weight edges in O(£) time. (Hint: Pick d
+as a function of €.)
+
+c. Show how to solve the all-pairs shortest-paths problem on an €-dense directed
+graph G = (V, E) with no negative-weight edges in O(VE) time.
+
+d. Show how to solve the all-pairs shortest-paths problem in O(VE) time on an
+€-dense directed graph G = (V, E) that may have negative-weight edges but
+has no negative-weight cycles.
+
+ 
+
+Chapter notes
+
+Lawler [224] has a good discussion of the all-pairs shortest-paths problem, al-
+though he does not analyze solutions for sparse graphs. He attributes the matrix-
+multiplication algorithm to the folklore. The Floyd-Warshall algorithm is due to
+Floyd [105], who based it on a theorem of Warshall [349] that describes how to
+compute the transitive closure of boolean matrices. Johnson’s algorithm is taken
+from [192].
+
+Several researchers have given improved algorithms for computing shortest
+paths via matrix multiplication. Fredman [111] shows how to solve the all-
+pairs shortest paths problem using O(V*/?) comparisons between sums of edge
+

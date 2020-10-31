@@ -1,0 +1,47 @@
+214. Chapter7 Process Synchronization
+
+Let us illustrate how the conditional critical region could be implemented
+by a compiler. With each shared variable, the following variables are associated:
+
+semaphore mutex, first_delay, second_delay;
+int first_count, second_count;
+
+The semaphore mutex is initialized to 1; the semaphores first-delay
+and second_delay are initialized to 0. The integers first_count and sec-
+ond_count are initialized to 0.
+
+Mutually exclusive access to the critical section is provided by mutex. If
+a process cannot enter the critical section because the Boolean condition B is
+false, it initially waits on the first-delay semaphore. A process waiting
+on the first_delay semaphore is eventually moved to the second_delay
+semaphore before it is allowed to reevaluate its Boolean condition B. We keep
+track of the number of processes waiting on first_delay and second_delay,
+with first_count and second_count respectively.
+
+wait (mutex) ;
+while (!B) {
+first_countt++;
+if (second_count > 0)
+signal (second_delay) ;
+else
+signal (mutex) ;
+wait (first_delay) ;
+first_count--;
+second_count++;
+if (first_count > 0)
+signal (first_delay) ;
+else
+signal (second_delay) ;
+wait (second_delay) ;
+second_count~-};
+}
+8;
+if (first_count > 0)
+signal (first_delay) ;
+else if (second_count > 0)
+signal (second_delay) ;
+else
+signal (mutex) ;
+
+Figure 7.18 Implementation of the conditional-region construct.
+

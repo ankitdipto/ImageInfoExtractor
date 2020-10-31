@@ -1,0 +1,50 @@
+Section 10.5.
+
+Forward-Chaining Production Systems 315
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 106 A rete network. Circles represent predicate tests. A square containing, for
+example, A=B represents a constraint that the solutions to the A and B tests must be equal.
+Rectangles are actions.
+
+ 
+
+ 
+
+ 
+
+memory the "add D” rule is the only one that fires, resulting in the addition ofthe sentence D(2)
+to working memory.
+
+One obvious advantage of the rete network is that it eliminates duplication between rules.
+All three of the rules start with a conjunction of A and B, and the network allows that part to be
+shared. The second advantage of rete networks is in eliminating duplication over time. Most
+production systems make only a few changes to the knowledge base on each cycle. This means
+that most of the tests at cycle ¢+\ will give the same result as at cycle ¢. The rete network modifies
+itself after each addition or deletion, but ifthere are few changes, then the cost of each update
+will be small relative to the whole job of maintaining the indexing information. The network
+thus represents the saved intermediate state in the process of testing for satisfaction of a set of
+conjuncts. In this case, adding D(2) will result in the activation of the "add E” rule, but will not
+have any effect on the rest of the network. Adding or deleting an 4, however, will have a bigger
+effect that needs to be propagated through much of the network.
+
+Conflict resolution phase
+
+Some production systems execute the actions of all rules that pass the match phase. Other
+production systems treat these rules only as suggestions, and use the conflict resolution phase to
+decide which of the suggestions to accept. This phase can be thought of as the control strategy.
+Some of the strategies that have been used are as follows:
+
++ No duplication. Do not execute the same rule on the same arguments twice.
+
++ Recency. Prefer rules that refer to recently created working memory elements.
+

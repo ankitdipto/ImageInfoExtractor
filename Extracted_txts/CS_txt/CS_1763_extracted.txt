@@ -1,0 +1,55 @@
+246  Chapter8 Deadlocks
+
+We emphasize that all four conditions must hold for a deadlock to occur.
+The circular-wait condition implies the hold-and-wait condition, so the four
+conditions are not completely independent. We shall see in Section 8.4, how-
+ever, that it is useful to consider each condition separately.
+
+8.2.2 Resource-Allocation Graph
+
+Deadlocks can be described more precisely in terms of a directed graph called
+a system resource-allocation graph. This graph consists of a set of vertices v
+and a set of edges E. The set of vertices V is partitioned into two different types
+of nodes P = {Py, P2, ..., Pu}, the set consisting of all the active processes in the
+system, and R = {Ri1, R2, ..., Rm}, the set consisting of all resource types in the
+system.
+
+A directed edge from process P; to resource type Rj is denoted by P; > Rj;
+it signifies that process P; requested an instance of resource type Rj and is
+currently waiting for that resource. A directed edge from resource type Rj to
+process P; is denoted by Rj — Pj; it signifies that an instance of resource type
+R; has been allocated to process P;. A directed edge P; — R; is called a request
+edge; a directed edge Rj — Pj is called an assignment edge.
+
+Pictorially, we represent each process P; as a circle, and each resource type
+Rj as a square. Since resource type Rj may have more than one instance, we
+represent each such instance as a dot within the square. Note that a request edge
+points to only the square Rj, whereas an assignment edge must also designate
+one of the dots in the square.
+
+When process P; requests an instance of resource type Rj, a request edge is
+inserted in the resource-allocation graph. When this request can be fulfilled, the
+request edge is instantaneously transformed to an assignment edge. When the
+process no longer needs access to the resource it releases the resource, and as a
+result the assignment edge is deleted.
+
+The resource-allocation graph shown in Figure 8.1 depicts the following
+situation.
+
+© The sets P, R, and E:
+
+o P= {P1, P2, Ps}
+
+o R= {R1, Ro, Rs, Ra}
+
+o E={P1— Ri, P2—> Rs, Ri > Po, Ro Po, R2 > Pi, Ra > Ps}
+e Resource instances:
+
+© One instance of resource type Ri
+
+o Two instances of resource type Ro
+
+o One instance of resource type R3
+
+o Three instances of resource type Ry
+

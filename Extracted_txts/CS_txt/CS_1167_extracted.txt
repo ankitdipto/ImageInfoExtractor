@@ -1,0 +1,42 @@
+450 Let Us C
+
+ 
+
+break ;
+}
+
+close ( inhandle ) ;
+close ( outhandle ) ;
+}
+
+Declaring the Buffer
+
+The first difference that you will notice in this program is that we
+declare a character buffer,
+
+char buffer[512] ;
+
+This is the buffer in which the data read from the disk will be
+placed. The size of this buffer is important for efficient operation.
+Depending on the operating system, buffers of certain sizes are
+handled more efficiently than others.
+
+Opening a File
+
+We have opened two files in our program, one is the source file
+from which we read the information, and the other is the target file
+into which we write the information read from the source file.
+
+As in high level disk I/O, the file must be opened before we can
+access it. This is done using the statement,
+
+inhandle = open ( source, O_RDONLY | O_BINARY) ;
+
+We open the file for the same reason as we did earlier—to
+establish communication with operating system about the file. As
+usual, we have to supply to open( ), the filename and the mode in
+which we want to open the file. The possible file opening modes
+are given below:
+
+O_APPEND _ - Opens a file for appending
+

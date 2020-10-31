@@ -1,0 +1,39 @@
+706 Let UsC
+
+ 
+
+[9]
+
+How do you recognize a C programmer? Ask him to write a
+paragraph in English and watch whether he ends each
+sentence with a semicolon. This usually happens because a C
+programmer becomes habitual to ending all statements with a
+semicolon. However, a semicolon at the end of a macro
+definition might create a problem. For example,
+
+#define UPPER 25 ;
+would lead to a syntax error if used in an expression such as
+if (counter == UPPER )
+
+This is because on preprocessing, the if statement would take
+the form
+
+if (counter == 25 )
+Omitting parentheses around a macro expansion.
+
+#define SQR(x) x* x
+main()
+{
+
+int a;
+
+a=25/SQR(5);
+printf ( "\n%d", a) ;
+}
+
+In this example we expect the value of a to be 1, whereas it
+turns out to be 25. This so happens because on preprocessing
+the arithmetic statement takes the following form:
+
+a=25/5"5;
+

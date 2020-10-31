@@ -1,0 +1,51 @@
+286
+
+CHAPTER EIGHT Central Processing Unit
+
+a new window consisting of a set of registers from the register file for use by
+the new procedure. Each procedure call activates a new register window by
+incrementing a pointer, while the return statement decrements the pointer and
+causes the activation of the previous window. Windows for adjacent proce-
+dures have overlapping registers that are shared to provide the passing of
+parameters and results.
+
+‘The concept of overlapped register windows is illustrated in Fig, 8-9. The
+system has a total of 74 registers. Registers RO through R9 are global registers
+that hold parameters shared by all procedures. The other 64 registers are
+divided into four windows to accommodate procedures A, B, C, and D. Each
+register window consists of 10 local registers and two sets of six registers
+common to adjacent windows. Local registers are used for local variables.
+Common registers are used for exchange of parameters and results between
+adjacent procedures. The common overlapped registers permit parameters to
+be passed without the actual movement of data. Only one register window is
+activated at any given time with a pointer indicating the active window. Each
+procedure call activates a new register window by incrementing the pointer.
+The high registers of the calling procedure overlap the low registers of the
+called procedure, and therefore the parameters automatically transfer from
+calling to called procedure.
+
+‘Asan example, suppose that procedure A calls procedure B. Registers
+R26 through R31 are common to both procedures, and therefore procedure A
+stores the parameters for procedure B in these registers. Procedure B uses local
+registers R32 through R41 for local variable storage. If procedure B calls pro-
+cedure C, it will pass the parameters through registers R42 through R47. When
+procedure Bis ready toreturnat the end of its computation, the program stores
+results of the computation in registers R26 through R31 and transfers back to
+the register window of procedure A. Note that registers R10 through R15 are
+common to procedures A and D because the four windows have a circular
+organization with A being adjacent to D.
+
+‘As mentioned previously, the 10 global registers RO through R9 are
+available to all procedures. Each procedure in Fig, 8-9 has available a total of
+32registers whileit is active. Thisincludes 10 globalregisters, 10local registers,
+six low overlapping registers, and six high overlapping registers. Other fixed-
+size register window schemes are possible, and each may differ in the size of
+the register window and the size of the total register file. In general, the
+organization of register windows will have the following relationships:
+
+number of global registers = G
+
+number of local registers in each window = L
+number of registers common to two windows = C
+number of windows = W
+

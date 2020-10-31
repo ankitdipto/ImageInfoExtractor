@@ -1,0 +1,46 @@
+Chapter 10: Structures 379
+
+ 
+
+@
+
+Having collected what is being passed to the display( )
+function, the question comes, how do we define the formal
+arguments in the function. We cannot say,
+
+struct book b1 ;
+
+because the data type struct book is not known to the
+function display( ). Therefore, it becomes necessary to define
+the structure type struct book outside main( ), so that it
+becomes known to all functions in the program.
+
+The way we can have a pointer pointing to an int, or a pointer
+pointing to a char, similarly we can have a pointer pointing to
+a struct. Such pointers are known as ‘structure pointers’.
+
+Let us look at a program that demonstrates the usage of a
+structure pointer.
+
+main()
+
+struct book
+{
+char name[25] ;
+char author[25] ;
+int callno ;
+};
+struct book b1 = {"Letus C", "YPK", 101};
+struct book “ptr ;
+
+ptr = &b1;
+
+printf ( "\n%s %s %d", b1.name, b1.author, b1.callno ) ;
+
+printf ( "\n%s %s %d"", ptr->name, ptr->author, ptr->callno ) ;
+}
+
+The first printf() is as usual. The second printf( ) however is
+peculiar. We can’t use ptr.name or ptr.callno because ptr is
+not a structure variable but a pointer to a structure, and the dot
+

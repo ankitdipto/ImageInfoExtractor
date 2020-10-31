@@ -1,0 +1,48 @@
+9.6 Segmentation with Paging 309
+
+Read-only data segments that contain no physical pointers may be shared
+as different segment numbers, as may code segments that refer to themselves
+not directly, but rather only indirectly. For example, conditional branches that
+specify the branch address as an offset from the current program counter or
+relative to a register containing the current segment number would allow code
+to avoid direct reference to the current segment number.
+
+9.5.4 Fragmentation
+
+The long-term scheduler must find and allocate memory for all the segments of
+a user program. This situation is similar to paging except that the segments are
+of variable length; pages are all the same size. Thus, as with the variable-sized
+partition scheme, memory allocation is a dynamic storage-allocation problem,
+usually solved with a best-fit or first-fit algorithm.
+
+Segmentation may then cause external fragmentation, when all blocks of
+free memory are too small to accommodate a segment. In this case, the process
+may simply have to wait until more memory (or at least a larger hole) becomes
+available, or until compaction creates a larger hole. Because segmentation is by
+its nature a dynamic relocation algorithm, we can compact memory whenever
+we want. If the CPU scheduler must wait for one process, because of a memory-
+allocation problem, it may (or may not) skip through the CPU queue looking for
+a smaller, lower-priority process to run.
+
+How serious a problem is external fragmentation for a segmentation
+scheme? Would long-term scheduling with compaction help? The answers
+depend mainly on the average segment size. At one extreme, we could define
+each process to be one segment. This approach reduces to the variable-sized
+partition scheme. At the other extreme, every byte could be put in its own
+segment and relocated separately. This arrangement eliminates external frag-
+mentation altogether; however, every byte would need a base register for its
+relocation, doubling memory use! Of course, the next logical step—fixed-sized,
+small segments—is paging. Generally, if the average segment size is small,
+external fragmentation will also be small. (By analogy, consider putting suit-
+cases in the trunk of a car; they never quite seem to fit. However, if you open the
+suitcases and put the individual items in the trunk, everything is more likely to
+fit.) Because the individual segments are smaller than the overall process, they
+are more likely to fit in the available memory blocks.
+
+9.6 = Segmentation with Paging
+
+Both paging and segmentation have advantages and disadvantages. In fact, of
+the two most popular microprocessors now being used, the Motorola 68000 line
+is designed based on a flat-address space, whereas the Intel 80x86 and Pentium
+family are based on segmentation. Both are merging memory models toward
+

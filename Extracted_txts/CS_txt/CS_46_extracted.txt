@@ -1,0 +1,55 @@
+124 carrer AVE Basic Computer Organization and Design
+
+instruction code
+
+operation code
+
+operands, and the sequence by which processing has to occur. The data-
+processing task may be altered by specifying a new program with different
+instructions or specifying the same instructions with different data,
+
+‘A computer instruction is a binary code that specifies a sequence of
+microoperations for the computer. Instruction codes together with data are
+stored in memory. The computer reads each instruction from memory and
+places it in a control register. The control then interprets the binary code of the
+instruction and proceeds to execute it by issuing a sequence of microopera-
+tions. Every computer has its own unique instruction set. The ability to store
+and execute instructions, the stored program concept, is the most important
+property of a general-purpose computer.
+
+‘An instruction code is a group of bits that instruct the computer to
+perform a specific operation. It is usually divided into parts, each having its
+own particular interpretation. The most basic part of an instruction code is its
+operation part. The operation code of an instruction is a group of bits that
+define such operations as add, subtract, multiply, shift, and complement. The
+number of bits required for the operation code of an instruction depends on
+the total number of operations available in the computer. The operation code
+must consist of at least m bits for a given 2" (or less) distinct operations. As an
+illustration, consider a computer with 64 distinct operations, one of them being
+an ADD operation. The operation code consists of six bits, with a bit configu-
+ration 110010 assigned to the ADD operation. When this operation code is
+decoded in the control unit, the computer issues control signals to read an
+operand from memory and add the operand to a processor register.
+
+‘At this point we must recognize the relationship between a computer
+operation and a microoperation. An operation is part of an instruction stored
+in computer memory. It is a binary code that tells the computer to perform a
+specific operation The control unit receives the instruction from memory and
+interprets the operation code bits. It then issues a sequence of control signals
+to initiate microoperations in internal computer registers. For every operation
+code, the control issues a sequence of microoperations needed for the hard-
+ware implementation of the specified operation. For this reason, an operation
+code is sometimes called a macrooperation because it specifies a set of micro-
+operations.
+
+The operation part of an instruction code specifies the operation to be
+performed. This operation must be performed on some data stored in proces-
+sor registers or in memory. An instruction code must therefore specify not only
+the operation but also the registers or the memory words where the operands
+are to be found, as well as the register or memory word where the result is to
+be stored Memory words can be specified in instruction codes by their ad-
+dress. Processor registers can be specified by assigning to the instruction
+another binary code of k bits that specifies one of 2 registers. There are many
+variations for arranging thebinary code of instructions, and each computer has
+its own particular instruction code format. Instruction code formats are con-
+

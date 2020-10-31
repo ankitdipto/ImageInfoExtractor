@@ -1,0 +1,48 @@
+958
+
+Chapter 31 Number-Theoretic Algorithms
+
+Maintenance: Let c’ and d’ denote the values of c and d at the end of an iteration
+of the for loop, and thus the values prior to the next iteration. Each iteration
+updates c’ = 2c (if b; = 0) orc’ = 2c +1 (if b; = 1), so that c will be correct
+prior to the next iteration. If b; = 0, then d’ = d? modn = (a‘)? modn =
+a? modn = a mod n. If b; = 1, then d’ = d?a mod n = (a‘)*a mod n =
+a**! mod n = a mod n. In either case, d = a° mod n prior to the next
+iteration.
+
+Termination: At termination, i = —1. Thus, c = J, since c has the value of the
+prefix (be. bg... .. bo) of b’s binary representation. Hence d = a° mod n =
+a® mod n.
+
+If the inputs a, b, and n are B-bit numbers, then the total number of arith-
+metic operations required is O(8) and the total number of bit operations required
+
+is O(B°).
+
+Exercises
+
+31.6-1
+Draw a table showing the order of every element in Z7,. Pick the smallest primitive
+root g and compute a table giving ind,;,¢(x) for all x € Zj,.
+
+31.6-2
+Give a modular exponentiation algorithm that examines the bits of b from right to
+left instead of left to right.
+
+31.6-3
+Assuming that you know ¢(), explain how to compute a~! mod n for any a € Z*
+using the procedure MODULAR-EXPONENTIATION.
+
+ 
+
+31.7. The RSA public-key cryptosystem
+
+With a public-key cryptosystem, we can encrypt messages sent between two com-
+municating parties so that an eavesdropper who overhears the encrypted messages
+will not be able to decode them. A public-key cryptosystem also enables a party
+to append an unforgeable “digital signature” to the end of an electronic message.
+Such a signature is the electronic version of a handwritten signature on a paper doc-
+ument. It can be easily checked by anyone, forged by no one, yet loses its validity
+if any bit of the message is altered. It therefore provides authentication of both the
+identity of the signer and the contents of the signed message. It is the perfect tool
+

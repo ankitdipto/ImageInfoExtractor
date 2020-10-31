@@ -1,0 +1,74 @@
+Section 8.4.
+
+FLUENTS
+
+General Ontology 241
+
+ 
+
+“space”
+
+ 
+
+ 
+
+I
+it
+I
+I
+Il
+I
+I
+iu
+a)
+
+time
+
+ 
+
+\)
+0
+
+1950
+
+ 
+
+ 
+
+ 
+
+Figure 86 Viewing Poland as an object of varying size and location over time.
+
+ 
+
+ 
+
+Objects such as Poland and President(USA) are called fluents. The dictionary says that a fluent
+is something that is capable of flowing, like a liquid. For our purposes, a fluent is something that
+flows or changes across situations.
+
+It may seem odd to reify objects that are as transient as President( USA), yet fluents allow us
+to say some things that would otherwise be cumbersome to express. For example, "The president
+of the USA was male throughout the 19th century" can be expressed by
+
+T(Male(President(USA)), 19thCentury)
+
+even though there were 24 different presidents of the USA in the nineteenth century.
+
+There are some things that can be easily expressed with fluents but not with situation
+calculus. For example, Location(x) denotes the place in which x is located, even if that place
+varies over time. We can then use sentences about the location of an object to express the fact
+that, for example, the location of the Empire State Building is fixed:
+
+Fixed(Location(EmpireStateBuilding))
+
+Without fluents, we could find a way to talk about objects being widespread or immobile, but we
+could not talk directly about the object's location over time. We leave it as an exercise to define
+the Fixed predicate (Exercise 8.7).
+
+Substances and objects
+
+The real world perhaps can be seen as consisting of primitive objects (particles) and composite
+objects built from them. By reasoning at the level of large objects such as apples and cars,
+we can overcome the complexity involved in dealing with vast numbers of primitive objects
+

@@ -1,0 +1,49 @@
+Chapter 1: Getting Started 33
+
+ 
+
+i=6/4+4/4+8-2+5/8 operation: *
+i=14+4/4+8-2+5/8 operation: /
+i=14+14+8-2+5/8 operation: /
+
+  
+
+i=14+1+8-2+0 operation: /
+i=2+8-2+0 operation: +
+i=10-2+0 operation: +
+
+  
+
+operation : -
+operation: +
+
+Note that 6 / 4 gives 1 and not 1.5. This so happens because 6 and
+4 both are integers and therefore would evaluate to only an integer
+constant. Similarly 5 / 8 evaluates to zero, since 5 and 8 are integer
+constants and hence must return an integer value.
+
+Example 1.2: Determine the hierarchy of operations and evaluate
+the following expression:
+
+kk =3/2°4+3/8+3
+
+Stepwise evaluation of this expression is shown below:
+
+kk =3/2°4+3/8+3
+
+kk=1°4+3/8+3 operation: /
+kk =4+3/8+3 operation: *
+kk=4+0+3 operation: /
+kk =4+3 operation: +
+kk =7 operation: +
+
+Note that 3 / 8 gives zero, again for the same reason mentioned in
+the previous example.
+
+All operators in C are ranked according to their precedence. And
+mind you there are as many as 45 odd operators in C, and these
+can affect the evaluation of an expression in subtle and unexpected
+ways if we aren't careful. Unfortunately, there are no simple rules
+that one can follow, such as “BODMAS” that tells algebra students
+in which order does an expression evaluate. We have not
+

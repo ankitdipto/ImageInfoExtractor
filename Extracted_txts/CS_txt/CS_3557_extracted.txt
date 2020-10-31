@@ -1,0 +1,45 @@
+530
+
+Chapter 19 Fibonacci Heaps
+
+tree. Finally, 2-3-4 heaps are designed to be kept in main memory, so that disk
+reads and writes are not needed.
+
+Implement the following 2-3-4 heap operations. In parts (a)-(e), each operation
+should run in O(1g 7) time on a 2-3-4 heap with n elements. The UNION operation
+in part (f) should run in O(1g 7) time, where 7 is the number of elements in the two
+input heaps.
+
+a. MINIMUM, which returns a pointer to the leaf with the smallest key.
+
+b. DECREASE-KEY, which decreases the key of a given leaf x to a given value
+k <x.key.
+
+c. INSERT, which inserts leaf x with key k.
+d. DELETE, which deletes a given leaf x.
+e. EXTRACT-MIN, which extracts the leaf with the smallest key.
+
+f. UNION, which unites two 2-3-4 heaps, returning a single 2-3-4 heap and de-
+stroying the input heaps.
+
+ 
+
+Chapter notes
+
+Fredman and Tarjan [114] introduced Fibonacci heaps. Their paper also describes
+the application of Fibonacci heaps to the problems of single-source shortest paths,
+all-pairs shortest paths, weighted bipartite matching, and the minimum-spanning-
+tree problem.
+
+Subsequently, Driscoll, Gabow, Shrairman, and Tarjan [96] developed “relaxed
+heaps” as an alternative to Fibonacci heaps. They devised two varieties of re-
+laxed heaps. One gives the same amortized time bounds as Fibonacci heaps. The
+other allows DECREASE-KEY to run in O(1) worst-case (not amortized) time and
+EXTRACT-MIN and DELETE to run in O(lgm) worst-case time. Relaxed heaps
+also have some advantages over Fibonacci heaps in parallel algorithms.
+
+See also the chapter notes for Chapter 6 for other data structures that support fast
+DECREASE-KEY operations when the sequence of values returned by EXTRACT-
+MIN calls are monotonically increasing over time and the data are integers in a
+specific range.
+

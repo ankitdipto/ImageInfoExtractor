@@ -1,0 +1,58 @@
+Section 24.7.
+
+Speech Recognition 765
+
+ 
+
+‘VITERBI ALGORITHM
+
+approach is to combine them all into one big HMM. The bigram model can be thought of as an
+HMM in which every state corresponds to a word and every word has a transition arc to every
+other word. Now replace each word-state with the appropriate word model, yielding a bigger
+model in which each state corresponds to a phone. Finally, replace each phone-state with the
+appropriate phone model, yielding an even bigger model in which each state corresponds to a
+distribution of vector quantization values.
+
+Some speech recognition systems complicate the picture by dealing with coarticulation
+effects at either the word/vord or phone/phone level. For example, we could use one phone
+model for [ow] when it follows a [t] and a different model for [ow] when it follows a [g]. There
+are many trade-offs to be made—a more complex model can handle subtle effects, but it will
+be harder to train. Regardless of the details, we end up with one big HMM that can be used to
+compute P(words|signal).
+
+The search algorithm
+
+From a theoretical point of view, we have just what we asked for: a model that computes
+P(words|signal). All we have to do is enumerate all the possible word strings, and we can assign
+a probability to each one. Practically, of course, this is infeasible, because there are too many
+candidate word strings. Fortunately, there is a better way.
+
+The Viterbi algorithm takes an HMM model and an output sequence, /C\, C2, **.. Cul,
+and returns the most probable path through the HMM that outputs the sequence. It also returns
+the probability for the path. Think of it as an iterative algorithm that first finds ail the paths that
+output the first symbol, C\. Then, for each of those paths it finds the most probable path that
+outputs the rest of the sequence, given that we have chosen a particular path for C;. So far this
+doesn't sound very promising. If the length of the sequence is 1 and there are M different states
+in the model, then this algorithm would seem to be at least O(M").
+
+The key point of the Viterbi algorithm is to use the Markov property to make it more
+efficient. The Markov property says that the most probable path for the rest of any sequence can
+depend only on the state in which it starts, not on anything else about the path that got there. That
+means we need not look at all possible paths that lead to a certain state; for each state, we only
+need to keep track of the most probable path that ends in that state. Thus, the Viterbi algorithm
+is an instance of dynamic programming.
+
+Figure 24.37 shows the algorithm working on the HMM from Figure 24.36 and the output
+sequence [C1,C3,C4,C61. Each column represents one iteration of the algorithm. In the leftmost
+column, we see that there is only one way to generate the sequence [Cl], with the path [Onset].
+The oval labelled "Onset 0.5" means that the path ends in the Onset state and has probability
+0.5. The arc leading into the oval has the label "1.0; 0.5," which means that the probability of
+making this transition is 1.0, and the probability of outputting a Cl, given that the transition is
+made, is 0.5. In the second column, we consider all the possible continuations of the paths in
+the first column that could lead to the output [C1,C3]. There are two such paths, one ending in
+the Onset state and one in the Mid state. In the third column, it gets more interesting. There are
+two paths that lead to the Mid state, one from Onset and the other from Mid. The bold arrow
+indicates that the path from Mid is more probable (it has probability 0.0441), so that is the only
+
+ 
+

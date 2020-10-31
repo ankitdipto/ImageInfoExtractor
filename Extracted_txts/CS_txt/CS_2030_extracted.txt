@@ -1,0 +1,50 @@
+ 
+
+13.3. Application I/O Interface 469
+
+system call has three arguments. The first is a file descriptor that connects the
+application to the driver by referring to a hardware device managed by that
+driver. The second is an integer that selects one of the commands implemented
+in the driver. The third is a pointer to an arbitrary data structure in memory,
+thus enabling the application and driver to communicate any necessary control
+information or data.
+
+13.3.1 Block and Character Devices
+
+The block-device interface captures all the aspects necessary for accessing disk
+drives and other block-oriented devices. The expectation is that the device
+understands commands such as read() and write(), and, if it is a random-
+access device, it has a seek () command to specify which block to transfer next.
+Applications normally access such a device through a file-system interface. The
+operating system itself, and special applications such as database-management
+systems, may prefer to access a block device as a simple linear array of blocks.
+This mode of access is sometimes called raw I/O. We can see that read(),
+write(),and seek() capture the essential behaviors of block-storage devices,
+so that applications are insulated from the low-level differences among those
+devices.
+
+Memory-mapped file access can be layered on top of block-device drivers.
+Rather than offering read and write operations, a memory-mapped interface
+provides access to disk storage via an array of bytes in main memory. The
+system call that maps a file into memory returns the virtual-memory address
+of an array of characters that contains a copy of the file. The actual data
+transfers are performed only when needed to satisfy access to the memory
+image. Because the transfers are handled by the same mechanism as that used
+for demand-paged virtual-memory access, memory-mapped 1/0 is efficient.
+Memory mapping is also convenient for programmers—access to a memory-
+mapped file is as simple as reading and writing to memory. Operating systems
+that offer virtual memory commonly use the mapping interface for kernel
+services. For instance, to execute a program, the operating system maps the
+executable into memory, and then transfers control to the entry address of the
+executable. The mapping interface is also commonly used for kernel access to
+swap space on disk.
+
+A keyboard is an example of a device that is accessed through a character-
+stream interface. The basic system calls in this interface enable an application
+to get () or put () one character. On top of this interface, libraries can be built
+that offer line-at-a-time access, with buffering and editing services (for example,
+when a user types a backspace, the preceding character is removed from the
+input stream). This style of access is convenient for input devices such as
+keyboards, mice, and modems, which produce data for input “spontaneously”
+—that is, at times that cannot necessarily be predicted by the application. This
+

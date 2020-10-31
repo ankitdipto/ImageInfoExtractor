@@ -1,0 +1,57 @@
+Section 8.4,
+
+General Ontology 227
+
+ 
+
+of the circuit, and indeed such simulations are often carried out by circuit designers. We could
+also introduce more interesting classes of gates, for example by describing the technology (TTL,
+MOS, CMOS, and so on) as well as the input/output specification. If we wanted to discuss
+reliability or diagnosis, we would include the possibility that the structure of the circuit, or the
+properties of the gates, might change spontaneously. To account for stray capacitances, we
+would need to move from a purely topological representation of connectivity to a more realistic
+description of geometric properties.
+
+If we look at the wumpus world, similar considerations apply. Although we do include
+time, ithas avery simple structure. Nothing happens except when the agent acts, and all changes
+can be considered instantaneous. A more general ontology, better suited for the real world, would
+allow for simultaneous changes extended over time. We also used the constant symbol Pit to say
+that there was a pit in a particular square, because all pits were identical. We could have allowed
+for different kinds of pits by having several individuals belonging to the class of pits but having
+different properties. Similarly, we might want to allow for several different kinds of animals,
+not just wumpuses. It might not be possible to pin down the exact species from the available
+percepts, so we would need to build up a wumpus-world biological taxonomy to help the agent
+predict behavior from scanty clues.
+
+For any area ofa special-purpose ontology, itis possible to make changes like these to move
+toward greater generality. An obvious question then arises: do all these ontologies converge on
+a general-purpose ontology? The answer is, "Possibly." In this section, we will present one
+version, representing a synthesis of ideas from many knowledge representation efforts in AI and
+philosophy. There are two major characteristics of general-purpose ontologies that distinguish
+them from collections of special-purpose ontologies:
+
++ A general-purpose ontology should be applicable in more or less any special-purpose
+domain (with the addition of domain-specific axioms). This means that as far as possible,
+no representational issue can be finessed or brushed under the carpet. For example, a
+general ontology cannot use situation calculus, which finesses the issues of duration and
+simultaneity, because domains such as circuit timing analysis require those issues to be
+handled properly.
+
+In any sufficiently demanding domain, different areas ofknowledge must be unified because
+reasoning and problem solving may involve several areas simultaneously. A robot circuit-
+repair system, for instance, needs to reason about circuits in terms of electrical connectivity
+and physical layout, and about time both for circuit timing analysis and estimating labor
+costs. The sentences describing time therefore must be capable of being combined with
+those describing spatial layout, and must work equally well for nanoseconds and minutes,
+and for angstroms and meters.
+
+After we present the general ontology, we will apply it to write sentences describing the domain
+of grocery shopping. A brief reverie on the subject of shopping brings to mind a vast array of
+topics in need of representation: locations, movement, physical objects, shapes, sizes, grasping,
+releasing, colors, categories of objects, anchovies, amounts of stuff, nutrition, cooking, nonstick
+frying pans, taste, time, money, direct debit cards, arithmetic, economics, and so on. The domain
+is more than adequate to exercise our ontology, and leaves plenty of scope for the reader to do
+some creative knowledge representation of his or her own.
+
+ 
+

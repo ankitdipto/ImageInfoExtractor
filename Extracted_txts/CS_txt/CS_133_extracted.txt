@@ -1,0 +1,55 @@
+memory address
+
+SECTION 52 Computer Registers 131
+
+and PC, have 12 bits each since they hold a memory address. When the
+contents of AR or PC are applied to the 16-bit common. bus, the four most
+significant bits are set to0’s. When AR or PCreceive information from the bus,
+only the 12 least significant bits are transferred into the register.
+
+‘The input register INPR and the output register OUTR have 8 bits each
+and communicate with the eight least significant bits in the bus. INPR is
+connected to provide information to the bus but OUTR can only receive infor-
+‘mation from the bus. This is because INPR receives a character from an input
+device which is then transferred to AC. OUTR receives a character from AC and
+delivers it to an output device. There is no transfer from OUTR to any of the
+other registers.
+
+The 16 lines of the common bus receive information from six registers and
+the memory unit. The bus lines are connected to the inputs of six registers and
+the memory. Five registers have three control inputs: LD (load), INR (incre-
+ment), and CLR (clear). This type of register is equivalent to a binary counter
+with parallel load and synchronous clear similar to the one shown in Fig. 2-11.
+The increment operation is achieved by enabling the count input of the coun-
+ter. Two registers have only a LD input. This type of register is shown in
+Fig. 2-7.
+
+The input data and output data of the memory are connected to the
+common bus, but the memory address is connected to AR. Therefore, AR must
+always be used to specifya memory address. By using a single register for the
+address, we eliminate the need for an address bus that would have been
+needed otherwise. The content of any register can be specified for the memory
+data input during a write operation. Similarly, any register can receive the data
+from memory after a read operation except AC.
+
+‘The 16 inputs of AC come from an adder and logic circuit. This circuit has
+threesets of inputs. Oneset of 16-bitinputs comefromthe outputsof AC. They
+are used to implement register microoperations such as complement AC and
+shift AC. Another set of 16-bit inputs come from the data register DR. The
+inputs from DR and AC are used for arithmeticand logicmicrooperations, such
+as add DR to AC or AND DR to AC. The result of an addition is transferred
+to AC and the end carry-out of the addition is transferred to flip-flop E (ex-
+tended AC it), A third set of &-bit inputs come from the input register INPR.
+The operation of INPR and OUTR is explained in Sec. 5-7.
+
+‘Note that the content of any register can be applied onto the bus and an
+operation can be performed in the adder and logiccircuit during the same clock
+cycle. The clock transition at the end of the cycle transfers the content of the
+bus into the designated destination register and the output of the adder and
+logic circuit into AC. For example, the two microoperations
+
+DR <= AC and AC < DR
+
+can be executed at the same time. This can be done by placing the content of
+AC on the bus (with $;5,S) = 100), enabling the LD (load) input of DR, trans-
+

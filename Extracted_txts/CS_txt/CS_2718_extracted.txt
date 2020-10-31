@@ -1,0 +1,44 @@
+ 
+
+ 
+
+282 Chapter 11 Hash Tables
+Proof Again we apply Markov’s inequality (C.30), Pr{X >t} < E[X]/t, this
+time to inequality (11.7), with ¥ = yo mj; and t = 4n:
+m-1
+Pr | > m= | <
+j=0
+2n
+< =
+4n
+= 1/2. /
+From Corollary 11.12, we see that if we test a few randomly chosen hash func-
+tions from the universal family, we will quickly find one that uses a reasonable
+amount of storage.
+Exercises
+15-1 &
+Suppose that we insert n keys into a hash table of size m using open addressing
+and uniform hashing. Let p(n, m) be the probability that no collisions occur. Show
+that p(n,m) < e-"@-Y/2™_ (Hint: See equation (3.12).) Argue that when n ex-
+ceeds ,/m, the probability of avoiding collisions goes rapidly to zero.
+Problems
+
+11-1 Longest-probe bound for hashing
+Suppose that we use an open-addressed hash table of size m to store n < m/2
+items.
+
+a. Assuming uniform hashing, show that fori = 1,2,..., n, the probability is at
+most 2~* that the /th insertion requires strictly more than k probes.
+
+b. Show that fori = 1,2,..., n, the probability is O(1/n7) that the th insertion
+requires more than 21g probes.
+
+Let the random variable X; denote the number of probes required by the / th inser-
+tion. You have shown in part (b) that Pr {X; > 21g} = O(1/n?). Let the random
+variable X = maxj<j;<, X; denote the maximum number of probes required by
+any of the 7 insertions.
+
+c. Show that Pr{X > 2lgn} = O(1/n).
+
+d. Show that the expected length E [X] of the longest probe sequence is O(lg).
+

@@ -1,0 +1,74 @@
+Section 22.
+
+ 
+
+A Formal Grammar for a Subset of English 663
+
+ 
+
+ 
+
+function SIMPLE-COMMUNICATING-AGENT( percept) returns action
+static: KB, a knowledge base
+4, a counter, initially 0, indicating time
+
+TELL(KB,MAKE-PERCEPT-SENTENCE(KB, 1)
+words — SPEECH-PART( percept)
+semantics — DISAMBIGUATE(SEMANTICS(PARSE(words))}
+if TYPE[semantics]= Command then
+
+action — CONTENTS[semantics]
+else if TyPE|semantics|= Statement then
+
+TELL(KB, CONTENTS|semantics])
+
+action — ASk(KB, MAKE-ACTION-QUERY( percept, 2)
+else if TYPF[semantics]= None then
+
+action — ASk(KB, MAKE-ACTION-QUERY( percept, 1)
+description — GENERATE-DESCRIPTION( percept)
+return ~COMPOUND-ACTIONSAY (description )Do(action))
+
+ 
+
+ 
+
+Figure 224 A communicating agent that accepts commands and statements, and returns a
+compound action that both describes its percepts and does something else.
+
+ 
+
+ 
+
+ 
+
+of a fixed set of letters (for written language) or sounds (for spoken language) that combine into
+a relatively fixed set of words. Either level can be considered the symbols ofa formal language.
+The symbols are formed into strings, and it is clear that strings such as "This is a sentence" are
+part of the English language, and strings such as "A is sentence this" are not. We can come up
+with a set of grammar rules that cover at least part of English, and compose phrases to form
+arbitrarily complex sentences.
+
+However, there are ways in which natural languages differ from formal ones. It is hard to
+characterize a natural language as a set of strings for four reasons. First, not all speakers agree on
+what is in the language. Some Canadians end sentences with “eh?,” some U.S. southerners use
+“y'all” and one can start arguments in some circles by asking whether "This ain't a sentence" is.
+Second, the language changes over time—the English of Shakespeare's day is quite different from
+what we speak today. Third, some utterances that are clearly ungrammatical are nevertheless
+understandable. Fourth, grammaticality judgments are often graded rather than absolute. That
+means that there are some sentences that do not sound quite right, but are not clearly wrong,
+either. The following sentences (for most speakers) range from good to bad:
+
+To whom did you send the letter?
+
+Next to whom did you stand?
+
+Of whom did you meet a friend?
+
+Of whom did you see the dealer that bought the picture that Vincent painted?
+
+Even if we could agree on exactly which sentences are English and which are not, that would be
+only a small part of natural language processing. The really hard parts are semantic interpretation
+and disambiguation. Speech act interpretation (which takes place across the syntactic, semantic,
+and pragmatic levels) also complicates the picture. In programming languages, every statement
+

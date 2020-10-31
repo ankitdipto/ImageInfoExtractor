@@ -1,0 +1,78 @@
+Section 15.7.
+
+Summary 469
+
+ 
+
+ 
+
+ 
+
+ 
+
+© gRe Rar
+o
+
+@) @)
+
+@ (i) (ii)
+
+ 
+
+ 
+
+ 
+
+Figure 15.12 Three possible networks for the telescope problem.
+
+ 
+
+ 
+
+15.4
+
+You are an Al consultant for a credit card company, and your task is to construct a belief
+
+net that will allow the company to determine whether or not to grant a person a card.
+
+a.
+
+°
+
+2
+
+15.5
+
+What are the evidence variables? These are the variables for which you can obtain
+information, on the basis of which it is legal to make decisions, and that are relevant to
+the decision. Thus, 4ge might be one of your variables, but VoringRecordand HairColor
+would not
+
+What is the output variable (ie., what proposition is the company going to examine the
+probabilities of in order to determine whether to grant a card)? This should not be Decision
+with values ves and no because the company has control over the value of this variable
+
+. Construct your network by incrementally adding variables in causal order, as described in
+
+the chapter. You may wish to add intermediate nodes such as Reliability and Futurelncome.
+(Remember that the company cares about what will happen in the future, not about the past
+per se.) Set the conditional probabilities for each node. Write commentary to describe
+your reasoning in choosing your variables and links. If you find that a node has too many
+predecessors (so that the conditional probability table becomes too big), that is a good hint
+that you need some intermediate variables.
+
+Build a file of test data corresponding to your evidence variables. As far as possible these
+should be real people! Do some interviewing to get real data if you can: try to get a wide
+variety of cases, from deadbeats to trust-fund babies. Run the data through your network
+to see ifthe net's results correspond to your own judgements. Examine not only the output
+variable, but the value of other intermediate variables. You may need to go through several
+iterations of steps (c) and (d).
+
+Write a report showing various test cases and explaining the advantages of your approach.
+Your report should be enough to convince the company to adopt your product.
+
+You are an AI consultant for an auto insurance company. Your task is construct a belief
+
+network that will allow the company to decide how much financial risk they run from various
+policy holders, given certain data about the policy holders. (In case you think all class projects
+

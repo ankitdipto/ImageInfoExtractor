@@ -1,0 +1,95 @@
+522
+
+Let Usc
+
+Are Enums Necessary
+
+Is there a way to achieve what was achi
+
+Previous program? Yes, using macros as shown below:
+
+# include <string.h>
+
+# define ASSEMBLY 0
+
+# define MANUFACTURING 1
+# define ACCCOUNTS 2
+
+# define STORES 3
+
+Void main( )
+struct employee
+
+char name[30];
+int age ;
+float bs ;
+int department ;
+hi
+struct employee e ;
+strepy ( e.name, "Lothar Mattheus" );
+©.age = 28;
+e.bs = 5575.50 ;
+; e.department = MANUFACTURING :
+
+Tf the same effect—convenience and readability can be achieved
+using macros then why should we prefer enums? Because, macros
+have a global scope, whereas, scoy
+
+: } pe of enum can either be global
+(if declared outside all functions) or local (if declared inside a
+function),
+
+Renaming Data types with typedef
+
+There is one more techni
+
+i que, which, in some Situations, can help
+to clarify the source cod
+
+le of a C program. This technique is to
+
+eved using Enums in the
+
+ 
+
+Chapter 15: Miscellaneous Features 523
+
+make use of the typedef declaration. Its purpose is to redefine the
+name of an existing variable type.
+
+i ing sta tin which the type
+For example, consider the following statement
+unsigned long int is redefined to be of the type TWOWORDS:
+
+typedef unsigned long int TWOWORDS ;
+
+Now we can declare variables of the type unsigned long int by
+writing,
+
+TWOWORDS vart, var2;
+instead of
+unsigned long int var1, var2 ;
+
+Thus, typedef provides a short and meaningful way to call a data
+type. Usually, uppercase letters are used to make it clear that we
+are dealing with a renamed data type.
+
+While the increase in readability is probably not great in this
+example, it can be significant when the name ofa particular data
+type is long and unwieldy, as it often is with structure declarations.
+For example, consider the following structure declaration:
+
+struct employee
+
+char name[30] ;
+int age;
+float bs ;
+
+}
+
+struct employee e;
+
+This structure declaration can be made more handy to use when
+renamed using typedef as shown below:
+508
+

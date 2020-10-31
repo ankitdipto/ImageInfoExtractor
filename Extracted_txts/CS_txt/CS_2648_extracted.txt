@@ -1,0 +1,53 @@
+Problems for Chapter 9 225
+
+9-2 Weighted median
+For n distinct elements X;,X2,..., Xn With positive weights w),W2,..., Wy such
+that va w; = 1, the weighted (lower) median is the element xx satisfying
+
+Dw<5
+
+Xi<ME
+and
+
+vw <i
+XjP>XK 172
+
+  
+
+For example, if the elements are 0.1,0.35, 0.05, 0.1,0.15,0.05,0.2 and each ele-
+ment equals its weight (that is, w; = x; fori = 1,2,...,7), then the median is 0.1,
+but the weighted median is 0.2.
+
+ 
+
+a. Argue that the median of x;,x2,..., Xp is the weighted median of the x; with
+weights w; = 1/n fori = 1,2,..., n.
+
+b. Show how to compute the weighted median of n elements in O(n lg) worst-
+case time using sorting.
+
+c. Show how to compute the weighted median in ©(n) worst-case time using a
+linear-time median algorithm such as SELECT from Section 9.3.
+
+The post-office location problem is defined as follows. We are given n points
+Pi. Pr. +++ Pn With associated weights w;, W2,..., Wn. We wish to find a point p
+(not necessarily one of the input points) that minimizes the sum )7/_, w; d(p. pi),
+where d(a, b) is the distance between points a and b.
+
+d. Argue that the weighted median is a best solution for the 1-dimensional post-
+office location problem, in which points are simply real numbers and the dis-
+tance between points a and b is d(a,b) = |a —b|.
+
+e. Find the best solution for the 2-dimensional post-office location problem, in
+which the points are (x, y) coordinate pairs and the distance between points
+a = (x,y) and b = (xp, yz) is the Manhattan distance given by d(a,b) =
+[x1 = X2| + [¥1 — Yale
+
+9-3 Small order statistics
+
+We showed that the worst-case number T(1) of comparisons used by SELECT
+to select the ith order statistic from n numbers satisfies T(n) = ©(n), but the
+constant hidden by the ©-notation is rather large. When i is small relative ton, we
+can implement a different procedure that uses SELECT as a subroutine but makes
+fewer comparisons in the worst case.
+

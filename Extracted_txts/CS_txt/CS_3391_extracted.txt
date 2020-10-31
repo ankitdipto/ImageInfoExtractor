@@ -1,0 +1,65 @@
+Section 24.3.
+
+Image-Processing Operations for Early Vision 733
+
+ 
+
+Edge detection
+
+Let us go back to our 1-D example in Figure 24.7. We want to make the notion ofimage smoothing
+more precise. One standard form of smoothing is to convolve the image with a Gaussian function
+
+ 
+
+1 2p—?
+Ga(x) = ene eo
+V2r0
+Now it can be shown that for any functions f and g, f* g' = (f* g)', so smoothing the image
+by convolving with a Gaussian G, and then differentiating is equivalent to convolving the image
+with G/, (x), the first derivative ofa Gaussian:
+
+= 207
+
+G(x) = e
+
+ 
+
+V2n08
+
+So, we have a simple algorithm for 1 -D edge detection:
+
+1. Convolve the image / with G’, to obtain R.
+2. Find the absolute value of R.
+
+3. Mark those peaks in \\R\\ that are above some prespecified threshold 7,,. The threshold is
+chosen to eliminate spurious peaks due to noise.
+
+In two dimensions, we need to cope with the fact that the edge may be at any angle 0. To detect
+vertical edges, we have an obvious strategy: convolve with G/,(x)G,(y).In the y-direction, the
+effect isjust to smooth (because of the Gaussian convolution), and in the x-direction, the effect is
+that of differentiation accompanied with smoothing. The algorithm for detecting vertical edges
+then is as follows:
+
+1. Convolve the image /(x,y) with fy(x, y+ GG, (yto obtain Ry(x. y).
+
+2. Find the absolute value of RV(X, y).
+
+3. Mark those peaks in | |Ry|\(x,y) that are above some prespecified threshold 7,.
+Tn order to detect an edge at an arbitrary orientation, we need to convolve the image with two
+filtersfy = G(x)G,(y)and fir = Gi,(y)G,(«),which is just fy rotated by 90°. The algorithm for
+detecting edges at arbitrary orientations is
+
+1. Convolve the image J(x, y) with fy(x,y) and fy(y) to obtain Ry(x,y) and Ry(x,y), respec-
+
+tively. Define R(x, y) = R}(x,y) + R7y)
+
+2. Find the absolute value of R(x,y).
+
+3. Mark those peaks in \\R\ |(x, y)that are above some prespecified threshold T,,.
+Once we have marked edge pixels by this algorithm, the next stage is to link those pixels that
+belong to the same edge curves. This can be done by assuming that any two neighboring pixels
+that are both edge pixels with consistent orientations must belong to the same edge curve.
+
+We have just outlined the basic procedure used in the Canny edge detector (Canny, 1986),
+which is a standard algorithm widely used for detecting edges in images
+

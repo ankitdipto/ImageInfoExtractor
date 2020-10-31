@@ -1,0 +1,52 @@
+406) cHaPTERELEVEN Input-Output Organization
+
+vectored interrupt
+
+10 routines
+
+data at an average rate of 100 bytes per second. This is equivalent to one byte
+every 10,000 us. This means that the CPU will check the flag 10,000 times
+between each transfer. The CPU is wasting time while checking the flag instead
+of doing some other useful processing task.
+
+Interrupt-Initiated VO
+
+An alternative to the CPU constantly monitoring the flag is to let the interface
+inform the computer when it is ready to transfer data This mode of transfer
+uses the interrupt facility. While the CPU is running a program, it does not
+check the flag. However, when the flag is set, the computer is momentarily
+interrupted from proceeding with the current program and is informed of the
+fact that the flag has been set The CPU deviates from what it is doing to take
+care of the input or output transfer. After the transfer is completed, the
+computer returns to the previous program to continue what it was doing before
+the interrupt.
+
+The CPU responds to the interrupt signal by storing the return address
+from the program counter into a memory stack and then control branches to
+a service routine that processes the required U/O transfer. The way that the
+Processor chooses the branch address of the service routine varies from one
+unit to another. In principle, there are two methods for accomplishing this
+One is called vectored interrupt and the other, nonvectored interrupt. In a nonvec-
+tored interrupt, the branch address is assigned to a fixed location in memory.
+Ina vectoredinterrupt, the source that interrupts supplies the branch informa-
+tion to the computer. This information is called the interrupt vector. In some
+computers the interrupt vector is the first address of the I/O service routine.
+In other computers the interrupt vector is an address that points to a location
+in memory where the beginning address of the /O service routine is stored.
+A system with vectored interrupt is demonstrated in Sec. 11-5.
+
+Software Considerations
+
+The previous discussion was concerned with the basic hardware needed to
+interface VO devices to a computer system. A computer must also have soft-
+‘ware routines for controlling peripherals and for transfer of data between the
+processor and peripherals. I/O routines must issue control commands to acti-
+vate the peripheral and to check the device status to determine when it is ready
+for data transfer. Once ready, information is transferred item by item until all
+the data are transferred. In some cases, a control command is then given to
+execute a device function such as stop tape or print characters. Error checking
+and other useful steps often accompany the transfers. In interrupt-controlled
+transfers, the /O software must issue commands to the peripheral to interrupt
+when ready and to service the interrupt when it occurs. In DMA transfer, the
+LO software must initiate the DMA channel to start its operation.
+

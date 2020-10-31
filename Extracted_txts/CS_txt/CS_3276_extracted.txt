@@ -1,0 +1,64 @@
+630
+
+Chapter 21 Knowledge in Learning
+
+ 
+
+Extracting general rules from examples
+
+The basic idea behind EBL is first to construct an explanation of the observation using prior
+knowledge, and then to establish a definition of the class of cases for which the same explanation
+structure can be used. This definition provides the basis for a rule covering all of the cases in
+the class. The "explanation" can be a logical proof, but more generally it can be any reasoning
+or problem-solving process whose steps are well-defined. The key is to be able to identify the
+necessary conditions for those same steps to apply to another case.
+
+We will use for our reasoning system the simple backward-chaining theorem prover de-
+scribed in Chapter 9. The proof tree for Derivative(X?, X dis too large to use as an example,
+so we will use a somewhat simpler problem to illustrate the generalization method. Suppose our
+problem is to simplify 1 x (0+.X). The knowledge base includes the following rules:
+
+Rewrite(u, v) A Simplify(vw) => Simplify(uw)
+
+Primitive(u) = Simplify(un)
+
+ArithmeticUnknown(u) = Primitive(uy
+
+Number(u) => Primitive(u)
+
+Rewrite(1 X u,u)
+
+Rewrite(0 + u, u)
+
+The proofthat the answer is Xis shown in the top half of Figure 21.2. The EBL method actually
+constructs two proof trees simultaneously. The second prooftree uses a variabilized goal in which
+the constants from the original goal are replaced by variables. As the original proof proceeds, the
+variabilized proof proceeds using exactly the same rule applications. This may cause some of
+the variables to become instantiated. For example, in order to use the rule Rewrite(1 x u, u), the
+variable x in the subgoal Rewrite(x x (y+ =), v) must be bound to |. Similarly, y must be bound
+to 0 in the subgoal Rewrite(y+ z, v') in order to use the rule Rewrite(0 + u, uw).
+
+Once we have the generalized proof tree, we take the leaves (with the necessary bindings)
+and form a general rule for the goal predicate:
+
+Rewrite(1 x (0+ 5), 0+) A Rewrite(0 + z, z) A ArithmeticUnknown(z)
+=> SimplifyOx (0 + 2),2)
+
+Notice that the first two conditions on the left-hand side are true regardless ofthe value of z. We
+can therefore drop them from the rule, yielding
+
+ArithmeticUnknown(z} => Simplify(1x (0 + z), 2)
+In general, conditions can be dropped from the final rule if they impose no constraints on the
+variables on the right-hand side of the rule, because the resulting rule will still be true and will
+be more efficient. Notice that we cannot drop the condition ArithmeticUnknown(z), because
+not all possible values of = are arithmetic unknowns. Values other than arithmetic unknowns
+might require different forms of simplification for example, ifz were 2 x 3, then the correct
+simplification of 1 x (0+ (2 x 3)) would be 6 and not 2 x 3.
+
+To recap, the basic EBL process works as follows:
+
+1. Given an example, construct a proof that the goal predicate applies to the example using
+the available background knowledge.
+
+ 
+

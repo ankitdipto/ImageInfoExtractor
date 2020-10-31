@@ -1,0 +1,45 @@
+33.3 Finding the convex hull 1035
+
+Pi Pk
+
+Pi
+
+Pr
+
+Pi Pi
+
+Po Po
+(a) (b)
+
+Figure 33.8 The proof of correctness of GRAHAM-SCAN. (a) Because pj's polar angle relative
+to po is greater than p;’s polar angle, and because the angle Z px pj pj makes a left tun, adding p;
+to CH(Q)) gives exactly the vertices of CH(Q; U {p;}). (b) If the angle Zp, p; pi makes a nonleft
+turn, then p; is either in the interior of the triangle formed by po, pr, and pj or on a side of the
+triangle, which means that it cannot be a vertex of CH(Q;).
+
+vertices forms its own convex hull. Moreover, they appear in counterclockwise
+order from bottom to top.
+
+Maintenance: Entering an iteration of the for loop, the top point on stack S
+is pj-1, which was pushed at the end of the previous iteration (or before the
+first iteration, when i = 3). Let p; be the top point on S after executing the
+while loop of lines 8-9 but before line 10 pushes p;, and let px be the point
+just below p; on S. At the moment that p; is the top point on S and we have
+not yet pushed p;, stack S contains exactly the same points it contained after
+iteration j of the for loop. By the loop invariant, therefore, S contains exactly
+the vertices of CH(Q;) at that moment, and they appear in counterclockwise
+order from bottom to top.
+
+Let us continue to focus on this moment just before pushing pj. We know
+that p;’s polar angle relative to po is greater than p;’s polar angle and that
+the angle Zp, p;p; makes a left turn (otherwise we would have popped p;).
+Therefore, because S contains exactly the vertices of CH(Q )), We see from
+Figure 33.8(a) that once we push p;, stack S will contain exactly the vertices
+of CH(Q; U {p;}), still in counterclockwise order from bottom to top.
+
+We now show that CH(Q ;U{ p;}) is the same set of points as CH(Q;). Consider
+any point p, that was popped during iteration i of the for loop, and let p, be
+the point just below p; on stack S at the time p; was popped (p, might be p;).
+The angle Zp, p; p; makes a nonleft turn, and the polar angle of p; relative
+to po is greater than the polar angle of p,. As Figure 33.8(b) shows, p; must
+

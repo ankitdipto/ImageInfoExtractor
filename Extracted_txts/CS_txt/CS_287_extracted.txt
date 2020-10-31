@@ -1,0 +1,46 @@
+874 Chapter 29 Linear Programming
+
+Termination: The while loop can terminate in one of two ways. If it terminates
+because of the condition in line 3, then the current basic solution is feasible and
+line 17 returns this solution. The other way it terminates is by returning “un-
+bounded” in line 11. In this case, for each iteration of the for loop in lines 5-8,
+when line 6 is executed, we find that aje < 0. Consider the solution X defined as
+
+oo ifi=e,
+X= 40 ifi e N—{e}.
+bi —Djen Gk; fi eB.
+
+We now show that this solution is feasible, i.e., that all variables are nonneg-
+ative. The nonbasic variables other than X¥, are 0, and ¥, = oo > 0; thus all
+nonbasic variables are nonnegative. For each basic variable X;, we have
+
+% = bi —)o aii;
+jen
+= by ~djeXe «
+
+The loop invariant implies that b; > 0, and we have aje < 0 and X. = co > 0.
+Thus, ¥; > 0.
+
+Now we show that the objective value for the solution ¥ is unbounded. From
+equation (29.42), the objective value is
+
+Z = v+ Vek
+jEN
+= VACEXe «
+
+Since ce > 0 (by line 4 of SIMPLEX) and X = oo, the objective value is 00,
+and thus the linear program is unbounded. .
+
+It remains to show that SIMPLEX terminates, and when it does terminate, the
+solution it returns is optimal. Section 29.4 will address optimality. We now discuss
+termination.
+
+Termination
+
+In the example given in the beginning of this section, each iteration of the simplex
+algorithm increased the objective value associated with the basic solution. As Ex-
+ercise 29.3-2 asks you to show, no iteration of SIMPLEX can decrease the objective
+value associated with the basic solution. Unfortunately, it is possible that an itera-
+tion leaves the objective value unchanged. This phenomenon is called degeneracy,
+and we shall now study it in greater detail.
+

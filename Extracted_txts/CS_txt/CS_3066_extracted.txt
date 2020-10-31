@@ -1,0 +1,58 @@
+440
+
+Chapter 15. Probabilistic Reasoning Systems
+
+A method for constructing belief networks
+
+Equation (15.1) defines what a given belief network means. It does not, however, explain how to
+construct a belief network such that the resulting joint distribution is a good representation of a
+given domain. We will now show that Equation (15.1) implies certain conditional independence
+relationships that can be used to guide the knowledge engineer in constructing the topology of
+the network. First, we rewrite the joint in terms of a conditional probability using the definition
+of conditional probability:
+
+POs «125 Xn) = POnlnaty oes MP On—-15-- 5 m1)
+
+Then we repeat this process, reducing each conjunctive probability to a conditional probability
+anda smaller conjunction. We end up with one big product:
+
+PO sees Xn) = PO pEn—1s oes MVP Qn 1X25 os 1) POL POI)
+
+[] Pails... xp
+i=l
+
+ 
+
+Comparing this with Equation (15.1), we see that the specification of the joint is equivalent to the
+general assertion that
+
+P(X|Xi-1, «--. X1) = P(Xi|Parents(X;)) (15.2)
+
+provided that Parents(X;)C {xj-1,.....x1}. This last condition is easily satisfied by labelling
+the nodes in any order that is consistent with the partial order implicit in the graph structure.
+
+What the preceding equation says is that the beliefnetworkis a correct representation of the
+domain only if each node is conditionally independent of its predecessors in the node ordering,
+given its parents. Hence, in order to construct a belief network with the correct structure for the
+domain, we need to choose parents for each node such that this property holds. Intuitively, the
+parents of node X; should contain all those nodes in X;, ..., X;_, that directly influence X;. For
+example, suppose we have completed the network in Figure 15.1 except for the choice of parents
+for MaryCalls. MaryCallsis certainly influenced by whether or not there is a Burglary or an
+Earthquake, butit is not directly influenced. Intuitively, our knowledge of the domain tells us that
+these events only influence Mary’s calling behavior through their effect on the alarm. Also, given
+the state of the alam, whether or not John calls has no influence on Mary's calling. Formally
+speaking, we believe that the following conditional independence statement holds:
+
+P(MaryCallsJohnCalls, Alarm, Earthquake, Burglary) = P(MaryCalls|Alarm)
+The general procedure for incremental network construction is as follows:
+1. Choose the set of relevant variables X, that describe the domain.
+2. Choose an ordering for the variables.
+3. While there are variables left:
+(a) Pick a variable X; and add a node to the network for it.
+(b) Set Parents(X;)to some minimal set of nodes already in the net such that the condi-
+
+tional independence property (15.2) is satisfied.
+(c) Define the conditional probability table for X;.
+
+ 
+

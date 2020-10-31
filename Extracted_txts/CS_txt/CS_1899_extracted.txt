@@ -1,0 +1,50 @@
+10.8 Other Considerations 357
+
+designed, a decision regarding the best page size must be made. As you might
+expect, there is no single best page size. Rather, there is a set of factors that
+support various sizes. Page sizes are invariably powers of 2, generally ranging
+from 4,096 (2!) to 4,194,304 (22) bytes.
+
+How do we select a page size? One concern is the size of the page table. For
+a given virtual-memory space, decreasing the page size increases the number of
+pages, and hence the size of the page table. For a virtual memory of 4 MB (2”),
+there would be 4,096 pages of 1,024 bytes, but only 512 pages of 8,192 bytes.
+Because each active process must have its own copy of the page table, a large
+page size is desirable.
+
+On the other hand, memory is better utilized with smaller pages. If a
+process is allocated memory starting at location 00000, and continuing until
+it has as much as it needs, it probably will not end exactly on a page boundary.
+Thus, a part of the final page must be allocated (because pages are the units of
+allocation) but is unused (internal fragmentation). Assuming independence of
+process size and page size, we would expect that, on the average, one-half of
+the final page of each process will be wasted. This loss would be only 256 bytes
+for a page of 512 bytes, but would be 4,096 bytes for a page of 8,192 bytes. To
+minimize internal fragmentation, we need a small page size.
+
+Another problem is the time required to read or write a page. I/O time
+is composed of seek, latency, and transfer times. Transfer time is proportional
+to the amount transferred (that is, the page size)—a fact that would seem to
+argue for a small page size. Remember from Chapter 2, however, that latency
+and seek time normally dwarf transfer time. At a transfer rate of 2 MB per
+second, it takes only 0.2 millisecorids to transfer 512 bytes. Latency, on the other
+hand, is perhaps 8 milliseconds and seek time 20 milliseconds. Of the total 1/O
+time (28.2 milliseconds), therefore, 1 percent is attributable to the actual transfer.
+Doubling the page size increases I/O time to only 28.4 milliseconds. It takes 28.4
+milliseconds to read a single page of 1,024 bytes, but 56.4 milliseconds to read
+the same amount as two pages of 512 bytes each. Thus, a desire to minimize
+1/O time argues for a larger page size.
+
+With a smaller page size, however, total I/O should be reduced, since
+locality will be improved. A smaller page size allows each page to match
+program locality more accurately. For example, consider a process of size 200
+KB, of which only one-half (100 KB) are actually used in an execution. If we
+have only one large page, we must bring in the entire page, a total of 200 KB
+transferred and allocated. If we had pages of only 1 byte, then we could bring in
+only the 100 KB that are actually used, resulting in only 100 KB being transferred
+and allocated. With a smaller page size, we have better resolution, allowing us
+to isolate only the memory that is actually needed. With a larger page size, we
+must allocate and transfer not only what is needed, but also anything else that
+happens to be in the page, whether it is needed or not. Thus, a smaller page
+size should result in less 1/O and less total allocated memory.
+

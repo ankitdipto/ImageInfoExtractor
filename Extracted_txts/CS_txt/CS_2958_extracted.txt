@@ -1,0 +1,50 @@
+Problems for Chapter 17 477
+
+elements in the list in any way it wants, and it might even know the entire access
+sequence in advance.
+
+Let L; be the list after access 0; using move-to-front, and let Lj be the list after
+access 0; using heuristic H. We denote the cost of access 0; by c; for move-to-
+front and by c;* for heuristic H. Suppose that heuristic H performs ¢* transpositions
+during access oj.
+
+c. In part (b), you showed that c; = 2-rankz,_,(x) — 1. Now show that c¥ =
+rankps (x) + ¢*.
+
+We define an inversion in list L; as a pair of elements y and z such that y
+precedes z in L; and z precedes y in list L?. Suppose that list L; has g; inversions
+after processing the access sequence (01, 02,..., o;). Then, we define a potential
+function ® that maps L; to a real number by ®(L;) = 2q;. For example, if L; has
+the elements (e,c,a,d,b) and L? has the elements (c,a,b, d,e), then L; has 5
+inversions ((e,c), (e,a), (e,d), (e,b), (d,b)), and so ®(L;) = 10. Observe that
+@(L;) = 0 for all i and that, if move-to-front and heuristic H start with the same
+list Lo, then (Lo) = 0.
+
+d. Argue that a transposition either increases the potential by 2 or decreases the
+potential by 2.
+
+Suppose that access 0; finds the element x. To understand how the potential
+changes due to 9;, let us partition the elements other than x into four sets, depend-
+ing on where they are in the lists just before the ith access:
+
+* Set A consists of elements that precede x in both L;_; and L} ,.
+of elements that precede x in L;_; and follow x in Lj ,.
+
+  
+
+of elements that follow x in L;_, and precede x in Lj.
+sts of elements that follow x in both Lj; and Lj.
+e. Argue that rankz,_,(*) = |A| + |B| + Land rankz> (x) = |A| + |C| +1.
+Jf Show that access 0; causes a change in potential of
+(Li) — O(Li-1) < 2(A| — |B] +17),
+where, as before, heuristic H performs /** transpositions during access o;.
+Define the amortized cost ¢; of access 0; by G; = c; + ®(L;) — ®(Li-1).
+
+Show that the amortized cost @ of access 0; is bounded from above by 4c;*.
+
+os
+
+h. Conclude that the cost Currr(o) of access sequence o with move-to-front is at
+most 4 times the cost Cy(o) of o with any other heuristic H, assuming that
+both heuristics start with the same list.
+

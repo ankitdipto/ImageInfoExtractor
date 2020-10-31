@@ -1,0 +1,36 @@
+5.2. Multithreading Models = 133
+
+a —
+
+   
+
+— kernel thread
+
+Figure 5.2. Many-to-one model.
+
+the entire process will block if a thread makes a blocking system call. Also,
+because only one thread can access the kernel at a time, multiple threads are
+unable to run in parallel on multiprocessors. Green threads—a thread library
+available for Solaris 2—uses this model. In addition, user-level thread libraries
+implemented on operating systems that do not support kernel threads use the
+many-to-one model.
+
+5.2.2 One-to-One Model
+
+The one-to-one model (Figure 5.3) maps each user thread to a kernel thread. It
+provides more concurrency than the many-to-one model by allowing another
+thread to run when a thread makes a blocking system call; it also allows
+multiple threads to run in parallel on multiprocessors. The only drawback to
+this model is that creating a user thread requires creating the corresponding
+kernel thread. Because the overhead of creating kernel threads can burden the
+performance of an application, most implementations of this model restrict the
+number of threads supported by the system. Windows NT, Windows 2000, and
+OS/2 implement the one-to-one model.
+
+5.2.3 Many-to-Many Model
+
+The many-to-many model (Figure 5.4) multiplexes many user-level threads to
+a smaller or equal number of kernel threads. The number of kernel threads
+may be specific to either a particular application or a particular machine (an
+application may be allocated more kernel threads on a multiprocessor than on
+

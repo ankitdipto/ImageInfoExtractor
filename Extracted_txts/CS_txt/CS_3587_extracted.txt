@@ -1,0 +1,67 @@
+554
+
+Chapter 20 van Emde Boas Trees
+
+Once again, we can easily see how recurrence (20.4) characterizes the running
+time. Depending on the result of the test in line 6, either the recursive call in line 7
+(run on a VEB tree with universe size {/u) or the recursive call in line 9 (run on
+a vEB with universe size 4/1) executes. In either case, the one recursive call is
+on a vEB tree with universe size at most (/u. Because the remainder of VEB-
+TREE-INSERT takes O(1) time, recurrence (20.4) applies, and so the running time
+is O(lglgu).
+
+Deleting an element
+
+Finally, we look at how to delete an element from a vEB tree. The procedure
+VEB-TREE-DELETE (V, x) assumes that x is currently an element in the set repre-
+sented by the vEB tree V.
+
+VEB-TREE-DELETE (V, x)
+1 if V.min == V.max
+
+ 
+
+2 V.min = NIL
+
+3 V.max = NIL
+
+4 elseif V. 2
+
+5 ifx
+
+6 V.min = 1
+
+7 else V.min = 0
+
+8 V.max = V.min
+
+9 else if x == V.min
+
+10 Jirst-cluster = VEB-TREE-MINIMUM(V. summary)
+1 xX = index(first-cluster,
+
+VEB-TREE-MINIMUM (V. cluster [first-cluster]))
+
+12 V.min = x
+
+13 VEB-TREE-DELETE (V. cluster[high(x)}, low(x))
+
+14 if VEB-TREE-MINIMUM (V. cluster [high(x)]) == NIL
+
+15 VEB-TREE-DELETE(V. summary, high(x))
+
+16 if x == V.max
+
+17 summary-max = VEB-TREE-MAXIMUM(V. summary)
+18 if swummary-max == NIL
+
+19 V.max = V.min
+20 else V.max = index(summary-max,
+
+VEB-TREE-MAXIMUM (V.cluster[summary-max]))
+
+21 elseif x == V.max
+22 V.max = index(high(x),
+
+VEB-TREE-MAXIMUM(V.cluster[high(x)]))
+

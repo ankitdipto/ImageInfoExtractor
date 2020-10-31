@@ -1,0 +1,40 @@
+282 Let Us C
+
+ 
+
+Pointer variables can be compared provided both variables
+point to objects of the same data type. Such comparisons can
+be useful when both pointer variables point to elements of the
+same array. The comparison can test for either equality or
+inequality. Moreover, a pointer variable can be compared with
+zero (usually expressed as NULL). The following program
+illustrates how the comparison is carried out.
+
+main()
+
+{
+int arr[] = { 10, 20, 36, 72, 45, 36};
+int“), *k;
+
+printf ("The two pointers point to the same location" ) ;
+else
+
+printf ("The two pointers do not point to the same location" ) ;
+}
+
+A word of caution! Do not attempt the following operations on
+pointers... they would never work out.
+
+(a) Addition of two pointers
+(b) Multiplication of a pointer with a constant
+(c) Division of a pointer with a constant
+
+Now we will try to correlate the following two facts, which we
+have learnt above:
+
+(a) Array elements are always stored in contiguous memory
+locations.
+
+(b) A pointer when incremented always points to an immediately
+next location of its type.
+

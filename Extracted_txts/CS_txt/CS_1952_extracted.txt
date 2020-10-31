@@ -1,0 +1,53 @@
+402 Chapter 11 File-System Interface
+
+key properties: Its name may not be reused and its contents may not be
+altered. Thus, the name of an immutable file signifies that the contents of the
+file are fixed, rather than the file being a container for variable information.
+The implementation of these semantics in a distributed system (Chapter 16) is
+simple, because the sharing is disciplined (read-only).
+
+11.6 = Protection
+
+When information is kept in a computer system, we want to keep it safe from
+physical damage (reliability) and improper access (protection).
+
+Reliability is generally provided by duplicate copies of files. Many comput-
+ers have systems programs that automatically (or through computer-operator
+intervention) copy disk files to tape at regular intervals (once per day or week
+or month) to maintain a copy should a file system be accidentally destroyed.
+File systems can be damaged by hardware problems (such as errors in reading
+or writing), power surges or failures, head crashes, dirt, temperature extremes,
+and vandalism. Files may be deleted accidentally. Bugs in the file-system soft-
+ware can also cause file contents to be lost. Reliability is covered in more detail
+in Chapter 14.
+
+Protection can be provided in many ways. For a small single-user system,
+we might provide protection by physically removing the floppy disks and
+locking them in a desk drawer or file cabinet. In a multiuser system, however,
+other mechanisms are needed.
+
+11.6.1 Types of Access
+
+The need to protect files is a direct result of the ability to access files. Systems
+that do not permit access to the files of other users do not need protection. Thus,
+we could provide complete protection by prohibiting access. Alternatively, we
+could provide free access with no protection. Both approaches are too extreme
+for general use. What is needed is controlled access.
+
+Protection mechanisms provide controlled access by limiting the types of
+file access that can be made. Access is permitted or denied depending on
+several factors, one of which is the type of access requested. Several different
+types of operations may be controlled:
+
+¢ Read: Read from the file.
+
+« Write: Write or rewrite the file.
+
+Execute: Load the file into memory and execute it.
+
+¢ Append: Write new information at the end of the file.
+
+© Delete: Delete the file and free its space for possible reuse.
+
+List: List the name and attributes of the file.
+

@@ -1,0 +1,81 @@
+11.3. Directory Structure 385.
+
+ 
+
+directory cat bo a test data mail cont hex | records
+
+Prrdd
+
+00000
+
+Figure 11.6 Single-level directory.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+files
+
+ 
+
+in one programming class, 23 students called the program for their second
+assignment prog2; another 11 called it assign2. Although file names are generally
+selected to reflect the content of the file, they are often limited in length. The
+MS-DOS operating system allows only 11-character file names; UNIX allows 255
+characters.
+
+Even a single user on a single-level directory may find it difficult to remem-
+ber the names of all the files, as the number of files increases. It is not uncom-
+mon for a user to have hundreds of files on one computer system and an equal
+number of additional files on another system. In such an environment, keeping
+track of so many files is a daunting task.
+
+11.3.2 Two-Level Directory
+
+A single-level directory often leads to confusion of file names between different
+users. The standard solution is to create a separate directory for each user.
+
+In the two-level directory structure, each user has her own user file direc-
+tory (UFD). Each UFD has a similar structure, but lists only the files of a single
+user. When a user job starts or a user logs in, the system’s master file directory
+(MED) is searched. The MFD is indexed by user name or account number, and
+each entry points to the UFD for that user (Figure 11.7).
+
+When a user refers to a particular file, only his own UFD is searched. Thus,
+different users may have files with the same name, as long as all the file names
+within each UFD are unique.
+
+To create a file for a user, the operating system searches only that user’s
+UED to ascertain whether another file of that name exists. To delete a file, the
+operating system confines its search to the local UFD; thus, it cannot accidentally
+delete another user’s file that has the same name.
+
+The user directories themselves must be created and deleted as necessary.
+A special system program is run with the appropriate user name and account
+information. The program creates a new UFD and adds an entry for it to the
+MED. The execution of this program might be restricted to system administra-
+tors. The allocation of disk space for user directories can be handled with the
+techniques discussed in Chapter 12 for files themselves.
+
+Although the two-level directory structure solves the name-collision prob-
+lem, it still has disadvantages. This structure effectively isolates one user from
+another. This isolation is an advantage when the users are completely indepen-
+

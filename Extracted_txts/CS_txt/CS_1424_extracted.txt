@@ -1,0 +1,59 @@
+Section 84
+
+General Ontology 233
+
+Similar axioms can be written for pounds and kilograms; seconds and days; dollars and cents.
+(Exercise 8.9 asks you to represent exchange rates between currencies, where those exchange
+tates can vary over time.)
+
+Measures can be used to describe objects as follows:
+
+Mass(Tomato,2) = Kilograms(0.16)
+Price(Tomato,2)= $(0.32)
+Wd d€Days = Duration(d)=Hours(24)
+
+Itis very important to be able to distinguish between monetary amounts and monetary instruments:
+Vb b€DollarBills + CashValue(b)= $(1.00)
+
+This will be useful when it comes to paying for things later in the chapter.
+
+Simple, quantitative measures are easy to represent. There are other measures that present
+more of a problem, because they have no agreed scale of values. Exercises have difficulty,
+desserts have deliciousness, and poems have beauty, yet numbers cannot be assigned to these
+qualities. One might, in a moment ofpure accountancy, dismiss such properties as useless for the
+purpose of logical reasoning; or, still worse, attempt to impose a numerical scale on beauty. This
+would be a grave mistake, because it is unnecessary. The most important aspect of measures is
+not the particular numerical values, but the fact that measures can be ordered.
+
+Although measures are not numbers, we can still compare them using an ordering symbol
+such as >. For example, we might well believe that Norvig's exercises are tougher than Russell's,
+and that one scores less on tougher exercises:
+
+Vey, 2 e| £ Exercises A ez £ Exercises A Wrote(Norvige,) A Wrote(Russelle) =>
+Difficulty(e) > Difficulty(e2)
+
+Ver, ey e, £ Exercises A é2 £ Exercises A Difficulty(e\> Difficulty(e2)=>
+ExpectedScore(e,) < ExpectedScore(ez)
+
+This is enough to allow one to decide which exercises to do, even though no numerical values for
+difficulty were ever used. (One does, however, have to determine who wrote which exercises.)
+These sorts of monotonic relationships among measures form the basis for the field of quali-
+tative physics, a subfield of AI that investigates how to reason about physical systems without
+plunging into detailed equations and numerical simulations. Qualitative physics is discussed in
+the historical notes section.
+
+Composite objects
+
+The idea that one object can be part of another is a familiar one. One's nose is part of one's head;
+Romania is part of Europe; this chapter is part of this book. We use the general PartOf relation
+to say that one thing is part of another. PartOf is transitive and reflexive. Objects can therefore
+be grouped into PartOf hierarchies, reminiscent of the Subset hierarchy:
+
+PartOf(Bucharest, Romania)
+PartOf(Romania, EasternEurope)
+PartOf(EasternEurope, Europe)
+
+From these, given the transitivity of PartOf,we can infer that PartOf(Bucharest, Europe).
+
+ 
+

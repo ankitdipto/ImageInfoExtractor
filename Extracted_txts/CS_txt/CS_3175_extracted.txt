@@ -1,0 +1,54 @@
+Section 18.3.
+
+ 
+
+Learning Decision Trees 539
+
+ 
+
+ 
+
+ 
+
+0 20 40 60 80 100
+Training set size
+
+ 
+
+ 
+
+Figure 18.9 A leaming curve for the decision tree algorithm on 100 randomly generated
+examples in the restaurant domain. The graph summarizes 20 trials.
+
+ 
+
+ 
+
+ 
+
+Designing oil platform equipment
+
+In 1986, BP deployed an expert system called GASOIL for designing gas-oil separation systems
+for offshore oil platforms. Gas-oil separation is done at the wellhead by a very large, complex,
+and expensive separation system, whose design depends on a number of attributes including
+the relative proportions of gas, oil, and water, and the flow rate, pressure, density, viscosity,
+temperature, and susceptibility to waxing. At the time, GASOIL was the largest commercial
+expert system in the world, containing approximately 2500 rules. Building such a system by
+hand would have taken roughly 10 person-years. Using decision-tree leaming methods applied
+to a database of existing designs, the system was developed in 100 person-days (Michie, 1986).
+It is said to outperform human experts and to have saved BP many millions of dollars.
+
+Learning to fly
+
+There are two ways to design an automatic controller for a complex system. One can construct
+a precise model of the dynamics of the system, and use one of a variety of formal methods
+(including AI planning methods) to design a controller that has certain guaranteed properties.
+Alternatively, one can simply leam the correct mapping from the state of the system to the
+correct action. For very complex systems, such as aircraft and electorates, developing a detailed
+model may be infeasible, which leaves the second alternative. Sammut et al. (1992) adopted this
+alternative for the task of learning to fly a Cessna on a flight simulator. The data was generated
+by watching three skilled human pilots performing an assigned flight plan 30 times each. Each
+time the pilot took an action by setting one of the control variables such as thrust or flaps, a
+training example was created. In all, 90,000 examples were obtained, each described by 20 state
+variables and labelled by the action taken. From these examples, a decision tree was extracted
+

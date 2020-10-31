@@ -1,0 +1,48 @@
+Chapter 35 Approximation Algorithms 1107
+
+solution. Similarly, for a minimization problem, 0 < C* < C, and the ratio C/C*
+gives the factor by which the cost of the approximate solution is larger than the
+cost of an optimal solution. Because we assume that all solutions have positive
+cost, these ratios are always well defined. The approximation ratio of an approx-
+imation algorithm is never less than 1, since C/C* < 1 implies C*/C > 1.
+Therefore, a 1-approximation algorithm! produces an optimal solution, and an ap-
+proximation algorithm with a large approximation ratio may return a solution that
+is much worse than optimal.
+
+For many problems, we have polynomial-time approximation algorithms with
+small constant approximation ratios, although for other problems, the best known
+polynomial-time approximation algorithms have approximation ratios that grow
+as functions of the input size n. An example of such a problem is the set-cover
+problem presented in Section 35.3.
+
+Some NP-complete problems allow polynomial-time approximation algorithms
+that can achieve increasingly better approximation ratios by using more and more
+computation time. That is, we can trade computation time for the quality of the
+approximation. An example is the subset-sum problem studied in Section 35.5.
+This situation is important enough to deserve a name of its own.
+
+An approximation scheme for an optimization problem is an approximation al-
+gorithm that takes as input not only an instance of the problem, but also a value
+€ > O such that for any fixed €, the scheme is a (1 + €)-approximation algorithm.
+We say that an approximation scheme is a polynomial-time approximation scheme
+if for any fixed € > 0, the scheme runs in time polynomial in the size n of its input
+instance.
+
+The running time of a polynomial-time approximation scheme can increase very
+rapidly as € decreases. For example, the running time of a polynomial-time ap-
+proximation scheme might be O(n2/¢). Ideally, if € decreases by a constant factor,
+the running time to achieve the desired approximation should not increase by more
+than a constant factor (though not necessarily the same constant factor by which €
+decreased).
+
+We say that an approximation scheme is a fully polynomial-time approximation
+scheme if it is an approximation scheme and its running time is polynomial in
+both 1/e and the size n of the input instance. For example, the scheme might have
+arunning time of O((1/e)?n3). With such a scheme, any constant-factor decrease
+in € comes with a corresponding constant-factor increase in the running time.
+
+ 
+
+!When the approximation ratio is independent of n, we use the terms “approximation ratio of p” and
+“p-approximation algorithm,” indicating no dependence on n.
+

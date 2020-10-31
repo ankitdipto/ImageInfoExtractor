@@ -1,0 +1,62 @@
+Chapter 21. Knowledge in Learning
+
+ 
+
+   
+   
+ 
+
+it is consistent with the observations. In the first-order case, we use first-order literals instead of
+attributes, and the hypothesis is a set of clauses instead of a decision tree. This section describes
+FOIL (Quinlan, 1990), one of the first programs to use this approach.
+
+Suppose we are trying to learn a definition of the Grandfather(x, y) predicate, using the
+same family data as before. As with decision-tree leaming, we can divide the examples into |
+positive and negative examples. Positive examples are
+
+(George,Anne), {Philip, Peter), (Spencer, Harry)...
+and negative examples are
+(George, Elizabeth), (Harry, Zara), (Charles, Philip), ...
+
+Notice that each example is a pair of objects, because Grandfather is a binary predicate. In all,
+there are 12 positive examples in the family tree, and 388 negative examples (all the other pairs
+of people).
+
+FOIL constructs a set of Hom clauses with Grandfather(x, yas the head, such that the 12
+positive examples are classified as instances of the Grandfather(x, yyelationship, whereas the
+other 388 examples are ruled out because no clause succeeds with those bindings forx andy. We
+begin with a clause with an empty body:
+
+=  Grandfather(xy)
+
+This classifies every example as positive, so it needs to be specialized. This is done by adding
+literals one at a time to the left-hand side. Here are three potential additions:
+
+Father(x,y) = Grandfather(x,y)
+Parent(x,z) => Grandfather(x,y)
+Father(x, z) => Grandfather(x,y)
+
+ 
+
+(Notice that we are assuming that a clause defining Parent is already present as part of the
+background knowledge.) The first of these three incorrectly classifies all of the 12 positive
+examples as negative, and therefore can be ruled out. The second and third agree with all of the
+positive examples, but the second is incorrect on a larger fraction of the negative examples—twice
+as many, in fact, because it allows mothers as well as fathers. Hence, we prefer the third clause.
+
+Now we need to specialize this clause further, to rule out the cases in which x is the father
+of some = but zis not a parent ofy. Adding the single literal Parent(z, y) gives the clause
+
+Father(x,z) A Parent(z,y) = Grandfather(x)
+
+which correctly classifies all the examples. FOIL will find and choose this literal, thereby solving
+the learning task.
+
+The preceding example is a very simple illustration of how FOIL operates. A sketch of
+the complete algorithm is shown in Figure 21.8. Essentially, the algorithm repeatedly constructs
+a clause, literal by literal, until it agrees with some subset of the positive examples and none
+of the negative examples. Then the positive examples covered by the clause are removed from’
+the training set, and the process continues until no positive examples remain. The two main
+components to be explained are NEW-LITERALS, which constructs all possible new literals to add
+to the clause, and CHOOSE-LITERAL, which selects a literal to add.
+

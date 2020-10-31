@@ -1,0 +1,66 @@
+Section 2.3
+
+Structure of Intelligent Agents Al
+
+ 
+
+ 
+
+ 
+
+What action |
+Condition-action rules should do now
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 2.7. Schematic diagram ofa simple reflex agent.
+
+ 
+
+ 
+
+function SIMPLE-REFLEX-AGENT( percept) returns action
+static: rules, a set of condition-action rules
+
+State — INTERPRET-INPUT( percept)
+rule — RULE-MATCH(state, rules)
+action — RULE-ACTION|rule)
+return action
+
+ 
+
+ 
+
+Figure 28 A simple reflex agent. It works by finding a rule whose condition matches the
+current situation (as defined by the percept) and then doing the action associated with that rule.
+
+ 
+
+ 
+
+ 
+
+the current internal state of the agent's decision process, and ovals to represent the background
+information used in the process. The agent program, which is also very simple, is shown in
+Figure 2.8. The INTERPRET-INPUT function generates an abstracted description of the current
+state from the percept, and the RULE-MATCH function returns the first rule in the set ofrules that
+matches the given state description. Although such agents can be implemented very efficiently
+(see Chapter 10), their range of applicability is very narrow, as we shall see.
+
+Agents that keep track of the world
+
+The simple reflex agent described before will work only if the correct decision can be made
+on the basis of the current percept. If the car in front is a recent model, and has the centrally
+mounted brake light now required in the United States, then it will be possible to tell if it is
+braking from a single image. Unfortunately, older models have different configurations of tail
+

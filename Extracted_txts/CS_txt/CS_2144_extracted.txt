@@ -1,0 +1,48 @@
+SECTION 95 RISC Pipeline 317
+
+Now consider the hardware operation for such a computer. The control
+section fetches the instruction from program memory into an instruction reg-
+ister. The instruction is decoded at the same time that the registers needed for
+the execution of the instruction are selected. The processor unit consists of a
+number of registers and an arithmetic logic unit (ALU) that performs the
+
+arithmetic, logic, and shift operations. A data memory is used to
+load or store the data from a selected register in the register file. The instruction
+cycle can be divided into three suboperations and implemented in three
+segments:
+
+I: Instruction fetch
+A: ALU operation
+E: Execute instruction
+
+The I segment fetches the instruction from program memory. The instruction
+is decoded and an ALU operation is performed in the A segment. The ALU
+is used for three different functions, depending on the decoded instruction.
+It performs an operation for a data manipulation instruction, it evaluates the
+effective address for a load or store instruction, or it calculates the branch
+address for a program control instruction. The E segment directs the output
+of the ALU to one of three destinations, depending on the decoded instruction.
+It transfers the result of the ALU operation into a destination register in the
+register file, it transfers the effective address to a data memory for loading or
+storing, or it transfers the branch address to the program counter.
+
+Delayed Load
+Consider now the operation of the following four instructions:
+
+1 LOAD: RI —M[address 1]
+2. LOAD: R2<-Mf[address 2]
+3. ADD: R3@-R1 + R2
+
+4, STORE: M[address 3}—R3
+
+Ifthe three-segment pipeline proceeds without interruptions, there will be a
+data conflict in instruction 3 because the operand in R2 is not yet available in
+the A segment. This can be seen from the timing of the pipeline shown in
+Fig. 9-9(a). The E segment in clock cycle 4 is in a process of placing the memory
+data into R2. The A segment in clock cycled is using the data from R2, but the
+value in R2 will not be the correct value since it has not yet been transferred
+from memory. It is up to the compiler to make sure that the instruction
+following the load instruction uses the data fetched from memory. If the
+compiler cannot find a useful instruction to put after the load, it inserts ano-op
+(no-operation) instruction. This is a type of instruction that is fetched from
+

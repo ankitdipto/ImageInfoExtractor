@@ -1,0 +1,48 @@
+240 Chapter7 Process Synchronization
+
+7.19 Why do Solaris 2 and Windows 2000 use spinlocks as a synchroniza-
+tion mechanism on only multiprocessor systems and not on uniprocessor
+systems?
+
+7.20 Explain the differences, in terms of cost, among the three storage types:
+volatile, nonvolatile, and stable.
+
+7.21 Explain the purpose of the checkpoint mechanism. How often should
+checkpoints be performed? How does the frequency of checkpoints affect:
+
+System performance when no failure occurs?
+© The time it takes to recover from a system crash?
+
+The time it takes to recover from a disk crash?
+
+7.22, Explain the concept of transaction atomicity.
+7.23 Show that the two-phase locking protocol ensures conflict serializability.
+
+7.24 Show that some schedules are possible under the two-phase locking pro-
+tocol but not possible under the timestamp protocol, and vice versa.
+
+Bibliographical Notes
+
+The mutual-exclusion algorithms 1 and 2 for two processes were first discussed
+in the classic paper by Dijkstra [1965a]. Dekker’s algorithm (Exercise 6.3)—the
+first correct software solution to the two-process mutual-exclusion problem—
+was developed by the Dutch mathematician T. Dekker. This algorithm also was
+discussed by Dijkstra [1965a]. A simpler solution to the two-process mutual-
+exclusion problem has since been presented by Peterson [1981] (algorithm 3).
+
+Dijkstra [1965b] presented the first solution to the mutual-exclusion prob-
+lem for n processes. This solution, however does not have an upper bound
+on the amount of time a process must wait before it is allowed to enter the
+critical section. Knuth [1966] presented the first algorithm with a bound; his
+bound was 2” turns. A refinement of Knuth’s algorithm by deBruijn [1967]
+reduced the waiting time to n? turns, after which Eisenberg and McGuire [1972]
+(Exercise 6.4) succeeded in reducing the time to the lower bound of n—1 turns.
+The bakery algorithm (algorithm 5) was developed by Lamport [1974]; it also
+requires n—1 turns, but it is easier to program and to understand. Burns [1978]
+developed the hardware-solution algorithm that satisfies the bounded waiting
+requirement.
+
+General discussions concerning the mutual-exclusion problem were offered
+by Lamport [1986] and Lamport [1991]. A collection of algorithms for mutual
+exclusion was given by Raynal [1986].
+

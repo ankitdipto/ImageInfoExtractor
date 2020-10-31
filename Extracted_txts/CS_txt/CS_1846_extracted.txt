@@ -1,0 +1,59 @@
+Generalized Modus Ponens 271
+
+ 
+
+that unify with Knows(John,x), and then apply the unifier to Hates(John,x). Let our knowledge
+base contain the following sentences:
+
+Knows(John, Jane)
+Knows(y, Leonid)
+Knows(y, Mother(y))
+Knows(x, Elizabeth)
+
+(Remember that x and y are implicitly universally quantified.) Unifying the antecedent of the
+tule against each of the sentences in the knowledge base in turn gives us:
+
+UniFY(Knows(John, x),.Knows(Joln, Jane)) - {x/Jane}
+UNIEY(Knows(Johny), Knows(y,Leonid)) = {x/Leonid, John}
+UNtFY(Knows(John, x), Knows(y, Methedy))) = {y/John, x/Mother(John)}
+UNIFY(Knows(John, x),Knows(x, Elizabeth)) = fail
+
+The last unification fails because x cannot take on the value John and the value Elizabeth at the
+same time. But intuitively, from the facts that John hates everyone he knows and that everyone
+knows Elizabeth, we should be able to infer that John hates Elizabeth. It should not matter if the
+sentence in the knowledge base is Knows(x, Elizabeth) or Knows(y,Elizabeth).
+
+One way to handle this problem is to standardize apart the two sentences being unified,
+which means renaming the variables of one (or both) to avoid name clashes. After standardizing
+apart, we would have
+
+UniFY(Knows(John, x, Know s(x, Elizabeth)) = {x,I Elizabeth, xz/ John}
+
+ 
+
+The renaming is valid because Vx Knows(x, Elizabeth) and ¥ x. Knows(x2,Elizabeth) have the
+same meaning. (See also Exercise 9.2.)
+
+There is one more complication: we said that UNIFY should return a substitution that makes
+the two arguments look the same. But ifthere is one such substitution, then there are an infinite
+number:
+
+UNIEFY(Knows(John,)Knows(y,2)) = — {yWJohn, x/z}
+or {y/John, x/z, w/ Freda}
+x {y/John,x/Johnz/John}
+meee
+
+Thus, we insist that UNIFY returns the most general unifier (or MGU), which is the substitution
+that makes the least commitment about the bindings of the variables. In this case it is {y/John.x/z}
+
+2
+
+Sample proof revisited
+
+Let us solve our crime problem using Generalized Modus Ponens. To do this, we first need to
+put the original knowledge base into Horn form. Sentences (9.1) through (9.9) become
+
+American(x) A Weapon(y)A Nation(z) A Hostile(z)
+A Sells(x, =, y) => Criminal(x) (9.22)
+Owns(Nono,M\) (9.23)
+

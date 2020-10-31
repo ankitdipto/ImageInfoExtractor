@@ -1,0 +1,50 @@
+Chapter 2. Getting Started
+
+we prefer not to get bogged down in such formalism, and so we rely on our
+informal analysis to show that the second property holds for the outer loop.
+
+Termination: Finally, we examine what happens when the loop terminates. The
+condition causing the for loop to terminate is that j > A./ength =n. Because
+each loop iteration increases j by 1, we must have j = n + | at that time.
+Substituting n + 1 for j in the wording of loop invariant, we have that the
+subarray A[1..m] consists of the elements originally in A[1..7], but in sorted
+order. Observing that the subarray A[1 . . 1] is the entire array, we conclude that
+the entire array is sorted. Hence, the algorithm is correct.
+
+We shall use this method of loop invariants to show correctness later in this
+chapter and in other chapters as well.
+
+Pseudocode conventions
+
+We use the following conventions in our pseudocode.
+
+* Indentation indicates block structure. For example, the body of the for loop that
+begins on line 1 consists of lines 2-8, and the body of the while loop that begins
+on line 5 contains lines 6-7 but not line 8. Our indentation style applies to
+if-else statements” as well. Using indentation instead of conventional indicators
+of block structure, such as begin and end statements, greatly reduces clutter
+while preserving, or even enhancing, clarity.>
+
+* The looping constructs while, for, and repeat-until and the if-else conditional
+construct have interpretations similar to those in C, C++, Java, Python, and
+Pascal.’ In this book, the loop counter retains its value after exiting the loop,
+unlike some situations that arise in C++, Java, and Pascal. Thus, immediately
+after a for loop, the loop counter’s value is the value that first exceeded the for
+loop bound. We used this property in our correctness argument for insertion
+sort. The for loop header in line | is for j = 2 to A./ength, and so when
+this loop terminates, 7 = A.length + 1 (or, equivalently, 7 = n + 1, since
+n = A.length). We use the keyword to when a for loop increments its loop
+
+ 
+
+2In an if-else statement, we indent else at the same level as its matching if. Although we omit the
+keyword then, we occasionally refer to the portion executed when the test following if is true as a
+then clause. For multiway tests, we use elseif for tests after the first one.
+
+3£ach pseudocode procedure in this book appears on one page so that you will not have to discern
+levels of indentation in code that is split across pages.
+
+4Most block-structured languages have equivalent constructs, though the exact syntax may differ.
+Python lacks repeat-until loops, and its for loops operate a little differently from the for loops in
+this book.
+

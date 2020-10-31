@@ -1,0 +1,50 @@
+stack limits
+
+SECTION 83 Stack Organization 251
+
+We assume that the items in the stack communicate with a data register
+DR. A new item is inserted with the push operation as follows:
+
+SP<—SP-1
+MISP] —DR
+
+The stack pointer is decremented so that it points at the address of the next
+word. A memory write operation inserts the word from DR into the top of the
+stack. A new item is deleted with a pop operation as follows:
+
+DR <—MISP]
+SP<SP +1
+
+The top item is read from the stack into DR. The stack pointer is then incre-
+mented to point at the next item in the stack.
+
+Most computers do not provide hardware to check for stack overflow (full
+stack) or underflow (empty stack). The stack limits can be checked by using two
+processor registers: one to hold the upper limit (3000 in this case), and the other
+to hold the lower limit (4001 in this case) After a push operation, SP is
+compared with the upper-limitregister and after a pop operation, SP is com-
+pared with the lower-limit register.
+
+The two microoperations needed for either the push or pop are (1) an
+access to memory through SP, and @) updating SP. Which of the two micro-
+operations is done first and whether SP is updated by incrementing or decre-
+menting depends on the organization of the stack. In Fig. 8-4 the stack grows
+by decreasing the memory address. The stack may be constructed to grow by
+increasing the memory address as in Fig. 8-3. In such a case, SPisincremented
+for the push operation and decremented for the pop operation. A stack may
+be constructed so that SP points at the next enipty location above the top of the
+stack. In this case the sequence of microoperations must be interchanged.
+
+‘Astack pointer is loaded with an initial value. This initial value must be
+thebottom address of an assigned stackin memory. Henceforth, SPisautomat-
+ically decremented or incremented with every push or pop operation. The
+advantage of a memory stack is that the CPU can refer to it without having to
+specify an address, since the address is always available and automatically
+updated in the stack pointer.
+
+Reverse Polish Notation
+
+A stack organization is very effective for evaluating arithmetic expressions. The
+common mathematical method of writing arithmetic expressions imposes dif-
+ficulties when evaluated by a computer. The common arithmetic expressions
+

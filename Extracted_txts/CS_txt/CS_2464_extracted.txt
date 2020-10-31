@@ -1,0 +1,52 @@
+76
+
+Chapter 4 Divide-and-Conquer
+
+for loop of lines 4-7 computes each of the entries c;;, for each column j. Line 5
+initializes cj; to 0 as we start computing the sum given in equation (4.8), and each
+iteration of the for loop of lines 6-7 adds in one more term of equation (4.8).
+
+Because each of the triply-nested for loops runs exactly n iterations, and each
+execution of line 7 takes constant time, the SQUARE-MATRIX-MULTIPLY proce-
+dure takes @(n3) time.
+
+You might at first think that any matrix multiplication algorithm must take Q(73)
+time, since the natural definition of matrix multiplication requires that many mul-
+tiplications. You would be incorrect, however: we have a way to multiply matrices
+in o(n3) time. In this section, we shall see Strassen’s remarkable recursive algo-
+rithm for multiplying n x n matrices. It runs in @(n'87) time, which we shall show
+in Section 4.5. Since lg 7 lies between 2.80 and 2.81, Strassen’s algorithm runs in
+O(n?*") time, which is asymptotically better than the simple SQUARE-MATRIX-
+MULTIPLY procedure.
+
+A simple divide-and-conquer algorithm
+
+To keep things simple, when we use a divide-and-conquer algorithm to compute
+the matrix product C = A- B, we assume that 7 is an exact power of 2 in each of
+the m xn matrices. We make this assumption because in each divide step, we will
+divide n x n matrices into four n/2 x n/2 matrices, and by assuming that n is an
+exact power of 2, we are guaranteed that as long as n > 2, the dimension n/2 is an
+integer.
+
+Suppose that we partition each of A, B, and C into four n/2 x n/2 matrices
+
+Au Ajo By By Cu Cin
+A= . B= » C= : 4.9)
+
+(4 2) (i me) (e c) @9)
+so that we rewrite the equation C = A- B as
+Cu Cir An Ar Bu By
+
+= . : 4.10)
+
+(a c:) (i an) (i pe) (4.10)
+Equation (4.10) corresponds to the four equations
+Cu = An-Biu+ Arn: Ba. (4.11)
+Cio = An: Bi + Az: Bo. (4.12)
+Cy = An: Bi + Ar: Ba. (4.13)
+Cy = An: B+ An: By. (4.14)
+
+Each of these four equations specifies two multiplications of n/2 x n/2 matrices
+and the addition of their n/2 x n/2 products. We can use these equations to create
+a straightforward, recursive, divide-and-conquer algorithm:
+

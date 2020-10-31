@@ -1,0 +1,52 @@
+1038
+
+Chapter 33 Computational Geometry
+
+with respect to p;, and so on. When we reach the highest vertex, say px (breaking
+ties by choosing the farthest such vertex), we have constructed, as Figure 33.9
+shows, the right chain of CH(Q). To construct the left chain, we start at px and
+choose px+1 as the point with the smallest polar angle with respect to px, but from
+the negative x-axis. We continue on, forming the left chain by taking polar angles
+from the negative x-axis, until we come back to our original vertex po.
+
+We could implement Jarvis’s march in one conceptual sweep around the convex
+hull, that is, without separately constructing the right and left chains. Such imple-
+mentations typically keep track of the angle of the last convex-hull side chosen and
+require the sequence of angles of hull sides to be strictly increasing (in the range
+of 0 to 27 radians). The advantage of constructing separate chains is that we need
+not explicitly compute angles; the techniques of Section 33.1 suffice to compare
+angles.
+
+If implemented properly, Jarvis’s march has a running time of O(n/). For each
+of the h vertices of CH(Q), we find the vertex with the minimum polar angle. Each
+comparison between polar angles takes O(1) time, using the techniques of Sec-
+tion 33.1. As Section 9.1 shows, we can compute the minimum of 7 values in O(n)
+time if each comparison takes O(1) time. Thus, Jarvis’s march takes O(/) time.
+
+ 
+
+Exercises
+
+33.3-1
+Prove that in the procedure GRAHAM-SCAN, points p; and p,, must be vertices
+of CH(Q).
+
+33.3-2
+
+Consider a model of computation that supports addition, comparison, and multipli-
+cation and for which there is a lower bound of Q(n lg) to sort n numbers. Prove
+that Q(n1gn) is a lower bound for computing, in order, the vertices of the convex
+hull of a set of n points in such a model.
+
+33.3-3
+Given a set of points Q, prove that the pair of points farthest from each other must
+be vertices of CH(Q).
+
+333-4
+
+For a given polygon P and a point g on its boundary, the shadow of q is the set
+of points r such that the segment 97 is entirely on the boundary or in the interior
+of P. As Figure 33.10 illustrates, a polygon P is star-shaped if there exists a
+point p in the interior of P that is in the shadow of every point on the boundary
+of P. The set of all such points p is called the kernel of P. Given an n-vertex,
+

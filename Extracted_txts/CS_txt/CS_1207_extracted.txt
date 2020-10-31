@@ -1,0 +1,60 @@
+SECTION 72 Address Sequencing 219
+
+An unconditional branch microinstruction can be implemented by load-
+ing the branch address fromcontrol memory into the control address register.
+This can be accomplished by fixing the value of one status bit at the input of
+the multiplexer, so it is always equal to 1. A reference to this bit by the status
+bit select lines from control memory causes the branch address to be loaded
+into the control address register unconditionally.
+
+ 
+
+Mapping of Instruction
+A special type of branch exists when a microinstruction specifies a branch to
+the first word in control memory where a microprogram routine for an instruc-
+tion islocated. The status bits for this type of branch are the bitsin the operation
+code part of the instruction. For example, a computer witha simple instruction
+format as shownin Fig. 7-3 has an operation code of four bits which can specify
+up to 16 distinct instructions. Assume further that the control memory has 128
+words, requiring an address of seven bits. For each operation code there exists
+a microprogram routine in control memory that executes the instruction. One
+simple mapping process that converts the 4-bit operation code to a 7-bit
+address for control memory is shown in Fig. 7-3. This mapping consists of
+placing a 0 in the most significant bit of the address, transferring the four
+operation code bits, and clearing the two least significant bits of the control
+address register. This provides for each computer instruction a microprogram
+routine with a capacity of four microinstructions. If the routine needs more
+than four microinstruction, it can use addresses 1000000 through 1111111. If
+ituses fewer than four microinstructions, the unused memory locations would
+be available for other routines.
+
+(One can extend this concept to a more general mapping rule by using a
+ROM to specify the mapping function. In this configuration, the bits of the
+instruction specify the address of a mapping ROM. The contents of the map-
+ping ROM give the bits for the control address register. In this way the
+microprogram routine that executes the instruction can be placed in any de-
+sired location in control memory. The mapping concept provides flexibility for
+adding instructions for control memory as the need arises.
+
+ 
+
+Figure 7-3. Mapping from instruction code 10 microinstruction address.
+
+Opcode
+
+Computer instruction: oid address
+
+ 
+
+ 
+
+Mapping bits 0|x x x x0 0
+
+Microinstruction address [0 101100
+
+ 
+
+ 
+
+ 
+

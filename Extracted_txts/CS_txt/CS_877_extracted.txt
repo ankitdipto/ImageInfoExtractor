@@ -1,0 +1,62 @@
+Chapter 6: Data Types Revisited 215
+
+ 
+
+would not run on it. This is precisely what happens on the new
+Intel Itanium processors, which have withdrawn support for 16-bit
+code.
+
+Remember that out of the two/four bytes used to store an integer,
+the highest bit (16"/32™ bit) is used to store the sign of the integer.
+This bit is 1 if the number is negative, and 0 if the number is
+positive.
+
+C offers a variation of the integer data type that provides what are
+called short and long integer values. The intention of providing
+these variations is to provide integers with different ranges
+wherever possible. Though not a rule, short and long integers
+would usually occupy two and four bytes respectively. Each
+compiler can decide appropriate sizes depending on the operating
+system and hardware for which it is being written, subject to the
+following rules:
+
+(a) shorts are at least 2 bytes big
+(b) longs are at least 4 bytes big
+
+(c) shorts are never bigger than ints
+(d) ints are never bigger than longs
+
+Figure 6.1 shows the sizes of different integers based upon the OS
+used.
+
+ 
+
+ 
+
+ 
+
+Compiler short | int | long
+16-bit (Turbo C/C++) 2 2 \4
+32-bit (Visual C++) 2 4 |4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 6.1
+
+long variables which hold long integers are declared using the
+eyword long, as in,
+
+ 
+

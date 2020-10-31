@@ -1,0 +1,92 @@
+Section 4.2.
+
+| 42
+
+ 
+
+H
+
+ 
+
+ 
+
+ 
+
+Heuristic Functions 101
+
+function grows no faster than the logarithm of the actual path cost. In mathematical notation, the
+condition for subexponential growth is that
+
+{h(n) — h°(n)| < Ollogh*(n)),
+
+where h*(n)is the true cost of getting from n to the goal. For almost all heuristics in practical use,
+the error is at least proportional to the path cost, and the resulting exponential growth eventually
+overtakes any computer. Of course, the use of a good heuristic still provides enormous savings
+compared to an uninformed search. In the next section, we will look at the question of designing
+good heuristics.
+
+Computation time is not, however, A*'s main drawback. Because it keeps all generated
+nodes in memory, A* usually runs out of space long before itruns out of time. Recently developed
+algorithms have overcome the space problem without sacrificing optimality or completeness.
+These are discussed in Section 4.3.
+
+EURISTIC FUNCTIONS
+
+So far we have seen just one example of a heuristic: straight-line distance for route-finding
+problems. In this section, we will look at heuristics for the 8-puzzle. This will shed light on the
+nature of heuristics in general.
+
+The 8-puzzle was one ofthe earliest heuristic search problems. As mentioned in Section 3.3,
+the object of the puzzle is to slide the tiles horizontally or vertically into the empty space until
+the initial configuration matches the goal configuration (Figure 4.7).
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Start State
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 4.7 A typical instance of the 8-puzzle.
+
+ 
+
+The 8-puzzle is just the right level of difficulty to be interesting. A typical solution is about
+20 steps, although this of course varies depending on the initial state. The branching factor is
+about 3 (when the empty tile is in the middle, there are four possible moves; when it is in a comer
+there are two; and when it is along an edge there are three). This means that an exhaustive search
+to depth 20 would look at about 3°° = 3.5 x 10° states. By keeping track of repeated states, we
+could cut this down drastically, because there are only 9! = 362, 880 different arrangements of
+9 squares. This is still a large number of states, so the next order of business is to find a good
+

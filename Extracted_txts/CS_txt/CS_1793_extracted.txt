@@ -1,0 +1,30 @@
+270 Chapter8 Deadlocks
+
+8.15 Suppose that you have coded the deadlock-avoidance safety algorithm
+and now have been asked to implement the deadlock-detection algorithm.
+Can you do so by simply using the safety algorithm code and redefining
+Max; = Waiting; + Allocation;, where Waiting; is a vector specifying the
+resources process i is waiting for, and Allocation; is as defined in Section
+8.5? Explain your answer.
+
+Bibliographical Notes
+
+Dijkstra [1965a] was one of the first and most influential contributors in the
+deadlock area. Holt [1972] was the first person to formalize the notion of
+deadlocks in terms of a graph-theoretical model similar to the one presented
+in this chapter. Starvation was covered by Holt [1972]. Hyman [1985] provided
+the deadlock example from the Kansas legislature.
+
+The various prevention algorithms were suggested by Havender [1968],
+who has devised the resource-ordering scheme for the IBM 05/360 system.
+
+The banker’s algorithm for avoiding deadlocks was developed for a single
+resource type by Dijkstra [1965a], and was extended to multiple resource types
+by Habermann [1969]. Exercises 8.8 and 8.9 are from Holt [1971].
+
+The deadlock-detection algorithm for multiple instances of a resource type,
+which was described in Section 8.6.2, was presented by Coffman et al. [1971].
+
+Bach [1987] describes how many of the algorithms in the traditional UNIX
+kernel handle deadlock.
+

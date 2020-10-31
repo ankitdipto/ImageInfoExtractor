@@ -1,0 +1,68 @@
+504
+
+Chapter 17. Making Complex Decisions
+
+ 
+
+ 
+
+function VALUE-ITERATION(M, R) returns a utility function
+inputs: 1, a transition model
+R, a reward function on states
+local variables: U, utility function, initially identical to R
+U', utility function, initially identical to R
+
+repeat
+u-uU
+for each state i do
+URE + maxa DO, Mj UW
+end
+until CLosE-ENouGH(U. U')
+return U
+
+ 
+
+ 
+
+Figure 17.4 The value iteration algorithm for calculating utilities of states.
+
+ 
+
+ 
+
+ 
+
+Given a utility function on states, it is trivial to calculate a corresponding policy using
+Equation (17.2). Furthermore, the policy will actually be optimal, as proved by Bellman and
+Dreyfus (1962). We can apply value iteration to the environment shown in Figure 17.1, which
+yields the utility values shown in Figure 17.2(b). In Figure 17.5, we show the utility values
+of some of the states at each iteration step of the algorithm. Notice how the states at different
+distances from (4,3) accumulate negative reward until, at some point, a path is found to (4,3)
+whereupon the utilities start to increase.
+
+ 
+
+Utility estimates
+
+ 
+
+0 5 10 5 20 25 30
+Number of iterations
+
+ 
+
+ 
+
+ 
+
+Figure 17.5 The utility values for selected states at each iteration step in the application of
+VALUE-ITERATION to the 4x3 world in Figure 17.1.
+
+ 
+
+ 
+
+ 
+
+ 
+

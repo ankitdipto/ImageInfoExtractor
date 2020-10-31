@@ -1,0 +1,50 @@
+SECTION 8-7 Program Control 281
+
+must possess some form of hardware procedure for selecting a branch address
+for servicing the interrupt.
+
+‘The CPU does not respond to an interrupt until the end ofan instruction
+execution Just before going to the next fetch phase, control checks for any
+interrupt signals. If an interrupts pending, control goes to a hardware inter-
+rupt cycle. During this cycle, the contents of PC and PSW are pushed onto the
+stack. The branch address for the particular interrupts then transferred to PC
+and anew PSWisloaded into the status register. The service programcan now
+be executed starting from the branch address and having a CPU mode as,
+specified in the new PSW.
+
+The last instruction in the service program is a return from interrupt
+instruction When this instruction is executed, the stack is popped to retrieve
+the old PSW and the return address. The PSW is transferred to the status
+register and the return address to the program counter. Thus the CPU state
+is restored and the original program can continue executing.
+
+‘Types of Interrupts
+There are three major types of interrupts that cause a break in the normal
+execution of a program. They can be classified as:
+
+1 External interrupts
+2. Internal interrupts
+3. Software interrupts
+
+External interrupts come from input-output (VO) devices, from a timing
+device, from a circuit monitoring the power supply, or from any other external
+source. Examples that cause external interrupts are /O device requesting
+transfer of data, UO device finished transfer of data, elapsed time of an event,
+or power failure. Timeout interrupt may result from a program that is in an
+endlessloop and thus exceeded itstimeallocation. Power failure interrupt may
+have as its service routine a program that transfers the complete state of the
+CPU into a nondestructive memory in the few milliseconds before power
+ceases.
+
+Internal interrupts arise from illegal or erroneous use of an instruction or
+data. Internal interruptsare also called traps. Examples of interrupts caused by
+internal error conditions are register overflow, attempt to divide by zero, an
+invalid operation code, stack overflow, and protection violation. These error
+conditions usually occur as a result of a premature termination of the instruc-
+tion execution. The service program that processes the internal interrupt deter-
+mines the corrective measure to be taken.
+
+The difference between internal and external interrupts is that the inter-
+nal interrupts initiated by some exceptional condition caused by the program
+itselfrather than by an external event. Internal interrupts are synchronous with
+

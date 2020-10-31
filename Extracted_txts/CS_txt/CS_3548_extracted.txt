@@ -1,0 +1,47 @@
+19.4 Bounding the maximum degree 523
+
+ 
+
+19.4 Bounding the maximum degree
+
+To prove that the amortized time of FIB-HEAP-EXTRACT-MIN and FIB-HEAP-
+DELETE is O(lgm), we must show that the upper bound D(n) on the degree of
+any node of an n-node Fibonacci heap is O(1gn). In particular, we shall show that
+D(n) < [logy n|, where ¢ is the golden ratio, defined in equation (3.24) as
+
+$ = (1+ V5)/2 = 1.61803... .
+
+The key to the analysis is as follows. For each node x within a Fibonacci heap,
+define size(x) to be the number of nodes, including x itself, in the subtree rooted
+at x. (Note that x need not be in the root list—it can be any node at all.) We shall
+show that size(x) is exponential in x. degree. Bear in mind that x.degree is always
+maintained as an accurate count of the degree of x.
+
+Lemma 19.1
+
+Let x be any node in a Fibonacci heap, and suppose that x.degree = k. Let
+Vis Voe-e es yx denote the children of x in the order in which they were linked to x,
+from the earliest to the latest. Then, y;.degree > 0 and y;.degree > i — 2 for
+i=2,3,..., k.
+
+Proof Obviously, y1.degree = 0.
+
+For i > 2, we note that when y; was linked to x, all of y;.y2..... yi-1 Were
+children of x, and so we must have had x.degree > i — 1. Because node y; is
+linked to x (by CONSOLIDATE) only if x.degree = y;.degree, we must have also
+had y;.degree > i — | at that time. Since then, node y; has lost at most one
+child, since it would have been cut from x (by CASCADING-CUT) if it had lost
+two children. We conclude that y;.degree > i — 2. .
+
+We finally come to the part of the analysis that explains the name “Fibonacci
+heaps.” Recall from Section 3.2 that fork = 0,1,2,..., the kth Fibonacci number
+is defined by the recurrence
+
+ 
+
+0 ifk =0.
+Fo=4l ifk =1,
+Frat Fea ifk>2.
+
+The following lemma gives another way to express Fy.
+

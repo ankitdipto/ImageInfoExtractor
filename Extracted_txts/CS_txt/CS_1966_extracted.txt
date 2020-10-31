@@ -1,0 +1,62 @@
+12.2 File-System Implementation 415
+
+To create a new file, an application program calls the logical file system.
+The logical file system knows the format of the directory structures. To create
+a new file, it allocates a new FCB, reads the appropriate directory into memory,
+updates it with the new file name and FCB, and writes it back to the disk. A
+typical FCB is shown in Figure 12.2.
+
+Some operating systems, including UNIX, treat a directory exactly as a
+file—one with a type field indicating that it is a directory. Other operating
+systems, including Windows NT, implement separate system calls for files and
+directories and treat directories as entities separate from files. No matter the
+larger structural issues, the logical file system can call the file-organization
+module to map the directory I/O into disk-block numbers, which are passed on
+to the basic file system and I/O control system. The file-organization module
+also allocates blocks for storage of the file’s data.
+
+Now that a file has been created, it can be used for I/O. First, though, it
+must be opened. The open call passes a file name to the file system. When a file
+is opened, the directory structure is searched for the given file name. Parts of the
+directory structure are usually cached in memory to speed directory operations.
+Once the file is found, the FCB is copied into a system- wide open-file table in
+memory. This table not only stores the FCB, but also has entries for a count of
+the number of processes that have the file open.
+
+Next, an entry is made in the per-process open-file table, with a pointer
+to the entry in the system-wide open-file table and some other fields. These
+other fields can include a pointer to the current location in the file (for the
+next read or write operation) and the access mode in which the file is open.
+The open call returns a pointer to the appropriate entry in the per-process file-
+system table. All file operations are then performed via this pointer. The file
+name may not be part of the open-file table, as the system has no use for it once
+the appropriate FCB is located on disk. The name given to the index varies.
+
+ 
+
+file permissions
+
+ 
+
+file dates (create, access, write)
+
+ 
+
+tile owner, group, ACL
+
+file size
+
+ 
+
+file data blocks:
+
+ 
+
+ 
+
+ 
+
+Figure 12.2 _A typical file control block.
+
+ 
+

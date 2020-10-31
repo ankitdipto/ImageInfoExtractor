@@ -1,0 +1,43 @@
+394 Let Us C
+
+s mentioned in the first chapter, Dennis Ritchie wanted C
+
+to remain compact. In keeping with this intention he
+
+deliberately omitted everything related with Input/Output
+(VO) from his definition of the language. Thus, C simply has no
+provision for receiving data from any of the input devices (like say
+keyboard, disk, etc.), or for sending data to the output devices (like
+say VDU, disk, etc.). Then how do we manage I/O, and how is it
+that we were we able to use printf( ) and scanf( ) if C has nothing
+to offer for I/O? This is what we intend to explore in this chapter.
+
+ 
+
+Types of I/O
+
+Though C has no provision for I/O, it of course has to be dealt with
+at some point or the other. There is not much use writing a
+program that spends all its time telling itself a secret. Each
+Operating System has its own facility for inputting and outputting
+data from and to the files and devices. It’s a simple matter for a
+system programmer to write a few small programs that would link
+the C compiler for particular Operating system’s I/O facilities.
+
+The developers of C Compilers do just that. They write several
+standard I/O functions and put them in libraries. These libraries are
+available with all C compilers. Whichever C compiler you are
+using it’s almost certain that you have access to a library of /O
+functions.
+
+Do understand that the I/O facilities with different operating
+systems would be different. Thus, the way one OS displays output
+on screen may be different than the way another OS does it. For
+example, the standard library function printf( ) for DOS-based C
+compiler has been written keeping in mind the way DOS outputs
+characters to screen. Similarly, the printf( ) function for a Unix-
+based compiler has been written keeping in mind the way Unix
+outputs characters to screen. We as programmers do not have to
+bother about which printf( ) has been written in what manner. We
+should just use printf( ) and it would take care of the rest of the
+

@@ -1,0 +1,50 @@
+20.2. A recursive structure 543
+
+Finding the successor
+
+The SUCCESSOR operation is even worse. In the worst case, it makes two recursive
+calls, along with a call to PROTO-VEB-MINIMUM. The procedure PROTO-VEB-
+SuCcCEssoR(V, x) returns the smallest element in the proto-vEB structure V that
+is greater than x, or NIL if no element in V is greater than x. It does not require x
+to be a member of the set, but it does assume that 0 < x < Viu.
+
+PROTO-VEB-SUCCESSOR(V, x)
+
+ 
+
+ 
+
+1 ifVia
+2 if x == 0 and V.A[]] ==1
+3 return |
+4 else return NIL
+5 else offset = PROTO-VEB-SUCCESSOR (V. cluster [high(x)], low(x))
+6 if offset A NIL
+7 return index (high(x), offset)
+8 else succ-cluster = PROTO-VEB-SUCCESSOR(V. summary, high(x))
+9 if succ-cluster == NIL
+10 return NIL
+1 else offset = PROTO-VEB-MINIMUM (V. cluster [succ-cluster])
+12 return index(succ-cluster, offset)
+
+The PROTO-VEB-SUCCESSOR procedure works as follows. As usual, line 1
+tests for the base case, which lines 2-4 handle by brute force: the only way that x
+can have a successor within a proto-vEB(2) structure is when x = 0 and A[lI]
+is 1. Lines 5-12 handle the recursive case. Line 5 searches for a successor to x
+within x’s cluster, assigning the result to offset. Line 6 determines whether x has
+a successor within its cluster; if it does, then line 7 computes and returns the value
+of this successor. Otherwise, we have to search in other clusters. Line 8 assigns to
+succ-cluster the number of the next nonempty cluster, using the summary informa-
+tion to find it. Line 9 tests whether succ-cluster is NIL, with line 10 returning NIL
+if all succeeding clusters are empty. If succ-cluster is non-NIL, line 11 assigns
+the first element within that cluster to offset, and line 12 computes and returns the
+minimum element in that cluster.
+
+In the worst case, PROTO-VEB-SUCCESSOR calls itself recursively twice on
+proto-vEB(,/1) structures, and it makes one call to PROTO-vEB-MINIMUM on
+a proto-vEB(,/u) structure. Thus, the recurrence for the worst-case running
+time T(u) of PROTO-vVEB-SUCCESSOR is
+
+Tu) = 2T( Vu) + Clg Vu)
+2T (Ju) + Ollgu) .
+

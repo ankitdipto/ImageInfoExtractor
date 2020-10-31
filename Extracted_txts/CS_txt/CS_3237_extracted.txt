@@ -1,0 +1,54 @@
+596
+
+Chapter 19 Learning in Neural and Belief Networks
+
+ 
+
+neurons is (Miles, 1969). Articles by Cowan and Sharp (1988b; 1988a) present inclusive surveys
+of the history of neural network research. A very comprehensive bibliography is available in
+NeuralSource (Wasserman and Oetzel, 1990).
+
+The most important conference in the field is the annual NIPS (Neural Information Process-
+ing Conference) conference, whose proceedings are published as the series Advances in Neural
+Information Processing Systems, starting with (Touretzky, 1989). Current research also appears
+in the International Joint Conference on Neural Networks (IJCNN). Major journals for the field
+include Neural Computation; Neural Networks; IEEE Transactions on Neural Networks; the
+International Journal of Neural Systems; and Concepts in Neuroscience.
+
+The topic of learning belief networks has received attention only very recently. For the
+fixed-structure, fully observable case, Spiegelhalter, Dawid, Lauritzen, and Cowell (Spiegelhalter
+et al., 1993) provide a thorough analysis of the statistical basis of belief network modification
+using Dirichlet priors. They also give a heuristic approximation for the hidden-variable case
+Pearl (1988, Chapter 8) describes an algorithm for learning polytrees with unknown structure
+and fully observable variables. Heckerman, Geiger, and Chickering (1994) describe an elegant
+and effective heuristic algorithm for recovering the structure of general networks in the fully
+observable case, building on the work of Cooper and Herskovits (1992). For the case of hidden
+variables and unknown structure, see (Spirtes et al., 1993).
+
+The general problem of recovering distributions from data with missing values and hidden
+variables is addressed by the EM algorithm (Dempster et al.. 1977). The algorithm in the
+chapter (Russell ef a/., 1994) can be seen as a variant of EM in which the "maximize" phase is
+carried out by a gradient-following method. Lauritzen (1991) also considers the application of
+EM to belief networks. A gradient-following algorithm for learning sigmoid networks (belief
+networks in which each CPT represents the same function as a standard neural-network unit) was
+proposed by Radford Neal (1991), who went on to show that Boltzmann Machines are a special
+case of belief networks. Neal was among the first to point out the extremely close connection
+between neural and belief networks
+
+ 
+
+EXERCISES
+
+19.1 Construct by hand a neural network that computes the XOR function of two inputs. Make
+sure to specify what sort of units you are using.
+
+19.2. We know that a simple perceptron cannot represent XOR (or, generally, the parity function
+of its inputs). Describe what happens to the weights of a four-input, step-function perceptron,
+beginning with all weights set to 0.1, as examples of the parity function arrive.
+
+19.3 Suppose you had a neural network with linear activation functions. That is, for each unit
+the output is some constant c times the weighted sum of the inputs
+
+a. Assume that the network has one hidden layer. For a given assignment to the weights W,
+write down equations for the value of the units in the output layer as a function of W and
+

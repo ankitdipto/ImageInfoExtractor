@@ -1,0 +1,63 @@
+SECTION 9.7 Array Processors 327
+
+high performance by means of parallel processing with multiple functional
+units, It includes an arithmeticunit containing one or more pipelined floating-
+point adders and multipliers. The array processor can be programmed by the
+user to accommodate a variety of complex arithmetic problems.
+
+Figure 9-14 shows the interconnection of an attached array processor to
+a host computer. The host computer is a general-purpose commercial com-
+puter and the attached processor is a back-end machine driven by the host
+computer. The array processor is connected through an input-output con-
+troller to the computer and the computer treatsit like an external interface. The
+data for the attached processor are transferred from main memory to a local
+memory through a high-speed bus. The general-purpose computer without
+the attached processor serves the users that need conventional data process-
+ing. The system with the attached processor satisfies the needs for complex
+arithmetic applications.
+
+‘Some manufacturers of attached array processors offer a model that can
+be connected to a variety of different host computers. For example, when
+attached toa VAX 11 computer, the FSP-164/MAX from Floating-Point Systems
+increases the computing power of the VAX to 100 megaflops. The objective of
+the attached array processor is to provide vector manipulation capabilities to
+a conventional computer at a fraction of the cost of supercomputers.
+
+SIMD Array Processor
+
+‘An SIMD array processor is a computer with multiple processing units oper-
+ating in parallel. The processing units are synchronized to perform the same
+operation under the control ofa common control unit, thus providing a single
+instruction stream, multiple data stream (SIMD) organization. A general block
+diagram of an array processor is shown in Fig. 9-15. It contains a set of identical
+processing elements (PEs), each having a local memory M. Each processor
+clement includes an ALU, a floating-point arithmetic unit, and working regis-
+ters. The master control unit controls the operations in the processor elements.
+The main memory is used for storage of the program. The function of the
+master control unit is to decode the instructions and determine how the
+instruction is to be executed. Scalar and program control instructions are
+
+Figure 9-14 Attached array processor with host computer.
+‘General:purpose Tnpu output “Atached aay
+aa | ee | SEE
+
+pees
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

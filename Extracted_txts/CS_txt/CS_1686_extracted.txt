@@ -1,0 +1,53 @@
+6.7 Process Scheduling Models 183
+
+The first scheduling class is for time-sharing processes. For conventional,
+time-shared processes, Linux uses a prioritized, credit-based algorithm. Each
+process possesses a certain number of scheduling credits; when a new task must
+be chosen to run, the process with the most credits is selected. Every time that a
+timer interrupt occurs, the currently running process loses one credit; when its
+credits reaches zero, it is suspended and another process is chosen.
+
+Ifno runnable processes have any credits, then Linux performs a recrediting
+operation, adding credits to every process in the system (rather than to just the
+tunable ones), according to the following rule:
+
+.,. _ credits a
+credits = z + priority
+
+ 
+
+This algorithm tends to mix two factors: the process’ history and its priority.
+One-half of the credits that a process still holds since the previous recrediting
+operation will be retained after the algorithm has been applied, retaining some
+history of the process’ recent behavior. Processes that are running all the
+time tend to exhaust their credits rapidly, but processes that spend much of
+their time suspended can accumulate credits over multiple recreditings and
+consequently end up with a higher credit count after a recredit. This crediting
+system automatically gives high priority to interactive or I/O-bound processes,
+for which a rapid response time is important.
+
+The use of a process priority in calculating new credits allows the priority
+of a process to be fine-tuned. Background batch jobs can be given a low pri-
+ority; they will automatically receive fewer credits than interactive users’ jobs,
+and hence will receive a smaller percentage of the CPU time than will similar
+jobs with higher priorities. Linux uses this priority system to implement the
+standard UNIX nice process-priority mechanism. Linux’s real-time scheduling
+is simpler still. Linux implements the two real-time scheduling classes required
+by POSIX.1b: first come, first served (FCFS), and round-robin (RR) (Sections 6.3.1
+and 6.3.4, respectively). In both cases, each process has a priority in addition
+to its scheduling class. In time-sharing scheduling, however, processes of dif-
+ferent priorities can still compete with one another to some extent; in real-time
+scheduling, the scheduler always runs the process with the highest priority.
+Among processes of equal priority, it runs the process that has been waiting
+longest. The only difference between FCFS and RR scheduling is that FCFS
+processes continue to run until they either exit or block, whereas a round-robin
+process will be preempted after a while and will be moved to the end of the
+scheduling queue, so round-robin processes of equal priority will automatically
+time share among themselves.
+
+Note that Linux’s real-time scheduling is soft—rather than hard—real
+time. The scheduler offers strict guarantees about the relative priorities of
+real-time processes, but the kernel does not offer any guarantees about how
+quickly a real-time process will be scheduled once that process becomes run-
+able. Remember that Linux kernel code can never be preempted by user-mode
+

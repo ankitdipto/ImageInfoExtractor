@@ -1,0 +1,49 @@
+Chapter 31 Number-Theoretic Algorithms
+
+the length-(n/d) block of values (a) repeats exactly d times as i increases from 0
+to n—1. The indices x of the d positions for which ax mod n = bare the solutions
+of the equation ax = b (mod n). .
+
+Theorem 31.23
+
+Let d = gced(a,n), and suppose that d = ax’ + ny’ for some integers x’ and y’
+(for example, as computed by EXTENDED-EUCLID). If d | b, then the equation
+ax = b (mod n) has as one of its solutions the value x, where
+
+Xo = x/(b/d) modn.
+
+Proof We have
+
+axo = ax'(b/d) (modn)
+d(b/d) (mod n) (because ax’ = d (mod n))
+
+ 
+
+=b (mod 1) ,
+and thus X9 is a solution toax = b (mod n). .
+Theorem 31.24
+
+Suppose that the equation ax = b (mod 7) is solvable (that is, d | b, where
+d = gcd(a,n)) and that Xo is any solution to this equation. Then, this equa-
+tion has exactly d distinct solutions, modulo n, given by x; = Xo + i(n/d) for
+i=0,1,....,d-1.
+
+Proof Because n/d > 0 and 0 < i(n/d) <n fori = 0,1,..., d —1, the
+values X9.X1.-.+5 Xq_1 are all distinct, modulo 1. Since X9 is a solution of ax = b
+(mod n), we have axo mod n = b (mod n). Thus, fori = 0,1,..., d—1, we
+have
+
+ax; modn a(x +in/d) mod n
+(axo + ain/d) mod n
+
+= axXo modn_ (because d | a implies that ain/d is a multiple of n)
+
+=b (modn),
+and hence ax; = b (mod n), making x; a solution, too. By Corollary 31.22, the
+equation ax = b (mod n) has exactly d solutions, so that x9.%1..... Xq—1 must
+be all of them. /
+
+We have now developed the mathematics needed to solve the equation ax = b
+(mod n); the following algorithm prints all solutions to this equation. The inputs
+a and n are arbitrary positive integers, and b is an arbitrary integer.
+

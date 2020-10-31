@@ -1,0 +1,51 @@
+Problems for Chapter 19 527
+
+a. The professor’s claim that this procedure runs faster is based partly on the as-
+sumption that line 7 can be performed in O(1) actual time. What is wrong with
+this assumption?
+
+b. Give a good upper bound on the actual time of PISANO-DELETE when x is
+not H.min. Your bound should be in terms of x.degree and the number c of
+calls to the CASCADING-CUT procedure.
+
+c. Suppose that we call PISANO-DELETE (H, x), and let H’ be the Fibonacci heap
+that results. Assuming that node x is not a root, bound the potential of H’ in
+terms of x. degree, c, t(H), and m(H).
+
+d. Conclude that the amortized time for PISANO-DELETE is asymptotically no
+better than for FIB-HEAP-DELETE, even when x # H.min.
+
+19-2 Binomial trees and binomial heaps
+
+The binomial tree By is an ordered tree (see Section B.5.2) defined recursively.
+As shown in Figure 19.6(a), the binomial tree Bo consists of a single node. The
+binomial tree Bx, consists of two binomial trees B,_, that are linked together so
+that the root of one is the leftmost child of the root of the other. Figure 19.6(b)
+shows the binomial trees Bo through By.
+
+a. Show that for the binomial tree Bx,
+
+1. there are 2 nodes,
+
+2. the height of the tree is k,
+
+3. there are exactly (') nodes at depth i fori = 0,1,...,k, and
+
+4. the root has degree k, which is greater than that of any other node; moreover,
+as Figure 19.6(c) shows, if we number the children of the root from left to
+right by k —1,k —2,..., 0, then child i is the root of a subtree B;.
+
+A binomial heap H is a set of binomial trees that satisfies the following proper-
+ties:
+
+1. Each node has a key (like a Fibonacci heap).
+
+2. Each binomial tree in H obeys the min-heap property.
+
+3. For any nonnegative integer k, there is at most one binomial tree in H whose
+root has degree k.
+
+b. Suppose that a binomial heap H has a total of n nodes. Discuss the relationship
+between the binomial trees that H contains and the binary representation of n.
+Conclude that H consists of at most |[IgnJ + 1 binomial trees.
+

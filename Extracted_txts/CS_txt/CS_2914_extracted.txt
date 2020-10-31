@@ -1,0 +1,55 @@
+440
+
+Chapter 16 Greedy Algorithms
+
+with |V| — 1 edges, and since
+
+w(A) = Yv'e)
+ced
+= Vin — w(e))
+ced
+= (V|—1w - we)
+
+eed
+
+= (\V|—1wo — w(A)
+
+for any maximal independent subset A, an independent subset that maximizes the
+quantity w’(A) must minimize w(A). Thus, any algorithm that can find an optimal
+subset A in an arbitrary matroid can solve the minimum-spanning-tree problem.
+
+Chapter 23 gives algorithms for the minimum-spanning-tree problem, but here
+we give a greedy algorithm that works for any weighted matroid. The algorithm
+takes as input a weighted matroid M = (S, I) with an associated positive weight
+function w, and it returns an optimal subset A. In our pseudocode, we denote the
+components of M by M.S and M.I and the weight function by w. The algorithm
+is greedy because it considers in turn each element x € S, in order of monotoni-
+cally decreasing weight, and immediately adds it to the set A being accumulated if
+AU {x} is independent.
+
+GREEDY (M, w)
+1 A=96
+
+2 sort M.S into monotonically decreasing order by weight w
+
+3 for each x € M.S, taken in monotonically decreasing order by weight w(x)
+4 if AU{x}eM.I
+
+5 A=AU{x}
+
+6 return A
+
+Line 4 checks whether adding each element x to A would maintain A as an inde-
+pendent set. If A would remain independent, then line 5 adds x to A. Otherwise, x
+is discarded. Since the empty set is independent, and since each iteration of the for
+loop maintains A’s independence, the subset A is always independent, by induc-
+tion. Therefore, GREEDY always returns an independent subset A. We shall see in
+a moment that A is a subset of maximum possible weight, so that A is an optimal
+subset.
+
+The running time of GREEDY is easy to analyze. Let n denote |S|. The sorting
+phase of GREEDY takes time O(n lg). Line 4 executes exactly n times, once for
+each element of S. Each execution of line 4 requires a check on whether or not
+the set A U {x} is independent. If each such check takes time O( f(n)), the entire
+algorithm runs in time O(nlgn + nf(n)).
+

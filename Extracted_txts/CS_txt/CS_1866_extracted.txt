@@ -1,0 +1,101 @@
+10.4 Page Replacement 331
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+    
+
+ 
+
+ 
+
+    
+
+process A
+virtual memory
+
+process B
+irtual memory
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+3
+
+ 
+
+4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+disk file
+
+Figure 10.5 Memory-mapped files.
+
+need for 60 frames, when only 40 are available. Although this situation may be
+unlikely, it becomes much more likely as we increase the multiprogramming
+level, so that the average memory usage is close to the available physical
+memory. (In our example, why stop at a multiprogramming level of six, when
+we can move to a level of seven or eight?)
+
+Further, consider that system memory is not used only for holding program
+pages. Buffers for I/O also consume a significant amount of memory. This use
+can increase the strain on memory-placement algorithms. Deciding how much
+memory to allocate to I/O and how much to program pages is a significant
+challenge. Some systems allocate a fixed percentage of memory for I/O buffers,
+whereas others allow both user processes and the 1/O subsystem to compete for
+all system memory.
+
+Over-allocation manifests itself as follows. While a user process is execut-
+ing, a page fault occurs. The hardware traps to the operating system, which
+checks its internal tables to see that this page fault is a genuine one rather than
+an illegal memory access. The operating system determines where the desired
+page is residing on the disk, but then finds that there are no free frames on the
+free-frame list: All memory is in use (Figure 10.6).
+
+The operating system has several options at this point. It could terminate
+the user process. However, demand paging is the operating system’s attempt to
+improve the computer system’s utilization and throughput. Users should not
+
+ 
+
+ 
+

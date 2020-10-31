@@ -1,0 +1,49 @@
+164 Let Us C
+
+ 
+
+(g)
+
+a)
+
+@
+
+}
+message1()
+{
+printf ( "\nMary bought some butter” ) ;
+
+Here, even though messagel() is getting called before
+message2(), still, messagel() has been defined after
+message2(). However, it is advisable to define the functions
+in the same order in which they are called. This makes the
+program easier to understand.
+
+A function can call itself. Such a process is called ‘recursion’.
+We would discuss this aspect of C functions later in this
+chapter.
+
+A function can be called from other function, but a function
+cannot be defined in another function. Thus, the following
+program code would be wrong, since argentina() is being
+defined inside another function, main().
+
+main()
+
+{
+printf (“\nl am in main” ) ;
+argentina()
+{
+
+printf ( "\nl am in argentina” ) ;
+}
+}
+
+There are basically two types of functions:
+
+Library functions Ex. printf(), scanf() etc.
+User-defined functions Ex. argentina( ), brazil() etc.
+
+As the name suggests, library functions are nothing but
+commonly required functions grouped together and stored in
+

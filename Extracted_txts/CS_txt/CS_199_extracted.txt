@@ -1,0 +1,55 @@
+27.3 Multithreaded merge sort 803
+
+P-MERGE-SortT(A, p,r, B,s)
+
+1 n=r—-p+l1
+
+2 ifn==1
+
+3 Bis] = Alp]
+
+4 else let T[1..n] be a new array
+
+5 q = lp +1)/2)
+
+6 q=q-ptl
+
+7 spawn P-MERGE-SorT(A, p,q. T. 1)
+
+8 P-MERGE-SorT(A,q + 1.7, T.q' + 1)
+
+9 syne
+
+10 P-MERGE(T, 1, q',g’ + 1,n, B.s)
+After line 1 computes the number 7 of elements in the input subarray A[p..7r],
+lines 2-3 handle the base case when the array has only | element. Lines 4—6 set
+up for the recursive spawn in line 7 and call in line 8, which operate in parallel. In
+particular, line 4 allocates a temporary array T with n elements to store the results
+of the recursive merge sorting. Line 5 calculates the index q of A[p ..1] to divide
+the elements into the two subarrays A[p..q] and A[q + 1..r] that will be sorted
+recursively, and line 6 goes on to compute the number q’ of elements in the first
+subarray A[p ..q], which line 8 uses to determine the starting index in T of where
+to store the sorted result of A[g + 1..r]. At that point, the spawn and recursive
+call are made, followed by the sync in line 9, which forces the procedure to wait
+until the spawned procedure is done. Finally, line 10 calls P-MERGE to merge
+the sorted subarrays, now in T[1..q’] and T[q’ + 1..n], into the output subarray
+Bis..s+r—p).
+
+Analysis of multithreaded merge sort
+
+We start by analyzing the work PMS,(n) of P-MERGE-SORT, which is consider-
+ably easier than analyzing the work of P-MERGE. Indeed, the work is given by the
+recurrence
+
+PMS,(n) 2 PMS,(n/2) + PM,(n)
+
+2 PMS,(n/2) + O(n) .
+
+This recurrence is the same as the recurrence (4.4) for ordinary MERGE-SORT
+from Section 2.3.1 and has solution PMS,(n) = ©(nlgn) by case 2 of the master
+theorem.
+
+We now derive and analyze a recurrence for the worst-case span PMS..(n). Be-
+cause the two recursive calls to P- MERGE-SoRT on lines 7 and 8 operate logically
+in parallel, we can ignore one of them, obtaining the recurrence
+

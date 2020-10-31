@@ -1,0 +1,48 @@
+10.7 Operating-System Examples 353
+
+ 
+
+increase number
+of frames
+
+upper bound
+
+page-fault rate
+
+lower bound
+decrease number
+of frames
+
+ 
+
+number of frames
+
+Figure 10.18 Page-fault frequency.
+
+The specific problem is how to prevent thrashing. Thrashing has a high
+page-fault rate. Thus, we want to control the page-fault rate. When it is too
+high, we know that the process needs more frames. Similarly, if the page-fault
+rate is too low, then the process may have too many frames. We can establish
+upper and lower bounds on the desired page-fault rate (Figure 10.18). If the
+actual page-fault rate exceeds the upper limit, we allocate that process another
+frame; if the page-fault rate falls below the lower limit, we remove a frame from
+that process. Thus, we can directly measure and control the page-fault rate to
+prevent thrashing.
+
+As with the working-set strategy, we may have to suspend a process. If the
+page-fault rate increases and no free frames are available, we must select some
+process and suspend it. The freed frames are then distributed to processes with
+high page-fault rates.
+
+10.7 = Operating-System Examples
+
+In this section we describe how Windows NT and Solaris 2 implement virtual
+memory.
+
+10.7.1 Window NT
+
+Windows NT implements virtual memory using demand paging with cluster-
+ing. Clustering handles page faults by bringing in not only the faulting page,
+but also multiple pages surrounding the faulting page. When a process is first
+created, it is assigned a working-set minimum and maximum. The working-set
+

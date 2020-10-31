@@ -1,0 +1,115 @@
+636 Let UsC
+
+ 
+
+Before we proceed to write our own hook procedure let us
+understand the normal working of the keyboard messages. This is
+illustrated in Figure 19.7.
+
+ 
+
+ 
+
+Interrupt
+
+ 
+
++#—§ Obtain key code by
+Kemel Routine interacting with
+
+KB controller
+
+ 
+
+ 
+
+¥
+
+Device Driver ISR
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Place key code in System
+Msg. queue by calling
+keybd_event()
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+System Msg. queue
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+os
+
+L202 oNN
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Application1 Application! Application2 Application2
+Msg. Queue Msg. Queue
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 19.7
+
+ 
+
+With reference to Figure 19.7 here is a list of steps that are carrie
+out when we press a key from the keyboard:
+

@@ -1,0 +1,35 @@
+Notes for Chapter 14 355
+
+b. Design a data structure that efficiently supports the operations INTERVAL-
+INSERT, INTERVAL-DELETE, and FIND-POM, which returns a point of max-
+imum overlap. (Hint: Keep a red-black tree of all the endpoints. Associate
+a value of +1 with each left endpoint, and associate a value of —1 with each
+right endpoint. Augment each node of the tree with some extra information to
+maintain the point of maximum overlap.)
+
+14-2 Josephus permutation
+
+We define the Josephus problem as follows. Suppose that n people form a circle
+and that we are given a positive integer m < n. Beginning with a designated
+first person, we proceed around the circle, removing every mth person. After each
+person is removed, counting continues around the circle that remains. This process
+continues until we have removed all people. The order in which the people are
+removed from the circle defines the (n, m)-Josephus permutation of the integers
+1,2,..., n. For example, the (7, 3)-Josephus permutation is (3, 6, 2.7.5, 1,4).
+
+a. Suppose that m is a constant. Describe an O(7)-time algorithm that, given an
+integer n, outputs the (n, m)-Josephus permutation.
+
+b. Suppose that m is not a constant. Describe an O(n lg n)-time algorithm that,
+given integers n and m, outputs the (1, m)-Josephus permutation.
+
+ 
+
+Chapter notes
+
+In their book, Preparata and Shamos [282] describe several of the interval trees
+that appear in the literature, citing work by H. Edelsbrunner (1980) and E. M.
+McCreight (1981). The book details an interval tree that, given a static database
+of n intervals, allows us to enumerate all k intervals that overlap a given query
+interval in O(k + lgn) time.
+

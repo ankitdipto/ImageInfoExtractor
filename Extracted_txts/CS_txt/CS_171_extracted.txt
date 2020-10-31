@@ -1,0 +1,46 @@
+27.1 The basics of dynamic multithreading 779
+
+lowing w in its procedure, indicating that u’ is free to execute at the same time
+as V, whereas a call induces no such edge. When a strand u returns to its calling
+procedure and x is the strand immediately following the next syne in the calling
+procedure, the computation dag contains return edge (u, x), which points upward.
+A computation starts with a single initial strand—the black vertex in the procedure
+labeled P-F1B(4) in Figure 27.2—and ends with a single final strand—the white
+vertex in the procedure labeled P-F1B (4).
+
+We shall study the execution of multithreaded algorithms on an ideal paral-
+lel computer, which consists of a set of processors and a sequentially consistent
+shared memory. Sequential consistency means that the shared memory, which may
+in reality be performing many loads and stores from the processors at the same
+time, produces the same results as if at each step, exactly one instruction from one
+of the processors is executed. That is, the memory behaves as if the instructions
+were executed sequentially according to some global linear order that preserves the
+individual orders in which each processor issues its own instructions. For dynamic
+multithreaded computations, which are scheduled onto processors automatically
+by the concurrency platform, the shared memory behaves as if the multithreaded
+computation’s instructions were interleaved to produce a linear order that preserves
+the partial order of the computation dag. Depending on scheduling, the ordering
+could differ from one run of the program to another, but the behavior of any exe-
+cution can be understood by assuming that the instructions are executed in some
+linear order consistent with the computation dag.
+
+In addition to making assumptions about semantics, the ideal-parallel-computer
+model makes some performance assumptions. Specifically, it assumes that each
+processor in the machine has equal computing power, and it ignores the cost of
+scheduling. Although this last assumption may sound optimistic, it turns out that
+for algorithms with sufficient “parallelism” (a term we shall define precisely in a
+moment), the overhead of scheduling is generally minimal in practice.
+
+Performance measures
+
+We can gauge the theoretical efficiency of a multithreaded algorithm by using two
+metrics: “work” and “span.” The work of a multithreaded computation is the total
+time to execute the entire computation on one processor. In other words, the work
+is the sum of the times taken by each of the strands. For a computation dag in
+which each strand takes unit time, the work is just the number of vertices in the
+dag. The span is the longest time to execute the strands along any path in the dag.
+Again, for a dag in which each strand takes unit time, the span equals the number of
+vertices on a longest or critical path in the dag. (Recall from Section 24.2 that we
+can find a critical path ina dag G = (V, E) in ©(V + E) time.) For example, the
+computation dag of Figure 27.2 has 17 vertices in all and 8 vertices on its critical
+

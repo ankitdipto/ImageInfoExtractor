@@ -1,0 +1,35 @@
+Chapter 9: Puppetting On Strings 347
+
+ 
+
+Here, 65454, 65464, 65474, etc. are the base addresses of
+successive names. As seen from the above pattern some of the
+names do not occupy all the bytes reserved for them. For example,
+even though 10 bytes are reserved for storing the name “akshay”,
+it occupies only 7 bytes. Thus, 3 bytes go waste. Similarly, for
+each name there is some amount of wastage. In fact, more the
+number of names, more would be the wastage. Can this not be
+avoided? Yes, it can be... by using what is called an ‘array of
+pointers’, which is our next topic of discussion.
+
+Array of Pointers to Strings
+
+As we know, a pointer variable always contains an address.
+Therefore, if we construct an array of pointers it would contain a
+number of addresses. Let us see how the names in the earlier
+example can be stored in the array of pointers.
+
+char *names[] = {
+“akshay",
+“parag’,
+“raman",
+“srinivas’,
+“gopal",
+"rajesh"
+};
+
+In this declaration names| ] is an array of pointers. It contains base
+addresses of respective names. That is, base address of “akshay” is
+stored in names[0], base address of “parag” is stored in names[1]
+and so on. This is depicted in Figure 9.4.
+

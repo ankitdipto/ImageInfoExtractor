@@ -1,0 +1,83 @@
+Section 18.3.
+
+Learning Decision Trees 533
+
+ 
+
+PARITY FUNCTION
+
+‘MAJORITY FUNCTION
+
+For some kinds of functions, however, this is a real problem. For example, if the function
+is the parity function, which returns 1 if and only if an even number of inputs are 1, then an
+exponentially large decision tree will be needed. It is also difficult to use a decision tree to
+represent a majority function, which returns 1 if more than half ofits inputs are 1.
+
+In other words, decision trees are good for some kinds of functions, and bad for others.
+Is there any kind of representation that is efficient for all kinds of functions? Unfortunately,
+the answer is no. We can show this in a very general way. Consider the set of all Boolean
+functions on n attributes. How many different functions are in this set? This is just the number
+of different truth tables that we can write down, because the function is defined by its truth table.
+The truth table has 2" rows, because each input case is described by n attributes. We can consider
+the "answer" column of the table as a 2" bit number that defines the function. No matter what
+representation we use for functions, some of the functions (almost all of them, in fact) are going
+to require at least this many bits to represent.
+
+If it takes 2” bits to define the function, this means that there are 2”’ different functions
+on 7 attributes. This is a scary number. For example, with just six Boolean attributes, there are
+about 2 x 10!° different functions to choose from. We will need some ingenious algorithms to
+find consistent hypotheses in such a large space.
+
+ 
+
+  
+
+ 
+
+WaitEstimate?
+
+ 
+ 
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+Alternate? Hungry? ]
+No Yes No Yes
+
+ 
+
+ 
+
+ 
+
+Reservation? |[_Fri/Sat? | Yes] [_ Alternate?
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 184 A decision tree for deciding whether to wait for a table.
+
+ 
+
+ 
+
+ 
+

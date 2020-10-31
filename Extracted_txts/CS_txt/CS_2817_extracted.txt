@@ -1,0 +1,56 @@
+362 Chapter 15 Dynamic Programming
+
+r; = 1 from solution! =1 (no cuts) ,
+r2 = 5 from solution2 = 2 (no cuts) ,
+r3 = 8 from solution 3 = 3 (no cuts) ,
+
+r4 = 10 from solution 4=2+2,
+
+rs = 13 from solution5 =2+3,
+
+‘> = 17 from solution6=6 (no cuts) ,
+
+rz = 18 from solution7=1+6 or 7=2+42+43,
+rg = 22 from solution 8 = 2+6,
+
+Tg = 25 from solution 9 = 3+ 6,
+
+T10 30 from solution 10 = 10 (no cuts).
+
+More generally, we can frame the values 7, for n > 1 in terms of optimal rev-
+enues from shorter rods:
+
+Tn = MAX (Pash) +0 n—1el2 +0 n-200++ Tn $M) - (15.1)
+
+ 
+
+The first argument, p,,, corresponds to making no cuts at all and selling the rod of
+length n as is. The other n — | arguments to max correspond to the maximum rev-
+enue obtained by making an initial cut of the rod into two pieces of size i andn —i,
+for each i = 1,2,..., n — 1, and then optimally cutting up those pieces further,
+obtaining revenues 7; and r,-; from those two pieces. Since we don’t know ahead
+of time which value of 7 optimizes revenue, we have to consider all possible values
+for i and pick the one that maximizes revenue. We also have the option of picking
+no i at all if we can obtain more revenue by selling the rod uncut.
+
+Note that to solve the original problem of size n, we solve smaller problems of
+the same type, but of smaller sizes. Once we make the first cut, we may consider
+the two pieces as independent instances of the rod-cutting problem. The overall
+optimal solution incorporates optimal solutions to the two related subproblems,
+maximizing revenue from each of those two pieces. We say that the rod-cutting
+problem exhibits optimal substructure: optimal solutions to a problem incorporate
+optimal solutions to related subproblems, which we may solve independently.
+
+In arelated, but slightly simpler, way to arrange a recursive structure for the rod-
+cutting problem, we view a decomposition as consisting of a first piece of length 7
+cut off the left-hand end, and then a right-hand remainder of length n —i. Only
+the remainder, and not the first piece, may be further divided. We may view every
+decomposition of a length-n rod in this way: as a first piece followed by some
+decomposition of the remainder. When doing so, we can couch the solution with
+no cuts at all as saying that the first piece has size i = n and revenue p, and that
+the remainder has size 0 with corresponding revenue r9 = 0. We thus obtain the
+following simpler version of equation (15.1):
+
+Ty = max (p; +lp-i) - (15.2)
+lsi<n
+

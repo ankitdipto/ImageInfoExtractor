@@ -1,0 +1,74 @@
+38
+
+Chapter 2. Intelligent Agents
+
+ 
+
+function SKELETON-AGENT( percepryeturns action
+static: memory, the agent's memory of the world
+
+memory — UPDATE-MEMORY(memiory, percept)
+action — CHOOSE-BEST-ACTION(@memory)
+memory — UPDATE-MEMORY(memory, action)
+return action
+
+ 
+
+ 
+
+Figure 24 A skeleton agent. On each invocation, the agent's memory is updated to reflect
+the new percept, the best action is chosen, and the fact that the action was taken is also stored in
+memory. The memory persists from one invocation to the next.
+
+ 
+
+ 
+
+ 
+
+Second, the goal or performance measure is nof part of the skeleton program. This is because
+the performance measure is applied externally to judge the behavior of the agent, and it is often
+possible to achieve high performance without explicit knowledge of the performance measure
+(see, e.g., the square-root agent).
+
+Why not just look up the answers?
+
+Let us start with the simplest possible way we can think of to write the agent program—a lookup
+table. Figure 2.5 shows the agent program. It operates by keeping in memory its entire percept
+sequence, and using it to index into table, which contains the appropriate action for all possible
+percept sequences.
+
+It is instructive to consider why this proposal is doomed to failure:
+
+1. The table needed for something as simple as an agent that can only play chess would be
+about 35! entries.
+
+It would take quite a long time for the designer to build the table.
+
+3. The agent has no autonomy at all, because the calculation of best actions is entirely built-in. ]
+So ifthe environment changed in some unexpected way, the agent would be lost.
+
+ 
+
+function TABLE-DRIVEN-AGENT( percepr) returns action
+static: percepts, a sequence, initially empty
+table, a table, indexed by percept sequences, initially fully specified
+
+append percept to the end ofpercepts
+action — LOOKUP( perceprtstable)
+return action
+
+ 
+
+ 
+
+Figure 25 An agent based on a prespecified lookup table. It keeps track of the percept
+
+ 
+
+sequence and just looks up the best action.
+
+ 
+
+ 
+

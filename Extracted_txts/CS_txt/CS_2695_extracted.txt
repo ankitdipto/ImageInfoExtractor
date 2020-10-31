@@ -1,0 +1,48 @@
+11.3 Hash functions 263
+
+Interpreting keys as natural numbers
+
+Most hash functions assume that the universe of keys is the set N = {0,1,2,...}
+of natural numbers. Thus, if the keys are not natural numbers, we find a way to
+interpret them as natural numbers. For example, we can interpret a character string
+as an integer expressed in suitable radix notation. Thus, we might interpret the
+identifier pt as the pair of decimal integers (112, 116), since p = 112 andt = 116
+in the ASCII character set; then, expressed as a radix-128 integer, pt becomes
+(112 - 128) + 116 = 14452. In the context of a given application, we can usually
+devise some such method for interpreting each key as a (possibly large) natural
+number. In what follows, we assume that the keys are natural numbers.
+
+11.3.1 The division method
+
+In the division method for creating hash functions, we map a key k into one of m
+slots by taking the remainder of k divided by m. That is, the hash function is
+
+h(k) =k modm.
+
+For example, if the hash table has size m = 12 and the key is k = 100, then
+h(k) = 4. Since it requires only a single division operation, hashing by division is
+quite fast.
+
+When using the division method, we usually avoid certain values of m. For
+example, m should not be a power of 2, since if m = 2?, then h(k) is just the p
+lowest-order bits of k. Unless we know that all low-order p-bit patterns are equally
+likely, we are better off designing the hash function to depend on all the bits of the
+key. As Exercise 11.3-3 asks you to show, choosing m = 2? — 1 when k is a
+character string interpreted in radix 2? may be a poor choice, because permuting
+the characters of k does not change its hash value.
+
+A prime not too close to an exact power of 2 is often a good choice for m. For
+example, suppose we wish to allocate a hash table, with collisions resolved by
+chaining, to hold roughly n = 2000 character strings, where a character has 8 bits.
+We don’t mind examining an average of 3 elements in an unsuccessful search, and
+so we allocate a hash table of size m = 701. We could choose m = 701 because
+it is a prime near 2000/3 but not near any power of 2. Treating each key k as an
+integer, our hash function would be
+
+h(k) =k mod 701 .
+
+11.3.2 The multiplication method
+
+The multiplication method for creating hash functions operates in two steps. First,
+we multiply the key k by a constant A in the range 0 < A < | and extract the
+

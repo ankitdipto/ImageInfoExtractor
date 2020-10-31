@@ -1,0 +1,51 @@
+292 Chapter9 Memory Management
+
+the actual physical memory is reconciled by the address-translation hardware.
+The logical addresses are translated into physical addresses. This mapping is
+hidden from the user and is controlled by the operating system. Notice that the
+user process by definition is unable to access memory it does not own. It has
+no way of addressing memory outside of its page table, and the table includes
+only those pages that the process owns.
+
+Since the operating system is managing physical memory, it must be aware
+of the allocation details of physical memory: which frames are allocated, which
+frames are available, how many total frames there are, and so on. This informa-
+tion is generally kept in a data structure called a frame table. The frame table
+has one entry for each physical page frame, indicating whether the latter is free
+or allocated and, if it is allocated, to which page of which process or processes.
+
+Inaddition, the operating system must be aware that user processes operate
+in user space, and all logical addresses must be mapped to produce physical
+addresses. If a user makes a system call (to do 1/0, for example) and provides
+an address as a parameter (a buffer, for instance), that address must be mapped
+to produce the correct physical address. The operating system maintains a copy
+of the page table for each process, just as it maintains a copy of the instruction
+counter and register contents. This copy is used to translate logical addresses to
+physical addresses whenever the operating system must map a logical address
+to a physical address manually. It is also used by the CPU dispatcher to define
+the hardware page table when a process is to be allocated the CPU. Paging
+therefore increases the context-switch time.
+
+9.4.2 Hardware Support
+
+Each operating system has its own methods for storing page tables. Most
+allocate a page table for each process. A pointer to the page table is stored with
+the other register values (like the instruction counter) in the process control
+block. When the dispatcher is told to start a process, it must reload the user
+registers and define the correct hardware page-table values from the stored user
+page table.
+
+The hardware implementation of the page table can be done in several
+ways. In the simplest case, the page table is implemented as a set of dedicated
+registers. These registers should be built with very high-speed logic to make the
+paging-address translation efficient. Every access to memory must go through
+the paging map, so efficiency is a major consideration. The CPU dispatcher
+reloads these registers, just as it reloads the other registers. Instructions to load
+or modify the page-table registers are, of course, privileged, so that only the
+operating system can change the memory map. The DEC PDP-11 is an example
+of such an architecture. The address consists of 16 bits, and the page size is 8
+KB. The page table thus consists of eight entries that are kept in fast registers.
+
+The use of registers for the page table is satisfactory if the page table is
+reasonably small (for example, 256 entries). Most contemporary computers,
+

@@ -1,0 +1,74 @@
+764
+
+Chapter 24. Perception
+
+ 
+
+ 
+
+Phone HMM for [m):
+
+0.3 0.9 04
+
+ 
+
+Output probabilities for the phone HMM:
+
+Onset: Mid: End:
+
+C1:0.5 C3: 0.2 C4: 0.1
+C2: 0.2 C4: 0.7 C6: 0.5
+C3:0.3 C5: 0.1 C7: 0.4
+
+ 
+
+ 
+
+Figure 24.36 An HMM for the phone [m]. Each state has several possible outputs, each with
+its own probability.
+
+ 
+
+ 
+
+ 
+
+We could repeat the calculation for all the other phone models to see which one is the most
+probable source of the speech signal.
+
+Actually, most phones have a duration of 50-100 milliseconds, or 5-10 frames at 10
+msec/frame. So the [C1,C4,C6] sequence is unusually quick. Suppose we have a more typical
+speaker who generates the sequence (C1,C1,C4,C4,C6,C6] while producing the phone. It turns
+out there are two paths through the model that generate this sequence. In one of them both C4s
+come from the Mid state (note the arcs that loop back), and in the other the second C4 comes
+from the End state. We calculate the probability that this sequence came from the [m] model
+in the same way: take the sum over all possible paths of the probability of the path times the
+probability that the path generates the sequence.
+
+P(ICI,C1, C4, C4, C6, C6} []) =
+
+(0.3 x 0.7 x 0.9x 0.1 x 0.4 x 0.6) x (0.5 x 0.5 x 0.7 x 0.7 x 0.5 xX0.5) +
+
+(0.3 x 0.7 x 0.1 x 0.4 x 0.4 x 0.6) x (0.5 x 0.5 x 0.7 x 0.1 x 0.5 x 0.5)
+
+= 0.0001477
+We see that the loops in the phone model allow the model to represent both fast and slow speech,
+a very important source of variation. The multiple vector quantization values on each state
+represent other sources of variation. Altogether, this makes for a fairly powerful model. The
+hard part is getting good probability values for all the parameters. Fortunately, there are ways of
+acquiring these numbers from data, as we shall see.
+
+Putting the models together
+
+We have described three models. The language bigram model gives us P(word;|word;-1). The
+word pronunciation HMM gives us P(phones|word). The phone HMM gives us P(signal|phone).
+Ifwe want to compute P(words|signal),we will need to combine these models in some way. One
+
+ 
+
+ 
+
+ 
+
+ 
+

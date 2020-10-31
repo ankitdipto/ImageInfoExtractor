@@ -1,0 +1,41 @@
+Chapter 5: Functions & Pointers 197
+
+ 
+
+order. Thus during the call to fun( ) firstly value of b is pushed to
+the stack, followed by the value of a.
+
+The recursive calls are no different. Whenever we make a
+recursive call the parameters and the return address gets pushed on
+the stack. The stack gets unwound when the control returns from
+the called function. Thus during every recursive function call we
+are working with a fresh set of parameters.
+
+Also, note that while writing recursive functions you must have an
+if statement somewhere in the recursive function to force the
+function to return without recursive call being executed. If you
+don’t do this and you call the function, you will fall in an
+indefinite loop, and the stack will keep on getting filled with
+parameters and the return address each time there is a call. Soon
+the stack would become full and you would get a run-time error
+indicating that the stack has become full. This is a very common
+error while writing recursive functions. My advice is to use
+printf() statement liberally during the development of recursive
+function, so that you can watch what is going on and can abort
+execution if you see that you have made a mistake.
+
+Adding Functions to the Library
+
+Most of the times we either use the functions present in the
+standard library or we define our own functions and use them. Can
+we not add our functions to the standard library? And would it
+make any sense in doing so? We can add user-defined functions to
+the library. It makes sense in doing so as the functions that are to
+be added to the library are first compiled and then added. When we
+use these functions (by calling them) we save on their compilation
+time as they are available in the library in the compiled form.
+
+Let us now see how to add user-defined functions to the library.
+Different compilers provide different utilities to add/delete/modify
+functions in the standard library. For example, Turbo C/C++
+

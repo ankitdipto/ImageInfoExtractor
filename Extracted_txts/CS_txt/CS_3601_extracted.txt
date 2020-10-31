@@ -1,0 +1,50 @@
+566
+
+Chapter 21 Data Structures for Disjoint Sets
+
+Operation Number of objects updated
+MAKE-SET(X1) 1
+MAKE-SET(X2) 1
+MAKE-SET(Xn) 1
+
+UNION (x2,.41) 1
+
+UNION (x3, x2) 2
+UNION(x4,.x3) 3
+
+UNION(Xn, Xn—1) n-1
+
+Figure 21.3 A sequence of 2n — 1 operations on n objects that takes @(n) time, or (7) time
+per operation on average, using the linked-list set representation and the simple implementation of
+UNION.
+
+n-1
+
+> = Q(n?).
+
+i
+
+ 
+
+The total number of operations is 2n —1, and so each operation on average requires
+©(n) time. That is, the amortized time of an operation is O(7).
+
+A weighted-union heuristic
+
+In the worst case, the above implementation of the UNION procedure requires an
+average of @(n) time per call because we may be appending a longer list onto
+a shorter list; we must update the pointer to the set object for each member of
+the longer list. Suppose instead that each list also includes the length of the list
+(which we can easily maintain) and that we always append the shorter list onto the
+longer, breaking ties arbitrarily. With this simple weighted-union heuristic, a sin-
+gle UNION operation can still take Q(n) time if both sets have Q(n) members. As
+the following theorem shows, however, a sequence of m MAKE-SET, UNION, and
+FIND-SET operations, 1 of which are MAKE-SET operations, takes O(m + nlgn)
+time.
+
+Theorem 21.1
+
+Using the linked-list representation of disjoint sets and the weighted-union heuris-
+tic, a sequence of m MAKE-SET, UNION, and FIND-SET operations, 1 of which
+are MAKE-SET operations, takes O(m + n lg) time.
+

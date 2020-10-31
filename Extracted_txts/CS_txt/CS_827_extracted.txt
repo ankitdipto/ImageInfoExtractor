@@ -1,0 +1,41 @@
+Chapter 5: Functions & Pointers 173
+
+ 
+
+1 is passed through the expression at++ and then a is incremented
+to 2. Then result of ++a is passed. That is, a is incremented to 3
+and then passed. Finally, latest value of a, i.e. 3, is passed. Thus in
+right to left order 1, 3, 3 get passed. Once printf() collects them it
+prints them in the order in which we have asked it to get them
+printed (and not the order in which they were passed). Thus 3 3 1
+gets printed.
+
+One Dicey Issue
+Consider the following function calls:
+
+#include <conio.h>
+clrscr ();
+
+gotoxy (10, 20);
+ch = getch (a);
+
+Here we are calling three standard library functions. Whenever we
+call the library functions we must write their prototype before
+making the call. This helps the compiler in checking whether the
+values being passed and returned are as per the prototype
+declaration. But since we don’t define the library functions (we
+merely call them) we may not know the prototypes of library
+functions. Hence when the library of functions is provided a set of
+“h’ files is also provided. These files contain the prototypes of
+library functions. But why multiple files? Because the library
+functions are divided into different groups and one file is provided
+for each group. For example, prototypes of all input/output
+functions are provided in the file ‘stdio.h’, prototypes of all
+mathematical functions are provided in the file ‘math.h’, etc.
+
+On compilation of the above code the compiler reports all errors
+due to the mismatch between parameters in function call and their
+corresponding prototypes declared in the file ‘conio.h’. You can
+even open this file and look at the prototypes. They would appear
+as shown below:
+

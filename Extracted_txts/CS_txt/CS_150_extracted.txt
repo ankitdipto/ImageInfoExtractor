@@ -1,0 +1,49 @@
+762
+
+Chapter 26 Maximum Flow
+
+subareas. Each expert can work on multiple jobs simultaneously. If the company
+chooses to accept job J;, it must have hired experts in all subareas in R;, and it will
+take in revenue of p; dollars.
+
+Professor Gore’s job is to determine which subareas to hire experts in and which
+jobs to accept in order to maximize the net revenue, which is the total income from
+jobs accepted minus the total cost of employing the experts.
+
+Consider the following flow network G. It contains a source vertex s, vertices
+A, Ao,..., Ay, vertices Ji, Jo,..., Jm, and a sink vertex ¢. Fork = 1,2...,n,
+the flow network contains an edge (s, Ax) with capacity c(s, Ag) = cx, and
+fori = 1,2,..., m, the flow network contains an edge (J;.f) with capacity
+c(Ji.t) = p;. Fork = 1,2,..., nandi = 1,2,..., m, if Ay € R;, then G
+contains an edge (Ax, J;) with capacity c( Ag, Jj) = 00.
+
+a. Show that if J; € T fora finite-capacity cut (S, 7) of G, then Ay € T for each
+A, ER;.
+
+b. Show how to determine the maximum net revenue from the capacity of a mini-
+mum cut of G and the given p; values.
+
+c. Give an efficient algorithm to determine which jobs to accept and which experts
+to hire. Analyze the running time of your algorithm in terms of m, n, and
+
+r= Di IR.
+
+26-4 Updating maximum flow
+Let G = (V, E) be a flow network with source s, sink f, and integer capacities.
+Suppose that we are given a maximum flow in G.
+
+a. Suppose that we increase the capacity of a single edge (u,v) € E by 1. Give
+an O(V + E)-time algorithm to update the maximum flow.
+
+b. Suppose that we decrease the capacity of a single edge (u,v) € E by 1. Give
+an O(V + E)-time algorithm to update the maximum flow.
+
+26-5 Maximum flow by scaling
+Let G = (V, E) be a flow network with source s, sink f, and an integer capac-
+ity c(u, v) on each edge (u,v) € E. Let C = maxqvez c(u,v).
+
+a. Argue that a minimum cut of G has capacity at most C | E|.
+
+b. For a given number K, show how to find an augmenting path of capacity at
+least K in O(E) time, if such a path exists.
+

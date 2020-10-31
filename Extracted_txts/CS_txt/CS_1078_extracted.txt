@@ -1,0 +1,44 @@
+378 Let Us C
+
+ 
+
+we are passing the base addresses of the arrays name and
+author, but the value stored in callno. Thus, this is a mixed
+call—a call by reference as well as a call by value.
+
+It can be immediately realized that to pass individual elements
+would become more tedious as the number of structure
+elements go on increasing. A better way would be to pass the
+entire structure variable at a time. This method is shown in the
+following program.
+
+struct book
+
+{
+char name[25] ;
+char author[25] ;
+
+int callno ;
+
+hi
+
+main()
+
+{
+struct book b1 = { "Let us C", "YPK", 101};
+display (b1) ;
+
+display ( struct book b )
+{
+
+printf ( "\n%s %s %d", b.name, b.author, b.callno ) ;
+}
+
+And here is the output...
+Let us C YPK 101
+
+Note that here the calling of function display( ) becomes quite
+compact,
+
+display ( b1) ;
+

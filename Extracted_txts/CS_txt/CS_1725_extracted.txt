@@ -1,0 +1,53 @@
+262 cuarrer e1oHT Central Processing Unit
+
+effective address
+
+Zero-address instructions in a stack-organized computer are implied-mode
+instructions since the operands are implied to be on top of the stack.
+
+Immediate Mode: In this mode the operand is specified in the instruction
+itself. In other words, an immediate-mode instruction has an operand field
+rather than an address field. The operand field contains the actual operand to
+be used in conjunction with the operation specified in the instruction. Imme-
+diate-mode instructions are useful for initializing registers to a constant value.
+
+It was mentioned previously that the address field of an instruction may
+specify either a memory word or a processor register. When the address field
+specifiesa processor register, the instruction is said to be in the register mode.
+
+ 
+
+Register Mode: Inthismode the operands are in registers that reside within
+the CPU. The particular register is selected from a register field in the instruc-
+tion. A k-bit field can specify any one of 2* registers.
+
+Register Indirect Mode: _In this mode the instruction specifiesa registerin the
+CPU whose contents give the address of the operand in memory. In other
+words, the selected register contains the address of the operand rather than
+the operand itself. Before using a register indirect mode instruction, the pro-
+grammer must ensure that the memory address of the operand is placed in the
+Processor register with a previous instruction. A reference to the register is
+then equivalent to specifying a memory address. The advantage of a register
+indirect mode instruction is that the address field of the instruction uses fewer
+bits to select a register than would have been required to specify a memory
+address directly.
+
+Autoincrement or Autodecrement Mode: This is similar to the register in-
+direct mode except that the register is incremented or decremented after (or
+before) its value is used to access memory. When the address stored in the
+register refers to a table of data in memory, it is necessary to increment or
+decrement the register after every access to the table. This can be achieved by
+using the increment or decrement instruction. However, because it is such a
+common requirement, some computers incorporate a special mode that auto-
+matically increments or decrements the content of the register after data access.
+
+The address field of an instruction is used by the control unit in the CPU
+toobtainthe operand from memory. Sometimes the value givenin the address
+field is the address of the operand, but sometimes it is just an address from
+which the address of the operand is calculated. To differentiate among the
+various addressing modes it is necessary to distinguish between the address
+part of the instruction and the effective address used by the control when
+executing the instruction. The effective address is defined to be the memory
+address obtained from the computation dictated by the given addressing
+mode. The effective address is the address of the operand in a computational-
+

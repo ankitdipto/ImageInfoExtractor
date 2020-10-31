@@ -1,0 +1,41 @@
+570 Let UsC
+
+ 
+
+elements. They govern the properties of the window. Registration
+of a window class, creation of a window and displaying of a
+window involves calling of API functions RegisterClassEx( ),
+CreateWindow( ) and ShowWindow( ) respectively. Since all the
+4 steps mentioned above would be required in almost every
+program in this chapter I have written this code in a user-defined
+function called InitInstance( ) in the file ‘helper.h’.
+
+Though writing code in a header file goes against the convention I
+have still done so to achieve simplicity. The complete listing of
+‘helper.h’ file is available in Appendix F. Alternatively you can
+download it from the following link:
+
+www.kicit.com/books/letusc/sourcecode/helper.h
+
+As expected WinMain( ) starts off by calling the function
+InitInstance( ) present in ‘helper.h’ file. This file has been
+#included at the beginning of the program. Remember to copy this
+file to your project directory—the directory in which you are going
+to create this program.
+
+Once the window has been created and displayed let us see how
+we can interact with it.
+
+Interaction with Window
+
+As and when the user interacts with the wnndow—by stretching its
+boundaries or clicking the buttons in the title bar, etc. a suitable
+message is posted into the message queue of our application. Our
+application should now pick them up from the message queue and
+process them.
+
+A message contains a message id and some other additional
+information about the message. For example, a mouse click
+message would contain additional information like handle to the
+window with which the user has interacted, the coordinates of
+

@@ -1,0 +1,75 @@
+170
+
+Chapter 6. Agents that Reason Logically
+
+ 
+
+MODEL
+
+ 
+
+that a reasoning system be able to draw conclusions that follow from the premises, regardless
+of the world to which the sentences are intended to refer. But it is a good idea for a reasoning
+system to follow this principle in any case. Suppose we replace the "user" in Figure 6,11 with
+a camera-based visual processing system that sends input sentences to the reasoning system. It
+makes no difference! Even though the computer now has "direct access" to the world, inference
+can still take place through direct operations on the syntax of sentences, without any additional 4
+information as to their intended meaning.
+
+ 
+
+input sentences
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 6.11 Sentences often refer to a world to which the agent has no independent access.
+
+ 
+
+ 
+
+ 
+
+Models
+
+Any world in which a sentence is true under a particular interpretation is called a model of that
+sentence under that interpretation. Thus, the world shown in Figure 6.2 is a model of the sentence
+“S$; 2” under the interpretation in which it means that there is a stench in [1,2]. There are many
+other models of this sentence—you can make up a world that does or does not have pits and gold
+in various locations, and as long as the world has a stench in [1,2], it is a model of the sentence.
+The reason there are so many models is because “S,.>” makes a very weak claim about the world.
+The more we claim (i.e., the more conjunctions we add into the knowledge base), the fewer the
+models there will be. -
+
+Models are very important in logic, because, to restate the definition of entailment, a
+sentence a is entailed by a knowledge base KB ifthe models of KB are all models ofa. If this is
+the case, then whenever KB is true, a must also be true.
+
+In fact, we could define the meaning of a sentence by means of set operations on sets of
+models. For example, the set of models of P A Q is the intersection of the models of P and the
+models of QO. Figure 6,12 diagrams the set relationships for the four binary connectives.
+
+We have said that models are worlds. One might feel that real worlds are rather messy
+things on which to base a formal system. Some authors prefer to think of models as mathematical
+objects. In this view, a model in propositional logic is simply a mapping from proposition symbols
+
+ 
+

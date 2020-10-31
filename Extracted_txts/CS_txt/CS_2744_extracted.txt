@@ -1,0 +1,51 @@
+304
+
+Chapter 12 Binary Search Trees
+
+If equality holds, we implement one of the following strategies. For each strategy,
+find the asymptotic performance of inserting n items with identical keys into an
+initially empty binary search tree. (The strategies are described for line 5, in which
+we compare the keys of z and x. Substitute y for x to arrive at the strategies for
+line 11.)
+
+b. Keep a boolean flag x.b at node x, and set x to either x./eft or x.right based
+on the value of x.b, which alternates between FALSE and TRUE each time we
+visit x while inserting a node with the same key as x.
+
+c. Keep a list of nodes with equal keys at x, and insert z into the list.
+
+d. Randomly set x to either x./eft or x.right. (Give the worst-case performance
+and informally derive the expected running time.)
+
+12-2 Radix trees
+
+Given two strings d = dd, ...dy and b = bob, ....bg, where each a; and each b;
+is in some ordered set of characters, we say that string a is lexicographically less
+than string b if either
+
+1. there exists an integer 7, where 0 < j < min(p,q), such that a; = 5; for all
+i=0,1,..., j —land aj <b;,or
+
+2. p <qanda; =); foralli =0,1,..., Pp.
+
+For example, if a and b are bit strings, then 10100 < 10110 by rule 1 (letting
+J = 3) and 10100 < 101000 by rule 2. This ordering is similar to that used in
+English-language dictionaries.
+
+The radix tree data structure shown in Figure 12.5 stores the bit strings 1011,
+10, 011, 100, and 0. When searching for a key d = dod ...dp, we go left ata
+node of depth i ifa; = 0 and right ifa; = 1. Let S be a set of distinct bit strings
+whose lengths sum to 2. Show how to use a radix tree to sort S lexicographically
+in ©(n) time. For the example in Figure 12.5, the output of the sort should be the
+sequence 0, 011, 10, 100, 1011.
+
+12-3 Average node depth in a randomly built binary search tree
+In this problem, we prove that the average depth of a node in a randomly built
+binary search tree with 7 nodes is O(lgn). Although this result is weaker than
+that of Theorem 12.4, the technique we shall use reveals a surprising similarity
+between the building of a binary search tree and the execution of RANDOMIZED-
+QUICKsSoRT from Section 7.3.
+
+We define the total path length P(T) of a binary tree T as the sum, over all
+nodes x in T, of the depth of node x, which we denote by d(x, T).
+

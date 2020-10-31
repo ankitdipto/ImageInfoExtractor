@@ -1,0 +1,52 @@
+31.8  Primality testing 965
+
+31.7-2
+
+Prove that if Alice’s public exponent e is 3 and an adversary obtains Alice’s secret
+exponent d, where 0 < d < ¢(n), then the adversary can factor Alice’s modulus
+in time polynomial in the number of bits in 7. (Although you are not asked to prove
+it, you may be interested to know that this result remains true even if the condition
+e = 3 is removed. See Miller [255].)
+
+31.7-3, x
+Prove that RSA is multiplicative in the sense that
+
+P4(M,) P4(Mz) = Pa(M, M2) (mod n) .
+
+Use this fact to prove that if an adversary had a procedure that could efficiently
+decrypt 1 percent of messages from Z,, encrypted with P4, then he could employ
+a probabilistic algorithm to decrypt every message encrypted with P4 with high
+probability.
+
+ 
+
+* 31.8 Primality testing
+
+In this section, we consider the problem of finding large primes. We begin with a
+discussion of the density of primes, proceed to examine a plausible, but incomplete,
+approach to primality testing, and then present an effective randomized primality
+test due to Miller and Rabin.
+
+ 
+
+The density of prime numbers
+
+For many applications, such as cryptography, we need to find large “random”
+primes. Fortunately, large primes are not too rare, so that it is feasible to test
+random integers of the appropriate size until we find a prime. The prime distribu-
+tion function 1(n) specifies the number of primes that are less than or equal ton.
+For example, 7(10) = 4, since there are 4 prime numbers less than or equal to 10,
+namely, 2, 3, 5, and 7. The prime number theorem gives a useful approximation
+to m(n).
+
+Theorem 31.37 (Prime number theorem)
+mn) 1 :
+
+ 
+
+HI
+n>oon/Inn
+
+The approximation /Inn gives reasonably accurate estimates of (n) even
+for small n. For example, it is off by less than 6% at n = 10°, where z(n) =
+

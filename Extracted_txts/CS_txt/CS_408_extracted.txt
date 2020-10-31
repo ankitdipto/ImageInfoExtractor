@@ -1,0 +1,53 @@
+972
+
+Chapter 31 Number-Theoretic Algorithms
+
+In other words, n is not a Carmichael number. Because, as we noted earlier,
+Carmichael numbers are extremely rare, case 1 is the main case that arises “in
+practice” (e.g., when n has been chosen randomly and is being tested for primal-
+ity).
+
+Let B = {b € Z*: b""! =1 (mod n)}. Clearly, B is nonempty, since 1 € B.
+Since B is closed under multiplication modulo n, we have that B is a subgroup
+of Z* by Theorem 31.14. Note that every nonwitness belongs to B, since a non-
+witness a satisfies a"~! = 1 (mod n). Since x € Z* — B, we have that B is a
+proper subgroup of Z*.
+
+Case 2: For all x € Zy,
+
+x"! =1 (modn). (31.41)
+
+In other words, n is a Carmichael number. This case is extremely rare in prac-
+tice. However, the Miller-Rabin test (unlike a pseudo-primality test) can efficiently
+determine that Carmichael numbers are composite, as we now show.
+
+In this case, n cannot be a prime power. To see why, let us suppose to the
+contrary that = p*, where p is a prime and e > 1. We derive a contradiction
+as follows. Since we assume that n is odd, p must also be odd. Theorem 31.32
+implies that Z* is a cyclic group: it contains a generator g such that ord,(g) =
+|Z*| = p(n) = p®(1—1/p) = (p— 1) p*". (The formula for ¢ (1) comes from
+equation (31.20).) By equation (31.41), we have g”"! = 1 (mod 7). Then the
+discrete logarithm theorem (Theorem 31.33, taking y = 0) implies that — 1 = 0
+(mod (1), or
+
+(p—\p*" | pe 1.
+
+This is a contradiction for e > 1, since (p — 1) p*~! is divisible by the prime p
+but p* — 1 is not. Thus, 7 is not a prime power.
+
+Since the odd composite number 71 is not a prime power, we decompose it into
+a product 7/12, where nm, and 2 are odd numbers greater than | that are relatively
+prime to each other. (There may be several ways to decompose n, and it does not
+matter which one we choose. For example, if = pj! p5?-+- pér, then we can
+choose ny = py! and ny = ps? p§°+-- pf.)
+
+Recall that we define ¢ and u so that n— 1 = 2'u, where t > 1 and u is odd, and
+that for an input a, the procedure WITNESS computes the sequence
+
+X = (a"a™,a?",..., a")
+
+(all computations are performed modulo 1).
+Let us call a pair (v, j) of integers acceptable if v € Z*, j € {0,1,.... t}, and
+
+v?’" =—_] (modn).
+

@@ -1,0 +1,44 @@
+Chapter 2: The Decision Control Structure 61
+
+ 
+
+followed throughout the book to enable you to understand the
+working of the program better.
+
+(c) Had there been only one statement to be executed in the if
+block and only one statement in the else block we could have
+dropped the pair of braces.
+
+(d) As with the if statement, the default scope of else is also the
+statement immediately after the else. To override this default
+scope a pair of braces as shown in the above example must be
+used.
+
+Nested if-elses
+
+It is perfectly all right if we write an entire if-else construct within
+either the body of the if statement or the body of an else statement.
+This is called ‘nesting’of ifs. This is shown in the following
+program.
+
+I" Aquick demo of nested if-else */
+main()
+{
+
+int i;
+
+printf (“Enter either 1 or 2") ;
+scanf ("%d", &i) ;
+
+if(i==1)
+
+printf ( "You would go to heaven !") ;
+else
+{
+
+if (i==
+
+printf ( "Hell was created with you in mind”) ;
+else
+printf ("How about mother earth !" ) ;
+

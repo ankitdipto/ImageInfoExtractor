@@ -1,0 +1,40 @@
+22.5 Strongly connected components 615
+
+ 
+
+Figure 22.8 A dag for topological sorting.
+
+22.4-3
+Give an algorithm that determines whether or not a given undirected graph G =
+(V, E) contains a cycle. Your algorithm should run in O(V) time, independent
+of |E|.
+
+22.4-4
+
+Prove or disprove: If a directed graph G contains cycles, then TOPOLOGICAL-
+SorT(G) produces a vertex ordering that minimizes the number of “bad” edges
+that are inconsistent with the ordering produced.
+
+22.4-5
+
+Another way to perform topological sorting on a directed acyclic graph G =
+(V, E) is to repeatedly find a vertex of in-degree 0, output it, and remove it and
+all of its outgoing edges from the graph. Explain how to implement this idea so
+that it runs in time O(V + E). What happens to this algorithm if G has cycles?
+
+ 
+
+22.5 Strongly connected components
+
+We now consider a classic application of depth-first search: decomposing a di-
+rected graph into its strongly connected components. This section shows how to do
+so using two depth-first searches. Many algorithms that work with directed graphs
+begin with such a decomposition. After decomposing the graph into strongly con-
+nected components, such algorithms run separately on each one and then combine
+the solutions according to the structure of connections among components.
+
+Recall from Appendix B that a strongly connected component of a directed
+graph G = (V, E£) is a maximal set of vertices C C V such that for every pair
+of vertices u and v in C, we have both u ~ v and v ~ u; that is, vertices u and v
+are reachable from each other. Figure 22.9 shows an example.
+

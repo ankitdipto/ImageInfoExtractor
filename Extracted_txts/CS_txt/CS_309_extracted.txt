@@ -1,0 +1,44 @@
+892
+
+Chapter 29 Linear Programming
+
+Theorem 29.13 (Fundamental theorem of linear programming)
+Any linear program L, given in standard form, either
+
+1. has an optimal solution with a finite objective value,
+2. is infeasible, or
+
+3. is unbounded.
+
+If L is infeasible, SIMPLEX returns “infeasible.” If L is unbounded, SIMPLEX
+returns “unbounded.” Otherwise, SIMPLEX returns an optimal solution with a finite
+objective value.
+
+Proof By Lemma 29.12, if linear program L is infeasible, then SIMPLEX returns
+“infeasible.” Now suppose that the linear program L is feasible. By Lemma 29.12,
+INITIALIZE-SIMPLEX returns a slack form for which the basic solution is feasible.
+By Lemma 29.7, therefore, SIMPLEX either returns “unbounded” or terminates
+with a feasible solution. If it terminates with a finite solution, then Theorem 29.10
+tells us that this solution is optimal. On the other hand, if SIMPLEX returns “un-
+bounded,” Lemma 29.2 tells us the linear program L is indeed unbounded. Since
+SIMPLEX always terminates in one of these ways, the proof is complete. .
+
+Exercises
+
+29.5-1
+Give detailed pseudocode to implement lines 5 and 14 of INITIALIZE-SIMPLEX.
+
+29.5-2
+Show that when the main loop of SIMPLEX is run by INITIALIZE-SIMPLEX, it can
+never return “unbounded.”
+
+29.5-3
+
+Suppose that we are given a linear program L in standard form, and suppose that
+for both L and the dual of L, the basic solutions associated with the initial slack
+forms are feasible. Show that the optimal objective value of L is 0.
+
+29.5-4
+Suppose that we allow strict inequalities in a linear program. Show that in this
+case, the fundamental theorem of linear programming does not hold.
+

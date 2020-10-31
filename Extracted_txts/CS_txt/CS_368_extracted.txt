@@ -1,0 +1,49 @@
+31.3 Modular arithmetic 939
+
+31.2-7
+
+Define the ged function for more than two arguments by the recursive equation
+ged(do,d1,..., An) = ged(do, ged(a),d2,..., a,)). Show that the ged function
+returns the same answer independent of the order in which its arguments are speci-
+fied. Also show how to find integers x9,%1,.... X, such that gcd(ao.d1,..., dn) =
+Xo + 41 X1 ++++ + 4,Xn. Show that the number of divisions performed by your
+algorithm is O(n + Ig(max {ao.@1..... An})).
+
+31.2-8
+
+Define Iem(d;,d9,..., a,) to be the least common multiple of the n integers
+,,d9,..., a, that is, the smallest nonnegative integer that is a multiple of each a;.
+Show how to compute Iem(a;,d2,..., a,) efficiently using the (two-argument) ged
+operation as a subroutine.
+
+31.2-9
+Prove that 71, 2, 3, and m4 are pairwise relatively prime if and only if
+ged(min2,n3n4) = ged(mins,n2n4) = 1.
+
+More generally, show that 7;,/12,..., Nk are pairwise relatively prime if and only
+if a set of [lg] pairs of numbers derived from the n; are relatively prime.
+
+ 
+
+31.3. Modular arithmetic
+
+Informally, we can think of modular arithmetic as arithmetic as usual over the
+integers, except that if we are working modulo n, then every result x is replaced
+by the element of {0,1,..., n — 1} that is equivalent to x, modulo n (that is, x is
+replaced by x mod 7). This informal model suffices if we stick to the operations
+of addition, subtraction, and multiplication. A more formal model for modular
+arithmetic, which we now give, is best described within the framework of group
+theory.
+
+Finite groups
+
+A group (S,@) is a set S together with a binary operation @ defined on S for
+which the following properties hold:
+
+1. Closure: For alla,b € S,wehavea@beS.
+
+2. Identity: There exists an element e € S, called the identity of the group, such
+thate @a =a Pe =a forallacS.
+
+3. Associativity: For all a,b,c € S, we have (a @b) @c =a @(b Gc).
+

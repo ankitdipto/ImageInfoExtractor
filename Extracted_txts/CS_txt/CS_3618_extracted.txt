@@ -1,0 +1,71 @@
+section 4. 1.
+
+Best-First Search 97
+
+ 
+
+ADMISSIBLE
+HEURISTIC
+
+ 
+
+MONOTONICITY
+
+ 
+
+Since g(”) gives the path cost from the start node to node n, and A(n)is the estimated cost of the
+cheapest path from 7 to the goal, we have
+
+f(n) = estimated cost of the cheapest solution through n
+
+Thus, if we are trying to find the cheapest solution, a reasonable thing to try first is the node with
+the lowest value of f The pleasant thing about this strategy is that it is more thanjust reasonable
+We can actually prove that itis complete and optimal, given a simple restriction on the h function.
+
+The restriction is to choose an h function that never overestimates the cost to reach the
+goal. Such an /is called an admissible heuristic. Admissible heuristics are by nature optimistic,
+because they think the cost of solving the problem is less than it actually is. This optimism
+transfers to the f function as well: if his admissible, f(n) never overestimates the actual cost of
+the best solution through n. Best-first search using f as the evaluation function and an admissible
+h function is known as A* search
+
+ 
+
+function A*-SEARCH(problem) returns a solution or failure
+return BEST-FIRST-SEARCH( problem,g +h)
+
+ 
+
+ 
+
+ 
+
+Perhaps the most obvious example of an admissible heuristic is the straight-line distance
+Asyp that we used in getting to Bucharest. Straight-line distance is admissible because the shortest
+path between any two points is a straight line. In Figure 4.4, we show the first few steps ofan A*
+search for Bucharest using the /s;p heuristic. Notice that the A* search prefers to expand from
+Rimnicu Vilcea rather than from Fagaras. Even though Fagaras is closer to Bucharest, the path
+taken to get to Fagaras is not as efficient in getting close to Bucharest as the path taken to get to
+Rimnicu. The reader may wish to continue this example to see what happens next.
+
+The behavior of A* search
+
+Before we prove the completeness and optimality of A*, it will be useful to present an intuitive
+picture of how it works. A picture is not a substitute for a proof, but it is often easier to remember
+and can be used to generate the proofon demand. First, apreliminary observation: ifyou examine
+the search trees in Figure 4.4, you will notice an interesting phenomenon. Along any path from
+the root, the f-cost never decreases. This is no accident. It holds true for almost all admissible
+heuristics. A heuristic for which it holds is said to exhibit monotonicity.'
+
+If the heuristic is one of those odd ones that is not monotonic, it turns out we can make a
+minor correction that restores monotonicity. Let us consider two nodes n and n’, where n is the
+parent ofn’. Now suppose, for example, that g(n) = 3 and A(n) = 4. Thenf(n) = g(n)+h(n)- 7—
+that is, we know that the true cost ofa solution path through n is at least 7. Suppose also that
+g(n') = 4 and h(n’)- 2, so that f(n’) = 6. Clearly, this is an example ofa nonmonotonic heuristic.
+Fortunately, from the fact that anv path through n’ is also a path through n, we can see that the
+value of 6 is meaningless, because we already know the true cost is at least 7. Thus, we should
+
+' It canbe proved (Pearl, 1984)that a heuristic is monotonic if and only if it obeys the triangle inequality. The triangle
+inequality says that two sides ofa triangle cannot add up to less than the third side (see Exercise 4.7). Of course,
+straight-line distance obeys the triangle inequality and is therefore monotonic.
+

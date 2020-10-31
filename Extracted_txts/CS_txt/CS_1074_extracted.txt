@@ -1,0 +1,42 @@
+374 Let Us C
+
+ 
+
+scanf( ) and atof( ). There are some cases in which the
+reference to the float is a bit obscure and the compiler does
+not detect the need for the emulator. The most common is
+using scanf( ) to read a float in an array of structures as
+shown in our program.
+
+How can we force the formats to be linked? That’s where the
+linkfloat( ) function comes in. It forces linking of the
+floating-point emulator into an application. There is no need
+to call this function, just define it anywhere in your program.
+
+Additional Features of Structures
+
+Let us now explore the intricacies of structures with a view of
+programming convenience. We would highlight these intricacies
+with suitable examples:
+
+(a) The values of a structure variable can be assigned to another
+structure variable of the same type using the assignment
+operator. It is not necessary to copy the structure elements
+piece-meal. Obviously, programmers prefer assignment to
+piece-meal copying. This is shown in the following example.
+
+main()
+{
+struct employee
+{
+char namef[10] ;
+int age ;
+float salary ;
+
+struct employee e1 = { "Sanjay", 30, 5500.50} ;
+struct employee 2, e3 ;
+
+/* piece-meal copying */
+strcpy (e2.name, e1.name) ;
+e2.age = e1.age ;
+

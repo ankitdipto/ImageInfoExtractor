@@ -1,0 +1,65 @@
+78
+
+Chapter 3. Solving Problems by Searching
+
+ 
+
+DEPTH-LIMITED
+SEARCH
+
+DIAMETER
+
+finding a solution after exploring only a small portion of the whole space. Breadth-first search
+would still have to look at all the paths of length d- 1 before considering any of length d.
+Depth-first search is still O(b”) in the worst case.
+
+The drawback of depth-first search is that it can get stuck going down the wrong path.
+Many problems have very deep or even infinite search trees, so depth-first search will never be
+able to recover from an unlucky choice at one of the nodes near the top of the tree. The search
+will always continue downward without backing up, even when a shallow solution exists. Thus,
+on these problems depth-first search will either get stuck in an infinite loop and never return a
+solution, or it may eventually find a solution path that is longer than the optimal solution. That
+means depth-first search is neither complete nor optimal. Because of this, depth-first search
+should be avoidedfor search trees with large or infinite maximum depths.
+
+It is trivial to implement depth-first search with GENERAL-SEARCH:
+
+ 
+
+function DEPTH-FIRST-SEARCH( problem) returns a solution, or failure
+‘GENERAL-SEARCH( problem, ENQUEUE-AT-FRONT)
+
+ 
+
+ 
+
+ 
+
+tis also common to implement depth-first search with a recursive function that calls itself on
+each of its children in turn. In this case, the queue is stored implicitly in the local state of each
+invocation on the calling. stack.
+
+Depth-limited search
+
+Depth-limited search avoids the pitfalls of depth-first search by imposing a cutoff on the max-
+imum depth of a path. This cutoff can be implemented with a special depth-limited search
+algorithm, or by using the general search algorithm with operators that keep track of the depth.
+For example, on the map of Romania, there are 20 cities, so we know that if there is a solution,
+then it must be of length 19 at the longest. We can implement the depth cutoffusing operators
+of the form "If you are in city A and have travelled a path of less than 19 steps, then generate
+a new state in city B with a path length that is one greater." With this new operator set, we are
+guaranteed to find the solution if it exists, but we are still not guaranteed to find the shortest
+solution first: depth-limited search is complete but not optimal. If we choose a depth limit that
+is too small, then depth-limited search is not even complete. The time and space complexity of
+depth-limited search is similar to depth-first search. It takes O(b')time and O(bl)space, where /
+is the depth limit.
+
+Iterative deepening search
+
+The hard part about depth-limited search is picking a good limit. We picked 19 as an "obvious"
+depth limit for the Romania problem, but in fact if we studied the map carefully, we would
+discover that any city can be reached from any other city in at most 9 steps. This number, known
+as the diameter of the state space, gives us a better depth limit, which leads to a more efficient
+depth-limited search. However, for most problems, we will not know a good depth limit until we
+have solved the problem.
+

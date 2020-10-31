@@ -1,0 +1,60 @@
+Section 17.3
+
+Policy Iteration
+
+507
+
+ 
+
+ 
+
+ 
+
+HOW IMMORTAL AGENTS DECIDE WHAT TO DO
+
+Making decisions is not easy when one lives forever. The total reward obtained by
+a policy can easily be unbounded. Because one cannot easily compare infinities,
+it is difficult to say which policy is rational; moreover, both value iteration and
+policy iteration will fail to terminate. If the agent's lifetime is finite but contains
+millions of steps, then these algorithms are intractable. These difficulties arise from
+fundamental problems associated with specifying utilities over histories so that the
+resulting "optimal" behavior makes intuitive sense. The same issues arise for humans.
+Should one live fast and die young, or live an unexciting life to a ripe old age?
+
+One of the most common approaches is to use discounting. A discounting
+function considers rewards received in future time steps to be less valuable than
+rewards received in the current time step. Suppose that an environment history H
+contains a stream ofrewards, such that the agent receives reward R; at the ith future time
+step. The standard method of discounting uses the utility function U(H)= 57, 7'Ri.
+where 7 is the discount factor. Provided 0 < 7 < 1, this sum will converge to a finite
+amount. Discounting can be interpreted in at least three different ways:
+
++ As atrick to get rid of the infinities. Essentially, it is a smoothed-out version of
+the limited-horizon algorithms used in game-playing—the smaller the value of
++, the shorter the effective horizon.
+
++ As an accurate model of both animal and human preference behavior. In
+economics, it is widely used in assessing the value of investments.
+As a natural preference-independence assumption associated with rewards over
+time. Discounting follows from an assumption of stationarity. Stationarity
+means the following: iftwo reward sequences Rj, R2, R3,... and S1,52.53,°**
+begin with the same reward (ie., R; = 5)) then the two sequences should be
+preference-ordered the same way as the sequences R2,R3,*°*°* and S2,53,.-.. If
+stationarity seems like a reasonable assumption, then discounting is a reasonable
+way to make decisions.
+
+Ifthe agent's lifetime is long (in number of steps) compared to the number of
+states, then the optimal policy will be repetitive. For example, a taxi driver aiming
+to maximize his income will usually adopt a standard set of waiting pattems for
+times when he does not have a passenger. The system gain is defined as the average
+reward obtained per unit time. It can be shown that after an initial "transient" period,
+any optimal policy has a constant system gain. This fact can be used to compute
+optimal policies—for example, telling the taxi driver where to wait at different times
+of day—using a version of policy iteration.
+
+ 
+
+ 
+
+ 
+

@@ -1,0 +1,57 @@
+Section 10.9.
+
+Summary 329
+
+ 
+
+FUNCTIONAL
+PROGRAMMING
+
+variables (Roach ef al., 1990), rather than the simple equality propagation used in normal
+unification. (Herbrand’s original formulation had also used constraining equations rather than
+syntactic matching.) CLP is analyzed theoretically in (Jaffar and Lassez, 1987). Jaffar et
+al. (1992a) work specifically in the domain of the real numbers, using a logic programming
+language called CLP(R). Concurrent CLP is addressed by Saraswat (1993). Jaffar et al. (1992b)
+present the Constraint Logic Abstract Machine (CLAM), a WAM-like abstraction designed to
+aid in the analysis of CLP(R). Ait-Kaci and Podelski (1993) describe a sophisticated constraint
+logic programming language called LIFE, which combines constraint logic programming with
+functional programming and with inheritance reasoning (as in LOGIN). Prolog II (Colmerauer,
+1990)builds in several assorted types ofreasoning into a Prolog-like language. Volume 58 (1992)
+ofthe journal Artificial Intelligence is devoted primarily to constraint-based systems. Kohn (1991)
+describes an ambitious project to use constraint logic programming as the foundation for a real-
+time control architecture, with applications to fully automatic pilots
+
+Aside from the development of constraint logic and other advanced logic programming
+languages, there has been considerable effort to speed up the execution of Prolog by highly opti-
+mized compilation and the use of parallel hardware, especially in the Japanese Fifth Generation
+computing project. Van Roy (1990) examines some of the issues involved in fast execution on
+serial hardware. Feigenbaum and Shrobe (1993) provide a general account and evaluation of
+the Fifth Generation project. The Fifth Generation's parallel hardware prototype was the PIM,
+or Parallel Inference Machine (Taki, 1992). Logic programming of the PIM was based on the
+formalism of guarded Hom clauses (Ueda, 1985) and the GHC and KLI languages that grew out
+of it (Furukawa, 1992). A number of applications of parallel logic programming are covered by
+Nitta et al. (1992). Other languages for parallel logic programming include Concurrent Prolog
+(Shapiro, 1983) and PARLOG (Clark and Gregory, 1986).
+
+Logic programming is not the only paradigm of programming that has been prominent
+in AT. Functional programming models programs not as collections of logical clauses but
+as descriptions of mathematical functions. Functional programming is based on the lambda
+calculus (Church, 1941) and combinatory logic (Schénfinkel, 1924; Curry and Feys, 1958), two
+sophisticated mathematical notations for describing and reasoning about functions. The earliest
+functional programming language, dating from 1958, was Lisp, which is due to John McCarthy.
+Its history and prehistory is described in detail in (McCarthy, 1978). Incidentally, McCarthy
+denies (p. 190)that Lisp was intended as an actual implementation of the lambda-calculus (as has
+often been asserted), although it does borrow certain features. Lisp stands for LISt Processing,
+the use of linked lists whose elements are connected by pointers (rather than by proximity in
+the machine's address space, as arrays are) to create data structures of great flexibility. The
+list processing technique predated Lisp and functional programming (Newell and Shaw, 1957;
+Gelemter et al, 1960). After its invention, Lisp proliferated into a wide variety of dialects, partly
+because the language had been designed to be easy to modify and extend. In the past two decades,
+there has been an effort to reunify the language as Common Lisp, described in great detail by
+Steele (1990). Both of the two major AI programming texts mentioned above assume the use
+of Lisp. A number of other functional programming languages have been developed around a
+small, clean core of definitions. These include SCHEME, DYLAN, and ML.
+
+The so-called problem-solving languages were precursors of logic programming in that
+they attempted to incorporate inference-like mechanisms, although they were not logic program-
+

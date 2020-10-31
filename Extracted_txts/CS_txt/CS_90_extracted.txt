@@ -1,0 +1,49 @@
+714
+
+Chapter 26 Maximum Flow
+
+26.1-4
+Let f be a flow in a network, and let a be a real number. The scalar flow product,
+denoted af’, is a function from V x V to R defined by
+
+(af)(u,v) =a- fur).
+
+Prove that the flows in a network form a convex set. That is, show that if f, and fo
+are flows, then so is af; + (1 —@) f2 for all w in the range 0 < @ <1.
+
+261-5
+State the maximum-flow problem as a linear-programming problem.
+
+26.1-6
+
+Professor Adam has two children who, unfortunately, dislike each other. The prob-
+lem is so severe that not only do they refuse to walk to school together, but in fact
+each one refuses to walk on any block that the other child has stepped on that day.
+The children have no problem with their paths crossing at a corner. Fortunately
+both the professor’s house and the school are on corners, but beyond that he is not
+sure if it is going to be possible to send both of his children to the same school.
+The professor has a map of his town. Show how to formulate the problem of de-
+termining whether both his children can go to the same school as a maximum-flow
+problem.
+
+26.1-7
+
+Suppose that, in addition to edge capacities, a flow network has vertex capacities.
+That is each vertex v has a limit /(v) on how much flow can pass though v. Show
+how to transform a flow network G = (V, E) with vertex capacities into an equiv-
+alent flow network G’ = (V’, E’) without vertex capacities, such that a maximum
+flow in G’ has the same value as a maximum flow in G. How many vertices and
+edges does G’ have?
+
+ 
+
+26.2 The Ford-Fulkerson method
+
+This section presents the Ford-Fulkerson method for solving the maximum-flow
+problem. We call it a “method” rather than an “algorithm” because it encompasses
+several implementations with differing running times. The Ford-Fulkerson method
+depends on three important ideas that transcend the method and are relevant to
+many flow algorithms and problems: residual networks, augmenting paths, and
+cuts. These ideas are essential to the important max-flow min-cut theorem (The-
+orem 26.6), which characterizes the value of a maximum flow in terms of cuts of
+

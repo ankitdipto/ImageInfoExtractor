@@ -1,0 +1,68 @@
+498
+
+CHAPTER THIRTEEN Muletpracescors
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+o |— coe
+1 901
+2 ; |—n10
+3 jon
+4 |—100
+5 101
+6 uo
+7 jou
+nes
+
+ 
+
+ 
+
+Figure 13-8 8 x 8 omega switching network.
+
+A particular request is initiated in the switching network by the source,
+which sends a 3-bit pattern representing the destination number. As the binary
+pattern moves through the network, each level examines a different bit to
+determine the 2 x 2 switch setting. Level 1 inspects the most significant bit,
+level 2 inspects the middle bit. and level 3 inspects the least significant bit.
+When the request anives on either input of the 2 x 2 switch, it is routed to the
+upper output if the specified bit is 0 or to the lower output if the bit is 1.
+
+Ina tightly coupled multiprocessor system, the source is a processor anc
+the destination is a memory module. The fitst pass through the network sets
+up the path. Succeeding passes are used to transfer the address into memory
+and then transfer the data in either direction, depending on whether the
+request isa read ora write. In a loosely coupled multiprocessar system, both
+the source and destination are processing elements. After the path is estab-
+lished, the source processor transfers a message to the destination proeestor.
+
+Hypercube Interconnection
+
+‘The hypercube or binary n-cube multiprocessor structureis a loosely coupled
+system composed of N = 2° processors interconnected in an n-dimensianal
+binary cube. Each processor formsa node of the cube. Although itis customary
+
+ 
+

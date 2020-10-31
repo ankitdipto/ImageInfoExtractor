@@ -1,0 +1,41 @@
+100 Let Us C
+
+ 
+
+while (count <= 3)
+
+{
+printf ( "\nEnter values of p, n andr") ;
+scanf ("%d %d %f", &p, &n, &r ) ;
+si=p*n*r/100;
+printf ("Simple interest = Rs. %f", si ) ;
+count = count +1 ;
+
+}
+
+}
+
+And here are a few sample runs...
+
+Enter values of p,n andr 1000 5 13.5
+Simple interest = Rs. 675.000000
+
+Enter values of p,n andr 2000 5 13.5
+Simple interest = Rs. 1350.000000
+Enter values of p, n andr 3500 5 3.5
+Simple interest = Rs. 612.500000
+
+The program executes all statements after the while 3 times. The
+logic for calculating the simple interest is written within a pair of
+braces immediately after the while keyword. These statements
+form what is called the ‘body’ of the while loop. The parentheses
+after the while contain a condition. So long as this condition
+remains true all statements within the body of the while loop keep
+getting executed repeatedly. To begin with the variable count is
+initialized to 1 and every time the simple interest logic is executed
+the value of count is incremented by one. The variable count is
+many a times called either a ‘loop counter’ or an ‘index variable’.
+
+The operation of the while loop is illustrated in the following
+figure.
+

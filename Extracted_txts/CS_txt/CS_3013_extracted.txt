@@ -1,0 +1,55 @@
+ 
+
+13. PLANNING AND ACTING
+
+ 
+
+ 
+
+ 
+
+ 
+
+In which planning systems mustface up to the awful prospect ofactually having to
+take their own advice.
+
+The assumptions required for flawless planning and execution, given the algorithms in the previous
+chapters, are that the world be accessible, static, and deterministic—justas for our simple search §
+methods. Furthermore, the action descriptions must be correct and complete, describing all
+the consequences exactly. We described a planning agent in this ideal case in Chapter 11; the
+resemblance to the simple problem-solving agent of Chapter 3 was no coincidence.
+
+In real-world domains, agents have to deal with both incomplete and incorrect information.
+Incompleteness arises because the world is inaccessible; for example, in the shopping world, the
+agent may not know where the milk is kept unless it asks. Incorrectness arises because the world
+does not necessarily match the agent's model of it; for example, the price of milk may have
+doubled overnight, and the agent's wallet may have been pickpocketed.
+
+There are two different ways to deal with the problems arising from incomplete and *
+incorrect information:
+
+CONDITIONAL Conditional planning: Also known as contingency planning, conditional planning deals
+with incomplete information by constructing a conditional plan that accounts for each
+CONTINGENCY possible situation or contingency that could arise. The agent finds out which part of
+
+   
+  
+   
+
+SENSING ACTIONS the plan to execute by including sensing actions in the plan to test for the appropriate :
+conditions. For example, the shopping agent might want to include a sensing action in its +3
+shopping plan to check the price of some object in case it is too expensive. Conditional 4
+planning is discussed in Section 13.1.
+
+EXECUTION. 4 Execution monitoring: The simple planning agent described in Chapter 11 executes its
+plan "with its eyes closed”—once it has a plan to execute, it does not use its percepts to Jj
+select actions. Obviously this is a very fragile strategy when there is a possibility that the.
+agent is using incorrect information about the world. By monitoring what is happening
+while it executes the plan, the agent can tell when things go wrong. It can then 9° 4
+
+REPLANNING replanning to find a way to achieve its goals from the new situation. For example, if the
+agent discovers that it does not have enough money to pay for all the items it has picked
+up, it can return some and replace them with cheaper versions. In Section 13.2 we look
+
+392
+

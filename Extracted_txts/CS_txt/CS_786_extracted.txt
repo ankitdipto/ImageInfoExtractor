@@ -1,0 +1,62 @@
+location counter (LC)
+
+SECTION 64 The Assembler 185
+
+TABLE 6-11 Computer Representation of the Line of Code: PL3, LDA SUBI
+
+ 
+
+ 
+
+ 
+
+Memory Hexadecimal
+word Symbol code Binary representation
+1 P 50 4C 0101 0000 0100 1100
+
+2 34 33 2c 011 0011 0010 1100
+
+3 LD aC 44 100 1100 0100 0100
+
+4 A 41 20 0100 001 0010 0000
+
+5 su 53.55 0101 0011 101 0101
+
+6 B 42 20 (0100 0010 0010 0000
+
+7 1CR 49 0D ——_0100 1001 0000 1101
+
+is stored in seven consecutive memory locations, as shown in Table 6-11. The
+label PL3 occupies two words and is terminated by the code for comma (2C).
+The instruction field in the line of code may have one or more symbols. Each
+symbol is terminated by the code for space (20) except for the last symbol,
+which is terminated by the code of carriage return (0D). If the line of code has
+a comment, the assembler recognizes it by the code for a slash (2F). The
+assembler neglectsall characters in the comment field and keeps checking for
+aCRcode. When this code is encountered, it replaces the space code after the
+last symbol in the line of code.
+
+The input for the assembler program is the user’s symbolic language
+program in ASCIL. Thisinputis scanned by the assembler twice to produce the
+equivalent binary program. The binary program constitutes the output gener-
+ated by the assembler. We will now describe briefly the major tasks that must
+be performed by the assembler during the translation process.
+
+First Pass
+
+Atwo-passassemblerscansthe entire symbolic program twice. During the first
+pass, it generates a table that correlates all user-defined address sy mbols with
+their binary equivalent value. The binary translation is done during the second
+pass. To keep track of the location of instructions, the assembler uses amemory
+word called a location counter (abbreviated LC). The content of LC stores the
+value of the memory location assigned to the instruction or operand presently
+being processed. The ORG pseudoinstruction initializes the location counter
+to the value of the first location. Since instructions are stored in sequential
+locations, the content of LC is incremented by 1 after processing each line of
+code. To avoid ambiguity in case ORG is missing, the assembler sets the
+location counter to 0 initially.
+
+The tasks performed by the assembler during the first pass are described
+in the flowchart of Fig. 6-1. LC is initially set to 0. A line of symbolic code is
+analyzed to determineif it has a label (by the presence of a comma). If the line
+

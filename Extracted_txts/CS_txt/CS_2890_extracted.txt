@@ -1,0 +1,77 @@
+Section 2.3.
+
+Structure of Intelligent Agents 39
+
+ 
+
+4. Even ifwe gave the agent a learning mechanism as well, so that it could have a degree of
+autonomy, it would take forever to learn the right value for all the table entries.
+
+Despite all this, TABLE-DRIVEN-AGENT does do what we want: it implements the desired agent
+mapping. It is not enough to say, "It can't be intelligent;” the point is to understand why an agent
+that reasons (as opposed to looking things up ina table) can do even better by avoiding the four
+drawbacks listed here.
+
+An example
+
+At this point, it will be helpful to consider a particular environment, so that our discussion
+can become more concrete. Mainly because of its familiarity, and because it involves a broad
+range of skills, we will look at the job of designing an automated taxi driver. We should point
+out, before the reader becomes alarmed, that such a system is currently somewhat beyond the
+capabilities of existing technology, although most ofthe components are available in some form.®
+The full driving task is extremely open-ended—there is no limit to the novel combinations of
+circumstances that can arise (which is another reason why we chose it as a focus for discussion).
+
+We must first think about the percepts, actions, goals and environment for the taxi. They
+are summarized in Figure 2.6 and discussed in turn.
+
+ 
+
+ 
+
+Agent Type Percepts Actions Goals Environment
+
+Taxi driver Cameras, Steer, accelerate, Safe, fast, legal, Roads, other
+speedometer, GPS, | brake, wlk to comfortable trip, traffic, pedestrians,
+sonar, microphone | passenger maximize profits customers
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 26 The taxi driver agent type.
+
+ 
+
+ 
+
+ 
+
+The taxi will need to know where it is, what else is on the road, and how fast it is going.
+This information can be obtained from the percepts provided by one or more controllable TV
+cameras, the speedometer, and odometer. To control the vehicle properly, especially on curves, it
+should have an accelerometer; it will also need to know the mechanical state of the vehicle, so it
+will need the usual array of engine and electrical system sensors. It might have instruments that
+are not available to the average human driver: a satellite global positioning system (GPS) to give
+it accurate position information with respect to an electronic map; or infrared or sonar sensors to
+detect distances to other cars and obstacles. Finally, it will need a microphone or keyboard for
+the passengers to tell it their destination.
+
+The actions available to a taxi driver will be more or less the same ones available to a human
+driver: control over the engine through the gas pedal and control over steering and braking. In
+addition, it will need output to a screen or voice synthesizer to talk back to the passengers, and
+perhaps some way to communicate with other vehicles.
+
+© See page 26 for a description of an existing driving robot, or look at the conference proceedings on Intelligent Vehicle
+and Highway Systems (IVHS).
+

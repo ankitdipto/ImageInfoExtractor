@@ -1,0 +1,59 @@
+Section 8.5
+
+The Grocery Shopping World 249
+
+ 
+
+—
+
+position with respect to the agent's position and orientation. For example, the relative position
+[-2,1] is the square two squares to the agent's left and one square ahead. The second component
+is the size of the object, given as the average diameter of the object in meters. Next is the color
+of the object, given as a symbol (red, green, yellow, orange, ...), followed by the object's shape
+(flat, round, square, ...). Finally, we assume that an optical character recognition routine has
+run over the video image; if there: are any letters in the visual field, they are given as a list of
+words. Figure 8.8 shows an overview of a supermarket, with the agent at [4,5] still dressed for the
+wumpus world. The agent is facing left. Figure 8.9(a) shows what the agent perceives with the
+camera Zoomed out, and Figure 8.9(b) shows the agent's visual percept with the camera zoomed
+in at the square [3,6].
+
+Organizing knowledge
+
+The grocery shopping domain is too big to handle all at once. Instead, we will break it down
+into smaller clusters of knowledge, work on each cluster separately, and then see how they fit
+together. One good way of decomposing the domain into clusters is to consider the tasks facing
+the agent. This is called a functional decomposition. We divide the domain into five clusters:
+
+< Menu Planning: The agent will need to know how to modify the shopping list when the
+store is out of stock of an item.
+
+0 Navigating: As in the wumpus world, the agent will need to understand the effect of
+movement actions and create an internal map of the world.
+
+0 Gathering: The agent must be able to find and gather the items it wants. Part of this
+involves inducing objects from percepts: the agent will need recognition rules to infer that
+ared roughly spherical object about three inches in diameter could be a tomato.
+
+0 Communicating: The agent should be able to ask questions when there is something it
+cannot find out on its own.
+
+0 Paying: Even a shy agent that prefers not to ask questions will need enough interagent
+skills to be able to pay the checkout clerk. The agent will need to know that $5.00 is too
+much for a single tomato, and that if the total price is $17.35, then it should receive $2.65
+in change from a $20 bill
+
+An advantage of functional decomposition is that we can pose a problem completely within a
+cluster and see if the knowledge can solve it. Other kinds of decomposition often require the
+whole knowledge base to be fleshed out before the first question can be posed.
+
+Menu-Planning
+
+A good cook can walk into a market, pick out the best bargain from the various fish, fowl, or
+other main course ingredients that look fresh that day, select the perfect accompanying dishes,
+and simultaneously figure out how to make tomorrow's meal from whatever will be left over. A
+competent errand runner can take a shopping list and find all the items on it. Our agent will be
+closer to the second of these, but we will give it some ability to make intelligent choices
+
+Suppose the store is out of tomatoes one day. An agent with the shopping list "tomatoes,
+lettuce, cucumber, olive oil, vinegar" should recognize that the ingredients form a salad, and that
+

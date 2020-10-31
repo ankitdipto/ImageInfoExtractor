@@ -1,0 +1,64 @@
+576
+
+Chapter 19. Learning in Neural and BeliefNetworks
+
+ 
+
+EPOCHS
+
+LEARNING RATE
+PERCEPTRON
+LEARNING RULE
+
+ 
+
+  
+
+(a) Separating plane (b) Weights and threshold
+
+ 
+
+ 
+
+Figure 19.10 Linear separability in three dimensions—representing the "minority" function.
+
+ 
+
+ 
+
+ 
+
+Most neural network leaming algorithms, including the perceptron learning method, follow
+the current-best-hypothesis (CBH) scheme described in Chapter 18. In this case, the hypothesis
+is a network, defined by the current values of the weights. The initial network has randomly
+assigned weights, usually from the range [-0.5,0.5]. The network is then updated to try to make
+it consistent with the examples. This is done by making small adjustments in the weights to
+reduce the difference between the observed and predicted values. The main difference from
+the logical algorithms is the need to repeat the update phase several times for each example in
+order to achieve convergence. Typically, the updating process is divided into epochs. Each
+epoch involves updating all the weights for all the examples. The general scheme is shown as
+NEURAL-NETWORK-LEARNING in Figure 19.11.
+
+For perceptrons, the weight update rule is particularly simple. If the predicted output for
+the single output unit is O, and the correct output should be 7, then the error is given by
+
+Err=T-O
+
+Ifthe error is positive, then we need to increase O; ifit is negative, we need to decrease 0. Now
+each input unit contributes W;/fo the total input, so if J;is positive, an increase in Wj will tend to
+increase O, and if Jjis negative, an increase in Wj will tend to decrease O. Thus, we can achieve
+the effect we want with the following rule:
+
+Wi—Wi+axi xr
+
+where the term a is a constant called the learning rate. This rule is a slight variant of the
+perceptron learning rule proposed by Frank Rosenblatt in 1960. Rosenblatt proved that a
+learning system using the perceptron learning rule will converge to a set of weights that correctly
+represents the examples, as long as the examples represent a linearly separable function.
+
+The perceptron convergence theorem created a good deal of excitement when it was
+announced. People were amazed that such a simple procedure could correctly learn any rep-
+resentable function, and there were great hopes that intelligent machines could be built from
+
+ 
+

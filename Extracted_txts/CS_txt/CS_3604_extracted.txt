@@ -1,0 +1,46 @@
+SECTION 45 Logic Microoperations — 113,
+
+The mask operation is similar to the selective-clear operation except that
+the bits of A are cleared only where there are corresponding 0's in B. The mask
+operation is an AND micro operation as seen from the following numerical
+example:
+
+1010 A before
+1100 _B (logic operand)
+1000 A after masking
+
+The two rightmost bits of A are cleared because the corresponding bits of Bare
+O's. The two leftmost bits are left unchanged because the corresponding bits
+of Bare 1’s. The mask operation is more convenient to use than the selective-
+clear operation because most computers providean AND instruction, and few
+provide an instruction that executes the microoperation for selective-clear.
+The insert operation inserts a new value into a group of bits This is done
+by first masking the bits and then ORing them with the required value. For
+example, suppose that an A register contains eight bits, 0110 1010. To replace
+the four leftmost bits by the value 1001 we first mask the four unwanted bits:
+
+0110 1010 A before
+0000 1111 _-B (mask)
+00001010 A after masking
+
+and then insert the new value:
+
+0000 1010 before
+1001 0000 _B (insert)
+1001 1010 A after insertion
+
+The mask operation is an AND microoperation and the insert operation is an
+OR microoperation.
+
+The clear operation compares the words in A and B and produces an all
+O's result if the two numbers are equal. This operation is achieved by an
+exclusive-OR microoperation as shown by the following example:
+
+1010 A
+w10 B
+0000 A~A@B
+
+When A and B are equal, the two corresponding bits are either both 0 or both
+1. In either case the exclusive-OR operation produces a 0. The all-0's result is,
+then checked to determine if the two numbers were equal.
+

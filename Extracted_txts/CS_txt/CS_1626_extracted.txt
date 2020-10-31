@@ -1,0 +1,93 @@
+254 — cuarrersicHT Central Processing Unit
+
+stack operations
+
+The procedure consists of first converting the arithmetic expression into
+its equivalent reverse Polish notation The operands are pushed into the stack
+in the order in which they appear. The initiation of an operation depends on
+whether we havea calculator or a computer. Ina calculator, the operators are
+entered through the keyboard. In a computer, they must be initiated by
+instructions that contain an operation field (no address field is required). The
+following microoperations are executed with the stack when an operation is,
+entered in a calculator or issued by the control in a computer: (1) the two
+topmost operands in the stack are used for the operation, and (2) the stack is
+popped and the result of the operationreplaces the lower operand. By pushing
+the operands into the stack continuously and performing the operations as,
+defined above, the expression is evaluated in the proper order and the final
+result remains on top of the stack.
+
+The following numerical example may clarify this procedure. Consider
+the arithmetic expression
+
+ 
+
+ 
+
+ 
+
+(3*4) + 6*6)
+In reverse Polish notation, it is expressed as
+3455644
+
+Now consider the stack operations shown in Fig, 8-5. Each box represents one
+stack operation and the arrow always points to the top of the stack. Scanning
+the expression from left to right, we encounter two operands. First the number
+3 is pushed into the stack, then the number 4. The next symbol is the multi-
+plication operator *. This causes a multiplication of the two topmost items in
+the stack The stack is then popped and the product is placed on top of the
+stack, replacing the two original operands. Next we encounter the two
+operands 5 and 6, so they are pushed into the stack. The stack operation that
+results from the next * replaces these two numbers by their product. The last
+operation causes an arithmetic addition of the two topmost numbers in the
+stack to produce the final result of 42
+
+Scientific calculators that employ an internal stack require that the user
+convert the arithmetic expressions into reverse Polish notation Computers
+that use a stack-organized CPU provide a system program to perform the
+
+ 
+
+ 
+
+Figure 8-5 Stack operations to evaluate 3+ 4+5 +6.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
++b 3} +2} fz) fe] fe] +a
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

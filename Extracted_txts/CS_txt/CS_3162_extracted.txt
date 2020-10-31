@@ -1,0 +1,64 @@
+528
+
+Chapter 18. Learning from Observations
+
+ 
+
+SUPERVISED
+
+ 
+
+REINFORCEMENT
+
+UNSUPERVISED
+TEARNING
+
+Representation of the components
+
+Any of these components can be represented using any ofthe representation schemes in this book.
+We have seen several examples: deterministic descriptions such as linear weighted polynomials
+forutility functions in game-playing programs and propositional and first-order logical sentences
+forall ofthe components in a logical agent; and probabilistic descriptions such as belief networks
+for the inferential components of a decision-theoretic agent. Effective leaming algorithms have
+been devised for all of these. The details of the learning algorithm will be different for each
+representation, but the main idea remains the same.
+
+Available feedback
+
+For some components, such as the component for predicting the outcome of an action, the
+available feedback generally tells the agent what the correct outcome is. That is, the agent
+predicts that a certain action (braking) will have a certain outcome (stopping in 10 feet), and the
+environment immediately provides a percept that describes the actual correct outcome (stopping
+in 15 feet). Any situation in which both the inputs and outputs of a component can be perceived
+is called supervised learning. (Often, the outputs are provided by a friendly teacher.)
+
+On the other hand, in learning the condition-action component, the agent receives some
+evaluation of its action (such as a hefty bill for rear-ending the car in front) but is not told the
+correct action (to brake more gently and much earlier). This is called reinforcement learning;
+the hefty bill is called a reinforcement.! The subject is covered in Chapter 20.7
+
+Leaming when there is no hint at all about the comect outputs is called unsupervised
+learning. An unsupervised learner can always learn relationships among its percepts using
+supervised learning methods—that is, it can learn to predict its future percepts given its previous
+percepts. It cannot learn what to do unless it already has a utility function.
+
+Prior knowledge
+
+The majority of leaming research in AI, computer science, and psychology has studied the case
+in which the agent begins with no knowledge at all about what it is trying to learn. It only has
+access to the examples presented by its experience. Although this is an important special case, it
+is by no means the general case. Most human learning takes place in the context ofa good deal
+of background knowledge. Some psychologists and linguists claim that even newbom babies
+exhibit knowledge of the world. Whatever the truth of this claim, there is no doubt that prior
+knowledge can help enormously in learning. A physicist examining a stack of bubble-chamber
+photographs may be able to induce a theory positing the existence ofa new particle of a certain
+mass and charge: but an art critic examining the same stack might learn nothing more than that
+the "artist" must be some sort of abstract expressionist. In Chapter 21, we see several ways in
+which leaming is helped by the use of existing knowledge.
+
+1 The terms reward and punishment are also used as synonyms for reinforcement.
+2 Drawing the line between supervised and reinforcement leaming is somewhat arbitrary; reinforcement leaming can
+also be thought of as supervised learning with a less informative feedback signal
+
+ 
+

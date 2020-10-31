@@ -1,0 +1,56 @@
+206
+
+Chapter 8 Sorting in Linear Time
+
+8-2 Sorting in place in linear time
+
+Suppose that we have an array of n data records to sort and that the key of each
+record has the value 0 or 1. An algorithm for sorting such a set of records might
+possess some subset of the following three desirable characteristics:
+
+1.
+2.
+3.
+
+The algorithm runs in O() time.
+The algorithm is stable.
+
+The algorithm sorts in place, using no more than a constant amount of storage
+space in addition to the original array.
+
+. Give an algorithm that satisfies criteria 1 and 2 above.
+
+Give an algorithm that satisfies criteria 1 and 3 above.
+Give an algorithm that satisfies criteria 2 and 3 above.
+
+Can you use any of your sorting algorithms from parts (a)-(c) as the sorting
+method used in line 2 of RADIX-SORT, so that RADIX-SORT sorts ” records
+with b-bit keys in O(bn) time? Explain how or why not.
+
+Suppose that the 7 records have keys in the range from | to k. Show how to
+modify counting sort so that it sorts the records in place in O(n +k) time. You
+may use O(k) storage outside the input array. Is your algorithm stable? (Hint:
+How would you do it for k = 3?)
+
+8-3 Sorting variable-length items
+
+a
+
+You are given an array of integers, where different integers may have different
+numbers of digits, but the total number of digits over all the integers in the array
+is n. Show how to sort the array in O(7) time.
+
+You are given an array of strings, where different strings may have different
+numbers of characters, but the total number of characters over all the strings
+is n. Show how to sort the strings in O() time.
+
+(Note that the desired order here is the standard alphabetical order; for example,
+a<ab<b.)
+
+8-4 Water jugs
+
+Suppose that you are given n red and n blue water jugs, all of different shapes and
+sizes. All red jugs hold different amounts of water, as do the blue ones. Moreover,
+for every red jug, there is a blue jug that holds the same amount of water, and vice
+versa.
+

@@ -1,0 +1,53 @@
+58 — curren Two Digital Components
+
+increment
+
+‘word
+
+output carry can be used to extend the counter to more stages, with each stage
+having an additional flip-flop and an AND gate.
+
+Binary Counter with Parallel Load
+Counters employed in digital systems quite often require a parallel load capa-
+bility for transferring an initial binary number prior to the count operation.
+Figure2-11 shows the logicdiagram of a binary counter that has a parallel load
+capability and can also be cleared to 0 synchronous with the clock. When equal
+to 1, the clear input sets all the K inputs to 1, thus clearing all flip-flops with
+the next clock transition, The input load control when equal to 1, disables the
+count operation and causes a transfer of data from the four parallel inputs into
+the ourflip-flops (provided that the clear input is 0). If the clear and load inputs
+are both Oand the increment inputi 1, the circuitoperates as a binary counter.
+The operation of the circuit is summarized in Table 2-5. With the clear,
+load, and increment inputs all at 0, the outputs do not change even when
+pulses are applied to the C terminals. If the clear and load inputs are main-
+tained at logic 0, the increment input control the operation of the counter and
+the outputs change to the next binary count for each positive transition of the
+lock. The input data are loaded into the flip-flops when the load control input
+is equal to 1 provided that the clear is disabled, but the increment input can
+be 0 or 1. The register is cleared to 0 with the clear control regardless of the
+values in the load and increment inputs.
+
+TABLE 2-5 Function Table for the Register of Fi
+
+ 
+
+ 
+
+Clock Clear Load Increment Operation
+1 0 0 0 No change
+t 0 0 1 Increment count by 1
+t 0 1 x Load inputs o through Is
+t 1 x x Clear outputs to 0
+
+Counters with parallel load are very useful in the design of digital com-
+puters. In subsequent chapters we refer to them as registers with load and
+increment operations. The increment operation adds one to the content of a
+register. By enabling the count input during one clock period, the content of
+the register can be incremented by one.
+
+2-7_Memory Unit
+
+A memory unit isa collection of storage cells together with associated circuits
+needed to transfer information in and out of storage. The memory stores binary
+information in groups of bits called words. A word in memory is an entity of
+

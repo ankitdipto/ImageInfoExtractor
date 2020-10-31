@@ -1,0 +1,41 @@
+Chapter 10: Structures 369
+
+ 
+
+{
+char name ;
+float price ;
+int pages ;
+}b1, b2, b3;
+
+Like primary variables and arrays, structure variables can also be
+initialized where they are declared. The format used is quite
+similar to that used to initiate arrays.
+
+struct book
+
+{
+char name[10] ;
+float price ;
+int pages ;
+
+struct book b1 = { "Basic", 130.00, 550 };
+struct book b2 = { "Physics", 150.80, 800 } ;
+
+Note the following points while declaring a structure type:
+
+(a) The closing brace in the structure type declaration must be
+followed by a semicolon.
+
+(b) It is important to understand that a structure type declaration
+does not tell the compiler to reserve any space in memory. All
+a structure declaration does is, it defines the ‘form’ of the
+structure.
+
+(c) Usually structure type declaration appears at the top of the
+source code file, before any variables or functions are defined.
+In very large programs they are usually put in a separate
+header file, and the file is included (using the preprocessor
+directive #include) in whichever program we want to use this
+structure type.
+

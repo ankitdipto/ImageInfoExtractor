@@ -1,0 +1,42 @@
+556 Let UsC
+
+ 
+
+API functions use __stdcall calling convention. If not mentioned,
+__cdecl calling convention is assumed by the compiler.
+
+HINSTANCE and LPSTR are nothing but typedefs. The first is an
+unsigned int and the second is a pointer to a char. These macros
+are defined in ‘windows.h’. This header file must always be
+included while writing a C program under Windows. hInstance,
+hPrevInstance, IpszCmdLine and nCmdShow are simple
+variable names. In place of these we can use i, j, k and 1
+respectively. Let us now understand the meaning of these
+parameters as well as the rest of the program.
+
+— WinMain( ) receives four parameters which are as under:
+
+hInstance: This is the ‘instance handle’ for the running
+application. Windows creates this ID number when the
+application starts. We will use this value in many Windows
+functions to identify an application’s data.
+
+A handle is simply a 32-bit number that refers to an entity.
+The entity could be an application, a window, an icon, a
+brush, a cursor, a bitmap, a file, a device or any such entity.
+The actual value of the handle is unimportant to your
+programs, but the Windows module that gives your program
+the handle knows how to use it to refer to an entity. What is
+important is that there is a unique handle for each entity and
+we can refer and reach the entity only using its handle.
+
+hPrevInstance: This parameter is a remnant of earlier
+versions of Windows and is no longer significant. Now it
+always contains a value 0. It is being persisted with only to
+ensure backward compatibility.
+
+IpszCmdLine: This is a pointer to a character string
+containing the command line arguments passed to the
+program. This is similar to the argv, arge parameters passed
+to main() in a DOS program.
+

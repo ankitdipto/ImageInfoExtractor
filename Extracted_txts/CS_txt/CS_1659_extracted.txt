@@ -1,0 +1,56 @@
+63 Scheduling Algorithms 161
+
+Process Arrival Time Burst Time
+
+Py 0 8
+P, 1 4
+Ps 2 9
+Ps 3 5
+
+If the processes arrive at the ready queue at the times shown and need the
+indicated burst times, then the resulting preemptive SJF schedule is as depicted
+in the following Gantt chart:
+
+ 
+
+ 
+
+Al Pp | Py | P, P3
+04 5 10 17 26
+
+ 
+
+ 
+
+ 
+
+Process P, is started at time 0, since it is the only process in the queue. Process
+P2 arrives at time 1. The remaining time for process P; (7 milliseconds) is
+larger than the time required by process P2 (4 milliseconds), so process P; is
+preempted, and process P2 is scheduled. The average waiting time for this
+example is ((10 — 1) + (1 — 1) + (17 — 2) + (5 — 3))/4 = 26/4 =6.5 milliseconds. A
+nonpreemptive SJF scheduling would result in an average waiting time of 7.75
+milliseconds. .
+
+6.3.3 Priority Scheduling
+
+The SJF algorithm is a special case of the general priority-scheduling algorithm.
+A priority is associated with each process, and the CPU is allocated to the
+process with the highest priority. Equal-priority processes are scheduled in
+FCFS order.
+
+An SJF algorithm is simply a priority algorithm where the priority (p) is the
+inverse of the (predicted) next CPU burst. The larger the CPU burst, the lower
+the priority, and vice versa.
+
+Note that we discuss scheduling in terms of high priority and low priority.
+Priorities are generally some fixed range of numbers, such as 0 to 7, or 0 to 4,095.
+However, there is no general agreement on whether 0 is the highest or lowest
+priority. Some systems use low numbers to represent low priority; others use
+low numbers for high priority. This difference can lead to confusion. In this
+text, we use low numbers to represent high priority.
+
+As an example, consider the following set of processes, assumed to have
+arrived at time 0, in the order P;, P2, ..., Ps, with the length of the CPU-burst
+time given in milliseconds:
+

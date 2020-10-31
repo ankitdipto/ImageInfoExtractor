@@ -1,0 +1,101 @@
+Section 11.6.
+
+A Partial-Order Planning Algorithm 355
+
+ 
+
+ 
+
+Start
+
+ 
+      
+ 
+     
+ 
+   
+  
+ 
+      
+    
+
+At(Home)
+Go(Hws)
+
+‘AUHWS) Sells(HV/S, Drill)
+
+ 
+
+Buy(Drill)
+
+ 
+
+“AUHWS)
+Go(sM
+
+At(SiMy Sells(SM.tik) | ASM) Sells(SM,Ban.)
+
+ 
+
+Buy(Mlik) Buy(Ban.)
+
+NSM) {
+
+Go(Home)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Have(Mik) At/Home) Have(Ban.) Have(Dritt
+
+ 
+
+Finish
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11.12 A solution to the shopping problem.
+
+ 
+
+116___A PARTIAL-ORDER PLANNING ALGORITHM
+
+In this section, we develop a more formal algorithm for the planner sketched in the previous
+section. We call the algorithm POP, for Partial-Order Planner. The algorithm appears in
+Figure 11,13, (Notice that POP is written as a nondeterministicalgorithm, using choose and fail
+rather than explicit loops. Nondeterministic algorithms are explained in Appendix B.)
+
+POP starts with a minimal partial plan, and on each step extends the plan by achieving a
+precondition c of a step Sj.ea. It does this by choosing some operator—either from the existing
+steps of the plan or from the pool of operators—that achieves the precondition. It records the
+causal link for the newly achieved precondition, and then resolves any threats to causal links.
+The new step may threaten an existing causal link or an existing step may threaten the new causal
+link. Ifat any point the algorithm fails to find a relevant operator or resolve a threat, it backtracks
+to a previous choice point. An important subtlety is that the selection of a step and precondition
+in SELECT-SUBGOAL is not a candidate for backtracking. The reason is that every precondition
+needs to be considered eventually, and the handling of preconditions is commutative: handling
+c\ and then c> leads to exactly the same set of possible plans as handling cz and then c). So we
+

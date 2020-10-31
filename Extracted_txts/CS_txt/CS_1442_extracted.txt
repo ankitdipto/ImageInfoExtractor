@@ -1,0 +1,54 @@
+Chapter 21: More Linux Programming 685
+
+ 
+
+(g) A process can block a signal or a set of signals using the
+sigprocmask( ) function.
+
+(a) Blocked signals are delivered to the process when the signals
+are unblocked.
+
+@ A SIGSTOP signal is generated when we press Ctrl + Z.
+
+G) ASIGSTOP signal is un-catchable signal.
+
+(k) A suspended process can be resumed using the fg command.
+
+()) A process receives the SIGCONT signal when it resumes
+execution.
+
+(m) In GTK, the g_signal_connect( ) function can be used to
+connect a function with an event.
+
+Exercise
+
+[A] State True or False:
+
+(a) All signals registered signals must have a separate signal
+handler.
+
+(b) Blocked signals are ignored by a process.
+
+(c) Only one signal can be blocked at a time.
+
+(d) Blocked signals are ignored once the signals are unblocked.
+
+(e) If our signal handler gets called the default signal handler
+automatically gets called.
+
+(f) gtk_main( ) function makes uses of a loop to prevent the
+termination of the program.
+
+(g) Multiple signals can be registered at a time using a single call
+to signal( ) function.
+
+(a) The sigprocmask( ) function can block as well as unblock
+signals.
+
+[B] Answer the following:
+(a) How does the Linux OS know if we have registered a signal
+
+or not?
+
+(b) What happens when we register a handler for a signal?
+

@@ -1,0 +1,45 @@
+868
+
+Chapter 29 Linear Programming
+
+side. We then substitute this new equation, x3 = 3/2 —3x2/8 —x5/4+X6/8, into
+equations (29.64)—(29.66) and obtain the new, but equivalent, system
+
+ 
+
+a u 4 Z _ = _ ‘ite (29.68)
+a 2 _ 2 + = _ os (29.69)
+y= ; _ * _ = + ~ (29.70)
+us © 4 ae + os - i. 29.71)
+
+This system has the associated basic solution (33/4, 0, 3/2, 69/4, 0,0), with ob-
+jective value 111/4. Now the only way to increase the objective value is to in-
+crease X2. The three constraints give upper bounds of 132, 4, and 0, respectively.
+(We get an upper bound of oo from constraint (29.71) because, as we increase x2,
+the value of the basic variable x4 increases also. This constraint, therefore, places
+no restriction on how much we can increase X2.) We increase x2 to 4, and it be-
+comes nonbasic. Then we solve equation (29.70) for x2 and substitute in the other
+equations to obtain
+
+x3 Xs 2X6
+
+pm - B- BK (29.72)
+y= 8 + 2 +4 = - * (29.73)
+oe es - 2s + = (29.74)
+xy = 18 — 2 + = . (29.75)
+
+At this point, all coefficients in the objective function are negative. As we shall see
+later in this chapter, this situation occurs only when we have rewritten the linear
+program so that the basic solution is an optimal solution. Thus, for this problem,
+the solution (8, 4,0, 18,0,0), with objective value 28, is optimal. We can now
+return to our original linear program given in (29.53)-(29.57). The only variables
+in the original linear program are x), X2, and x3, and so our solution is x; = 8,
+X2 = 4, and x3 = 0, with objective value (3-8) + (1-4) + (2-0) = 28. Note
+that the values of the slack variables in the final solution measure how much slack
+remains in each inequality. Slack variable x4 is 18, and in inequality (29.54), the
+left-hand side, with value 8 + 4+ 0 = 12, is 18 less than the right-hand side of 30.
+Slack variables x5 and xX are 0 and indeed, in inequalities (29.55) and (29.56),
+the left-hand and right-hand sides are equal. Observe also that even though the
+coefficients in the original slack form are integral, the coefficients in the other
+linear programs are not necessarily integral, and the intermediate solutions are not
+

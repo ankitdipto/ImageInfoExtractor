@@ -1,0 +1,48 @@
+24.2. Single-source shortest paths in directed acyclic graphs 657
+
+cess the vertices in topologically sorted order, we relax the edges on p in the
+
+order (Vo, V1), (V1, V2),---, (v1, Ve). The path-relaxation property implies that
+v;.d = 6(s,v;) at termination for i = 0,1,..., k. Finally, by the predecessor-
+subgraph property, Gz is a shortest-paths tree. .
+
+An interesting application of this algorithm arises in determining critical paths
+in PERT chart’ analysis. Edges represent jobs to be performed, and edge weights
+represent the times required to perform particular jobs. If edge (u,v) enters ver-
+tex v and edge (v, x) leaves v, then job (uw, v) must be performed before job (v, x).
+A path through this dag represents a sequence of jobs that must be performed in a
+particular order. A critical path is a longest path through the dag, corresponding
+to the longest time to perform any sequence of jobs. Thus, the weight of a critical
+path provides a lower bound on the total time to perform all the jobs. We can find
+a critical path by either
+* negating the edge weights and running DAG-SHORTEST-PATHS, or
+* running DAG-SHORTEST-PATHS, with the modification that we replace “oo”
+
+by “—oo” in line 2 of INITIALIZE-SINGLE-SOURCE and “>” by “<” in the
+RELAX procedure.
+
+Exercises
+
+24.2-1
+Run DAG-SHORTEST-PATHS on the directed graph of Figure 24.5, using vertex r
+as the source.
+
+24.2-2
+Suppose we change line 3 of DAG-SHORTEST-PATHS to read
+
+3 for the first |V| — 1 vertices, taken in topologically sorted order
+Show that the procedure would remain correct.
+
+24,2-3
+
+The PERT chart formulation given above is somewhat unnatural. In a more natu-
+ral structure, vertices would represent jobs and edges would represent sequencing
+constraints; that is, edge (wu, v) would indicate that job u must be performed before
+job v. We would then assign weights to vertices, not edges. Modify the DAG-
+SHORTEST-PATHS procedure so that it finds a longest path in a directed acyclic
+graph with weighted vertices in linear time.
+
+ 
+
+2“PERT” is an acronym for “program evaluation and review technique.”
+

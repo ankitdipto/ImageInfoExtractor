@@ -1,0 +1,60 @@
+326
+
+Chapter 13 Red-Black Trees
+
+node x is either “doubly black” or “red-and-black,” and it contributes either 2 or 1,
+respectively, to the count of black nodes on simple paths containing x. The color
+attribute of x will still be either RED (if x is red-and-black) or BLACK (if x is
+doubly black). In other words, the extra black on a node is reflected in x’s pointing
+to the node rather than in the color attribute.
+
+We can now see the procedure RB-DELETE-FIXUP and examine how it restores
+the red-black properties to the search tree.
+
+RB-DELETE-FIXuP(T, x)
+1 while x 4 T. root and x.color == BLACK
+
+2 if x == x.p.left
+
+3 w = x.p.right
+
+4 if w.color == RED
+
+5 w.color = BLACK MH case 1
+6 X.p.color = RED MW case 1
+7 LEFT-ROTATE(T, x.p) // case 1
+8 w = X.p.right MW case 1
+9 if w. left. color == BLACK and w.right.color == BLACK
+
+10 w.color = RED 1 case 2
+ll X= X.p H case 2
+12 else if w.right.color == BLACK
+
+13 w.left.color = BLACK 1 case 3
+14 w.color = RED 1 case 3
+15 RIGHT-ROTATE(T, w) 1 case 3
+16 w = X.p.right 1 case 3
+17 w.color = x.p.color MW case 4
+18 x.p.color = BLACK HW case 4
+19 w.right.color = BLACK MW case 4
+20 LEFT-ROTATE(T, x.p) 1 case 4
+21 x = T.root MW case 4
+22 else (same as then clause with “right” and “left” exchanged)
+
+23 x.color = BLACK
+
+The procedure RB-DELETE-FIXUP restores properties 1, 2, and 4. Exercises
+
+13.4-1 and 13.4-2 ask you to show that the procedure restores properties 2 and 4,
+
+and so in the remainder of this section, we shall focus on property 1. The goal of
+
+the while loop in lines 1-22 is to move the extra black up the tree until
+
+1. x points to a red-and-black node, in which case we color x (singly) black in
+line 23;
+
+2. x points to the root, in which case we simply “remove” the extra black; or
+
+3. having performed suitable rotations and recolorings, we exit the loop.
+

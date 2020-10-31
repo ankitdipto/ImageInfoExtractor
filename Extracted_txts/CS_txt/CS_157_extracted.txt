@@ -1,0 +1,53 @@
+SECTION 53 Computer Instructions — 133
+
+instruction is a register-reference type. If the bit is 1, the instruction is an
+input-output type. Note that the bit in position 15 of the instruction code is
+designated by the symbol I but is not used as a mode bit when the operation
+code is equal to 111.
+
+Only three bits of the instruction are used for the operation code. It may
+seem that the computer is restricted to a maximum of eight distinct operations.
+However, since register-reference and input-output instructions use the remain-
+ing 12 bits as part of the operation code, the total number of instructions can
+exceed eight. In fact, the total number of instructions chosen for the basic
+‘compoter is equal to 25.
+
+The instructions for the computer are listed in Table 5-2. The symbol
+designation is a three-letter word and represents an abbreviation intended for
+
+TABLE 52 Basic Computer Instructions
+
+ 
+
+ 
+
+ 
+
+Symbol F=0 1=1 Description
+AND Ox = 8a AND memory word to AC
+ADD Ixx —9xxx_—_ Add memory word to AC
+LDA 20x Load memory word to AC
+STA 30x Bux Store content of AC in memory
+BUN = 4x Qux_—_Branch unconditionally
+BSA Sux Dux_—_Branch and save return address
+ISZ 6x. Bx _ Increment and skip if zero
+CLA 7800 Clear AC
+aE 7400 Clear E
+CMA 7200 Complement AC
+CME 7100 Complement E
+CIR 7080 Circulate right AC and E
+cL 7040 Circulate left AC and E
+INC 7020 Increment AC
+SPA 7010 Skip next instruction if AC positive
+SNA 7008 ‘Skip next instruction if AC negative
+SZA 7004 ‘Skip next instruction if AC zero
+SZE 7002 Skip next instruction if E is 0
+HLT 7001 Halt computer
+INP F800 Input character to AC
+our F400 Output character from AC
+SKI F200 Skip on input flag
+SkO F100 Skip on output flag
+ION F080 Interrupt on
+
+IOF FW Interrupt off
+

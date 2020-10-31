@@ -1,0 +1,53 @@
+Section 5.7.
+
+Discussion 139
+
+ 
+
+Backgammon
+
+As mentioned before, the inclusion of uncertainty from dice rolls makes search an expensive
+luxury in backgammon. The first program to make a serious impact, BKG, used only a one-ply
+search but a very complicated evaluation function. In an informal match in 1980, it defeated the
+human world champion 5-1, but was quite lucky with the dice. Generally, it plays at a strong
+amateur level.
+
+More recently, Gerry Tesauro (1992) combined Samuel's learning method with neural
+network techniques (Chapter 19) to develop a new evaluation function. His program is reliably
+ranked among the top three players in the world.
+
+Go
+
+Go is the most popular board game in Japan, requiring at least as much discipline from its
+professionals as chess. The branching factor approaches 360, so that regular search methods are
+totally lost. Systems based on large knowledge bases of rules for suggesting plausible moves
+seem to have some hope, but still play very poorly. Particularly given the $2,000,000 prize for the
+first program to defeat a top-level player, Go seems like an area likely to benefit from intensive
+investigation using more sophisticated reasoning methods
+
+ 
+
+5.7 _ DISCUSSION
+
+Because calculating optimal decisions in games is intractable in most cases, all algorithms
+must make some assumptions and approximations. The standard approach, based on minimax,
+evaluation functions, and alpha-beta, isjust one way to do this. Probably because it was proposed
+so early on, it has been developed intensively and dominates other methods in tournament
+play. Some in the field believe that this has caused game playing to become divorced from the
+mainstream of AI research, because the standard approach no longer provides much room for
+new insight into general questions of decision making. In this section, we look at the altematives,
+considering how to relax the assumptions and perhaps derive new insights.
+
+First, let us consider minimax. Minimax is an optimal method for selecting a move from
+a given search tree provided the leafnode evaluations are exactly correct. In reality, evaluations
+are usually crude estimates of the value of a position, and can be considered to have large
+errors associated with them. Figure 5.13 shows a two-ply game tree for which minimax seems
+inappropriate. Minimax suggests taking the right-hand branch, whereas it is quite likely that
+true value of the left-hand branch is higher. The minimax choice relies on the assumption that
+all of the nodes labelled with values 100, 101, 102, and 100 are actually better than the node
+labelled with value 99. One way to deal with this problem is to have an evaluation that returns a
+probability distribution over possible values. Then one can calculate the probability distribution
+for the parent's value using standard statistical techniques. Unfortunately, the values of sibling
+nodes are usually highly correlated, so this can be an expensive calculation and may require
+detailed correlation information that is hard to obtain.
+

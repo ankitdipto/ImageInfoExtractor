@@ -1,0 +1,73 @@
+314
+
+9.7
+
+9.8
+
+9.9
+
+9.10
+
+9.11
+
+9.12
+9.13
+
+9.14
+
+9.15
+
+9.16
+
+Chapter 9 Memory Management
+
+be shared among different users. Discuss the advantages and disadvan-
+tages of this scheme.
+
+Why are page sizes always powers of 2?
+
+Consider a logical-address space of eight pages of 1,024 words each,
+mapped onto a physical memory of 32 frames.
+
+a. How many bits are in the logical address?
+b. How many bits are in the physical address?
+
+On a system with paging, a process cannot access memory that it does
+not own; why? How could the operating system allow access to other
+memory? Why should it or should it not?
+
+Consider a paging system with the page table stored in memory.
+
+a. Ifamemory reference takes 200 nanoseconds, how long does a paged
+memory reference take?
+
+b. If we add TLBs, and 75 percent of all page-table references are found
+in the TLBs, what is the effective memory reference time? (Assume
+that finding a page-table entry in the TLBs takes zero time, if the
+entry is there.)
+
+What is the effect of allowing two entries in a page table to point to the
+same page frame in memory? Explain how you could use this effect to
+decrease the amount of time needed to copy a large amount of memory
+from one place to another. What would the effect of updating some byte
+in the one page be on the other page?
+
+Why are segmentation and paging sometimes combined into one scheme?
+
+Describe a mechanism by which one segment could belong to the address
+space of two different processes.
+
+Explain why it is easier to share a reentrant module using segmentation
+than it is to do so when pure paging is used.
+
+Sharing segments among processes without requiring the same segment
+number is possible in a dynamically linked segmentation system.
+
+a. Define a system that allows static linking and sharing of segments
+without requiring that the segment numbers be the same.
+
+b. Describe a paging scheme that allows pages to be shared without
+requiring that the page numbers be the same.
+
+Consider the following segment table:
+

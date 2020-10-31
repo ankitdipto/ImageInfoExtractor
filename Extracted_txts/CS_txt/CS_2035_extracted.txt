@@ -1,0 +1,71 @@
+288
+
+Chapter 9. Inference in First-Order Logic
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+GODEL’s INCOMPLETENESS THEOREM
+
+By slightly extending the language of first-order logic to allow for the mathematical
+induction schema in arithmetic, Godel was able to show, in his incompleteness
+theorem, that there are true aYithmetic sentences that cannot be proved.
+
+The proof of the incompleteness theorem is somewhat beyond the scope of this
+book, occupying, as it does, at least 30 pages, but we can give a hint here. We
+begin with the logical theory of numbers. In this theory, there is a single constant,
+0, and a single function, S (the successor function). In the intended model, 5(0)
+denotes 1, S(S(0)) denotes 2, and so on; the language therefore has names for all
+the natural numbers. The vocabulary also includes the function symbols +, x, and
+Expt (exponentiation), and the usual set of logical connectives and quantifiers. The
+first step is to notice that the set of sentences that we can write in this language can
+be enumerated. (Imagine defining an alphabetical order on the symbols and then
+arranging in alphabetical order each of the sets of sentences of length 1, 2, and so
+on.) We can then number each sentence a with a unique natural number #a (the
+Godel number). This is crucial: number theory contains a name for each of its own
+sentences. Similarly, we can number each possible proof P with a Godel number
+G(P), because a proofis simply a finite sequence of sentences.
+
+Now suppose we have a set A of sentences that are true statements about the
+natural numbers. Recalling that A can be named by a given set of integers, we can
+imagine writing in our language a sentence a(j, A)of the following sort:
+
+Vi_ iis not the Godel number of a proof of the sentence whose Godel
+number isj, where the proofuses only premises in A.
+
+Then let o be the sentence a(#c, A), that is, a sentence that states its own unprovability
+fromA. (That this sentence always exists is true but not entirely obvious.)
+
+Now we make the following ingenious argument. Suppose that a is provable
+from A; then a is false (because a says it cannot be proved). But then we have a
+false sentence that is provable from A, so A cannot consist of only true sentences—a
+violation ofour premise. Therefore a is not provable fromA. But this is exactly what
+c itselfclaims; hence ¢ is a true sentence.
+
+So, we have shown (barring 29 and a halfpages) that forany set of true sentences
+of number theory, and in particular any set of basic axioms, there are other true
+sentences that cannot be proved from those axioms. This establishes, among other
+things, that we can never prove all the theorems of mathematics within any given
+system of axioms. Clearly, this was an important discovery for mathematics. Its
+significance for AI has been widely debated, beginning with speculations by Godel
+himself. We take up the debate in Chapter 26.
+
+ 
+
+ 
+
+ 
+
+ 
+

@@ -1,0 +1,47 @@
+35.5 The subset-sum problem 1133
+
+£)" </2
+(1 + a) se
+< 1+e/24+(€/2)? (by inequality (3.13))
+< Ite (by inequality (35.25)) . (35.30)
+
+Combining inequalities (35.28) and (35.30) completes the analysis of the approxi-
+mation ratio.
+
+To show that APPROX-SUBSET-SUM is a fully polynomial-time approximation
+scheme, we derive a bound on the length of L;. After trimming, successive ele-
+ments z and z’ of L; must have the relationship z'/z > 1+¢€/2n. That is, they must
+differ by a factor of at least 1 + €/2n. Each list, therefore, contains the value 0,
+possibly the value 1, and up to |log,,¢/2,¢| additional values. The number of
+elements in each list L; is at most
+
+Int
+In(1 + €/2n) +2
+2n(1+e/2n) Int
+
+= _- +2 (by inequality (3.17))
+
+logitejnt +2 =
+
+3n Int
+< = +2 (by inequality (35.25)) .
+
+This bound is polynomial in the size of the input— which is the number of bits lgt
+needed to represent f plus the number of bits needed to represent the set S, which is
+in turn polynomial inn —and in 1/e. Since the running time of APPROX-SUBSET-
+Sum is polynomial in the lengths of the L;, we conclude that APPROX-SUBSET-
+SUM is a fully polynomial-time approximation scheme. .
+
+Exercises
+
+35.5-1
+Prove equation (35.23). Then show that after executing line 5 of EXACT-SUBSET-
+Sum, L; is a sorted list containing every element of P; whose value is not more
+than f.
+
+35.5-2
+Using induction on i, prove inequality (35.26).
+
+35.5-3
+Prove inequality (35.29).
+

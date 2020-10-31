@@ -1,0 +1,36 @@
+340 Let Us C
+
+ 
+
+The output of the program would be...
+
+source string = Sayonara
+target string = Sayonara
+
+Note that having copied the entire source string into the target
+string, it is necessary to place a ‘\0’ into the target string, to mark
+its end.
+
+If you look at the prototype of strepy( ) standard library function,
+it looks like this...
+
+strepy (char “t, const char *s ) ;
+We didn’t use the keyword const in our version of xstrepy() and
+still our function worked correctly. So what is the need of the
+
+const qualifier?
+
+What would happen if we add the following lines beyond the last
+statement of xstrepy()?.
+
+ 
+
+This would change the source string to “Kayonara”. Can we not
+ensure that the source string doesn’t change even accidentally in
+xstrepy()? We can, by changing the definition as follows:
+
+void xstrcpy (char “t, const char “s )
+
+while (*s != \0')
+{
+

@@ -1,0 +1,64 @@
+798
+
+Chapter 25. Robotics
+
+ 
+
+‘SKELETONIZATION
+‘SKELETON
+
+ 
+
+ioal
+
+Start
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 25.13 A vertical strip cell decomposition of the configuration space for a two-link
+robot. The obstacles are dark blobs, the cells are rectangles, and the solution is contained within
+the grey rectangles.
+
+ 
+
+ 
+
+ 
+
+second difference is that the width of the cylinders is not fixed, but determined by the geometry
+of the environmerit. This is a key aspect of the exact method. To be useful for planning, the cell
+shapes must be kept simple. Otherwise, we could declare all of free space as a single cell. This
+does not help because there is no simple way to move around in such a cell. The cells in the
+cylindrical decomposition are easy to move in, because their left and right boundaries are straight
+lines (although sometimes of zero length).
+
+To construct a cylindrical decomposition of a two-dimensional set, we first find critical
+points of the boundary. These are the points where the boundary curve is vertical. Equivalently,
+imagine sweeping a vertical line from left to right across Figure 25.14. At every instant, the line
+can be divided into segments that lie in free space or in the obstacle. Critical points are exactly
+those points where segments split orjoin as the line moves. As the line moves within a cylindrical
+cell, there are no splitting or joining events, and this makes it easy to plan paths within the cell
+For example, to move from the left boundary to the right boundary ofa cylindrical cell, we could
+use this sweeping line. A single segment of the line would always lie in this cell, and its midpoint
+would give us the path we want.
+
+Skeletonization methods
+
+Rather than producing a decomposition into a finite number of discrete chunks of space, skele-
+tonization methods collapse the configuration space into a one-dimensional subset, or skeleton.
+They simplify the task of navigating in a high-dimensional space by requiring paths to lie along
+the skeleton. The skeleton is essentially a web with a finite number of vertices, and paths within
+the skeleton can be computed using graph search methods. If the start and goal points do not
+lie on the skeleton, short path segments are computed joining them to the nearest point on it
+Skeletonization methods are generally simpler than cell decomposition, because they provide a
+
+ 
+
+ 
+

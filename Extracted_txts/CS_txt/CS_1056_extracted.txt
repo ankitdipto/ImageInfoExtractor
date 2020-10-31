@@ -1,0 +1,47 @@
+SECTION 68 Input-Output Programming 207
+
+TABLE 6-23 Program to Service an Interrupt
+
+ 
+
+0 ZRO, — /Return address stored here
+1 BUNSRV Branch to service routine
+100 CLA MRortion of running program
+
+101 ION ‘Turn on interrupt facility
+102 LDAX
+103, ADD Y MInterrupt occurs here
+104 STAZ ‘/Program returns here after interrupt
+. ‘Interrupt service routine
+200 SRV, STASAC _/Store content of AC
+oR ‘IMove E into AC(1)
+STASE /Storecontent of E
+SKI Check input flag
+BUN NXT _/Flag is off, check next flag
+INP Flag is on, input character
+ouT MPrint character
+STAPTII Store it in input buffer
+ISZ PTL Mincrement input pointer
+NXT, SKO /Check output flag
+BUNEXT —_/Flag is off, exit
+LDA PT2I Load character from output buffer
+ouT (Output character
+1s PT2 increment output pointer
+EXT, LDASE PRestore value of AC(I)
+cL Shift it to E
+LDASAC —_/Restore content of AC
+ION ‘Mum interrupt on
+BUN ZROI — /Return to running program
+sac, — JAC is stored here
+SE = JE is stored here
+Pm — /Pointer of input buffer
+PR, — MPointer of output buffer
+
+Location 0 is reserved for the return address. Location 1 has a branch instruc-
+tion to the beginning of the service routine SRV. The portion of the running
+program listed hasan ION instruction that turns the interrupt on. Suppose that
+an interrupt occurs while the computer is executing the instruction in location
+103, The interrupt cycle stores the binary equivalent of hexadecimal 104 in
+location Oand branches to location 1. The branch instruction in location 1 sends
+the computer to the service routine SRV.
+

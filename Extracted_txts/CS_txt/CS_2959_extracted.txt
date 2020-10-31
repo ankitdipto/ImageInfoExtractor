@@ -1,0 +1,34 @@
+478
+
+Chapter 17 Amortized Analysis
+
+ 
+
+Chapter notes
+
+Aho, Hopcroft, and Ullman [5] used aggregate analysis to determine the running
+time of operations on a disjoint-set forest; we shall analyze this data structure us-
+ing the potential method in Chapter 21. Tarjan [331] surveys the accounting and
+potential methods of amortized analysis and presents several applications. He at-
+tributes the accounting method to several authors, including M. R. Brown, R. E.
+Tarjan, S. Huddleston, and K. Mehlhorn. He attributes the potential method to
+D. D. Sleator. The term “amortized” is due to D. D. Sleator and R. E. Tarjan.
+
+Potential functions are also useful for proving lower bounds for certain types of
+problems. For each configuration of the problem, we define a potential function
+that maps the configuration to a real number. Then we determine the potential ®inic
+of the initial configuration, the potential ®,. of the final configuration, and the
+maximum change in potential A®,,,, due to any step. The number of steps must
+therefore be at least |®sinai — Pinit| / |A®max|. Examples of potential functions to
+prove lower bounds in I/O complexity appear in works by Cormen, Sundquist, and
+Wisniewski [79]; Floyd [107]; and Aggarwal and Vitter [3]. Krumme, Cybenko,
+and Venkataraman [221] applied potential functions to prove lower bounds on gos-
+siping: communicating a unique item from each vertex in a graph to every other
+vertex.
+
+The move-to-front heuristic from Problem 17-5 works quite well in practice.
+Moreover, if we recognize that when we find an element, we can splice it out of its
+position in the list and relocate it to the front of the list in constant time, we can
+show that the cost of move-to-front is at most twice the cost of any other heuristic
+including, again, one that knows the entire access sequence in advance.
+

@@ -1,0 +1,62 @@
+162. Chapter6 CPU Scheduling
+
+Process Burst Time Priority
+
+Py 10 3
+Pz 1 1
+P3 2 4
+Py 1 5
+Ps 5 2
+
+Using priority scheduling, we would schedule these processes according to the
+following Gantt chart:
+
+ 
+
+Po Ps Py | Py [Ps
+o 1 6 16 18 19
+
+ 
+
+ 
+
+ 
+
+ 
+
+The average waiting time is 8.2 milliseconds.
+
+Priorities can be defined either internally or externally. Internally defined
+priorities use some measurable quantity or quantities to compute the priority of
+a process. For example, time limits, memory requirements, the number of open
+files, and the ratio of average 1/O burst to average CPU burst have been used
+in computing priorities. External priorities are set by criteria that are external
+to the operating system, such as the importance of the process, the type and
+amount of funds being paid for computer use, the department sponsoring the
+work, and other, often political, factors.
+
+Priority scheduling can be either preemptive or nonpreemptive. When a
+process arrives at the ready queue, its priority is compared with the priority of
+the currently running process. A preemptive priority-scheduling algorithm will
+preempt the CPU if the priority of the newly arrived process is higher than the
+priority of the currently running process. A nonpreemptive priority-scheduling
+algorithm will simply put the new process at the head of the ready queue.
+
+A major problem with priority-scheduling algorithms is indefinite block-
+ing (or starvation). A process that is ready to run but lacking the CPU can
+be considered blocked—waiting for the CPU. A priority-scheduling algorithm
+can leave some low-priority processes waiting indefinitely for the CPU. Ina
+heavily loaded computer system, a steady stream of higher-priority processes
+can prevent a low-priority process from ever getting the CPU. Generally, one of
+two things will happen. Either the process will eventually be run (at 2 AM.
+Sunday, when the system is finally lightly loaded), or the computer system
+will eventually crash and lose all unfinished low-priority processes. (Rumor
+has it that, when they shut down the IBM 7094 at MIT in 1973, they found a
+low-priority process that had been submitted in 1967 and had not yet been run.)
+
+A solution to the problem of indefinite blockage of low-priority processes
+is aging. Aging is a technique of gradually increasing the priority of processes
+that wait in the system for a long time. For example, if priorities range from
+
+ 
+

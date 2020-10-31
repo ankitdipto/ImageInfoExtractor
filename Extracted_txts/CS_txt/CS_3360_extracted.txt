@@ -1,0 +1,70 @@
+ 
+
+706
+
+Chapter 23. Practical Natural Language Processing
+
+ 
+
+ 
+
+ 
+
+DESCRIPTION
+fentl() performs a variety of functions on open descriptors.
+The argument fd is an open descriptor used by cmd as fol-
+lows:
+
+F.DUPFD Returns a new descriptor, which has the smal-
+lest value greater than or equal to arg. It
+refers to the same object as the original
+descriptor, and has the same access mode
+(read, write or read/write). The new
+descriptor shares descriptor status flags
+with fd, and if the object was a file, the
+same file pointer. It is also associated
+with a FD.CLOEXEC (close-on-exes) flag set to
+remain open across execve(2V) system calls.
+
+"And since I was not informed—as a matter of fact, since I did not know that there were
+excess funds until we, ourselves, in that checkup after the whole thing blew up, and that
+was, if you'll remember, that was the incident in which the attomey general came to me and
+told me that he had seen a memo that indicated that there were no more funds."
+
+ 
+
+ 
+
+Figure 23.8 Two examples ofreal-life language: one from the UNIX manual entry for fentl,
+
+ 
+
+ 
+
+and one from a statement made by Ronald Reagan, printed in the May 4, 1987, Roll Call.
+
+ 
+
+Nominal compounds and apposition
+
+Technical text is full of nominal compounds: strings of nouns such as "POSTSCRIPT language
+code input file." The first thing we have to do to handle nominal compounds is realize that we
+are dealing with nouns, not NPs. It is not the case that "the input" and "the file" combine to form 4
+"the input the file." Rather, we have two nouns combining to form a larger unit that still can
+combine with an article to form a NP. We will call the larger unit a noun? and thus will need a
+tule of the form:
+
+Noun — Noun Noun
+For our example compound, the parse that leads to a semantically sensible interpretation is
+
+[Noun Lvoun Lwoun POSTSCRIPT language] code] [nou input file}]
+
+The hardest part about nominal compounds is specifying the semantics. Our example can be
+paraphrased as “a file that is used for input and that consists of code written in a language
+named POSTSCRIPT." Clearly, there is a wide variety in the meaning associated with a nominal
+compound. We will use the generic relation NN to stand for any of the semantic relations that
+
+5 Some grammars introduce intermediate categories between noun and NP.
+
+ 
+

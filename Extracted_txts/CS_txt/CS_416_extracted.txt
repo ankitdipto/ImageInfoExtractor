@@ -1,0 +1,92 @@
+154 — cuaprerrive Basic Computer Organization and Design.
+
+interrupt cycle
+
+ 
+ 
+ 
+      
+    
+
+Interrupt cycle
+
+ 
+
+ 
+
+ 
+
+Fetch and decode Sure eu adress
+iharcton rtm
+iorere
+
+|
+
+Execute
+instruction
+
+  
+     
+  
+
+ 
+
+La
+
+Branch to location 1
+PCa
+
+q
+
+JEN
+Reo
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 5-13 Flowchart for interrupt eyele.
+
+The way that the interrupt is handled by the computer can be explained
+by means of the flowchart of Fig. 5-13. An interrupt flip-flop R is included in
+the computer. When R = 0, the computer goes through an instruction cycle.
+During the execute phase of the instruction cycle IEN is checked by the control.
+If it is 0, it indicates that the programmer does not want to use the interrupt,
+so control continues with the next instruction cycle. If JEN is 1, control checks
+the flag bits. If both flags are 0, it indicates that neither the input nor the output
+registers are ready for transfer of information. In this case, control continues
+with the next instruction cycle. If either flag is set to 1 while IEN = 1, flip-flop
+Ris set to 1. At the end of the execute phase, control checks the value of R,
+andifitis equal to 1, it goes toan interrupt cycle instead of an instruction cycle.
+
+The interrupt cycle is a hardware implementation of a branch and save
+return address operation. The return address available in PC is stored in a
+specific location where it can be found later when the program returns to the
+instruction at which it was interrupted. This location may be a processor
+

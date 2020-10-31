@@ -1,0 +1,48 @@
+Problems for Chapter 18 503
+
+To implement the PUSH operation, we increment the stack pointer, read the ap-
+propriate page into memory from disk, copy the element to be pushed to the ap-
+propriate word on the page, and write the page back to disk. A Pop operation is
+similar. We decrement the stack pointer, read in the appropriate page from disk,
+and return the top of the stack. We need not write back the page, since it was not
+modified.
+
+Because disk operations are relatively expensive, we count two costs for any
+implementation: the total number of disk accesses and the total CPU time. Any
+disk access to a page of m words incurs charges of one disk access and @(m) CPU
+time.
+
+a. Asymptotically, what is the worst-case number of disk accesses for stack
+operations using this simple implementation? What is the CPU time for stack
+operations? (Express your answer in terms of m and n for this and subsequent
+parts.)
+
+Now consider a stack implementation in which we keep one page of the stack in
+memory. (We also maintain a small amount of memory to keep track of which page
+is currently in memory.) We can perform a stack operation only if the relevant disk
+page resides in memory. If necessary, we can write the page currently in memory
+to the disk and read in the new page from the disk to memory. If the relevant disk
+page is already in memory, then no disk accesses are required.
+
+b. What is the worst-case number of disk accesses required for n PUSH opera-
+tions? What is the CPU time?
+
+c. What is the worst-case number of disk accesses required for n stack operations?
+What is the CPU time?
+
+Suppose that we now implement the stack by keeping two pages in memory (in
+addition to a small number of words for bookkeeping).
+
+d. Describe how to manage the stack pages so that the amortized number of disk
+accesses for any stack operation is O(1/m) and the amortized CPU time for
+any stack operation is O(1).
+
+18-2 Joining and splitting 2-3-4 trees
+
+The join operation takes two dynamic sets S’ and S” and an element x such that
+for any x’ € S’ and x” € S”, we have x’.key < x.key < x” key. It returns a set
+S = S’ U{x} US”. The split operation is like an “inverse” join: given a dynamic
+set S and an element x € S, it creates a set S’ that consists of all elements in
+S — {x} whose keys are less than x. key and a set S” that consists of all elements
+in S — {x} whose keys are greater than x.key. In this problem, we investigate
+

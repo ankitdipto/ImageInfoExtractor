@@ -1,0 +1,52 @@
+86  Chapter3 Operating-System Structures
+
+We have no unique solution to the problem of defining the requirements for
+an operating system. The wide range of systems shows that different require-
+ments can result in a large variety of solutions for different environments. For
+example, the requirements for MS-DOS, a single-user system for microcom-
+puters, must have been substantially different from those for MVS, the large
+multiuser, multiaccess operating system for IBM mainframes.
+
+3.7.2. Mechanisms and Policies
+
+The specification and design of an operating system is a highly creative task.
+Although no textbook can tell you how to do it, general software engineering
+principles do exist that are especially applicable to operating systems.
+
+One important principle is the separation of policy from mechanism. Mech-
+anisms determine how to do something; policies determine what will be done.
+For example, the timer construct (Section 2.5) is a mechanism for ensuring CPU
+protection, but deciding how long the timer is to be set for a particular user is a
+policy decision.
+
+The separation of policy and mechanism is important for flexibility. Policies
+are likely to change across places or over time. In the worst case, each change
+in policy would require a change in the underlying mechanism. A general
+mechanism would be more desirable. A change in policy would then require
+redefinition of only certain parameters of the system. For instance, if, in
+one computer system, a policy decision is made that I/O-intensive programs
+should have priority over CPU-intensive ones, then the opposite policy could
+be instituted easily on some other computer system if the mechanism were
+properly separated and were policy independent.
+
+Microkernel-based operating systems take the separation of mechanism
+and policy to one extreme, by implementing a basic set of primitive building
+blocks. These blocks are almost policy free, allowing more advanced mecha-
+nisms and policies to be added via user-created kernel modules, or via user
+programs themselves. At the other extreme is a system such as the Apple Mac-
+intosh operating system, in which both mechanism and policy are encoded in
+the system to enforce a global look and feel to the system. All applications have
+similar interfaces, because the interface itself is built into the kernel.
+
+Policy decisions must be made for all resource-allocation and scheduling
+problems. Whenever the question is how rather than what, it is a mechanism
+that must be determined.
+
+3.7.3 Implementation
+
+Once an operating system is designed, it must be implemented. Traditionally,
+operating systems have been written in assembly language. Now, however,
+they are often written in higher-level languages such as C or C++.
+
+ 
+

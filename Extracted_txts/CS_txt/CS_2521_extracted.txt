@@ -1,0 +1,51 @@
+122 Chapter 5 Probabilistic Analysis and Randomized Algorithms
+
+Exercises
+
+5.2-1
+
+In HIRE-ASSISTANT, assuming that the candidates are presented in a random or-
+der, what is the probability that you hire exactly one time? What is the probability
+that you hire exactly 1 times?
+
+5.2-2
+In HIRE-ASSISTANT, assuming that the candidates are presented in a random or-
+der, what is the probability that you hire exactly twice?
+
+5.2-3
+Use indicator random variables to compute the expected value of the sum of 1 dice.
+
+5.2-4
+
+Use indicator random variables to solve the following problem, which is known as
+the hat-check problem. Each of n customers gives a hat to a hat-check person at a
+restaurant. The hat-check person gives the hats back to the customers in a random
+order. What is the expected number of customers who get back their own hat?
+
+5.2-5
+
+Let A[1..n] be an array of n distinct numbers. If i < j and A[i] > A[j], then
+the pair (i, j) is called an inversion of A. (See Problem 2-4 for more on inver-
+sions.) Suppose that the elements of A form a uniform random permutation of
+(1,2,....m). Use indicator random variables to compute the expected number of
+inversions.
+
+ 
+
+ 
+
+5.3. Randomized algorithms
+
+In the previous section, we showed how knowing a distribution on the inputs can
+help us to analyze the average-case behavior of an algorithm. Many times, we do
+not have such knowledge, thus precluding an average-case analysis. As mentioned
+in Section 5.1, we may be able to use a randomized algorithm.
+
+For a problem such as the hiring problem, in which it is helpful to assume that
+all permutations of the input are equally likely, a probabilistic analysis can guide
+the development of a randomized algorithm. Instead of assuming a distribution
+of inputs, we impose a distribution. In particular, before running the algorithm,
+we randomly permute the candidates in order to enforce the property that every
+permutation is equally likely. Although we have modified the algorithm, we still
+expect to hire a new office assistant approximately Inn times. But now we expect
+

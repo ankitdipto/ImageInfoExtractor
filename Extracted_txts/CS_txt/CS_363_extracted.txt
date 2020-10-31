@@ -1,0 +1,51 @@
+31.2 Greatest common divisor 935
+
+Euclid’s algorithm
+
+The Elements of Euclid (circa 300 B.c.) describes the following gcd algorithm,
+although it may be of even earlier origin. We express Euclid’s algorithm as a
+recursive program based directly on Theorem 31.9. The inputs a and b are arbitrary
+nonnegative integers.
+
+Euc.ip(a,b)
+
+1 ifb==0
+
+2 return a
+
+3 else return EUCLID(b, a mod b)
+
+As an example of the running of EUCLID, consider the computation of ged (30, 21):
+
+Euc.iip(30, 21) = Euciip(21, 9)
+= Evuc.ip(9,3)
+= Eucwip(3,0)
+
+3.
+
+This computation calls EUCLID recursively three times.
+
+The correctness of EUCLID follows from Theorem 31.9 and the property that if
+the algorithm returns a in line 2, then b = 0, so that equation (31.9) implies that
+ged(a,b) = ged(a,0) = a. The algorithm cannot recurse indefinitely, since the
+second argument strictly decreases in each recursive call and is always nonnegative.
+Therefore, EUCLID always terminates with the correct answer.
+
+The running time of Euclid’s algorithm
+
+We analyze the worst-case running time of EUCLID as a function of the size of
+a and b. We assume with no loss of generality thata > b > 0. To justify this
+assumption, observe that if b > a > 0, then EUCLID(a, b) immediately makes the
+recursive call EUCLID(b, a). That is, if the first argument is less than the second
+argument, EUCLID spends one recursive call swapping its arguments and then pro-
+ceeds. Similarly, if b = a > 0, the procedure terminates after one recursive call,
+since a mod b = 0.
+
+The overall running time of EUCLID is proportional to the number of recursive
+calls it makes. Our analysis makes use of the Fibonacci numbers Fj, defined by
+the recurrence (3.22).
+
+Lemma 31.10
+Ifa > b > 1 and the call EucLip(a,b) performs k > 1 recursive calls, then
+a> Fyygandb > Fy4y.
+

@@ -1,0 +1,71 @@
+674
+
+Chapter 22. Agents that Communicate
+
+ 
+
+Exp(5)
+
+   
+ 
+
+Exp(2)
+
+ 
+
+Exp(3)
+
+Exp(4) Exp(2)
+
+Number(3)
+
+Digit(3) Operator(+) | Digit(4) Operator(+) — Digit(2)
+
+3 + ( 4 + 2 )
+
+Number(4) Number(2)
+
+ 
+
+ 
+
+ 
+
+Figure 22.14 Parse tree with semantic interpretations for the string "3 + (4 +2)”.
+
+ 
+
+ 
+
+ 
+
+deciding how the parts fit together, particularly for intermediate phrases such as the VP "loves
+Mary." Note that the semantic interpretation of this phrase is neither a logical term nor a
+complete logical sentence. Intuitively, "loves Mary" is a description that may or may not apply to
+a particular person (in this case, it applies to John). This means that "loves Mary" is a predicate
+that, when combined with a term that represents a person (the person doing the loving), yields a
+complete logical sentence. Using the A-notation (see page 195), we can represent "loves Mary"
+as the predicate
+
+Ax Loves(x, Mary)
+
+The NP "Mary" can be represented by the logical constant Mary. That sets us up to define a rule
+that says "an NP with semantics objfollowed by a VP with semantics rel yields a sentence whose
+semantics is the result of applying the relation re/ to the object obj:”
+
+S(rel(obj))— NP(obj) VP(rel)
+The rule tells us that the semantic interpretation of "John loves Mary" is
+(x Loves(x, Mary))(John)
+
+which is equivalent to Loves(John, Mary).
+
+The rest of the semantics follows in a straightforward way from the choices we have made
+so far. Because VPs are represented as predicates, it is a good idea to be consistent and represent
+verbs as predicates as well. The verb "loves" is represented as \y \x Loves(x, y), the predicate
+that, when given an argument such as Mary, returns the predicate |x Loves(x, Mary).
+
+The VP — Verb NP rule applies the predicate that is the semantic interpretation of the
+verb to the object that is the semantic interpretation of the NP to get the semantic interpretation
+of the whole VP. We end up with the grammar shown in Figure 22.15 and the parse tree shown
+in Figure 22.16.
+

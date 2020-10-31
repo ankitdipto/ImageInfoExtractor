@@ -1,0 +1,51 @@
+Section 15.6. Other Approaches to Uncertain Reasoning 459
+
+ 
+
+* One area that we have not addressed so far is the question of ignorance, as opposed to
+uncertainty. Consider flipping a coin. If we know the coin to be fair, then a probability
+of 0.5 for heads is reasonable. If we know the coin is biased, but we do not know
+which way, then 0.5 is the only reasonable probability. Obviously, the two cases are
+different, yet probability seems not to distinguish them. The Dempster-Shafer theory
+uses interval-valued degrees of belief to represent an agent's knowledge of the probability
+ofa proposition. Other methods using second-order probabilities are also discussed.
+
+Probability makes the same ontological commitment as logic: that events are true or false
+in the world, even ifthe agent is uncertain as to which is the case. Researchers in fuzzy
+logic have proposed an ontology that allows vagueness: that an event can be "sort of" true
+Vagueness and uncertainty are in fact orthogonal issues, as we will see.
+
+The following sections treat each of these approaches in slightly more depth. We will not provide
+detailed technical material, but we provide references for further study
+
+Default reasoning
+
+Commonsense reasoning is often said to involve "jumping to conclusions." For example, when
+one sees a car parked on the street, one would normally be willing to accept that it has four wheels
+even though only three are visible. (Ifyou feel that the existence of the fourth wheel is dubious,
+consider also the question as to whether the three visible wheels are real or merely cardboard
+facsimiles.) Probability theory can certainly provide a conclusion that the fourth wheel exists
+with high probability. On the other hand, introspection suggests that the possibility of the car
+not having four wheels does not even arise unless some new evidence presents itself. Thus, it
+seems that the four-wheel conclusion is reached by default, in the absence of any reason to doubt
+it. If new evidence arrives—for example, if one sees the owner carrying a wheel and notices
+that the car is jacked up—then the conclusion can be retracted. This kind of reasoning is said to
+Nonmonoronicty exhibit nonmonotonicity, because the set of beliefs does not grow monotonically over time as
+MONOTONICITY new evidence arrives. First-order logic, on the other hand, exhibits strict monotonicity.
+DEFAULT LOGIC Reasoning schemes such as default logic (Reiter, 1980), nonmonotonic logic (McDermott
+{guyonorontc and Doyle, 1980) and circumscription (McCarthy, 1980) are designed to handle reasoning with
+orcumscretion default rules and retraction of beliefs. Although the technical details of these systems are quite
+different, they share a number of problematic issues that arise with default reasoning:
+
+* What is the semantic status of default rules? If "Cars have four wheels" is false, what does
+it mean to have it in one's knowledge base? What is a good set of default rules to have?
+Without a good answer to these questions, default reasoning systems will be nonmodular,
+and it will be hard to develop a good knowledge engineering methodology.
+
+What happens when the evidence matches the premises of two default rules with conflict-
+ing conclusions? We saw examples of this in the discussion of multiple inheritance in
+Section 10.6. In some schemes, one can express priorities between rules so that one rule
+SRE takes precedence. Specificity preference is a commonly used form of priority in which
+a special-case rule takes precedence over the general case. For example, "Three-wheeled
+cars have three wheels" takes precedence over "Cars have four wheels."
+

@@ -1,0 +1,54 @@
+Section 19.7.
+
+Summary 593
+
+ 
+
+the agent) can provide prior knowledge to the APN learning process in the form of the network
+structure and/or conditional probability values. Since this reduces the hypothesis space, it should
+allow the APN to learn from fewer examples. Also, the ability of belief networks to represent
+propositions locally may mean that they converge faster to a correct representation of a domain
+that has local structure—that isin which each proposition is directly affected by only a small
+number of other propositions.
+
+  
+
+197_ SUMMARY
+
+Learning in complex network representations is currently one of the hottest topics in science. It
+promises to have broad applications in computer science, neurobiology, psychology, and physics.
+This chapter has presented some of the basic ideas and techniques, and given a flavor of the
+mathematical underpinnings. The basic points are as follows:
+
+A neural network is a computational model that shares some of the properties of brains: it
+consists of many simple units working in parallel with no central control. The connections
+between units have numeric weights that can be modified by the learning element
+
+The behavior of a neural network is determined by the connection topology and the nature
+of the individual units. Feed-forward networks, in which the connections form an acyclic
+graph, are the simplest to analyze. Feed-forward networks implement state-free functions
+
+A perceptron is a feed-forward network with a single layer ofunits, and can only represent
+linearly separable functions. If the data are linearly separable, the perceptron learning
+Tule can be used to modify the network's weights to fit the data exactly.
+
+Multilayer feed-forward networks can represent any function, given enough units
+
+The back-propagation learning algorithm works on multilayer feed-forward networks,
+using gradient descent in weight space to minimize the output error. It converges to a
+locally optimal solution, and has been used with some success in a variety of applications.
+As with all hill-climbing techniques, however, there is no guarantee that it will find a global
+solution. Furthermore, its convergence is often very slow.
+
+Bayesian learning methods can be used to leam representations of probabilistic functions,
+particularly belief networks. Bayesian learning methods must trade off the prior belief in
+a hypothesis against its degree of agreement with the observed data.
+
+There are a variety of learning problems associated with belief networks, depending on
+whether the structure is fixed or unknown, and whether variables are hidden or observable.
+
+With a fixed structure and hidden variables, belief network learning has a remarkable
+similarity to neural network learning. Gradient descent methods can be used, but belief
+networks also have the advantage of a well-understood semantics for individual nodes.
+This allows the provision of prior knowledge in order to speed up the learning process.
+

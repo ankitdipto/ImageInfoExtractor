@@ -1,0 +1,68 @@
+SECTION 59 Design of Basic Computer. 163
+
+TABLE 5-7 Encoder for Bus Selection Circuit
+
+ 
+
+Inputs Outputs Register
+—— selected
+for bus
+
+None
+AR
+
+PC
+
+DR
+
+AC
+
+IR
+
+TR
+Memory
+
+nonoronoly
+
+To determine the logic for each encoder input, itis necessary to find the
+control functions that place the corresponding register onto the bus. For exam-
+ple, tofind the logic that makes x; = 1, we scan all register transfer statements
+in Table 5-6 and extract those statements that have AR as a source.
+
+DT¢ PC-AR
+DJs PC<—AR
+
+Therefore, the Boolean function for x; is
+
+n
+
+ 
+
+Dil + DeTs
+The data output from memory are selected for the bus when x7 = 1 and
+5,515) = 111. The gate logic that generates x, must also be applied to the read
+input of memory. Therefore, the Boolean function for x7 is the same as the one
+derived previously for the read operation
+xy = RIT; + Dil s + (Do+ Dy + Dz + DoT
+
+In a similar manner we can determine the gate logic for the other registers.
+
+Figure 5-18 Encoder for bus selection inputs.
+
+ 
+
+——>}
+| [| 5 Multiplexer
+—e Encoder [| 5, busselect
+xs——+| Sn
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

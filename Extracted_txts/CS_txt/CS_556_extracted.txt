@@ -1,0 +1,42 @@
+(a)
+
+(b)
+
+ 
+
+34.5 NP-complete problems 1093
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 34.17 Reducing an instance of the vertex-cover problem to an instance of the hamiltonian-
+cycle problem. (a) An undirected graph G with a vertex cover of size 2, consisting of the lightly
+shaded vertices w and y. (b) The undirected graph G’ produced by the reduction, with the hamilto-
+nian path corresponding to the vertex cover shaded. The vertex cover {w, ’} corresponds to edges
+(s1, fw, x, 1]) and (52, [y, x, 1) appearing in the hamiltonian cycle.
+
+The only other vertices in V’ other than those of widgets are selector vertices
+51,52,...,5k. We use edges incident on selector vertices in G’ to select the k
+vertices of the cover in G.
+
+In addition to the edges in widgets, E’ contains two other types of edges, which
+Figure 34.17 shows. First, for each vertex u € V, we add edges to join pairs
+of widgets in order to form a path containing all widgets corresponding to edges
+incident on u in G. We arbitrarily order the vertices adjacent to each vertex
+u € Vasu, y®,,.., ys) where degree(w) is the number of vertices
+adjacent to u. We create a path in G’ through all the widgets corresponding
+to edges incident on u by adding to E’ the edges {({u,u, 6], [w.w"*), 1) :
+1 <i <degree(w) — 1}. In Figure 34.17, for example, we order the vertices ad-
+jacent to w as x, y,Z, and so graph G’ in part (b) of the figure includes the edges
+

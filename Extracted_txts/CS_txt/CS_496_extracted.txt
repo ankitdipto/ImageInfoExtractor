@@ -1,0 +1,49 @@
+33.4 Finding the closest pair of points 1043
+
+Section 2.3.1: we are splitting a sorted array into two sorted arrays. The following
+pseudocode gives the idea.
+
+let Y,[1.. Y.length] and Yp[1.. Y.length] be new arrays
+Yz.length = Yp.length = 0
+for i = 1 to Y. length
+if Y[i] € PL
+Y,.length = Y;,.length + 1
+Y,[¥z.length| = Y[i]
+else Yr. length = Yp.length + 1
+Yr[Ypr.length| = Y[i]
+
+CIADARWNH
+
+We simply examine the points in array Y in order. If a point Y[/] is in Pz, we
+append it to the end of array Yz; otherwise, we append it to the end of array Yr.
+Similar pseudocode works for forming arrays X;, Xp, and Y’.
+
+The only remaining question is how to get the points sorted in the first place. We
+presort them; that is, we sort them once and for all before the first recursive call.
+We pass these sorted arrays into the first recursive call, and from there we whittle
+them down through the recursive calls as necessary. Presorting adds an additional
+O(n lgn) term to the running time, but now each step of the recursion takes linear
+time exclusive of the recursive calls. Thus, if we let T(”) be the running time of
+each recursive step and T’(n) be the running time of the entire algorithm, we get
+T'(n) = T(n) + O(nlgn) and
+
+2T(n/2)+ O(n) ifn >3,
+
+TO) = 1 oa) ifn <3.
+
+Thus, T(n) = O(n lgn) and T'(n) = O(nign).
+
+Exercises
+
+33.4-1
+
+Professor Williams comes up with a scheme that allows the closest-pair algorithm
+to check only 5 points following each point in array Y’. The idea is always to place
+points on line / into set Pz. Then, there cannot be pairs of coincident points on
+line / with one point in Pz and one in Pr. Thus, at most 6 points can reside in
+the 5 x 26 rectangle. What is the flaw in the professor’s scheme?
+
+33.4-2
+Show that it actually suffices to check only the points in the 5 array positions fol-
+lowing each point in the array Y’.
+

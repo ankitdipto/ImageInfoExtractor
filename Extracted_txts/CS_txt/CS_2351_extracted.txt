@@ -1,0 +1,96 @@
+SECMON 12 Interconnection Sounos «493
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Local bus
+‘Common System
+
+shared ‘bs cru | | tor | | tect
+memory controler memory
+
+System bus
+
+tl 2
+
+System
+
+yor | | treat
+‘bos cru
+‘Local bus Local bus
+
+Figure 13-2. System bus structure for multiprocessors.
+
+asa cachememoty attached to the CPU (see Sec. 12-6) In this way, the average
+access time of the local memory can be made to approach the cycle time of the
+CPU to which it is attached.
+
+Muttiport Memory
+‘A multiport memoty system employs separate buses between each memory
+module and each CPU. This is shown in Fig. 13-3 for four CPUs and four
+memory modules (MMs) Each processor bus is connected to each memory
+module. A processor bus consists of the address, data and control tines
+required to communicate with memory. The memory moduleis said to have
+four ports and each port accommodates one of the buses. The module must
+haveinternalcontzol logicto determine which pott will have aacess to memary
+at any given time. Memory access conflicts are resolved by axsigning fixed
+prorties toeach memory port. The priotity for memory access associated with
+each processor may be established by the physical port position that ‘ts bus
+occupies in each module. Thus CPU 1 will have priotity over CPU 2, CPU 2
+will have priority over CPU'3, and CPU 4 will have the lowest prion'ty.
+‘Theadvantage of the multiport memory organization is the high transfer
+rate that conbe achieved because ofthe multiple pathsbetween processors and
+memory. The disadvantage is thatit requires expensive memoty control logic
+and a large number of cablesand connectors. As a consequence, this intercan-
+

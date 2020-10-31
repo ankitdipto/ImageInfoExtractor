@@ -1,0 +1,52 @@
+22
+
+Chapter 2. Getting Started
+
+a pointer to the array is passed, rather than the entire array, and changes to
+individual array elements are visible to the calling procedure.
+
++ A return statement immediately transfers control back to the point of call in
+the calling procedure. Most return statements also take a value to pass back to
+the caller. Our pseudocode differs from many programming languages in that
+we allow multiple values to be returned in a single return statement.
+
+* The boolean operators “and” and “or” are short circuiting. That is, when we
+evaluate the expression “x and y” we first evaluate x. If x evaluates to FALSE,
+then the entire expression cannot evaluate to TRUE, and so we do not evaluate y.
+If, on the other hand, x evaluates to TRUE, we must evaluate y to determine the
+value of the entire expression. Similarly, in the expression “x or y” we eval-
+uate the expression y only if x evaluates to FALSE. Short-circuiting operators
+allow us to write boolean expressions such as “x # NIL and x.f = y” without
+worrying about what happens when we try to evaluate x.f when x is NIL.
+
+* The keyword error indicates that an error occurred because conditions were
+wrong for the procedure to have been called. The calling procedure is respon-
+sible for handling the error, and so we do not specify what action to take.
+
+Exercises
+
+2.1-1
+Using Figure 2.2 as a model, illustrate the operation of INSERTION-SORT on the
+array A = (31, 41,59, 26, 41,58).
+
+2.1-2
+Rewrite the INSERTION-SORT procedure to sort into nonincreasing instead of non-
+decreasing order.
+
+2.1-3
+
+Consider the searching problem:
+
+Input: A sequence of n numbers A = (4), d2.....dy) and a value v.
+
+Output: An index i such that v = A[i] or the special value NIL if v does not
+appear in A.
+
+Write pseudocode for linear search, which scans through the sequence, looking
+for v. Using a loop invariant, prove that your algorithm is correct. Make sure that
+your loop invariant fulfills the three necessary properties.
+
+2.1-4
+Consider the problem of adding two n-bit binary integers, stored in two n-element
+arrays A and B. The sum of the two integers should be stored in binary form in
+

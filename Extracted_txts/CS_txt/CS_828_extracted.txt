@@ -1,0 +1,40 @@
+174 Let Us C
+
+ 
+
+void clrscr() ;
+void gotoxy (int, int ) ;
+int getch() ;
+
+Now consider the following function calls:
+
+#include <stdio.h>
+int i= 10, j= 20;
+
+printf ("%d %d %d ", i,j);
+printf ("%d", i,j);
+
+The above functions get successfully compiled even though there
+is a mismatch in the format specifiers and the variables in the list.
+This is because printf() accepts variable number of arguments
+(sometimes 2 arguments, sometimes 3 arguments, etc.), and even
+with the mismatch above the call still matches with the prototype
+of printf() present in ‘stdio.h’. At run-time when the first printf()
+is executed, since there is no variable matching with the last
+specifier %d, a garbage integer gets printed. Similarly, in the
+second printf() since the format specifier for j has not been
+mentioned its value does not get printed.
+
+Advanced Features of Functions
+
+With a sound basis of the preliminaries of C functions, let us now
+get into their intricacies. Following advanced topics would be
+considered here.
+
+(a) Function Declaration and Prototypes
+(b) Calling functions by value or by reference
+
+(c) Recursion
+
+Let us understand these features one by one.
+

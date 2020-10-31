@@ -1,0 +1,48 @@
+4.6 Proof of the master theorem 103
+
+and for case 2,
+
+T(n) = O(n'®*) + O(n" “ Ign)
+= O(n“ Ign).
+
+For case 3,
+
+Tin) = O(n“) + O(f(n))
+= Of).
+
+because f (1) = Q(n'8» 4+), 7
+
+4.6.2 Floors and ceilings
+
+To complete the proof of the master theorem, we must now extend our analysis to
+the situation in which floors and ceilings appear in the master recurrence, so that
+the recurrence is defined for all integers, not for just exact powers of b. Obtaining
+a lower bound on
+
+T(n) = aT ({n/b)) + f(n) (4.25)
+and an upper bound on
+T(n) = aT (\n/b]) + f@) (4.26)
+
+is routine, since we can push through the bound [n/b] > n/b in the first case to
+yield the desired result, and we can push through the bound [n/b| < n/b in the
+second case. We use much the same technique to lower-bound the recurrence (4.26)
+as to upper-bound the recurrence (4.25), and so we shall present only this latter
+bound.
+
+We modify the recursion tree of Figure 4.7 to produce the recursion tree in Fig-
+ure 4.8. As we go down in the recursion tree, we obtain a sequence of recursive
+invocations on the arguments
+
+n,
+
+[n/b] .
+
+[[n/b] /b] .
+[Tfn/b]/b] /b] .
+
+Let us denote the j th element in the sequence by n;, where
+
+n ifj =0.
+
+an [nja/b] iff >0. (4.27)
+

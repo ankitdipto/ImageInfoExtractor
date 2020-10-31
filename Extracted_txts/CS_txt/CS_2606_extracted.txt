@@ -1,0 +1,38 @@
+a
+8 Sorting in Linear Time
+
+We have now introduced several algorithms that can sort 7 numbers in O(nlgn)
+time. Merge sort and heapsort achieve this upper bound in the worst case; quicksort
+achieves it on average. Moreover, for each of these algorithms, we can produce a
+sequence of input numbers that causes the algorithm to run in Q(7 lg 7) time.
+
+These algorithms share an interesting property: the sorted order they determine
+is based only on comparisons between the input elements. We call such sorting
+algorithms comparison sorts. All the sorting algorithms introduced thus far are
+comparison sorts.
+
+In Section 8.1, we shall prove that any comparison sort must make Q(n Ign)
+comparisons in the worst case to sort 1 elements. Thus, merge sort and heapsort
+are asymptotically optimal, and no comparison sort exists that is faster by more
+than a constant factor.
+
+Sections 8.2, 8.3, and 8.4 examine three sorting algorithms— counting sort, radix
+sort, and bucket sort—that run in linear time. Of course, these algorithms use
+operations other than comparisons to determine the sorted order. Consequently,
+the Q(n1gn) lower bound does not apply to them.
+
+ 
+
+8.1 Lower bounds for sorting
+
+In a comparison sort, we use only comparisons between elements to gain order
+information about an input sequence (@1, d2,...,dn). That is, given two elements
+a; and aj, we perform one of the tests a; < dj, dj < dj, dj = aj, 4; > aj, or
+a; > a; to determine their relative order. We may not inspect the values of the
+elements or gain order information about them in any other way.
+
+In this section, we assume without loss of generality that all the input elements
+are distinct. Given this assumption, comparisons of the form a; = a; are useless,
+so We can assume that no comparisons of this form are made. We also note that
+the comparisons a; < aj, a; > aj, a; > aj, and aj; < aj; are all equivalent in that
+

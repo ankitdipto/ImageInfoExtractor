@@ -1,0 +1,60 @@
+266
+
+Chapter 11 Hash Tables
+
+Xx = U{h(k) = h(1)}. Since by the definition of a universal collection of hash
+functions, a single pair of keys collides with probability at most 1/m, we have
+Pr{h(k) = h(1)} < 1/m. By Lemma 5.1, therefore, we have E[X«/] < 1/m.
+
+Next we define, for each key k, the random variable Y; that equals the number
+of keys other than & that hash to the same slot as k, so that
+
+Ye = 0 Xu.
+
+leT
+I¢k
+
+Thus we have
+E(%] = E Yo Xu
+
+leT
+I¢k
+
+= > E[Xxi] (by linearity of expectation)
+
+leT
+Ifk
+
+y 1
+
+ier"
+
+I tk
+
+The remainder of the proof depends on whether key k is in table T.
+
+° Ifk ¢T, then nj) = Ye and |{l : 1 € T and] £ k}| =n. Thus E [rng] =
+E[¥%] <n/m=a.
+
++ Ifk € T, then because key k appears in list T[/h(k)] and the count Y, does not
+include key k, we have naw) = Ye + 1 and |{/ :] € T and] Ak}| =n—-1.
+Thus E[raw] = E[Yk] +1 <(n-1)/m+1l=1+a-l1/m<l+a.
+
+IA
+
+The following corollary says universal hashing provides the desired payoff: it
+has now become impossible for an adversary to pick a sequence of operations that
+forces the worst-case running time. By cleverly randomizing the choice of hash
+function at run time, we guarantee that we can process every sequence of operations
+with a good average-case running time.
+
+Corollary 11.4
+
+Using universal hashing and collision resolution by chaining in an initially empty
+table with m slots, it takes expected time @() to handle any sequence of n INSERT,
+SEARCH, and DELETE operations containing O() INSERT operations.
+
+Proof Since the number of insertions is O(m), we have n = O(m) and so
+a@ = O(1). The INSERT and DELETE operations take constant time and, by The-
+orem 11.3, the expected time for each SEARCH operation is O(1). By linearity of
+

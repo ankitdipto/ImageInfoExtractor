@@ -1,0 +1,56 @@
+SECTION 7-3 Microprogram Example 227,
+
+ 
+
+Binary
+Address Fl F2 3 CD BR AD
+
+1000000 110 000 000-00) 001000001
+1000001 000 100 101 00 09 -~—«1000010
+1000010 101 000 000 00 1100000
+
+The three microinstructions that constitute the fetch routine have been
+listed in three different representations. The register transfer representation
+shows the internal register transfer operations that each microinstruction im-
+plements. The symbolic representation is useful for writing microprograms in
+an assembly language format. The binary representation is the actual internal
+content that must be stored in control memory. It is customary to write
+microprograms in symbolic form and then use an assembler program to obtain
+a translation to binary.
+
+ 
+
+Symbolic Microprogram
+
+The execution of the third (MAP) microinstruction in the fetch routine results
+ina branch to address 0000000, where »0ox are the four bits of the operation
+code. For example, if the instruction is an ADD instruction whose operation
+code is 0000, the MAP microinstruction will transfer to CAR the address
+0000000, which is the startaddress for the ADD routine in control memory. The
+first address for the BRANCH and STORE routines are 0 0001 00 (decimal 4)
+and 0 0010 00 (decimal 8), respectively. The first address for the other 13
+routines are at address values 12, 16, 20,..., 60. This gives four words in
+control memory for each routine.
+
+In each routine we must provide microinstructions for evaluating the
+effective address and for executing the instruction. The indirect address mode
+is associated with all memory-reference instructions. A saving in the number
+of control memory words may be achieved if the microinstructions for the
+indirect address are stored as a subroutine. This subroutine, symbolized by
+INDRCT,islocated right after the fetchroutine, asshown in Table 7-2 Thetable
+also shows the symbolic microprogram for the fetch routine and the microin-
+struction routines that execute four computer instructions.
+
+To see how the transfer and return from the indirect subroutine occurs,
+assume that the MAP microinstruction at the end of the fetch routine caused
+a branch toaddress0, where the ADD routineis stored. The first microinstruc-
+tion in the ADD routine calls subroutine INDRCT, conditioned on status bit
+LIf1 = 1, abranch to INDRCT occurs and the return address (address 1 in this
+case) is stored in the subroutine register SBR. The INDRCT subroutine has two
+microinstructions:
+
+INDRCT: READ U JMP NEXT
+DRTAR U RET
+
+ 
+

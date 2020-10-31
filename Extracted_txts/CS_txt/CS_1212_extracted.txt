@@ -1,0 +1,41 @@
+486 Let Us C
+
+ 
+
+printf ( "\nFile opening error!" ) ;
+exit (1);
+
+while ( (ch = getc (fs )) |= EOF )
+putc (~ch, ft) ;
+
+fclose (fs ) ;
+fclose (ft);
+}
+
+How would you write the corresponding decrypt function? Would
+there be any problem in tackling the end of file marker? It may be
+recalled here that the end of file in text files is indicated by a
+character whose ASCII value is 26.
+
+Right Shift Operator
+
+The right shift operator is represented by >>. It needs two
+operands. It shifts each bit in its left operand to the right. The
+number of places the bits are shifted depends on the number
+following the operator (i.e. its right operand).
+
+Thus, ch >> 3 would shift all bits in ch three places to the right.
+Similarly, ch >> 5 would shift all bits 5 places to the right.
+
+For example, if the variable ch contains the bit pattern 11010111,
+then, ch >> 1 would give 01101011 and ch >> 2 would give
+00110101.
+
+Note that as the bits are shifted to the right, blanks are created on
+the left. These blanks must be filled somehow. They are always
+filled with zeros. The following program demonstrates the effect
+of right shift operator.
+
+main()
+{
+

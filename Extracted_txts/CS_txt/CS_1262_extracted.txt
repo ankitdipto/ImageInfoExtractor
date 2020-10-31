@@ -1,0 +1,46 @@
+538 Let UsC
+
+ 
+
+Are COLORREF, HANDLE, etc. new datatypes that have been
+added in C under Windows compiler? Not at all. They are merely
+typedef’s of the normal integer datatype.
+
+A typical C under Windows program would contain several such
+typedefs. There are two reasons why Windows-based C programs
+heavily make use of typedefs. These are:
+
+(a)
+
+()
+
+A typical Windows program is required to perform several
+complex tasks. For example a program may print documents,
+send mails, perform file I/O, manage multiple threads of
+execution, draw in a window, play sound files, perform
+operations over the network apart from normal data
+processing tasks. Naturally a program that carries out so many
+tasks would be very big in size. In such a program if we start
+using the normal integer data type to represent variables that
+hold different entities we would soon lose track of what that
+integer value actually represents. This can be overcome by
+suitably typedefining the integer as shown above.
+
+At several places in Windows programming we are required
+to gather and work with dissimilar but inter-related data. This
+can be done using a structure. But when we define any
+structure variable we are required to precede it with the
+keyword struct. This can be avoided by using typedef as
+shown below:
+
+struct rect
+{
+int top ;
+int left ;
+int right ;
+int bottom ;
+hi
+typedef struct rect RECT ;
+
+typedef struct rect” PRECT ;
+

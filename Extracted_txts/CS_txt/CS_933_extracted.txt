@@ -1,0 +1,54 @@
+SECTION 66 Programming Arithmetic and Logic Operations 197
+
+Logic Operations
+
+‘The basic computer has three machine instructions that perform logic opera-
+tions: AND, CMA, and CLA. TheLDA instruction may be considered as alogic
+operation that transfers a logic operand into the AC. In Sec. 4-5 we listed 16
+different logic operations. All 16 logic operations can be implemented by
+software means because any logic function can be implemented using the AND
+and complement operations. For example, the OR operation is not available as
+a machine instruction in the basic computer. From DeMorgan's theorem we
+recognize the relation x + y = (x’y’)’. The second expression contains only
+AND and complement operations. A program that forms the OR operation of
+two logic operands A and B is as follows:
+
+LDAA Load first operand A
+
+cua Complement to get 2
+
+STATMP Store inatemporary location
+LDAB Load second operand B
+
+cua Complement to get B
+AND TMP AND with AtogetAAB
+cua Complement again to get avB
+
+The other logic operations can be implemented by software in a similar
+fashion.
+
+Shift Operations
+
+The circular-shift operations are machine instructions in the basic computer.
+The othershifts of interest are thelogical shifts and arithmetic shifts. These two
+shifts can be programmed with a small number of instructions.
+
+The logical shift requires that zeros be added to the extreme positions.
+This is easily accomplished by clearing E and circulating the AC and E. Thus
+for a logical shift-right operation we need the two instructions
+
+CLE
+
+CIR
+
+For a logical shift-left operation we need the two instructions
+
+CLE
+cIL
+
+The arithmetic shifts depend on the type of representation of negative
+numbers, For the basic computer we have adopted the signed-2's complement
+representation. The rules for arithmetic shifts are listed in Sec. 46. For an
+arithmetic right-shift it is necessary that the sign bit in the leftmost position
+remain unchanged. But the sign bit itself is shifted into the high-order bit
+

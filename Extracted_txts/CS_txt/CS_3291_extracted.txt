@@ -1,0 +1,52 @@
+644 Chapter 21. Knowledge in Learning
+
+ 
+
+2. Equality and inequality literals: these relate variables already appearing in the clause. For
+example, we might add z#x. These literals can also include user-specified constants. In the
+family domain, there will not usually be any such "special" constants, whereas in leaming
+arithmetic, we might use 0 and 1, and in list functions, the empty list [ ].
+
+3. Arithmetic comparisons: when dealing with functions of continuous variables, literals such
+as x > y and y < = can be added. As in decision-tree learning, one can also use constant
+threshold values that are chosen to maximize the discriminatory power of the test.
+
+All this adds up to a very large branching factor in the search space (see Exercise 21.6). Imple-
+mentations of FOIL may also use type information to restrict the hypothesis space. For example,
+ifthe domain included numbers as well as people, type restrictions would prevent NEW-LITERALS
+from generating literals such as Parent(x,n), where x is a person and n is a number.
+
+CHOOSE-LITERAL uses a heuristic somewhat similar to information gain (see page 541) to
+decide which literal to add. The exact details are not so important here, particularly as a number
+of different variations are currently being tried out. One interesting additional feature of FOIL is
+the use of Ockham’s razor to eliminate some hypotheses. Ifa clause becomes longer (according
+to some metric) than the total length of the positive examples that the clause explains, that clause
+is not considered as a potential hypothesis. This technique provides a way to avoid overcomplex
+clauses that fit noise in the data. For an explanation of the connection between noise and clause
+length, see Section 19.6.
+
+FOIL and its relatives have been used to leam a wide variety of definitions. One of the
+most impressive demonstrations (Quinlan and Cameron-Jones, 1993) involved solving a long
+sequences of exercises on list-processing functions from Bratko's (1986) Prolog textbook. In
+each case, the program was able to leam a correct definition of the function from a small set of
+examples, using the previously leamed functions as background knowledge.
+
+21.5 __ SUMMARY
+
+This chapter has investigated various ways in which prior knowledge can help an agent to learn
+from new experiences.
+
+The use of prior knowledge in learning leads to a picture of cumulative learning, in which
+learning agents improve their learning ability as they acquire more knowledge.
+
+Prior knowledge helps learning by eliminating otherwise consistent hypotheses and by
+"filling in" the explanation of examples, thereby allowing for shorter hypotheses. These
+contributions improve both the sample complexity and computation complexity of learning.
+
+Understanding the different logical roles played by prior knowledge, as expressed by
+entailment constraints, helps to define a variety of learning techniques.
+
+Explanation-based learning (EBL) extracts general rules from single examples by ey-
+plaining the examples and generalizing the explanation. It provides a deductive method to
+tum first-principles knowledge into useful, efficient, special-purpose expertise
+

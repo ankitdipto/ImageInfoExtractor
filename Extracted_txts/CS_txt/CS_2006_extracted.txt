@@ -1,0 +1,50 @@
+12.9 NFS 447
+
+So that lookup is fast, a directory name lookup cache on the client side
+holds the vnodes for remote directory names. This cache speeds up references
+to files with the same initial path name. The directory cache is discarded when
+attributes returned from the server do not match the attributes of the cached
+vnode.
+
+Recall that mounting a remote file system on top of another already
+mounted remote file system (cascading mount) is allowed in some implemen-
+tations of NFS. However, a server cannot act as an intermediary between a
+client and another server. Instead, a client must establish a direct client-server
+connection with the second server by directly mounting the desired directory.
+When a client has a cascading mount, more than one server can be involved ina
+path-name traversal. However, each component lookup is performed between
+the original client and some server. Therefore, when a client does a lookup on
+a directory on which the server has mounted a file system, the client sees the
+underlying directory, instead of the mounted directory.
+
+12.9.5 Remote Operations
+
+With the exception of opening and closing files, there is almost a one-to-one
+correspondence between the regular UNIX system calls for file operations and
+the NFS protocol RPCs. Thus, a remote file operation can be translated directly
+to the corresponding RPC. Conceptually, NFS adheres to the remote-service
+paradigm, but in practice buffering and caching techniques are employed for
+the sake of performance. No direct correspondence exists between a remote
+operation and an RPC. Instead, file blocks and file attributes are fetched by the
+RPCs and are cached locally. Future remote operations use the cached data,
+subject to consistency constraints.
+
+There are two caches: the file-attribute (inode-information) cache and the
+file-blocks cache. On a file open, the kernel checks with the remote server
+whether to fetch or revalidate the cached attributes. The cached file blocks are
+used only if the corresponding cached attributes are up to date. The attribute
+cache is updated whenever new attributes arrive from the server. Cached
+attributes are, by default, discarded after 60 seconds. Both read-ahead and
+delayed-write techniques are used between the server and the client. Clients
+do not free delayed-write blocks until the server confirms that the data have
+been written to disk. In contrast to the system used in Sprite, delayed-write is
+retained even when a file is opened concurrently, in conflicting modes. Hence,
+UNIX semantics are not preserved.
+
+Tuning the system for performance makes it difficult to characterize the
+consistency semantics of NFS. New files created on a machine may not be visible
+elsewhere for 30 seconds. It is indeterminate whether writes to a file at one
+site are visible to other sites that have this file open for reading. New opens
+of that file observe only the changes that have already been flushed to the
+server. Thus, NFS provides neither strict emulation of UNIX semantics, nor the
+

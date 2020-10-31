@@ -1,0 +1,58 @@
+462
+
+Chapter 17 Amortized Analysis
+
+operations it has b,, 1s, where 0 < bo, b, < k. (Recall that k is the number of bits
+in the counter.) We can rewrite equation (17.3) as
+
+Dee = VG -— OD») + (Do) « «7.4y
+isl
+
+i=l
+
+We have ¢; < 2 forall 1 <i <n. Since ®(Do) = bo and ®(D,,) = bn, the total
+actual cost of n INCREMENT operations is
+
+Sa S22 by + by
+i=l i=l
+
+= 2n—hb,+bho.
+
+IA
+
+Note in particular that since by < k, as long as k = O(n), the total actual cost
+
+is O(n). In other words, if we execute at least = Q(k) INCREMENT operations,
+the total actual cost is O(), no matter what initial value the counter contains.
+
+Exercises
+
+173-1
+
+Suppose we have a potential function ® such that ®(D;) > ®(Do) for all i, but
+®(Do) # 0. Show that there exists a potential function ®’ such that ®'(Do) = 0,
+®'(D;) = 0 for alli > 1, and the amortized costs using ®’ are the same as the
+amortized costs using ®.
+
+173-2
+Redo Exercise 17.1-3 using a potential method of analysis.
+
+17.3-3
+
+Consider an ordinary binary min-heap data structure with n elements supporting
+the instructions INSERT and EXTRACT-MIN in O(lg) worst-case time. Give a
+potential function ® such that the amortized cost of INSERT is O(lgn) and the
+amortized cost of EXTRACT-MIN is O(1), and show that it works.
+
+I73-4
+
+What is the total cost of executing 7 of the stack operations PUSH, Pop, and
+MULTIPOP, assuming that the stack begins with so objects and finishes with s,,
+objects?
+
+173-5
+
+Suppose that a counter begins at a number with b 1s in its binary representa-
+tion, rather than at 0. Show that the cost of performing n INCREMENT operations
+is O(n) if n = Q(b). (Do not assume that b is constant.)
+

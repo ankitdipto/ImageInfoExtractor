@@ -1,0 +1,58 @@
+27.2. Multithreaded matrix multiplication 793
+
+P-SQUARE-MATRIX-MULTIPLY (A, B)
+
+ 
+
+1 n= A.rows
+
+2 let C be anewn xn matrix
+
+3 parallel fori = 1 ton
+
+4 parallel for j = 1 ton
+
+5 cj =0
+
+6 fork = 1ton
+
+7 Cy = Ci + ik Dey
+8
+
+return C
+
+To analyze this algorithm, observe that since the serialization of the algorithm is
+just SQUARE-MATRIX-MULTIPLY, the work is therefore simply T,(7) = @(n>),
+the same as the running time of SQUARE-MATRIX-MULTIPLY. The span is
+To.(n) = O(n), because it follows a path down the tree of recursion for the
+parallel for loop starting in line 3, then down the tree of recursion for the parallel
+for loop starting in line 4, and then executes all 1 iterations of the ordinary for loop
+starting in line 6, resulting in a total span of O(Ign) + O(Ilgn) + O(n) = O(n).
+Thus, the parallelism is @(3)/@(n) = ©(n?). Exercise 27.2-3 asks you to par-
+allelize the inner loop to obtain a parallelism of @(n3/ Ign), which you cannot do
+straightforwardly using parallel for, because you would create races.
+
+A divide-and-conquer multithreaded algorithm for matrix multiplication
+
+As we learned in Section 4.2, we can multiply n x n matrices serially in time
+@(n'87) = O(n") using Strassen’s divide-and-conquer strategy, which motivates
+us to look at multithreading such an algorithm. We begin, as we did in Section 4.2,
+with multithreading a simpler divide-and-conquer algorithm.
+
+Recall from page 77 that the SQUARE-MATRIX-MULTIPLY-RECURSIVE proce-
+dure, which multiplies two n xn matrices A and B to produce the n x n matrix C,
+relies on partitioning each of the three matrices into four n/2 x n/2 submatrices:
+
+An Ai Buy By Cu Cir
+A= , B= » C= :
+(i An ) (i Bu ) (a Cx )
+Then, we can write the matrix product as
+Cu ©?) = Au a”) By me)
+Cy Cy An Aaa By By
+AnuBu AnBy Ai Ba Aj2By.
+= : 27.6
+(ak An Br ) + (ier AnBn ) 276)
+
+Thus, to multiply two 7 xn matrices, we perform eight multiplications of n/2xn/2
+matrices and one addition of n xn matrices. The following pseudocode implements
+

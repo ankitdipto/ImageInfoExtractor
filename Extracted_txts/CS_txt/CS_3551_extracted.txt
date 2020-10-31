@@ -1,0 +1,48 @@
+ 
+
+Section 3.8.
+
+MAP-COLORING
+
+FLOORPLANNING
+
+ 
+
+Summary 91
+
+318 The search agents we have discussed make use of a complete model of the world to
+construct a solution that they then execute. Modify the depth-first search algorithm with repeated
+state checking so that an agent can use it to explore an arbitrary vacuum world even without a
+model of the locations of walls and dirt. It should not get stuck even with loops or dead ends.
+You may also wish to have your agent construct an environment description of the type used by
+the standard search algorithms.
+
+3.19 In discussing the cryptarithmetic problem, we proposed that an operator should assign
+a value to whichever letter has the least remaining possible values. Is this rule guaranteed to
+produce the smallest possible search space? Why (not)?
+
+3.20 Define each of the following as constraint satisfaction problems:
+
+a. The cryptarithmetic problem.
+The channel-routing problem in VLSI layout
+
+c. The map-coloring problem. In map-coloring, the aim is to color countries on a map using
+a given set ofcolors, such that no two adjacent countries are the same color.
+
+d. The rectilinear floor-planning problem, which involves finding nonoverlapping places in
+a large rectangle for a number of smaller rectangles.
+
+3.21 Implement a constraint satisfaction system as follows:
+a. Define a datatype for CSPs with finite, discrete domains. You will need to find a way to
+represent domains and constraints.
+
+b. Implement operators that assign values to variables, where the variables are assigned in a
+fixed order at each level of the tree.
+
+c. Implement a goal test that checks a complete state for satisfaction of all the constraints.
+d. Implement backtracking by modifying DEPTH-FIRST-SEARCH.
+
+e. Add forward checking to your backtracking algorithm
+
+f. Run the three algorithms on some sample problems and compare their performance
+

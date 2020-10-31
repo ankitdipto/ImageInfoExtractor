@@ -1,0 +1,48 @@
+354 Chapter 10 Virtual Memory
+
+minimum is the minimum number of pages the process is guaranteed to have in
+memory. If sufficient memory is available, a process may be assigned as many
+pages as its working-set maximum. (In some circumstances, a process may
+be allowed to exceed its working-set maximum.) The virtual-memory manager
+maintains a list of free page frames. Associated with this list is a threshold value
+that is used to indicate whether there is sufficient free memory available or not.
+If a page fault occurs for a process that is below its working-set maximum,
+the virtual-memory manager allocates a page from this list of free pages. If
+a process is at its working-set maximum and it incurs a page fault, it must
+select a page for replacement using a local page-replacement policy. When the
+amount of free memory falls below the threshold, the virtual-memory manager
+uses a tactic known as automatic working-set trimming to restore the value
+above the threshold. Automatic working-set trimming works by evaluating the
+number of pages allocated to processes. If a process has been allocated more
+pages than its working-set minimum, the virtual-memory manager removes
+pages until the process reaches its working-set minimum. A process that is at
+its working-set minimum may be allocated pages from the free page frame list
+once sufficient free memory is available.
+
+The algorithm used to determine which page to remove from a working
+set depends upon the type of processor the operating system is running on.
+On single-processor x86 systems, Windows NT uses a variation of the clock
+algorithm discussed in Section 10.4.5.2. On Alpha and multiprocessor x86
+systems, clearing the reference bit may require invalidating the entry in the
+translation look-aside buffer on other processors. Rather than involving this
+overhead, Windows NT uses a variation on the FIFO algorithm discussed in
+Section 10.4.2.
+
+10.7.2 Solaris 2
+
+When a thread incurs a page fault, the kernel assigns a page to the faulting
+thread from the list of free pages it maintains. Therefore, it is imperative that the
+kernel maintain a sufficient amount of free memory available. Associated with
+this list of free pages is a parameter —lotsfree—which represents a threshold to
+begin paging. lotsfree is typically set to 1/64 of the size of the physical memory.
+Four times per second, the kernel checks if the amount of free memory is less
+than lotsfree.
+
+If the number of free pages falls below lotsfree, a process known as the page-
+out starts up. The pageout process is similar to the second-chance algorithm
+described in Section 10.4.5.2 (also known as the two-handed-clock algorithm),
+which works as follows. The first hand of the clock scans all pages in memory,
+setting the reference bit to 0. Ata later point in time, the second hand of the
+clock examines the reference bit for the pages in memory, returning those pages
+whose bit is still set to 0 to the free list.
+

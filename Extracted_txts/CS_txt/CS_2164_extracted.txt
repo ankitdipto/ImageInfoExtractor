@@ -1,0 +1,52 @@
+334 = cuarren TEN Computer Arithmetic
+
+algorithm
+
+ations for binary and decimal data in fixed-point and floating-point represen-
+tation
+
+‘At an early age we are taught how to perform the basic arithmetic
+operations in signed-magnitude representation This knowledge is valuable
+when the operations are to be implemented by hardware. However, the de-
+signer must be thoroughly familiar with the sequence of steps to be followed
+inorder to carry out the operation and achieve a correct result. The solution
+to any problem that is stated by a finite number of well-defined procedural
+steps iscalledan algorithm . An algorithm was stated in Sec. 33 for the addition
+of two fixed-point binary numbers when negative numbers are in signed-2's
+complement representation. This is a simple algorithm since all it needs for its
+implementation is a parallel binary adder. When negative numbers are in
+signed-magnitude representation, the algorithm is slightly more complicated
+and its implementation requires circuits to add and subtract, and to compare
+the signs and the magnitudes of the numbers. Usually, an algorithm will
+contain a number of procedural steps which are dependent on results of
+previous steps. A convenient method for presenting algorithmsis a flowchart.
+‘The computational steps are specified in the flowchart inside rectangular
+boxes. The decision steps are indicated inside diamond-shaped boxes from
+which two or more alternate paths emerge.
+
+In this chapter we develop the various arithmetic algorithms and show
+the procedure for implementing them with digital hardware We consider
+addition, subtraction, multiplication, and division for the following types of
+data:
+
+1. Fixed-point binary data in signed-magnitude representation
+
+2. Fixed-point binary data in signed-2’s complement representation
+3. Floating-point binary data
+
+4. Binary-coded decimal (BCD) data
+
+10-2 Addition and Subtraction
+
+Asstated in Sec. 3-3, there are three ways of representing negative fixed-point
+binary numbers: signed-magnitude, signed-I’s complement, or signed-2's
+complement. Most computers use the signed-2’s complement representation
+when performing arithmetic operations with integers. For floating-point oper-
+ations, most computers use the signed-magnitude representation for the man-
+tissa. In this section we develop the addition and subtraction algorithms for
+data represented in signed-magnitude and again for data represented in
+signed-2's complement.
+
+It is important to realize that the adopted representation for negative
+numbers refers to the representation of numbers in the registers before and
+

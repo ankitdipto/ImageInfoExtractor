@@ -1,0 +1,50 @@
+506
+
+CHAPTER THIRTEEN Multiprocessors
+
+whose processor is currently controlling the bus. Once an arbiter releases the
+bus, it has the lowest priority.
+
+13-4 Interprocessor Communication
+and Synchronization
+
+The various processors in a multiprocessor system must be provided with a
+facility for communicating with each other. A communication path can be
+established through common input-output channels. In a shared memory
+multiprocessor system, the most comunon procedure is to set aside a portion
+of memory that is accessible to all processors. The primary use of the common
+memory is toactas a message centersimilar toa mailbox, where each processor
+can leave messages for other processors and pick up messages intended for it.
+
+‘The sending processor structures a request, a message, or a procedure,
+and places itin the memory mailbox. Status bits residing in common memory
+are generally used to indicate the condition of the mailbox, whether it has
+meaningful information, and forwhich processor itis intended. The receiving
+processor can check the mailbox periodically to determine if there are valid
+messages for it. The response time of this procedure can be time consuming
+since a processor will recognize request only when polling messages. A more
+efficient procedureis for the sending processor to alert the receiving processor
+directly by means of an interrupt signal. This can be accomplished through a
+software-initiated interprocessor interrupt by means of an instruction in the
+program of one processor which when executed produces an external interrupt
+condition in a second processor. This alerts the interrupted processor of the
+fact that a new message was inserted by the interrupting processor.
+
+In addition to shared memory, a multiprocessor system may have other
+shared resources. For example, a magnetic disk storage unit connected to an
+IOP may be available to all CPUs. This provides a facility for sharing of system
+programs stored in the disk. A communication path between two CPUs can
+be established through a link between two IOPs associated with two different
+CPUs This type of link allows each CPU to treat the other as an /O device so
+that messages can be transferred through the /O path.
+
+To prevent conflicting use of shared resources by several processors there
+must be a provision for assigning resources to processors. This task is given
+to the operating system. There are three organizations that have been used in
+the design of operating system for multiprocessors: master-slave configura-
+tion, separate operating system, and distributed operating system.
+
+Ina master-slave mode, one processor, designated the master, always
+executes the operating system functions. The remaining processors, denoted
+asslaves, do notperform operatingsystem functions. Ifa slave processor needs
+

@@ -1,0 +1,50 @@
+Chapter 3 Growth of Functions
+
+where e is the base of the natural logarithm, gives us a tighter upper bound, and a
+lower bound as well. As Exercise 3.2-3 asks you to prove,
+
+n! = o(n"),
+n! = o(2"),
+Ig(n!) = O(nlgn), (3.19)
+
+where Stirling’s approximation is helpful in proving equation (3.19). The following
+equation also holds for all n > 1:
+
+nl = J2an (7) en (3.20)
+e
+where
+1
+
+a a 3.21
+lanl ~~ Tan (G.21)
+
+Functional iteration
+
+We use the notation f (7) to denote the function (7) iteratively applied i times
+to an initial value of n. Formally, let f(”) be a function over the reals. For non-
+negative integers i, we recursively define
+
+ifi =0,
+pe Din) ifi>0.
+For example, if f(n) = 2n, then f (n) = 2'n.
+
+FM) =
+
+The iterated logarithm function
+
+We use the notation lg* n (read “log star of n”) to denote the iterated logarithm, de-
+fined as follows. Let lg © 7 be as defined above, with f(n) = Ign. Because the log-
+arithm of a nonpositive number i is undefined, Ig nis defined only if Ig" “Dn >0.
+Be sure to distinguish 1g gn )n (the logarithm function applied i times in succession,
+starting with argument 7) from lg' n (the logarithm of 1 raised to the ith power).
+Then we define the iterated logarithm function as
+
+Ig*n = min {i >0: 1g n < 1} .
+The iterated logarithm is a very slowly growing function:
+
+Ig*2 1,
+Ig*4 2,
+Igt16 = 3.
+Ig* 65536 = 4,
+1g*(253) = 5,
+

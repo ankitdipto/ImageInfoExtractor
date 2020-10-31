@@ -1,0 +1,52 @@
+Section 17.7.
+
+Summary 519
+
+ 
+
+particularly when combined with plan libraries. At present, we do not really know how to
+extend these methods into the probabilistic domain. A second, related problem is the basically
+propositional nature of our probabilistic language. It is impossible, within the language of
+probability theory, to state properly beliefs such as "If any car hits a lamp post going over 30
+mph, the occupants of the car will be injured with probability 0.6," because probability theory
+has no quantifiers ("any car") and no functions (“occupants of the car"). What this means
+in practice is that some of what goes on in DBNs and DDNs is that programs (rather than
+pure probabilistic inferences) are responsible for choosing which random variables to instantiate
+and for filling in their conditional probability tables. If we had an appropriate combination of
+first-order logic with probability, many of these difficulties could be addressed within a well-
+understood reasoning system. Work on such a language is one of the most important topics in
+knowledge representation research, and some progress has been made recently (Bacchus, 1990;
+Bacchus et al., 1992).
+
+Overall, the potential payoff of combining DDN-like techniques with planning methods is
+enormous. The technical and mathematical problems involved in getting it right are difficult, but
+it is an important area of current research.
+
+17.7__ SUMMARY
+
+This chapter shows how to use knowledge about the world to make decisions even when the
+outcomes of an action are uncertain and the payoffs will not be reaped until several (or many)
+actions have passed. The main points are as follows:
+
+Sequential decision problems in uncertain environments can be solved by calculating a
+policy that associates an optimal decision with every state that the agent might reach.
+Value iteration and policy iteration are two methods for calculating optimal policies.
+Both are closely related to the general computational technique of dynamic programming.
+Slightly more complex methods are needed to handle the case where the length ofthe action
+sequence is unbounded. We briefly discussed the use of system gain and discounting.
+State-based methods for sequential decision problems do not scale well to large state
+spaces. Heuristic techniques using best-first search and a limited horizon seem to mitigate
+this to some extent, but suffer from local minima
+
+Decomposing the state into a set of state variables provides a significant advantage. It also
+simplifies the handling of inaccessible environments.
+
+We derived a simple updating cycle for a decision-theoretic agent, using a set of Markov
+assumptions.
+
+We showed how dynamic belief networks can handle sensing and updating over time, and
+provide a direct implementation of the update cycle.
+
+We showed how dynamic decision networks can solve sequential decision problems,
+handling many (but not all) of the issues arising for agents in complex, uncertain domains.
+

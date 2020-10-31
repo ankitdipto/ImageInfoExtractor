@@ -1,0 +1,54 @@
+ 
+
+Exercises 407
+
+be necessary to block logical records into physical records. Again, this task may
+be supported by the operating system or left for the application program.
+
+Each device in a file system keeps a volume table of contents or device
+directory listing the location of the files on the device. In addition, it is useful
+to create directories to allow files to be organized. A single-level directory
+in a multiuser system causes naming problems, since each file must have a
+unique name. A two-level directory solves this problem by creating a separate
+directory for each user. Each user has her own directory, containing her own
+files. The directory lists the files by name, and includes such information as the
+file’s location on the disk, length, type, owner, time of creation, time of last use,
+and so on.
+
+The natural generalization of a two-level directory is a tree-structured
+directory. A tree-structured directory allows a user to create subdirectories
+to organize his files. Acyclic-graph directory structures allow subdirectories
+and files to be shared, but complicate searching and deletion. A general graph
+structure allows complete flexibility in the sharing of files and directories, but
+sometimes requires garbage collection to recover unused disk space.
+
+Disks are segmented into one or more partitions, each containing a file
+system or left “raw”. File systems may be mounted into the system’s naming
+structures to make them available. The naming scheme varies by operating
+system. Once mounted, the files within the partition are available for use. File
+systems may be unmounted to disable access or for maintenance.
+
+File sharing depends on the semantics provided by the system. Files may
+have multiple readers, multiple writers, or limits on the sharing. Distributed
+file systems allow client hosts to mount partitions or directories from servers,
+as long as they can access each other across a network. Remote file systems have
+challenges in reliability, performance, and security. Distributed information
+systems maintain user, host, and access information such that clients and
+servers share state information to manage use and access.
+
+Since files are the main information-storage mechanism in most computer
+systems, file protection is needed. Access to files can be controlled separately for
+each type of access—read, write, execute, append, delete, list directory, and so
+on. File protection can be provided by passwords, by access lists, or by special
+ad hoc techniques.
+
+= Exercises
+
+11.1 Consider a file system where a file can be deleted and its disk space
+reclaimed while links to that file still exist. What problems may occur
+if a new file is created in the same storage area or with the same absolute
+path name? How can these problems be avoided?
+
+11.2 Some systems automatically delete all user files when a user logs off or a
+job terminates, unless the user explicitly requests that they be kept; other
+

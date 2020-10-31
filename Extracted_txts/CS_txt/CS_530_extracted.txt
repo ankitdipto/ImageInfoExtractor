@@ -1,0 +1,58 @@
+34.3 NP-completeness and reducibility 1071
+
+ 
+
+ 
+
+x |x
+0 1
+1 0
+
+ 
+
+x
+0
+0
+1
+1
+
+Horo
+
+(a) (b) (©)
+
+Figure 34.7. Three basic logic gates, with binary inputs and outputs. Under each gate is the truth
+table that describes the gate’s operation. (a) The NOT gate. (b) The AND gate. (c) The OR gate.
+
+example, the truth table for the OR gate tells us that when the inputs are x = 0
+and y 1, the output value is z = 1. We use the symbols — to denote the NOT
+function, A to denote the AND function, and V to denote the OR function. Thus,
+for example, 0 Vv 1 = 1.
+
+We can generalize AND and OR gates to take more than two inputs. An AND
+gate’s output is | if all of its inputs are 1, and its output is 0 otherwise. An OR gate’s
+output is 1 if any of its inputs are 1, and its output is 0 otherwise.
+
+A boolean combinational circuit consists of one or more boolean combinational
+elements interconnected by wires. A wire can connect the output of one element
+to the input of another, thereby providing the output value of the first element as an
+input value of the second. Figure 34.8 shows two similar boolean combinational
+circuits, differing in only one gate. Part (a) of the figure also shows the values on
+the individual wires, given the input (x; = 1, x2 = 1, x3 = 0). Although a single
+wire may have no more than one combinational-element output connected to it, it
+can feed several element inputs. The number of element inputs fed by a wire is
+called the fan-out of the wire. If no element output is connected to a wire, the wire
+is a circuit input, accepting input values from an external source. If no element
+input is connected to a wire, the wire is a circuit output, providing the results of
+the circuit’s computation to the outside world. (An internal wire can also fan out
+to a circuit output.) For the purpose of defining the circuit-satisfiability problem,
+we limit the number of circuit outputs to 1, though in actual hardware design, a
+boolean combinational circuit may have multiple outputs.
+
+Boolean combinational circuits contain no cycles. In other words, suppose we
+create a directed graph G = (V, E) with one vertex for each combinational element
+and with k directed edges for each wire whose fan-out is k; the graph contains
+a directed edge (u,v) if a wire connects the output of element u to an input of
+element v. Then G must be acyclic.
+
+ 
+

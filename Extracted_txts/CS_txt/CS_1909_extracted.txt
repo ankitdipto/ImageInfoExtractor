@@ -1,0 +1,54 @@
+numerical example
+
+SECTION 8-7 Program Control 277
+
+As stated previously, the compare instruction performs a subtraction of
+two operands, say A — B. The resultof the operation is not transferred into
+a destination register, but the status bits are affected. The status register
+provides information about the relative magnitude of A and B. Some comput-
+ers provide conditional branch instructions that can be applied right after the
+execution of a compare instruction. The specific conditions to be tested depend
+on whether the twonumbers A and Bare considered to be unsigned or signed
+numbers. Table 8-11 gives a list of such conditional branch instructions. Note
+that we use the words higher and lower to denote the relations between
+unsigned numbers, and greater and less than for signed numbers. The relative
+magnitude shown under the tested condition column in the table seems to be
+thesame for unsigned and signed numbers. However, this is not the case since
+each must be considered separately as explained in the following numerical
+example.
+
+Consider an 8-bit ALU asshownin Fig. 8-8. Thelargest unsigned number
+that can be accommodated in 8 bits is 255. The range of signed numbers is
+between +127 and -128. The subtraction of two numbers is the same whether
+they are unsigned or in signed-2's complement representation (see Chap. 3).
+Let A = 11110000 and B = 00010100. To perform A — B, the ALU takes the 2's
+complement of B and adds it to A.
+
+A: 11110000
+B + 1 411101100
+A-B 101100 c= S=1 vV=0 z=0
+
+‘The compare instruction updates the status bits as shown. C = 1 because there
+isa carry out of the last stage. S = 1 because the left most bit is 1. V = 0 because
+the last two carries are both equal to 1, and Z = Obecause the result is not equal
+100.
+
+If we assume unsigned numbers, the decimal equivalent of A is 240 and
+that of B is 20. The subtraction in decimal is 240 — 20 = 220. The binary result
+11011100is indeed the equivalent of decimal 220. Since 240 > 20, wehave that
+A> Band A 4 B, These two relations can also be derived from the fact that
+status bit C is equal to 1 and bit Z is equal to 0. The instructions that will cause
+abranch afterthis comparison are BHI (branch ifhigher), BHE (branch if higher
+or equal), and BNE (branch if not equal).
+
+If we assume signed numbers, the decimal equivalentof A is -16. This
+is because the sign of A is negative and 11110000 is the 2's complement of
+00010000, which is the decimal equivalent of + 16. The decimal equivalent of
+Bis +20. The subtraction in decimal is (—16) — (+20) = -36. The binary result
+11011100 (the 2's complement of 00100100) is indeed the equivalent of decimal
+36. Since (~16) < (+20) we have that A < Band A + B, These tworelations
+can also be derived from the fact that status bits S = 1 (negative), V = 0 (no
+overflow), and Z = 0(not zero). The instructions that will cause a branch after
+this comparison are BLT (branch if less than), BLE (branch if less or equal), and
+BNE (branch if not equal).
+

@@ -1,0 +1,47 @@
+Chapter 9: Puppetting On Strings 339
+
+ 
+
+char target[20] ;
+
+strcpy (target, source ) ;
+printf ( "\nsource string = %s", source ) ;
+printf ( “\ntarget string = %s", target ) ;
+
+}
+
+And here is the output...
+
+source string = Sayonara
+target string = Sayonara
+
+On supplying the base addresses, strepy() goes on copying the
+characters in source string into the target string till it doesn't
+encounter the end of source string (‘\0’). It is our responsibility to
+see to it that the target string’s dimension is big enough to hold the
+string being copied into it. Thus, a string gets copied into another,
+piece-meal, character by character. There is no short cut for this.
+Let us now attempt to mimic strepy(), via our own string copy
+function, which we will call xstrepy().
+
+main()
+
+{
+char source[] = "Sayonara" ;
+char target[20] ;
+
+xstrcpy (target, source ) ;
+printf ( "\nsource string = %s", source ) ;
+printf ( “\ntarget string = %s", target ) ;
+
+}
+xstrcpy (char “t, char *s )
+{
+
+while ( *s !=‘\0")
+
+{
+
+‘t="s;
+St+ >
+

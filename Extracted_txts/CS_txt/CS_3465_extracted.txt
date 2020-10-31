@@ -1,0 +1,71 @@
+800
+
+Chapter 25. Robotics
+
+ 
+
+ORONO! DIAGRAM
+
+ROADMAPS
+
+‘SILHOUETTE
+CURVES
+
+UNKING CURVES
+
+‘SILHOUETTE
+METHOD
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 25.15 The visibility graph for a collection of polygons.
+
+ 
+
+The Voronoi diagram of a polygonal free space F is shown in Figure 25.16. You can
+understand the diagram as follows. For each point in free space, compute its distance to the
+nearest obstacle. Plot that distance on Figure 25.16 as a height coming out of the page. The
+height of the terrain is zero at the boundary with the obstacles and increases as you move away
+from them. The bounding rectangle of this C also counts as an obstacle. The terrain has sharp
+ridges at points that are equidistant from two or more obstacles. The Voronoi diagram consists
+ofthose sharp ridge points. Algorithms that find paths on this skeleton are complete, because the
+existence of a path inFimplies the existence of one on the Voronoi diagram. However, the path
+in the Voronoi diagram is not in general the shortest path.
+
+The most efficient complete method for motion planning is based on roadmaps. A roadmap
+is a skeleton consisting of two types of curves: silhouette curves (also known as "freeways")
+and linking curves (also known as "bridges"). The idea behind roadmaps is to make the search
+for a path simpler by limiting it to travel on a few freeways and connecting bridges rather than
+an infinite space of points. Figure 25.17 shows a roadmap for a three-dimensional torus. The
+complexity of computing a roadmap is O(n*logn) for a robot with k degrees of freedom. Here,
+nis the size of the C description, which is taken to be the number of equations in the formula
+describing F.
+
+There are two versions of roadmaps. The first has been called the silhouette method
+because it uses curves that define the visible silhouette of the free-space boundary. The roadmap
+shown in Figure 25.17 is of this type. To define it, we first choose two directions in C, and think
+of them as coordinate axes. Call them X and Y. The roadmap is defined as follows:
+
++ Silhouette curves are local extrema in Y of slices in X That is, take a slice through>
+by setting XY = c for some constant c. The cross-section of¥ will have several connected
+pieces. Every piece is either unbounded, or will have at least one point where the Y-
+coordinate is locally maximized, and one where it is locally minimized. With some
+technical tricks, we can make sure that all the pieces are bounded. If we then compute
+all the local maxima and minima of ¥ in Y, we are guaranteed to get at least one point
+
+ 
+
+ 
+
+ 
+

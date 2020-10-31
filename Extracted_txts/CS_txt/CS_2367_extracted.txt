@@ -1,0 +1,48 @@
+SECTION 134 Interprocessor Communication and Synchronization 507
+
+an operating system service, it must request it by interrupting the master and
+waiting until the current program can be interrupted.
+
+In the separate operating system organization, each processor can exe-
+cute the operating system routines it needs. This organization is more suitable
+for loosely coupled systems where every processor may have its own copy of
+the entire operating system.
+
+In the distributed operating system organization, the operating system
+routines aredistributedamong the available processors. However, each partic-
+ular operating system function is assigned to only one processor ata time. This
+type of organization is also referred to as a floating operating system since the
+routines float from one processor to another and the execution of the routines
+may be assigned to different processors at different times.
+
+In a loosely coupled multiprocessor system the memory is distributed
+among the processors and there is no shared memory for passing information.
+The communication between processors is by means of message passing
+through /O channels. The communication is initiated by one processor calling
+a procedure that resides in the memory of the processor with which it wishes
+to communicate. When the sending processor and receiving processor name
+each other as a source and destination, a channel of communication is estab-
+lished. A message is then sent with a header and various data objects used to
+communicate between nodes. There may be a number of possible paths avail-
+able to send the message between any two nodes. The operating system in each
+node contains routing information indicating the alternative paths that can be
+used to send a message to other nodes. The communication efficiency of the
+interprocessor network depends on the communication routing protocol, pro-
+cessor speed, data link speed, and the topology of the network.
+
+Interprocessor Synchronization
+The instruction set of a multiprocessor contains basic instructions that are used
+to implement communication and synchronization between cooperating pro-
+cesses. Communication refers to the exchange of data between different
+processes. For example, parameters passed to a procedure in a different pro-
+cessor constitute interprocessor communication. Synchronization refers to the
+special case where the data used to communicate between processors is control
+information. Synchronization is needed to enforce the correct sequence of
+processes and to ensure mutually exclusive access to shared writable data
+‘Multiprocessorsy stemsusually include various mechanisms todeal with
+the synchronization of resources. Low-level primitives are implemented di-
+rectly by the hardware. These primitives are the basic mechanisms that enforce
+mutual exclusion for more complex mechanisms implemented in software. A
+number of hardware mechanisms for mutual exclusion have been developed.
+One of the most popular methods is through the use of a binary semaphore.
+

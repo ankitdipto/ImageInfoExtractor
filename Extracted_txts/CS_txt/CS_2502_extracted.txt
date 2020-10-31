@@ -1,0 +1,55 @@
+Section 10.9.
+
+Summary 331
+
+ 
+
+Prolog interpreters and compilers in Common Lisp. Several textbooks on automated reasoning
+were mentioned in Chapter 9. Aside from these, a unique text by Bundy (1983) provides
+reasonably broad coverage of the basics while also providing treatments of more advanced topics
+such as meta-level inference (using PRESS as one case study) and the use of higher-order logic.
+The Journal of Logic Programming and the Journal of Automated Reasoning are the principal
+journals for logic programming and theorem proving respectively. The major conferences in these
+fields are the annual Intemational Conference on Automated Deduction (CADE) and Intemational
+Conference on Logic Programming.
+
+Aside from classical examples like the semantic networks used in Shastric Sanskrit grammar
+described in Chapter 8, or Peirce's existential graphs as described by Roberts (1973), modem
+work on semantic networks in AI began in the 1960s with the work of Quillian (1961; 1968)
+Charniak’s (1972) thesis served to underscore the full extent to which heterogeneous knowledge
+on a wide variety of topics is essential for the interpretation of natural language discourse.
+
+Minsky's (1975) so-called "frames paper" served to place knowledge representation on the
+map as a central problem for AI. The specific formalism suggested by Minsky, however, that
+of so-called "frames," was widely criticized as, at best, a trivial extension of the techniques of
+object-oriented programming, such as inheritance and the use of default values (Dahl er al., 1970;
+Birtwistle et al., 1973), which predated Minsky's frames paper. It is not clear to what extent
+the latter papers on object-oriented programming were influenced in turn by early AI work on
+semantic networks.
+
+The question of semantics arose quite acutely with respect to Quillian's semantic networks
+(and those of others who followed his approach), with their ubiquitous and very vague "ISA links,"
+as well as other early knowledge representation formalisms such as that of MERLIN (Moore and
+Newell, 1973) with its mysterious "flat" and "cover" operations. Woods' (1975) famous article
+“What's In a Link?" drew the attention of AI researchers to the need for precise semantics in
+knowledge representation formalisms. Brachman (1979) elaborated on this point and proposed
+solutions. Patrick Hayes's (1979) "The Logic of Frames" cut even deeper by claiming that most
+of whatever content such knowledge representations did have was merely sugar-coated logic:
+"Most of ‘frames’ isjust a new syntax for parts of first-order logic." Drew McDermott’s (1978b)
+“Tarskian Semantics, or, No Notation Without Denotation!” argued that the kind of semantical
+analysis used in the formal study of first-order logic, based on Tarski's definition of truth, should
+be the standard for ail knowledge representation formalisms. Measuring all formalisms by
+the "logic standard" has many advocates but remains a controversial idea; notably, McDermott
+himself has reversed his position in "A Critique of Pure Reason" (McDermott, 1987). NETL.
+(Fahlman, 1979) was a sophisticated semantic network system whose ISA links (called "virtual
+copy" or VC links) were based more on the notion of "inheritance" characteristic of frame
+systems or of object-oriented programming languages than on the subset relation, and were
+much more precisely defined than Quillian's links from the pre-Woods era. NETL is particularly
+intriguing because it was intended to be implemented in parallel hardware to overcome the
+difficulty of retrieving information from large semantic networks. David Touretzky (1986)
+subjects inheritance to rigorous mathematical analysis. Selman and Levesque (1993) discuss the
+complexity ofinheritance with exceptions, showing that in most formulations it is NP-complete.
+
+The development of description logics is merely the most recent stage in a long line of
+research aimed at finding useful subsets of first-order logic for which inference is computationally
+

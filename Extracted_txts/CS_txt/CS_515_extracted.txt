@@ -1,0 +1,48 @@
+162
+
+CHAPTER FIVE Basic Computer Organization and Design
+
+Control of Single Flip-flops
+
+The control gates for the seven flip-flops can be determined in a similar
+manner. For example, Table 5-6 shows that IEN may change as a result of the
+two instructions ION and IOF.
+
+pB: IEN@1
+pBs: IEN<-0
+
+where p = D,IT; and B, and B,are bits 7 and 6 of IR, respectively. Moreover,
+at the end of the interrupt cycle IEN is cleared to 0.
+
+RTz IEN<O
+
+If we use a JK flip-flip for IEN, the control gate logic will be as shown in
+Fig. 5-17.
+
+Control of Common Bus
+
+The 16-bit common bus shown in Fig, 5-4 is controlled by the selection inputs
+Sz, Sy, and So, The decimal number shown with each bus input specifies the
+equivalent binary number that must be applied to the selectioninputs inorder
+to select the corres ponding register. Table 5-7 specifies the binary numbers for
+5,5;S9 that select each register. Each binary number is associated with a Boolean
+variable x; through %, corresponding to the gate structure that must be active
+in order to select the register or memory forthe bus, For example, when x; = 1,
+the value of $,5,S» must be 001 and the output of AR will be selected for the
+bus. Table 5-7 is recognized as the truth table of a binary encoder. The place-
+ment of the encoder at the inputs of the bus selection logic is shown in Fig.
+5-18. The Boolean functions for the encoder are
+
+Sy =a + x4 x5 +37
+Samat y+ xt x7
+Sp = Aq t xs + xg +,
+
+ 
+
+Figure 5-17 Control inputs for IEN.
+
+ 
+   
+
+ty B IEN
+

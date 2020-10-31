@@ -1,0 +1,46 @@
+4.1 The maximum-subarray problem 73
+
+The initial call FIND-MAXIMUM-SUBARRAY(A, |, A./ength) will find a maxi-
+mum subarray of A[1..n].
+
+Similar to FIND-MAX-CROSSING-SUBARRAY, the recursive procedure FIND-
+MAXIMUM-SUBARRAY returns a tuple containing the indices that demarcate a
+maximum subarray, along with the sum of the values in a maximum subarray.
+Line | tests for the base case, where the subarray has just one element. A subar-
+ray with just one element has only one subarray—itself—and so line 2 returns a
+tuple with the starting and ending indices of just the one element, along with its
+value. Lines 3-11 handle the recursive case. Line 3 does the divide part, comput-
+ing the index mid of the midpoint. Let’s refer to the subarray A[/ow .. mid] as the
+left subarray and to A[mid + 1..high] as the right subarray. Because we know
+that the subarray A[/ow . . high] contains at least two elements, each of the left and
+right subarrays must have at least one element. Lines 4 and 5 conquer by recur-
+sively finding maximum subarrays within the left and right subarrays, respectively.
+Lines 6-11 form the combine part. Line 6 finds a maximum subarray that crosses
+the midpoint. (Recall that because line 6 solves a subproblem that is not a smaller
+instance of the original problem, we consider it to be in the combine part.) Line 7
+tests whether the left subarray contains a subarray with the maximum sum, and
+line 8 returns that maximum subarray. Otherwise, line 9 tests whether the right
+subarray contains a subarray with the maximum sum, and line 10 returns that max-
+imum subarray. If neither the left nor right subarrays contain a subarray achieving
+the maximum sum, then a maximum subarray must cross the midpoint, and line 11
+retums it.
+
+Analyzing the divide-and-conquer algorithm
+
+Next we set up a recurrence that describes the running time of the recursive FIND-
+MAXIMUM-SUBARRAY procedure. As we did when we analyzed merge sort in
+Section 2.3.2, we make the simplifying assumption that the original problem size
+is a power of 2, so that all subproblem sizes are integers. We denote by T(r) the
+running time of FIND-MAXIMUM-SUBARRAY on a subarray of 7 elements. For
+starters, line 1 takes constant time. The base case, when n = 1, is easy: line 2
+takes constant time, and so
+
+T(1) = (1). (4.5)
+
+The recursive case occurs when n > 1. Lines | and 3 take constant time. Each
+of the subproblems solved in lines 4 and 5 is on a subarray of n/2 elements (our
+assumption that the original problem size is a power of 2 ensures that n/2 is an
+integer), and so we spend T(n/2) time solving each of them. Because we have
+to solve two subproblems—for the left subarray and for the right subarray—the
+contribution to the running time from lines 4 and 5 comes to 2T (n/2). As we have
+

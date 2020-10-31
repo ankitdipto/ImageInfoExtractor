@@ -1,0 +1,53 @@
+372
+
+Chapter 15 Dynamic Programming
+
+Pi-1 X pi, fully parenthesize the product A, A2--- A, in a way that minimizes the
+number of scalar multiplications.
+
+Note that in the matrix-chain multiplication problem, we are not actually multi-
+plying matrices. Our goal is only to determine an order for multiplying matrices
+that has the lowest cost. Typically, the time invested in determining this optimal
+order is more than paid for by the time saved later on when actually performing the
+matrix multiplications (such as performing only 7500 scalar multiplications instead
+of 75,000).
+
+Counting the number of parenthesizations
+
+Before solving the matrix-chain multiplication problem by dynamic programming,
+let us convince ourselves that exhaustively checking all possible parenthesizations
+does not yield an efficient algorithm. Denote the number of alternative parenthe-
+sizations of a sequence of n matrices by P(n). When n = 1, we have just one
+matrix and therefore only one way to fully parenthesize the matrix product. When
+n > 2,a fully parenthesized matrix product is the product of two fully parenthe-
+sized matrix subproducts, and the split between the two subproducts may occur
+between the kth and (A + 1)st matrices for any k = 1,2,..., n—1. Thus, we
+obtain the recurrence
+
+1 ifn=1,
+
+P(n) = (15.6)
+
+n-l
+
+Yo PK) PCa —k) ifn>2.
+k=1
+
+Problem 12-4 asked you to show that the solution to a similar recurrence is the
+sequence of Catalan numbers, which grows as Q(4"/n3/?). A simpler exercise
+(see Exercise 15.2-3) is to show that the solution to the recurrence (15.6) is Q(2”).
+The number of solutions is thus exponential in n, and the brute-force method of
+exhaustive search makes for a poor strategy when determining how to optimally
+parenthesize a matrix chain.
+
+Applying dynamic programming
+
+We shall use the dynamic-programming method to determine how to optimally
+parenthesize a matrix chain. In so doing, we shall follow the four-step sequence
+that we stated at the beginning of this chapter:
+
+1. Characterize the structure of an optimal solution.
+2. Recursively define the value of an optimal solution.
+
+3. Compute the value of an optimal solution.
+

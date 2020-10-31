@@ -1,0 +1,96 @@
+SECTION 107 Decimal Arithmetic Operations 373
+
+ 
+
+ 
+
+a B. | | 10 | 102 | 108 | 10° sc
+
+er
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+& t
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+|] Arr p>] fefepo] fe
+a a
+a Increment
+Decent
+
+Figure 10-21 Registers for decimal arithmetic multiplication and division.
+
+ 
+
+Registers A and B have four more bits designated by A, and B, that providean
+extension of one more digit to the registers. The BCD arithmetic unit adds the
+five digits in parallel and places the sum in the five-digit A register. The
+end-carry goes to flip-flop E. The purpose of digit A, is to accommmodat
+overflow while adding the multiplicand to the partial productduring multipli-
+cation. The purpose of digit B, is to form the 9's complement of the divisor
+when subtracted from the partial remainder during the division operation. The
+least significant digit in register Q is denoted by Q,. This digit can be incre-
+mented or decremented.
+
+‘Adecimal operand coming from memory consists of 17 bits. One bit (the
+sign) is transferred to B, and the magnitude of the operand is placed in the
+lower 16 bits of B. Both B, and A, are cleared initially. The result of the operation
+is also 17 bits long and does not use the A, part of the A register.
+
+The decimal multiplication algorithm is shown in Fig. 10-22. Initially, the
+entire A register and B, are cleared and the sequence counter SC is set to a
+number k equal to the number of digits in the multiplier. The low-order digit
+of the multiplier in Q: is checked. If it is not equal to 0, the multiplicand in B
+is added to the partial product in A once and Q, is decremented. Q, is checked
+again and the process is repeated until it is equal to 0. In this way, the
+multiplicand in B is added to the partial product a number of times equal to
+the multiplier digit Any temporary overflow digit will reside in A, and can
+range in value from 0 to 9.
+
+‘Next, the partial product and the multiplier are shifted once to the right.
+This places zero in A, and transfers the next multiplier quotient into Q,. The
+process is then repeated k times to form a double-length product in AQ.
+
+ 
+
+ 
+
+ 
+

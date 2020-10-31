@@ -1,0 +1,60 @@
+46 Chapter 2 Computer-System Structures
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+monitor
+256000
+job1
+300040
+job2 base register
+420940 120900
+ike limit register
+880000
+job4
+1024000
+
+ 
+
+Figure 2.9 A base and a limit register define a logical address space.
+
+executing in user mode to access monitor memory or other users’ memory
+results in a trap to the monitor, which treats the attempt as a fatal error
+(Figure 2.10). This scheme prevents the user program from (accidentally or
+deliberately) modifying the code or data structures of either the operating
+system or other users.
+
+The base and limit registers can be loaded by only the operating system,
+which uses a special privileged instruction. Since privileged instructions can be
+executed in only monitor mode, and since only the operating system executes
+in monitor mode, only the operating system can load the base and limit regis-
+ters. This scheme allows the monitor to change the value of the registers, but
+prevents user programs from changing the registers’ contents.
+
+The operating system, executing in monitor mode, is given unrestricted
+access to both monitor and users’ memory. This provision allows the operating
+system to load users’ programs into users’ memory, to dump out those pro-
+grams in case of errors, to access and modify parameters of system calls, and so
+on.
+
+2.5.4 CPU Protection
+
+In addition to protecting I/O and memory, we must ensure that the operating
+system maintains control. We must prevent a user program. from getting stuck
+in an infinite loop or not calling system services, and never returning control
+to the operating system. To accomplish this goal, we can use a timer. A timer
+can be set to interrupt the computer after a specified period. The period may be
+

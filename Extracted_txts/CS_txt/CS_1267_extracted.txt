@@ -1,0 +1,41 @@
+Chapter 16: C Under Windows 543
+
+ 
+
+offset (from the start of the page) of the physical memory location
+to be accessed.
+
+Note that the CR3 register is not accessible from an application.
+Hence an application can never directly reach a physical address.
+Also, as the paging activity is going on the OS would suitably keep
+updating the values in the two tables.
+
+Device Access
+
+All devices under Windows are shared amongst all the running
+programs. Hence no program is permitted a direct access to any of
+the devices. The access to a device is routed through a device
+driver program, which finally accesses the device. There is a
+standard way in which an application can communicate with the
+device driver. It is device driver’s responsibility to ensure that
+multiple requests coming from different applications are handled
+without causing any conflict. This standard way of communication
+is discussed in detail in Chapter 17.
+
+DOS Programming Model
+
+Typical 16-bit environments like DOS use a_ sequential
+programming model. In this model programs are executed from
+top to bottom in an orderly fashion. The path along which the
+control flows from start to finish may vary during each execution
+depending on the input that the program receives or the conditions
+under which it is run. However, the path remains fairly predictable.
+C programs written in this model begin execution with main( )
+(often called entry point) and then call other functions present in
+the program. If you assume some input data you can easily walk
+through the program from beginning to end. In this programming
+model it is the program and not the operating system that
+determines which function gets called and when. The operating
+system simply loads and executes the program and then waits for it
+to finish. If the program wishes it can take help of the OS to carry
+

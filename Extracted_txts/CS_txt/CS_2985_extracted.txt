@@ -1,0 +1,47 @@
+18,3 Deleting a key froma B-tree 499
+
+18.2-6
+
+Suppose that we were to implement B-TREE-SEARCH to use binary search rather
+than linear search within each node. Show that this change makes the CPU time
+required O(1gi), independently of how ¢ might be chosen as a function of n.
+
+18.2-7
+
+Suppose that disk hardware allows us to choose the size of a disk page arbitrarily,
+but that the time it takes to read the disk page is a +bt, where a and b are specified
+constants and f is the minimum degree for a B-tree using pages of the selected size.
+Describe how to choose f so as to minimize (approximately) the B-tree search time.
+Suggest an optimal value of t for the case in which a = 5 milliseconds and b = 10
+microseconds.
+
+ 
+
+18.3. Deleting a key from a B-tree
+
+Deletion from a B-tree is analogous to insertion but a little more complicated, be-
+cause we can delete a key from any node—not just a leaf—and when we delete a
+key from an internal node, we will have to rearrange the node’s children. As in
+insertion, we must guard against deletion producing a tree whose structure violates
+the B-tree properties. Just as we had to ensure that a node didn’t get too big due to
+insertion, we must ensure that a node doesn’t get too small during deletion (except
+that the root is allowed to have fewer than the minimum number ¢ — | of keys).
+Just as a simple insertion algorithm might have to back up if a node on the path
+to where the key was to be inserted was full, a simple approach to deletion might
+have to back up if a node (other than the root) along the path to where the key is to
+be deleted has the minimum number of keys.
+
+The procedure B-TREE-DELETE deletes the key k from the subtree rooted at x.
+We design this procedure to guarantee that whenever it calls itself recursively on a
+node x, the number of keys in x is at least the minimum degree f. Note that this
+condition requires one more key than the minimum required by the usual B-tree
+conditions, so that sometimes a key may have to be moved into a child node before
+recursion descends to that child. This strengthened condition allows us to delete a
+key from the tree in one downward pass without having to “back up” (with one ex-
+ception, which we’ll explain). You should interpret the following specification for
+deletion from a B-tree with the understanding that if the root node x ever becomes
+an internal node having no keys (this situation can occur in cases 2c and 3b on
+pages 501-502), then we delete x, and x’s only child x.c; becomes the new root
+of the tree, decreasing the height of the tree by one and preserving the property that
+the root of the tree contains at least one key (unless the tree is empty).
+

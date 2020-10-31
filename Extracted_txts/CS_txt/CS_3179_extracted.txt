@@ -1,0 +1,67 @@
+Section 18.4.
+
+Using Information Theory 543
+
+ 
+
+7 PRUNING
+
+CROSS-VALIDATION
+
+significant pattern in the data. The probabilities are calculated from standard distributions of the
+amount of deviation one would expect to see due to random sampling
+
+In this case, the null hypothesis is that the attribute is irrelevant, and hence the information
+gain for an infinitely large sample would be zero. We need to calculate the probability that, under
+the null hypothesis, a sample of size v would exhibit the observed deviation from the expected
+distribution of positive and negative examples. We can measure the deviation by comparing
+the actual numbers of positive and negative examples in each subset, p; and nj, to the expected
+numbers p; and 7; assuming true irrelevance:
+
+. Pitn PIi+N
+
+Pi=p x —— np=nx
+
+pin ptn
+
+ 
+
+A convenient measure of the total deviation is given by
+
+ 
+
+pia Di), (nia ni?
+p=), nr)
+
+Under the null hypothesis, the value of D is distributed according to the ,? (chi-squared) distri-
+bution with v — 1 degrees of freedom. The probability that the attribute is really irrelevant can be
+calculated with the help of standard \? tables, or with statistical software. Exercise 18.10 asks
+you to make the appropriate changes to DECISION-TREE-LEARNING to implement this form of
+pruning, which is known as \? pruning.
+
+With pruning, noise can be tolerated—classification errors give a linear increase in predic-
+tion error, whereas errors in the descriptions ofexamples (i.e, the wrong output for a given input)
+have an asymptotic effect that gets worse as the tree shrinks down to smaller sets. Trees con-
+structed with pruning perform significantly better than trees constructed without pruning when
+the data contain a large amount of noise. The pruned trees are often much more compact, and
+are therefore easier to understand
+
+Cross-validation is another technique that eliminates the dangers of overfitting. The basic
+idea of cross-validation is to try to estimate how well the current hypothesis will predict unseen
+data. This is done by setting aside some fraction of the known data, and using it to test the
+prediction performance of a hypothesis induced from the rest of the known data. This can be
+done repeatedly with different subsets of the data, with the results averaged. Cross-validation can
+be used in conjunction with any tree-construction method (including pruning) in order to select
+a tree with good prediction performance.
+
+Broadening the applicability of decision trees
+
+In order to extend decision tree induction to a wider variety of problems, a number of issues must
+be addressed. We will briefly mention each, suggesting that a full understanding is best obtained
+by doing the associated exercises:
+
+0 Missing data: In many domains, not all the attribute values will be known for every
+example. The values may not have been recorded, or they may be too expensive to obtain.
+This gives rise to two problems. First, given a complete decision tree, how should one
+classify an object that is missing one of the test attributes? Second, how should one modify
+

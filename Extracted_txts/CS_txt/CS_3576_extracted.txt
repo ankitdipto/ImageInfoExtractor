@@ -1,0 +1,111 @@
+546
+
+ 
+
+Chapter 20 van Emde Boas Trees
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+cluster
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Y YYYYYVYYVYVY
+vEB( Vit) —_—
+Vit vEB( 3/i) trees
+
+Figure 20.5 The information in a vEB(u) tree when u > 2. The structure contains the uni-
+verse size u, elements min and max, a pointer swnmary to a vEB( {/u) tree, and an array
+cluster[0.. Ya —1] of Ya pointers to vEB( 4/11) trees.
+
+ger—that is, if u is an odd power of 2 (uw = 27+! for some integer k > 0)—then
+we will divide the lg u bits of a number into the most significant [ (lg u)/2] bits and
+the least significant [(lgw)/2] bits. For convenience, we denote 2!“:”)/?1 (the “up-
+per square root” of w) by ¢/w and 2189/2! (the “lower square root” of u) by {/z,
+so that uw = {/u- {/@ and, when wu is an even power of 2 (u@ = 27 for some
+integer k), Vu = i/u = /u. Because we now allow u to be an odd power of 2,
+we must redefine our helpful functions from Section 20.2:
+
+high(x) = [x/ Val.
+low(x) = x mod (Ya,
+index(x,y) = xVut+y.
+
+20.3.1 van Emde Boas trees
+
+The van Emde Boas tree, or vEB tree, modifies the proto-vEB structure. We
+denote a vEB tree with a universe size of u as vEB(u) and, unless u equals the
+base size of 2, the attribute swmmary points to a vEB(4/u) tree and the array
+cluster[0.. uv — 1] points to Va vEB( 4/1) trees. As Figure 20.5 illustrates, a
+vEB tree contains two attributes not found in a proto-vEB structure:
+
+* min stores the minimum element in the vEB tree, and
+
+* max stores the maximum element in the vEB tree.
+
+Furthermore, the element stored in min does not appear in any of the recur-
+sive vEB(%/U) trees that the cluster array points to. The elements stored in a
+vEB(u) tree V, therefore, are V. min plus all the elements recursively stored in
+
+the vEB(</U) trees pointed to by V.cluster[0.. {/u — 1]. Note that when a VEB
+tree contains two or more elements, we treat min and max differently: the element
+

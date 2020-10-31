@@ -1,0 +1,93 @@
+154
+
+Chapter 6. Agents that Reason Logically
+
+ 
+
+Specifying the environment
+
+Like
+squa
+
+the vacuum world, the wumpus world is a grid of squares surrounded by walls, where each
+we can contain agents and objects. The agent always starts in the lower left corner, a square
+
+that we will label [1,1]. The agent's task is to find the gold, return to [1,1] and climb out of the
+
+cave.
+
+An example wumpus world is shown in Figure 6.2.
+
+ 
+
+ 
+
+ 
+
+ESSSES
+a | Ssann$
+|= Breeze
+Ss woes
+3 SSronen S
+si
+eae
+SS558
+> sock
+
+ 
+
+< Bibe2e=|
+7 Beers
+
+ 
+
+ 
+
+ 
+
+ 
+
+1 2 3 4
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 6.2. A typical wumpus world.
+
+ 
+
+worl
+
+ 
+
+To specify the agent's task, we specify its percepts, actions, and goals. In the wumpus
+id, these are as follows:
+
+In the square containing the wumpus and in the directly (not diagonally) adjacent squares
+the agent will perceive a stench.
+
+In the squares directly adjacent to a pit, the agent will perceive a breeze.
+
+In the square where the gold is, the agent will perceive a glitter.
+
+When an agent walks into a wall, it will perceive a bump.
+
+When the wumpus is killed, it gives out a woeful scream that can be perceived anywhere
+in the cave.
+
+The percepts will be given to the agent in the form ofa list of five symbols; for example,
+if there is a stench, a breeze, and a glitter but no bump and no scream, the agent will
+receive the percept [Stench, Breeze, Glitter, None, None]. The agent cannot perceive its
+own location.
+
+Just as in the vacuum world, there are actions to go forward, turn right by 90°, and turn left
+by 90°. In addition, the action Grab can be used to pick up an object that is in the same
+square as the agent. The action Shoot can be used to fire an arrow in a straight line in the
+direction the agent is facing. The arrow continues until it either hits and kills the wumpus
+or hits the wall. The agent only has one arrow, so only the first Shoot action has any effect.
+

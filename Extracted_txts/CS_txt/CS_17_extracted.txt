@@ -1,0 +1,60 @@
+654
+
+Chapter 24 Single-Source Shortest Paths
+
+k
+id Ss Poa + wei.)
+
+i=1
+
+k k
+>» vjy.d + > w(Vj-1.;) -
+
+i=1 i=1
+
+ 
+
+Since vo = vg, each vertex in c appears exactly once in each of the summations
+k
+doje) vid and Y°y_, vj-1-d, and so
+
+k k
+Yvid= vad.
+
+i=l i=l
+
+Moreover, by Corollary 24.3, vj.d is finite fori = 1,2,..., k. Thus,
+
+k
+0< Co wiin),
+
+i=l
+
+which contradicts inequality (24.1). We conclude that the Bellman-Ford algorithm
+returns TRUE if graph G contains no negative-weight cycles reachable from the
+source, and FALSE otherwise. :
+
+Exercises
+
+241-1
+
+Run the Bellman-Ford algorithm on the directed graph of Figure 24.4, using ver-
+tex z as the source. In each pass, relax edges in the same order as in the figure, and
+show the d and z values after each pass. Now, change the weight of edge (z,x)
+to 4 and run the algorithm again, using s as the source.
+
+24.1-2
+Prove Corollary 24.3.
+
+241-3
+
+Given a weighted, directed graph G = (V, E) with no negative-weight cycles,
+let m be the maximum over all vertices v € V of the minimum number of edges
+in a shortest path from the source s to v. (Here, the shortest path is by weight, not
+the number of edges.) Suggest a simple change to the Bellman-Ford algorithm that
+allows it to terminate in m + 1 passes, even if m is not known in advance.
+
+241-4
+Modify the Bellman-Ford algorithm so that it sets v.d to —oo for all vertices v for
+which there is a negative-weight cycle on some path from the source to v.
+

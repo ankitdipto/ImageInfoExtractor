@@ -1,0 +1,137 @@
+490
+
+Chapter 18 B-Trees
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+number
+T. < depth of nodes
+1 ° '
+1 2
+I a jj 2 7
+ma rare. - EES t-1}+-)7-1 3 2P
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 18.4 A B-tree of height 3 containing a minimum possible number of keys. Shown inside
+each node x is x.n.
+
+number 1 of keys satisfies the inequality
+
+h
+14+@-1))02'*
+
+i=l
+
+Ah
+1+20-0(=+)
+
+art 1.
+
+=
+IV
+
+ 
+
+ 
+
+By simple algebra, we get t < (n + 1)/2. Taking base-r logarithms of both sides
+proves the theorem. .
+
+Here we see the power of B-trees, as compared with red-black trees. Although
+the height of the tree grows as O(1g 7) in both cases (recall that ¢ is a constant), for
+B-trees the base of the logarithm can be many times larger. Thus, B-trees save a
+factor of about lg ¢ over red-black trees in the number of nodes examined for most
+tree operations. Because we usually have to access the disk to examine an arbitrary
+node in a tree, B-trees avoid a substantial number of disk accesses.
+
+Exercises
+
+181-1
+Why don’t we allow a minimum degree of f = 1?
+
+181-2
+For what values of f is the tree of Figure 18.1 a legal B-tree?
+

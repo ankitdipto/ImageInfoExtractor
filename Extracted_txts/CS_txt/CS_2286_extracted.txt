@@ -1,0 +1,70 @@
+S-bit flag
+
+zero insertion
+
+SECTION 118 Serial Communication 437
+
+Bit-Oriented Protocol
+
+The bit-oriented protocol does not use characters in its control field and is,
+independent of any particular code. It allows the transmission of serial bit
+stream of any length without the implication of character boundaries. Mes-
+sages are organized in a specific format called a frame. In addition to the
+information field, a frame contains address, control, and error-checking fields.
+‘The frame boundaries are determined from a special8-bit number called a flag.
+Examples of bit-oriented protocols are SDLC (synchronous data link control)
+used by IBM, HDLC (high-level data link control) adopted by the International
+Standards Organization, and ADCCP (advanced data communication control
+procedure) adopted by the American National Standards Institute.
+
+‘Any data communication link involves at least two participating stations.
+The station that has responsibility for the data link and issues the commands
+tocontrol the linkis called the primary station. The other station is asecondary
+station. Bit-oriented protocols assume the presence of one primary station and
+one or more secondary stations. All communication on the data link is from
+the primary station to one or more secondary stations, or from a secondary
+station to the primary station.
+
+The frame format for the bit-oriented protocol is shown in Fig. 11-26. A
+frame starts with the &bit flag 01111110 followed by an address and control
+sequence. The information field is not restricted in format or content and can
+be of any length. The frame check field is a CRC (cyclic redundancy check)
+sequence used for detecting errors in transmission. The ending flag indicates
+to the receiving station that the 16 bits just received constitute the CRC bits.
+The ending frame can be followed by another frame, another flag, or a se-
+quence of consecutive 1’s. When two frames follow each other, the intervening
+flag is simultaneously the ending flag of the first frame and the beginning flag
+ofthe next frame. Ifnoinformationis exchanged, the transmitter sendsa series
+of flags to keep the linein the active state. The line is said to be in theidle state
+with the occurrence of 15 or more consecutive 1’s. Frames with certain control
+messages are sent without an information field. A frame must havea minimum
+0f 32 bits between two flags to accommodate the address, control, and frame
+check fields. The maximum length depends on the condition of the communi-
+cation channel and its ability to transmit long messages error-free.
+
+Topreventa flag fromoccurring in the middle of a frame, the bit-oriented
+protocol uses a method called zero insertion. This requires that a 0 be inserted
+
+Figure 11-26 Frame formatfor bit-oriented protocol
+
+ 
+
+Flag | Address | Control Information | Frame check | Flag
+onitiio | “sbits | Bbits | anynumberofbits | I6bits — forliiii0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

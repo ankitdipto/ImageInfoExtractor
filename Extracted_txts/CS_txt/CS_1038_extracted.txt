@@ -1,0 +1,47 @@
+Chapter 9: Puppetting On Strings 345
+
+ 
+
+printf ( "\nEnter your name ") ;
+scanf ("%s", yourname ) ;
+
+flag = NOTFOUND ;
+for (i=0;i1<=5; i++)
+
+{
+a = strcmp ( &masterlist{i][0], yourname ) ;
+if(a==0)
+{
+printf ( "Welcome, you can enter the palace" ) ;
+flag = FOUND ;
+break ;
+}
+}
+
+if ( flag =- NOTFOUND )
+printf ( "Sorry, you are a trespasser” ) ;
+
+And here is the output for two sample runs of this program...
+
+Enter your name dinesh
+
+Sorry, you are a trespasser
+
+Enter your name raman
+
+Welcome, you can enter the palace
+
+Notice how the two-dimensional character array has been
+initialized. The order of the subscripts in the array declaration is
+important. The first subscript gives the number of names in the
+array, while the second subscript gives the length of each item in
+the array.
+
+Instead of initializing names, had these names been supplied from
+the keyboard, the program segment would have looked like this...
+
+for (i=0;i i++)
+scanf ("%s", &masterlist[i][0] ) ;
+
+ 
+

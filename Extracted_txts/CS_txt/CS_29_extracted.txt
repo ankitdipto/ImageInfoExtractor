@@ -1,0 +1,51 @@
+664
+
+Chapter 24 Single-Source Shortest Paths
+
+the order in which the breadth-first search of G’ colors vertices in V black is the
+same as the order in which Dijkstra’s algorithm extracts the vertices of V from the
+priority queue when it runs on G.
+
+243-8
+Let G = (V, E) be a weighted, directed graph with nonnegative weight function
+w:E > {0.1,.... W} for some nonnegative integer W. Modify Dijkstra’s algo-
+
+rithm to compute the shortest paths from a given source vertex s in O(WV + E)
+time.
+
+243-9
+
+Modify your algorithm from Exercise 24.3-8 to run in O((V + E)lg W) time.
+(Hint: How many distinct shortest-path estimates can there be in V — S at any
+point in time?)
+
+243-10
+
+Suppose that we are given a weighted, directed graph G = (V, E) in which edges
+that leave the source vertex s may have negative weights, all other edge weights
+are nonnegative, and there are no negative-weight cycles. Argue that Dijkstra’s
+algorithm correctly finds shortest paths from s in this graph.
+
+ 
+
+24.4 Difference constraints and shortest paths
+
+Chapter 29 studies the general linear-programming problem, in which we wish to
+optimize a linear function subject to a set of linear inequalities. In this section, we
+investigate a special case of linear programming that we reduce to finding shortest
+paths from a single source. We can then solve the single-source shortest-paths
+problem that results by running the Bellman-Ford algorithm, thereby also solving
+the linear-programming problem.
+
+Linear programming
+
+In the general linear-programming problem, we are given an m x n matrix A,
+an m-vector b, and an n-vector c. We wish to find a vector x of n elements that
+maximizes the objective function )~;_, c;X; Subject to the m constraints given by
+Ax <b.
+
+Although the simplex algorithm, which is the focus of Chapter 29, does not
+always run in time polynomial in the size of its input, there are other linear-
+programming algorithms that do run in polynomial time. We offer here two reasons
+to understand the setup of linear-programming problems. First, if we know that we
+

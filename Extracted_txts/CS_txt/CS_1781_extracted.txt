@@ -1,0 +1,51 @@
+260  Chapter8 Deadlocks
+
+satisfies our safety requirement. Hence, we can immediately grant the request
+of process P}.
+
+You should be able to see, however, that when the system is in this state, a
+request for (3,3,0) by Pa cannot be granted, since the resources are not available.
+A request for (0,2,0) by Po cannot be granted, even though the resources are
+available, since the resulting state is unsafe.
+
+8.6 = Deadlock Detection
+
+If a system does not employ either a deadlock-prevention or a deadlock-
+avoidance algorithm, then a deadlock situation may occur. In this environment,
+the system must provide:
+
+e Analgorithm that examines the state of the system to determine whether a
+deadlock has occurred
+
+« Analgorithm to recover from the deadlock
+
+In the following discussion, we elaborate on these two requirements as they
+pertain to systems with only a single instance of each resource type, as well as to
+systems with several instances of each resource type. At this point, however, let
+us note that a detection-and-recovery scheme requires overhead that includes
+not only the run-time costs of maintaining the necessary information and
+executing the detection algorithm, but also the potential losses inherent in
+recovering from a deadlock.
+
+8.6.1 Single Instance of Each Resource Type
+
+If all resources have only a single instance, then we can define a deadlock-
+detection algorithm that uses a variant of the resource-allocation graph, called
+a wait-for graph. We obtain this graph from the resource-allocation graph by
+removing the nodes of type resource and collapsing the appropriate edges.
+
+More precisely, an edge from P; to Pj ina wait-for graph implies that
+process P; is waiting for process P; to release a resource that P; needs. An edge
+P; — P; exists in a wait-for graph if and only if the corresponding resource-
+allocation graph contains two edges P; + Ry and R, — P; for some resource
+R,. For example, in Figure 8.7, we present a resource-allocation graph and the
+corresponding wait-for graph.
+
+As before, a deadlock exists in the system if and only if the wait-for graph
+contains a cycle. To detect deadlocks, the system needs to maintain the wait-for
+graph and periodically to invoke an algorithm that searches for a cycle in the
+graph.
+
+Analgorithm to detect a cycle in a graph requires an order of n? operations,
+where n is the number of vertices in the graph.
+

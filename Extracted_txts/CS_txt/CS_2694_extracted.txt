@@ -1,0 +1,51 @@
+262
+
+Chapter 11 Hash Tables
+
+ 
+
+11.3 Hash functions
+
+In this section, we discuss some issues regarding the design of good hash functions
+and then present three schemes for their creation. Two of the schemes, hashing by
+division and hashing by multiplication, are heuristic in nature, whereas the third
+scheme, universal hashing, uses randomization to provide provably good perfor-
+mance.
+
+What makes a good hash function?
+
+A good hash function satisfies (approximately) the assumption of simple uniform
+hashing: each key is equally likely to hash to any of the m slots, independently of
+where any other key has hashed to. Unfortunately, we typically have no way to
+check this condition, since we rarely know the probability distribution from which
+the keys are drawn. Moreover, the keys might not be drawn independently.
+
+Occasionally we do know the distribution. For example, if we know that the
+keys are random real numbers k independently and uniformly distributed in the
+range 0 <k <1, then the hash function
+
+h(k) = |km|
+
+satisfies the condition of simple uniform hashing.
+
+In practice, we can often employ heuristic techniques to create a hash function
+that performs well. Qualitative information about the distribution of keys may be
+useful in this design process. For example, consider a compiler’s symbol table, in
+which the keys are character strings representing identifiers in a program. Closely
+related symbols, such as pt and pts, often occur in the same program. A good
+hash function would minimize the chance that such variants hash to the same slot.
+
+A good approach derives the hash value in a way that we expect to be indepen-
+dent of any patterns that might exist in the data. For example, the “division method”
+(discussed in Section 11.3.1) computes the hash value as the remainder when the
+key is divided by a specified prime number. This method frequently gives good
+results, assuming that we choose a prime number that is unrelated to any patterns
+in the distribution of keys.
+
+Finally, we note that some applications of hash functions might require stronger
+properties than are provided by simple uniform hashing. For example, we might
+want keys that are “close” in some sense to yield hash values that are far apart.
+(This property is especially desirable when we are using linear probing, defined in
+Section 11.4.) Universal hashing, described in Section 11.3.3, often provides the
+desired properties.
+

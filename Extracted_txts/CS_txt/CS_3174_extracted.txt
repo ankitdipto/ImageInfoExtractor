@@ -1,0 +1,58 @@
+Section 3.2 Formulating Problems 57
+
+EXECUTION found, the actions it recommends can be carried out. This is called the execution phase. Thus,
+we have a simple "formulate, search, execute" design for the agent, as shown in Figure 3.1. After
+formulating a goal and a problem to solve, the agent calls a search procedure to solve it. It then
+uses the solution to guide its actions, doing whatever the solution recommends as the next thing
+to do, and then removing that step from the sequence. Once the solution has been executed, the
+agent will find a new goal. .
+
+ 
+
+function SIMPLE-PROBLEM-SOLVING-AGENT( p} returns an action
+inputs: p, a percept
+static: s, an action sequence, initially empty
+state, some description of the current world state
+g, a goal, initially null
+problem, a problem formulation
+
+state — UPDATE-STATE(state, p)
+
+ifs is empty then
+g — FORMULATE-GOAL(state)
+problem — FORMULATE-PROBLEM(state, g)
+s — SEARCH(problem)
+
+action — RECOMMENDALIONG, state)
+
+5 — REMAINDER(s, State)
+
+return action
+
+ 
+
+ 
+
+Figure 3.1 A simple problem-solving agent.
+
+ 
+
+ 
+
+ 
+
+We will not discuss the UPDATE-STATE and ForMULATE-GOAL functions further in this
+chapter. The next two sections describe the process of problem formulation, and then the
+remainder of the chapter is devoted to various versions of the SEARCH function. The execution
+phase is usually straightforward for a simple problem-solving agent: RECOMMENDATION just
+takes the first action in the sequence, and REMAINDER returns the rest
+
+3.2 FORMULATING PROBLEMS
+
+In this section, we will consider the problem formulation process in more detail. First, we will
+look at the different amounts of knowledge that an agent can have concerning its actions and the
+state that it is in. This depends on how the agent is connected to its environment through its
+percepts and actions. We find that there are four essentially different types of problems—single-
+state problems, multiple-state problems, contingency problems, and exploration problems. We
+will define these types precisely, in preparation for later sections that address the solution process.
+

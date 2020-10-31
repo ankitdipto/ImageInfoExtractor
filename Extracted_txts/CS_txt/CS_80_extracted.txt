@@ -1,0 +1,62 @@
+Section 4.4.
+
+Iterative Improvement Algorithms lll
+
+ 
+
+say, memory limitations can make a problem intractable from the point of view of computation
+time. Although there is no theory to explain the trade-off between time and memory, it seems
+that this is an inescapable problem. The only way out is to drop the optimality requirement.
+
+4A _ ITERATIVE IMPROVEMENT ALGORITHMS
+
+VERB Mier
+
+ 
+
+HILL-CLMBING
+
+GRADIENT DESCENT
+
+SIMULATED
+ANNEALING
+
+We saw in Chapter 3 that several well-known problems (for example, 8-queens and VLSI layout)
+have the property that the state description itself contains all the informationneeded for a solution.
+The path by which the solution is reached is irrelevant. In such cases, iterative improvement
+algorithms often provide the most practical approach. For example, we start with all 8 queens on.
+the board, or all wires routed through particular channels. Then, we might move queens around
+trying to reduce the number of attacks; or we might move a wire from one channel to another
+to reduce congestion. The general idea is to start with a complete configuration and to make
+modifications to improve its quality.
+
+The best way to understand iterative improvement algorithms is to consider all the states
+laid out on the surface of a landscape. The height of any point on the landscape corresponds to
+the evaluation function of the state at that point (Figure 4.13). The idea of iterative improvement
+is to move around the landscape trying to find the highest peaks, which are the optimal solutions.
+Iterative improvement algorithms usually keep track of only the current state, and do not look
+ahead beyond the immediate neighbors of that state. This resembles trying to find the top of
+Mount Everest in a thick fog while suffering from amnesia. Nonetheless, sometimes iterative
+improvement is the method of choice for hard, practical problems. We will see several applications
+in later chapters, particularly to neural network learning in Chapter 19.
+
+Iterative improvement algorithms divide into two major classes. Hill-climbing (or, alter-
+natively, gradient descent if we view the evaluation function as a cost rather than a quality)
+algorithms always try to make changes that improve the current state. Simulated annealing
+algorithms can sometimes make changes that make things worse, at least temporarily.
+
+Hill-climbing search
+
+The hill-climbing search algorithm is shown in Figure 4.14. It is simply a loop that continually
+moves in the direction of increasing value. The algorithm does not maintain a search tree, so the
+node data structure need only record the state and its evaluation, which we denote by VALUE.
+One important refinement is that when there is more than one best successor to choose from, the
+algorithm can select among them atrandom. This simple policy has three well-known drawbacks:
+
+& Local maxima: a local maximum, as opposed to a global maximum, is a peak that is lower
+than the highest peak in the state space. Once on a local maximum, the algorithm will halt
+even though the solution may be far from satisfactory.
+
+ Plateaux: a plateau is an area of the state space where the evaluation function is essentially
+flat. The search will conduct a random walk.
+

@@ -1,0 +1,76 @@
+458
+
+Chapter 15. Probabilistic Reasoning Systems
+
+ 
+
+process covers one of the 32 major areas of pathology. The plan is to cover all of pathology
+through consultations with leading experts in each area.
+
+An evaluation of PATHFINDER III and IV used 53 actual cases of patients who were referred
+toa lymph-node specialist. As referrals, these cases were probably of above-average difficulty. In
+ablind evaluation, expert analysis ofthe diagnoses showed that PATHFINDER III scored an average
+7.9 out of 10, and PATHFINDER IV scored 8.9, significantly better. The difference amounts to
+saving one life every thousand cases or so. A recent comparison showed that Pathfinder is now
+outperforming the experts who were consulted during its creation—those experts being some of
+the world's leading pathologists.
+
+ 
+
+15.6 OTH
+
+ 
+
+ 
+
+I
+
+ 
+
+R APPROACHES TO UNCERTAIN REASONING
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Other sciences (e.g., physics, genetics, economics) have long favored probability as a model for
+uncertainty. Pierre Laplace said in 1819 that "Probability theory is nothing but common sense
+reduced to calculation." James Maxwell said in 1850that "the true logic for this world is the cal-
+culus of Probabilities, which takes account of the magnitude of the probability which is, or ought
+to be, in a reasonable man's mind." Stephen Jay Gould (1994) claimed that "misunderstanding
+of probability may be the greatest of all general impediments to scientific literacy."
+
+Given this long tradition, it is perhaps surprising that AT has considered many alternatives
+to probability. The earliest expert systems ofthe 1970s ignored uncertainty and used strict logical
+reasoning, but soon it became clear that this was impractical for most real-world domains. The
+next generation of expert systems (especially in medical domains) used probabilistic techniques.
+Initial results were promising, but they did not scale up because of the exponential number of
+probabilities required in the full joint distribution. (Belief net algorithms were not known then.)
+As a result, probabilistic approaches fell out of favor from roughly 1975 to 1988, and a variety
+of alternatives were tried for a variety of reasons:
+
+* One common view is that probability theory is essentially numerical, whereas human
+judgmental reasoning is more "qualitative." Certainly, we are not consciously aware
+of doing numerical calculations of degrees of belief. (On the other hand, it might be
+that we have some kind of numerical degrees of belief encoded directly in strengths of
+connections and activations in our neurons. In that case, the difficulty of conscious access
+to those strengths is only to be expected.) One should also note that qualitative reasoning
+mechanisms can be built directly on top of probability theory, so that the "no numbers"
+argument against probability has little force. Nonetheless, some qualitative schemes have a
+good deal of appeal in their own right. One ofthe most well-studied is default reasoning,
+which treats conclusions not as "believed to a certain degree," but as "believed until a better
+reason is found to believe something else."
+
+Rule-based approaches to uncertainty also have been tried. Such approaches hope to build
+on the success of logical rule-based systems, but add a sort of "fudge factor" to each rule to
+accommodate uncertainty. These methods were developed in the mid-1970s, and formed
+the basis for a large number of expert systems in medicine and other areas.
+
+ 
+

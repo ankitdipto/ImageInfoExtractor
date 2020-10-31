@@ -1,0 +1,79 @@
+4100 cuarrer HevEN Input-Output Organization
+
+priority logic
+
+Interrupt
+request
+from device
+
+vaD
+
+|
+
+Vector address
+
+Priority in
+
+ 
+
+ 
+  
+ 
+ 
+
+7 Enable
+
+ 
+
+ 
+
+ 
+
+Priority out
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+Open-collector
+inverter
+
+ 
+
+Interrupt request to CPU
+
+Figure 11-13 One stage of the daisy-chain priority arrangement.
+
+lower-priority interrupts while a higher-priority device is being serviced. It can
+also provide a facility that allows a high-priority device to interrupt the CPU
+while a lower-priority device is being serviced.
+
+The priority logic for a system of four interrupt sources is shown in
+Fig. 11-14. It consists of an interrupt register whose individual bits are set by
+external conditions and cleared by program instructions. The magnetic disk,
+being a high-speed device, is given the highest priority. The printer has the
+next priority, followed by a character reader and a keyboard. The mask register
+has the same number of bits as the interrupt register. By means of program
+instructions, it is possible to set or reset any bit in the mask register. Each
+interrupt bit and its corresponding mask bit are applied to an AND gate to
+produce the four inputs to a priority encoder. In this way an interrupt is
+recognized only if its corresponding mask bit is set to 1 by the program. The
+priority encoder generatestwo bits of the vector address, which is transferred
+to the CPU.
+
+Another output from the encoder sets an interrupt status flip-flop IST
+when an interrupt that is not masked occurs. The interrupt enable flip-flop IEN
+can be set or cleared by the program to provide an overall control over the
+interrupt system. The outputs of IST ANDed with IEN provide a common
+interrupt signal for the CPU. The interrupt acknowledge INTACK signal from
+the CPU enables the bus buffers in the output register and a vector address
+VAD is placed into the data bus. We will now explain the priority encoder
+circuit and then discuss the interaction between the priority interrupt con-
+troller and the CPU.
+

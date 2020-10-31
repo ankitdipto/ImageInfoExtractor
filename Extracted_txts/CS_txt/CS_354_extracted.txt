@@ -1,0 +1,50 @@
+928
+
+Chapter 31 Number-Theoretic Algorithms
+
+divisor of a nonzero integer a is at least 1 but not greater than |a|. For example, the
+divisors of 24 are 1, 2, 3, 4, 6, 8, 12, and 24.
+
+Every positive integer a is divisible by the trivial divisors | and a. The nontrivial
+divisors of a are the factors of a. For example, the factors of 20 are 2, 4, 5, and 10.
+
+Prime and composite numbers
+
+An integer a > 1 whose only divisors are the trivial divisors 1 and a is a prime
+number or, more simply, a prime. Primes have many special properties and play a
+critical role in number theory. The first 20 primes, in order, are
+
+2, 3, 5,7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71.
+
+Exercise 31.1-2 asks you to prove that there are infinitely many primes. An integer
+a > | that is not prime is a composite number or, more simply, a composite. For
+example, 39 is composite because 3 | 39. We call the integer 1 a unit, and it is
+neither prime nor composite. Similarly, the integer 0 and all negative integers are
+neither prime nor composite.
+
+The division theorem, remainders, and modular equivalence
+
+Given an integer 7, we can partition the integers into those that are multiples of n
+and those that are not multiples of n. Much number theory is based upon refining
+this partition by classifying the nonmultiples of n according to their remainders
+when divided by n. The following theorem provides the basis for this refinement.
+We omit the proof (but see, for example, Niven and Zuckerman [265]).
+
+Theorem 31.1 (Division theorem)
+For any integer a and any positive integer 1, there exist unique integers q and r
+such thatO <r <nanda=qn+r. :
+
+The value g = |a/n| is the quotient of the division. The value r = a mod n
+is the remainder (or residue) of the division. We have that n | a if and only if
+amodn = 0.
+
+We can partition the integers into 1 equivalence classes according to their re-
+mainders modulo n. The equivalence class modulo n containing an integer a is
+
+[a], ={at+tkn:keZ}.
+
+For example, [3]7 = {...,—11,—4,3, 10, 17,...}; we can also denote this set by
+[-4]7 and [10]7. Using the notation defined on page 54, we can say that writing
+a & [b], is the same as writing a = b (mod n). The set of all such equivalence
+classes is
+

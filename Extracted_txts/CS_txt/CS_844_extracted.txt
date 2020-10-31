@@ -1,0 +1,46 @@
+188 Let Us C
+
+ 
+
+Usually in C programming we make a call by value. This means
+that in general you cannot alter the actual arguments. But if
+desired, it can always be achieved through a call by reference.
+
+Using a call by reference intelligently we can make a function
+return more than one value at a time, which is not possible
+ordinarily. This is shown in the program given below.
+
+main()
+{
+int radius ;
+float area, perimeter ;
+
+ 
+
+printf ( "\nEnter radius of a circle ") ;
+scanf ("%d", &radius ) ;
+areaperi ( radius, &area, &perimeter ) ;
+
+ 
+
+printf ("Area = %f", area ) ;
+printf ( "\nPerimeter = %f", perimeter ) ;
+}
+
+areaperi (int r, float “a, float “p)
+
+“a=3.14"r"1;
+“p=2°3.14"1;
+}
+
+And here is the output...
+
+Enter radius of a circle 5
+Area = 78.500000
+Perimeter = 31.400000
+
+Here, we are making a mixed call, in the sense, we are passing the
+value of radius but, addresses of area and perimeter. And since
+we are passing the addresses, any change that we make in values
+stored at addresses contained in the variables a and p, would make
+

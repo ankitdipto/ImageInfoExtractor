@@ -1,0 +1,73 @@
+778
+
+Chapter 25. Robotics
+
+ 
+
+STATICALLY STABLE
+
+DYNAMICALLY
+STABLE
+
+NONHOLONOMIC
+
+HOLONOMIC
+
+Locomotion
+
+The vast majority of land animals use legs for locomotion. Legged locomotion turns out to be
+very difficult forrobots, and is used only in special circumstances. The most obvious application
+is motion in rough terrain with large obstacles. The Ambler robot (Simmons et al., 1992), for
+example, is a six-legged robot, about 30 feet tall, capable of negotiating obstacles more than 6
+feet in diameter. The Ambler, unlike most animals, is a statically stable walker. That is, it can
+pause at any stage during its gait without tumbling over. Statically stable walking is very slow
+and energy-inefficient, and the quest for faster, more efficient legged machines has led to a series
+of dynamically stable hopping robots (Raibert, 1986), which would crash if forced to pause, but
+do well as long as they keep moving. These robots use rhythmic motion of four, two, or even a
+single leg to to control the locomotion ofthe body in three dimensions. They do not have enough
+legs in contact with the ground to be stable statically, and will fall if their hopping motion stops.
+They are dynamically stable because corrections to leg motion keep the body upright when it is
+bumped or when the ground is uneven. The control of legged machines is too complex a subject
+to discuss here, except to remark on its difficulty and to marvel at recent successes—for example,
+the one-legged robot shown in Figure 25.1 can "run" in any direction, hop over small obstacles,
+and even somersault
+
+Despite the anthropomorphic attractions of legged locomotion, wheel or tread locomotion
+is still the most practical for most environments. Wheels and treads are simpler to build, are
+more efficient than legs, and provide static support. They are also easier to control, although they
+are not without subtle problems of their own. Consider the car-like robot of Figure 25.2. We
+know from experience that without obstructions, we can drive a car to any position, and leave
+it pointing in any direction that we choose. Thus, the car has three degrees of freedom, two for
+its x-y position, and one for its direction. But there are only two actuators, namely, driving and
+steering. And for small motions, the car seems to have only two degrees of freedom, because we
+can move it in the direction it points, or rotate it slightly, but we cannot move it sideways.
+
+Itis important here to draw the distinction between what the actuators actually do, namely,
+tuming or steering the wheels, and what these motions do to the environment. In this case, the
+side effect of the wheel motion is to move the car to any point in a three-dimensional space.
+Because the number of controllable degrees of freedom is only two, which is less than the total
+degrees of freedom (three), this is a nonholonomic robot. In general, a nonholonomic robot has
+fewer controllable degrees of freedom than total degrees of freedom. As a rule, the larger the gap
+between controllable and total degrees of freedom, the harder it is to control the robot. A car with
+a trailer has four total degrees of freedom but only two controllable ones, and takes considerable
+skill to drive in reverse. If the number of total and controllable degrees freedom of the system is
+the same, the robot is holonomic.
+
+It is possible to build truly holonomic mobile robots, but at the cost of high mechanical
+complexity. It is necessary to design the wheels or treads so that motion in the driving direction is
+controlled, but sideways motion is free. Holonomic drives usually replace the tire or tread with a
+series of rollers lined up with the drive direction. Although these designs make life easier for the
+control architect, the common designs of nonholonomic mobile robots (Figures 25.2 and 25.3)
+are not that difficult to control, and their mechanical simplicity makes them the best choice in
+most situations. The main distinction to be made between different designs is whether the robot
+
+ 
+
+ 
+
+ 
+
+ 
+
+Etienne.
+

@@ -1,0 +1,52 @@
+336 carmen ten Computer Arithmetic
+
+subtract the smaller number from the larger. Choose the sign of the result to
+bbe the same as A if A > B or the complement of the sign of Aif A < B. If the
+two magnitudes are equal, subtract B from A and make the sign of the result
+positive.
+
+The two algorithms are similar except for the sign comparison. The
+procedure to be followed for identical signs in the addition algorithm is the
+same as for different signs in the subtraction algorithm, and vice versa.
+
+Hardware Implementation
+
+‘Toimplement the two arithmeticoperations with hardware, itis first necessary
+that the two numbers be stored in registers. Let A and B be two registers that
+hold the magnitudes of the numbers, and A, and B, be two flip-flops that hold
+the corresponding signs. The result of the operation may be transferred to a
+third register: however, a saving is achieved if the result is transferred into A
+and A,. Thus A and A, together form an accumulator register.
+
+Consider now the hardware implementation of the algorithms above.
+First, a parallel-adder is needed to perform themicrooperation A + B. Second,
+a comparator circuit is needed to establish if A > B, A = B, or A < B. Third,
+two parallel-subtractor circuits are needed to perform the microoperations
+A ~ Band B — A. The sign relationship can be determined from an exclusive-
+OR gate with A, and B, as inputs.
+
+This procedure requires a magnitude comparator, an adder, and two
+subtractors. However, a different procedure can be found that requires less
+equipment. First, we know that subtraction can be accomplished by means of
+complement and add. Second, the result of a comparison can be determined
+from the end carry after the subtraction. Careful investigation of the alterna-
+tives reveals that the use of 2's complement for subtraction and comparison is
+an efficient procedure that requires only an adder and a complementer.
+
+Figure 10-1 shows a block diagram of the hardware for implementing the
+addition and subtraction operations. It consists of registers A and B and sign
+flip-flops A, and B,. Subtraction is done by adding A to the 2's complement of
+B. The output carry is transferred to flip-flop E, where it can be checked to
+determine the relative magnitudes of the two numbers. The add-overflow
+flip-flop AVF holds the overflow bit when A and B are added. The A register
+provides other microoperations that may be needed when we specify the
+sequence of steps in the algorithm.
+
+The addition of A plus B is done through the parallel adder. The S (sum)
+output of the adder is applied to the input of the A register. The complementer
+providesan output of B or the complement of B depending on the state of the
+mode control M. The complementer consists of exclusive-OR gates and the
+parallel adder consists of full-adder circuits as shown in Fig. 4-7 in Chap. 4.
+The M signal is also applied to the input carry of the adder. When M = 0, the
+output of B is transferred to the adder, the input carry is 0, and the output of
+

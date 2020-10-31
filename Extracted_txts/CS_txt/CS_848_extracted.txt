@@ -1,0 +1,55 @@
+190
+
+compiler
+
+CHAPTER SX Programming the Basic Computer
+
+task. As the assembly language becomes more sophisticated, the assembler
+becomes more complicated.
+
+6-5 Program Loops
+
+‘A program loop is a sequence of instructions that are executed many times,
+each time with a different set of data. Program loops are specified in Fortran
+by a DO statement. The following is an example of a Fortran program that
+forms the sum of 100 integer numbers.
+
+DIMENSION A(100)
+INTEGER SUM, A
+sUN=0
+pO 3 J=1, 100
+
+3 SUM=SUM+A(J)
+
+‘Statement number 3 is executed 100 times, each time with a different operand
+AQ) for J = 1,2,...,100.
+
+‘A system program that translates a program written in a high-level
+programming language such as the above toa machine language program is
+called a compiler. A compileris a more complicated program than an assembler
+and requires knowledge of systems programming to fully understand its
+operation. Nevertheless, we can demonstrate the basic functions of a compiler
+by going through the process of translating the program above to an assembly
+language program. A compiler may use an assembly language as an interme-
+diate step in the translation or may translate the program directly to binary.
+
+‘The first statement in the Fortran program is a DIMENSION statement.
+This statement instructs the compiler to reserve 100 words of memory for 100
+operands. The value of the operands is determined from an input statement
+(not listed in the program). The second statement informs the compiler that the
+numbers are integers. If they were of the real type, the compiler would have
+to reserve locations for floating-point numbers and generate instructions that
+perform the subsequent arithmetic with floating-point data These two state-
+ments are nonexecutable and are similar to the pseudoinstructions in an
+assembly language. Suppose that the compiler reserves locations (150). to
+(1B3)j. for the 100 operands. These reserved memory words are listed in lines
+19 to 118 in the translated program of Table 6-13. This is done by the ORG
+pseudoinstruction in line 18, which specifies the origin of the operands. The
+first and last operands are listed with a specific decimal number, although
+these values are not known during compilation. The compiler just reserves the
+data space in memory and the values are inserted later when an input data
+statement is executed. The line numbers in the symbolic program are for
+reference only and are not part of the translated symbolic program.
+
+The indexing of the DO statement is translated into the instructions in
+

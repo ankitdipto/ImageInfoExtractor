@@ -1,0 +1,50 @@
+10.2 Demand Paging 325
+
+A similar architectural problem occurs in machines that use special address-
+ing modes, including autodecrement and autoincrement modes (for example,
+the PDP-11). These addressing modes use a register as a pointer and auto-
+matically decrement or increment the register as indicated. Autodecrement
+automatically decrements the register before using its contents as the operand
+address; autoincrement automatically increments the register after using its
+contents as the operand address. Thus, the instruction
+
+MOV (R2)+,-(R3)
+
+copies the contents of the location pointed to by register, into the location
+pointed to by register3. Register) is incremented (by two for a word, since the
+PDP-11 is a byte-addressable computer) after it is used as a pointer; registers is
+decremented (by two) before it is used as a pointer. Now consider what will
+happen if we get a fault when trying to store into the location pointed to by
+registers. To restart the instruction, we must reset the two registers to the values
+they had before we started the execution of the instruction. One solution is to
+create a new special status register to record the register number and amount
+modified for any register that is changed during the execution of an instruction.
+This status register allows the operating system to undo the effects of a partially
+executed instruction that causes a page fault.
+
+These are by no means the only architectural problems resulting from
+adding paging to an existing architecture to allow demand paging, but they
+illustrate some of the difficulties. Paging is added between the CPU and the
+memory in a computer system. It should be entirely transparent to the user
+process. Thus, people often assume that paging could be added to any sys-
+tem. Although this assumption is true for a non-demand-paging environment,
+where a page fault represents a fatal error, it is not true where a page fault means
+only that an additional page must be brought into memory and the process
+restarted.
+
+10.2.2 Performance of Demand Paging
+
+Demand paging can have a significant effect on the performance of a computer
+system. To see why, let us compute the effective access time for a demand-
+paged memory. For most computer systems, the memory-access time, denoted
+ma, now ranges from 10 to 200 nanoseconds. As long as we have no page faults,
+the effective access time is equal to the memory access time. If, however, a page
+fault occurs, we must first read the relevant page from disk, and then access the
+desired word.
+
+Let p be the probability of a page fault (0 < p < 1). We would expect p to be
+close to zero; that is, there will be only a few page faults. The effective access
+time is then
+
+effective access time = (1 — p) x ma + p x page fault time.
+

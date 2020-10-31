@@ -1,0 +1,71 @@
+ 
+
+Section 6.2. The Wumpus World Environment 153
+
+KNOWLEDGE LEVEL * The knowledge level or epistemological level is the most abstract; we can describe the
+
+FERTEMOLOGICAL agent by saying what it knows. For example, an automated taxi might be said to know that
+the Golden Gate Bridge links San Francisco and Marin County. If TELL and ASK work
+correctly, then most of the time we can work at the knowledge level and not worry about
+lower levels.
+
+LOGICAL LEVEL * The logical level is the level at which the knowledge is encoded into sentences. For example,
+
+IMPLEMENTATION
+LEVEL
+
+ 
+
+DECLARATIVE
+
+ 
+
+6.2 TH
+
+ 
+
+ 
+
+ 
+
+WUMPUS WORLD
+
+the taxi might be described as having the logical sentence Links(GGBridge, SF, Marin) in
+its knowledge base.
+
+The implementation level is the level that runs on the agent architecture. It is the
+level at which there are physical representations of the sentences at the logical level. A
+sentence such as Links(GGBridge,SF, Marin) could be represented in the KB by the string
+"Links (GGBridge, SF,Marin)" contained in a list of strings; or by a "1" entry in
+a three-dimensional table indexed by road links and location pairs; or by a complex set
+of pointers connecting machine addresses corresponding to the individual symbols. The
+choice ofimplementation is very important to the efficient performance of the agent, but it
+is irrelevant to the logical level and the knowledge level.
+
+We said that it is possible to understand the operation of a knowledge-based agent in terms of
+what it knows. It is possible to construct a knowledge-based agent by TELLing it what it needs
+to know. The agent's initial program, before it starts to receive percepts, is built by adding one
+by one the sentences that represent the designer's knowledge of the environment. Provided that
+the representation language makes it easy to express this knowledge in the form of sentences,
+this simplifies the construction problem enormously. This is called the declarative approach
+to system building. Also, one can design learning mechanisms that output general knowledge
+about the environment given a series of percepts. By hooking up a learning mechanism to a
+knowledge-based agent, one can make the agent fully autonomous
+
+E WUMPUS WORLD ENVIRONMENT
+
+Before launching into a full exposition of knowledge representation and reasoning, we will
+describe a simple environment class—the wumpus world—that provides plenty of motivation
+for logical reasoning. Wumpus was an early computer game, based on an agent who explores
+a cave consisting of rooms connected by passageways. Lurking somewhere in the cave is the
+wumpus, a beast that eats anyone who enters its room. To make matters worse, some rooms
+contain bottomless pits that will trap anyone who wanders into these rooms (except for the
+wumpus, who is too big to fall in). The only mitigating feature of living in this environment is
+the occasional heap of gold.
+
+It turns out that the wumpus game is rather tame by modern computer game standards.
+However, it makes an excellent testbed environment for intelligent agents. Michael Genesereth
+was the first to suggest this.
+
+ 
+

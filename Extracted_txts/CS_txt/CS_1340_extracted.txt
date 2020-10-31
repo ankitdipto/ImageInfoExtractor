@@ -1,0 +1,27 @@
+Chapter 18: Graphics Under Windows 601
+
+ 
+
+start getting mouse messages. So our window would not receive
+any messages. If this has to be avoided then we should ensure that
+our window continues to receive mouse messages even when the
+cursor goes out of the client area of our window. The process of
+doing this is known as mouse capturing.
+
+We have captured the mouse in OnLButtonDown( ) handler by
+calling the API function SetCapture( ). As a result, the program
+continues to respond to mouse events during freehand drawing
+even if the mouse is moved outside the client area. In the
+OnLButtonUp( ) handler we have released the captured mouse by
+calling the ReleaseCapture( ) API function.
+
+Device Context, a Closer Look
+
+Now that we have written a few programs and are comfortable
+with idea of selecting objects like font, pen and brush into the DC,
+it is time for us to understand how Windows achieves the device
+independent drawing using the concept of DC. In fact a DC is
+nothing but a structure that holds handles of various drawing
+objects like font, pen, brush, ete. A screen DC and its working is
+shown in Figure 18.6.
+

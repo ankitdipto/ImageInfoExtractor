@@ -1,0 +1,55 @@
+19.4 Bounding the maximum degree 525
+
+Lemma 19.4
+Let x be any node in a Fibonacci heap, and let k = x.degree. Then size(x) >
+Frs2 > o, where $ = (1+ ¥5)/2.
+
+Proof Let sz denote the minimum possible size of any node of degree k in any
+Fibonacci heap. Trivially, so = 1 and s; = 2. The number sx is at most size(x)
+and, because adding children to a node cannot decrease the node’s size, the value
+of sx increases monotonically with k. Consider some node z, in any Fibonacci
+heap, such that z.degree = k and size(z) = sx. Because sg < size(x), we
+compute a lower bound on size(x) by computing a lower bound on sy. As in
+Lemma 19.1, let yi, y2,.... yx denote the children of z in the order in which they
+were linked to z. To bound s;, we count one for z itself and one for the first child y;
+(for which size(y1) > 1), giving
+
+size(x) > SK
+
+k
+2+ Vos, aed
+i=2
+
+k
+2+ Yisi-n :
+i=2
+
+where the last line follows from Lemma 19.1 (so that y;.degree > i — 2) and the
+monotonicity of sg (so that Sy, degree = Si—2)-
+
+We now show by induction on k that sg > F;+2 for all nonnegative integers k.
+The bases, for k = 0 and k = 1, are trivial. For the inductive step, we assume that
+
+k > 2and that s; > F;42 fori = 0,1,...,k — 1. We have
+
+IV
+
+IV
+
+k
+Se = 24+ sin
+i=2
+
+k
+240
+i=2
+
+>
+k
+= 1407
+i=0
+= Fry (by Lemma 19.2)
+> og (by Lemma 19.3) .
+
+Thus, we have shown that size(x) > 5% > Furs > 6*. .
+

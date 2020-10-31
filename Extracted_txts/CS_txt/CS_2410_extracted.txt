@@ -1,0 +1,146 @@
+32
+
+Chapter 2. Getting Started
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+8 9 10 tt 12 13 14 15 16 17 8 9 10 te 12 13 14 15 16 17
+Aun 7 yt
+k k
+1203 4° 5 1203 4° 5 1203 4° 5 12 3 4 5
+2]4]5]7]~] Rf1[2]3]6lo Lees] «Hebets
+i 7 i 7
+(a) (b)
+8 9 10 tH 12 13 14 15 16 17 8 9 10 Ht 12 13 14 15 16 17
+k
+123 4 5 12 3 4 5 123 4 5 1203) 64 5
+LBA] «Belle LBC) »- BGT
+i d i d
+(©) (d)
+Figure 2.3. The operation of lines 10-17 in the call MERGE(A,9, 12, 16), when the subarray
+A[9.. 16] contains the sequence (2, 4, 5, 7, 1, 2, 3, 6). After copying and inserting sentinels, the
+
+ 
+
+array L contains (2, 4,5, 7,00), and the array R contains (1, 2, 3, 6, 0c). Lightly shaded positions
+in A contain their final values, and lightly shaded positions in L and R contain values that have yet
+to be copied back into A. Taken together, the lightly shaded positions always comprise the values
+originally in A[9. . 16], along with the two sentinels. Heavily shaded positions in A contain values
+that will be copied over, and heavily shaded positions in L and R contain values that have already
+been copied back into A. (a)-(h) The arrays A, L, and R, and their respective indices k, i, and j
+prior to each iteration of the loop of lines 12-17.
+
+trated in Figure 2.3, perform the r — p + 1 basic steps by maintaining the following
+loop invariant:
+
+At the start of each iteration of the for loop of lines 12-17, the subarray
+A[p..k — 1] contains the k — p smallest elements of L[l.., + 1] and
+R[1..n2 + 1], in sorted order. Moreover, L[i] and R[j] are the smallest
+elements of their arrays that have not been copied back into A.
+
+We must show that this loop invariant holds prior to the first iteration of the for
+loop of lines 12-17, that each iteration of the loop maintains the invariant, and
+that the invariant provides a useful property to show correctness when the loop
+terminates.
+
+Initialization: Prior to the first iteration of the loop, we have k = p, so that the
+subarray A[p..k — 1] is empty. This empty subarray contains the k — p = 0
+smallest elements of L and R, and since i = j = 1, both L[i] and R[j/] are the
+smallest elements of their arrays that have not been copied back into A.
+

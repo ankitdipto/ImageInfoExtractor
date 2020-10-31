@@ -1,0 +1,51 @@
+354
+
+Chapter 14 Augmenting Data Structures
+
+143-4
+
+Given an interval tree T and an interval i, describe how to list all intervals in T
+that overlap i in O(min(n,k lg)) time, where k is the number of intervals in the
+output list. (Hint: One simple method makes several queries, modifying the tree
+between queries. A slightly more complicated method does not modify the tree.)
+
+143-5
+
+Suggest modifications to the interval-tree procedures to support the new opera-
+tion INTERVAL-SEARCH-EXACTLY(T,i), where T is an interval tree and i is
+an interval. The operation should return a pointer to a node x in T such that
+X.int.low = i.low and x.int.high = i.high, or T.nil if T contains no such node.
+All operations, including INTERVAL-SEARCH-EXACTLY, should run in O(lg7)
+time on an /-node interval tree.
+
+143-6
+
+Show how to maintain a dynamic set Q of numbers that supports the operation
+MIN-GapP, which gives the magnitude of the difference of the two closest num-
+bers in Q. For example, if Q = {1,5,9, 15, 18,22}, then MIN-GAP(Q) returns
+18 — 15 = 3, since 15 and 18 are the two closest numbers in Q. Make the op-
+erations INSERT, DELETE, SEARCH, and MIN-GaApP as efficient as possible, and
+analyze their running times.
+
+143-7 x
+
+VLSI databases commonly represent an integrated circuit as a list of rectan-
+gles. Assume that each rectangle is rectilinearly oriented (sides parallel to the
+x- and y-axes), so that we represent a rectangle by its minimum and maximum x-
+and y-coordinates. Give an O(n lg n)-time algorithm to decide whether or not a set
+of n rectangles so represented contains two rectangles that overlap. Your algorithm
+need not report all intersecting pairs, but it must report that an overlap exists if one
+rectangle entirely covers another, even if the boundary lines do not intersect. (Hint:
+Move a “sweep” line across the set of rectangles.)
+
+ 
+
+Problems
+
+14-1 Point of maximum overlap
+Suppose that we wish to keep track of a point of maximum overlap in a set of
+intervals —a point with the largest number of intervals in the set that overlap it.
+
+a. Show that there will always be a point of maximum overlap that is an endpoint
+of one of the segments.
+

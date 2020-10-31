@@ -1,0 +1,52 @@
+18.2 Basic operations on B-trees 495
+
+of x, positioned just after y in x’s table of children. The median key of y moves
+up to become the key in x that separates y and z.
+
+Lines 1-9 create node z and give it the largest t — 1 keys and corresponding f
+children of y. Line 10 adjusts the key count for y. Finally, lines 11-17 insert z as
+a child of x, move the median key from y up to x in order to separate y from z,
+and adjust x’s key count. Lines 18-20 write out all modified disk pages. The
+CPU time used by B-TREE-SPLIT-CHILD is @(f), due to the loops on lines 5-6
+and 8-9. (The other loops run for O(f) iterations.) The procedure performs O(1)
+disk operations.
+
+Inserting a key into a B-tree in a single pass down the tree
+
+We insert a key k into a B-tree T of height / in a single pass down the tree, re-
+quiring O(h) disk accesses. The CPU time required is O(th) = O(t log, n). The
+B-TREE-INSERT procedure uses B-TREE-SPLIT-CHILD to guarantee that the re-
+cursion never descends to a full node.
+
+B-TREE-INSERT(T, k)
+
+1 or = T.root
+
+2 ifr.n==2t—-1
+
+3 ys = ALLOCATE-NODE()
+
+T.root = s
+s.leaf = FALSE
+sn=0
+sc=r
+B-TREE-SPLIT-CHILD(s, 1)
+B-TREE-INSERT-NONFULL(s, k)
+10 else B-TREE-INSERT-NONFULL(r, k)
+
+Caornanea
+
+Lines 3-9 handle the case in which the root node r is full: the root splits and a
+new node s (having two children) becomes the root. Splitting the root is the only
+way to increase the height of a B-tree. Figure 18.6 illustrates this case. Unlike a
+binary search tree, a B-tree increases in height at the top instead of at the bottom.
+The procedure finishes by calling B- TREE-INSERT-NONFULL to insert key k into
+the tree rooted at the nonfull root node. B-TREE-INSERT-NONFULL recurses as
+necessary down the tree, at all times guaranteeing that the node to which it recurses
+is not full by calling B-TREE-SPLIT-CHILD as necessary.
+
+The auxiliary recursive procedure B-TREE-INSERT-NONFULL inserts key k into
+node x, which is assumed to be nonfull when the procedure is called. The operation
+of B-TREE-INSERT and the recursive operation of B-TREE-INSERT-NONFULL
+guarantee that this assumption is true.
+

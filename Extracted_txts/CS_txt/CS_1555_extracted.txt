@@ -1,0 +1,38 @@
+3.5 System Structure 75
+
+ 
+
+ 
+
+Figure 3.6 MS-DOS layer structure.
+
+grew beyond their original scope. MS-DOS is an example of such a system.
+It was originally designed and implemented by a few people who had no
+idea that it would become so popular. It was written to provide the most
+functionality in the least space (because of the limited hardware on which it
+ran), So it was not divided into modules carefully. Figure 3.6 shows its structure.
+
+UNIX is another system that was initially limited by hardware functionality.
+It consists of two separable parts: the kernel and the system programs. The
+kernel is further separated into a series of interfaces and device drivers, which
+were added and expanded over the years as UNIX evolved. We can view the
+traditional UNIX operating system as being layered as shown in Figure 3.7.
+Everything below the system-call interface and above the physical hardware is
+the kernel. The kernel provides the file system, CPU scheduling, memory man-
+agement, and other operating-system functions through system calls. Taken in
+sum, that is an enormous amount of functionality to be combined into one level.
+This makes UNIX difficult to enhance, as changes in one section could adversely
+affect other areas.
+
+System calls define the API to UNIX; the set of system programs commonly
+available defines the user interface. The programmer and user interfaces define
+the context that the kernel must support.
+
+New versions of UNIX are designed to use more advanced hardware. Given
+proper hardware support, operating systems may be broken into pieces that are
+smaller and more appropriate than are those allowed by the original MS-DOS
+or UNIX systems. The operating system can then retain much greater control
+over the computer and over the applications that make use of that computer.
+Implementers have more freedom to make changes to the inner workings of
+the system and in the creation of modular operating systems. Under the top-
+

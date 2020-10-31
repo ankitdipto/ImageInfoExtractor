@@ -1,0 +1,46 @@
+368 Let Us C
+
+ 
+
+hi
+
+Once the new structure data type has been defined one or more
+variables can be declared to be of that type. For example the
+variables b1, b2, b3 can be declared to be of the type struct book,
+as.
+
+struct book b1, b2, b3 ;
+
+This statement sets aside space in memory. It makes available
+space to hold all the elements in the structure—in this case, 7
+bytes—one for name, four for price and two for pages. These
+bytes are always in adjacent memory locations.
+
+If we so desire, we can combine the declaration of the structure
+type and the structure variables in one statement.
+
+For example,
+
+struct book
+
+{
+char name ;
+float price ;
+int pages ;
+
+struct book b1, b2, b3 ;
+is same as...
+
+struct book
+
+{
+char name ;
+float price ;
+int pages ;
+
+}b1, b2, b3 ;
+
+or even...
+
+struct
+

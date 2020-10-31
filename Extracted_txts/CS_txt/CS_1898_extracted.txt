@@ -1,0 +1,51 @@
+356 Chapter10 Virtual Memory
+
+if the system is unable to maintain the amount of free memory at minfree, the
+pageout process is called for every request for a new page.
+
+Recent releases of the Solaris 2 kernel have provided enhancements to the
+paging algorithm. One such enhancement is recognizing pages from shared
+libraries. Pages belonging to libraries that are being shared by several processes
+—even if they are eligible to be claimed by the scanner—are skipped during the
+page-scanning process. Another enhancement concerns distinguishing pages
+that have been allocated to processes from pages allocated to regular files. This
+is known as priority paging and is covered in Section 12.6.2.
+
+10.8 = Other Considerations
+
+The selections of a replacement algorithm and allocation policy are the major
+decisions that we make for a paging system. There are many other considera-
+tions as well.
+
+10.8.1 Prepaging
+
+An obvious property of a pure demand-paging system is the large number of
+page faults that occur when a process is started. This situation is a result of
+trying to get the initial locality into memory. The same situation may arise at
+other times. For instance, when a swapped-out process is restarted, all its pages
+are on the disk and each must be brought in by its own page fault. Prepaging
+is an attempt to prevent this high level of initial paging. The strategy is to bring
+into memory at one time all the pages that will be needed.
+
+Ina system using the working-set model, for example, we keep with each
+process a list of the pages in its working set. If we must suspend a process (due
+to an I/O wait or a lack of free frames), we remember the working set for that
+process. When the process is to be resumed (1/0 completion or enough free
+frames), we automatically bring back into memory its entire working set before
+restarting the process.
+
+Prepaging may be an advantage in some cases. The question is simply
+whether the cost of using prepaging is less than the cost of servicing the
+corresponding page faults. It may well be the case that many of the pages
+brought back into memory by prepaging are not used.
+
+Assume that s pages are prepaged and a fraction a of these s pages is
+actually used (0 < a < 1). The question is whether the cost of the s*a saved
+page faults is greater or less than the cost of prepaging s* (1 - a) unnecessary
+pages. If a is close to zero, prepaging loses; if a is close to one, prepaging wins.
+
+10.8.2 Page Size
+
+The designers of an operating system for an existing machine seldom have
+a choice concerning the page size. However, when new machines are being
+

@@ -1,0 +1,87 @@
+458
+
+(CHAPTER TWELVE Memory Organization
+
+specifies how the reference to memory is made. To illustrate with a numericai
+example, suppose that the argument register A and the key register K have the
+bit configuration shown below. Only the three leftmost bits of A are compared
+with memory words because K has 1s in these positions.
+
+ 
+
+A 101 111100
+K m1 000000
+
+Word1 100111100 no match
+Word2 101 000001 match
+
+Word 2 matches the unmasked argument field because the three leftmost bits
+of the argument and the word are equal.
+
+The relation between the memory array and external registers in an
+associative memory is shown in Fig. 12-7. The cells in the array are marked by
+the letter C with two subcripts. The first subscript gives the word number and
+the second specifies the bit position in the word. Thus cell C; is the cell for bit
+jin word i. A bit A; in the argument register is compared with all the bits in
+column j of the array provided that Kj = 1. This is done for all columns
+j= 12,...,m Ifa match occurs between all the unmasked bits of the argu-
+‘ment and the bits in word i, the corresponding bit M, in the match register is
+set to 1. Ifone or more unmasked bits of the argument and the word do not
+match, M, is cleared to 0.
+
+Figure 12-7 Associative memory of m word, ncells per word.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+| |
+
+E
+Word 1} Ci cy Cin | Py
+Word i] | Ci oy Cin | PM
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Bit Bit? Btn
+

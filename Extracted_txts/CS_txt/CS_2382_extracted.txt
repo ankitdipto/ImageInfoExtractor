@@ -1,0 +1,51 @@
+54 — cHArTer Two Digital Components
+
+for parallel transfer. The most general shift register has all the capabilities listed
+below. Others may have some of these capabilities, with at least one shift
+operation.
+
+1. An input for clock pulses to synchronize all operations.
+
+2. A shift-right operation anda serial mput lin associated with the shit
+right.
+
+3. Ashift-leftoperationanda serial input line associated with the shift-left.
+
+4. A parallel load operation and n input lines associated with the parallel
+transfer.
+
+5. n parallel output lines.
+
+6. A control state that leaves the information in the register unchanged
+even though clock pulses are applied continuously.
+
+A Abit bidirectional shift register with parallel load is shown in Fig. 2-9.
+Each stage consists of a D flip-flop and a4 x 1 multiplexer. The two selection
+inputs 5; and S, select one of the multiplexer data inputs for the D flip-flop.
+The selection lines control the mode of operation of the register according to
+the function table shown in Table 2-4. When the mode control $15, = 00, data
+input 0 of each multiplexer is selected. This condition forms a path from the
+output of each flip-flop into the input of the same flip-flop. The next clock
+transition transfers into each flip-flop the binary value it held previously, and
+no change of state occurs. When $,S_ = 01, the terminal marked 1 in each
+multiplexer hasa path to the D input of the corresponding flip-flop. This causes
+a shift-right operation, with the serial input data transferred into flip-flop Ay
+and the content of each flip-flop A, -; transferred into flip-flop A, fori = 1, 2,
+3. When 5,5, = 10ashift-leftoperation results, with the other serial input data
+going into flip-flop A, and thecontent of flip-flop A, ,: transferred into flip-flop
+A; for i = 0, 1, 2. When S\S5 = 11, the binary information from each input
+th through 4; is transferred into the corresponding flip-flop, resulting in a
+parallel load operation. Note that the way the diagram is drawn, the shift-right
+operation shifts the contents of the register in the down direction while the
+shift left operation causes the contents of the register to shift in the upward
+direction.
+
+TABLE 2-4 Function Table for Register of Fig. 29
+Mode control
+Si So Register operation
+No change
+Shift right (down)
+
+Shift left (up)
+Parallel load
+

@@ -1,0 +1,54 @@
+ 
+
+14.8 Tertiary-Storage Structure 521
+
+another computer. If both machines are of the same type and have the same
+kind of removable drive, the only difficulty is knowing the contents and data
+layout on the cartridge. But if the machines or drives are different, many
+additional problems can arise. Even if the drives are compatible, different
+computers may store bytes in different orders, and may use different encodings
+for binary numbers and even for letters (such as ASCII on PCs versus EBCDIC on
+mainframes).
+
+Today’s operating systems generally leave the name-space problem
+unsolved for removable media, and depend on applications and users to figure
+out how to access and interpret the data. Fortunately, a few kinds of removable
+media are so well standardized that all computers use them the same way. One
+example is the CD. Music CDs use a universal format that is understood by any
+CD drive. Data CDs are available in only a few different formats, so it is usual
+for a CD drive and the operating-system device driver to be programmed to
+handle all the common formats. DVD formats are also well standardized.
+
+14.8.2.3 Hierarchical Storage Management
+
+A robotic jukebox enables the computer to change the removable cartridge in a
+tape or disk drive without human assistance. Two major uses of this technology
+are for backups and hierarchical storage systems. The use of a jukebox for
+backups is simple: when one cartridge becomes full, the computer instructs the
+jukebox to switch to the next cartridge. Some jukeboxes hold tens of drives and
+thousands of cartridges, with robotic arms managing the movement of tapes to
+the drives.
+
+A hierarchical storage system extends the storage hierarchy beyond pri-
+mary memory and secondary storage (that is, magnetic disk) to incorporate
+tertiary storage. Tertiary storage is usually implemented as a jukebox of tapes
+or removable disks. This level of the storage hierarchy is larger, cheaper, and
+probably slower.
+
+Although the virtual-memory system can be extended in a straightforward
+manner to tertiary storage, this extension is rarely carried out in practice. The
+reason is that a retrieval from a jukebox can take tens of seconds or even
+minutes, and such a long delay is intolerable for demand paging and for other
+forms of virtual-memory use.
+
+The usual way to incorporate tertiary storage is to extend the file sys-
+tem. Small and frequently used files remain on magnetic disk, while large
+and old files that are not actively used are archived to the jukebox. In some
+file-archiving systems, the directory entry for the file continues to exist, but
+the contents of the file no longer occupy space in secondary storage. If an
+application tries to open the file, the open system call is suspended until the
+file contents can be staged in from tertiary storage. When the contents are again
+available from magnetic disk, the open operation returns control to the appli-
+cation, which proceeds to use the disk-resident copy of the data. Hierarchical
+storage management (HSM) has been implemented in ordinary time-sharing
+

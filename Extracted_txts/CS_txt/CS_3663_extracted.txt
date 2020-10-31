@@ -1,0 +1,36 @@
+616
+
+Chapter 22. Elementary Graph Algorithms
+a b c d
+GiID—CiNo—>+Cii0y 8/9)
+° 4
+QI =GAY_ 027 mee GIES
+e f g h
+a b c d
+° Ze, b
+e f g h
+(c)
+
+ea"
+
+   
+
+Figure 22.9 (a) A directed graph G. Each shaded region is a strongly connected component of G.
+Each vertex is labeled with its discovery and finishing times in a depth-first search, and tree edges
+are shaded. (b) The graph GT, the transpose of G, with the depth-first forest computed in line 3
+of STRONGLY-CONNECTED-COMPONENTS shown and tree edges shaded. Each strongly connected
+component corresponds to one depth-first tree. Vertices b, c, g, and h, which are heavily shaded, are
+the roots of the depth-first trees produced by the depth-first search of GT. (c) The acyclic component
+graph GSC obtained by contracting all edges within each strongly connected component of G so
+that only a single vertex remains in each component.
+
+Our algorithm for finding strongly connected components of a graph G =
+(V, E) uses the transpose of G, which we defined in Exercise 22.1-3 to be the
+graph GT = (V, E"), where ET = {(u,v) : (v,u) € E}. That is, E™ consists of
+the edges of G with their directions reversed. Given an adjacency-list representa-
+tion of G, the time to create G" is O(V + E). It is interesting to observe that G
+and GT have exactly the same strongly connected components: u and v are reach-
+able from each other in G if and only if they are reachable from each other in G?.
+Figure 22.9(b) shows the transpose of the graph in Figure 22.9(a), with the strongly
+connected components shaded.
+

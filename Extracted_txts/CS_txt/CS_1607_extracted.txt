@@ -1,0 +1,49 @@
+4.6 Communication in Client-ServerSystems 117
+
+and copies the message from one process to the other. Under this method,
+messages of up to 256 bytes can be sent.
+
+If a client needs to send a larger message, it passes the message through
+a section object (or shared memory). The client has to decide, when it sets up
+the channel, whether or not it will need to send a large message. If the client
+determines that it does want to send large messages, it asks for a section object
+to be created. Likewise, if the server decides that replies will be large, it creates a
+section object. So that the section object can be used, a small message is sent that
+contains a pointer and size information about that section object. This method is
+more complicated than the first method, but it avoids the data copying. In both
+cases, a callback mechanism can be used when either the client or the server
+cannot respond immediately to a request. The callback mechanism allows them
+to perform asynchronous message handling.
+
+4.6 = Communication in Client-Server Systems
+
+Consider a user who needs access to data located at some server. For example,
+a user may wish to find out the total number of lines, words, and characters in
+a file located at server A. This request is handled by a remote server A, which
+accesses the file, computes the desired result, and eventually transfers the actual
+data back to the user.
+
+4.6.1 Sockets
+
+A socket is defined as an endpoint for communication. A pair of processes
+communicating over a network employs a pair of sockets—one for each pro-
+cess. A socket is made up of an IP address concatenated with a port number. In
+general, sockets use a client-server architecture. The server waits for incoming
+client requests by listening to a specified port. Once a request is received, the
+server accepts a connection from the client socket to complete the connection.
+
+Servers implementing specific services (such as telnet, ftp, and http) listen
+to well-known ports (a telnet server listens to port 23, an ftp server listens to
+port 21, and a web (or http) server listens to port 80). All ports below 1024 are
+considered well known; we can use them to implement standard services.
+
+When a client process initiates a request for a connection, it is assigned a
+port by the host computer. This port is some arbitrary number greater than
+1024. For example, if a client on host X with IP address 146.86.5.20 wishes
+to establish a connection with a web server (which is listening on port 80) at
+address 161.25.19.8, host X may be assigned port 1625. The connection will
+consist of a pair of sockets: (146.86.5.20:1625) on host X, and (161.25.19.8:80)
+on the web server. This situation is illustrated in Figure 4.9. The packets
+traveling between the hosts are delivered to the appropriate process, based on
+the destination port number.
+

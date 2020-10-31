@@ -1,0 +1,41 @@
+Chapter 9: Puppetting On Strings 337
+
+ 
+
+lent = strlen ( arr) ;
+len2 = strlen ( "Humpty Dumpty" ) ;
+
+printf ( "\nstring = %s length = %d", arr, lent ) ;
+printf ( “\nstring = %s length = %d", "Humpty Dumpty’, len2 ) ;
+}
+
+The output would be...
+
+string = Bamboozled length = 10
+string = Humpty Dumpty length = 13
+
+Note that in the first call to the function strlen(), we are passing
+the base address of the string, and the function in turn returns the
+length of the string. While calculating the length it doesn’t count
+‘\0’. Even in the second call,
+
+len2 = strlen ("Humpty Dumpty’ ) ;
+what gets passed to strlen() is the address of the string and not the
+string itself. Can we not write a function xstrlen() which imitates
+
+the standard library function strlen( )? Let us give it a try...
+
+|" Alook-alike of the function strlen() */
+
+main()
+
+{
+char art[] = "Bamboozled" ;
+int len1, len2 ;
+
+lent = xstrlen (arr) ;
+len2 = xstrlen ("Humpty Dumpty") ;
+
+printf ( "\nstring = %s length = %d", arr, lent ) ;
+printf ( \nstring = %s length = %d", "Humpty Dumpty’, len2 ) ;
+

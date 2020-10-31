@@ -1,0 +1,57 @@
+SECTION 12-4 Associative Memory 459
+
+The intemal organization of a typical cell G; is shown in Fig. 12-8. It
+consists of a flip-flop storage element F, and the circuits forreading, writing,
+and matching the cell. The input bit is transferred into the storage cell during
+awrite operation. The bit stored is read out during a read operation. The match
+logic compares the content of the storage cell with the corresponding un-
+masked bit of the argument and provides an output for the decision logic that
+sets the bit in M;.
+
+Match Logic
+
+The match logic for each word can be derived from the comparison algorithm
+for two binary numbers First, we neglect the key bits and compare the argu-
+ment in A with the bits stored in the cells of the words. Word i is equal to the
+argument in A if A, = F; for j = 1,2,...,. Twobits are equal if they are both
+or both 0. The equality of two bits can be expressed logically by the Boolean
+function
+
+ 
+
+Avy + A/F
+where x; = 1 if the pair of bits in position j are equal; otherwise, x; = 0.
+Fora word ito be equal to the argument in A we must have all x; variables
+equal to 1. This is the condition for setting the corresponding match bit M; to
+1. The Boolean function for this condition is
+M,=4mx-%
+
+and constitutes the AND operation of all pairs of matched bits in a word.
+Figure 12-8 One cell of associative memory.
+
+4 |
+
+Match
+
+Rad ——— logic
+
+Input
+
+Write
+
+ 
+
+ 
+
+be Tom,
+
+ 
+
+ 
+
+ 
+
+ 
+
+Output
+

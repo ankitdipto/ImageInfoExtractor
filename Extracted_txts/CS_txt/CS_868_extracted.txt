@@ -1,0 +1,67 @@
+Section 6.6.
+
+Summary 183
+
+ 
+
+climbing search algorithm. The initial state is a random assignment of true and false to the
+proposition symbols. For example, for the preceding 3-CNF sentence, we might start with P and
+Q false and R, S, and T true.
+
+The evaluation function measures the number of satisfied clauses, that is, clauses with at
+least one true disjunct. Thus, the initial state gets an evaluation of 3, because the second, third,
+and fourth clauses are true. If there are n proposition symbols, then there are n operators, where
+each operator is to change the truth assignment for one of the symbols. As a hill-climbing search,
+we always use the operator that yields the best evaluation (randomly choosing one if there are
+several equally good operators). Our example 3-CNF sentence is solved in one step, because
+changing S from true tofalse yields a solution. As with a random-restart algorithm, unless we
+find a solution after a certain amount of hill-climbing, we give up and start over from a new
+random truth assignment. After a certain number of restarts, we give up entirely. The complete
+algorithm is shown in Figure 6.17.
+
+ 
+
+function Gsat(sentence,max-restarts, max-climbs) returns a truth assignment or failure
+
+for 1— 1 to max-restarts do
+4A —A randomly generated truth assignment
+forj— 1 to max-climbs do
+if A satisfies sentence then return 4
+A—arandom choice of one of the best successors ofA
+end
+end
+return failure
+
+ 
+
+ 
+
+Figure 6.17 The Gsar algorithm for satisfiability testing. The successors of an assignment A
+are truth assignment with one symbol flipped. A "best assignment” is one that makes the most
+clauses true.
+
+ 
+
+ 
+
+ 
+
+Answer the following questions about the algorithm:
+
+|. Is the GSAT algorithm sound?
+Is it complete?
+Implement GSAT and use it to solve the problems in Exercise 6.3
+Use GSAT to solve randomly generated 3SAT problems of different sizes. There are two
+key parameters: N, the number of propositional symbols, and C, the number of clauses.
+We will investigate the effects of the ratio C/N on the execution time of GSAT. With N
+fixed at 20, make a graph of the median execution time versus C/N for C/N from 1 to 10.
+(The median is a better statistic than the mean because one or two outliers can really throw
+off the mean.) Use N as the value of max-restarts and 5N as the value of max-climbs.
+
+e. Repeat for other values of N as time permits.
+
+f. What can you conclude about the difficulty of 3SAT problems for different values of C, N,
+and the ratio C/N?
+
+Boge
+

@@ -1,0 +1,57 @@
+16.1 An activity-selection problem 421
+
+The procedure GREEDY-ACTIVITY-SELECTOR is an iterative version of the pro-
+cedure RECURSIVE-ACTIVITY-SELECTOR. It also assumes that the input activi-
+ties are ordered by monotonically increasing finish time. It collects selected activ-
+ities into a set A and returns this set when it is done.
+
+GREEDY-ACTIVITY-SELECTOR (Ss, f’)
+1 n=s.length
+
+2 A= {a}
+
+k=1
+
+4 form = 2ton
+
+w
+
+5 if s[m] > fIK]
+
+6 A= AU {am}
+7 k=m
+
+8 return A
+
+The procedure works as follows. The variable k indexes the most recent addition
+to A, corresponding to the activity ax in the recursive version. Since we consider
+the activities in order of monotonically increasing finish time, f; is always the
+maximum finish time of any activity in A. That is,
+
+fie = max { fi sa; € A}. (16.3)
+
+Lines 2-3 select activity a1, initialize A to contain just this activity, and initialize k
+to index this activity. The for loop of lines 4~7 finds the earliest activity in Sx to
+finish. The loop considers each activity d,, in turn and adds a,, to A if it is compat-
+ible with all previously selected activities; such an activity is the earliest in Sx to
+finish. To see whether activity a,, is compatible with every activity currently in A,
+it suffices by equation (16.3) to check (in line 5) that its start time s,, is not earlier
+than the finish time /; of the activity most recently added to A. If activity a, is
+compatible, then lines 6-7 add activity a, to A and set k to m. The set A returned
+by the call GREEDY-ACTIVITY-SELECTOR(s, f) is precisely the set returned by
+the call RECURSIVE-ACTIVITY-SELECTOR (5, f,0,1).
+
+Like the recursive version, GREEDY-ACTIVIT Y-SELECTOR schedules a set of 1
+activities in ©(m) time, assuming that the activities were already sorted initially by
+their finish times.
+
+ 
+
+Exercises
+
+16.1-1
+
+Give a dynamic-programming algorithm for the activity-selection problem, based
+on recurrence (16.2). Have your algorithm compute the sizes c[i, j] as defined
+above and also produce the maximum-size subset of mutually compatible activities.
+

@@ -1,0 +1,48 @@
+26.2. The Ford-Fulkerson method 729
+
+which contradicts our assumption that 6f/(s,v) < 5¢(s,v). We conclude that our
+assumption that such a vertex v exists is incorrect. .
+
+The next theorem bounds the number of iterations of the Edmonds-Karp algo-
+rithm.
+
+Theorem 26.8
+
+If the Edmonds-Karp algorithm is run on a flow network G = (V, E) with source 5
+and sink f, then the total number of flow augmentations performed by the algorithm
+is O(VE).
+
+Proof We say that an edge (u, v) in a residual network G, is critical on an aug-
+menting path p if the residual capacity of p is the residual capacity of (u,v), that
+is, if c¢(p) = cy(u, v). After we have augmented flow along an augmenting path,
+any critical edge on the path disappears from the residual network. Moreover, at
+least one edge on any augmenting path must be critical. We will show that each of
+the | E| edges can become critical at most |V| /2 times.
+
+Let u and v be vertices in V that are connected by an edge in E. Since augment-
+ing paths are shortest paths, when (uw, v) is critical for the first time, we have
+
+5¢(s,v) = d¢(s,u) +1.
+Once the flow is augmented, the edge (u, v) disappears from the residual network.
+It cannot reappear later on another augmenting path until after the flow from u to v
+is decreased, which occurs only if (v, uv) appears on an augmenting path. If f’ is
+the flow in G when this event occurs, then we have
+5p(s.u) = dp(s,v) +1.
+Since 6f(s,v) < 5¢/(s, v) by Lemma 26.7, we have
+Sp (s,u) = S(s,v) +1
+
+= Sp(s.v) +1
+= Sr(s,u) +2.
+
+Vv
+
+Consequently, from the time (u,v) becomes critical to the time when it next
+becomes critical, the distance of wu from the source increases by at least 2. The
+distance of u from the source is initially at least 0. The intermediate vertices on a
+shortest path from s to u cannot contain s, uv, or f (since (u,v) on an augmenting
+path implies that u 4 ¢). Therefore, until uv becomes unreachable from the source,
+if ever, its distance is at most |V| — 2. Thus, after the first time that (uv, v) becomes
+critical, it can become critical at most (|V| —2)/2 = |V|/2 — 1 times more, for a
+total of at most |V| /2 times. Since there are O(E) pairs of vertices that can have an
+edge between them in a residual network, the total number of critical edges during
+

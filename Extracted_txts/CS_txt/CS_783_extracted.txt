@@ -1,0 +1,41 @@
+138 Let Us C
+
+ 
+
+| am in case 3
+| am in default
+
+The output is definitely not what we expected! We didn’t expect
+the second and third line in the above output. The program prints
+case 2 and 3 and the default case. Well, yes. We said the switch
+executes the case where a match is found and all the subsequent
+cases and the default as well.
+
+If you want that only case 2 should get executed, it is upto you to
+get out of the switch then and there by using a break statement.
+The following example shows how this is done. Note that there is
+no need for a break statement after the default, since the control
+comes out of the switch anyway.
+
+main()
+{
+int i=2;
+switch (i)
+{
+case 1:
+printf ("I am in case 1\n") ;
+break ;
+case 2:
+printf ("I am in case 2 \n") ;
+break ;
+case 3:
+printf ("I am in case 3\n") ;
+break ;
+default :
+printf ("I am in default \n" ) ;
+}
+}
+
+The output of this program would be:
+| am in case 2
+

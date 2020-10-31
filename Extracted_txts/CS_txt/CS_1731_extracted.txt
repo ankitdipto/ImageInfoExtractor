@@ -1,0 +1,44 @@
+7.7 Monitors 219
+
+monitor dp
+
+{
+enum {thinking, hungry, eating} state[5];
+condition self [5];
+
+void pickup(int i) {
+state[i] = hungry;
+test (i);
+if (state[i] != eating)
+self [i] .waitQ;
+}
+
+void putdown(int i) {
+state[i] = thinking;
+test((i + 4) % 5);
+test((i + 1) % 5);
+
+}
+
+void test(int i) {
+if ((state((i + 4) % 5] != eating) a&
+(state[i] == hungry) &&
+(state[(i + 1) % 5] != eating)) {
+state[i] = eating;
+self [i] .signal();
+}
+3
+
+void initQ {
+for (int i = 0; i < 5; i++)
+state[i] = thinking;
+
+Figure 7.22 A monitor solution to the dining-philosopher problem.
+dp. pickup (i) ;
+eat
+dp. putdown (i);
+It is easy to show that this solution ensures that no two neighbors are eating
+
+simultaneously, and that no deadlocks will occur. We note, however, that
+it is possible for a philosopher to starve to death. We shall not present a
+

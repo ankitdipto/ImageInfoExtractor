@@ -1,0 +1,45 @@
+Section 153 Inference in Belief Networks 449
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+Figure 15.7 A generic singly connected network. The network is shown partitioned according
+to the parents and children of the query variable X.
+
+ 
+
+ 
+
+ 
+
+Our derivation will work by applying Bayes’ rule and other standard methods for manipulating
+probability expressions, until we have massaged the formulas into something that looks like a
+recursive instance ofthe original problems. Along the way, we will use simplifications sanctioned
+by the conditional independence relationships inherent in the network structure.
+
+The total evidence E consists of the evidence above X and the evidence below X, since we
+are assuming that Y itself is not inZ. Hence, we have
+
+P(X|E) = P(X|Ex, EX)
+To separate the contributions of EY and Ey , we apply the conditionalized version of Bayes’ rule
+(Equation (14.4)) keeping Ey as fixed background evidence:
+PEE |X, EPOXIED)
+
+PlEx |EX)
+Because X d-separates Fy from Ey in the network, we can use conditional independence to
+simplify the first term in the numerator. Also, we can treat 1/P(Ey £%)as a normalizing constant,
+giving us
+
+P(X|E)= aP(Ex |X)P(X|EX)
+So now we just need to compute the two terms P(E \X) and P(X|E{). The latter is easier, so we
+shall look at it first.
+
+P(X|EX EX) =
+

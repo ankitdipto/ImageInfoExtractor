@@ -1,0 +1,35 @@
+Chapter 11
+
+FILE-SYSTEM
+INTERFACE
+
+ 
+
+ 
+
+For most users, the file system is the most visible aspect of an operating system.
+It provides the mechanism for on-line storage of and access to both data and
+programs of the operating system and all the users of the computer system. The
+file system consists of two distinct parts: a collection of files, each storing related
+data, and a directory structure, which organizes and provides information about
+all the files in the system. Some file systems have a third part, partitions, which
+are used to separate physically or logically large collections of directories. In
+this chapter, we consider the various aspects of files and the major directory
+structures. We also discuss ways to handle file protection, necessary when
+multiple users have access to files and we want to control by whom and in
+what ways files may be accessed. Finally, we discuss the semantics of sharing
+files among multiple processes, users, and computers.
+
+11.1 = File Concept
+
+Computers can store information on several different storage media, such as
+magnetic disks, magnetic tapes, and optical disks. So that the computer system
+will be convenient to use, the operating system provides a uniform logical
+view of information storage. The operating system abstracts from the physical
+properties of its storage devices to define a logical storage unit (the file). Files are
+mapped, by the operating system, onto physical devices. These storage devices
+are usually nonvolatile, so the contents are persistent through power failures
+and system reboots.
+
+371
+

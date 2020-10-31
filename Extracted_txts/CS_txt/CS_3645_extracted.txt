@@ -1,0 +1,51 @@
+602
+
+Chapter 22. Elementary Graph Algorithms
+
+22.2-3
+Show that using a single bit to store each vertex color suffices by arguing that the
+BFS procedure would produce the same result if lines 5 and 14 were removed.
+
+22.24
+What is the running time of BFS if we represent its input graph by an adjacency
+matrix and modify the algorithm to handle this form of input?
+
+22.2-5
+
+Argue that in a breadth-first search, the value u.d assigned to a vertex u is inde-
+pendent of the order in which the vertices appear in each adjacency list. Using
+Figure 22.3 as an example, show that the breadth-first tree computed by BFS can
+depend on the ordering within adjacency lists.
+
+22.2-6
+
+Give an example of a directed graph G = (V, E), a source vertex s € V, anda
+set of tree edges E, © E such that for each vertex v € V, the unique simple path
+in the graph (V, E,,) from s to v is a shortest path in G, yet the set of edges Ex
+cannot be produced by running BFS on G, no matter how the vertices are ordered
+in each adjacency list.
+
+22.2-7
+
+There are two types of professional wrestlers: “babyfaces” (“good guys”) and
+“heels” (“bad guys”). Between any pair of professional wrestlers, there may or
+may not be a rivalry. Suppose we have n professional wrestlers and we have a list
+of r pairs of wrestlers for which there are rivalries. Give an O(n + r)-time algo-
+rithm that determines whether it is possible to designate some of the wrestlers as
+babyfaces and the remainder as heels such that each rivalry is between a babyface
+and a heel. If it is possible to perform such a designation, your algorithm should
+produce it.
+
+222-8 *
+
+The diameter of a tree T = (V,E) is defined as max, yey 6(u, v), that is, the
+largest of all shortest-path distances in the tree. Give an efficient algorithm to
+compute the diameter of a tree, and analyze the running time of your algorithm.
+
+22.29
+
+Let G = (V, E) be a connected, undirected graph. Give an O(V + E)-time algo-
+rithm to compute a path in G that traverses each edge in E exactly once in each
+direction. Describe how you can find your way out of a maze if you are given a
+large supply of pennies.
+

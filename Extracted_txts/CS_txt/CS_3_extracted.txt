@@ -1,0 +1,59 @@
+104
+
+Chapter 4. Informed Search Methods
+
+ 
+
+FEATURES
+
+One problem with generating new heuristic functions is that one often fails to get one
+“clearly best" heuristic. If a collection of admissible heuristics 4, ...h,, is available for a
+problem, and none of them dominates any of the others, which should we choose? As it turns
+out, we need not make a choice. We can have the best of all worlds, by defining
+
+h(n) = max(h(n),...,Am(n)). .
+
+This composite heuristic uses whichever function is most accurate on the node in question.
+Because the component heuristics are admissible, h is also admissible. Furthermore, h dominates
+all of the individual heuristics from which it is composed.
+
+Another way to invent a good heuristic is to use statistical information. This can be
+gathered by running a search over a number of training problems, such as the 100 randomly
+chosen 8-puzzle configurations, and gathering statistics. For example, we might find that when
+n(n) = 14, it turns out that 90% of the time the real distance to the goal is 18. Then when faced
+with the "real" problem, we can use 18 as the value whenever h2(n)reports 14. Ofcourse, ifwe
+use probabilistic information like this, we are giving up on the guarantee of admissibility, but we
+are likely to expand fewer nodes on average.
+
+Often it is possible to pick out features of state that contribute to its heuristic evaluation
+function, even ifit is hard to say exactly what the contribution should be. For example, the goal
+in chess is to checkmate the opponent, and relevant features include the number of pieces ofeach
+kind belonging to each side, the number of pieces that are attacked by opponent pieces, and so
+on. Usually, the evaluation function is assumed to be a linear combination of the feature values.
+Even if we have no idea how important each feature is, or even if a feature is good or bad, it
+is still possible to use a learning algorithm to acquire reasonable coefficients for each feature,
+as demonstrated in Chapter 18. In chess, for example, a program could learn that one's own
+queen should have a large positive coefficient, whereas an opponent's pawn should have a small 7
+negative coefficient. .
+
+Another factor that we have not considered so far is the search cost of actually running the
+heuristic function on a node. We have been assuming that the cost of computing the heuristic
+function is about the same as the cost of expanding a node, so that minimizing the number of 4
+nodes expanded is a good thing. But if the heuristic function is so complex that computing its
+value for one node takes as long as expanding hundreds of nodes, then we need to reconsider.
+After all, it is easy to have a heuristic that is perfectly accurate—if we allow the heuristic to do,
+say, a full breadth-first search "on the sly." That would minimize the number of nodes expanded
+by the real search, but it would not minimize the overall search cost. A good heuristic function
+must be efficient as well as accurate.
+
+Heuristics for constraint satisfaction problems
+
+Tn Section 3.7, we examined a class of problems called constraint satisfaction problems (CSPs). j
+A constraint satisfaction problem consists ofa set of variables that can take on values from a given
+domain, together with a set of constraints that specify properties of the solution. Section 3.7
+examined uninformed search methods for CSPs, mostly variants of depth-first search. Here,
+we extend the analysis by considering heuristics for selecting a variable to instantiate and for
+choosing a value for the variable.
+
+ 
+

@@ -1,0 +1,29 @@
+24.3 Dijkstra’s algorithm 659
+
+ 
+
+Figure 24.6 The execution of Dijkstra’s algorithm, The source s is the leftmost vertex. The
+shortest-path estimates appear within the vertices, and shaded edges indicate predecessor values.
+Black vertices are in the set S, and white vertices are in the min-priority queue Q = V — S. (a) The
+situation just before the first iteration of the while loop of lines 4-8. The shaded vertex has the mini-
+mum d value and is chosen as vertex 1 in line 5. (b)(f) The situation after each successive iteration
+of the while loop. The shaded vertex in each part is chosen as vertex 1 in line 5 of the next iteration.
+The d values and predecessors shown in part (f) are the final values.
+
+and added to S exactly once, so that the while loop of lines 4-8 iterates exactly |V |
+times.
+
+Because Dijkstra’s algorithm always chooses the “lightest” or “closest” vertex
+in V —S to add to set S, we say that it uses a greedy strategy. Chapter 16 explains
+greedy strategies in detail, but you need not have read that chapter to understand
+Dijkstra’s algorithm. Greedy strategies do not always yield optimal results in gen-
+eral, but as the following theorem and its corollary show, Dijkstra’s algorithm does
+indeed compute shortest paths. The key is to show that each time it adds a vertex u
+to set S, we have u.d = 5(s,u).
+
+Theorem 24.6 (Correctness of Dijkstra’s algorithm)
+
+Dijkstra’s algorithm, run on a weighted, directed graph G = (V, E) with non-
+negative weight function w and source s, terminates with u.d = 6(s,u) for all
+vertices ue V.
+

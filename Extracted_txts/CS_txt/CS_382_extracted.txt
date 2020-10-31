@@ -1,0 +1,49 @@
+950
+
+Chapter 31 Number-Theoretic Algorithms
+
+Thanks to Corollary 31.26, we can use the notation a7! mod n to refer to the
+multiplicative inverse of a, modulo n, when a and n are relatively prime. If
+gced(a,n) = 1, then the unique solution to the equation ax = 1 (mod 7) is the
+integer x returned by EXTENDED-EUCLID, since the equation
+
+ged(a,n) =1 =ax+ny
+
+implies ax = 1 (mod). Thus, we can compute a7! mod n efficiently using
+EXTENDED-EUCLID.
+
+Exercises
+
+314-1
+Find all solutions to the equation 35x = 10 (mod 50).
+
+31.4-2
+
+Prove that the equation ax = ay (mod n) implies x = y (mod n) whenever
+ged(a,n) = 1. Show that the condition ged(a,n) = 1 is necessary by supplying a
+counterexample with gcd(a,n) > 1.
+
+31.4-3
+Consider the following change to line 3 of the procedure MODULAR-LINEAR-
+EQUATION-SOLVER:
+
+3 Xo = x/(b/d) mod (n/d)
+Will this work? Explain why or why not.
+
+3144 x
+
+Let p be prime and f(x) = fo + fix +--+: + fix" (mod p) be a polyno-
+mial of degree ¢, with coefficients f; drawn from Zp. We say that a € Zp
+is a zero of f if f(a) = 0 (mod p). Prove that if a is a zero of f, then
+f(x) = (x —a)g(x) (mod p) for some polynomial g(x) of degree t — 1. Prove
+by induction on ¢ that if p is prime, then a polynomial f(x) of degree t can have
+at most f distinct zeros modulo p.
+
+ 
+
+31.5 The Chinese remainder theorem
+
+Around A.D. 100, the Chinese mathematician Sun-Tsii solved the problem of find-
+ing those integers x that leave remainders 2, 3, and 2 when divided by 3, 5, and 7
+respectively. One such solution is x = 23; all solutions are of the form 23 + 105k
+

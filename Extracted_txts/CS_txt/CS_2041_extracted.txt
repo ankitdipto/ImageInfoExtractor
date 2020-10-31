@@ -1,0 +1,51 @@
+ 
+
+478 Chapter 13. I/O Systems
+
+In summary, the I/O subsystem coordinates an extensive collection of
+services that are available to applications and to other parts of the kernel. The
+I/O subsystem supervises
+
+« The management of the name space for files and devices
+
+© Access control to files and devices
+
+© Operation control (for example, a modem cannot seek O)
+File system space allocation
+
+¢ Device allocation
+
+¢ Buffering, caching, and spooling
+
+¢ 1/Oscheduling
+
+Device status monitoring, error handling, and failure recovery
+
+¢ Device driver configuration and initialization
+
+The upper levels of the I/O subsystem access devices via the uniform
+interface provided by the device drivers.
+
+13.5 = Transforming I/O to Hardware Operations
+
+Earlier, we described the handshaking between a device driver and a device
+controller, but we did not explain how the operating system connects an appli-
+cation request to a set of network wires or to a specific disk sector. Let us
+consider the example of reading a file from disk. The application refers to the
+data by a file name. Within a disk, the file system maps from the file name
+through the file-system directories to obtain the space allocation of the file. For
+instance, in MS-DOS, the name maps to a number that indicates an entry in the
+file-access table, and that table entry tells which disk blocks are allocated to the
+file. In UNIX, the name maps to an inode number, and the corresponding inode
+contains the space-allocation information.
+
+How is the connection made from the file name to the disk controller (the
+hardware port address or the memory-mapped controller registers)? First, we
+consider MS-DOS, a relatively simple operating system. The first part of an MS-
+DOS file name, preceding the colon, is a string that identifies a specific hardware
+device. For example, c: is the first part of every file name on the primary hard
+disk. The fact that c: represents the primary hard disk is built into the operating
+system; c: is mapped to a specific port address through a device table. Because
+of the colon separator, the device name space is separate from the file-system
+name space within each device. This separation makes it easy for the operating
+

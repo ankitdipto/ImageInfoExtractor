@@ -1,0 +1,52 @@
+14.5 RAID Structure 505
+
+14.5 = RAID Structure
+
+Disk drives have continued to get smaller and cheaper, so it is now economi-
+cally feasible to attach a large number of disks to a computer system.
+
+Having a large number of disks in a system presents opportunities for
+improving the rate at which data can be read or written, if the disks are
+operated in parallel. Furthermore, this setup offers the potential for improving
+the reliability of data storage, because redundant information can be stored
+on multiple disks. Thus, failure of one disk does not lead to loss of data. A
+variety of disk-organization techniques, collectively called redundant arrays of
+inexpensive disks (RAID), are commonly used to address the performance and
+reliability issues.
+
+In the past, RAIDs composed of small cheap disks were viewed as a cost-
+effective alternative to large, expensive disks; today, RAIDs are used for their
+higher reliability and higher data-transfer rate, rather than for economic rea-
+sons. Hence, the I in RAID stands for “independent”, instead of “inexpensive.”
+
+14.5.1 Improvement of Reliability via Redundancy
+
+Let us first consider reliability. The chance that some disk out of a set of N
+disks will fail is much higher than the chance that a specific single disk will
+fail. Suppose that the mean time to failure of a single disk is 100,000 hours.
+Then, the mean time to failure of some disk in an array of 100 disks will be
+100, 000/100 = 1,000 hours, or 41.66 days, which is not long at all! If we store
+only one copy of the data, then each disk failure will result in loss of a significant
+amount of data—such a high rate of data loss is unacceptable.
+
+The solution to the problem of reliability is to introduce redundancy; we
+store extra information that is not needed normally, but that can be used in the
+event of failure of a disk to rebuild the lost information. Thus, even if a disk
+fails, data are not lost.
+
+The simplest (but most expensive) approach to introducing redundancy is
+to duplicate every disk. This technique is called mirroring (or shadowing). A
+logical disk then consists of two physical disks, and every write is carried out
+on both disks. If one of the disks fails, the data can be read from the other. Data
+will be lost only if the second disk fails before the first failed disk is replaced.
+
+The mean time to failure—where failure is the loss of data—of a mirrored
+disk depends on two factors: the mean time to failure of the individual disks,
+as well as on the mean time to repair, which is the time it takes (on average) to
+replace a failed disk and to restore the data on it. Suppose that the failures of
+the two disks are independent; that is, the failure of one disk is not connected
+to the failure of the other. Then, if the mean time to failure of a single disk is
+100,000 hours and the mean time to repair is 10 hours, then the mean time to
+data loss of a mirrored disk system is 100,000?/(2 * 10) = 500 * 10° hours, or
+57,000 years!
+

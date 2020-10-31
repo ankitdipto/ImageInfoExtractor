@@ -1,0 +1,49 @@
+864
+
+Chapter 29 Linear Programming
+
+linear program for which the solution has the property that d, is the shortest-path
+weight from s to v for each vertex v € V.
+
+29.2-4
+Write out explicitly the linear program corresponding to finding the maximum flow
+in Figure 26.1(a).
+
+29.2-5
+Rewrite the linear program for maximum flow (29.47)-(29.50) so that it uses only
+O(V + E) constraints.
+
+29.2-6
+Write a linear program that, given a bipartite graph G = (V, E), solves the maxi-
+mum-bipartite-matching problem.
+
+29.2-7
+
+In the minimum-cost multicommodity-flow problem, we are given directed graph
+G = (V, E) in which each edge (u,v) € E has a nonnegative capacity c(u,v) > 0
+and a cost a(u,v). As in the multicommodity-flow problem, we are given k dif-
+ferent commodities, K. K2..... K;., where we specify commodity i by the triple
+K; = (s;,t;,d;). We define the flow f; for commodity i and the aggregate flow fiy
+on edge (u,v) as in the multicommodity-flow problem. A feasible flow is one
+in which the aggregate flow on each edge (u,v) is no more than the capacity of
+edge (u,v). The cost of a flow is >, ,ey 4(U.V) fav, and the goal is to find the
+feasible flow of minimum cost. Express this problem as a linear program.
+
+ 
+
+29.3. The simplex algorithm
+
+The simplex algorithm is the classical method for solving linear programs. In con-
+trast to most of the other algorithms in this book, its running time is not polynomial
+in the worst case. It does yield insight into linear programs, however, and is often
+remarkably fast in practice.
+
+In addition to having a geometric interpretation, described earlier in this chapter,
+the simplex algorithm bears some similarity to Gaussian elimination, discussed in
+Section 28.1. Gaussian elimination begins with a system of linear equalities whose
+solution is unknown. In each iteration, we rewrite this system in an equivalent
+form that has some additional structure. After some number of iterations, we have
+rewritten the system so that the solution is simple to obtain. The simplex algo-
+rithm proceeds in a similar manner, and we can view it as Gaussian elimination for
+inequalities.
+

@@ -1,0 +1,52 @@
+Section 19.3
+
+Perceptrons 573
+
+ 
+
+initially trained, an information theoretic approach identifies an optimal selection of connections
+that can be dropped (i.¢., the weights are set to zero). The network is then retrained, and ifit is
+performing as well or better, the process is repeated. This process was able to eliminate 3/4 of
+the weights, and improve overall performance on test data. In addition to removing connections,
+it is also possible to remove units that are not contributing much to the result.
+
+Several algorithms have been proposed for growing a larger network from a smaller one
+The tiling algorithm (Mézard and Nadal, 1989) is interesting because it is similar to the decision
+tree learning algorithm. The idea is to start with a single unit that does its best to produce the
+correct output on as many of the training examples as possible. Subsequent units are added to
+take care of the examples that the first unit got wrong. The algorithm adds only as many units as
+are needed to cover all the examples.
+
+The cross-validation techniques of Chapter 18 are useful fordeciding when we have found
+a network of the right size.
+
+19.3 PERCEPTRONS
+
+Layered feed-forward networks were first studied in the late 1950s under the name perceptrons.
+Although networks ofall sizes and topologies were considered, the only effectivelearning element
+at the time was for single-layered networks, so that is where most of the effort was spent. Today,
+the name perceptron is used as a synonym for a single-layer, feed-forward network. The left-hand
+side of Figure 19.8 shows such a perceptron network. Notice that each output unit is independent
+of the others — each weight only affects one of the outputs. That means that we can limit our
+study to perceptrons with a single output unit, as in the right-hand side of Figure 19.8, and use
+several of them to build up a multi-output perceptron. For convenience, we can drop subscripts,
+denoting the output unit as O and the weight from input unit j to O as Wj. The activation ofinput
+unit is given by J;. The activation of the output unit is therefore
+
+fa, \
+O=Stepo ~ Wily = Stepo(W-T) (19.2)
+j
+where, as discussed earlier, we have assumed an additional weight Wo to provide a threshold for
+the step function, with fy =—1.
+
+What perceptrons can represent
+
+We saw in Figure 19.6 that units can represent the simple Boolean functions AND, OR, and
+NOT, and that therefore a feed-forward network of units can represent any Boolean function, if
+we allow for enough layers and units. But what Boolean functions can be represented with a
+single-layer perceptron?
+
+Some complex Boolean functions can be represented. For example, the majority function,
+which outputs a 1 only ifmore than half ofits n inputs are 1, can be represented by a perceptron
+with each W; = 1 and threshold ¢ = n/2. This would require a decision tree with O(2”) nodes.
+

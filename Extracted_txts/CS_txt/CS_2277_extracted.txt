@@ -1,0 +1,61 @@
+Mock trans fer
+
+cRC
+
+full-duptex
+
+protocol
+
+SECTION 11-8 Serial Communication 431
+
+character received. Another procedure used in asynchronous terminals involv-
+ing a human operator is to echo the character. The character transmitted from
+the keyboard to the computer is recognized by the processor and retransmitted
+to the terminal printer. The operator would realize that an error occurred
+during transmission if the character printed is not the same as the character
+whose key he has struck.
+
+In synchronous transmission, where an entire block of characters is
+transmitted, each character has a parity bit for the receiver to check. Afterthe
+entire block is sent, the transmitter sends one more character that constitutes
+a parity over the length of the message. This character is called a longitudinal
+redundancy check (LRC) and is the accumulation of the exclusive-OR of all
+transmitted characters. The receiving station calculates the LRC as it receives
+characters and compares it with the transmitted LRC. The calculated and
+received LRC should be equal for error-free messages. If the receiver finds an
+error in the transmitted block, it informs the sender to retransmit the same
+block once again. Another method used for checking errors in transmission is
+the cyclic redundancy check (CRO). This is a polynomial code obtained from
+the message bits by passing them through a feedback shift register containing
+a number of exclusive-OR gates This type of code is suitable for detecting burst
+errors occurring in the communication channel.
+
+Data can be transmitted between two points in three different modes:
+simplex, half-duplex, or full-duplex. A simplexline carries information in one
+direction only. This mode is seldom used in data communication because
+the receiver cannot communicate with the transmitter to indicate the occur-
+rence of errors. Examples of simplex transmission are radio and television
+broadcasting.
+
+‘A half-duplex transmission system is one that is capable of transmitting in
+both directions but data can be transmitted in only one direction at a time A
+pair of wires is needed for this mode. A common situation is for one modem
+to act as the transmitter and the other as the receiver. When transmission in
+one direction is completed, the role of the modems is reversed to enable
+transmission in the reverse direction. The time required to switch a half-duplex
+line from one direction to the other is called the turnaround time.
+
+AA full-duplex transmission can send and receive data in both directions
+simultaneously. This can be achieved by means of a four-wire link, with a
+different pair of wires dedicated to each direction of transmission. Alterna-
+tively, a two-wire circuit can support full-duplex communication if the
+frequency spectrum is subdivided into two nonoverlapping frequency bands
+to create separate receive and transmit channels in the same physical pair of
+wires.
+
+‘The communication lines, modems, and other equipment used in the
+transmission of information between two or more stations is called a data link.
+The orderly transfer ofinformation in a data link is accomplished by means of
+a protocol. A data link control protocol is a set of rules that are followed by
+interconnecting computers and terminals to ensure the orderly transfer of
+

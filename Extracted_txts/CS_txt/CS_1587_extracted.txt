@@ -1,0 +1,36 @@
+4.2 Process Scheduling 101
+
+   
+
+ 
+
+Figure 4.5 Queueing-diagram representation of process scheduling.
+
+In the first two cases, the process eventually switches from the waiting state
+to the ready state, and is then put back in the ready queue. A process continues
+this cycle until it terminates, at which time it is removed from all queues and
+has its PCB and resources deallocated.
+
+4.2.2 Schedulers
+
+A process migrates between the various scheduling queues throughout its
+lifetime. The operating system must select, for scheduling purposes, processes
+from these queues in some fashion. The selection process is carried out by the
+appropriate scheduler.
+
+Ina batch system, often more processes are submitted than can be executed
+immediately. These processes are spooled to a mass-storage device (typically
+a disk), where they are kept for later execution. The long-term scheduler, or
+job scheduler, selects processes from this pool and loads them into memory for
+execution. The short-term scheduler, or CPU scheduler, selects from among
+the processes that are ready to execute, and allocates the CPU to one of them.
+
+The primary distinction between these two schedulers is the frequency of
+their execution. The short-term scheduler must select a new process for the CPU
+frequently. A process may execute for only a few milliseconds before waiting
+for an I/O request. Often, the short-term scheduler executes at least once every
+100 milliseconds. Because of the brief time between executions, the short-term
+scheduler must be fast. If it takes 10 milliseconds to decide to execute a process
+for 100 milliseconds, then 10/(100 + 10) = 9 percent of the CPU is being used (or
+wasted) simply for scheduling the work.
+

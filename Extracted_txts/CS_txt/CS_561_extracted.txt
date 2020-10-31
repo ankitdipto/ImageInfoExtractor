@@ -1,0 +1,43 @@
+1096
+
+Chapter 34 NP-Completeness
+
+ 
+
+Figure 34.18 An instance of the traveling-salesman problem. Shaded edges represent a minimum-
+cost tour, with cost 7.
+
+Because each vertex in each widget is visited by some cover path, we see that each
+edge in E is covered by some vertex in V*. .
+
+34.5.4 The traveling-salesman problem
+
+In the traveling-salesman problem, which is closely related to the hamiltonian-
+cycle problem, a salesman must visit 7 cities. Modeling the problem as a complete
+graph with 7 vertices, we can say that the salesman wishes to make a four, or
+hamiltonian cycle, visiting each city exactly once and finishing at the city he starts
+from. The salesman incurs a nonnegative integer cost c(i, j) to travel from city i
+to city 7, and the salesman wishes to make the tour whose total cost is minimum,
+where the total cost is the sum of the individual costs along the edges of the tour.
+For example, in Figure 34.18, a minimum-cost tour is (vu, w, vx, u), with cost 7.
+The formal language for the corresponding decision problem is
+
+TSP = {(G.c,k) : G = (V, E) is acomplete graph,
+c is a function from V x V > Z,
+k€Z,and
+G has a traveling-salesman tour with cost at most k} .
+
+ 
+
+The following theorem shows that a fast algorithm for the traveling-salesman
+problem is unlikely to exist.
+
+Theorem 34.14
+The traveling-salesman problem is NP-complete.
+
+Proof We first show that TSP belongs to NP. Given an instance of the problem,
+we use as a certificate the sequence of n vertices in the tour. The verification
+algorithm checks that this sequence contains each vertex exactly once, sums up the
+edge costs, and checks whether the sum is at most k. This process can certainly be
+done in polynomial time.
+

@@ -1,0 +1,47 @@
+1046
+
+Chapter 33 Computational Geometry
+
+b. Give an O(n? Ig n)-time algorithm to pair Ghostbusters with ghosts in such a
+way that no streams cross.
+
+33-4 Picking up sticks
+
+Professor Charon has a set of 1 sticks, which are piled up in some configuration.
+Each stick is specified by its endpoints, and each endpoint is an ordered triple
+giving its (x, y,Z) coordinates. No stick is vertical. He wishes to pick up all the
+sticks, one at a time, subject to the condition that he may pick up a stick only if
+there is no other stick on top of it.
+
+a. Give a procedure that takes two sticks a and b and reports whether a is above,
+below, or unrelated to b.
+
+b. Describe an efficient algorithm that determines whether it is possible to pick up
+all the sticks, and if so, provides a legal order in which to pick them up.
+
+33-5 Sparse-hulled distributions
+
+Consider the problem of computing the convex hull of a set of points in the plane
+that have been drawn according to some known random distribution. Sometimes,
+the number of points, or size, of the convex hull of n points drawn from such a
+distribution has expectation O(n'*) for some constant € > 0. We call such a
+distribution sparse-hulled. Sparse-hulled distributions include the following:
+
+* Points drawn uniformly from a unit-radius disk. The convex hull has expected
+size @(n"/3),
+
+* Points drawn uniformly from the interior of a convex polygon with k sides, for
+any constant k. The convex hull has expected size O(Ig 77).
+
+* Points drawn according to a two-dimensional normal distribution. The convex
+hull has expected size O(,/Ig7).
+
+a. Given two convex polygons with n, and n vertices respectively, show how to
+compute the convex hull of all 7; +/2 points in O(n, +72) time. (The polygons
+may overlap.)
+
+b. Show how to compute the convex hull of a set of 7 points drawn independently
+according to a sparse-hulled distribution in O(n) average-case time. (Hint:
+Recursively find the convex hulls of the first 1/2 points and the second n/2
+points, and then combine the results.)
+

@@ -1,0 +1,160 @@
+992
+
+Chapter 32 String Matching
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+mod 13
+
+ 
+
+ 
+
+(a)
+
+*
+2
+a
+©
+
+10 11 12 13 14 15 16 17 18 19
+21345] 9]0}2/3]1]4]1]5]2]/6}7/3)9}9}2]1
+
+aa . mad 1
+
+8/9] 3 ]11] 0] 1) 7] 8] 4] 5 [10]11] 7] 9 ft
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+valid spurious
+match hit
+(b)
+old new old new
+high-order low-order high-order low-order
+digit digit at shift digit
+stidalits|2 14152 = (31415 —3-10000)-10 +2 (mod 13)
+: = (7-3:3)10 +2 (mod 13)
+Tr = 8 (mod 13)
+78
+(c)
+
+Figure 32.5 The Rabin-Karp algorithm. Each character is a decimal digit, and we compute values
+modulo 13, (a) A text string, A window of length 5 is shown shaded. The numerical value of the
+shaded number, computed modulo 13, yields the value 7. (b) The same text string with values com-
+puted modulo 13 for each possible position of a length-5 window. Assuming the pattern P = 31415,
+we look for windows whose value modulo 13 is 7, since 31415 =7 (mod 13). The algorithm finds
+two such windows, shown shaded in the figure, The first, beginning at text position 7, is indeed an
+occurrence of the pattern, while the second, beginning at text position 13, is a spurious hit. (ce) How
+to compute the value for a window in constant time, given the value for the previous window. The
+first window has value 31415. Dropping the high-order digit 3, shifting left (multiplying by 10), and
+then adding in the low-order digit 2 gives us the new value 14152, Because all computations are
+performed modulo 13, the value for the first window is 7, and the value for the new window is 8.
+
+ 
+

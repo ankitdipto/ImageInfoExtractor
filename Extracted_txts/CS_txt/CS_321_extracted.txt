@@ -1,0 +1,56 @@
+902
+
+Chapter 30 Polynomials and the FFT
+
+Proof The proof relies on the existence of the inverse of a certain matrix. Equa-
+tion (30.3) is equivalent to the matrix equation
+
+ 
+
+1 x9 XG xp ao Yo
+lox x? xml a yi
+' ' : =| . (30.4)
+LX x24 xn} An-1 Vn-1
+The matrix on the left is denoted V(x9, X1,...,%,—1) and is known as a Vander-
+
+monde matrix. By Problem D-1, this matrix has determinant
+T]  oe-x).
+0<j<ken-1
+
+and therefore, by Theorem D.5, it is invertible (that is, nonsingular) if the xg are
+distinct. Thus, we can solve for the coefficients a; uniquely given the point-value
+representation:
+
+a =V(x0,X1,---.Xn-1)Y - .
+
+The proof of Theorem 30.1 describes an algorithm for interpolation based on
+solving the set (30.4) of linear equations. Using the LU decomposition algorithms
+of Chapter 28, we can solve these equations in time O(n?).
+
+A faster algorithm for 1-point interpolation is based on Lagrange’s formula:
+
+nol [Ie —x;)
+
+Ax) = Oy, SS. (30.5)
+X T[@« -2))
+i#k
+
+You may wish to verify that the right-hand side of equation (30.5) is a polynomial
+of degree-bound n that satisfies A(x~) = yx for all k. Exercise 30.1-5 asks you
+how to compute the coefficients of A using Lagrange’s formula in time ©(n?).
+
+Thus, n-point evaluation and interpolation are well-defined inverse operations
+that transform between the coefficient representation of a polynomial and a point-
+value representation.'! The algorithms described above for these problems take
+time @(n?).
+
+The point-value representation is quite convenient for many operations on poly-
+nomials. For addition, if C(x) = A(x) + B(x), then C(x~) = A(xx) + B(Xx) for
+any point xz. More precisely, if we have a point-value representation for A,
+
+ 
+
+‘Interpolation is a notoriously tricky problem from the point of view of numerical stability. Although
+the approaches described here are mathematically correct, small differences in the inputs or round-off
+errors during computation can cause large differences in the result,
+

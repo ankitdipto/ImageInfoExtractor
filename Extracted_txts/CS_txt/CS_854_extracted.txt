@@ -1,0 +1,112 @@
+196
+
+Let Us C
+
+ 
+
+encountering the function call would generate code to push
+parameters and the address. Similarly, it would generate code to
+clear the stack when the control returns back from fun( ). Figure
+
+5.5 shows the contents of t
+
+he stack at
+
+ifferent stages of execution.
+
+ 
+
+Copy ofa
+Copy of b
+Empty stack
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+fun() is met
+
+Address of XXxx
+printf()
+5 Copy ofa 5
+2 Copy of b 2
+When call to Before transfering
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+control to fun()
+
+ 
+
+ 
+
+reaches fun()
+
+ 
+
+sum 7
+Address XXKX XXXX
+i 5 5
+j 2 2
+After control While returning On returning control
+
+control from fun()
+
+from fun()
+
+ 
+
+ 
+
+Figure 5.5
+
+Note that in this program popping of sum and a
+fun( ), whereas popping of the two integers is
+
+When it is done this way it is known as
+Convention’. There are other calling conventions as well where
+instead of main( ), fun() itself clears the two integers. The calling
+convention also decides whether the parameters
+the function are pushed on the stack in left-to-rigl
+order. The standard calling convention always uses the right-to-left
+
+dress is done by
+lone by main( ).
+‘CDecl Calling
+
+being passed to
+
+ 
+
+ht or right-to-left
+

@@ -1,0 +1,51 @@
+218 Chapter7 Process Synchronization
+
+suspended process Q is allowed to resume its execution, the signaling process
+P must wait. Otherwise, both P and Q will be active simultaneously within the
+monitor. Note, however, that both processes can conceptually continue with
+their execution. Two possibilities exist:
+
+1. P either waits until Q leaves the monitor, or waits for another condition.
+
+2. Qeither waits until P leaves the monitor, or waits for another condition.
+
+There are reasonable arguments in favor of adopting either option 1 or
+option 2. Since P was already executing in the monitor, choice 2 seems more
+reasonable. However, if we allow process P to continue, the “logical” condition
+for which Q was waiting may no longer hold by the time Q is resumed.
+
+Choice 1 was advocated by Hoare, mainly because the preceding argument
+in favor of it translates directly to simpler and more elegant proof rules. A com-
+promise between these two choices was adopted in the language Concurrent
+C. When process P executes the signal operation, process Q is immediately
+resumed. This model is less powerful than Hoare’s, because a process cannot
+signal more than once during a single procedure call.
+
+Let us illustrate these concepts by presenting a deadlock-free solution to
+the dining-philosophers problem. Recall that a philosopher is allowed to pick
+up her chopsticks only if both of them are available. To code this solution, we
+need to distinguish among three states in which a philosopher may be. For this
+purpose, we introduce the following data structure:
+
+enum {thinking, hungry, eating} state[5];
+
+Philosopher i can set the variable state[i] = eating only if her
+two neighbors are not eating: (state[(i+4) % 5] != eating) and
+(state[(i+1) % 5] != eating).
+
+We also need to declare
+
+condition self [5];
+
+where philosopher i can delay herself when she is hungry, but is unable to
+obtain the chopsticks she needs.
+
+We are now ina position to describe our solution to the dining-philosopher
+problem. The distribution of the chopsticks is controlled by the monitor dp,
+whose definition is shown in Figure 7.22. Each philosopher, before starting
+to eat, must invoke the operation pickup. This may result in the suspension
+of the philosopher process. After the successful completion of the operation,
+the philosopher may eat. Following this, the philosopher invokes the put-
+down operation, and may start to think. Thus, philosopher i must invoke the
+operations pickup and putdown in the following sequence:
+

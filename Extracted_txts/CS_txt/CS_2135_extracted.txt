@@ -1,0 +1,48 @@
+ 
+
+10 LOGICAL REASONING
+SYSTEMS
+
+ 
+
+ 
+
+ 
+
+In which we show how to build efficient programs that reason with logic
+
+  
+    
+ 
+
+10.1 INTRODUCTION
+
+We have explained that it is a good idea to build agents as reasoning systems—systems that
+explicitly represent and reason with knowledge. The main advantage of such systems is a high
+degree of modularity. The control structure can be isolated from the knowledge, and each piece
+of knowledge can be largely independent of the others. This makes it easier to experiment with
+the system and modify it, makes it easier for the system to explain its workings to another agent,
+and, as we will see in Part VI, makes it easier for the system to learn on its own.
+
+In this chapter the rubber hits the road, so to speak, and we discuss ways in which these
+advantages can be realized in an actual, efficient system. Automated reasoning systems come in
+several flavors, each designed to address different kinds of problems. We group them into four
+main categories:
+
+‘TYgQGEM PROVERS Theorem provers and logic programming languages: Theorem provers use resolution
+ORS RAN (or some other complete inference procedure) to prove sentences in full first-order logic,
+
+often for mathematical and scientific reasoning tasks. They can also be used to answer
+questions: the proof of a sentence containing variables serves as an answer to a question
+because it instantiates the variables. Logic programming languages typically restrict the
+logic, disallowing full treatment ofnegation, disjunction, and/or equality. They usually use
+backward chaining, and may include some nonlogical features of programming languages
+(such as input and output). Examples of theorem provers: SAM, AURA, OTTER. Examples
+of logic programming languages: Prolog, MRS, LIFE.
+
+is < Production systems: Like logic programming languages, these use implications as their
+primary representation. The consequent of each implication is interpreted as an action
+recommendation, rather than simply a logical conclusion. Actions include insertions and
+
+297
+

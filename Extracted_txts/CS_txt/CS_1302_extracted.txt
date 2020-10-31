@@ -1,0 +1,67 @@
+ey
+dv
+is}
+
+Chapter 8. Building a Knowledge Base
+
+ 
+
+ONTOLOGY
+
+°
+
+°
+
+ripe by sticking his finger into a sample and deciding if it "felt right." When the cheese
+tester approached retirement age, the factory invested much time and money developing a
+complex system with steel probes that would test forjust the right surface tension, but the
+system was next to useless. Eventually, it turned out that feel had nothing to do with it;
+pushing the finger injust served to break the crust and let the aroma out, and that was what
+the cheese tester was subconsciously relying on.
+Decide on a vocabulary of predicates, finctions, and constants. That is, translate the
+important domain-level concepts into logic-level names. This involves many choices,
+some arbitrary and some important. Should Size be a function ora predicate? Would
+Bigness be a better name than Size? Should Small be a constant or a predicate? Is Small
+a measure of relative size or absolute size? Once the choices have been made, the result
+is a vocabulary that is known as the ontology of the domain. The word ontology means a
+particular theory of the nature of being or existence. Together, this step and the previous
+step are known as ontological engineering. They determine what kinds of things exist, but
+do not determine their specific properties and interrelationships.
+Encode general knowledge about the domain. The ontology is an informal list of the
+concepts in a domain. By writing logical sentences or axioms about the terms in the
+ontology, we accomplish two goals: first, we make the terms more precise so that humans
+will agree on their interpretation. Without the axioms, we would not know, for example,
+whether Bear refers to real bears, stuffed bears, or both. Second, we make it possible to
+tun inference procedures to automatically derive consequences from the knowledge base.
+Once the axioms are in place, we can say that a knowledge base has been produced.
+Ofcourse, nobody expects a knowledge base to be correct and complete on the first try.
+There will be a considerable debugging process. The main difference between debugging
+a knowledge base and debugging a program is that it is easier to look at a single logic }
+sentence and tell if it is correct. For example, a typical error in a knowledge base looks
+like this:
+
+Vx Animal(x) = 3b BrainOf(w= b
+
+This says that there is some object that is the value of the BrainOf function applied to an
+animal. Of course, a function has a value for any input, although the value may be an
+undefined object for inputs that are outside the expected range. So this sentence makes a
+vacuous claim. We can "correct" it by adding the conjunct Brain(b). Then again, ifwe are
+potentially dealing with single-celled animals, we could correct it again, replacing Animal
+by, say, Vertebrate. 4
+In contrast, a typical ezror in a program looks like this:
+
+ 
+
+offset := position + 1
+
+It is impossible to tell ifthis statement is correct without looking at the rest ofthe program
+to see if, for example, offset is used elsewhere in the program to refer to the position,
+or to one beyond the position; or whether the statement was accidentally included twice in
+different places.
+
+Programming language statements therefore tend to depend on a lot of context, whereas
+logic sentences tend to be more self-contained. In that respect, a sentence in a knowledge
+base is more like an entire procedure in a program, not like an individual statement
+
+ 
+

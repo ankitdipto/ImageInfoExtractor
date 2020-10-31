@@ -1,0 +1,68 @@
+   
+  
+  
+  
+  
+
+i
+\
+
+Section 6.3. Representation, Reasoning, and Logic 165
+
+ 
+
+To reiterate, the great thing about formal inference is that it can be used to derive valid
+conclusions even when the computer does not know the interpretation you are using. The
+computer only reports valid conclusions, which must be true regardless of your interpretation.
+Because you know the interpretation, the conclusions will be meaningful to you, and they are
+guaranteed to follow from your premises. The word “you” in this paragraph can be applied
+
+I es equally to human and computer agents.
+
+Logics
+To summarize, we can say that a logic consists of the following:
+
+1. A fonnal system for describing states of affairs, consisting of
+
+(a) the syntax of the language, which describes how to make sentences, and
+
+(b) the semantics of the language, which states the systematic constraints on how sen-
+tences relate to states of affairs.
+
+2. The proof theory—a set of rules for deducing the entailments of a set of sentences.
+
+We will concentrate on two kinds of logic: propositional or Boolean logic, and first-order logic
+(more precisely, first-order predicate calculus with equality).
+
+PROPOSITIONAL In propositional logic, symbols represent whole propositions (facts); for example, D
+might have the interpretation "the wumpus is dead." which may or may not be a true proposition,
+BOTTA es Proposition symbols can be combined using Boolean connectives to generate sentences with more
+
+complex meanings. Such a logic makes very little commitment to how things are represented, so
+it is not surprising that it does not give us much mileage as a representation language.
+First-order logic commits to the representation of worlds in terms of objects and predicates
+on objects (ie., properties of objects or relations between objects), as well as using connectives
+and quantifiers, which allow sentences to be written about everything in the universe at once.
+First-order logic seems to be able to capture a good deal of what we know about the world, and
+has been studied for about a hundred years. We will spend therefore a good deal of time looking
+at how to do representation and deduction using it
+It is illuminating to consider logics in the light of their ontological and epistemological
+oeanoueses commitments. Ontological commitments have to do with the nature of reality. For example,
+propositional logic assumes that there are facts that either hold or do not in the world. Each fact
+can be in one of two states: true or false. First-order logic assumes more: namely, that the world
+consists of objects with certain relations between them that do or do not hold. Special-purpose
+TEMPORAL LOGIC logics make still further ontological commitments; for example, temporal logic assumes that
+the world is ordered by a set of time points or intervals, and includes built-in mechanisms for
+reasoning about time.
+
+“Epistemological commitments have to do with the possible states of knowledge an agent
+can have using various types of logic. In both propositional and first-order logic, a sentence
+represents a fact and the agent either believes the sentence to be true, believes it to be false,
+or is unable to conclude either way. These logics therefore have three possible states of belief
+regarding any sentence. Systems using probability theory, on the other hand, can have any
+degree of belief, ranging from 0 (total disbelief) to 1 (total belief). For example, a probabilistic
+
+Epistes
+
+ 
+

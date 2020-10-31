@@ -1,0 +1,51 @@
+378 Chapter 11 File-System Interface
+
+can be used or ignored by a given application, but that is up to the application’s
+programmer.
+
+11.1.4 File Structure
+
+File types also may be used to indicate the internal structure of the file. As
+mentioned in Section 11.1.3, source and object files have structures that match
+the expectations of the programs that read them. Further, certain files must
+conform to a required structure that is understood by the operating system.
+For example, the operating system may require that an executable file have a
+specific structure so that it can determine where in memory to load the file and
+what the location of the first instruction is. Some operating systems extend
+this idea into a set of system-supported file structures, with sets of special
+operations for manipulating files with those structures. For instance, DEC’s VMS
+operating system has a file system that supports three defined file structures.
+
+The above discussion brings us to one of the disadvantages of having the
+operating system support multiple file structures: The resulting size of the
+operating system is cumbersome. If the operating system defines five different
+file structures, it needs to contain the code to support these file structures. In
+addition, every file may need to be definable as one of the file types supported
+by the operating system. Severe problems may result from new applications
+that require information structured in ways not supported by the operating
+system.
+
+For example, assume that a system supports two types of files: text files
+(composed of ASCII characters separated by a carriage return and line feed) and
+executable binary files. Now, if we (as users) want to define an encrypted file
+to protect our contents from being read by unauthorized people, we may find
+neither file type to be appropriate. The encrypted file is not ASCII text lines,
+but rather is (apparently) random bits. Although it may appear to be a binary
+file, it is not executable. As a result, we may have to circumvent or misuse the
+operating system’s file-types mechanism, or abandon our encryption scheme.
+
+Some operating systems impose (and support) a minimal number of file
+structures. This approach has been adopted in UNIX, MS-DOS, and others. UNIX
+considers each file to be a sequence of 8-bit bytes; no interpretation of these bits
+is made by the operating system. This scheme provides maximum flexibility,
+but little support. Each application program must include its own code to
+interpret an input file into the appropriate structure. However, all operating
+systems must support at least one structure—that of an executable file—so that
+the system is able to load and run programs.
+
+The Macintosh operating system also supports a minimal number of file
+structures. It expects files to contain two parts: a resource fork and a data
+fork. The resource fork contains information of interest to the user. For
+instance, it holds the labels of any buttons displayed by the program. A
+foreign user may want to relabel these buttons in his own language, and
+

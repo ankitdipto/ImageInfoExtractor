@@ -1,0 +1,32 @@
+570
+
+   
+
+Chapter 21 Data Structures for Disjoint Sets
+
+oa eo @& @ ©
+
+(a) (b)
+
+Figure 21.5 Path compression during the operation FIND-SET. Arrows and self-loops at roots are
+omitted. (a) A tree representing a set prior to executing FIND-SET(a). Triangles represent subtrees
+whose roots are the nodes shown. Each node has a pointer to its parent. (b) The same set after
+executing FIND-SET(a). Each node on the find path now points directly to the root.
+
+Pseudocode for disjoint-set forests
+
+To implement a disjoint-set forest with the union-by-rank heuristic, we must keep
+track of ranks. With each node x, we maintain the integer value x.rank, which is
+an upper bound on the height of x (the number of edges in the longest simple path
+between x and a descendant leaf). When MAKE-SET creates a singleton set, the
+single node in the corresponding tree has an initial rank of 0. Each FIND-SET oper-
+ation leaves all ranks unchanged. The UNION operation has two cases, depending
+on whether the roots of the trees have equal rank. If the roots have unequal rank,
+we make the root with higher rank the parent of the root with lower rank, but the
+ranks themselves remain unchanged. If, instead, the roots have equal ranks, we
+arbitrarily choose one of the roots as the parent and increment its rank.
+
+Let us put this method into pseudocode. We designate the parent of node x
+by x.p. The LINK procedure, a subroutine called by UNION, takes pointers to two
+roots as inputs.
+

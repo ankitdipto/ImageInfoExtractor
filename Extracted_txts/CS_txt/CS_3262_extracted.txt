@@ -1,0 +1,49 @@
+618
+
+Chapter 20. Reinforcement Learning
+
+ 
+
+BANG-BANG
+CONTROL
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 20.14 Setup for the problem ofbalancing a long pole on top of'a moving cart. The cart
+can be jerked left or right by a controller that observes x, 6, x, and 6
+
+ 
+
+ 
+
+ 
+
+learning, and over 200 papers have been published on it. The cart-pole problem differs from the
+problems described earlier in that the state variables x, 9, x, and 0 are continuous. The actions
+are usually discrete—jerk left orjerk right, the so-called bang-bang control regime.
+
+The earliest work on learning for this problem was carried out by Michie and Cham-
+bers (1968). Their BOXES algorithm was able to balance the pole for over an hour after only
+about 30 trials. Moreover, unlike many subsequent systems, BOXES was implemented usinga |
+real cart and pole, not a simulation. The algorithm first discretized the four-dimensional state
+space into boxes, hence the name. It then ran trials until the pole fell over or the cart hit the end of
+the track. Negative reinforcement was associated with the final action in the final box, and then
+propagated back through the sequence. It was found that the discretization causes some problems
+when the apparatus was initialized in a different position from those used in training, suggesting
+that generalization was not perfect. Improved generalization and faster learning can be obtained
+using an algorithm that adaptivelypattitions the state space according to the observed variation
+in the reward.
+
+More recently, neural networks have been used to provide a continuous mapping from
+the state space to the actions, with slightly better results. The most impressive performance,
+however, belongs to the control algorithm derived using classical control theory for the triple
+inverted pendulum, in which three poles are balanced one on top of another with torque controls
+at the joints (Furuta ef al., 1984). (One is disappointed, but not surprised, that this algorithm was
+implemented only in simulation.)
+

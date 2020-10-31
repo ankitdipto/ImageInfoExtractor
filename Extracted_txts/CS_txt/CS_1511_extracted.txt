@@ -1,0 +1,25 @@
+2.4 Storage Hierarchy 39
+
+ 
+
+Figure 2.6 Storage-device hierarchy.
+
+In addition to having differing speed and cost, the various storage systems
+are either volatile or nonvolatile. Volatile storage loses its contents when
+the power to the device is removed. In the absence of expensive battery
+and generator backup systems, data must be written to nonvolatile storage
+for safekeeping. In the hierarchy shown in Figure 2.6, the storage systems
+above the electronic disk are volatile, whereas those below are nonvolatile. An
+electronic disk can be designed to be either volatile or nonvolatile. During
+normal operation, the electronic disk stores data in a large DRAM array, which is
+volatile. But many electronic-disk devices contain a hidden magnetic hard disk
+and a battery for backup power. If external power is interrupted, the electronic-
+disk controller copies the data from RAM to the magnetic disk. When external
+power is restored, the controller copies the data back into the RAM.
+
+The design of a complete memory system must balance all these factors:
+It uses only as much expensive memory as necessary, while providing as
+much inexpensive, nonvolatile memory as possible. Caches can be installed to
+improve performance where a large access-time or transfer-rate disparity exists
+between two components.
+

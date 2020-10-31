@@ -1,0 +1,61 @@
+Section 9.6.
+
+sNGONPLETE
+
+COMPLETENESS
+THEOREM
+
+RESOLUTION
+ALGORITHM
+
+SEMDECIDABLE
+
+Resolution: A Complete Inference Procedure 277
+
+Unfortunately, chaining with Modus Ponens cannot derive S(A)forus. The problem is that
+Vx P(x) =} R(x) cannot be converted to Hor form, and thus cannot be used by Modus Ponens.
+That means that a proof procedure using Modus Ponens is incomplete: there are sentences
+entailed by the knowledge base that the procedure cannot infer.
+
+The question of the existence of complete proof procedures is of direct concem to mathe-
+maticians. If a complete proof procedure can be found for mathematical statements, two things
+follow: first, all conjectures can be established mechanically; second, all of mathematics can
+be established as the logical consequence of a set of fundamental axioms. A complete proof
+procedure for first-order logic would also be of great value in AI: barring practical issues of
+computational complexity, it would enable a machine to solve any problem that can be stated in
+the language.
+
+The question of completeness has therefore generated some of the most important mathe-
+matical work of the twentieth century. This work culminated in the results proved by the German
+mathematician Kurt Godel in 1930 and 1931. Godel has some good news for us; his complete-
+ness theorem showed that, for first-order logic, any sentence that is entailed by another set of
+sentences can be proved from that set. That is, we can find inference rules that allow a complete
+proof procedure R:
+
+if KB —a then KBl pa
+
+The completeness theorem is like saying that a procedure for finding a needle in a haystack does
+exist. This is not a trivial claim, because universally quantified sentences and arbitrarily nested
+function symbols add up to haystacks of infinite size. Godel showed that a proofprocedure exists,
+but he did not demonstrate one; it was not until 1965 that Robinson published his resolution
+algorithm, which we discuss in the next section.
+
+There is one problem with the completeness theorem that is a real nuisance. Note that
+we said that ifa sentence follows, then it can be proved. Normally, we do not know until the
+proof is done that the sentence does follow; what happens when the sentence doesn't follow?
+Can we tell? Well, for first-order logic, it turns out that we cannot; our proof procedure can go
+on and on, but we will not know ifit is stuck in a hopeless loop or if the proof is just about to
+pop out. (This is like the halting problem for Turing machines.) Entailment in first-order logic
+is thus semidecidable, that is, we can show that sentences follow from premises, if they do, but
+we cannot always show it ifthey do not. As a corollary, consistency of sets of sentences (the
+question of whether there is a way to make all the sentences true) is also semidecidable.
+
+9.6 RESOLUTION: A COMPLETE INFERENCE PROCEDURE
+
+Recall from Chapter 6 that the simple version of the resolution inference rule for propositional
+logic has the following form:
+
+VB, af 7 . = , 8 7
+OVE, BVT y equivalently 22 9 BS 7
+av7 a>
+

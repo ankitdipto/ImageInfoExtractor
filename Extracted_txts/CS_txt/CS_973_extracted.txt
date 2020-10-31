@@ -1,0 +1,49 @@
+292 Let Us C
+
+ 
+
+The array arrangement shown in Figure 8.4 is only conceptually
+true. This is because memory doesn’t contain rows and columns.
+In memory whether it is a one-dimensional or a two-dimensional
+array the array elements are stored in one continuous chain. The
+arrangement of array elements of a two-dimensional array in
+memory is shown below:
+
+ 
+
+s(O}[O] sfOJE1] s{1)[0] s{101} s{21(0)s(2]t1] s{3)(0]_s(3][1]
+1234 | 56 | 1212 | 33 | 1434 | 80 | 1312] 78
+
+ 
+
+65508 65510 65512 65514 65516 65518 65520 65522
+
+ 
+
+ 
+
+ 
+
+Figure 8.5
+
+We can easily refer to the marks obtained by the third student
+using the subscript notation as shown below:
+
+printf ( "Marks of third student = %d", stud[2][1] ) ;
+
+Can we not refer the same element using pointer notation, the way
+we did in one-dimensional arrays? Answer is yes. Only the
+procedure is slightly difficult to understand. So, read on...
+
+Pointers and 2-Dimensional Arrays
+
+The C language embodies an unusual but powerful capability—it
+can treat parts of arrays as arrays. More specifically, each row of a
+two-dimensional array can be thought of as a one-dimensional
+array. This is a very important fact if we wish to access array
+elements of a two-dimensional array using pointers.
+
+Thus, the declaration,
+
+int s[5)[2] ;
+

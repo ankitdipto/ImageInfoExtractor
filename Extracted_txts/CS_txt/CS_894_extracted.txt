@@ -1,0 +1,48 @@
+228 Let Us C
+
+ 
+
+Scope — Local to the block in which the variable
+is defined.
+Life — Value of the variable persists between
+
+different function calls.
+
+Compare the two programs and their output given in Figure 6.3 to
+understand the difference between the automatic and static
+storage classes.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+main() main()
+{ {
+increment() ; increment() ;
+increment() ; increment() ;
+increment() ; increment() ;
+} }
+increment() increment()
+{
+auto inti = 1; static int i= 1;
+printf ("%d\n", i) ; printf (“%d\n", i) ;
+i=i+1; i=i+1;
+}
+The output of the above programs would be:
+1 1
+1 2
+1 3
+Figure 6.3
+
+The programs above consist of two functions main() and
+increment( ). The function increment( ) gets called from main( )
+thrice. Each time it increments the value of i and prints it. The only
+difference in the two programs is that one uses an auto storage
+class for variable i, whereas the other uses static storage class.
+

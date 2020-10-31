@@ -1,0 +1,59 @@
+302
+
+Chapter 12 Binary Search Trees
+
+Using the substitution method, we shall show that for all positive integers 1, the
+recurrence (12.2) has the solution
+
+E[Y,] < i(’ ») .
+
+In doing so, we shall use the identity
+
+n-l
+i+3\_ ([n+3
+¥(S)-("2). (12.3)
+
+(Exercise 12.4-1 asks you to prove this identity.)
+For the base cases, we note that the bounds 0 = Yy = E [Yo] < (1/4)(3) = 1/4
+and 1 = Y; =E[¥i] < (1/4)(‘3) = | hold. For the inductive case, we have that
+
+47
+7 EM
+i=0
+4 1fi+3
+3
+
+E(Yn]
+
+IA
+
+IA
+|
+
+) (by the inductive hypothesis)
+
+ 
+
+= ("3) (by equation (12.3))
+—_ 1 @+3)!
+
+~ nh amn—D!
+
+— 1 (+3)!
+
+~ 4° 3in!
+
+— 1fn+3
+~ 44 3 4°
+
+We have bounded E[Y,,], but our ultimate goal is to bound E[X,,]. As Exer-
+cise 12.4-4 asks you to show, the function f(x) = 2* is convex (see page 1199).
+Therefore, we can employ Jensen’s inequality (C.26), which says that
+
+en) < E[2*"]
+= EY].
+as follows:
+
+QEIn] < I(n+3
+~ 4\ 3
+

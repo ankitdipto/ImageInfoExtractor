@@ -1,0 +1,29 @@
+212
+
+Chapter 8 Sorting in Linear Time
+
+any of the O(nlgn)-time algorithms make fewer comparisons, the algorithm by
+Munro and Raman moves data only O() times and operates in place.
+
+The case of sorting n b-bit integers in o(n lg) time has been considered by
+many researchers. Several positive results have been obtained, each under slightly
+different assumptions about the model of computation and the restrictions placed
+on the algorithm. All the results assume that the computer memory is divided into
+addressable b-bit words. Fredman and Willard [115] introduced the fusion tree data
+structure and used it to sort 7 integers in O(n lgn/1glgn) time. This bound was
+later improved to O(n vign ) time by Andersson [16]. These algorithms require
+the use of multiplication and several precomputed constants. Andersson, Hagerup,
+Nilsson, and Raman [17] have shown how to sort 7 integers in O(n lglg) time
+without using multiplication, but their method requires storage that can be un-
+bounded in terms of n. Using multiplicative hashing, we can reduce the storage
+needed to O(n), but then the O(n lglg) worst-case bound on the running time
+becomes an expected-time bound. Generalizing the exponential search trees of
+Andersson [16], Thorup [335] gave an O(n (lglg n)?)-time sorting algorithm that
+does not use multiplication or randomization, and it uses linear space. Combining
+these techniques with some new ideas, Han [158] improved the bound for sorting
+to O(n lglgnlglglgn) time. Although these algorithms are important theoretical
+breakthroughs, they are all fairly complicated and at the present time seem unlikely
+to compete with existing sorting algorithms in practice.
+
+The columnsort algorithm in Problem 8-7 is by Leighton [227].
+

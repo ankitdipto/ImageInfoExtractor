@@ -1,0 +1,46 @@
+9.1 Background = 275
+
+   
+
+ 
+
+  
+   
+   
+
+ 
+
+ 
+
+ 
+  
+
+ 
+ 
+
+compiler or compile
+assembler time
+pen load
+‘ time
+system
+in-memory
+‘ execution
+Atala ey time (run
+: time)
+image
+
+ 
+
+  
+
+Figure 9.1 Multistep processing of a user program.
+
+final binding is delayed until load time. If the starting address changes, we
+need only to reload the user code to incorporate this changed value.
+
+¢ Execution time: If the process can be moved during its execution from
+one memory segment to another, then binding must be delayed until run
+time. Special hardware must be available for this scheme to work, as will
+be discussed in Section 9.1.2. Most general-purpose operating systems use
+this method.
+

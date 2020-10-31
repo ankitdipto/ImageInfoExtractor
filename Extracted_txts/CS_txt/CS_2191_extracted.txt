@@ -1,0 +1,52 @@
+356 — cuarrer Ten Computer Arithmetic
+
+the smaller exponent to the right by a number of places equal to the difference
+between the exponents. After this is done, the mantissas can be added:
+
+5372400 x 10?
++.0001580 x 10?
+5373980 x 10?
+
+When two normalized mantissas are added, the sum may contain an
+overflow digit. An overflow can be corrected easily by shifting the sum once
+to the right and incrementing the exponent. When two numbers are sub-
+tracted, the result may contain most significant zerosas shown in the following
+example:
+
+56780 x 10°
+9430 x_10°
+00350 x 10°
+
+ 
+
+A floating-point number that has a 0 in the most significant position of the
+mantissa is said to havean underflow. To normalize a number that contains an
+underflow, it is necessary to shift the mantissa to the left and decrement the
+exponent until a nonzero digit appears in the first position. In the example
+above, it is necessary to shift left twice to obtain 35000 x 10°. In most comput-
+ers, anormalization procedure is performed after each operation to ensure that
+all results are in a normalized form.
+
+Floating-pointmultiplication and division do not require an alignment of
+the mantissas. The product can be formed by multiplying the two mantissas
+and adding the exponents. Division is accomplished by dividing the mantissas
+and subtracting the exponents.
+
+The operations performed with the mantissas are the same as in fixed-
+point numbers, so the two can share the same registers and circuits. The
+operations performed with the exponents are compare and increment (for
+aligning the mantissas), add and subtract (for multiplication and division), and
+decrement (to normalize the result). The exponent may be represented in any
+one of the three representations: signed-magnitude, signed-2’s complement,
+or signed-1’s complement.
+
+‘A fourth representation employed in many computers is known as a
+biased exponent. In this representation, the sign bit is removed from being a
+separate entity. The bias is a positive number that is added to each exponent
+as the floating-point number is formed, so that internally all exponents are
+positive. The following example may clarify this type of representation. Con-
+sider an exponent that ranges from ~50 to 49. Internally, it is represented by
+two digits (without a sign) by adding to it a bias of 50. The exponent register
+contains the number e + 50, where ¢ is the actual exponent. This way, the
+exponents are represented in registers as positive numbers in the range of 00
+

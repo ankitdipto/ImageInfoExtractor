@@ -1,0 +1,51 @@
+582
+
+Chapter 21 Data Structures for Disjoint Sets
+
+words, if x.rank > 0 and x.p is not a root, then level(x) < level(x.p). Is the
+professor correct?
+
+214-6 x
+
+Consider the function o’(n) = min {k : Ag (1) = Ig(n + 1)}. Show that a(n) < 3
+for all practical values of n and, using Exercise 21.4-2, show how to modify the
+potential-function argument to prove that we can perform a sequence of m MAKE-
+SET, UNION, and FIND-SET operations, n of which are MAKE-SET operations, on
+a disjoint-set forest with union by rank and path compression in worst-case time
+O(ma'(n)).
+
+ 
+
+Problems
+
+21-1 Off-line minimum
+
+The off-line minimum problem asks us to maintain a dynamic set T of elements
+from the domain {1,2,...,/} under the operations INSERT and EXTRACT-MIN.
+We are given a sequence S of n INSERT and m EXTRACT-MIN calls, where each
+
+key in {1,2,..., n} is inserted exactly once. We wish to determine which key
+is returned by each EXTRACT-MIN call. Specifically, we wish to fill in an array
+extracted[1..m], where fori = 1,2,..., m, extracted{i] is the key returned by
+
+the ith EXTRACT-MIN call. The problem is “off-line” in the sense that we are
+allowed to process the entire sequence S before determining any of the returned
+keys.
+
+a. In the following instance of the off-line minimum problem, each operation
+INSERT(i) is represented by the value of i and each EXTRACT-MIN is rep-
+resented by the letter E:
+
+4,8, E,3,E,9,2,6,E,E,E,1,7,E,5.
+Fill in the correct values in the extracted array.
+
+To develop an algorithm for this problem, we break the sequence S into homoge-
+neous subsequences. That is, we represent S by
+
+IE, E.L,.... Tne E.Inai
+
+where each E represents a single EXTRACT-MIN call and each I; represents a (pos-
+sibly empty) sequence of INSERT calls. For each subsequence Ij, we initially place
+the keys inserted by these operations into a set K;, which is empty if I; is empty.
+We then do the following:
+

@@ -1,0 +1,40 @@
+Chapter 16: C Under Windows 537
+
+ 
+
+95, 98, ME fall under the Consumer Windows, whereas Windows
+NT, 2000, XP, Server 2003 fall under the Windows NT Family.
+Consumer Windows was targeted towards the home or small office
+users, whereas NT family was targeted towards business users.
+Microsoft no longer provides support for Consumer Windows.
+Hence in this book we would concentrate only on NT Family
+Windows. So in the rest of this book whenever I refer to Windows
+I mean Windows NT family, unless explicitly specified.
+
+Before we start writing C programs under Windows let us first see
+some of the changes that have happened under Windows
+environment.
+
+Integers
+
+Under 16-bit environment the size of integer is of 2 bytes. As
+against this, under 32-bit environment an integer is of 4 bytes.
+Hence its range is -2147483648 to +2147483647. Thus there is no
+difference between an int and a long int. But what if we wish to
+store the age of a person in an integer? It would be improper to
+sacrifice a 4-byte integer when we know that the number to be
+stored in it is hardly going to exceed hundred. In such as case it
+would be more sensible to use a short int since it is only 2 bytes
+long.
+
+The Use of typedef
+
+Take a look at the following declarations:
+
+COLORREF color ;
+HANDLE h;
+WPARAM w ;
+LPARAM |;
+
+BOOL b ;
+

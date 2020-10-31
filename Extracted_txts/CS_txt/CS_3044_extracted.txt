@@ -1,0 +1,62 @@
+420
+
+Chapter 14. Uncertainty
+
+ 
+
+14.2 BASIC PROBABILITY NOTATION
+
+UNCONDITIONAL
+PRIOR PROBABILITY
+
+RANDOM VARIABLES
+
+DOMAIN
+
+Now that we have set up the general framework for a rational agent, we will need a formal language
+for representing and reasoning with uncertain knowledge. Any notation for describing degrees of
+belief must be able to deal with two main issues: the nature of the sentences to which degrees of
+belief are assigned, and the dependence of the degree of belief on the agent's state of knowledge.
+The version of probability theory we present uses an extension of propositional logic for its
+sentences. The dependence on experience is reflected in the syntactic distinction between prior
+probability statements, which apply before any evidence is obtained, and conditional probability
+statements, which include the evidence explicitly.
+
+Prior probability
+
+We will use the notation P(A) for the unconditional or prior probability that the proposition A
+is true. For example, if Cavity denotes the proposition that a particular patient has a cavity,
+
+P(Cavity) = 0.1
+
+means that in the absence ofany other information,the agent will assign a probability of 0.1
+(a 10% chance) to the event of the patient's having a cavity. It is important to remember that
+P(A) can only be used when there is no other information. As soon as some new information
+B is known, we have to reason with the conditional probability of A given B instead of P(A).
+Conditional probabilities are covered in the next section. 3
+The proposition that is the subject of a probability statement can be represented by a
+proposition symbol, as in the P(A) example. Propositions can also include equalities involving
+so-called random variables. For example, if we are concerned about the random variable
+Weather, we might have 4
+
+ 
+
+P(Weather = Cloudy) = 0.08
+P(Weather = Snow) = 0.02
+
+Each random variable X has a domain of possible values {x,,... ,x,)that it can take on.5 We will 3
+usually deal with discrete sets of values, although continuous random variables will be discussed
+briefly in Chapter 15. We can view proposition symbols as random variables as well, if we
+assume that they have a domain (rrve, false). Thus, the expression P(Cavity)can be viewed as
+shorthand for P(Cavity = true). Similarly, P(>Cavity)is shorthand for P(Cavity = false). Usually,
+we will use the letters 4, B, and so on for Boolean random variables, and the letters.X, Y, and so
+on for multivalued variables.
+
+Sometimes, we will want to talk about the probabilities of all the possible values of a
+random variable. In this case, we will use an expression such as P(Weather), which denotes a
+
+5 In probability, the variables are capitalized, while the values are lowercase. This is unfortunately the reverse of logical
+notation, but it is the tradition.
+
+ 
+

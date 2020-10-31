@@ -1,0 +1,58 @@
+142 Let Us C
+
+ 
+
+@
+
+()
+
+switch (ch)
+{
+
+case ‘a’:
+case 'A':
+printf ("a as in ashar" ) ;
+break ;
+
+case 'b':
+
+case 'B':
+
+printf ("b as in brain” ) ;
+break ;
+
+case ''C:
+
+case 'C':
+
+printf ("c as in cookie" ) ;
+
+break ;
+
+default :
+
+printf ( “wish you knew what are alphabets” ) ;
+}
+
+}
+
+Here, we are making use of the fact that once a case is
+satisfied the control simply falls through the case till it
+doesn’t encounter a break statement. That is why if an
+alphabet a is entered the case ‘a’ is satisfied and since there
+are no statements to be executed in this case the control
+automatically reaches the next case i.e. case ‘A’ and executes
+all the statements in this case.
+
+ 
+
+Even if there are multiple statements to be executed in each
+case there is no need to enclose them within a pair of braces
+(unlike if, and else).
+
+Every statement in a switch must belong to some case or the
+other. If a statement doesn’t belong to any case the compiler
+won’t report an error. However, the statement would never get
+executed. For example, in the following program the printf( )
+never goes to work.
+

@@ -1,0 +1,37 @@
+Chapter 12
+
+FILE-SYSTEM
+IMPLEMENTATION
+
+ 
+
+ 
+
+As we saw in Chapter 11, the file system provides the mechanism for on-line
+storage and access to file contents, including data and programs. The file
+system resides permanently on secondary storage, which is designed to hold a
+large amount of data permanently. This chapter is primarily concerned with
+issues surrounding file storage and access on the most common secondary-
+storage medium, the disk. We explore ways to structure file use, to allocate
+disk space, to recover freed space, to track the locations of data, and to interface
+other parts of the operating system to secondary storage. Performance issues
+are considered throughout the chapter.
+
+12.1 = File-System Structure
+
+Disks provide the bulk of secondary storage on which a file system is main-
+tained. They have two characteristics that make them a convenient medium for
+storing multiple files:
+
+1. They can be rewritten in place; it is possible to read a block from the disk,
+to modify the block, and to write it back into the same place.
+
+2. They can access directly any given block of information on the disk. Thus, it
+is simple to access any file either sequentially or randomly, and switching
+from one file to another requires only moving the read—write heads and
+waiting for the disk to rotate.
+
+We discuss disk structure in great detail in Chapter 14.
+
+411
+

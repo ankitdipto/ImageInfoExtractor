@@ -1,0 +1,130 @@
+    
+ 
+
+Chapter 11. Planning
+
+ 
+
+  
+ 
+
+Alix) At(x)
+Go(HWS)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+AWHWS), Selis(HWS,Drill} —_AY(SM), Sells(SM,Mik) _At(SM), Sells(SM,Bananas)
+
+ 
+
+Buy(Drill) Buy(Milk) Buy(Bananas)
+
+\
+
+Have(Drill) , Have(Milk) , Have(Bananas) , AHome)
+
+ 
+
+ 
+
+ 
+
+ 
+
+Finish
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11.8 A partial plan that achieves A? preconditions of the three Buy actions.
+
+ 
+
+ 
+
+ 
+
+the planner tries to achieve the preconditions of Go(HWS)and Go(SM)by linking them to the
+At(Home)condition in the initial state. This results in the plan shown in Figure 11.9.
+Unfortunately, this will lead to a problem. The step Go(HWS)adds the condition An(HWS),,
+but it also deletes the condition At(Home). So if the agent goes to the hardware store, it can no
+longer go from home to the supermarket. (That is, unless it introduces another step to go back
+home from the hardware store—but the causal link means that the start step, not some other step,
+
+ 
+
+   
+
+At(Home)
+
+Go(SM)
+
+At(Home)
+
+Go(HWS)
+
+  
+  
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+AI(HWS), Sells(HWS,Dril) —_At(SV), Sells(SM.Milk) _At(SM), Sells(SM,Bananas)
+
+ 
+
+Buy(Drill) Buy(Milk) Buy(Bananas)
+
+\
+
+Have(Drill) , Have(Milk) , Have(Bananas) , AHome)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Finish
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11.9 A flawed plan that gets the agent to the hardware store and the supermarket.
+
+ 
+

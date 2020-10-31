@@ -1,0 +1,118 @@
+280
+
+Chapter 9. Inference in First-Order Logic
+
+ 
+
+FACTORING
+
+REFUTATION
+
+Technically, the final resolvent should be True = S(A)V S(A), but we have taken the
+liberty of removing the redundant disjunct. In some systems, there is a separate inference rule
+called factoring to do this, but it is simpler to just make it be part ofthe resolution rule.
+
+Chaining with resolution is more powerful than chaining with Modus Ponens, but it is still
+not complete. To see that, consider trying to prove P V —P from the empty KB. The sentence is
+valid, but with nothing in the KB, there is nothing for resolution to apply to, and we are unable
+to prove anything. j
+
+One complete inference procedure using resolution is refutation, also known as proof by 4
+contradiction and reductio ad absurdum. The idea is that to prove P, we assume P is false
+(e., add -P to the knowledge base) and prove a contradiction. If we can do this, then it must be
+that the knowledge base implies P. In other words:
+
+(KBA“P = False) < (KB => P)
+
+Proof by contradiction is a powerful tool throughout mathematics, and resolution gives us a
+simple, sound, complete way to apply it. Figure 9.6 gives an example of the method. We start
+with the knowledge base of (9.41) and are attempting to prove S(A). We negate this to get
+—S(A), which in implicative normal form is S(A) => False, and add it to the knowledge base.
+Then we apply resolution until we arrive at a contradiction, which in implicative normal form is
+True => False. It takes one more step than in Figure 9.5, but that is a small price to pay for the
+security ofa complete proof method.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Piw) > Q(w) Qi) > Sy)
+{vAv}
+P(w) > S(w) True > P(x) VR(x)
+{w/x}
+True > S(x) VR(x) Riz) > S(z)
+{x}
+True +> Six) Sd) > False
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+[x/A}
+
+ 
+
+True > False
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 9.6 A proof that S(4) follows from the KB in (9.41) using resolution with refutation.
+
+ 
+
+ 
+
+ 
+

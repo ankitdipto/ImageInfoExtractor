@@ -1,0 +1,52 @@
+7.3. Arandomized version of quicksort 179
+
+7.26 *
+
+Argue that for any constant 0 < a < 1/2, the probability is approximately 1 — 2a
+that on a random input array, PARTITION produces a split more balanced than 1—a@
+toa.
+
+ 
+
+7.3 Arandomized version of quicksort
+
+In exploring the average-case behavior of quicksort, we have made an assumption
+that all permutations of the input numbers are equally likely. In an engineering
+situation, however, we cannot always expect this assumption to hold. (See Exer-
+cise 7.2-4.) As we saw in Section 5.3, we can sometimes add randomization to an
+algorithm in order to obtain good expected performance over all inputs. Many peo-
+ple regard the resulting randomized version of quicksort as the sorting algorithm
+of choice for large enough inputs.
+
+In Section 5.3, we randomized our algorithm by explicitly permuting the in-
+put. We could do so for quicksort also, but a different randomization technique,
+called random sampling, yields a simpler analysis. Instead of always using A[r]
+as the pivot, we will select a randomly chosen element from the subarray A[p. . 1].
+We do so by first exchanging element A[r] with an element chosen at random
+from A[p..r]. By randomly sampling the range p,.... r, we ensure that the pivot
+element x = A[r] is equally likely to be any of the r — p + 1 elements in the
+subarray. Because we randomly choose the pivot element, we expect the split of
+the input array to be reasonably well balanced on average.
+
+The changes to PARTITION and QUICKSORT are small. In the new partition
+procedure, we simply implement the swap before actually partitioning:
+
+RANDOMIZED-PARTITION (A, p.1")
+1 i = RANDOM(p,r)
+
+2 exchange A[r] with A[i]
+
+3 return PARTITION(A, p,1')
+
+The new quicksort calls RANDOMIZED-PARTITION in place of PARTITION:
+
+RANDOMIZED-QUICKSORT(A, p,r')
+
+1 ifp<r
+
+2 q = RANDOMIZED-PARTITION(A, pr)
+3 RANDOMIZED-QUICKSORT(A, p,q — 1)
+4 RANDOMIZED-QUICKSORT(A,g + 1,1)
+
+We analyze this algorithm in the next section.
+

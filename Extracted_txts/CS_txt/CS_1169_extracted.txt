@@ -1,0 +1,59 @@
+Chapter 7. First-Order Logic
+
+ 
+
+ 
+
+The important thing to remember is that ifthe axioms correctly and completely describe the
+way the world works and the way that percepts are produced, then the inference procedure will
+correctly infer the strongest possible description of the world state given the available percepts.
+A complete specification of the wumpus world axioms is left as an exercise.
+
+78 PREFERENCES AMONG Actions
+
+ 
+
+ACTIONVALUE
+
+So far, the only way we have to decide on actions is to write rules recommending them on the
+basis of certain conditions in the world. This can get very tedious. For example, generally it is a
+good idea to explore by moving to OK squares, but not when there is a glitter afoot. Hence our
+tules for exploring would also have to mention glitter. This seems arbitrary and means the rules
+are not modular: changes in the agent's beliefs about some aspects of the world would, require
+changes in rules dealing with other aspects also. It is more modular to separate facts about
+actions from facts about goals, which means our agent can be reprogrammed simply by asking it
+to achieve something different. Goals describe the desirability of outcome states, regardless of
+how achieved. We discuss goals further in Section 7.9.
+
+A first step is to describe the desirability of actions themselves, and leave the inference
+engine to choose whichever is the action that has the highest desirability. We will use a simple
+scale: actions can be Great, Good, Medium, Risky, or Deadly. The agent should always do a
+great action ifit can find one; otherwise, a good one; otherwise, an OK action; and a risky one if
+all else fails
+
+Ya,s Great(a,s) => Action(a,s)
+
+Va,s Good(a,s)A (Ib Great(b,s)) = Action(a,s)
+
+Va,s Medium(a,s) A (-Ab Great(b,s) V Good(b, s)) = Action(a, s)
+
+Va,» Risky(a,s) A(-Ib Great(b, s) V Good(b, s) V OK(b, s)) = Action(a,s)
+
+A system containing rules of this type is called an action-value system. Notice that the rules do
+not refer to what the actions actually do, just how desirable they are.
+Up to the point where it finds the gold, the basic strategy for our agent will be as follows:
+
+Great actions include picking up the gold when found and climbing out of the cave with
+the gold.
+
+Good actions include moving to a square that's OK and has not yet been visited.
+
+Medium actions include moving to a square that's OK and has been visited already.
+
+Risky actions include moving to a square that's not known to be deadly, but is not known
+to be OK either.
+
+Deadly actions are moving into a square that is known to contain a pit or a live wumpus.
+
+Again, we leave the specification of the action values as an exercise
+

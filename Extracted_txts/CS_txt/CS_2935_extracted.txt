@@ -1,0 +1,52 @@
+Section 12.2.
+
+Hierarchical Decomposition 371
+
+ 
+
+with as many low-priority ones as possible. The system also calculates the commands for the
+platform attitude controls so that the observation plan can be executed. It can check the feasibility
+of proposals and detailed schedules much faster than human experts.
+
+Buildings, aircraft carriers, and beer factories
+
+Sire (System for Interactive Planning and Execution monitoring) was the first planner to deal
+with the problem of replanning, and the first to take some important steps toward expressive
+operators. It is similar to O-PLAN in the range of its features and in its applicability. It is not
+in everyday practical use, but it has been used in demonstration projects in several domains,
+including planning operations on the flight deck of an aircraft carrier and job-shop scheduling
+for an Australian beer factory. Another study used Sipe to plan the construction of multistory
+buildings, one of the most complex domains ever tackled by a planner.
+
+SIPE allows deductive rules to operate over states, so that the user does not have to specify
+all relevant literals as effects ofeach operator. It allows for an inheritance hierarchy among object
+classes and for an expressive set of constraints. This means it is applicable to a wide variety of
+domains, but its generality comes at a cost. For example, in the building construction domain, it
+was found that SIPE needed time O(n? >) for an n-story building. This suggests a high degree of
+interaction between stories, when in fact the degree of interaction should be much lower: if you
+remember to build from the ground up and make sure that the elevator shafts line up, it should be
+possible to get performance much closer to O(n).
+
+The examples in this and the preceding sections give an idea of the state of the art of
+planning systems. They are good enough to model complex domains, but have not yet gained
+practical acceptance beyond a few pilot projects. Clearly, to achieve the degree of flexibility and
+efficiency needed to exceed the capabilities of human planners armed with traditional scheduling
+tools, we need to go far beyond the limited STRIPS language.
+
+12.2__ HIERARCHICAL DECOMPOSITION
+
+The grocery shopping example of Chapter 11 produced solutions at a rather high level ofabstrac-
+tion. A plan such as
+
+[Go(Supermarket), Buy(Milk), Buy(Bananas), Go(Home)|
+
+is a good high-level description of what to do, but it is a long way from the type of instructions
+that can be fed directly to the agent's effectors. Thus, it is insufficient for an agent that wants to
+actually do anything. On the other hand, a low-level plan such as
+
+[Forward(\cm), Tum(\ deg), Forward(1cm),...]
+
+would have to be many thousands of steps long to solve the shopping problem. The space ofplans
+of that length is so huge that the techniques of Chapter 11 would probably not find a solution in
+a reasonable amount of time.
+

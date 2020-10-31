@@ -1,0 +1,49 @@
+6.6 Algorithm Evaluation 175
+
+As an example, let n be the average queue length (excluding the process
+being serviced), let W be the average waiting time in the queue, and let \ be
+the average arrival rate for new processes in the queue (such as three processes
+per second). Then, we expect that during the time W that a process waits, A
+x W new processes will arrive in the queue. If the system is in a steady state,
+then the number of processes leaving the queue must be equal to the number of
+processes that arrive. Thus,
+
+n=XxW.
+
+This equation is known as Little's formula. Little’s formula is particularly
+useful because it is valid for any scheduling algorithm and arrival distribution.
+
+We can use Little’s formula to compute one of the three variables, if we
+know the other two. For example, if we know that seven processes arrive every
+second (on average), and that there are normally 14 processes in the queue, then
+we can compute the average waiting time per process as 2 seconds.
+
+Queueing analysis can be useful in comparing scheduling algorithms, but
+it also has limitations. At the moment, the classes of algorithms and distribu-
+tions that can be handled are fairly limited. The mathematics of complicated
+algorithms or distributions can be difficult to work with. Thus, arrival and ser-
+vice distributions are often defined in unrealistic, but mathematically tractable,
+ways. It is also generally necessary to make a number of independent assump-
+tions, that may not be accurate. Thus, so that they will be able to compute an
+answer, queueing models are often only an approximation of a real system. As
+a result, the accuracy of the computed results may be questionable.
+
+6.6.3 Simulations
+
+To get a more accurate evaluation of scheduling algorithms, we can use sim-
+ulations. Simulations involve programming a model of the computer sys-
+tem. Software data structures represent the major components of the system.
+The simulator has a variable representing a clock; as this variable’s value is
+increased, the simulator modifies the system state to reflect the activities of the
+devices, the processes, and the scheduler. As the simulation executes, statistics
+that indicate algorithm performance are gathered and printed.
+
+The data to drive the simulation can be generated in several ways. The most
+common method uses a random-number generator, which is programmed to
+generate processes, CPU-burst times, arrivals, departures, and so on, according
+to probability distributions. The distributions may be defined mathematically
+(uniform, exponential, Poisson) or empirically. If the distribution is to be
+defined empirically, measurements of the actual system under study are taken.
+The results are used to define the actual distribution of events in the real system,
+and this distribution can then be used to drive the simulation.
+

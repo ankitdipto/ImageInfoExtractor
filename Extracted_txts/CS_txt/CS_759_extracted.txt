@@ -1,0 +1,42 @@
+Chapter 3: The Loop Control Structure 119
+
+ 
+
+if (i== num)
+printf ("Prime number" ) ;
+
+In this program the moment num % i tums out to be zero, (ie.
+num is exactly divisible by i) the message “Not a prime number”
+is printed and the control breaks out of the while loop. Why does
+the program require the if statement after the while loop at all?
+Well, there are two ways the control could have reached outside
+the while loop:
+
+(a) It jumped out because the number proved to be not a prime.
+(b) The loop came to an end because the value of i became equal
+to num.
+
+When the loop terminates in the second case, it means that there
+was no number between 2 to num - 1 that could exactly divide
+num. That is, num is indeed a prime. If this is true, the program
+should print out the message “Prime number”.
+
+The keyword break, breaks the control only from the while in
+which it is placed. Consider the following program, which
+illustrates this fact.
+
+main()
+{
+int i=1,j=1;
+
+while (i++ <= 100 )
+
+{
+while (j++ <= 200)
+{
+if (j== 150)
+break ;
+else
+
+printf ("%d %d\n", i,j);
+

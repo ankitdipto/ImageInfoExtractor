@@ -1,0 +1,53 @@
+17.1 Aggregate anal 453
+
+ 
+
+top > 23
+17
+6
+39
+
+10 top > 10
+
+47 41
+
+(a) (b) (©)
+
+Figure 17.1 The action of MULTIPOP on a stack S, shown initially in (a). The top 4 objects are
+popped by MuLT1Pop(S, 4), whose result is shown in (b). The next operation is MULTIPOP(S, 7),
+which empties the stack —shown in (¢)—since there were fewer than 7 objects remaining.
+
+Mu ttipop(S,k)
+
+1 while not STACK-EmpTy(S) and k > 0
+2 Pop(S)
+3 k=k-1
+
+Figure 17.1 shows an example of MULTIPOP.
+
+What is the running time of MULTIPOP(S,k) on a stack of s objects? The
+actual running time is linear in the number of Pop operations actually executed,
+and thus we can analyze MULTIPOP in terms of the abstract costs of 1 each for
+PusH and Pop. The number of iterations of the while loop is the number min(s, k)
+of objects popped off the stack. Each iteration of the loop makes one call to Pop in
+line 2. Thus, the total cost of MULTIPOP is min(s, k), and the actual running time
+is a linear function of this cost.
+
+Let us analyze a sequence of n PUSH, Pop, and MULTIPOP operations on an ini-
+tially empty stack. The worst-case cost of a MULTIPOP operation in the sequence
+is O(n), since the stack size is at most n. The worst-case time of any stack opera-
+tion is therefore O(), and hence a sequence of 1 operations costs O(n), since we
+may have O(n) MULTIPOP operations costing O(n) each. Although this analysis
+is correct, the O(n?) result, which we obtained by considering the worst-case cost
+of each operation individually, is not tight.
+
+Using aggregate analysis, we can obtain a better upper bound that considers the
+entire sequence of 7 operations. In fact, although a single MULTIPOP operation
+can be expensive, any sequence of n PUSH, Pop, and MULTIPOP operations on an
+initially empty stack can cost at most O(n). Why? We can pop each object from the
+stack at most once for each time we have pushed it onto the stack. Therefore, the
+number of times that Pop can be called on a nonempty stack, including calls within
+MULTIPOP, is at most the number of PUSH operations, which is at most 7. For any
+value of n, any sequence of n PUSH, PoP, and MULTIPOP operations takes a total
+of O(n) time. The average cost of an operation is O(n)/n = O(1). In aggregate
+

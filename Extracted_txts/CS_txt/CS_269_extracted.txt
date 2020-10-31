@@ -1,0 +1,38 @@
+128
+
+Chapter 5. Game Playing
+
+ 
+
+   
+
+(a) White to move (b) Black to move
+Fairly even White slightly better
+
+  
+
+    
+
+(c) White to move (d) Black to move
+Black winning White about to lose
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 5.4 Some chess positions and their evaluations.
+
+ofeach kind of piece on the board. Now we can see where the particular piece values come from:
+they give the best approximation to the likelihood of winning in the individual categories.
+
+Most game-playing programs use a linear evaluation function, although recently nonlinear 4
+functions have had a good deal of success. (Chapter 19 gives an example ofa neural network that
+is trained to learn a nonlinear evaluation function for backgammon.) In constructing the linear
+formula, one has to first pick the features, and then adjust the weights until the program plays
+well. The latter task can be automated by having the program play lots of games against itself,
+but at the moment, no one has a good idea of how to pick good features automatically.
+

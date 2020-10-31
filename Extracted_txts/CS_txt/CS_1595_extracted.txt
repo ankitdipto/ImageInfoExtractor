@@ -1,0 +1,49 @@
+44 Cooperating Processes 107
+
+A parent may terminate the execution of one of its children for a variety of
+reasons, such as these:
+
+¢ The child has exceeded its usage of some of the resources that it has been
+allocated. This requires the parent to have a mechanism to inspect the state
+of its children.
+
+The task assigned to the child is no longer required.
+
+¢ The parent is exiting, and the operating system does not allow a child to
+continue if its parent terminates. On such systems, if a process terminates
+(either normally or abnormally), then all its children must also be termi-
+nated. This phenomenon, referred to as cascading termination, is normally
+initiated by the operating system.
+
+To illustrate process execution and termination, consider that in UNIX we can
+terminate a process by using the exit system call; its parent process may wait
+for the termination of a child process by using the wait system call. The
+wait system call returns the process identifier of a terminated child, so that
+the parent can tell which of its possibly many children has terminated. If the
+parent terminates, however, all its children have assigned as their new parent
+the init process. Thus, the children still have a parent to collect their status
+and execution statistics.
+
+4.4 m Cooperating Processes
+
+The concurrent processes executing in the operating system may be either
+independent processes or cooperating processes. A process is independent if
+it cannot affect or be affected by the other processes executing in the system.
+Clearly, any process that does not share any data (temporary or persistent) with
+any other process is independent. On the other hand, a process is cooperating,
+if it can affect or be affected by the other processes executing in the system.
+Clearly, any process that shares data with other processes is a cooperating
+process.
+
+We may want to provide an environment that allows process cooperation
+for several reasons:
+
+¢ Information sharing: Since several users may be interested in the same
+piece of information (for instance, a shared file), we must provide an
+environment to allow concurrent access to these types of resources.
+
+¢ Computation speedup: If we want a particular task to run faster, we must
+break it into subtasks, each of which will be executing in parallel with the
+others. Such a speedup can be achieved only if the computer has multiple
+processing elements (such as CPUs or I/O channels).
+

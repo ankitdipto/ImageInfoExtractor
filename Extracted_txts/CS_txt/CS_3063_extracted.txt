@@ -1,0 +1,59 @@
+46 Chapter 2. Intelligent Agents
+
+ 
+
+Properties of environments
+
+Environments come in several flavors. The principal distinctions to be made are as follows:
+
+ACCESSIBLE 0 Accessible vs. inaccessible.
+If an agent's sensory apparatus gives it access to the complete state of the environment,
+then we say that the environment is accessible to that agent. An environment is effectively
+accessible if the sensors detect all aspects that are relevant to the choice of action. An
+accessible environment is convenient because the agent need not maintain any internal state
+to keep track of the world.
+
+DETERMINISTIC 0 Deterministic vs. nondetermini:
+Ifthe next state of the environment is completely determined by the current state and the
+actions selected by the agents, then we say the environment is deterministic. In principle,
+an agent need not worry about uncertainty in an accessible, deterministic environment. If
+the environment is inaccessible, however, then it may appear to be nondeterministic. This
+is particularly true if the environment is complex, making it hard to keep track ofall the
+inaccessible aspects. Thus, it is often better to think of an environment as deterministic or
+nondeterministic from the point of view of the agent.
+
+EPISODIC 0 Episodic vs. nonepisodic.
+Inan episodic environment, the agent's experience is divided into "episodes." Each episode
+consists of the agent perceiving and then acting. The quality of its action depends just on
+the episode itself, because subsequent episodes do not depend on what actions occur in
+previous episodes. Episodic environments are much simpler because the agent does not
+need to think ahead.
+
+STATIC 0 Static vs. dynamic.
+Ifthe environment can change while an agent is deliberating, then we say the environment
+is dynamic for that agent; otherwise it is static. Static environments are easy to deal with
+because the agent need not keep looking at the world while it is deciding on an action,
+nor need it worry about the passage of time. If the environment does not change with the
+passage of time but the agent's performance score does, then we say the environment is
+
+‘SEMIDVNAMIC. semidynamic.
+
+DISCRETE 0 Discrete vs. continuous.
+Ifthere are a limited number of distinct, clearly defined percepts and actions we say that
+the environment is discrete. Chess is discrete—there are a fixed number of possible moves
+on each turn. Taxi driving is continuous—the speed and location of the taxi and the other
+vehicles sweep through a range of continuous values.!°
+
+ 
+
+We will see that different environment types require somewhat different agent programs to deal
+with them effectively. It will turn out, as you might expect, that the hardest case is inaccessible,
+nonepisodic, dynamic, and continuous. It also turns out that most real situations are so complex
+that whether they are really deterministic is a moot point; for practical purposes, they must be
+treated as nondeterministic
+
+10 At a fine enough level of granularity, even the taxi driving environment is discrete, because the camera image is
+
+digitized to yield discrete pixel values. But any sensible agent program would have to abstract above this level, up toa
+level of granularity that is continuous.
+

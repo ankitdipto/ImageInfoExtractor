@@ -1,0 +1,49 @@
+210
+
+Chapter 8 Sorting in Linear Time
+
+10 14° 5 4 1 2 4 8 10 1 3 6 1 4 I
+8 7 17 8 3 5 12 16 18 2 5 #7 308 «#14
+12 1 6 10 7 6 1 3 7 4 8 10 6 10 17
+16 9 IL 12,9 I 9 14 15 9 13° 15 2 9 12
+4 15 2 16 14 13 2 5 6 11 14 (17 5 13) 16
+18 3 13 18 15 17 11 13° «17 12 16 18 7 15 18
+(a) (b) (©) (d) (©
+1 4 11 5 10 16 4 10 16 1 7 13
+2 8 #12 6 13° 17 5S ll 17 2 8 #14
+309 #14 7 15 18 6 12 18 309 15
+5 10 16 14 11 1 7 13 4 10 16
+6 13° 17 2 8 12 2 8 14 5 oil 17
+7 15 18 3°09 #14 3°09 15 6 12 18
+@® (g) (h) @
+
+Figure 8.5. The steps of columnsort. (a) The input array with 6 rows and 3 columns. (b) After
+sorting each column in step 1. (¢) After transposing and reshaping in step 2. (d) After sorting each
+column in step 3. (e) After performing step 4, which inverts the permutation from step 2. (f) After
+sorting each column in step 5. (g) After shifting by half a column in step 6. (h) After sorting each
+column in step 7. (i) After performing step 8, which inverts the permutation from step 6. The array
+is now sorted in column-major order.
+
+5. Sort each column.
+
+6. Shift the top half of each column into the bottom half of the same column, and
+shift the bottom half of each column into the top half of the next column to the
+right. Leave the top half of the leftmost column empty. Shift the bottom half
+of the last column into the top half of a new rightmost column, and leave the
+bottom half of this new column empty.
+
+7. Sort each column.
+
+8. Perform the inverse of the permutation performed in step 6.
+
+Figure 8.5 shows an example of the steps of columnsort with r = 6 and s = 3.
+(Even though this example violates the requirement that r > 257, it happens to
+work.)
+
+c. Argue that we can treat columnsort as an oblivious compare-exchange algo-
+rithm, even if we do not know what sorting method the odd steps use.
+
+Although it might seem hard to believe that columnsort actually sorts, you will
+use the 0-1 sorting lemma to prove that it does. The 0-1 sorting lemma applies
+because we can treat columnsort as an oblivious compare-exchange algorithm. A
+

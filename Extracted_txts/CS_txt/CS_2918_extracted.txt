@@ -1,0 +1,53 @@
+444
+
+Chapter 16 Greedy Algorithms
+
+schedule for S is a permutation of S specifying the order in which to perform
+these tasks. The first task in the schedule begins at time 0 and finishes at time 1,
+the second task begins at time 1 and finishes at time 2, and so on.
+
+The problem of scheduling unit-time tasks with deadlines and penalties for a
+single processor has the following inputs:
+
+* aset S = {a,.dp,..., a,} of n unit-time tasks;
+
+* aset of n integer deadlines d,,d>,..., dy, such that each d; satisfies 1 < d; <n
+and task a; is supposed to finish by time d;; and
+
+* aset of n nonnegative weights or penalties w;,W2..... Wn, Such that we incur
+a penalty of w; if task a; is not finished by time d;, and we incur no penalty if
+a task finishes by its deadline.
+
+We wish to find a schedule for S that minimizes the total penalty incurred for
+missed deadlines.
+
+Consider a given schedule. We say that a task is Jate in this schedule if it finishes
+after its deadline. Otherwise, the task is early in the schedule. We can always trans-
+form an arbitrary schedule into early-first form, in which the early tasks precede
+the late tasks. To see why, note that if some early task a; follows some late task a;,
+then we can switch the positions of a; and a;, and a; will still be early and a; will
+still be late.
+
+Furthermore, we claim that we can always transform an arbitrary schedule into
+canonical form, in which the early tasks precede the late tasks and we schedule
+the early tasks in order of monotonically increasing deadlines. To do so, we put
+the schedule into early-first form. Then, as long as there exist two early tasks a;
+and a; finishing at respective times k and k + 1 in the schedule such that d; < dj,
+we swap the positions of a; and a;. Since a; is early before the swap, k + 1 < dj.
+Therefore, k + 1 < d;, and so q; is still early after the swap. Because task aj is
+moved earlier in the schedule, it remains early after the swap.
+
+The search for an optimal schedule thus reduces to finding a set A of tasks that
+we assign to be early in the optimal schedule. Having determined A, we can create
+the actual schedule by listing the elements of A in order of monotonically increas-
+ing deadlines, then listing the late tasks (ie., S — A) in any order, producing a
+canonical ordering of the optimal schedule.
+
+We say that a set A of tasks is independent if there exists a schedule for these
+tasks such that no tasks are late. Clearly, the set of early tasks for a schedule forms
+an independent set of tasks. Let I denote the set of all independent sets of tasks.
+
+Consider the problem of determining whether a given set A of tasks is indepen-
+dent. For ¢ = 0,1,2,..., n, let N,(A) denote the number of tasks in A whose
+deadline is t or earlier. Note that No(A) = 0 for any set A.
+

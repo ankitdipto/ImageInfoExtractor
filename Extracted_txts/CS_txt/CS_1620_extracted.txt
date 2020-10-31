@@ -1,0 +1,35 @@
+128 Chapter 4 Processes
+
+c. A receive operation makes a process wait until the mailbox is
+nonempty. Devise a scheme that allows a process to wait until a
+mailbox is empty, or explain why such a scheme cannot exist.
+
+4.8 Write a socket-based Fortune Teller server. Your program should create a
+server that listens to a specified port. When a client receives a connection,
+the server should respond with a random fortune chosen from its database
+of fortunes.
+
+Bibliographical Notes
+
+The subject of interprocess communication was discussed by Brinch-Hansen
+[1970] with respect to the RC 4000 system. Schlichting and Schneider [1982]
+discussed asynchronous message-passing primitives. The IPC facility imple-
+mented at the user level was described by Bershad et al. [1990].
+
+Details of interprocess communication in UNIX systems were presented by
+Gray [1997]. Barrera [1991] and Vahalia [1996] presented interprocess com-
+munication in the Mach system. Solomon and Russinovich [2000] outlined
+interprocess communication in Windows 2000. A thorough discussion of socket
+programming can be found in Stevens [1997].
+
+Discussions concerning the implementation of RPCs were presented by
+Birrell and Nelson [1984]. A design of a reliable RPC mechanism was presented
+by Shrivastava and Panzieri [1982]. A survey of RPCs was presented by Tay and
+Ananda [1990]. Stankovic [1982] and Staunstrup [1982] discussed procedure
+calls versus message-passing communication.
+
+Tanenbaum [1996] describes sockets and RPCs. Waldo [1988] and Farley
+[1998] discusses RPCs and RMI. Niemeyer and Peck [1997] and Horstmann and.
+Cornell [1998] give good introductions to using RMI. The RMI homepage at
+[http:/ /www.javasoft.com/products/jdk/rmi] lists up-to-date resources.
+

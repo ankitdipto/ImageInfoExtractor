@@ -1,0 +1,39 @@
+754
+
+Chapter 26 Maximum Flow
+
+To prove the second statement, according to the test in line 1 and Lemma 26.28,
+we need only show that all edges leaving u are inadmissible. If a call to
+DISCHARGE(w) starts with the pointer u.current at the head of u’s neighbor list
+and finishes with it off the end of the list, then all of u’s outgoing edges are in-
+admissible and a relabel operation applies. It is possible, however, that during a
+call to DISCHARGE(u), the pointer w.current traverses only part of the list be-
+fore the procedure returns. Calls to DISCHARGE on other vertices may then oc-
+cur, but u.current will continue moving through the list during the next call to
+DISCHARGE(u). We now consider what happens during a complete pass through
+the list, which begins at the head of u.N and finishes with w.current = NIL. Once
+u.current reaches the end of the list, the procedure relabels u and begins a new
+pass. For the u.current pointer to advance past a vertex v € u.N during a pass, the
+edge (u,v) must be deemed inadmissible by the test in line 6. Thus, by the time
+the pass completes, every edge leaving u has been determined to be inadmissible
+at some time during the pass. The key observation is that at the end of the pass,
+every edge leaving u is still inadmissible. Why? By Lemma 26.27, pushes cannot
+create any admissible edges, regardless of which vertex the flow is pushed from.
+Thus, any admissible edge must be created by a relabel operation. But the vertex u
+is not relabeled during the pass, and by Lemma 26.28, any other vertex v that is
+relabeled during the pass (resulting from a call of DISCHARGE(v)) has no entering
+admissible edges after relabeling. Thus, at the end of the pass, all edges leaving u
+remain inadmissible, which completes the proof. .
+
+The relabel-to-front algorithm
+
+In the relabel-to-front algorithm, we maintain a linked list L consisting of all ver-
+tices in V — {s,t}. A key property is that the vertices in L are topologically sorted
+according to the admissible network, as we shall see in the loop invariant that fol-
+lows. (Recall from Lemma 26.26 that the admissible network is a dag.)
+
+The pseudocode for the relabel-to-front algorithm assumes that the neighbor
+lists u.N have already been created for each vertex u. It also assumes that u.next
+points to the vertex that follows u in list L and that, as usual, u. next = NIL if u is
+the last vertex in the list.
+

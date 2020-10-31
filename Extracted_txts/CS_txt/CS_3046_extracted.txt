@@ -1,0 +1,55 @@
+422 Chapter 14. Uncertainty
+
+ 
+
+which denotes a set of equations relating the corresponding individual entries in the tables (nota
+matrix multiplication of the tables). Thus, one of the equations might be
+
+P(X =x AY =y2) = P(X =x) |¥=y2)PY =y2)
+
+In general, if we are interested in the probability of a proposition 4, and we have accu-
+mulated evidence B, then the quantity we must calculate is P(4\B). Sometimes we will not
+have this conditional probability available directly in the knowledge base, and we must resort to
+probabilistic inference, which we describe in later sections.
+
+As we have already said, probabilistic inference does not work like logical inference. It
+is tempting to interpret the statement P/A\B) - 0.8 to mean "whenever B is true, conclude that
+P(A) is 08." This is wrong on two counts: first, P(A) always denotes the prior probability of
+A, not the posterior given some evidence; second, the statement P(A\B) = 0.8 is only applicable
+when B is the only available evidence. When additional information C is available, we must
+calculate P(A\B A C), which may bear little relation to P(A|B). In the extreme case, C might
+tell us directly whether A is true or false. If we examine a patient who complains of toothache,
+and discover a cavity, then we have additional evidence Cavity, and we conclude (trivially) that
+P(Cavity|ToothacheA Cavity) = 1.0.
+
+ 
+
+14.3 THE AXIOMS OF PROBABILITY
+
+ 
+
+In order to define properly the semantics of statements in probability theory, we will need to
+describe how probabilities and logical connectives interact. We take as given the properties of
+the connectives themselves, as defined in Chapter 6. As for probabilities, it is normal to use a
+small set of axioms that constrain the probability assignments that an agent can make to a set of
+propositions. The following axioms are in fact sufficient:
+
+1. All probabilities are between 0 and 1.
+0<P(A)< 1
+2. Necessarily true (i.e., valid) propositions have probability 1, and necessarily false (ie.,
+unsatisfiable) propositions have probability 0
+P(True)= 1 P(False)= 0
+3. The probability of a disjunction is given by
+P(A V 5) = P(A) + P(B) - P(A AB)
+
+The first two axioms serve to define the probability scale. The third is best remembered by
+reference to the Venn diagram shown in Figure 14.2. The figure depicts each proposition as a
+set, which can be thought of as the set of all possible worlds in which the proposition is true. The
+total probability ofA V B is seen to be the sum of the probabilities assigned to 4 and B, but with
+P(AA B) subtracted out so that those cases are not counted twice.
+
+From these three axioms, we can derive all other properties of probabilities. For example,
+ifwe let B be =A in the last axiom, we obtain an expression for the probability of the negation of
+
+ 
+

@@ -1,0 +1,92 @@
+Problems for Chapter 15 405
+
+(a) (b)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 15.11 Seven points in the plane, shown on a unit grid. (a) The shortest closed tour, with
+length approximately 24.89. This tour is not bitonic. (b) The shortest bitonic tour for the same set of
+points, Its length is approximately 25.58.
+
+15-2 Longest palindrome subsequence
+A palindrome is a nonempty string over some alphabet that reads the same for-
+ward and backward. Examples of palindromes are all strings of length 1, civic,
+racecar, and aibohphobia (fear of palindromes).
+
+Give an efficient algorithm to find the longest palindrome that is a subsequence
+of a given input string. For example, given the input character, your algorithm
+should return carac. What is the running time of your algorithm?
+
+15-3 Bitonic euclidean traveling-salesman problem
+
+In the euclidean traveling-salesman problem, we are given a set of n points in
+the plane, and we wish to find the shortest closed tour that connects all 7 points.
+Figure 15.11(a) shows the solution to a 7-point problem. The general problem is
+NP-hard, and its solution is therefore believed to require more than polynomial
+time (see Chapter 34).
+
+J. L. Bentley has suggested that we simplify the problem by restricting our at-
+tention to bitonic tours, that is, tours that start at the leftmost point, go strictly
+rightward to the rightmost point, and then go strictly leftward back to the starting
+point. Figure 15.11(b) shows the shortest bitonic tour of the same 7 points. In this
+case, a polynomial-time algorithm is possible.
+
+Describe an O(n7)-time algorithm for determining an optimal bitonic tour. You
+may assume that no two points have the same x-coordinate and that all operations
+on real numbers take unit time. (Hint: Scan left to right, maintaining optimal pos-
+sibilities for the two parts of the tour.)
+
+15-4 Printing neatly
+Consider the problem of neatly printing a paragraph with a monospaced font (all
+characters having the same width) on a printer. The input text is a sequence of n
+

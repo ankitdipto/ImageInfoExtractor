@@ -1,0 +1,101 @@
+168
+
+  
+
+Chapter 6. Agents that Reason Logically
+
+ 
+
+TRUTH TABLE
+
+Semantics
+
+    
+   
+   
+   
+ 
+ 
+ 
+ 
+   
+  
+
+The semantics of propusitional logic is also quite straightforward. We define it by specifying
+the interpretation of the proposition symbols and constants, and specifying the meanings of the
+logical connectives.
+
+A proposition symbol casi mean whatever you want. That is, its interpretation can be any
+arbitrary fact. The interpretation of P might be the fact that Paris is the capital of France or that
+the wumpus is dead. A sentence containing just a proposition symbol is satisfiable but not valid:
+it is true just when the fact that it refers to is the case.
+
+With logical constants, youhave no choice; the sentence True always has as its interpretation
+the way the world actually is—the true fact. The sentence False always has as its interpretation
+the way the world is not.
+
+A complex sentence has a meaning derived from the meaning ofits parts. Each connective_
+can be thought of as a function. Just as addition is a function that takes two numbers as input,
+and returns a number, so and is a function that takes two truth values as input and returns a truth
+value. We know that one way to define a function is to make a table that gives the output value
+for every possible input value. For most functions (such as addition), this is impractical because
+of the size of the table, but there are only two possible truth values, so a logical function with
+two arguments needs a table with only four entries. Such a table is called a truth table. We give
+truth tables for the logical connectives in Figure 6.9. To use the table to determine, for example,
+the value of True V False, first look on the left for the row where P is true and Q isfalse (the third
+row). Then look in that row under the P V Q column to see the result: True.
+
+ 
+
+ 
+
+~
+P Q =P PAQ PVQ P=0) P#Q
+False False True False False True True
+False True True False True True False
+True False ' False False True False” False
+
+“True True False True True True True
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 69 Truth tables for the five logical connectives.
+
+ 
+
+ 
+
+ 
+
+Truth tables define the semantics of sentences such as True A True. Complex sentences
+such as (P V 0 A 4S are defined by a process of decomposition: first, determine the meaning of
+(P A O) and of 5S, and then combine them using the definition ofthe A function. This is exactly
+analogous to the way a complex arithmetic expression such as (px g) + —s is evaluated.
+
+The truth tables for "and," "or," and "not" are in close accord with our intuitions about the
+English words. The main point of possible confusion is that P V @Q is true when either or both P
+and O are true. There is a different connective called "exclusive or" (“xor” for short) that gives
+false when both disjuncts are true.’ There is no consensus on the symbol for exclusive or; two
+choices are V and +. 7
+
+In some ways, the implication connective = is the most important, and its truth table might
+seem puzzling at first, because it does not quite fit our intuitive understanding of "P implies Q”
+
+7 Latin has a separate word, aut, for exclusive or.
+

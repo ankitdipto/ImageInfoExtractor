@@ -1,0 +1,120 @@
+Section 12.3 Analysis of Hierarchical Decomposition 375
+
+ 
+
+Snonprim < Sz With constraint(s) that order S. after the earliest step(s) of method. We then
+call RESOLVE-THREATS to add any additional ordering constraints that may be needed.
+
++ LINKS: It is easier to match up causal links with the right substeps of method than it is to
+match up ordering constraints. If 5; ", Snonprim Was a causal link in plan, replace it by a
+set of links $; * . S,,,where each S,,is a step of method that has c as a precondition, and
+there is no earlier step of method that has c as a precondition. (If there are several such
+steps with c as a precondition, then put in a causal link for each one. If there are none,
+then the causal link from S; can be dropped, because c was an unnecessary precondition
+Of Sponprim-) Similarly, for each link Syonprim © 5} inplan, replace it with a set of links
+Sn * , Sj, where S,, is a step of method that has c as an effect and there is no later step of
+method with c as an effect.
+
+In Figure 12.3, we show a more detailed diagram of the decomposition of a plan step, in the
+context ofa larger plan. Notice that one of the causal links that leads into the nonprimitive step
+Build House ends up being attached to the first step of the decomposition, but the other causal
+link is attached to a later step.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+Buy tang L_OWn Land
+Y Build Have(House) | Move
+pve
+Have Mone} in
+Get Loan 7 a
+decomposes to
+[———_ owh Land [Obtain
+Buy Land Pp Ota /
+——— Pay Have(House) Move
+Construction
+Builder In
+Hire
+Buider| “pave Money
+Get Loan
+Figure 12.3. Detailed decomposition of a plan step.
+
+ 
+
+ 
+
+ 
+
+12.3 ANALYSIS or HIERARCHICAL DECOMPOSITION
+
+Hierarchical decomposition seems like a good idea, on the same grounds that subroutines or
+macros are a good idea in programming: they allow the programmer (or knowledge engineer) to
+specify the problem in pieces ofa reasonable size. The pieces can be combined hierarchically to
+create large plans, without incurring the enormous combinatorial cost of constructing large plans
+from primitive operators. In this section, we will make this intuitive idea more precise
+

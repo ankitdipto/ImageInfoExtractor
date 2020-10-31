@@ -1,0 +1,45 @@
+34.1 Polynomial time 1057
+
+Proof We need only prove the forward direction, since the backward direction is
+symmetric. Suppose, therefore, that e;(Q) can be solved in time O(n") for some
+constant k. Further, suppose that for any problem instance i, the encoding e; (i)
+can be computed from the encoding e>(i) in time O(n‘) for some constant c, where
+n = |eo(i)|. To solve problem e2(Q), on input e2(i), we first compute e; (i) and
+then run the algorithm for e;(Q) on e;(i). How long does this take? Converting
+encodings takes time O(n‘), and therefore |e;(i)| = O(n‘), since the output of
+a serial computer cannot be longer than its running time. Solving the problem
+on e;(i) takes time O(e; wal = O(n), which is polynomial since both c and k
+are constants. :
+
+Thus, whether an abstract problem has its instances encoded in binary or base 3
+does not affect its “complexity,” that is, whether it is polynomial-time solvable or
+not; but if instances are encoded in unary, its complexity may change. In order to
+be able to converse in an encoding-independent fashion, we shall generally assume
+that problem instances are encoded in any reasonable, concise fashion, unless we
+specifically say otherwise. To be precise, we shall assume that the encoding of an
+integer is polynomially related to its binary representation, and that the encoding of
+a finite set is polynomially related to its encoding as a list of its elements, enclosed
+in braces and separated by commas. (ASCII is one such encoding scheme.) With
+such a “standard” encoding in hand, we can derive reasonable encodings of other
+mathematical objects, such as tuples, graphs, and formulas. To denote the standard
+encoding of an object, we shall enclose the object in angle braces. Thus, (G)
+denotes the standard encoding of a graph G.
+
+As long as we implicitly use an encoding that is polynomially related to this
+standard encoding, we can talk directly about abstract problems without reference
+to any particular encoding, knowing that the choice of encoding has no effect on
+whether the abstract problem is polynomial-time solvable. Henceforth, we shall
+generally assume that all problem instances are binary strings encoded using the
+standard encoding, unless we explicitly specify the contrary. We shall also typically
+neglect the distinction between abstract and concrete problems. You should watch
+out for problems that arise in practice, however, in which a standard encoding is
+not obvious and the encoding does make a difference.
+
+A formal-language framework
+
+By focusing on decision problems, we can take advantage of the machinery of
+formal-language theory. Let’s review some definitions from that theory. An
+alphabet & is a finite set of symbols. A language L over & is any set of
+strings made up of symbols from X. For example, if © = {0,1}, the set
+L = {10,11, 101,111, 1011, 1101, 10001, .. .} is the language of binary represen-
+

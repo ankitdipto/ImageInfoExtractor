@@ -1,0 +1,68 @@
+Section 22.6.
+
+Augmenting a Grammar 669
+
+ 
+
+AUGMENT
+
+are minimal in English compared to most languages; all verbs except "be" have only two forms.
+One form (e.g. "smells") goes with third person singular subjects such as "he" or "the wumpus.”
+The other form (e.g., "smell") goes with all other subjects, such as "I" or "you" or “wumpuscs.”
+
+Now we are ready to fix our grammar. We will consider noun cases first. The problem is
+that with the distinctions we have,made so far (i.e., the nonterminals we have defined), English
+is not context-free. It is not the case that any NP can combine with a VP to form a sentence, for
+example, the NP'T' can, but "me" cannot. Ifwe want to stick with a context-free grammar we will
+have to introduce new categories such as NPsand NPo, to stand for noun phrases in the subjective
+and objective case, respectively. We would also need to split the category Pronoun into the two
+categories Pronouns (which includes "I") and Pronoung (which includes "me"). The necessary
+changes to the grammar are outlined in Figure 22.9. Notice that all the NP mules are duplicated,
+
+ 
+
+S — NPs VP |
+NPs — Pronouns \ Noun \ Article Noun
+NPo — Pronouno \ Noun \ Article Noun
+VP — VPNPo| ...
+PP — Preposition NPo
+Pronouns — I\ you \ he\ she|...
+Pronouno — me \ you \ him \ her| ...
+
+ 
+
+ 
+
+Figure 22.9 The changes needed in & to handle subjective and objective cases.
+
+ 
+
+ 
+
+ 
+
+once for NPs and once for NPo. It would not be too bad if the number of rules doubled once,
+but it would double again when we changed the grammar to account for subject/verb agreement,
+and again for the next distinction. Thus, the size of the grammar can grow exponentially with the
+number of distinctions we need to make.
+
+An alternative approach is to augment the existing rules of the grammar instead of intro-
+ducing new ules. The result is a concise, compact grammar. We start by parameterizing the
+categories NP and Pronoun so that they take a parameter indicating their case. In the rule for 5,
+the NP must be in the subjective case, whereas in the rules for VP and PP, the NP must be in
+the objective case. The rule for NP takes a variable as its argument. This use of a variable—
+avoiding a decision where the distinction is not important—is what keeps the size of the rule set
+manageable. Figure 22.10 shows the augmented grammar, which defines a language we call £).
+
+The problem of subject/verb agreement could also be handled with augmentations, but we
+delay showing this until the next chapter. Instead, we address a slightly harder problem: verb
+subcategorization.
+
+ 
+
+Verb Subcategorization
+
+The £; language is an improvement over £p, but it still allows ungrammatical sentences. One
+problem is in the way verb phrases are put together. We want to accept verb phrases like "give
+me the gold" and "go to 1,2." All these are in £,, but unfortunately so are "go me the gold"
+

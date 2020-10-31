@@ -1,0 +1,49 @@
+180 Chapter 7 Quicksort
+
+Exercises
+
+73-1
+Why do we analyze the expected running time of a randomized algorithm and not
+its worst-case running time?
+
+73-2
+
+When RANDOMIZED-QUICKSORT runs, how many calls are made to the random-
+number generator RANDOM in the worst case? How about in the best case? Give
+your answer in terms of ©-notation.
+
+ 
+
+7.4 Analysis of quicksort
+
+Section 7.2 gave some intuition for the worst-case behavior of quicksort and for
+why we expect it to run quickly. In this section, we analyze the behavior of quick-
+sort more rigorously. We begin with a worst-case analysis, which applies to either
+QUICKSORT or RANDOMIZED-QUICK SORT, and conclude with an analysis of the
+expected running time of RANDOMIZED-QUICKSORT.
+
+7.4.1 Worst-case analysis
+
+We saw in Section 7.2 that a worst-case split at every level of recursion in quicksort
+produces a @(n?) running time, which, intuitively, is the worst-case running time
+of the algorithm. We now prove this assertion.
+
+Using the substitution method (see Section 4.3), we can show that the running
+time of quicksort is O(n”). Let T(n) be the worst-case time for the procedure
+QUICKSORT on an input of size n. We have the recurrence
+
+T(n) = oanax_ (PQ) +T(n—q-1))+ O(n), (7.1)
+
+where the parameter g ranges from 0 to n — 1 because the procedure PARTITION
+produces two subproblems with total size n — 1. We guess that T(n) < cn? for
+some constant c. Substituting this guess into recurrence (7.1), we obtain
+
+T(n) < max (cq? +e(n—q—1)?) + O(n)
+
+0<q<n-1
+= ¢. 2 _g—1)2
+= © 4 max +(n—q—1))+0M).
+The expression g? + (n — q — 1)? achieves a maximum over the parameter’s
+range 0 < g <n-— 1 at either endpoint. To verify this claim, note that the second
+derivative of the expression with respect to g is positive (see Exercise 7.4-3). This
+

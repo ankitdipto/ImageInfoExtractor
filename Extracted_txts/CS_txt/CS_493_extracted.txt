@@ -1,0 +1,50 @@
+1040
+
+Chapter 33 Computational Geometry
+
+this problem, whose running time is described by the familiar recurrence T(n) =
+2T (n/2) + O(n). Thus, this algorithm uses only O(n lg) time.
+
+The divide-and-conquer algorithm
+
+Each recursive invocation of the algorithm takes as input a subset P C Q and
+arrays X and Y, each of which contains all the points of the input subset P.
+The points in array X are sorted so that their x-coordinates are monotonically
+increasing. Similarly, array Y is sorted by monotonically increasing y-coordinate.
+Note that in order to attain the O(n lgn) time bound, we cannot afford to sort
+in each recursive call; if we did, the recurrence for the running time would be
+T(n) = 2T(n/2) + O(nign), whose solution is T(n) = O(nlg?n). (Use the
+version of the master method given in Exercise 4.6-2.) We shall see a little later
+how to use “presorting” to maintain this sorted property without actually sorting in
+each recursive call.
+
+A given recursive invocation with inputs P, X, and Y first checks whether
+|P| <3. If so, the invocation simply performs the brute-force method described
+above: try all (2!) pairs of points and return the closest pair. If |P| > 3, the
+
+2
+recursive invocation carries out the divide-and-conquer paradigm as follows.
+
+Divide: Find a vertical line / that bisects the point set P into two sets Pz and Pr
+such that |Pz| = [|P|/2], |Pr| = ||P|/2], all points in Pz are on or to the
+left of line /, and all points in Pr are on or to the right of /. Divide the array ¥
+into arrays Xz; and XR, which contain the points of Pz and Pp respectively,
+sorted by monotonically increasing x-coordinate. Similarly, divide the array Y
+into arrays Y; and Yr, which contain the points of Pz and Pp respectively,
+sorted by monotonically increasing y-coordinate.
+
+Conquer: Having divided P into P; and Pr, make two recursive calls, one to find
+the closest pair of points in P;, and the other to find the closest pair of points
+in Pr. The inputs to the first call are the subset P;, and arrays X;, and Y_; the
+second call receives the inputs Pr, Xr, and Yr. Let the closest-pair distances
+returned for Pz and Pp be 5; and dz, respectively, and let 5 = min(6z,, dz).
+
+Combine: The closest pair is either the pair with distance 6 found by one of the
+recursive calls, or it is a pair of points with one point in Pz and the other in Pr.
+The algorithm determines whether there is a pair with one point in Pz, and the
+other point in Pr and whose distance is less than 5. Observe that if a pair of
+points has distance less than 5, both points of the pair must be within 6 units
+of line /. Thus, as Figure 33.11(a) shows, they both must reside in the 25-wide
+vertical strip centered at line /. To find such a pair, if one exists, we do the
+following:
+

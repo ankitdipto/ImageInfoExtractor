@@ -1,0 +1,46 @@
+168 Let Us C
+
+ 
+
+()
+
+@
+
+Instead of using different variable names x, y and z, we could
+have used the same variable names a, b and c. But the
+compiler would still treat them as different variables since
+they are in different functions.
+
+There are two methods of declaring the formal arguments.
+The one that we have used in our program is known as
+Kernighan and Ritchie (or just K & R) method.
+
+calsum (x, y, Z)
+int x, y, Z;
+
+Another method is,
+
+calsum (int x, int y, int z)
+
+This method is called ANSI method and is more commonly
+used these days.
+
+In the earlier programs the moment closing brace ( } ) of the
+called function was encountered the control returned to the
+calling function. No separate return statement was necessary
+to send back the control.
+
+This approach is fine if the called function is not going to
+return any meaningful value to the calling function. In the
+above program, however, we want to return the sum of x, y
+and z. Therefore, it is necessary to use the return statement.
+
+The return statement serves two purposes:
+
+(1) On executing the return statement it immediately
+transfers the control back to the calling program.
+
+(2) It returns the value present in the parentheses after
+return, to th3e calling program. In the above program
+the value of sum of three numbers is being returned.
+

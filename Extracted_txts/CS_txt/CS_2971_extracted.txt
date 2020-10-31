@@ -1,0 +1,104 @@
+488
+
+Chapter 18 B-Trees
+
+T.root
+
+I node,
+1000 keys
+
+ 
+
+ 
+
+1001 nodes,
+1,001,000 keys
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1001 1001 1001
+
+1000 1000 1000 1,002,001 nodes,
+vee 1,002,001 ,000 keys
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 18.3 A B-tree of height 2 containing over one billion keys. Shown inside each node x
+is x.n, the number of keys in x. Each internal node and leaf contains 1000 keys. This B-tree has
+1001 nodes at depth 1 and over one million leaves at depth 2.
+
+ 
+
+18.1 Definition of B-trees
+
+To keep things simple, we assume, as we have for binary search trees and red-black
+trees, that any “satellite information” associated with a key resides in the same
+node as the key. In practice, one might actually store with each key just a pointer to
+another disk page containing the satellite information for that key. The pseudocode
+in this chapter implicitly assumes that the satellite information associated with a
+key, or the pointer to such satellite information, travels with the key whenever the
+key is moved from node to node. A common variant on a B-tree, known as a
+B*-tree, stores all the satellite information in the leaves and stores only keys and
+child pointers in the internal nodes, thus maximizing the branching factor of the
+internal nodes.
+
+A B-tree T is a rooted tree (whose root is T. root) having the following proper-
+ties:
+
+ 
+  
+
+ 
+
+ 
+
+1. Every node x has the following attributes:
+
+a. x.n, the number of keys currently stored in node x,
+
+b. the x.n keys themselves, x. key,, x. key.
+ing order, so that x.key, < x. key, <-
+
+c. x.leaf, a boolean value that is TRUE if x is a leaf and FALSE if x is an internal
+node.
+
+2: +++.X.keyy,, Stored in nondecreas-
+SNK xn
+
+  
+ 
+
+2. Each internal node x also contains x.n + 1 pointers x.¢1,X.C2,...,X.Cx.n41 to
+its children. Leaf nodes have no children, and so their c; attributes are unde-
+fined.
+

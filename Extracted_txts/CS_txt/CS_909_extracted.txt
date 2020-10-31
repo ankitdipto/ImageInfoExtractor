@@ -1,0 +1,58 @@
+SECTION 6-6 Programming Arithmetic and Logic Operations 195,
+
+ming the multiplication operation. The program has a loop that is traversed
+eight times, once for each significant bit of the multiplier. Initially, location X
+holds the multiplicand and location Y holds the multiplier. A counter CTR is
+set to -8 and location P is cleared to zero.
+
+‘The multiplier bit can be checked if it is transferred to the E register. This,
+is done by clearing E, loading the value of Y into the AC, circulating right E
+and AC and storing the shifted number back into location Y. This bit stored in
+E is the low-order bit of the multiplier. We now check the value of E. If it is
+1, the multiplicand X is added to the partial product P. If it is 0, the partial
+product does not change We then shift the value of X once to the left by loading
+it into the AC and circulating left E and AC. The loop is repeated eight times
+by incrementing location CTR and checking when it reaches zero. When the
+counter reaches zero, the program exits from the loop with the product stored
+in location P.
+
+The program in Table 6-14 lists the instructions for multiplying two
+unsigned numbers. The initialization is not listed but should be included when
+the programis loaded into the computer. The initialization consists of bringing,
+the multiplicand and multiplier into locations X and Y, respectively; initializing.
+the counter to ~8; and initializing location P to zero. If these locations are not
+
+TABLE 6-14 Program to Multiply Two Positive Numbers
+
+‘ORG 100
+Lop, CLE WClear E
+LDAY Moad multiplier
+oR MTransfer multiplier bit to E
+STAY ‘Store shifted multiplier
+SZE ICheck if bt is zero
+
+BUNONE Blt is one; go to ONE
+BUNZRO Bit is zero; go to ZRO
+
+ONE, LDAX Load multiplicand
+ADDP —_/Add to partial product
+STAP ‘(Store partial product
+CLE WClear E
+
+ZRO, LAX Load multiplicand
+cL ‘Shift left
+STAX {Store shifted multiplicand
+
+ISZCTR Increment counter
+BUNLOP — /Counter not zero; repeat loop
+HLT ‘Counter is zero; halt
+
+CTR, — DEC-8 —_This location serves as a counter
+
+x HEX000F — /Multiplicand stored here
+
+y, HEX 000B —/Multiplier stored here
+
+P, HEX 0 ‘PProduct formed here
+END
+

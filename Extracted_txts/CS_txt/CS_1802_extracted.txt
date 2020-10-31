@@ -1,0 +1,60 @@
+Section 9.2.
+
+An Example Proof 267
+
+ 
+
+their (suitably instantiated) conclusion patterns. We will begin with the situation as it might be
+described in English:
+
+The law says that it is a crime for an American to sell weapons to hostile nations.
+The country Nono, an enemy of America, has some missiles, and all of its missiles
+were sold to it by Colonel West, who is American.
+
+What we wish to prove is that West is a criminal. We first represent these facts in first-order
+logic, and then show the proof as a sequence of applications of the inference rules.”
+
+“... itis a crime for an American to sell weapons to hostile nations":
+Vx,y. 2 American(x) A Weapon(yA Nation(z)A Hostile(z)
+
+A Sells(x, z, y) => Criminal(x) OD
+
+"Nono ... has some missiles":
+
+Ax Owns(Nono, x) A Missile(x) (9.2)
+"All of its missiles were sold to it by Colonel West":
+
+Vx Owns(Nono,x)A Missile(x) => Sells( West, Nono,x) (9.3)
+We will also need to know that missiles are weapons:
+
+Vx Missile(x) => Weapon(x) (9.4)
+and that an enemy of America counts as "hostile":
+
+Vx Enemy(x, America) > Hostile(x) (9.5)
+"West, who is American ...”:
+
+American( West) (9.6)
+"The country Nono ...":
+
+Nation(Nono) (9.7)
+"Nono, an enemy of America ...”:
+
+Enemy(Nono, America) (9.8)
+
+Nation(America) (9.9)
+The proof consists ofa series of applications of the inference rules:
+From (9.2) and Existential Elimination:
+
+Owns(Nono,M1) A Missile(M1) (9.10)
+From (9.10) and And-Elimination:
+
+Owns(Nono, M1) (AL)
+
+Missile(M\) (9.12)
+From (9.4) and Universal Elimination:
+
+Missile(M1) = Weapon(Ml) (9.13)
+
+2 Our representation of the facts will not be ideal according to the standards of Chapter 8, because this is mainly an
+exercise in proofrather than knowledge representation.
+

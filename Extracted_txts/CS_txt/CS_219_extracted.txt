@@ -1,0 +1,55 @@
+138
+
+(CHAPTER FIVE Basic Computer Organization and Design
+
+To n Ty Ty Ts To
+
+Cock,
+
+To
+
+ 
+
+qh
+
+Th
+
+ 
+
+Ds
+
+ 
+
+ 
+
+  
+
+ar
+sc
+
+ 
+
+rr
+
+Figure 5-7 Example of control timing signals.
+
+The last three waveforms in Fig. 5-7 show how SC is cleared when
+DsT= 1. Output D, from the operation decoder becomes active at the end of
+timing signal T,. When timingsignalT becomes active, the output of the AND
+gate that implements the control function DsT, becomes active. This signal is
+applied to the CLR input of SC. On the next positive clock transition (the one
+marked 7; in the diagram) the counter is cleared to 0. This causes the timing
+signal T, to become active instead of T; that would have been active if SC were
+incremented instead of cleared.
+
+‘A memory read or write cycle will be initiated with the rising edge of a
+‘timing signal. It will be assumed that a memory cycle time is less than the clock
+cycle time According to this assumption, a memory read or write cycle ini-
+tiated by a timing signal will be completed by the time the next clock goes
+through its positive transition. The clock transition will then be used to load
+the memory word into a register. This timing relationship is not valid in many
+computers because the memory cycle timeis usually longer than the processor
+dlockeycle. In sucha caseit is necessary to provide wait cycles in the processor
+
+ 
+

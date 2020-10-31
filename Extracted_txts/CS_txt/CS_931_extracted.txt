@@ -1,0 +1,46 @@
+Chapter 7: The C Preprocessor 259
+
+ 
+
+A simple example of #if directive is shown below:
+
+main()
+{
+
+#if TEST <=5
+statement 1;
+statement 2 ;
+statement 3 ;
+
+#else
+statement 4 ;
+statement 5 ;
+statement 6 ;
+
+#endif
+
+}
+
+If the expression, TEST <= 5 evaluates to true then statements 1, 2
+and 3 are compiled otherwise statements 4, 5 and 6 are compiled.
+In place of the expression TEST <= 5 other expressions like
+(LEVEL == HIGH || LEVEL == LOW) or ADAPTER ==
+CGA can also be used.
+
+If we so desire we can have nested conditional compilation
+directives. An example that uses such directives is shown below.
+
+#if ADAPTER == VGA
+code for video graphics array
+#else
+#if ADAPTER == SVGA
+code for super video graphics array
+#else
+code for extended graphics adapter
+#endif
+#endif
+
+The above program segment can be made more compact by using
+another conditional compilation directive called #elif. The same
+program using this directive can be rewritten as shown below.
+

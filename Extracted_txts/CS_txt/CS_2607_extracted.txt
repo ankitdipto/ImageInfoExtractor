@@ -1,0 +1,40 @@
+192
+
+Chapter 8 Sorting in Linear Time
+
+ 
+
+Figure 8.1 The decision tree for insertion sort operating on three elements. An internal node an-
+notated by i:j indicates a comparison between a; and aj. A leaf annotated by the permutation
+(r(1), 72), .. x(n) indicates the ordering aq(1) < dz(2) < -*- < Gq(n)- The shaded path
+indicates the decisions made when sorting the input sequence (a4; = 6,a2 = 8,a3 = 5); the
+permutation (3, 1, 2) at the leaf indicates that the sorted ordering isa3 = 5 < a) =6 < az =8.
+There are 3! = 6 possible permutations of the input elements, and so the decision tree must have at
+least 6 leaves.
+
+they yield identical information about the relative order of a; and a;. We therefore
+assume that all comparisons have the form a; < aj.
+
+The decision-tree model
+
+We can view comparison sorts abstractly in terms of decision trees. A decision
+tree is a full binary tree that represents the comparisons between elements that
+are performed by a particular sorting algorithm operating on an input of a given
+size. Control, data movement, and all other aspects of the algorithm are ignored.
+Figure 8.1 shows the decision tree corresponding to the insertion sort algorithm
+from Section 2.1 operating on an input sequence of three elements.
+
+In a decision tree, we annotate each internal node by i:j for some i and j in the
+range 1 <i, 7 <n, where n is the number of elements in the input sequence. We
+also annotate each leaf by a permutation (7(1), 7(2),..., (1)). (See Section C.1
+for background on permutations.) The execution of the sorting algorithm corre-
+sponds to tracing a simple path from the root of the decision tree down to a leaf.
+Each internal node indicates a comparison a; < 4;. The left subtree then dictates
+subsequent comparisons once we know that a; < aj, and the right subtree dictates
+subsequent comparisons knowing that a; > 4;. When we come to a leaf, the sort-
+ing algorithm has established the ordering dz(1) < Gz@) +++ S Axi). Because
+any correct sorting algorithm must be able to produce each permutation of its input,
+each of the n! permutations on 7 elements must appear as one of the leaves of the
+decision tree for a comparison sort to be correct. Furthermore, each of these leaves
+must be reachable from the root by a downward path corresponding to an actual
+

@@ -1,0 +1,68 @@
+Chapter 19: Interaction With Hardware 665
+
+ 
+
+@
+
+@)
+@
+
+(g)
+a)
+@
+
+(0)
+«)
+
+B]
+(a)
+(b)
+
+©)
+
+@
+
+@®
+
+execl( ) library function can be used to create a new child
+process.
+
+The scheduler process is the father of all processes.
+
+A family of fork( ) and exec( ) functions are available, each
+doing basically the same job but with minor variations.
+
+fork() completely duplicates the code and data of the parent
+process into the child process.
+
+fork( ) overwrites the image (code and data) of the calling
+process.
+
+fork() is called twice but returns once.
+
+Every zombie process is essentially an orphan process.
+
+Every orphan process is essentially an orphan process.
+
+Answer the following:
+
+If a program contains four calls to fork( ) one after the other
+how many total processes would get created?
+
+What is the difference between a zombie process and an
+orphan process?
+
+Write a program that prints the command line arguments that
+it receives. What would be the output of the program if the
+command line argument is * 7
+
+What purpose do the functions getpid( ), getppid( ),
+getpppid() serve?
+
+Rewrite the program in the section ‘Zombies and Orphans’
+replacing the while loop with a call to the sleep( ) function.
+Do you observe any change in the output of the program?
+
+How does waitpid( ) prevent creation of Zombie or Orphan
+processes?
+

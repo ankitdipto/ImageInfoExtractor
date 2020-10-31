@@ -1,0 +1,49 @@
+370
+
+Chapter 15 Dynamic Programming
+
+15.1-2
+
+Show, by means of a counterexample, that the following “greedy” strategy does
+not always determine an optimal way to cut rods. Define the density of a rod of
+length i to be p;/i, that is, its value per inch. The greedy strategy for a rod of
+length n cuts off a first piece of length 7, where 1 < i < n, having maximum
+density. It then continues by applying the greedy strategy to the remaining piece of
+length n —i.
+
+15.1-3
+
+Consider a modification of the rod-cutting problem in which, in addition to a
+price p; for each rod, each cut incurs a fixed cost of c. The revenue associated with
+a solution is now the sum of the prices of the pieces minus the costs of making the
+cuts. Give a dynamic-programming algorithm to solve this modified problem.
+
+15.1-4
+Modify MEMOIZED-CUT-ROD to return not only the value but the actual solution,
+too.
+
+151-5
+
+The Fibonacci numbers are defined by recurrence (3.22). Give an O(n)-time
+dynamic-programming algorithm to compute the th Fibonacci number. Draw the
+subproblem graph. How many vertices and edges are in the graph?
+
+ 
+
+15.2. Matrix-chain multiplication
+
+Our next example of dynamic programming is an algorithm that solves the problem
+
+of matrix-chain multiplication. We are given a sequence (chain) (A), A2...-, Ay)
+of n matrices to be multiplied, and we wish to compute the product
+AjAz-++ An. (15.5)
+
+We can evaluate the expression (15.5) using the standard algorithm for multiply-
+ing pairs of matrices as a subroutine once we have parenthesized it to resolve all
+ambiguities in how the matrices are multiplied together. Matrix multiplication is
+associative, and so all parenthesizations yield the same product. A product of ma-
+trices is fully parenthesized if it is either a single matrix or the product of two fully
+parenthesized matrix products, surrounded by parentheses. For example, if the
+chain of matrices is (A;, A2, A3, A4), then we can fully parenthesize the product
+A,A2A3Ayj in five distinct ways:
+

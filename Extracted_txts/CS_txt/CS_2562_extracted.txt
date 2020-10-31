@@ -1,0 +1,28 @@
+6.2. Maintaining the heap property 155
+
+ 
+
+(©)
+
+Figure 6.2 The action of MAX-HEAPIFY(A,2), where A.heap-size = 10. (a) The initial con-
+figuration, with A[2] at node i = 2 violating the max-heap property since it is not larger than
+both children. The max-heap property is restored for node 2 in (b) by exchanging A[2] with [4],
+which destroys the max-heap property for node 4. The recursive call MAX-HEAPIFY(A, 4) now
+has i = 4. After swapping A[4] with [9], as shown in (¢), node 4 is fixed up, and the recursive call
+MAX-HeEapiFy(A, 9) yields no further change to the data structure.
+
+children to satisfy the max-heap property. The node indexed by /argest, however,
+now has the original value A[/], and thus the subtree rooted at /argest might violate
+the max-heap property. Consequently, we call MAX-HEAPIFY recursively on that
+subtree.
+
+The running time of MAX-HEAPIFY on a subtree of size n rooted at a given
+node i is the @(1) time to fix up the relationships among the elements A[i],
+A[LeFT(i)], and A[RIGHT(/)], plus the time to run MAX-HEAPIFY on a subtree
+rooted at one of the children of node i (assuming that the recursive call occurs).
+The children’s subtrees each have size at most 2n /3—the worst case occurs when
+the bottom level of the tree is exactly half full—and therefore we can describe the
+running time of MAX-HEAPIFY by the recurrence
+
+T(n) < T2n/3) +@().
+

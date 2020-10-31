@@ -1,0 +1,55 @@
+Section 15.7. Summary 465
+
+ 
+
+book. I. J. Good (1961) investigated the use of Bayesian inference in beliefnetworks.> The in-
+fluence diagram or decision network representation for decision problems, which incorporated t
+a DAG representation for random variables, was used in decision analysis in the late 1970s (see ij
+Chapter 16), but no interesting evaluation algorithms were developed for decision networks until
+1986 (Shachter, 1986). Judea Pearl (1982a) developed the message-passing method for carrying
+out inference in networks that had the form of trees. Jin Kim (Kirn and Pearl, 1983) extended
+the method to all singly connected networks. The backward-chaining algorithm given in the text
+was derived by the authors, but has much in common with the methods of Pearl (1988) and of
+Shachter et al. (1990). Gregory Cooper (1990) showed that the general problem of inference in
+unconstrained belief networks is NP-hard, and Paul Dagum and Mike Luby (1993) showed the
+corresponding approximation problem to be NP-hard.
+
+David Spiegelhalter and Steffen Lauritzen pioneered the use of clustering for inference
+in multiply connected networks (Spiegelhalter, 1986; Lauritzen and Spiegelhalter, 1988). Finn
+Jensen and colleagues (1990) developed an object-oriented computational scheme for clustering.
+The scheme is implemented in the Hucin system, an efficient and widely used tool for uncertain
+reasoning (Andersen ef al., 1989). Eric Horvitz, H. Jacques Suermondt, and Gregory Cooper
+(1989) developed bounded cutset conditioning, building on earlier work on cutsets (Pearl, 1986).
+The logic sampling method is due to Max Henrion (1988), and likelihood weighting was developed
+by Fung and Chang (1989) and Shachter and Peot (1989). A large-scale application of likelihood
+weighting to medical diagnosis appears in Shwe and Cooper (1991). The latter paper also
+incorporates elements ofthe "Markov blanket" simulation scheme developed by Pearl (1987). The
+first expert system using beliefnetworks was CONVINCE (Kim, 1983;Kim and Pearl, 1987). More
+recent systems include the MUNIN system for diagnosing neuromuscular disorders (Andersen et
+al., 1989) and the PATHFINDER system for pathology (Heckerman, 1991)
+
+The extension of belief networks to handle continuous random variables is an important
+topic of current research. The basic technical problem is that the distributions must be repre-
+sentable by a finite number of parameters, and must come from a family of distributions that
+is closed under beliefnet updating. To date, only Gaussian distributions have been used. Net-
+works with continuous variables but no discrete variables have been considered (Pearl, 1988;
+Shachter and Kenley, 1989). Such networks can be evaluated in polynomial time, regard-
+less of topology. The inclusion of discrete variables has been investigated by Lauritzen and
+Wermuth (1989), and implemented in the CHUGIN system (Olesen, 1993). Currently, exact
+algorithms are known only for the case in which discrete variables are ancestors, not descendants,
+of continuous variables. Stochastic simulation algorithms, on the other hand, can handle arbitrary
+
+SUA distributions and topologies. . —
+
+nepagLisnc Qualitative probabilistic networks (Wellman, 1990)provide a purely qualitative abstrac-
+tion of belief networks, using the notion of positive and negative influences between variables.
+Wellman shows that in many cases such information is sufficient for optimal decision making
+without the need for precise specification of probability values. Work by Adnan Darwiche and
+Matt Ginsberg (1992) extracts the basic properties of conditioning and evidence combination
+from probability theory and shows that they can also be applied in logical and default reasoning
+
+5 I J. Good was chief statistician for Turing's codebreaking team in World II. In 200]: 4 Space Odyssey, Axthur
+C. Clarke credited Good and Minsky with making the breakthrough that led to the development of the HAL computer.
+
+ 
+

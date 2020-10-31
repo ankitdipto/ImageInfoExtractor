@@ -1,0 +1,119 @@
+434
+
+Chapter 16 Greedy Algorithms
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 16.6 An illustration of the key step in the proof of Lemma 16.2. In the optimal tree T,
+leaves a and b are two siblings of maximum depth. Leaves x and y are the two characters with the
+lowest frequencies; they appear in arbitrary positions in 7. Assuming that x 4 b, swapping leaves a
+and x produces tree 7’, and then swapping leaves b and y produces tree 7”. Since each swap does
+not increase the cost, the resulting tree 7” is also an optimal tree.
+
+in which x and y are sibling leaves of maximum depth. (Note that if x = b but
+y #4, then tree T” does not have x and y as sibling leaves of maximum depth.
+Because we assume that x # b, this situation cannot occur.) By equation (16.4),
+the difference in cost between T and T’ is
+
+B(T)— B(T')
+= Ye sfreq-dr(c)—}-c.freq-dr(c)
+cec cEeC
+
+Xx. freq - dr (x) + a.freg - dr (a) — x. freq» dr/(x) —a. freq: dr(a)
+x freq» dr (x) + a.freq «dr (a) — x.freq- dr(a) —a. freq: dr(x)
+(a.freq — x.freq)(dr(a) — dr (x))
+
+> 0,
+
+because both a.freg — x. freq and dr(a) — dr(x) are nonnegative. More specifi-
+cally, a.freq — x. freq is nonnegative because x is a minimum-frequency leaf, and
+dr (a)—dr (x) is nonnegative because a is a leaf of maximum depth in T. Similarly,
+exchanging y and b does not increase the cost, and so B(T’) — B(T") is nonnega-
+tive. Therefore, B(T") < B(T), and since T is optimal, we have B(T) < B(T”),
+which implies B(T”) = B(T). Thus, T” is an optimal tree in which x and y
+appear as sibling leaves of maximum depth, from which the lemma follows. .
+
+Lemma 16.2 implies that the process of building up an optimal tree by mergers
+can, without loss of generality, begin with the greedy choice of merging together
+those two characters of lowest frequency. Why is this a greedy choice? We can
+view the cost of a single merger as being the sum of the frequencies of the two items
+being merged. Exercise 16.3-4 shows that the total cost of the tree constructed
+equals the sum of the costs of its mergers. Of all possible mergers at each step,
+HUFFMAN chooses the one that incurs the least cost.
+

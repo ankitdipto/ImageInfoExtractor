@@ -1,0 +1,81 @@
+186 cuarrer six Programming the Basic Computer
+
+Fist pass
+4
+
+ico
+
+ 
+
+ 
+
+ 
+
+ 
+
+    
+       
+     
+
+ 
+
+Scan next line of code
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Store symbol
+
+in address- no Gots
+symbol table second
+together with as
+value of LC
+
+ 
+
+   
+ 
+
+|
+
+Tnerement LC
+
+ 
+
+ 
+
+ 
+
+Figure 6-1 Flowchart for first pass of assembler.
+
+of code has no label, the assembler checks the symbol in the instruction field.
+If it contains an ORG pseudoinstruction, the assembler sets LC to the number
+thatfollows ORG and goes back to process the next line. If the line hasan END
+pseudoinstruction, the assembler terminates the first pass and goes to the
+second pass. (Note that a line with ORG or END should not havea label) If
+the line of code containsa label, itis stored in the address symbol table together
+with its binary equivalent number specified by the content of LC. Nothing is
+stored in the table if no label is encountered. LC is then incremented by 1 and
+anew line of code is processed.
+
+For theprogramof Table 68, the assembler generates the address symbol
+table listed in Table 6-12. Each label symbol is stored in two memory locations
+and is terminated by a comma. If the label contains less than three characters,
+the memory locations are filled with the code for space. The value found in LC
+while the line was processed is stored in the next sequential memory location.
+‘The program has three symbolic addresses: MIN, SUB, and DIF. These sym-
+bols represent 12-bit addresses equivalent to hexadecimal 106, 107, and 108,
+

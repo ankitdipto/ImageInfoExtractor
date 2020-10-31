@@ -1,0 +1,49 @@
+938
+
+Chapter 31 Number-Theoretic Algorithms
+
+EXTENDED-EUCLID returns not only d = a in line 2, but also the coefficients
+xX = land y = 0, so that a = ax + by. If b ¢ 0, EXTENDED-EUCLID first
+computes (d’, x’, y’) such that d’ = ged(b,a mod b) and
+
+d' =bx'+(amodb)y’. (31.17)
+
+As for EUCLID, we have in this case d = gced(a,b) = d' = gcd(b,a mod b).
+To obtain x and y such that d = ax + by, we start by rewriting equation (31.17)
+using the equation d = d’ and equation (3.8):
+
+d = bx'+(a—b|a/b\)y'
+
+= ay’ +d(x'—|a/b\ y’).
+Thus, choosing x = y’ and y = x/— |a/b| y’ satisfies the equation d = ax +by,
+proving the correctness of EXTENDED-EUCLID.
+
+Since the number of recursive calls made in EUCLID is equal to the number
+of recursive calls made in EXTENDED-EUCLID, the running times of EUCLID
+and EXTENDED-EUCLID are the same, to within a constant factor. That is, for
+a >b > 0, the number of recursive calls is O(lg b).
+
+Exercises
+
+31.2-1
+Prove that equations (31.11) and (31.12) imply equation (31.13).
+
+312-2
+Compute the values (d, x, y) that the call EXTENDED-EUCLID (899, 493) returns.
+
+31.2-3
+Prove that for all integers a, k, and n,
+
+ged(a,n) = ged(a +kn,n).
+
+31.24
+Rewrite EUCLID in an iterative form that uses only a constant amount of memory
+(that is, stores only a constant number of integer values).
+
+312-5
+If a > b = 0, show that the call EucLID(a, b) makes at most 1 + logy b recursive
+calls. Improve this bound to 1 + log,(b/ ged(a, b)).
+
+312-6
+What does EXTENDED-EUCLID (Fx +1, Fx) return? Prove your answer correct.
+

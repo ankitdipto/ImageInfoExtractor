@@ -1,0 +1,50 @@
+742
+
+Chapter 26 Maximum Flow
+
+Lemma 26.15 (Vertex heights never decrease)
+
+During the execution of the GENERIC-PUSH-RELABEL procedure on a flow net-
+work G = (V, E), for each vertex u € V, the height wv. never decreases. More-
+over, whenever a relabel operation is applied to a vertex u, its height u.h increases
+by at least 1.
+
+Proof Because vertex heights change only during relabel operations, it suffices
+to prove the second statement of the lemma. If vertex u is about to be rela-
+beled, then for all vertices v such that (u,v) € Ey, we have u.h < v.h. Thus,
+uh <1+min{v.h: (u,v) € Ef}, and so the operation must increase u.h. .
+
+Lemma 26.16
+Let G = (V, E) be a flow network with source s and sink ¢. Then the execution of
+GENERIC-PUSH-RELABEL on G maintains the attribute / as a height function.
+
+Proof The proof is by induction on the number of basic operations performed.
+Initially, / is a height function, as we have already observed.
+
+We claim that if / is a height function, then an operation RELABEL (11) leaves h
+a height function. If we look at a residual edge (w,v) € Ey that leaves u, then
+the operation RELABEL(u) ensures that vu. < v. + 1 afterward. Now consider
+a residual edge (w,u) that enters u. By Lemma 26.15, w.h < u.h + 1 before the
+operation RELABEL(u) implies w.h < u.h + 1 afterward. Thus, the operation
+RELABEL (11) leaves h a height function.
+
+Now, consider an operation PUSH(u, v). This operation may add the edge (v, u)
+to Ey, and it may remove (u,v) from Ey. In the former case, we have
+v.h =u.h—1<u.h+ 1, and so h remains a height function. In the latter case,
+removing (u,v) from the residual network removes the corresponding constraint,
+and /i again remains a height function. .
+
+The following lemma gives an important property of height functions.
+
+Lemma 26.17
+
+Let G = (V, E) be a flow network with source s and sink ¢, let f be a preflow
+in G, and let h be a height function on V. Then there is no path from the source 5
+to the sink ¢ in the residual network Gy.
+
+Proof Assume for the sake of contradiction that Gy contains a path p from s to f,
+where p = (V0, V1,---5 Ve), Yo = S, and vy = f. Without loss of generality, p
+is a simple path, and sok < |V|. Fori = 0,1,..., k — 1, edge (vj, Vi41) € Ef.
+Because hi is a height function, h(v;) < h(v; 41) + 1 fori =0,1,..., k —1. Com-
+bining these inequalities over path p yields h(s) < h(t)+k. But because h(t) = 0,
+

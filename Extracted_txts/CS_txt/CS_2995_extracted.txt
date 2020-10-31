@@ -1,0 +1,35 @@
+508
+
+Chapter 19 Fibonacci Heaps
+
+ 
+
+ 
+
+ 
+
+Figure 19.2. (a) A Fibonacci heap consisting of five min-heap-ordered trees and 14 nodes. The
+dashed line indicates the root list. The minimum node of the heap is the node containing the key 3.
+Black nodes are marked. The potential of this particular Fibonacci heap is S+2-3 = 11. (b) A more
+complete representation showing pointers p (up arrows), child (down arrows), and left and right
+(sideways arrows). The remaining figures in this chapter omit these details, since all the information
+shown here can be determined from what appears in part (a).
+
+Circular, doubly linked lists (see Section 10.2) have two advantages for use in
+Fibonacci heaps. First, we can insert a node into any location or remove a node
+from anywhere in a circular, doubly linked list in O(1) time. Second, given two
+such lists, we can concatenate them (or “splice” them together) into one circular,
+doubly linked list in O(1) time. In the descriptions of Fibonacci heap operations,
+we shall refer to these operations informally, letting you fill in the details of their
+implementations if you wish.
+
+Each node has two other attributes. We store the number of children in the child
+list of node x in x.degree. The boolean-valued attribute x. mark indicates whether
+node x has lost a child since the last time x was made the child of another node.
+Newly created nodes are unmarked, and a node x becomes unmarked whenever it
+is made the child of another node. Until we look at the DECREASE-KEY operation
+in Section 19.3, we will just set all mark attributes to FALSE.
+
+We access a given Fibonacci heap H by a pointer H.min to the root of a tree
+containing the minimum key; we call this node the minimum node of the Fibonacci
+

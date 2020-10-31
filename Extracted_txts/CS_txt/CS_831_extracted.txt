@@ -1,0 +1,51 @@
+Chapter 5: Functions & Pointers 177
+
+ 
+
+Now the expected answers i.e. 2.25 and 6.25 are obtained. Note
+that the function square( ) must be declared in main() as
+
+float square (float) ;
+
+This statement is often called the prototype declaration of the
+square() function. What it means is square( ) is a function that
+receives a float and returns a float. We have done the prototype
+declaration in main( ) because we have called it from main( ).
+There is a possibility that we may call square() from several other
+functions other than main( ). Does this mean that we would need
+prototype declaration of square( ) in all these functions. No, in
+such a case we would make only one declaration outside all the
+functions at the beginning of the program.
+
+In practice you may seldom be required to return a value other
+than an int, but just in case you are required to, employ the above
+method. In some programming situations we want that a called
+function should not return any value. This is made possible by
+using the keyword void. This is illustrated in the following
+program.
+
+main()
+
+{
+void gospel() ;
+gospel() ;
+
+void gospel( )
+{
+
+printf ( "\nViruses are electronic bandit
+printf ( "\nwho eat nuggets of information.
+(
+(
+
+ 
+
+ 
+
+printf ( "\nand chunks of bytes..." ) ;
+printf ("\nwhen you least expect...
+
+ 
+
+ 
+

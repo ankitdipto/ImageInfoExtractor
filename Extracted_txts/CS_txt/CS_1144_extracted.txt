@@ -1,0 +1,55 @@
+Chapter 12: File Input/Output 431
+
+ 
+
+and fscanf( ) library functions to read/write data from/to file.
+Following program illustrates the use of structures for writing
+records of employees.
+
+|" Writes records to a file using structure */
+#include "stdio.h"
+
+main()
+
+{
+FILE “fp;
+char another = 'Y';
+struct emp
+
+char name[40] ;
+int age ;
+loat bs ;
+hi
+struct emp e;
+
+fp = fopen (EMPLOYEE. DAT"
+
+ 
+
+if (fp == NULL)
+{
+
+puts ("Cannot open file” ) ;
+
+ 
+
+exit() ;
+
+}
+
+while ( another == 'Y' )
+
+{
+printf ( "\nEnter name, age and basic salary: " ) ;
+scant ("%s %d %f", e.name, &e.age, &€.bs ) ;
+printf ( fp, "%s %d %fin", e.name, e.age, e.bs ) ;
+printf ("Add another record (Y/N) ") ;
+
+lush (stdin ) ;
+
+another = getche() ;
+
+}
+
+fclose (fp) ;
+

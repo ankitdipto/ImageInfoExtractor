@@ -1,0 +1,37 @@
+ 
+
+9
+
+Medians and Order Statistics
+
+The ith order statistic of a set of n elements is the ith smallest element. For
+example, the minimum of a set of elements is the first order statistic (i = 1),
+and the maximum is the nth order statistic (i = ). A median, informally, is
+the “halfway point” of the set. When n is odd, the median is unique, occurring at
+i = (n+ 1)/2. When n is even, there are two medians, occurring at i = n/2 and
+i =n/2+1. Thus, regardless of the parity of n, medians occur ati = |(n + 1)/2]
+(the lower median) and i = [(n + 1)/2] (the upper median). For simplicity in
+this text, however, we consistently use the phrase “the median” to refer to the lower
+median.
+
+This chapter addresses the problem of selecting the ith order statistic from a
+set of n distinct numbers. We assume for convenience that the set contains dis-
+tinct numbers, although virtually everything that we do extends to the situation in
+which a set contains repeated values. We formally specify the selection problem
+as follows:
+
+Input: A set A of n (distinct) numbers and an integer i, with 1 <i <n.
+
+Output: The element x ¢ A that is larger than exactly i — 1 other elements of A.
+
+We can solve the selection problem in O(n lgn) time, since we can sort the num-
+bers using heapsort or merge sort and then simply index the ith element in the
+output array. This chapter presents faster algorithms.
+
+In Section 9.1, we examine the problem of selecting the minimum and maxi-
+mum ofa set of elements. More interesting is the general selection problem, which
+we investigate in the subsequent two sections. Section 9.2 analyzes a practical
+randomized algorithm that achieves an O() expected running time, assuming dis-
+tinct elements. Section 9.3 contains an algorithm of more theoretical interest that
+achieves the O(n) running time in the worst case.
+

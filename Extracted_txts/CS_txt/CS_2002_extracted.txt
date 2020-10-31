@@ -1,0 +1,60 @@
+Section 9.6
+
+unr CLAUSE
+
+ser OF SUPPORT
+
+INPUT RESOLUTION
+
+‘UNGAR RESOLUTION
+
+Resolution: A Complete Inference Procedure 285
+
+Unit preference
+
+This strategy prefers to do resolutions where one of the sentences is a single literal (also known
+as a unit clause). The idea behind the strategy is that we are trying to produce a very short
+sentence, True = False, and therefore it might be a good idea to prefer inferences that produce
+shorter sentences. Resolving a ‘unit sentence (such as P) with any other sentence (such as
+PAQ = R) always yields a sentence (in this case, Q => R) that is shorter than the other
+sentence. When the unit preference strategy was first tried for propositional inference in 1964,
+it led to a dramatic speedup, making it feasible to prove theorems that could not be handled
+without the preference. Unit preference by itself does not, however, reduce the branching factor
+in medium-sized problems enough to make them solvable by resolution. It is, nonetheless, a
+useful heuristic that can be combined with other strategies.
+
+ 
+
+Set of support
+
+Preferences that try certain resolutions first are helpful, but in general it is more effective to try to
+eliminate some potential resolutions altogether. The set of support strategy does just that. It starts
+
+by identifying a subset of the sentences called the set of support. Every resolution combines
+a sentence from the set of support with another sentence, and adds the resolvent into the set of
+support. Ifthe set of support is small relative to the whole knowledge base, this will cut the
+search space dramatically.
+
+We have to be careful with this approach, because a bad choice for the set of support will
+make the algorithm incomplete. However, if we choose the set of support S so that the remainder
+of the sentences are jointly satisfiable, then set-of-support resolution will be complete. A common
+approach is to use the negated query as the set of support, on the assumption that the original
+knowledge base is consistent. (After all, if it is not consistent, then the fact that the query follows
+from it is vacuous.) The set-of-support strategy has the additional advantage of generating proof
+trees that are often easy for humans to understand, because they are goal-directed.
+
+Input resolution
+
+In the input resolution strategy, every resolution combines one of the input sentences (from the
+KB or the query) with some other sentence. The proofs in Figure 9.5 and Figure 9.6 use only
+input resolutions; they have the characteristic shape of a diagonal "spine" with single sentences
+combining onto the spine. Clearly, the space of proof trees of this shape is smaller than the
+space of all proof graphs. In Horn knowledge bases, Modus Ponens is a kind of input resolution
+strategy, because it combines an implication from the original KB with some other sentences.
+Thus, it should not be surprising that input resolution is complete for knowledge bases that are
+in Horn form, but incomplete in the general case
+
+The linear resolution strategy is a slight generalization that allows P and Q to be resolved
+together if either P is in the original KB or if P is an ancestor of OQ in the proof tree. Linear
+resolution is complete.
+

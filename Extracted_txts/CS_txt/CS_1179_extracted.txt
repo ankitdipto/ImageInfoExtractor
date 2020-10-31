@@ -1,0 +1,44 @@
+460 Let Us C
+
+ 
+
+(1) An offset cipher: In an offset cipher each character from
+the source file is offset with a fixed value and then
+written to the target file.
+
+For example, if character read from the source file is ‘A’,
+then convert this into a new character by offsetting ‘A’
+by a fixed value, say 128, and then writing the new
+character to the target file.
+
+(2) A substitution cipher: In this each character read from the
+source file is substituted by a corresponding
+predetermined character and this character is written to
+the target file.
+
+For example, if character ‘A’ is read from the source file,
+and if we have decided that every ‘A’ is to be substituted
+by ‘!’, then a ‘!’ would be written to the target file in
+place of every ‘A’ Similarly, every ‘B’ would be
+substituted by ‘5’ and so on.
+
+(i) In the file ‘CUSTOMER.DAT?’ there are 100 records with the
+following structure:
+
+struct customer
+
+{
+int accno ;
+char name[30] ;
+float balance ;
+
+hi
+
+In another file ‘TRANSACTIONS.DAT’ there are several
+records with the following structure:
+
+struct trans
+{
+int accno ,
+char trans_type ;
+

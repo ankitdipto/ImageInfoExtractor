@@ -1,0 +1,57 @@
+Section 25.4.
+
+Architectures 787
+
+ 
+
+‘MACRO-OPERATORS
+
+from fully deliberative to fully reflex. There is no accepted theory of architecture design that
+can be used to prove that one design is better than another. Many theoreticians deride the entire
+problem as "just a bunch of boxes and arrows." Nonetheless, many superficially different designs
+seem to have incorporated the same set of features for dealing with the real world.
+
+Classical architecture
+
+By the late 1960s, primitive but serviceable tools for intelligent robots were available. These
+included vision systems that could locate simple polyhedral objects; two-dimensional path-
+planning algorithms; and resolution theorem provers that could construct simple, symbolic plans
+using situation calculus. From these tools, together with a collection of wheels, motors and
+sensors, emerged Shakey, the forerunner of many intelligent robot projects
+
+The first version of Shakey, appearing in 1969, demonstrated the importance of experi-
+mental research in bringing to light unsuspected difficulties. The researchers found that general-
+purpose resolution theorem-provers were too inefficient to find nontrivial plans, that integrating
+geometric and symbolic representations of the world was extremely difficult, and that plans don't
+work. This last discovery came about because Shakey was designed to execute plans without
+monitoring their success or failure. Because of wheel slippage, measurement errors and so on,
+almost all plans of any length failed at some point during execution.
+
+The second version of Shakey incorporated several improvements. First, most of the
+detailed work of finding paths and moving objects was moved from the general problem-solving
+level down into special-purpose programs called intermediate-level actions (ILAs). These
+actions in fact consisted of complex routines of low-level actions (LLAs) for controlling the
+physical robot, and included some error detection and recovery capabilities. For example, one
+ILA called NavTo could move the robot from one place to another within a room by calling
+the A* algorithm to plan a path and then calling LLAs to execute the path, doing some path
+corrections along the way. The LLAs were also responsible for updating the internal model of the
+world state, which was stored in first-order logic. Motion errors were explicitly modelled, so that
+as the robot moved, its uncertainty about its location increased. Once the uncertainty exceeded
+a threshold for safe navigation, the LLA would call on the vision subsystem to provide a new
+position fix. The key contribution ofthe ILA/LLA system, then, was to provide a relatively clean
+and reliable set of actions for the planning system.
+
+The planning system used the STRIPS algorithm, essentially a theorem-prover specially
+designed for efficient generation of action sequences. STRIPS also introduced the idea of compiling
+the results of planning into generalized macro-operators, so that future problem-solving could
+be more efficient (see Section 21.2). The entire system was controlled by PLANEX, which
+accepted goals from the user, called STRIPS to generate plans, then executed them by calling the
+specified ILAs. The execution mechanism was a simple version of the methods described in
+Chapter 12. PLANEX kept track of the current world state, comparing it to the preconditions of
+each subsequence in the original plan. After each action completed, PLANEX would execute the
+shortest plan subsequence that led to a goal and whose preconditions were satisfied. In this way,
+actions that failed would be retried, and fortunate accidents would lead to reduced effort. If no
+subsequence was applicable, PLANEX could call STRIPS to make a new plan.
+
+ 
+

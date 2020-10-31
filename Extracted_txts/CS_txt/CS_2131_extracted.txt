@@ -1,0 +1,58 @@
+section 93 Arithmetic Pipeline 307
+
+  
+
+ 
+
+4 lies
+Py Py Py ’
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+| | | |
+
+Figure 9-5 Multiple functional units in parallel
+
+correct to assume that a nonpipe circuit has the same time delay as that of an
+equivalent pipeline circuit. Many of the intermediate registers will not be
+needed in a single-unit circuit, which can usually be constructed entirely asa
+combinational circuit. Nevertheless, the pipeline technique provides a faster
+operation over a purely serial sequence even though the maximum theoretical
+speed is never fully achieved.
+
+There are two areas of computer design where the pipeline organization
+is applicable. An arithmetic pipeline divides an arithmetic operation into sub-
+operations for execution in the pipeline segments. An instruction pipeline oper-
+ates on a stream of instructions by overlapping the fetch, decode, and execute
+phases of the instruction cycle. The two types of pipelines are explained in the
+following sections.
+
+9-3__ Arithmetic Pipeline
+
+Pipeline arithmeticunitsare usually foundin very high speed computers. They
+are used to implement floating-point operations, multiplication of fixed-point
+numbers, and similar computations encountered in scientific problems. A
+pipeline multiplier is essentially an array multiplier as described in Fig, 10-10,
+with special adders designed to minimize the carry propagation time through
+the partial products. Floating-point operations are easily decomposed into
+suboperations as demonstrated in Sec. 10-5. We will now show an example of
+a pipeline unit for floating-point addition and subtraction.
+
+The inputs to the floating-point adder pipeline are two normalized float-
+ing-point binary numbers.
+
+X=Ax2
+y=Bx2
+

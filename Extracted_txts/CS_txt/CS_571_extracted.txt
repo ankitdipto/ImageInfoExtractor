@@ -1,0 +1,44 @@
+1104
+
+Chapter 34 NP-Completeness
+
++
+
+Figure 34.20. The widget corresponding to a clause (x V y V z), used in Problem 34-3.
+
+34-4 Scheduling with profits and deadlines
+
+Suppose that we have one machine and a set of 7 tasks a).2.....d,, each of
+which requires time on the machine. Each task a; requires /; time units on the
+machine (its processing time), yields a profit of p;, and has a deadline dj. The
+machine can process only one task at a time, and task a; must run without inter-
+ruption for f; consecutive time units. If we complete task a; by its deadline d;, we
+receive a profit p;, but if we complete it after its deadline, we receive no profit. As
+an optimization problem, we are given the processing times, profits, and deadlines
+for a set of n tasks, and we wish to find a schedule that completes all the tasks and
+returns the greatest amount of profit. The processing times, profits, and deadlines
+are all nonnegative numbers.
+
+ 
+
+ 
+
+a. State this problem as a decision problem.
+b. Show that the decision problem is NP-complete.
+
+c. Give a polynomial-time algorithm for the decision problem, assuming that all
+processing times are integers from 1 to n. (Hint: Use dynamic programming.)
+
+d. Give a polynomial-time algorithm for the optimization problem, assuming that
+all processing times are integers from | to n.
+
+ 
+
+Chapter notes
+
+The book by Garey and Johnson [129] provides a wonderful guide to NP-complete-
+ness, discussing the theory at length and providing a catalogue of many problems
+that were known to be NP-complete in 1979. The proof of Theorem 34.13 is
+adapted from their book, and the list of NP-complete problem domains at the begin-
+ning of Section 34.5 is drawn from their table of contents. Johnson wrote a series
+

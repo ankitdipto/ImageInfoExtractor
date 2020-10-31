@@ -1,0 +1,54 @@
+214
+
+Chapter 9 Medians and Order Statistics
+
+ 
+
+9.1 Minimum and maximum
+
+How many comparisons are necessary to determine the minimum of a set of 7
+elements? We can easily obtain an upper bound of n — 1 comparisons: examine
+each element of the set in turn and keep track of the smallest element seen so
+far. In the following procedure, we assume that the set resides in array A, where
+A. length =n.
+
+MINIMUM (A)
+
+1 min = Al]
+
+2 fori = 2 to A.length
+3 if min > A[i]
+
+4 min = Afi]
+
+5 return min
+
+We can, of course, find the maximum with n — | comparisons as well.
+
+Is this the best we can do? Yes, since we can obtain a lower bound of n — 1
+comparisons for the problem of determining the minimum. Think of any algorithm
+that determines the minimum as a tournament among the elements. Each compar-
+ison is a match in the tournament in which the smaller of the two elements wins.
+Observing that every element except the winner must lose at least one match, we
+conclude that 1 — 1 comparisons are necessary to determine the minimum. Hence,
+the algorithm MINIMUM is optimal with respect to the number of comparisons
+performed.
+
+Simultaneous minimum and maximum.
+
+In some applications, we must find both the minimum and the maximum of a set
+of n elements. For example, a graphics program may need to scale a set of (x, y)
+data to fit onto a rectangular display screen or other graphical output device. To
+do so, the program must first determine the minimum and maximum value of each
+coordinate.
+
+At this point, it should be obvious how to determine both the minimum and the
+maximum of 7 elements using @(7) comparisons, which is asymptotically optimal:
+simply find the minimum and maximum independently, using n — 1 comparisons
+for each, for a total of 21 — 2 comparisons.
+
+In fact, we can find both the minimum and the maximum using at most 3 [n/2|
+comparisons. We do so by maintaining both the minimum and maximum elements
+seen thus far. Rather than processing each element of the input by comparing it
+against the current minimum and maximum, at a cost of 2 comparisons per element,
+

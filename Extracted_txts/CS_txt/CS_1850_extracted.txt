@@ -1,0 +1,37 @@
+Chapter 10
+
+VIRTUAL
+MEMORY
+
+ 
+
+ 
+
+In Chapter 9, we discussed various memory-management strategies that are
+used in computer systems. All these strategies have the same goal: to keep
+many processes in memory simultaneously to allow multiprogramming. How-
+ever, they tend to require the entire process to be in memory before the process
+can execute.
+
+Virtual memory is a technique that allows the execution of processes that
+may not be completely in memory. One major advantage of this scheme is
+that programs can be larger than physical memory. Further, virtual memory
+abstracts main memory into an extremely large, uniform array of storage,
+separating logical memory as viewed by the user from physical memory. This
+technique frees programmers from the concerns of memory-storage limitations.
+Virtual memory also allows processes to easily share files and address spaces,
+and it provides an efficient mechanism for process creation.
+
+Virtual memory is not easy to implement, however, and may substantially
+decrease performance if it is used carelessly. In this chapter, we discuss virtual
+memory in the form of demand paging, and examine its complexity and cost.
+
+10.1 = Background
+
+The memory-management algorithms outlined in Chapter 9 are necessary
+because of one basic requirement: The instructions being executed must be in
+physical memory. The first approach to meeting this requirement is to place the
+entire logical address space in physical memory. Overlays and dynamic loading
+
+317
+

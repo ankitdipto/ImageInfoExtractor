@@ -1,0 +1,40 @@
+540 Let UsC
+
+ 
+
+called single-tasking environment. Since only one program could
+run at any given time entire resources of the machine like memory
+and hardware devices were accessible to this program. Under 32-
+bit environment like Windows several programs reside and work
+in memory at the same time. Hence it is known as a multi-tasking
+environment. But the moment there are multiple programs running
+in memory there is a possibility of conflict if two programs
+simultaneously access the machine resources. To prevent this,
+Windows does not permit any application direct access to any
+machine resource. To channelize the access without resulting into
+conflict between applications several new mechanisms were
+created in the Microprocessor & OS. This had a direct bearing on
+the way the application programs are created. This is not a
+Windows OS book. So we would restrict our discussion about the
+new mechanisms that have been introduced in Windows to topics
+that are related, to C programming. These topics are ‘Memory
+Management and Device Access’.
+
+Memory Management
+
+Since users have become more demanding, modem day
+applications have to contend with these demands and provide
+several features in them. To add to this, under Windows several
+such applications run in memory simultaneously. The maximum
+allowable memory—1 MB—that was used in 16-bit environment
+was just too small for this. Hence Windows had to evolve a new
+memory management model. Since Windows runs on 32-bit
+microprocessors each CPU register is 32-bit long. Whenever we
+store a value at a memory location the address of this memory
+location has to be stored in the CPU register at some point in time.
+Thus a 32-bit address can be stored in these registers. This means
+that we can store 2? unique addresses in the registers at different
+times. As a result, we can access 4 GB of memory locations using
+32-bit registers. As pointers store addresses, every pointer under
+32-bit environment also became a 4-byte entity.
+

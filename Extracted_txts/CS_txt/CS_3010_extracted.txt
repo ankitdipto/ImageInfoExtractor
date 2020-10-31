@@ -1,0 +1,54 @@
+Section 12.6 Summary 389
+
+ 
+
+there, progress was made by a series of implementations, and formalizations of ever more
+ambitious variations on the basic planning language.
+
+The STRIPS language is too restricted for complex, realistic domains, but can be extended
+in several ways
+
+Planners based on extended Srrips-like languages and partial-order least-commitment
+algorithms have proven capable of handling complex domains such as spacecraft missions
+and manufacturing.
+
+Hierarchical decomposition allows nonprimitive operators to be included in plans, with
+a known decomposition into more primitive steps.
+
+Hierarchical decomposition is most effective when it serves to prune the search space
+Pruning is guaranteed when either the downward solution property (every abstract solution
+can be decomposed into a primitive solution) or upward solution property (inconsistent
+abstract plans have no primitive solutions) holds.
+
+We can make the planning language closer to situation calculus by allowing conditional
+effects (the effect of an operator depends on what is true when it is executed) and universal
+quantification (the precondition and effect can refer to all objects ofa certain class).
+
+Many actions consume resources, such as money, gas, or raw materials. It is convenient
+to treat these as numeric measures in a pool rather than try to reason about, say, each
+individual coin and bill in the world. Actions can generate and consume resources, and it
+is usually cheap and effective to check partial plans for satisfaction of resource constraints
+before attempting further refinements.
+
+Time is one of the most important resources. With a few exceptions, time can be handled
+with the general mechanisms for manipulating resource measures.
+
+———
+
+BIBLIOGRAPHICAL AND HISTORICAL NOTES
+
+Abstract and hierarchical planning was introduced in the ABSTRIPS system (Sacerdoti, 1974),
+WacROpS a variant of STRIPS. (Actually, the facility in STRIPS itself for leaning macrops—“macro-
+operators" consisting of a sequence of bottom-level steps—could be considered the first mech-
+anism for hierarchical planning.) Hierarchy was also used in the LAWALY system (Siklossy
+and Dreussi, 1973). Wilkins (1986) discusses some ambiguities in the meaning of the term
+“hierarchical planning." Yang (1990) explains the "unique main subaction” property in the con-
+text of abstraction planning. Erol, Hendler, and Nau (1994) present a complete hierarchical
+decomposition planner to which our HD-POP owes a great deal.
+Work on deciding what hierarchical plans are worth knowing about and how to adapt
+previously constructed plans to novel situations goes under the name adaptive planning (Alterman,
+1988) or case-based planning (Hammond, 1989).
+Continuous time was first dealt with by DEVISER (Vere, 1983). A more recent plan-
+ner focusing on the treatment of continuous time constraints is FORBIN (Dean et al., 1990).
+NONLIN+ (Tate and Whiter, 1984) and Sipe (Wilkins, 1988; Wilkins, 1990) could reason
+

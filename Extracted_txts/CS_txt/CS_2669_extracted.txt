@@ -1,0 +1,70 @@
+Section 11.4.
+
+Basic Representations for Planning 347
+
+ 
+
+PLAN
+
+‘CAUSAL LINKS
+
+In this chapter, we will use a representation for plans that allows for deferred commitments
+about ordering and variable binding. A plan is formally defined as a data structure consisting of
+the following four components:
+
++ A set ofplan steps. Each step is one of the operators for the problem.
+
++ A set of step ordering constraints. Each ordering constraint is of the form S$; ~ Sj, which is
+read as “S; before S;"and means that step 5; must occur sometime before step Sj (but not
+necessarily immediately before).4
+
++ A set of variable binding constraints. Each variable constraint is of the form v
+is a variable in some step, and x is either a constant or another variable.
+
++ A set of causal links.> A causal link is written as S; ©. S; and read as “S, achieves c for
+
+Sj" Causal links serve to record the purpose(s) of steps in the plan: here a purpose of $; is
+to achieve the precondition c of Sj.
+
+ 
+
+x, where v
+
+The initial plan, before any refinements have taken place, simply describes the unsolved problem.
+It consists of two steps, called Start and Finish, with the ordering constraint Start X Finish. Both
+Start and Finish have null actions associated with them, so when it is time to execute the plan,
+they are ignored. The Start step has no preconditions, and its effect is to add all the propositions
+that are true in the initial state. The Finish step has the goal state as its precondition, and no
+effects. By defining a problem this way, ourplanners can start with the initial plan and manipulate
+it until they come up with a plan that is a solution. The shoes-and-socks problem is defined by
+the four operators given earlier and an initial plan that we write as follows:
+
+Plan(Steps:{ 51: Op(ACTION:Start),
+S22 Op( ACTION: Finish,
+:RightShoeOn A LeftShoeOn)},
+
+  
+ 
+
+ORDERINGS: {51 < 52},
+BINDINGS: {},
+LINKS: {})
+
+As with individual operators, we will use a graphical notation to describe plans (Figure 11.4(a)).
+The initial plan for the shoes-and-socks problem is shown in Figure 11.4(b). Later in the chapter
+we will see how this notation is extended to deal with more complex plans.
+
+Figure 11.5 shows a partial-order plan that is a solution to the shoes-and-socks problem,
+and six linearizations of the plan. This example shows that the partial-order plan representation
+is powerful because it allows a planner to ignore ordering choices that have no effect on the
+correctness of the plan. As the number of steps grows, the number of possible ordering choices
+grows exponentially. For example, if we added a hat and a coat to the problem, which interact
+neither with each other nor with the shoes and socks, then there would still be one partial
+plan that represents all the solutions, but there would be 180 linearizations of that partial plan.
+(Exercise 11.1 asks you to derive this number).
+
+4 We use the notation d < B = C to mean (4 X B) A (BX C)
+5 Some authors call causal links protection intervals.
+
+ 
+

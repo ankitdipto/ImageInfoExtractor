@@ -1,0 +1,68 @@
+164 cuarrennve Basic Computer Organization and Design
+
+5-10 Design of Accumulator Logic
+
+The circuits associated with the AC register are shown in Fig. 5-19. The adder
+and logic circuit has three sets of inputs. One set of 16 inputs comes from the
+outputs of AC. Another set of 16 inputs comes from the data register DR. A
+third set of eight inputs comes from the input register INPR. The outputs of
+the adder and logic circuit provide the data inputs for the register. In addition,
+it is necessary to include logic gates for controlling the LD, INR, and CLR in
+the register and for controlling the operation of the adder and logic circuit.
+
+In order to design the logic associated with AC, it is necessary to go over
+the register transfer statements in Table 5-6 and extract all the statements that
+change the content of AC.
+
+Dif: AC-AC A DR AND with DR
+
+Dis AC<AC + DR Add with DR
+
+Djs: AC<—DR Transfer from DR
+
+PBy: AC(O-7) — INPR Transfer from INPR
+Bs AC AC Complement
+
+"By: ACeshr AC, AC(I5)—E Shift right
+1Be  AC@shlAC, AC()E Shift left
+By: ACO Clear
+
+YB: = ACCAC +1 Increment
+
+From this list we can derive the control logic gates and the adder and logic
+circuit.
+
+Figure 5-19 Circuits associated with AC.
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+6 ‘Adder and 16 ‘Accumulater
+From DR =| logic t+ register
+
+3 circuit (ac) To bus
+
+From [NPR
+Lo] mr] ar
+Clock
+Contra
+ates
+Ls
+
+ 
+

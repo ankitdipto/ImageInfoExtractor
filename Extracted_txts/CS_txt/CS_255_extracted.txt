@@ -1,0 +1,48 @@
+848
+
+Chapter 29 Linear Programming
+
+of the line x; + x2 = z and the feasible region is the set of feasible solutions that
+have objective value z. Figure 29.2(b) shows the lines x; + x2 = 0, x1 +x2 =4,
+and x; + X2 = 8. Because the feasible region in Figure 29.2 is bounded, there
+must be some maximum value z for which the intersection of the line x; + x2 = Z
+and the feasible region is nonempty. Any point at which this occurs is an optimal
+solution to the linear program, which in this case is the point x; = 2 and x2 = 6
+with objective value 8.
+
+It is no accident that an optimal solution to the linear program occurs at a vertex
+of the feasible region. The maximum value of z for which the line x; + ¥2 = Z
+intersects the feasible region must be on the boundary of the feasible region, and
+thus the intersection of this line with the boundary of the feasible region is either a
+single vertex or a line segment. If the intersection is a single vertex, then there is
+just one optimal solution, and it is that vertex. If the intersection is a line segment,
+every point on that line segment must have the same objective value; in particular,
+both endpoints of the line segment are optimal solutions. Since each endpoint of a
+line segment is a vertex, there is an optimal solution at a vertex in this case as well.
+
+Although we cannot easily graph linear programs with more than two variables,
+the same intuition holds. If we have three variables, then each constraint corre-
+sponds to a half-space in three-dimensional space. The intersection of these half-
+spaces forms the feasible region. The set of points for which the objective function
+obtains a given value z is now a plane (assuming no degenerate conditions). If all
+coefficients of the objective function are nonnegative, and if the origin is a feasible
+solution to the linear program, then as we move this plane away from the origin, in
+a direction normal to the objective function, we find points of increasing objective
+value. (If the origin is not feasible or if some coefficients in the objective function
+are negative, the intuitive picture becomes slightly more complicated.) As in two
+dimensions, because the feasible region is convex, the set of points that achieve
+the optimal objective value must include a vertex of the feasible region. Simi-
+larly, if we have n variables, each constraint defines a half-space in n-dimensional
+space. We call the feasible region formed by the intersection of these half-spaces a
+simplex. The objective function is now a hyperplane and, because of convexity, an
+optimal solution still occurs at a vertex of the simplex.
+
+The simplex algorithm takes as input a linear program and returns an optimal
+solution. It starts at some vertex of the simplex and performs a sequence of itera-
+tions. In each iteration, it moves along an edge of the simplex from a current vertex
+to a neighboring vertex whose objective value is no smaller than that of the current
+vertex (and usually is larger.) The simplex algorithm terminates when it reaches
+a local maximum, which is a vertex from which all neighboring vertices have a
+smaller objective value. Because the feasible region is convex and the objective
+function is linear, this local optimum is actually a global optimum. In Section 29.4,
+

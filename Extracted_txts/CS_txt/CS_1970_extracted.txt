@@ -1,0 +1,51 @@
+418 Chapter 12 File-System Implementation
+
+tem verifies that the device contains a valid file system. It does so by asking the
+device driver to read the device directory and verifying that the directory has
+the expected format. If the format is invalid, the partition must have its consis-
+tency checked and possibly corrected, either with or without user intervention.
+Finally, the operating system notes in its in-memory mount table structure that
+a file system is mounted, and the type of the file system. The details of this
+function depend on the operating system. Microsoft Windows-based systems
+mount each partition in a separate name space, denoted by a letter and a colon.
+To record that a file system is mounted at f:, for example, the operating system
+places a pointer to the file system in a field of the device structure corresponding
+tof. When a process specifies the driver letter, the operating system finds the
+appropriate file-system pointer and traverses the directory structures on that
+device to find the specified file or directory.
+
+On UNIX, file systems can be mounted at any directory. This is implemented
+by setting a flag in the in-memory copy of the inode for that directory. The flag
+indicates that the directory is a mount point. A field then points to an entry in
+the mount table, indicating which device is mounted there. The mount table
+entry contains a pointer to the superblock of the file system on that device.
+This scheme enables the operating system to traverse its directory structure,
+switching among file systems as appropriate.
+
+12.2.3 Virtual File Systems
+
+While the previous section makes it clear that modern operating systems must
+support concurrently multiple types of file systems, we now need to discuss
+some implementation details. How does an operating system allow multiple
+types of file systems to be integrated into a directory structure? How can users
+seamlessly move between file-system types as they navigate the file-system
+space?
+
+An obvious but suboptimal method of implementing multiple types of
+file systems is to write directory and file routines for each type. Rather, most
+operating systems, including UNIX, use object-oriented techniques to simplify,
+organize, and modularize the implementation. The use of these methods allows
+very dissimilar file-system types to be implemented within the same structure,
+including network file systems, such as NFS. Users can access files that are
+contained within multiple file systems on the local disk, or even on file systems
+available across the network.
+
+Data structures and procedures are used to isolate the basic system call
+functionality from the implementation details. Thus, the file-system implemen-
+tation consists of three major layers; it is depicted schematically in Figure 12.4.
+The first layer is the file-system interface, based on the open, read, write, and
+close calls, and file descriptors.
+
+The second layer is called the Virtual File System (VFS) layer; it serves two
+important functions:
+

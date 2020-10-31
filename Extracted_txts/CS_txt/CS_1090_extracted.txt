@@ -1,0 +1,62 @@
+Section 7.6.
+
+Representing Change in the World 203
+
+ 
+
+In a more complex environment, the percept might be an entire array of gray-scale or color
+values (a camera image), and the perceptual rules would have to infer such things as "There's a
+large truck right behind me flashing its lights." Chapter 24 covers the topic of perception in more
+detail. Of course, computer vision is a very difficult task, whereas these rules are trivial, but the
+idea is the same
+
+Limitations of simple reflex agents
+
+Simple reflex agents will have a hard time in the wumpus world. The easiest way to see this
+is to consider the Climb action. The optimal agent should either retrieve the gold or determine
+that it is too dangerous to get the gold, and then return to the start square and climb out of the
+cave. A pure reflex agent cannot know for sure when to Climb, because neither having the gold
+nor being in the start square is part of the percept; they are things the agent knows by forming a
+representation of the world.
+
+Reflex agents are also unable to avoid infinite loops. Suppose that such an agent has picked
+up the gold and is headed for home. It is likely that the agent will enter one ofthe squares it was
+in before, and receive the same percept. In that case, it must, by definition, do exactly what it did
+before. Like the dung beetle of Chapter 2, it does not know whether it is carrying the gold, and
+thus cannot make its actions conditional on that. Randomization provides some relief, but only
+at the expense of risking many fruitless actions.
+
+1.6__REPRESENTING CHANGE IN THE WORLD.
+
+ 
+
+INTERNAL MODEL
+
+ 
+
+DICHRONIC
+
+In our agent design, all percepts are added into the knowledge base, and in principle the percept
+history is all there is to know about the world. If we allow rules that refer to past percepts as well
+as the current percept, then we can, in principle, extend the capabilities of an agent to the point
+where the agent is acting optimally.
+
+Writing such rules, however, is remarkably tedious unless we adopt certain patterns of
+reasoning that correspond to maintaining an internal model of the world, or at least of the
+relevant aspects thereof. Consider an example from everyday life: finding one's keys. An agent
+that has taken the time to build a representation of the fact "my keys are in my pocket" need only
+recall that fact to find the keys. In contrast, an agent thatjust stored the complete percept sequence
+would have to do a lot of reasoning to discover where the keys are. It would be theoretically
+possible for the agent to in effect rewind the video tape of its life and replay it in fast-forward,
+using inference rules to keep track of where the keys are, but it certainly would not be convenient.
+
+Tt can be shown that any system that makes decisions on the basis ofpast percepts can
+be rewritten to use instead a set of sentences about the current world state, provided that these
+sentences are updated as each new percept arrives and as each action is done.
+
+Rules describing the way in which the world changes (or does not change) are called
+diachronic rules, from the Greek for "across time." Representing change is one of the most
+important areas in knowledge representation. The real world, as well as the wumpus world, is
+
+ 
+

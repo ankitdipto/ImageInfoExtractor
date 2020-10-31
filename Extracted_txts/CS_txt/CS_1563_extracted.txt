@@ -1,0 +1,63 @@
+3.6 Virtual Machines 81
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+processes
+oF
+j programming ~
+a interface
+3 ae Mi vM2_ | VM3
+seer virtual machine
+implementation
+Farias hardware
+(a) (b)
+
+Figure 3.11 System models. (a) Nonvirtual machine. (b) Virtual machine.
+
+A major difficulty with the virtual-machine approach involves disk sys-
+tems. Suppose that the physical machine has three disk drives but wants to
+support seven virtual machines. Clearly, it cannot allocate a disk drive to each
+virtual machine. Remember that the virtual-machine software itself will need
+substantial disk space to provide virtual memory. The solution is to provide
+virtual disks, which are identical in all respects except size—termed minidisks
+in IBM's VM operating system. The system implements each minidisk by allo-
+cating as many tracks on the physical disks as the minidisk needs. Obviously,
+the sum of the sizes of all minidisks must be smaller than the size of the physical
+disk space available.
+
+Users thus are given their own virtual machines. They can then run any of
+the operating systems or software packages that are available on the underlying
+machine. For the IBM VM system, a user normally runs CMS—a single-user
+interactive operating system. The virtual-machine software is concerned with
+multiprogramming multiple virtual machines onto a physical machine, but
+it does not need to consider any user-support software. This arrangement
+may provide a useful partitioning into two smaller pieces of the problem of
+designing a multiuser interactive system.
+
+3.6.1 Implementation
+
+Although the virtual-machine concept is useful, it is difficult to implement.
+Much work is required to provide an exact duplicate of the underlying machine.
+

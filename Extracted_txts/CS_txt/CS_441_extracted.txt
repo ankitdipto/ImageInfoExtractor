@@ -1,0 +1,79 @@
+32.3 String matching with finite automata 999
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 32.8 An illustration for the proof of Lemma 32.2. The figure shows that r < o(x) + 1,
+where r = o(xa).
+
+To clarify the operation of a string-matching automaton, we now give a simple,
+efficient program for simulating the behavior of such an automaton (represented
+by its transition function 6) in finding occurrences of a pattern P of length m in an
+input text T[1..m]. As for any string-matching automaton for a pattern of length m,
+the state set Q is {0,1,...,m}, the start state is 0, and the only accepting state is
+state m.
+
+FINITE-AUTOMATON-MATCHER(T, 6, m)
+
+ 
+
+ 
+
+1 n= T.length
+
+2 q=0
+
+3 fori = lton
+
+4 4q = 64, T Ti)
+
+5 ifq==m
+
+6 print “Pattern occurs with shift” i —m
+
+From the simple loop structure of FINITE-AUTOMATON-MATCHER, we can easily
+see that its matching time on a text string of length n is O(n). This matching
+time, however, does not include the preprocessing time required to compute the
+transition function 5. We address this problem later, after first proving that the
+procedure FINITE-AUTOMATON-MATCHER operates correctly.
+
+Consider how the automaton operates on an input text T[1../]. We shall prove
+that the automaton is in state o(7;) after scanning character T[i]. Since o(T;) = m
+if and only if P 4 T;, the machine is in the accepting state m if and only if it has
+just scanned the pattern P. To prove this result, we make use of the following two
+lemmas about the suffix function o.
+
+Lemma 32.2 (Suffix-function inequality)
+For any string x and character a, we have o(xa) < o(x) + 1.
+
+Proof Referring to Figure 32.8, let r = o(xa). If r = 0, then the conclusion
+o(xa) =r < o(x) + 1 is trivially satisfied, by the nonnegativity of a(x). Now
+assume that r > 0. Then, P, 3 xa, by the definition of o. Thus, P,_; 4 x, by
+

@@ -1,0 +1,55 @@
+144
+
+Chapter 5. Game Playing
+
+ 
+
+The first two computer chess programs to play a match against each other were the Kotok-
+McCarthy program and the “ITEP” program written at Moscow's Institute of Theoretical and
+Experimental Physics (Adelson-Velsky et al., 1970). This intercontinental match was played by
+telegraph. It ended in 1967 with a 3-1 victory for the ITEP program. The first ACM North
+American Computer Chess Championship tournament was held in New York City in 1970. The
+first World Computer Chess Championship was held in 1974 in Stockholm (Hayes and Levy,
+1976). It was won by Kaissa (Adelson-Velsky ef al., 1975), another program from ITEP.
+
+A later version of Greenblatt's MacHack 6 was the first chess program to run on custom
+hardware designed specifically for chess (Moussouris et a/., 1979), but the firstprogram to achieve
+notable success through the use of custom hardware was Belle (Condon and Thompson, 1982).
+Most of the strongest recent programs, such as HITECH (Ebeling, 1987; Berliner and Ebeling,
+1989) and Deep Thought (Hsu et a/., 1990) have run on custom hardware. Major exceptions
+are Cray Blitz (Hyatt ef a/., 1986), which runs on a general-purpose Cray supercomputer, and
+Socrates II, winner of the 23rd ACM North American Computer Chess Championship in 1993,
+which runs on an Intel 486-based microcomputer. It should be noted that Deep Thought was not
+there to defend its title. Deep Thought 2 regained the championship in 1994. It should also be
+noted that even custom-hardware machines can benefit greatly from improvements purely at the
+software level (Berliner, 1989).
+
+The Fredkin Prize, established in 1980, offered $5000 to the first program to achieve a
+Master rating, $10,000 to the first program to achieve a USCF (United States Chess Federation)
+rating of 2500 (near the grandmaster level), and $100,000 for the first program to defeat the
+human world champion. The $5000 prize was claimed by Belle in 1983, and the $10,000 prize
+by Deep Thought in 1989. The $100,000 prize remains unclaimed, in view of convincing wins
+in extended play by world champion Gary Kasparov over Deep Thought (Hsu ef al., 1990).
+
+The literature for computer chess is far better developed than for any other game played
+by computer programs. Aside from the tournaments already mentioned, the rather misleadingly
+named conference proceedings Heuristic Programming in Artificial Intelligence report on the
+Computer Chess Olympiads. The International Computer Chess Association (ICCA), founded
+in 1977, publishes the quarterly JCC4 Journal. Important papers have been published in the
+numbered serial anthology Advances in Computer Chess, starting with (Clarke, 1977). Some
+early general AI textbooks (Nilsson, 1971; Slagle, 1971) include extensive material on game-
+playing programs, including chess programs. David Levy’s Computer Chess Compendium (Levy,
+1988a) anthologizes many of the most important historical papers in the field, together with the
+scores of important games played by computer programs. The edited volume by Marsland and
+Schaeffer (1990) contains interesting historical and theoretical papers on chess and Go along
+with descriptions of Cray Blitz, HITECH, and Deep Thought. Several important papers on chess,
+along with material on almost all games for which computer game-playing programs have been
+written (including checkers, backgammon, Go, Othello, and several card games) can be found in
+Levy (1988b). There is even a textbook on how to write a computer game-playing program, by
+one of the major figures in computer chess (Levy, 1983).
+
+The expectimax algorithm described in the text was proposed by Donald Michie (1966),
+although of course it follows directly from the principles of game-tree evaluation due to Von
+Neumann and Morgenstern. Bruce Ballard (1983) extended alpha-beta pruning to cover trees
+with chance nodes. The backgammon program BKG (Berliner, 1977; Berliner, 1980b) was
+

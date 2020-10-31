@@ -1,0 +1,50 @@
+84 curren THREE Data Representation
+
+Gray code
+
+ized because of the three leading 0's. The number can be normalized by shifting
+it three positions to the left and discarding the leading 0's to obtain 11010000.
+‘The threeshifts multiply the number by 2° = 8. Tokeep the same value forthe
+floating-point number, the exponent must be subtracted by 3. Normalized
+numbers provide the maximum possible precision for the floating-point num-
+ber. A zero cannot be normalized because it does not have a nonzero digit. It
+is usually represented in floating-point by all (’s in the mantissa and exponent.
+
+Arithmetic operations with floating-point numbers are more complicated
+than arithmeticoperations with fixed-point numbers and their execution takes
+longer and requires more complex hardware. However, floating-point repre-
+sentation is a must for scientific computations because of the scaling problems
+involved with fixed-point computations, Many computers and all electronic
+calculators have the built-in capability of performing floating, point arithmetic
+operations. Computers that do not have hardware for floating-point computa-
+tions have a set of subroutines to help the user program scientific problems
+with floating-point numbers. Arithmetic operations with floating-point num-
+bers are discussed in Sec. 10-5.
+
+3-5__Other Binary Codes
+
+In previous sections we introduced the most common types of binary-coded
+data found in digital computers. Other binary codes for decimal numbers and
+alphanumeric characters are sometimes used. Digital computers also employ
+other binary codes for special applications. A few additional binary codes
+encountered in digital computers are presented in this section.
+
+Gray Code
+Digital systems can process data in discrete form only. Many physical systems
+supply continuous output data. The data must be converted into digital form
+before they can be used by a digital computer. Continuous, or analog, infor-
+mation is converted into digital form by means of an analog-to-digital con-
+verter. The reflected binary or Gray code, shown in Table 3-5, is sometimes used
+for the converted digital data. The advantage of the Gray code over straight
+binary numbers is that the Gray code changes by only one bit as it sequences
+from one number to the next. In other words, the change from any number
+to the next in sequence is recognized by a change of only one bit from 0 to 1
+or from 1 to 0. A typical application of the Gray code occurs when the analog
+data are represented by the continuous change of a shaft position. The shaft
+is partitioned into segments with eachsegment assigned a number. If adjacent
+segments are made to correspond to adjacent Gray code numbers, ambiguity
+is reduced when the shaft position is in the line that separates any two
+segments.
+
+Gray code counters are sometimes used to provide the timing sequences
+

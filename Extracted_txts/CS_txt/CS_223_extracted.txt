@@ -1,0 +1,58 @@
+822
+
+Chapter 28 Matrix Operations
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2315 @3 15 2315 2315
+6 13.5 19 3]4.2 4 3102 4 3|4 2 4
+2 19 10 23 1|16 9 18 1 4]1 2 1 412
+4 101131 2|4 9 21 2.1;717 21743
+(a) (b) (©) (d)
+23°15 1000 2315
+6135 19) _ {3 100 0424
+219 10 23] = {1410 0012
+410 11 31 2171 0003
+
+A L U
+
+(e)
+
+Figure 28.1 The operation of LU-DECOMPOSITION. (a) The matrix A. (b) The element a}; = 2
+in the black circle is the pivot, the shaded column is v/a 11, and the shaded row is w'. The elements
+of U computed thus far are above the horizontal line, and the elements of L are to the left of the
+vertical line. The Schur complement matrix A’ — vwT/ay1 occupies the lower right. (c) We now
+operate on the Schur complement matrix produced from part (b). The element a22 = 4 in the black
+circle is the pivot, and the shaded column and row are v/a and wT (in the partitioning of the Schur
+complement), respectively. Lines divide the matrix into the elements of U computed so far (above),
+the elements of L computed so far (left), and the new Schur complement (lower right). (d) After the
+next step, the matrix A is factored. (The element 3 in the new Schur complement becomes part of U
+when the recursion terminates.) (e) The factorization A = LU.
+
+trix A. (We don’t need to divide by a; in line 12 because we already did so when
+we computed /;; in line 8.) Because line 12 is triply nested, LU-DECOMPOSITION
+runs in time (71).
+
+Figure 28.1 illustrates the operation of LU-DECOMPOSITION. It shows a stan-
+dard optimization of the procedure in which we store the significant elements of L
+and U in place in the matrix A. That is, we can set up a correspondence between
+each element aj; and either /;; (if i > j) or ui; (if i < j) and update the ma-
+trix A so that it holds both L and U when the procedure terminates. To obtain
+the pseudocode for this optimization from the above pseudocode, just replace each
+reference to / or u by a; you can easily verify that this transformation preserves
+correctness.
+
+Computing an LUP decomposition
+
+Generally, in solving a system of linear equations Ax = b, we must pivot on off-
+diagonal elements of A to avoid dividing by 0. Dividing by 0 would, of course,
+be disastrous. But we also want to avoid dividing by a small value—even if A is
+

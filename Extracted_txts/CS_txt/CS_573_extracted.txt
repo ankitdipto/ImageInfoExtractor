@@ -1,0 +1,38 @@
+35
+
+Approximation Algorithms
+
+Many problems of practical significance are NP-complete, yet they are too impor-
+tant to abandon merely because we don’t know how to find an optimal solution in
+polynomial time. Even if a problem is NP-complete, there may be hope. We have at
+least three ways to get around NP-completeness. First, if the actual inputs are small,
+an algorithm with exponential running time may be perfectly satisfactory. Second,
+we may be able to isolate important special cases that we can solve in polynomial
+time. Third, we might come up with approaches to find near-optimal solutions in
+polynomial time (either in the worst case or the expected case). In practice, near-
+optimality is often good enough. We call an algorithm that returns near-optimal
+solutions an approximation algorithm. This chapter presents polynomial-time ap-
+proximation algorithms for several NP-complete problems.
+
+Performance ratios for approximation algorithms
+
+Suppose that we are working on an optimization problem in which each potential
+solution has a positive cost, and we wish to find a near-optimal solution. Depending
+on the problem, we may define an optimal solution as one with maximum possi-
+ble cost or one with minimum possible cost; that is, the problem may be either a
+maximization or a minimization problem.
+
+We say that an algorithm for a problem has an approximation ratio of p(n) if,
+for any input of size n, the cost C of the solution produced by the algorithm is
+within a factor of p(7) of the cost C* of an optimal solution:
+
+*
+
+max (&-S) < p(n). (35.1)
+
+If an algorithm achieves an approximation ratio of p(7), we call it a p()-approx-
+imation algorithm. The definitions of the approximation ratio and of a p(n)-
+approximation algorithm apply to both minimization and maximization problems.
+For a maximization problem, 0 < C < C*, and the ratio C*/C gives the factor
+by which the cost of an optimal solution is larger than the cost of the approximate
+

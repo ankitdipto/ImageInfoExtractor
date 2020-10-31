@@ -1,0 +1,101 @@
+17.4 Dynamic tables 469
+
+32
+
+ 
+
+ 
+
+ 
+
+24
+
+ 
+
+ 
+
+size;
+
+ 
+
+ 
+
+ 
+
+ 
+
+num;
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 17.4 The effect of a sequence of m TABLE-INSERT and TABLE-DELETE operations on the
+number num; of items in the table, the number size; of slots in the table, and the potential
+
+oy a J 2 mum —sivei ifa; > 1/2,
+' ) size;/2— mum; if aj < 1/2,
+
+each measured after the ith operation. The thin line shows num;, the dashed line shows size;, and
+the thick line shows ©;. Notice that immediately before an expansion, the potential has built up to
+the number of items in the table, and therefore it can pay for moving all the items to the new table.
+Likewise, immediately before a contraction, the potential has built up to the number of items in the
+table.
+
+tor of a nonempty table T by a(T) = T.num/T.size. Since for an empty table,
+T.num = T.size = 0 and a(T) = 1, we always have T.num = a(T) - T.size,
+whether the table is empty or not. We shall use as our potential function
+
+2-T.num—T.size ifa(T) > 1/2,
+
+OT) =
+7) T.size/2—T.num ifa(T) < 1/2.
+
+(17.6)
+
+Observe that the potential of an empty table is 0 and that the potential is never
+negative. Thus, the total amortized cost of a sequence of operations with respect
+to ® provides an upper bound on the actual cost of the sequence.
+
+Before proceeding with a precise analysis, we pause to observe some properties
+of the potential function, as illustrated in Figure 17.4. Notice that when the load
+factor is 1/2, the potential is 0. When the load factor is 1, we have T. size = T.num,
+which implies ®(7) = T.nwm, and thus the potential can pay for an expansion if
+an item is inserted. When the load factor is 1/4, we have T. size = 4-T.num, which
+

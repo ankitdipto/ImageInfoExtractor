@@ -1,0 +1,106 @@
+542
+
+Let Us Cj
+
+key.i =512;
+Printf ( "\nkey.i = %q" key):
+print *\nkey cho] = Md ke,
+‘att ( m : = hd", key, :
+print! ("\nkey.chft] = %a" eral a:
+
+key.ch[0] = 50; /* assi
+
+i , SSI
+
+oi ! Ninkey.i= hd keys yn U2 key-chfo] 7
+rintf ( "Inkey.ch[0] = %d" : kei
+int (" » Key.ch[0}) ;
+
+} Pritt (“okey cht} = ad, keyoint}
+
+And here is the output...
+
+key.i = 512
+key.ch[0] = 0
+key.ch[1] =2
+key.i= 562
+key.ch[0] = 50
+key.ch[1] =2
+
+eee We move on to the next
+Pualtes a way to look at the s
+example, there can exist a
+
+section, let us reiterate t i
+ame data in several differen: wa
+union as shown below. ™
+union b
+{
+
+double d;
+
+float f[2];
+
+int i[4];
+
+char ch[8];
+
+union b data;
+
+In what differ
+: ent ways
+Sometimes, ag - YS can the data be ; 7
+two sets of ain rer lee set of eight bytes (data, sar from 1
+ytes each (data.f{0] and data f{1]) ‘Siained is
+. > etimes as
+
+543
+
+Chapter 15: Miscellaneous Features
+
+four sets of 2 bytes each (data.i[0], data.i[1], data.i[2] and
+data.[3]) and sometimes as eight individual bytes (data.ch[0],
+
+data.ch[1]... data.ch[7]).
+
+Also note that, there can exist a union, where each of its elements
+is of different size. In such a case, the size of the union variable
+will be equal to the size of the longest element in the union.
+
+Union of Structures
+
+Just as one structure can be nested within another, a union too can
+be nested in another union. Not only that, there can be a union in a
+structure, or a structure in a union. Here is an example of stuctures
+
+nested in a union.
+
+# include <stdio.h>
+void main( )
+
+struct a
+{
+
+int i;
+
+char ¢[2];
+Ut
+{
+
+int j;
+
+char d[2];
+hi
+
+unionz
+
+struct a key ;
+structb data;
+‘i
+
+union z strange ;
+
+strange.key.i = 512;
+
+strange.data.d[0] = 0; 526
+

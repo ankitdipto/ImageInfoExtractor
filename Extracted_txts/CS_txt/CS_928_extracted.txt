@@ -1,0 +1,46 @@
+256 Let Us C
+
+ 
+
+()
+
+Now you would definitely not like to retype the deleted code
+again.
+
+One solution in such a situation is to put the old code within a
+pair of /* */ combination. But we might have already
+written a comment in the code that we are about to “comment
+out”. This would mean we end up with nested comments.
+Obviously, this solution won’t work since we can’t nest
+comments in C.
+
+Therefore the solution is to use conditional compilation as
+shown below.
+
+main()
+
+#ifdef OKAY
+statement 1;
+statement 2; /* detects virus “/
+statement 3 ;
+statement 4 ; /* specific to stone virus */
+#endif
+
+statement 5 ;
+
+statement 6 ;
+
+statement 7 ;
+}
+
+Here, statements 1, 2, 3 and 4 would get compiled only if the
+macro OKAY has been defined, and we have purposefully
+omitted the definition of the macro OKAY. At a later date, if
+we want that these statements should also get compiled all
+that we are required to do is to delete the #ifdef and #endif
+statements.
+
+A more sophisticated use of #ifdef has to do with making the
+programs portable, i.e. to make them work on two totally
+different computers. Suppose an organization has two
+

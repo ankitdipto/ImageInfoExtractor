@@ -1,0 +1,49 @@
+110 Chapter4 Processes
+
+IPC provides a mechanism to allow processes to communicate and to syn-
+chronize their actions without sharing the same address space. IPC is particu-
+larly useful in a distributed environment where the communicating processes
+may reside on different computers connected with a network. An example is a
+chat program used on the World Wide Web.
+
+IPC is best provided by a message-passing system, and message systems
+can be defined in many ways. In this section, we look at different issues when
+designing message-passing systems.
+
+4.5.1 Message-Passing System
+
+The function of a message system is to allow processes to communicate with
+one another without the need to resort to shared data. We have already seen
+message passing used as a method of communication in microkernels (Section
+3.5.3). In this scheme, services are provided as ordinary user processes. That
+is, the services operate outside of the kernel. Communication among the user
+processes is accomplished through the passing of messages. An IPC facility
+provides at least the two operations: send(message) and receive(message).
+
+Messages sent by a process can be of either fixed or variable size. If
+only fixed-sized messages can be sent, the system-level implementation is
+straightforward. This restriction, however, makes the task of programming
+more difficult. On the other hand, variable-sized messages require a more
+complex system-level implementation, but the programming task becomes
+simpler.
+
+If processes P and Q want to communicate, they must send messages to and
+receive messages from each other; a communication link must exist between
+them. This link can be implemented in a variety of ways. We are concerned here
+not with the link’s physical implementation (such as shared memory, hardware
+bus, or network, which are covered in Chapter 15), but rather with its logical
+implementation. Here are several methods for logically implementing a link
+and the send/receive operations:
+
+Direct or indirect communication
+
+« Symmetric or asymmetric communication
+
+Automatic or explicit buffering
+
+Send by copy or send by reference
+
+ Fixed-sized or variable-sized messages
+
+We look at each of these types of message systems next.
+

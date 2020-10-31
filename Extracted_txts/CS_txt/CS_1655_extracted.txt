@@ -1,0 +1,50 @@
+158 Chapter 6 CPU Scheduling
+
+not minimal, and may vary substantially if the process CPU-burst times vary
+greatly.
+
+In addition, consider the performance of FCFS scheduling in a dynamic
+situation. Assume we have one CPU-bound process and many 1/O-bound
+processes. As the processes flow around the system, the following scenario may
+result. The CPU-bound process will get the CPU and hold it. During this time, all
+the other processes will finish their I/O and move into the ready queue, waiting
+for the CPU. While the processes wait in the ready queue, the 1/0 devices are
+idle. Eventually, the CPU-bound process finishes its CPU burst and moves to
+an I/O device. All the 1/O-bound processes, which have very short CPU bursts,
+execute quickly and move back to the I/O queues. At this point, the CPU sits
+idle. The CPU-bound process will then move back to the ready queue and be
+allocated the CPU. Again, all the 1/O processes end up waiting in the ready
+queue until the CPU-bound process is done. There is a convoy effect, as all
+the other processes wait for the one big process to get off the CPU. This effect
+results in lower CPU and device utilization than might be possible if the shorter
+processes were allowed to go first.
+
+The FCFS scheduling algorithm is nonpreemptive. Once the CPU has been
+allocated to a process, that process keeps the CPU until it releases the CPU,
+either by terminating or by requesting I/O. The FCFS algorithm is particularly
+troublesome for time-sharing systems, where each user needs to get a share of
+the CPU at regular intervals. It would be disastrous to allow one process to keep
+the CPU for an extended period.
+
+6.3.2 Shortest-Job-First Scheduling
+
+A different approach to CPU scheduling is the shortest-job-first (SJF) schedul-
+ing algorithm. This algorithm associates with each process the length of the
+latter’s next CPU burst. When the CPU is available, it is assigned to the process
+that has the smallest next CPU burst. If two processes have the same length
+next CPU burst, FCFS scheduling is used to break the tie. Note that a more
+appropriate term would be the shortest next CPU burst, because the scheduling
+is done by examining the length of the next CPU burst of a process, rather than
+its total length. We use the term SJF because most people and textbooks refer to
+this type of scheduling discipline as SJF.
+
+As an example, consider the following set of processes, with the length of
+the CPU-burst time given in milliseconds:
+
+Process Burst Time
+
+Py 6
+Po 8
+P3 7
+Py 3
+

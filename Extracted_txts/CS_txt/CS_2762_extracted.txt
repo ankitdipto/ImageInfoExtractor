@@ -1,0 +1,52 @@
+318
+
+Chapter 13 Red-Black Trees
+
+The while loop in lines 1-15 maintains the following three-part invariant at the
+start of each iteration of the loop:
+
+a. Node z is red.
+
+b. If z.p is the root, then z.p is black.
+
+c. If the tree violates any of the red-black properties, then it violates at most
+one of them, and the violation is of either property 2 or property 4. If the
+tree violates property 2, it is because z is the root and is red. If the tree
+violates property 4, it is because both z and z.p are red.
+
+Part (c), which deals with violations of red-black properties, is more central to
+showing that RB-INSERT-FIXuP restores the red-black properties than parts (a)
+and (b), which we use along the way to understand situations in the code. Because
+we'll be focusing on node z and nodes near it in the tree, it helps to know from
+part (a) that z is red. We shall use part (b) to show that the node Z.p.p exists when
+we reference it in lines 2, 3, 7, 8, 13, and 14.
+
+Recall that we need to show that a loop invariant is true prior to the first itera-
+tion of the loop, that each iteration maintains the loop invariant, and that the loop
+invariant gives us a useful property at loop termination.
+
+We start with the initialization and termination arguments. Then, as we exam-
+ine how the body of the loop works in more detail, we shall argue that the loop
+maintains the invariant upon each iteration. Along the way, we shall also demon-
+strate that each iteration of the loop has two possible outcomes: either the pointer z
+moves up the tree, or we perform some rotations and then the loop terminates.
+
+Initialization: Prior to the first iteration of the loop, we started with a red-black
+tree with no violations, and we added a red node z. We show that each part of
+the invariant holds at the time RB-INSERT-FIXuP is called:
+
+a. When RB-INSERT-FIXUP is called, z is the red node that was added.
+
+b. If z.p is the root, then z.p started out black and did not change prior to the
+call of RB-INSERT-FIXUP.
+
+c. We have already seen that properties 1, 3, and 5 hold when RB-INSERT-
+Fixup is called.
+If the tree violates property 2, then the red root must be the newly added
+node z, which is the only internal node in the tree. Because the parent and
+both children of z are the sentinel, which is black, the tree does not also
+violate property 4. Thus, this violation of property 2 is the only violation of
+red-black properties in the entire tree.
+If the tree violates property 4, then, because the children of node z are black
+sentinels and the tree had no other violations prior to z being added, the
+

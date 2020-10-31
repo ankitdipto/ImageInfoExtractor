@@ -1,0 +1,42 @@
+Chapter 18: Graphics Under Windows 595
+
+ 
+
+(b) From the dialog that pops up select ‘bitmap’ followed by the
+import button.
+
+(c) Select the suitable .bmp file.
+
+(d) From the ‘File’ menu select the save option to save the
+generated resource script file (Scriptl.rc). When we select
+‘Save’ one more file called ‘resource.h’ also gets created.
+
+(e) Add the ‘Scriptl.rc’ file to the project using the Project | Add
+to Project | Files option.
+
+While using the bitmap in the program it is always referred using
+an id. The id is #defined in the file ‘resource.h’. Somewhere
+information has to be stored linking the id with the actual .bmp file
+on the disk. This is done in the ‘Scriptl.rc’ file. We need to
+include the ‘resource.h’ file in the program.
+
+To create the pattern brush we first need to load the bitmap in
+memory. We have done this using the LoadBitmap( ) API
+function. The first parameter passed to this function is the handle
+to the instance of the program. When InitInstance( ) function is
+called from WinMain( ) it stores the instance handle in a global
+variable hInst. We have passed this hInst to LoadBitmap( ). The
+second parameter passed to it is a string representing the bitmap.
+This string is created from the resource id using the
+MAKEINTRESOURCE macro. The LoadBitmap( ) function
+returns the handle to the bitmap. This handle is then passed to the
+CreatePatternBrush( ) function. This brush is then selected into
+the DC and then a rectangle is drawn using it.
+
+Note that if the size of the bitmap is bigger than the rectangle
+being drawn then the bitmap is suitably clipped. On the other hand
+if the bitmap is smaller than the rectangle it is suitably replicated.
+
+While doing the clean up firstly the brush is deleted followed by
+the bitmap.
+

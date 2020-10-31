@@ -1,0 +1,44 @@
+112 Let Us C
+
+ 
+
+(a)
+
+(
+
+main()
+{
+int i;
+for (i=1;i<=10;i=i+1)
+printf (“%d\n", i) ;
+}
+
+Note that the initialisation, testing and incrementation of loop
+counter is done in the for statement itself. Instead of i=i+ 1,
+the statements i++ or i += 1 can also be used.
+
+Since there is only one statement in the body of the for loop,
+the pair of braces have been dropped. As with the while, the
+default scope of for is the immediately next statement after
+for.
+
+main()
+{
+int i;
+for (i=1;i<=10;)
+{
+printf (“%d\n", i) ;
+i=i+1;
+}
+}
+
+Here, the incrementation is done within the body of the for
+loop and not in the for statement. Note that inspite of this the
+semicolon after the condition is necessary.
+
+main()
+{
+int i=1;
+for (;i<=10;i=i+1)
+printf (“%d\n", i) ;
+

@@ -1,0 +1,50 @@
+ 
+
+766
+
+Chapter 24. Perception
+
+ 
+
+one we have to remember. The path [Onset,Onset,Mid] has a lower probability, 0.022, so it is
+discarded. We continue in this fashion until we reach the FINAL state, with probability 0.0013.
+By tracing backwards and following the bold arrows whenever there is a choice, we see that the
+most probable path is [Onset,Onset,Mid,End,Final]. The Viterbi algorithm is O(bMn),where b
+is the branching factor (the number of arcs out of any state). Ifthe model is fully connected, then
+b= M, and the algorithm is O(M?n),which is still quite an improvement over O(M").
+
+ 
+
+[C1] [C1,C3] [C1,C3,C4] [C1,C3,C4,C6]
+
+1.0:0.5 fonset\ 0.3; 0.3 “onset 02:0,p /onset
+05 0.045
+
+  
+
+ 
+
+ 
+
+Figure 2437 A diagram of the Viterbi algorithm computing the most probable path (and its
+probability) for the output [C'1,C3,C4,C6] on the HMM from Figure 24.36.
+
+ 
+
+ 
+
+ 
+
+Training the model
+
+The HMM approach is used in speech recognition for two reasons. First, it is a reasonably good
+performance element—we saw that the Viterbi algorithm is linear in the length of the input. More
+importantly, HMMs can be leamed directly from a training set of [signal,words] pairs. This is
+important because it is far too difficult to determine all the parameters by hand. There are other
+approaches that make better performance elements than HMMs, but they require the training data
+to be labelled on a phone-by-phone basis rather than a sentence-by-sentence basis, and that too
+is a difficult task. The standard algorithm for training an HMM is called the Baum—Welch or
+forward-backward algorithm. Rabiner (1990) gives a tutorial on this and other HMM algorithms.
+
+ 
+

@@ -1,0 +1,24 @@
+338
+
+Chapter 13 Red-Black Trees
+
+variant of red-black trees. Weiss [351] calls this variant AA-trees. An AA-tree is
+similar to a red-black tree except that left children may never be red.
+
+Treaps, the subject of Problem 13-4, were proposed by Seidel and Aragon [309].
+They are the default implementation of a dictionary in LEDA [253], which is a
+well-implemented collection of data structures and algorithms.
+
+There are many other variations on balanced binary trees, including weight-
+balanced trees [264], k-neighbor trees [245], and scapegoat trees [127]. Perhaps
+the most intriguing are the “splay trees” introduced by Sleator and Tarjan [320],
+which are “self-adjusting.” (See Tarjan [330] for a good description of splay trees.)
+Splay trees maintain balance without any explicit balance condition such as color.
+Instead, “splay operations” (which involve rotations) are performed within the tree
+every time an access is made. The amortized cost (see Chapter 17) of each opera-
+tion on an -node tree is O(lg 1).
+
+Skip lists [286] provide an alternative to balanced binary trees. A skip list is a
+linked list that is augmented with a number of additional pointers. Each dictionary
+operation runs in expected time O(1g7) on a skip list of n items.
+

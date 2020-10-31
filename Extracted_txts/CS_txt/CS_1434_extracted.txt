@@ -1,0 +1,51 @@
+680 Let UsC
+
+ 
+
+(a)
+
+()
+
+(©)
+
+@
+
+(e)
+
+Initialize the GTK library with a call to gtk_init( ) function.
+This function requires the addresses of the command line
+arguments received in main( ).
+
+Next, call the gtk_window_new( ) function to create a top
+level window. The only parameter this function takes is the
+type of windows to be created. A top level window can be
+created by specifying the GIK_WINDOW_TOPLEVEL
+value. This call creates a window in memory and returns a
+pointer to the widget object. The widget object is a structure
+(GtkWidget) variable that stores lots of information including
+the attributes of window it represents. We have collected this
+pointer in a GtkWidget structure pointer called p.
+
+Set the title for the window by making a call to
+gtk_window_set_title( ) function. The first parameter of this
+function is a pointer to the GtkWidget structure representing
+the window for which the title has to be set. The second
+parameter is a string describing the text to be displayed in the
+title of the window.
+
+Register a signal handler for the destroy signal. The destroy
+signal is received whenever we try to close the window. The
+handler for the destroy signal should perform clean up
+activities and then shutdown the application. GTK provides a
+ready-made function called gtk_main_quit( ) that does this
+job. We only need to associate this function with the destroy
+signal. This can be achieved using the g_signal_connect( )
+function. The first parameter of this function is the pointer to
+the widget for which destroy signal handler has to be
+registered. The second parameter is a string that specifies the
+name of the signal. The third parameter is the address of the
+signal handler routine. We have not used the fourth parameter.
+
+Resize the window to the desired size using the
+gtk_widget_set_size_request( ) function. The second and the
+

@@ -1,0 +1,62 @@
+254
+
+Chapter 11 Hash Tables
+
+ 
+
+11.1 Direct-address tables
+
+Direct addressing is a simple technique that works well when the universe U of
+keys is reasonably small. Suppose that an application needs a dynamic set in which
+each element has a key drawn from the universe U = {0,1,...,m — 1}, where m
+is not too large. We shall assume that no two elements have the same key.
+
+To represent the dynamic set, we use an array, or direct-address table, denoted
+by T[0..m — 1], in which each position, or slot, corresponds to a key in the uni-
+verse U. Figure 11.1 illustrates the approach; slot k points to an element in the set
+with key k. If the set contains no element with key k, then T[k] = NIL.
+
+The dictionary operations are trivial to implement:
+
+DIRECT-ADDRESS-SEARCH(T,k)
+1 return T [k]
+
+DiRECT-ADDRESS-INSERT(T, x)
+1 T[x.key] = x
+
+DrRECT-ADDRESS-DELETE(T, x)
+1 T[x.key] = NIL
+
+Each of these operations takes only O(1) time.
+
+key satellite data
+
+3
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+TT
+
+ 
+
+Figure 11.1 How to implement a dynamic set by a direct-address table 7. Each key in the universe
+U = {0,1,...,9} corresponds to an index in the table. The set K = {2,3,5,8} of actual keys
+determines the slots in the table that contain pointers to elements. The other slots, heavily shaded,
+contain NIL.
+

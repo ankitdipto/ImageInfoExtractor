@@ -1,0 +1,59 @@
+SECTION 68 Input-Output Programming 203
+
+6-8 Input—Output Programming
+
+Users of the computer write programs with symbols that are defined by the
+programming language employed. The symbols are strings of characters and
+each character is assigned an 8-bit code so that it can be stored in computer
+memory. A binary-coded character enters the computer when an INP (input)
+instruction is executed. A binary-coded character is transferred to the output
+device when an OUT (output) instruction is executed. The output device
+detects the binary code and types the corresponding character.
+
+Table 6-1%a) lists the instructions needed to input a character and store
+it in memory. The SKI instruction checks the input flag to see if a character is,
+available for transfer. The next instruction is skipped if the input flag bit is 1.
+The INP instruction transfers the binary-coded character into AC(0-7). The
+character is then printed by means of the OUT instruction A terminal unit that
+communicates directly with a computer does not print the character when a
+key is depressed. To type it, it is necessary to send an OUT instruction for the
+printer. In this way, the user is ensured that the correct transfer has occurred.
+If the SKI instruction finds the flag bit at 0, the next instruction in sequence
+is executed. This instruction is a branch to return and check the flag bit again.
+Because the input device is much slower than the computer, the two instruc-
+tions in the loop will be executed many times before a character is transferred
+into the accumulator.
+
+Table 6-19(b) lists the instructions needed to print a character initially
+stored in memory. The character is first loaded into the AC. The output flag.
+is then checked. If it is 0, the computer remains in a two-instruction loop
+checking the flag bit. When the flag changes to 1, the character is transferred
+from the accumulator to the printer.
+
+TABLE 6419 Programs to Input and Output One Character
+
+(@) Input a character:
+
+ 
+
+CIF, SKI ‘/Check input flag
+BUN CIF — /Flag=0, branch to check again
+INP ‘*Flag=1, input character
+OUT /Print character
+STACHR — /Store character
+HLT
+
+cHR — (Store character here
+
+(©) Output one character:
+LDA CHR Load character into AC
+
+ 
+
+COF, SKO /Check output flag
+BUN COF — /Flag=0, branch to check again
+our /Flag=1, output character
+
+HLT
+CHR, HEX 0057 /Character is “W”"
+

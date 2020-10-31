@@ -1,0 +1,59 @@
+SECTION 510 Design of Accumulator Logic 169.
+
+¢. Give the contents of registers PC, AR, DR, AC, and IR in hexadecimal
+and the values of E, I, and the sequence counter SC in binary at the end
+of the instruction cycle.
+
+5-13. Assume that the first six memory-reference instructions in the basic com-
+‘puter listed in Table 5-4 are to be changed to the instructions specified in the
+following table EA is the effective address that resides in AR during time
+T.. Assume that the adder and logic circuit in Fig. 54 can perform the
+exdusiveOR operation AC AC @ DR. Assume further that the adder and
+logic circuit cannot perform subtraction directly. The subtraction must be
+done using the 2's complement of the subtrahend by complementing and
+incrementing AC. Give the sequence of register transfer statements needed
+to execute each of the listed instructions starting from timing T.. Note that
+the value in AC should not change unless the instruction specifies a change
+in its content. You can use TR to store the content of AC temporary or you
+‘an exchange DR and AC.
+
+ 
+
+ 
+
+Symbol Opcode Symbolic designation Description in words
+XOR 000. AC-AC@M[EA] Exclusive-OR to AC
+ADM = Ol M[EA]—M[E.A] + AC ‘Add AC to memory
+
+SUB M10 AC+AC~ MEA] Subtract memory from AC
+XCH 01. AC--M[EA], M(EA]—AC Exchange AC and memory
+SEQ 100 If (M[EA) = AC) then Skip on equal
+
+(CPC +1)
+BPA 101 If(AC>0) then (PC-EA) Branch if AC positiveand
+non-zero
+
+ 
+
+5-14, Make the following changes to the basic computer.
+1. Add a register to the bus system CTR (count register) to be selected with
+
+$25.50 = 000.
+2. Replace the ISZ instruction with an instruction that loads a number into
+CTR,
+
+LDC Address CTR«—-M[Adéress)
+
+3. Adda register reference instruction ICSZ: Increment CTR and skip next
+
+instruction if zero. Discuss the advantage of this change.
+
+5-15. The memory unit of the basic computer shown in Fig. 5-3 is to be changed
+to a 65,536 x 16 memory, requiring an address of 16 bits. The instruction.
+format of a memory-reference instruction shown in Fig. 5-5(a) remains the
+same for I = 1 (indirect address) with the address part of the instruction
+residing in positions 0 through 11. But when I = 0 (direct address), the
+address of the instruction is given by the 16 bits in the next word following
+the instruction. Modify the microoperations during time T>, Ts, (and T. if
+necessary) to conform with this configuration
+

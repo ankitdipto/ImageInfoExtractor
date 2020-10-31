@@ -1,0 +1,41 @@
+Chapter 14: Operations On Bits 487
+
+ 
+
+int i= 5225, j,k;
+
+printf ( "\nDecimal %d is same as binary ", i) ;
+showbits (i) ;
+
+for (j=0;j<=5; j++)
+{
+
+k=i>>j;
+printf ( "\n%d right shift %d gives ", i,j) ;
+showbits ( k) ;
+
+}
+
+The output of the above program would be...
+
+Decimal 5225 is same as binary 0001010001101001
+5225 right shift 0 gives 0001010001101001
+5225 right shift 1 gives 0000101000110100
+5225 right shift 2 gives 0000010100011010
+5225 right shift 3 gives 0000001010001101
+5225 right shift 4 gives 0000000101000110
+5225 right shift 5 gives 0000000010100011
+
+Note that if the operand is a multiple of 2 then shifting the operand
+one bit to right is same as dividing it by 2 and ignoring the
+remainder. Thus,
+
+64 >> 1 gives 32
+64 >> 2 gives 16
+128 >> 2 gives 32
+
+but
+
+27 >> 1is 13
+49>>1is 24.
+

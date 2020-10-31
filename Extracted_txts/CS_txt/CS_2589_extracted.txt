@@ -1,0 +1,47 @@
+178
+
+Chapter 7 Quicksort
+
+The combination of the bad split followed by the good split produces three sub-
+arrays of sizes 0, (n — 1)/2 — 1, and (n — 1)/2 at a combined partitioning cost
+of O(n) + O(n — 1) = O(n). Certainly, this situation is no worse than that in
+Figure 7.5(b), namely a single level of partitioning that produces two subarrays of
+size (n — 1)/2, at a cost of O(n). Yet this latter situation is balanced! Intuitively,
+the ©(n — 1) cost of the bad split can be absorbed into the ©(7) cost of the good
+split, and the resulting split is good. Thus, the running time of quicksort, when lev-
+els alternate between good and bad splits, is like the running time for good splits
+alone: still O(n 1gn), but with a slightly larger constant hidden by the O-notation.
+We shall give a rigorous analysis of the expected running time of a randomized
+version of quicksort in Section 7.4.2.
+
+Exercises
+
+7.2-1
+Use the substitution method to prove that the recurrence T(n) = T(n — 1) + O(n)
+has the solution T(n) = @(n?), as claimed at the beginning of Section 7.2.
+
+7.2-2
+What is the running time of QUICKSORT when all elements of array A have the
+same value?
+
+7.2-3
+Show that the running time of QUICKsoRT is @(n?) when the array A contains
+distinct elements and is sorted in decreasing order.
+
+7.2-4
+
+Banks often record transactions on an account in order of the times of the transac-
+tions, but many people like to receive their bank statements with checks listed in
+order by check number. People usually write checks in order by check number, and
+merchants usually cash them with reasonable dispatch. The problem of converting
+time-of-transaction ordering to check-number ordering is therefore the problem of
+sorting almost-sorted input. Argue that the procedure INSERTION-SORT would
+tend to beat the procedure QUICKSORT on this problem.
+
+7.2-5
+
+Suppose that the splits at every level of quicksort are in the proportion 1 — @ to a,
+where 0 < @ < 1/2 is aconstant. Show that the minimum depth of a leaf in the re-
+cursion tree is approximately — lgn/1g@ and the maximum depth is approximately
+—lgn/1g(1—«). (Don’t worry about integer round-off.)
+

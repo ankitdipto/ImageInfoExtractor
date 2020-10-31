@@ -1,0 +1,49 @@
+14.3 Interval trees 351
+
+INTERVAL-SEARCH(T, i)
+
+xX = T.root
+while x 4 T.nil and i does not overlap x.int
+if x.left A T.nil and x.left.max > i.low
+xX = x.left
+else x = x.right
+return x
+
+AnhwWwNe
+
+The search for an interval that overlaps i starts with x at the root of the tree and
+proceeds downward. It terminates when either it finds an overlapping interval or x
+points to the sentinel 7. nil. Since each iteration of the basic loop takes O(1) time,
+and since the height of an n-node red-black tree is O(Ig 1m), the INTERVAL-SEARCH
+procedure takes O(lg 1) time.
+
+Before we see why INTERVAL-SEARCH is correct, let’s examine how it works
+on the interval tree in Figure 14.4. Suppose we wish to find an interval that overlaps
+the interval i = [22,25]. We begin with x as the root, which contains [16, 21] and
+does not overlap i. Since x.left.max = 23 is greater than i./ow = 22, the loop
+continues with x as the left child of the root—the node containing [8, 9], which also
+does not overlap i. This time, x./eft.max = 10 is less than i. low = 22, and so the
+loop continues with the right child of x as the new x. Because the interval [15, 23]
+stored in this node overlaps i, the procedure returns this node.
+
+As an example of an unsuccessful search, suppose we wish to find an interval
+that overlaps i = [11, 14] in the interval tree of Figure 14.4. We once again be-
+gin with x as the root. Since the root’s interval [16,21] does not overlap i, and
+since X.left.max = 23 is greater than i.Jow = 11, we go left to the node con-
+taining [8,9]. Interval [8, 9] does not overlap i, and x. /eft.max = 10 is less than
+i.low = 11, and so we go right. (Note that no interval in the left subtree over-
+laps i.) Interval [15,23] does not overlap i, and its left child is T.nil, so again we
+go right, the loop terminates, and we return the sentinel T.nil.
+
+To see why INTERVAL-SEARCH is correct, we must understand why it suffices
+to examine a single path from the root. The basic idea is that at any node x,
+if x.int does not overlap i, the search always proceeds in a safe direction: the
+search will definitely find an overlapping interval if the tree contains one. The
+following theorem states this property more precisely.
+
+Theorem 14.2
+
+Any execution of INTERVAL-SEARCH(T,/) either returns a node whose interval
+overlaps 7, or it returns T.nil and the tree T contains no node whose interval over-
+laps i.
+

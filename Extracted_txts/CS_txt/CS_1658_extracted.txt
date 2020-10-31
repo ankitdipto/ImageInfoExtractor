@@ -1,0 +1,38 @@
+160 Chapter6 CPU Scheduling
+
+ 
+
+ 
+
+CPU burst (t)) 6 4 6 4 13 13 13,
+
+"guess" (1) 10 8 6 6 5 9 1 12
+
+Figure 6.3 Prediction of the length of the next CPU burst.
+
+(history is assumed to be old and irrelevant). More commonly, a = 1/2, so recent
+history and past history are equally weighted. The initial ty can be defined as
+a constant or as an overall system average. Figure 6.3 shows an exponential
+average with a = 1/2 and 7 = 10.
+
+To understand the behavior of the exponential average, we can expand the
+formula for Tn.1 by substituting for 7, to find
+
+nl
+
+Tae = On + (1 — O)Otn—1 +... + (1 — alata} +. + (1 = a)" 1.
+
+Since both a and (1 — q) are less than or equal to 1, each successive term has
+less weight than its predecessor.
+
+The SJF algorithm may be either preemptive or nonpreemptive. The choice
+arises when a new process arrives at the ready queue while a previous process is
+executing. The new process may have a shorter next CPU burst than what is left
+of the currently executing process. A preemptive SJF algorithm will preempt the
+currently executing process, whereas a nonpreemptive SJF algorithm will allow
+the currently running process to finish its CPU burst. Preemptive SJF scheduling
+is sometimes called shortest-remaining-time-first scheduling.
+
+As an example, consider the following four processes, with the length of
+the CPU-burst time given in milliseconds:
+

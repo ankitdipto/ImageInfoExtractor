@@ -1,0 +1,38 @@
+628
+
+Chapter 23 Minimum Spanning Trees
+
+ 
+
+Figure 23.3 The proof of Theorem 23.1. Black vertices are in S, and white vertices are in V — S.
+The edges in the minimum spanning tree T are shown, but the edges in the graph G are not. The
+edges in A are shaded, and (u,v) is a light edge crossing the cut (S,V — S). The edge (x, y) is
+an edge on the unique simple path p from u to v in T. To form a minimum spanning tree 7’ that
+contains (u,v), remove the edge (x, y) from T and add the edge (u,v).
+
+But T is a minimum spanning tree, so that w(T) < w(T7"); thus, T’ must be a
+minimum spanning tree also.
+
+It remains to show that (u,v) is actually a safe edge for A. We have A C T’,
+since A C T and (x, y) ¢ A; thus, A U {(u,v)} C T’. Consequently, since T’ is a
+minimum spanning tree, (u,v) is safe for A. .
+
+Theorem 23.1 gives us a better understanding of the workings of the GENERIC-
+MST method on a connected graph G = (V, £). As the method proceeds, the
+set A is always acyclic; otherwise, a minimum spanning tree including A would
+contain a cycle, which is a contradiction. At any point in the execution, the graph
+G4 = (V, A) is a forest, and each of the connected components of Gy is a tree.
+(Some of the trees may contain just one vertex, as is the case, for example, when
+the method begins: A is empty and the forest contains |V| trees, one for each
+vertex.) Moreover, any safe edge (u,v) for A connects distinct components of G4,
+since A U {(u, v)} must be acyclic.
+
+The while loop in lines 2-4 of GENERIC-MST executes |V| — | times because
+it finds one of the |V| — 1 edges of a minimum spanning tree in each iteration.
+Initially, when A = Q, there are |V| trees in G4, and each iteration reduces that
+number by 1. When the forest contains only a single tree, the method terminates.
+
+The two algorithms in Section 23.2 use the following corollary to Theorem 23.1.
+
+ 
+

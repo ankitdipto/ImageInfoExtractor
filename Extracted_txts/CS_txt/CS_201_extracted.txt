@@ -1,0 +1,53 @@
+Problems for Chapter 27 805
+
+27.3-5
+
+Give a multithreaded version of RANDOMIZED-SELECT on page 216. Make your
+implementation as parallel as possible. Analyze your algorithm. (Hint: Use the
+partitioning algorithm from Exercise 27.3-3.)
+
+273-6 *
+Show how to multithread SELECT from Section 9.3. Make your implementation as
+parallel as possible. Analyze your algorithm.
+
+ 
+
+Problems
+
+27-1 Implementing parallel loops using nested parallelism
+Consider the following multithreaded algorithm for performing pairwise addition
+on n-element arrays A[l..n] and B[1..n], storing the sums in C[1. . 7]:
+
+SuM-ARRAYS(A, B,C)
+1 parallel for i = 1 to A.length
+2 C[i] = Ali] + Bi]
+
+a. Rewrite the parallel loop in SUM-ARRAYS using nested parallelism (spawn
+and sync) in the manner of MAT-VEC-MAIN-LoopP. Analyze the parallelism
+of your implementation.
+
+Consider the following alternative implementation of the parallel loop, which
+contains a value grain-size to be specified:
+
+SuM-ARRAYS’(A, B,C)
+
+ 
+
+1 n= A.length
+
+2. grain-size = ? // to be determined
+
+3 r = [n/grain-size]
+
+4 fork = O0tor—-1
+
+5 spawn ADD-SUBARRAY (A, B, C,k - grain-size + 1,
+min((k + 1) - grain-size,n))
+
+6 syne
+
+ADD-SUBARRAY(A, B,C, i, j)
+
+1 fork =i toj
+2 Clk] = A[k] + B[k]
+

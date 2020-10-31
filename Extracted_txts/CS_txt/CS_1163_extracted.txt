@@ -1,0 +1,42 @@
+446 Let Us C
+
+ 
+
+remove ("EMP.DAT") ;
+rename ("TEMP.DAT", "EMP.DAT") ;
+
+fp = fopen ("EMP.DAT", "rb+") ;
+
+printf ("Delete another Record (Y/N) ") ;
+fflush (stdin ) ;
+another = getche() ;
+
+}
+
+break ;
+
+case '0':
+fclose (fp) ;
+exit() ;
+
+}
+
+To understand how this program works, you need to be familiar
+with the concept of pointers. A pointer is initiated whenever we
+open a file. On opening a file a pointer is set up which points to the
+first record in the file. To be precise this pointer is present in the
+structure to which the file pointer retumed by fopen( ) points to.
+On using the functions fread( ) or fwrite( ), the pointer moves to
+the beginning of the next record. On closing a file the pointer is
+deactivated. Note that the pointer movement is of utmost
+importance since fread( ) always reads that record where the
+pointer is currently placed. Similarly, fwrite( ) always writes the
+record where the pointer is currently placed.
+
+The rewind( ) function places the pointer to the beginning of the
+file, irrespective of where it is present right now.
+
+The fseek( ) function lets us move the pointer from one record to
+another. In the program above, to move the pointer to the previous
+record from its current position, we used the function,
+

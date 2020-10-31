@@ -1,0 +1,47 @@
+21.4 Analysis of union by rank with path compression 573
+
+ 
+
+* 21.4 Analysis of union by rank with path compression
+
+As noted in Section 21.3, the combined union-by-rank and path-compression heu-
+ristic runs in time O(m a(n)) for m disjoint-set operations on n elements. In this
+section, we shall examine the function @ to see just how slowly it grows. Then we
+prove this running time using the potential method of amortized analysis.
+
+A very quickly growing function and its very slowly growing inverse
+For integers k > 0 and j > 1, we define the function Ax (j) as
+
+jtl ifk=o.
+
+Aci) =
+KD= VAG) itk > 1,
+
+where the expression ALYY uses the functional-iteration notation given in Sec-
+tion 3.2. Specifically, A\,(j) = j and AO (j) = Aga(ACTP(/)) for i = 1.
+We will refer to the parameter k as the level of the function A.
+
+The function A,(/) strictly increases with both j and k. To see just how quickly
+this function grows, we first obtain closed-form expressions for A;(j) and A,(j).
+
+Lemma 21.2
+For any integer j > 1, we have Ai(j) = 2j +1.
+
+Proof We first use induction on i to show that APY) = j +i. For the base case,
+we have AP) = j = j +0. For the inductive step, assume that AY) =
+j+(@—1). Then Ap’(j) = Aol AS) = G + GD) +1 = j +i. Finally,
+we note that Ai(j) = AV? (j) =7+G +) 27 41. 7
+
+Lemma 21.3
+For any integer j > 1, we have A,(j) = 2/+'(j + 1) —1.
+
+Proof We first use induction on i to show that AP) = 2(j + 1)-1. For
+the base case, we have AMT) = j = 2°(j + 1)—1. For the inductive step,
+assume that AV-)(j) = 2G 41) —1. Then A(j) = A(AS-P(J)) =
+AQ +1) -1) = 2-21 G4) -D+1 = 2 +)-241 = 27+ )-1.
+Finally, we note that A,(j) = AY*?(j) = 7H4G +1) =1. .
+
+Now we can see how quickly Ax (j) grows by simply examining Ax (1) for levels
+k = 0,1,2,3,4. From the definition of Ao(k) and the above lemmas, we have
+Ao(1) = 14+1= 2, Ai(1) = 2-141 = 3, and A(1) = 2!*!-(1+1)—1=7.
+

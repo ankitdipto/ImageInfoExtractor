@@ -1,0 +1,64 @@
+636 Chapter 21 Knowledge in Learning
+
+Unlike DECISION-TREE-LEARNING, RBDTL simultaneously learns and uses relevance informa-
+tion in order to minimize its hypothesis space. We expect that RBDTL's learning curve will show
+some improvement over the learning curve achieved by DECISION-TREE-LEARNING, and this is
+in fact the case. Figure 21.4 shows the learning performance for the two algorithms on randomly
+generated data for a function that depends on only 5 of 16 attributes. Obviously, in cases where
+all the available attributes are relevant, RBDTL will show no advantage.
+
+ 
+
+ 
+
+test set
+
+To correct
+
+ 
+
+ 
+
+ 
+
+04
+
+ 
+
+0 2% 40 60 80 100 120 140
+Training set size
+
+ 
+
+ 
+
+Figure 214 — Aperformance comparison RBDTL and DECISION-TREE-LEARNING on randomly
+generated data for a target function that depends on only 5 of 16 attributes.
+
+ 
+
+ 
+
+ 
+
+DECLARATIVE BIAS This section has only scratched the surface of the field of declarative bias, which aims to
+understand how prior knowledge can be used to identify the appropriate hypothesis space within
+which to search for the correct target definition. There are many unanswered questions:
+
++ How can the algorithms be extended to handle noise?
+
++ How can other kinds of prior knowledge be used, besides determinations?
+
++ How can the algorithms be generalized to cover any first-order theory, rather than just an
+attribute-based representation?
+
+Some of these are addressed in the next section.
+
+21.4 INDUCTIVE LOGIC PROGRAMMING
+
+Inductive logic programming (ILP) is one of the newest subfields in AT. It combines inductive
+methods with the power of first-order representations, concentrating in particular on the repre-
+sentation of theories as logic programs. Over the last five years, it has become a major part of
+
+ 
+

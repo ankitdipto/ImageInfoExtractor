@@ -1,0 +1,50 @@
+968
+
+Chapter 31 Number-Theoretic Algorithms
+
+As we shall see, a little more cleverness, and some randomization, will yield a
+primality-testing routine that works well on all inputs.
+
+Unfortunately, we cannot entirely eliminate all the errors by simply checking
+equation (31.40) for a second base number, say a = 3, because there exist com-
+posite integers n, known as Carmichael numbers, that satisfy equation (31.40) for
+alla € Z*. (We note that equation (31.40) does fail when ged(a,n) > 1—that
+is, when a ¢ Z*—but hoping to demonstrate that 1 is composite by finding such
+an a can be difficult ifm has only large prime factors.) The first three Carmichael
+numbers are 561, 1105, and 1729. Carmichael numbers are extremely rare; there
+are, for example, only 255 of them less than 100,000,000. Exercise 31.8-2 helps
+explain why they are so rare.
+
+We next show how to improve our primality test so that it won’t be fooled by
+Carmichael numbers.
+
+The Miller-Rabin randomized primality test
+
+The Miller-Rabin primality test overcomes the problems of the simple test PSEU-
+DOPRIME with two modifications:
+
+* It tries several randomly chosen base values a instead of just one base value.
+
+* While computing each modular exponentiation, it looks for a nontrivial square
+root of 1, modulo n, during the final set of squarings. If it finds one, it stops
+and returns COMPOSITE. Corollary 31.35 from Section 31.6 justifies detecting
+composites in this manner.
+
+The pseudocode for the Miller-Rabin primality test follows. The input 1 > 2 is
+the odd number to be tested for primality, and s is the number of randomly cho-
+sen base values from Z;* to be tried. The code uses the random-number generator
+RANDOM described on page 117: RANDOM(1,” — 1) retums a randomly chosen
+integer a satisfying | <a <n—1. The code uses an auxiliary procedure WITNESS
+such that WITNESS (a, 7) is TRUE if and only if a is a “witness” to the composite-
+ness of n —that is, if it is possible using a@ to prove (in a manner that we shall see)
+that 1 is composite. The test WITNESS (a, 72) is an extension of, but more effective
+than, the test
+
+a" £1 (mod n)
+
+that formed the basis (using @ = 2) for PSEUDOPRIME. We first present and
+justify the construction of WITNESS, and then we shall show how we use it in the
+Miller-Rabin primality test. Let —1 = 2'w where t > 1 and uw is odd; ie.,
+the binary representation of 1 — | is the binary representation of the odd integer u
+followed by exactly t zeros. Therefore, a"~! = (a“)”" (mod 7), so that we can
+

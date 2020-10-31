@@ -1,0 +1,68 @@
+996
+
+Chapter 32 String Matching
+
+ 
+
+a
+input b
+
+state a b <—@) A
+
+o fifo Rs
+
+1 0}0 b
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(a) (b)
+
+Figure 32.6 A simple two-state finite automaton with state set Q = {0,1}, start state gq = 0,
+and input alphabet 5 = {a,b}. (a) A tabular representation of the transition function 6. (b) An
+equivalent state-transition diagram. State 1, shown blackend, is the only accepting state. Directed
+edges represent transitions. For example, the edge from state 1 to state 0 labeled b indicates that
+8(1,b) = 0. This automaton accepts those strings that end in an odd number of a’s. More precisely,
+it accepts a string x if and only if x = yz, where y = ¢ or y ends with ab, and z = a*, where k is
+odd. For example, on input abaaa, including the start state, this automaton enters the sequence of
+states (0, 1,0,1,0,1), and so it accepts this input. For input abbaa, it enters the sequence of states
+(0, 1,0,0, 1,0), and so it rejects this input.
+
+    
+
+The finite automaton begins in state gp and reads the characters of its input string
+one at a time. If the automaton is in state g and reads input character a, it moves
+(“makes a transition”) from state q to state 6(g,a). Whenever its current state g is
+a member of A, the machine M has accepted the string read so far. An input that
+is not accepted is rejected.
+
+A finite automaton M induces a function ¢, called the final-state function,
+from X* to Q such that $(w) is the state M ends up in after scanning the string w.
+Thus, M accepts a string w if and only if ¢(w) € A. We define the function ¢
+recursively, using the transition function:
+
+gle) = qo.
+g(wa) = S(¢(w),a) forwed*,aex.
+
+String-matching automata
+
+For a given pattern P,, we construct a string-matching automaton in a preprocess-
+ing step before using it to search the text string. Figure 32.7 illustrates how we
+construct the automaton for the pattern P = ababaca. From now on, we shall
+assume that P is a given fixed pattern string; for brevity, we shall not indicate the
+dependence upon P in our notation.
+
+In order to specify the string-matching automaton corresponding to a given pat-
+tern P[1..m], we first define an auxiliary function o, called the suffix function
+corresponding to P. The function o maps D* to {0, 1,... ,/m} such that o (x) is the
+length of the longest prefix of P that is also a suffix of x:
+
+o(x) = max{k: Py Dx}. (32.3)
+

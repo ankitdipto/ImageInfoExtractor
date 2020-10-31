@@ -1,0 +1,53 @@
+722
+
+Chapter 26 Maximum Flow
+
+Proof We can rewrite the flow-conservation condition for any node u € V —{s, tf}
+as
+
+Yo £000) — YO fw) = 0. (26.11)
+
+vev vev
+
+Taking the definition of | f'| from equation (26.1) and adding the left-hand side of
+equation (26.11), which equals 0, summed over all vertices in S — {s}, gives
+
+Ifl= do f6.y)-Yo fo.sy+ Yo (Sse9-Dsem).
+
+veVv veVv ues—{s} \veV veV
+
+Expanding the right-hand summation and regrouping terms yields
+
+fl = LfoM-Vfoyt+ VV eavn- VY fo.w
+
+ 
+
+veV veV ueS—{s} veV ueS—{s} veV
+=> (ro +> fu.) -»y (i +> roo)
+veVv ueS—{s} veV ueS—{s}
+= VY fan-VYV sow.
+veV ueS veV ueS
+
+Because V = S UT and S NT = Q, we can split each summation over V into
+summations over S and T to obtain
+
+ 
+
+Il = SOO 4+ OY FW - VY LO. - YOY fo.)
+veS ueS veT ueS veS ueS veT ueS
+= VY fawy-YLY sow
+veT ueS veT ueS
++ (LX m9 -LE row) .
+veS ueS veS ueS
+
+The two summations within the parentheses are actually the same, since for all
+vertices x, y € V, the term f(x, y) appears once in each summation. Hence, these
+summations cancel, and we have
+
+fl = Ye fan sow
+ueS veT ueS veT
+= f(S,T). .
+
+A corollary to Lemma 26.4 shows how we can use cut capacities to bound the
+value of a flow.
+

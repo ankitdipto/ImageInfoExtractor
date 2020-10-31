@@ -1,0 +1,65 @@
+Chapter 2. Intelligent Agents
+
+ 
+
+umuty
+
+rules. Of course, the goal-based agent is also more flexible with respect to reaching different
+destinations. Simply by specifying a new destination, we can get the goal-based agent to come
+up with a new behavior. The reflex agent's mules for when to turn and when to go straight will
+only work for a single destination; they must all be replaced to go somewhere new.
+
+Figure 2.11 shows the goal-based agent's structure. Chapter 13 contains detailed agent
+programs for goal-based agents.
+
+ 
+
+ 
+
+What the world
+
+& is like now
+What it will be like
+
+if | do action A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 2.11 An agent with explicit goals.
+
+ 
+
+ 
+
+ 
+
+Utility-based agents
+
+Goals alone are not really enough to generate high-quality behavior. For example, there are many
+action sequences that will get the taxi to its destination, thereby achieving the goal, but some
+are quicker, safer, more reliable, or cheaper than others. Goals just provide a crude distinction
+between "happy" and "unhappy" states, whereas a more general performance measure should
+allow a comparison of different world states (or sequences of states) according to exactly how
+happy they would make the agent if they could be achieved. Because "happy" does not sound
+very scientific, the customary terminology is to say that if one world state is preferred to another,
+then it has higher utility for the agent.®
+
+Utility is therefore a function that maps a state” onto a real number, which describes the
+associated degree of happiness. A complete specification of the utility function allows rational
+decisions in two kinds of cases where goals have trouble. First, when there are conflicting goals,
+only some of which can be achieved (for example, speed and safety), the utility function specifies
+the appropriate trade-off. Second, when there are several goals that the agent can aim for, none
+
+8 The word “utility” here refers to "the quality of being useful,” not to the electric company or water works
+% Or sequence of states, if we are measuring the utility of an agent over the long run.
+

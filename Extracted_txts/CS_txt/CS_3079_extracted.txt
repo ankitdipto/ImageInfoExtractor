@@ -1,0 +1,73 @@
+  
+
+Chapter 15. Probabilistic Reasoning Systems
+
+ 
+
+ 
+
+function BELIEF-NET-ASK(X) returns a probability distribution over the values of X
+inputs: X, a random variable
+
+Support-Excepi(X, null)
+
+function SuPPORT-EXCEPT(X, V) returns P(X|Exy v)
+
+if EVIDENCE2(X) then return observed point distribution for X
+else
+calculate P(E, ,|X)= EVIDENCE-EXCEPT(X, V)
+U— PARENTS Ay
+if U is empty
+then return a P(EQ ,|X)P(X)
+else
+for each U;in U
+calculate and store P(U;|Ey,, \ x) = SUPPORTEXCEPT(U;,X)
+return a P(EQ y|X) > PCX|u) [] PWiE,,\ x)
+w (
+
+ 
+
+function EVIDENCE-EXCEPI(X, V) returns PEEK ylX)
+
+Y—Cupren[X|] - V
+if Y is empty
+then return a uniform distribution
+else
+for each ¥, in ¥ do
+calculate PE, |v) = EvipENCE-EXcePt(Y;, null)
+Z, — Parents[¥i] - X
+for each Z;; in Z;
+calculate P(Z;j|Ez,\ y,)= SUPPORT-EXCEPI(Zj, Yi)
+return 3 [] 37 Py ly) > POsdX.2) TT PeilEz,\ v)
+
+iy 7 J
+
+ 
+
+ 
+
+Figure 15.8 A backward-chaining algorithm for solving probabilistic queries on a polytree.
+To simplify the presentation, we have assumed that the network is fixed and already primed with
+evidence, and that evidence variables satisfy the predicate EVIDENCE?. The probabilities P(X|U),
+where U denotes the parents of ¥, are available from the CPT for X. Calculating the expressions
+a... and 3... is done by normalization,
+
+ 
+
+ 
+
+ 
+
+  
+   
+  
+ 
+ 
+
+would involve many repeated calculations. A better way to arrange things is to “memoize” the
+computations by forward-chaining from the evidence variables. Given careful bookkeeping, the 4
+entire computation can be done in linear time. It is interesting to note that the forward-chaining
+version can be viewed as consisting of "messages" being "propagated" through the network. This _j
+leads to a simple implementation on parallel computers, and an intriguing analogy to message ;
+propagation among neurons in the brain (see Chapter 19). 4
+

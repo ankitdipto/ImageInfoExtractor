@@ -1,0 +1,55 @@
+454 Let Us C
+
+ 
+
+(f) Many library functions convert a number to a numeric string
+
+before writing it to a file, thereby using more space on disk.
+This can be avoided using functions fread() and fwrite().
+
+(g) In low level file I/O we can do the buffer management
+
+ourselves.
+
+Exercise
+
+[A] Point out the errors, if any, in the following programs:
+
+(a)
+
+#include "stdio.h"
+main()
+{
+
+FILE “fp ;
+
+openfile ("Myfile.txt’, fp ) ;
+
+if (fp == NULL)
+
+printf ( "Unable to open file..." ) ;
+
+}
+
+openfile ( char “fn, FILE *“f )
+{
+“f=fopen (fn, "r");
+
+#include "stdio.h"
+main()
+{
+FILE “fp;
+char c;
+fp = fopen ("TRY.C","t') ;
+if ( fp == null )
+{
+puts ("Cannot open file” ) ;
+exit() ;
+
+}
+
+while ((c = getc ( fp )) != EOF )
+putch (c) ;
+
+fclose (fp) ;
+

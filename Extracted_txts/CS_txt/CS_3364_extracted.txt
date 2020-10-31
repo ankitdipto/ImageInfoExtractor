@@ -1,0 +1,65 @@
+708
+
+Chapter 23. Practical Natural Language Processing
+
+ 
+
+DETERMINER
+
+This is called intersective semantics, because the meaning of "smelly wumpus" is the intersection
+of smelly things and things that are wumpuses. Both nouns and adjectives are represented by
+predicates that define categories; this was the first scheme for representing categories shown in
+Section 8.4. If all adjectives had intersective semantics, it would be easy to handle them. We
+would add a rule for Noun, saying it can be composed of an Adjective and another Noun:
+Noun(Xx sem,(x) A sem (x)) + Adjective(sem,)Noun(sem2)
+
+Unfortunately, the semantic relation between adjective and noun is often more complicated than
+just intersection. For example:
+
++ A "red book" has a red cover, but not red pages or lettering. A "red pen" has red ink or a
+red body. In general, color adjectives refer to a major, salient, visible part of the object.
+"Red hair" is orangish, not red. This implies that the modification is dependent on both
+the noun and the adjective.
+
+A "ted herring" is an irrelevant distraction, not a fish nor something red. In this case, the
+phrase has an idiomatic meaning that is completely independent of its parts.
+
+A "small moon" is bigger than a "large molecule" and is clearly not the intersection of
+small things and things that are moons.
+
+A "mere child" is the same as a child: you cannot take a group of children and separate
+them into the children and the mere children. The adjective "mere" refers to the speaker's
+attitude about the noun, and not to actual properties of the noun at all.
+
+In “alleged murderer," the adjective again says something about the attitude of some
+person (not necessarily the speaker), but the phrase makes no commitment as to whether
+the referent actually is a murderer.
+
+"Real leather" is no different from "leather," but the adjective is used when the listener
+might expect artificial leather.
+
+A "fake gun" is not a gun at all. Its appearance is similar to a gun's, but it lacks the
+functional properties.
+
+These kinds of semantic relations can be handled by reifying the categories that were formerly
+represented as predicates. This is the second scheme for representing categories in Section 8.4.
+For example, instead of the predicate Gun, we will use the object Guns to represent the class ofall
+guns. Then "a gun" is represented by 3 g (g 6 Guns) and "a fake gun" is 3g (g G Fake(Guns).
+
+Determiners
+
+In Chapter 22, we showed how articles such as "a" and "the" can be part of noun phrases.
+Articles are just one type ofthe more general class of determiner, which we abbreviate as Der.
+Determiners can become quite complicated, as in “[p,,my brother's neighbor's] dog" and “[per
+all but three of her many] good friends." For our £; language, we allow only one new kind of
+determiner, a number, as in "three dogs." We will use the quasi-logical form [3x Dog(x)]to
+represent this. This gives us the following grammar rules:
+
+Det(q) — Article(q)
+
+Det(q) — Number(q)
+
+NP(Iqx noun(x)}) + Det(q) Noun(noun)
+
+ 
+

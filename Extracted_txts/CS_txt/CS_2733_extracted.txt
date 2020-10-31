@@ -1,0 +1,41 @@
+12.3 Insertion and deletion 295
+
+ 
+
+Figure 12.3 Inserting an item with key 13 into a binary search tree. Lightly shaded nodes indicate
+the simple path from the root down to the position where the item is inserted. ‘The dashed line
+indicates the link in the tree that is added to insert the item.
+
+Figure 12.3 shows how TREE-INSERT works. Just like the procedures TREE-
+SEARCH and ITERATIVE-TREE-SEARCH, TREE-INSERT begins at the root of the
+tree and the pointer x traces a simple path downward looking for a NIL to replace
+with the input item z. The procedure maintains the trailing pointer y as the parent
+of x. After initialization, the while loop in lines 3—7 causes these two pointers
+to move down the tree, going left or right depending on the comparison of z. key
+with x.key, until x becomes NIL. This NIL occupies the position where we wish to
+place the input item z. We need the trailing pointer y, because by the time we find
+the NIL where z belongs, the search has proceeded one step beyond the node that
+needs to be changed. Lines 8-13 set the pointers that cause z to be inserted.
+
+Like the other primitive operations on search trees, the procedure TREE-INSERT
+runs in O(/h) time on a tree of height h.
+
+Deletion
+
+The overall strategy for deleting a node z from a binary search tree T has three
+basic cases but, as we shall see, one of the cases is a bit tricky.
+
+* If z has no children, then we simply remove it by modifying its parent to re-
+place z with NIL as its child.
+
+* If z has just one child, then we elevate that child to take z’s position in the tree
+by modifying z’s parent to replace z by z’s child.
+
+* If z has two children, then we find z’s successor y—which must be in Z’s right
+subtree—and have y take z’s position in the tree. The rest of z’s original right
+subtree becomes y’s new right subtree, and z’s left subtree becomes y’s new
+left subtree. This case is the tricky one because, as we shall see, it matters
+whether y is z’s right child.
+
+   
+

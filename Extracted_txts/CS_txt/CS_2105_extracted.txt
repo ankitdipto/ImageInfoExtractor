@@ -1,0 +1,60 @@
+14,13
+
+14,14
+
+14,15
+14.16
+
+14.17
+
+Exercises 531
+
+Why is it important to balance file system I/O among the disks and
+controllers on a system in a multitasking environment?
+
+What are the tradeoffs involved in rereading code pages from the file
+system, versus using swap space to store them?
+
+Is there any way to implement truly stable storage? Explain your answer.
+
+The reliability of a hard-disk drive is typically described in terms of a
+quantity called mean time between failures (MTBF). Although this quantity
+is called a “time,” the MTBF actually is measured in drive-hours per
+failure.
+
+a. If a system contains 1,000 disk drives, each of which has a 750,000
+hour MTBF, which of the following best describes how often a drive
+failure will occur in that disk farm: once per thousand years, once
+per century, once per decade, once per year, once per month, once
+per week, once per day, once per hour, once per minute, or once per
+second?
+
+b. Mortality statistics indicate that, on the average, a U.S. resident has
+about 1:1,000 chance of dying between ages 20 and 21 years. Deduce
+the MTBF hours for 20 year olds. Convert this figure from hours to
+years. What does this MTBF tell you about the expected lifetime of
+a 20 year old?
+
+c. The manufacturer guarantees a 1-million hour MTBF for a certain
+model of disk drive. What can you conclude about the number of
+years for which one of these drives is under warranty?
+
+The term fast wide SCSI-II denotes a SCSI bus that operates at a data rate of
+20 MB per second when it moves a packet of bytes between the host and
+a device. Suppose that a fast wide SCSI-II disk drive spins at 7,200 RPM,
+has a sector size of 512 bytes, and holds 160 sectors per track.
+
+a. Estimate the sustained transfer rate of this drive in megabytes per
+second.
+
+b. Suppose that the drive has 7,000 cylinders, 20 tracks per cylinder, a
+head-switch time (from one platter to another) of 0.5 milliseconds,
+and an adjacent-cylinder seek time of 2 milliseconds. Use this
+additional information to give an accurate estimate of the sustained
+transfer rate for a huge transfer.
+
+c. Suppose that the average seek time for the drive is 8 milliseconds.
+Estimate the I/Os per second and the effective transfer rate for
+a random-access workload that reads individual sectors scattered
+across the disk.
+

@@ -1,0 +1,51 @@
+7.9 Atomic Transactions 233
+
+is possible that, for a set of transactions, there are conflict-serializable sched-
+ules that cannot be obtained through the two-phase locking protocol. How-
+ever, to improve performance over two-phase locking, we need either to have
+additional information about the transactions or to impose some structure or
+ordering on the set of data.
+
+7.9.4.3 Timestamp-Based Protocols
+
+In the locking protocols described above, the order between every pair of
+conflicting transactions is determined at execution time by the first lock that
+they both request and that involves incompatible modes. Another method for
+determining the serializability order is to select an ordering among transactions
+in advance. The most common method for doing so is to use a timestamp-
+ordering scheme.
+
+With each transaction T; in the system, we associate a unique fixed time-
+stamp, denoted by TS(T;). This timestamp is assigned by the system before the
+transaction T; starts execution. If a transaction T; has been assigned timestamp
+‘TS(T;), and later on a new transaction T; enters the system, then TS(T;) < TS(Tj).
+There are two simple methods for implementing this scheme:
+
+© Use the value of the system clock as the timestamp; that is, a transaction’s
+timestamp is equal to the value of the clock when the transaction enters the
+system. This method will not work for transactions that occur on separate
+systems or for processors that do not share a clock.
+
+Use a logical counter as the timestamp; that is, a transaction’s timestamp
+is equal to the value of the counter when the transaction enters the system.
+The counter is incremented after a new timestamp is assigned.
+
+The timestamps of the transactions determine the serializability order.
+Thus, if TS(T;) < TS(Tj), then the system must ensure that the produced sched-
+ule is equivalent to a serial schedule in which transaction T; appears before
+transaction Tj.
+
+To implement this scheme, we associate with each data item Q two time-
+stamp values:
+
+¢ W-timestamp(Q), which denotes the largest timestamp of any transaction
+that executed write(Q) successfully
+
+¢ R-timestamp(Q), which denotes the largest timestamp of any transaction
+that executed read(Q) successfully
+
+These timestamps are updated whenever a new read(Q) or write(Q) instruc-
+tion is executed.
+
+ 
+

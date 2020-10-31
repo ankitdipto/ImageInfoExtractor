@@ -1,0 +1,55 @@
+SECTION 6.7 Subroutines 201
+
+totransfer one operand and to receive the result. The other operandisinserted
+in the location following the BSA instruction This is demonstrated in the
+program of Table 6-17. The first operand in location X is loaded into the AC.
+The second operand is stored in location 202 following the BSA instruction.
+After the branch, the first location in the subroutine holds the number 202
+Note that in this case, 202 is not the return address but the address of the
+second operand. The subroutine starts performing the OR operation by com-
+plementing the first operand in the AC and storing it in a temporary location
+‘TMP. The second operand is loaded into the AC by an indirect instruction at
+location OR. Remember that location OR contains the number 202. When the
+instructionrefersto it indirectly, the operand at location 202 is loaded into the
+AC. This operand is complemented and then ANDed with the operand stored
+in TMP. Complementing the result forms the OR operation
+
+The return from the subroutine must be manipulated so that the main
+programcontinues from location 203wherethe nextinstruction islocated. This,
+is accomplished by incrementing location OR with the ISZ instruction. Now
+location OR holds the number 203 and an indirect BUN instruction causes a
+return to the proper place.
+
+Itis possible to have more than one operand following the BSA instruc-
+
+TABLE 6-17 Program to Demonstrate Parameter Linkage
+
+ 
+
+ORG 200
+
+200 LDAX —_/Load first operand into AC
+am BSAOR Branch to subroutine OR
+
+202 HEX 3AF6 Second operand stored here
+203 STAY ‘Subroutine returns here
+
+204 HLT
+
+205 x HEX 7895 First operand stored here
+206 Y, HEX 0 ‘MResult stored here
+
+207 OR, —-HEXO ‘Subroutine OR
+
+208 CMA ‘sComplement first operand
+209 STATMP Store in temporary location
+20A LDA ORI /Load second operand
+
+208 CMA ‘/Complement second operand
+20c AND TMP /AND complemented first operand
+20D MA ‘/Complement again to get OR
+20E ISZOR Increment return address
+20F BUNORI — /Return to main program
+
+210 TMP, HEX0 ‘Memporary storage
+

@@ -1,0 +1,48 @@
+4.2 Process Scheduling 99
+
+« Accounting information: This information includes the amount of CPU
+and real time used, time limits, account numbers, job or process numbers,
+and so on.
+
+¢ V/O status information: The information includes the list of I/O devices
+allocated to this process, a list of open files, and so on.
+
+The PCB simply serves as the repository for any information that may vary
+from process to process.
+
+4.14 Threads
+
+The process model discussed so far has implied that a process is a program that
+performs a single thread of execution. For example, if a process is running a
+word-processor program, a single thread of instructions is being executed. This
+single thread of control allows the process to perform only one task at one time.
+For example, the user could not simultaneously type in characters and run the
+spell checker within the same process. Many modern operating systems have
+extended the process concept to allow a process to have multiple threads of
+execution. They thus allow the process to perform more than one task at a time.
+Chapter 5 explores multithreaded processes.
+
+4.2 = Process Scheduling
+
+The objective of multiprogramming is to have some process running at all times,
+so as to maximize CPU utilization. The objective of time-sharing is to switch the
+CPU among processes so frequently that users can interact with each program
+while it is running. A uniprocessor system can have only one running process.
+If more processes exist, the rest must wait until the CPU is free and can be
+rescheduled.
+
+4.2.1 Scheduling Queues
+
+As processes enter the system, they are put into a job queue. This queue
+consists of all processes in the system. The processes that are residing in main
+memory and are ready and waiting to execute are kept ona list called the ready
+queue. This queue is generally stored as a linked list. A ready-queue header
+contains pointers to the first and final PCBs in the list. We extend each PCB to
+include a pointer field that points to the next PCB in the ready queue.
+
+The operating system also has other queues. When a process is allocated
+the CPU, it executes for a while and eventually quits, is interrupted, or waits for
+the occurrence of a particular event, such as the completion of an I/O request.
+In the case of an I/O request, such a request may be to a dedicated tape drive, or
+toa shared device, such as a disk. Since the system has many processes, the disk
+

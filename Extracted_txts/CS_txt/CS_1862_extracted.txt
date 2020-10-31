@@ -1,0 +1,49 @@
+10.2, Demand Paging 327
+
+The first and third tasks may be reduced, with careful coding, to several
+hundred instructions. These tasks may take from 1 to 100 microseconds each.
+The page-switch time, on the other hand, will probably be close to 24 millisec-
+onds. A typical hard disk has an average latency of 8 milliseconds, a seek of
+15 milliseconds, and a transfer time of 1 millisecond. Thus, the total paging
+time would be close to 25 milliseconds, including hardware and software time.
+Remember also that we are looking at only the device-service time. If a queue
+of processes is waiting for the device (other processes that have caused page
+faults), we have to add device-queueing time as we wait for the paging device
+to be free to service our request, increasing even more the time to swap.
+
+If we take an average page-fault service time of 25 milliseconds and a
+memory-access time of 100 nanoseconds, then the effective access time in
+nanoseconds is
+
+effective access time = (1 — p) x (100) + p (25 milliseconds)
+=(1—p) x 100+ p x 25,000,000
+= 100 + 24,999,900 x p.
+
+We see then that the effective access time is directly proportional to the
+page-fault rate. If one access out of 1,000 causes a page fault, the effective access
+time is 25 microseconds. The computer would be slowed down by a factor of
+250 because of demand paging! If we want less than 10-percent degradation,
+we need.
+
+110 > 100 + 25,000,000 x p,
+10 > 25,000,000 x p,
+p < 0.0000004.
+
+That is, to keep the slowdown due to paging to a reasonable level, we can allow
+only less than one memory access out of 2,500,000 to page fault.
+
+It is important to keep the page-fault rate low in a demand-paging sys-
+tem. Otherwise, the effective access time increases, slowing process execution
+dramatically.
+
+One additional aspect of demand paging is the handling and overall use
+of swap space. Disk I/O to swap space is generally faster than that to the file
+system. It is faster because swap space is allocated in much larger blocks, and
+file lookups and indirect allocation methods are not used (Chapter 14). It is
+therefore possible for the system to gain better paging throughput, by copying
+an entire file image into the swap space at process startup, and then performing
+demand paging from the swap space. Another option is to demand pages
+from the file system initially, but to write the pages to swap space as they are
+replaced. This approach will ensure that only needed pages are ever read from
+the file system, but all subsequent paging is done from swap space.
+

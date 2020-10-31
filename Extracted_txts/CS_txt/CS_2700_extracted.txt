@@ -1,0 +1,51 @@
+268
+
+Chapter 11 Hash Tables
+
+values r and s modulo p; there are no collisions yet at the “mod p level.” Moreover,
+each of the possible p(p—1) choices for the pair (a,b) witha # Oyields a different
+resulting pair (r,s) with r # s, since we can solve for a and b given r and s:
+
+a = ((r—s)(k =I) mod p)) mod p,
+
+b = (r—ak) mod p,
+
+where ((k —/)~! mod p) denotes the unique multiplicative inverse, modulo p,
+of k —1. Since there are only p(p — 1) possible pairs (r,s) with r # s, there
+is a one-to-one correspondence between pairs (a,b) with a # 0 and pairs (r,s)
+with r ¢ s. Thus, for any given pair of inputs k and /, if we pick (a, b) uniformly
+at random from Z>, x Zp, the resulting pair (r,s) is equally likely to be any pair of
+distinct values modulo p.
+
+Therefore, the probability that distinct keys & and / collide is equal to the prob-
+ability that r = s (mod m) when r and s are randomly chosen as distinct values
+modulo p. For a given value of 1, of the p — 1 possible remaining values for s, the
+number of values s such thats # r and s =r (mod m) is at most
+
+[p/m|—1 < ((p+m—1)/m)—1 (by inequality (3.6))
+= (p-l\)/m.
+
+The probability that s collides with r when reduced modulo m is at most
+((p = 1)/m)/(p — 1) = 1/m.
+Therefore, for any pair of distinct values k,/ € Zp,
+Pr {hap(k) = hap(1)} < 1/m,
+so that Jpn is indeed universal. :
+
+Exercises
+
+113-1
+
+Suppose we wish to search a linked list of length n, where each element contains
+a key k along with a hash value h(k). Each key is a long character string. How
+might we take advantage of the hash values when searching the list for an element
+with a given key?
+
+113-2
+
+Suppose that we hash a string of r characters into m slots by treating it as a
+radix-128 number and then using the division method. We can easily represent
+the number m as a 32-bit computer word, but the string of r characters, treated as
+a radix-128 number, takes many words. How can we apply the division method to
+compute the hash value of the character string without using more than a constant
+number of words of storage outside the string itself?
+

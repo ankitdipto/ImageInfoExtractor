@@ -1,0 +1,56 @@
+466
+
+Chapter 17 Amortized Analysis
+
+no credit. We charge 3 dollars for each insertion. The elementary insertion that
+occurs immediately costs 1 dollar. We place another dollar as credit on the item
+inserted. We place the third dollar as credit on one of the m/2 items already in the
+table. The table will not fill again until we have inserted another m/2 — | items,
+and thus, by the time the table contains m items and is full, we will have placed a
+dollar on each item to pay to reinsert it during the expansion.
+
+We can use the potential method to analyze a sequence of n TABLE-INSERT
+operations, and we shall use it in Section 17.4.2 to design a TABLE-DELETE op-
+eration that has an O(1) amortized cost as well. We start by defining a potential
+function ©® that is 0 immediately after an expansion but builds to the table size by
+the time the table is full, so that we can pay for the next expansion by the potential.
+The function
+
+O(T) = 2-T.num — T.size (17.5)
+is one possibility. Immediately after an expansion, we have T.num = T.size/2,
+and thus ®(7) = 0, as desired. Immediately before an expansion, we have
+
+T.num = T.size, and thus ®(T) = T.num, as desired. The initial value of the
+potential is 0, and since the table is always at least half full, T.nwm > T.size/2,
+which implies that ®(7) is always nonnegative. Thus, the sum of the amortized
+costs of 7) TABLE-INSERT operations gives an upper bound on the sum of the actual
+costs.
+
+To analyze the amortized cost of the ith TABLE-INSERT operation, we let num;
+denote the number of items stored in the table after the ith operation, size; denote
+the total size of the table after the ith operation, and ©; denote the potential after
+the ith operation. Initially, we have numo = 0, sizeo = 0, and By = 0.
+
+If the ith TABLE-INSERT operation does not trigger an expansion, then we have
+size; = size;—, and the amortized cost of the operation is
+
+G = G+%-O_,
+
+= 1+ (2-num; — size;) — (2+ num;_, — size;-1)
+
+= 14+ (2-num; — size;) — (2(num; — 1) — size;)
+
+3.
+
+If the ith operation does trigger an expansion, then we have size; = 2 - size;_; and
+sizej_; = num;—; = num; — 1, which implies that size; = 2+ (num; — 1). Thus,
+the amortized cost of the operation is
+G = G+ -O-)
+
+= num; + (2-num; — size;) — (2+ numj—1 — sizei-1)
+
+= num; + (2-nwn; —2- (num; — 1)) — (2(nwm; — 1) — (num; — 1))
+= num, +2— (num; — 1)
+
+3.
+

@@ -1,0 +1,52 @@
+860
+
+Chapter 29 Linear Programming
+
+The source vertex initially receives a value d; = 0, which never changes. Thus
+we obtain the following linear program to compute the shortest-path weight from s
+tof:
+
+maximize d, (29.44)
+subject to
+
+A
+
+d, < d,+w(u,v) foreach edge (u,v) € E, (29.45)
+d,s = 0. (29.46)
+
+You might be surprised that this linear program maximizes an objective function
+when it is supposed to compute shortest paths. We do not want to minimize the
+objective function, since then setting d, = 0 for all v € V would yield an optimal
+solution to the linear program without solving the shortest-paths problem. We
+maximize because an optimal solution to the shortest-paths problem sets each dy
+to MiNy-(a vez {du + wu, v)}, so that d, is the largest value that is less than or
+equal to all of the values in the set {du + wu, v)}. We want to maximize d,
+for all vertices v on a shortest path from s to ¢ subject to these constraints on all
+vertices v, and maximizing d, achieves this goal.
+
+This linear program has |V| variables d,, one for each vertex v € V. It also
+has |E| + 1 constraints: one for each edge, plus the additional constraint that the
+source vertex’s shortest-path weight always has the value 0.
+
+Maximum flow
+
+Next, we express the maximum-flow problem as a linear program. Recall that we
+are given a directed graph G = (V,£) in which each edge (u,v) € E has a
+nonnegative capacity c(u,v) > 0, and two distinguished vertices: a source s and
+a sink t. As defined in Section 26.1, a flow is a nonnegative real-valued function
+f :VxV —R that satisfies the capacity constraint and flow conservation. A
+maximum flow is a flow that satisfies these constraints and maximizes the flow
+value, which is the total flow coming out of the source minus the total flow into the
+source. A flow, therefore, satisfies linear constraints, and the value of a flow is a
+linear function. Recalling also that we assume that c(u,v) = 0 if (u,v) ¢ E and
+that there are no antiparallel edges, we can express the maximum-flow problem as
+a linear program:
+
+maximize > fu - > fos (29.47)
+veV veV
+subject to
+fay < C(u,v) foreachu,veV, (29.48)
+Yo fiu = Yo fw foreach eV —{s.7} . (29.49)
+vev veVv
+fw = 0 foreachu,v EV. (29.50)
+

@@ -1,0 +1,44 @@
+312
+
+Chapter 13 Red-Black Trees
+
+its red children are absorbed? What can you say about the depths of the leaves of
+the resulting tree?
+
+13.1-5
+
+Show that the longest simple path from a node x in a red-black tree to a descendant
+leaf has length at most twice that of the shortest simple path from node x to a
+descendant leaf.
+
+13.16
+What is the largest possible number of internal nodes in a red-black tree with black-
+height k? What is the smallest possible number?
+
+13.1-7
+
+Describe a red-black tree on n keys that realizes the largest possible ratio of red in-
+ternal nodes to black internal nodes. What is this ratio? What tree has the smallest
+possible ratio, and what is the ratio?
+
+ 
+
+13.2 Rotations
+
+The search-tree operations TREE-INSERT and TREE-DELETE, when run on a red-
+black tree with 1 keys, take O(lg) time. Because they modify the tree, the result
+may violate the red-black properties enumerated in Section 13.1. To restore these
+properties, we must change the colors of some of the nodes in the tree and also
+change the pointer structure.
+
+We change the pointer structure through rotation, which is a local operation in
+a search tree that preserves the binary-search-tree property. Figure 13.2 shows the
+two kinds of rotations: left rotations and right rotations. When we do a left rotation
+on a node x, we assume that its right child y is not T.nil; x may be any node in
+the tree whose right child is not 7. nil. The left rotation “pivots” around the link
+from x to y. It makes y the new root of the subtree, with x as y’s left child and y’s
+left child as x’s right child.
+
+The pseudocode for LEFT-ROTATE assumes that x.right # T.nil and that the
+root’s parent is T. nil.
+

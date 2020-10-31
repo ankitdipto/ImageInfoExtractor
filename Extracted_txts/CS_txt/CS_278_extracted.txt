@@ -1,0 +1,50 @@
+29.3 The simplex algorithm 867
+
+To rewrite the other equations with x6 on the right-hand side, we substitute for x1
+using equation (29.62). Doing so for equation (29.59), we obtain
+
+Xs = 30—x, —X2— 3x3
+
+)-22— 32s
+
+(29.63)
+
+ 
+
+Similarly, we combine equation (29.62) with constraint (29.60) and with objective
+function (29.58) to rewrite our linear program in the following form:
+
+Xo x3 3X6
+
+po 0+ Be B- (29.64)
+y= 9K 2 _ = _ = (29.65)
+xy = 21 = se - os + * (29.66)
+ty = 6 a — ayy + =. (29.67)
+
+We call this operation a pivot. As demonstrated above, a pivot chooses a nonbasic
+variable xe, called the entering variable, and a basic variable x;, called the leaving
+variable, and exchanges their roles.
+
+The linear program described in equations (29.64)-(29.67) is equivalent to the
+linear program described in equations (29.58)—(29.61). We perform two operations
+in the simplex algorithm: rewrite equations so that variables move between the left-
+hand side and the right-hand side, and substitute one equation into another. The first
+operation trivially creates an equivalent problem, and the second, by elementary
+linear algebra, also creates an equivalent problem. (See Exercise 29.3-3.)
+
+To demonstrate this equivalence, observe that our original basic solution (0,0,
+0, 30, 24, 36) satisfies the new equations (29.65)-(29.67) and has objective value
+27+ (1/4) - 0+ (1/2) -0 — (3/4) - 36 = 0. The basic solution associated with the
+new linear program sets the nonbasic values to 0 and is (9,0, 0,21, 6,0), with ob-
+jective value z = 27. Simple arithmetic verifies that this solution also satisfies
+equations (29.59)-(29.61) and, when plugged into objective function (29.58), has
+objective value (3 - 9) + (1-0) + (2-0) = 27.
+
+Continuing the example, we wish to find a new variable whose value we wish to
+increase. We do not want to increase X¢, since as its value increases, the objective
+value decreases. We can attempt to increase either x2 or x3; let us choose x3. How
+far can we increase x3 without violating any of the constraints? Constraint (29.65)
+limits it to 18, constraint (29.66) limits it to 42/5, and constraint (29.67) limits
+it to 3/2. The third constraint is again the tightest one, and therefore we rewrite
+the third constraint so that 3 is on the left-hand side and xs is on the right-hand
+

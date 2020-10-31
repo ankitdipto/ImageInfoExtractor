@@ -1,0 +1,43 @@
+Problems for Chapter 7 189
+
+sorted output array by A’[1..n]. Using the median-of-3 method to choose the
+pivot element x, define p; = Pr{x = A’[i]}.
+
+a. Give an exact formula for p; as a function of n andi fori = 2,3,..., n—-l.
+(Note that p: = P, = 0.)
+
+b. By what amount have we increased the likelihood of choosing the pivot as
+x = A[[(n + 1)/2]], the median of A[l..n], compared with the ordinary
+implementation? Assume that n — oo, and give the limiting ratio of these
+probabilities.
+
+c. If we define a “good” split to mean choosing the pivot as x = A’[i], where
+n/3 <i <2n/3, by what amount have we increased the likelihood of getting
+a good split compared with the ordinary implementation? (Hint: Approximate
+the sum by an integral.)
+
+d. Argue that in the Q(n1g7) running time of quicksort, the median-of-3 method
+affects only the constant factor.
+
+7-6 Fuzzy sorting of intervals
+
+Consider a sorting problem in which we do not know the numbers exactly. In-
+stead, for each number, we know an interval on the real line to which it belongs.
+That is, we are given n closed intervals of the form [a;,b;], where a; < b;. We
+wish to fuzzy-sort these intervals, i.e., to produce a permutation (i,.i2..... i,) of
+the intervals such that for 7 = 1,2,..., n, there exist cj € [a;,,b;,] satisfying
+Cp SC2 SS.
+
+a. Design a randomized algorithm for fuzzy-sorting n intervals. Your algorithm
+should have the general structure of an algorithm that quicksorts the left end-
+points (the a; values), but it should take advantage of overlapping intervals to
+improve the running time. (As the intervals overlap more and more, the prob-
+lem of fuzzy-sorting the intervals becomes progressively easier. Your algorithm
+should take advantage of such overlapping, to the extent that it exists.)
+
+b. Argue that your algorithm runs in expected time @(7 1g) in general, but runs
+in expected time ©(n) when all of the intervals overlap (i.e., when there exists a
+value x such that x € [a;,;] for all i). Your algorithm should not be checking
+for this case explicitly; rather, its performance should naturally improve as the
+amount of overlap increases.
+

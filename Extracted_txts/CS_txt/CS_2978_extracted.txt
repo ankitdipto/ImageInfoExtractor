@@ -1,0 +1,89 @@
+494 Chapter 18 B-Trees
+
+as
+3s
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+= N Wo
+
+POR STUY,
+
+LLTi dy dd ITT] [TT]
+
+T, T, T; Ts Ts Ts T, Ts T, T, Ts Ts Ts Ts Tz Ts
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 18.5 Splitting anode with t = 4. Node y = x.¢; splits into two nodes, y and z, and the
+median key S of y moves up into y’s parent.
+
+B-TREE-SPLIT-CHILD(x,i)
+Zz = ALLOCATE-NODE()
+VHX;
+z.leaf = y.leaf
+zn=t—1
+for j = ltor—1
+
+z.key; = y-keyj
+if not y.leaf
+
+for j = 1 tor
+
+Z.Cj = VCj+e
+
+yn=t—
+11 for 7 = x.n+ 1 downtoi +1
+12 X.Cj41 = N.C;
+13° X.¢j41 = Z
+14 for j = x.ndowntoi
+15 X.keyj 4, = X-key;
+16 x.key; = y.key,
+17 x.n=x.n+1
+18 DISK-WRITE(y)
+19 Disk-WRITE(z)
+20 DISK-WRITE(x)
+
+  
+
+SemrAaunsewWnNH
+
+B-TREE-SPLIT-CHILD works by straightforward “cutting and pasting.” Here, x
+is the node being split, and y is x’s ith child (set in line 2). Node y originally has 2¢
+children (2¢ — 1 keys) but is reduced to ¢ children (¢ — 1 keys) by this operation.
+Node z takes the ¢ largest children (t — 1 keys) from y, and z becomes a new child
+

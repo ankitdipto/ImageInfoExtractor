@@ -1,0 +1,42 @@
+Chapter 18: Graphics Under Windows 589
+
+ 
+
+in the hbr variable. Next we have selected this brush in the DC.
+The handle of the default brush in DC is collected in the holdbr
+variable.
+
+Once we have selected the brush into the DC we are ready to draw
+the shapes. For drawing the line we have used MoveToEx( ) and
+LineTo( ) API functions. Similarly for drawing a rectangle we
+have used the Rectangle() function.
+
+The RoundRect( ) function draws a rectangle with rounded
+corners. In RoundRect ( x1, y1, x2, y2, x3, y3 ), x1, y1 represents
+the x and y-coordinates of the upper-left corner of the rectangle.
+Likewise, x2, y2 represent coordinates of the bottom right corner
+of the rectangle. x3, y3 specify the width and height of the ellipse
+used to draw the rounded corners.
+
+Note that rectangle and the rounded rectangle are drawn from x1,
+yl up to x2-1, y2-1.
+
+Parameters of Ellipse( ) specify coordinates of bounding rectangle
+of the ellipse.
+
+The Pie( ) function draws a pie-shaped wedge by drawing an
+elliptical are whose center and two endpoints are joined by lines.
+The center of the arc is the center of the bounding rectangle
+specified by x1, y1 and x2, y2. In Pie( x1, y1, x2, y2, x3, y3, x4,
+y4 ), x1, y1 and x2, y2 specify the x and y-coordinates of the upper
+left corner and bottom right corner respectively, of the bounding
+rectangle. x3, y3 and x4, y4 specify the x and y-coordinates of the
+are’s starting point and ending point respectively.
+
+In Polygon ( IpPoints, nCount ), IpPoints points to an array of
+points that specifies the vertices of the polygon. Each point in the
+array is a POINT structure. nCount specifies the number of
+vertices stored in the array. The system closes the polygon
+automatically, if necessary, by drawing a line from the last vertex
+to the first.
+

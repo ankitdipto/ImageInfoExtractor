@@ -1,0 +1,53 @@
+30.2) The DFT and FFT 909
+
+ 
+
+—1
+Sosy = Ct
+n = ik
+= ok —1
+_ (on)
+ok —]
+(yk -1
+ok -1
+= 0.
+Because we require that k is not divisible by 1, and because w* = 1 only when k
+is divisible by n, we ensure that the denominator is not 0. :
+The DFT
+
+Recall that we wish to evaluate a polynomial
+
+nol
+
+A(x) = >
+
+ 
+
+ 
+
+j=0
+of degree-bound n at @°,@},@?,...,@"~! (that is, at the 1 complex nth roots of
+unity). We assume that A is given in coefficient form: 4 = (do, d1,...,@y—1)- Let
+us define the results yx, fork =0,1,....2 —1, by
+ve = A(oh)
+
+x
+
+= (30.8)
+
+Af
+The vector y = (Vo. V1... ¥n—1) is the discrete Fourier transform (DFT) of the
+coefficient vector a = (do, 41,...,4n—1). We also write y = DFT,,(a).
+The FFT
+
+By using a method known as the fast Fourier transform (FFT), which takes ad-
+vantage of the special properties of the complex roots of unity, we can compute
+DFT,,(a) in time ©(nlgn), as opposed to the ©(n?) time of the straightforward
+method. We assume throughout that 7 is an exact power of 2. Although strategies
+
+ 
+
+37Phe length 7 is actually what we referred to as 2n in Section 30.1, since we double the degree-bound
+of the given polynomials prior to evaluation. In the context of polynomial multiplication, therefore,
+we are actually working with complex (2n)th roots of unity.
+

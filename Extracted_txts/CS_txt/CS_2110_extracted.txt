@@ -1,0 +1,52 @@
+Bibliographical Notes 535
+
+make a few reasonable assumptions; state the assumptions that you
+make.
+
+a. How many disk drives would be required to hold 4 exabytes of
+data?
+
+ 
+
+b. How many magnetic tapes would be required to hold 4 exabytes of
+data?
+
+c. How many optical tapes would be required to hold 4 exabytes of
+data (Exercise 14.28)?
+
+d. How many holographic storage cartridges would be required to
+hold 4 exabytes of data (Exercise 14.27)?
+
+e. How many cubic feet of storage space would each option require?
+
+14.30 Discuss how an operating system could maintain a free-space list for a
+tape-resident file system. Assume that the tape technology is append-
+only, and that it uses the EOT mark and locate, space, and read
+position commands as described in Section 14.8.2.1.
+
+Bibliographical Notes
+
+Discussions of redundant arrays of independent disks (RAID) are presented by
+Patterson et al. [1988] and in the detailed survey of Chen et al. [1994]. Disk-
+system architectures for high-performance computing are discussed by Katz
+et al. [1989]. Teorey and Pinkerton [1972] present an early comparative analysis
+of disk-scheduling algorithms. They use simulations that model a disk for
+which seek time is linear in the number of cylinders crossed. For this disk,
+LOOK is a good choice for queue lengths below 140, and C-LOOK is good for
+queue lengths above 100. King [1990] describes ways to improve the seek time
+by moving the disk arm when the disk is otherwise idle. Seltzer et al. [1990]
+describe disk-scheduling algorithms that consider rotational latency in addition
+to seek time. Worthington et al. [1994] discuss disk performance, and show
+the negligible performance impact of defect management. The placement of
+hot data to improve seek times has been considered by Ruemmler and Wilkes
+[1991] and Akyurek and Salem [1993]. Ruemmler and Wilkes [1994] describe an
+accurate performance model for a modern disk drive. Worthington et al. [1995]
+tell how to determine low-level disk properties such as the zone structure, and
+this work is further advanced by Schindler and Gregory [1999].
+
+The I/O size and randomness of the workload has a considerable influence
+on disk performance. Ousterhout et al. [1985] and Ruemmler and Wilkes [1993]
+report numerous interesting workload characteristics, including that most files
+are small, most newly created files are deleted soon thereafter, most files that
+are opened for reading are read sequentially in their entirety, and most seeks
+

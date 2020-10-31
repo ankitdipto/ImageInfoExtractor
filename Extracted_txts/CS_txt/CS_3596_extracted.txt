@@ -1,0 +1,88 @@
+Section 4.1.
+
+Best-First Search 95
+
+ 
+
+ 
+
+Straight-line distance
+to Bucharest
+
+Arad 366
+Bucharest °
+Craiova 160
+Dobreta 242
+Arad : Eforie 161
+2 ‘Fagaras 178
+Giurgiu 1
+Hirsova isl
+Tasi
+Lugoj
+Mehadia
+Neamt
+
+Oradea
+
+Pitesti
+Rimnicu Vilcea
+Sibiu
+Timisoara
+Urziceni
+
+Vaslui
+
+Zevind
+
+     
+ 
+
+SH gy Fagaras
+us
+
+ 
+
+ 
+
+ 
+
+Figure42 — Map of Romania with road distances in km, and straight-line distances to Bucharest.
+
+ 
+
+ 
+
+ 
+
+Notice that we can only calculate the values of/s;p ifwe know the map coordinates of the cities
+in Romania. Furthermore, /szp is only useful because a road from A to B usually tends to head
+in more or less the right direction. This is the sort of extra information that allows heuristics to
+help in reducing search cost.
+
+Figure 4.3 shows the progress of a greedy search to find a path from Arad to Bucharest.
+With the straight-line-distance heuristic, the first node to be expanded from Arad will be Sibiu,
+because it is closer to Bucharest than either Zerind or Timisoara. The next node to be expanded
+will be Fagaras, because it is closest. Fagaras in turn generates Bucharest, which is the goal. For
+this particular problem, the heuristic leads to minimal search cost: it finds a solution without ever
+expanding a node that is not on the solution path. However, it is not perfectly optimal: the path
+it found via Sibiu and Fagaras to Bucharest is 32 miles longer than the path through Rimnicu
+Vilcea and Pitesti. This path was not found because Fagaras is closer to Bucharest in straight-line
+distance than Rimnicu Vilcea, so it was expanded first. The strategy prefers to take the biggest
+bite possible out of the remaining cost to reach the goal, without worrying about whether this
+will be best in the long run—hence the name "greedy search." Although greed is considered
+one of the seven deadly sins, it turns out that greedy algorithms often perform quite well. They
+tend to find solutions quickly, although as shown in this example, they do not always find the
+optimal solutions: that would take a more careful analysis of the long-term options, not just the
+immediate best choice.
+
+Greedy search is susceptible to false starts. Consider the problem of getting from Iasi to
+Fagaras. The heuristic suggests that Neamt be expanded first, but it is a dead end. The solution is
+to go first to Vaslui—a step that is actually farther from the goal according to the heuristic.
+then to continue to Urziceni, Bucharest, and Fagaras. Hence, in this case, the heuristic causes
+unnecessary nodes to be expanded. Furthermore, if we are not careful to detect repeated states,
+the solution will never be found—the search will oscillate between Neamt and lasi.
+
+and
+
+ 
+

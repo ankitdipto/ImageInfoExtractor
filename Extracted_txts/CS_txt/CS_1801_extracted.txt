@@ -1,0 +1,50 @@
+278 Chapter9 Memory Management
+
+advantage of such a method. Operating systems may help the programmer,
+however, by providing library routines to implement dynamic loading.
+
+9.1.4 Dynamic Linking and Shared Libraries
+
+Figure 9.1 also shows dynamically linked libraries. Some operating systems
+support only static linking, in which system language libraries are treated
+like any other object module and are combined by the loader into the binary
+program image. The concept of dynamic linking is similar to that of dynamic
+loading. Rather than loading being postponed until execution time, linking is
+postponed. This feature is usually used with system libraries, such as language
+subroutine libraries. Without this facility, all programs on a system need to
+have a copy of their language library (or at least the routines referenced by
+the program) included in the executable image. This requirement wastes both
+disk space and main memory. With dynamic linking, a stub is included in
+the image for each library-routine reference. This stub is a small piece of code
+that indicates how to locate the appropriate memory-resident library routine,
+or how to load the library if the routine is not already present.
+
+When this stub is executed, it checks to see whether the needed routine is
+already in memory. If not, the program loads the routine into memory. Either
+way, the stub replaces itself with the address of the routine, and executes the
+routine. Thus, the next time that that code segment is reached, the library
+routine is executed directly, incurring no cost for dynamic linking. Under this
+scheme, all processes that use a language library execute only one copy of the
+library code.
+
+This feature can be extended to library updates (such as bug fixes). A
+library may be replaced by a new version, and all programs that reference the
+library will automatically use the new version. Without dynamic linking, all
+such programs would need to be relinked to gain access to the new library.
+So that programs will not accidentally execute new, incompatible versions of
+libraries, version information is included in both the program and the library.
+More than one version of a library may be loaded into memory, and each
+program uses its version information to decide which copy of the library to
+use. Minor changes retain the same version number, whereas major changes
+increment the version number. Thus, only programs that are compiled with the
+new library version are affected by the incompatible changes incorporated in it.
+Other programs linked before the new library was installed will continue using
+the older library. This system is also known as shared libraries.
+
+Unlike dynamic loading, dynamic linking generally requires help from the
+operating system. If the processes in memory are protected from one another
+(Section 9.3), then the operating system is the only entity that can check to see
+whether the needed routine is in another process’ memory space, or that can
+allow multiple processes to access the same memory addresses. We elaborate
+on this concept when we discuss paging in Section 9.4.5.
+

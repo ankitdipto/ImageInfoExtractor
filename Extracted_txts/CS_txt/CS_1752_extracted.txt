@@ -1,0 +1,50 @@
+236 Chapter7 Process Synchronization
+
+If a system crash occurs, the information in the log is used in restoring the state
+of the updated data items, which is accomplished with the use of the undo and
+redo operations. To reduce the overhead in searching the log after a system
+failure has occurred, we can use a checkpoint scheme.
+
+When several transactions overlap their execution, the resulting execution
+may no longer be equivalent to an execution where these transactions executed
+atomically. To ensure correct execution, we must use a concurrency-control
+scheme to guarantee serializability. There are various different concurrency-
+control schemes that ensure serializability by either delaying an operation or
+aborting the transaction that issued the operation. The most common ones are
+locking protocols and timestamp-ordering schemes.
+
+= Exercises
+
+7.1 What is the meaning of the term busy waiting? What other kinds of waiting
+are there in an operating system? Can busy waiting be avoided altogether?
+Explain your answer.
+
+7.2 Explain why spinlocks are not appropriate for uniprocessor systems yet
+may be suitable for multiprocessor systems.
+
+7.3. Prove that, in the bakery algorithm (Section 7.2.2), the following property
+holds: If P; is in its critical section and P; (k # i) has already chosen its
+number [k] 40, then (number[i], i) < (number[k], k).
+
+7.4 The first known correct software solution to the critical-section problem
+for two processes was developed by Dekker. The two processes, Po and
+P,, share the following variables:
+
+boolean flag[2]; /* initially false */
+int turn;
+
+The structure of process P; (i == 0 or 1), with P; (j == 1 or 0) being the
+other process, is shown in Figure 7.27.
+
+Prove that the algorithm satisfies all three requirements for the critical-
+section problem.
+
+7.5 The first known correct software solution to the critical-section problem
+for n processes with a lower bound on waiting of n — 1 turns was pre-
+sented by Eisenberg and McGuire. The processes share the following
+variables:
+
+enum pstate {idle, want_in, in-cs};
+pstate flag[n];
+int turn;
+

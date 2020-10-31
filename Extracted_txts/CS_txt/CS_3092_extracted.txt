@@ -1,0 +1,72 @@
+   
+ 
+ 
+    
+   
+  
+   
+  
+  
+  
+  
+ 
+   
+  
+  
+   
+   
+
+464 Chapter 15. Probabilistic Reasoning Systems
+
+ 
+
+157___ SUMMARY
+
+Both Chapter 9 and this chapter are concerned with reasoning properly, but there is a difference
+injust what that means. In first-order logic, proper reasoning means that conclusions follow from
+premises—that if the initial knowledge base faithfully represents the world, then the inferences
+also faithfully represent the world. In probability, we are dealing with beliefs, not with the state
+of the world, so "proper reasoning" means having beliefs that allow an agent to act rationally.
+
+In Chapter 10, we saw a variety of approaches to the problem of implementing logical
+reasoning systems. In this chapter, we see much more of a consensus: efficient reasoning
+with probability is so new that there is one main approach—beliefnetworks—with a few minor
+variations. The main points are as follows:
+
+ 
+
+Conditional independence information is a vital and robust way to structure information
+about an uncertain domain.
+
+Belief networks are a natural way to represent conditional independence information. The
+links between nodes represent the qualitative aspects of the domain, and the conditional
+probability tables represent the quantitative aspects.
+
+A beliefnetwork is a complete representation for the joint probability distribution for the
+domain, but is often exponentially smaller in size.
+
+Inference in belief networks means computing the probability distribution ofa set of query
+variables, given a set of evidence variables.
+
+Belief networks can reason causally, diagnostically, in mixed mode, or intercausally. No
+other uncertain reasoning mechanism can handle all these modes.
+
+The complexity of beliefnetwork inference depends on the network structure. In polytrees
+(singly connected networks), the computation time is linear in the size of the network.
+There are various inference techniques for general belief networks, all of which have
+exponential complexity in the worst case. In real domains, the local structure tends to
+make things more feasible, but care is needed to construct a tractable network with more
+than a hundred nodes.
+
+It is also possible to use approximation techniques, including stochastic simulation, to get
+an estimate of the true probabilities with less computation 3
+Various alternative systems for reasoning with uncertainty have been suggested. All the
+truth-functional systems have serious problems with mixed or intercausal reasoning.
+
+—— eee
+BIBLIOGRAPHICAL AND HISTORICAL NOTES
+The use of networks to represent probabilistic information began early in the twentieth century,
+
+with the work of Sewall Wright on the probabilistic analysis of genetic inheritance and animal
+growth factors (Wright, 1921; Wright, 1934). One of his networks appears on the cover of this :
+

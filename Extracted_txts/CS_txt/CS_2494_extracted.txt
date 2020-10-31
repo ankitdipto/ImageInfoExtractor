@@ -1,0 +1,61 @@
+100
+
+Chapter 4 Divide-and-Conquer
+
+cost of all the leaves, which is the cost of doing all nen subproblems of size 1,
+is O(n! 4), .
+
+In terms of the recursion tree, the three cases of the master theorem correspond
+to cases in which the total cost of the tree is (1) dominated by the costs in the
+leaves, (2) evenly distributed among the levels of the tree, or (3) dominated by the
+cost of the root.
+
+The summation in equation (4.21) describes the cost of the dividing and com-
+bining steps in the underlying divide-and-conquer algorithm. The next lemma pro-
+vides asymptotic bounds on the summation’s growth.
+
+Lemma 4.3
+Let a > 1 and b > 1 be constants, and let f(m) be a nonnegative function defined
+on exact powers of b. A function g(m) defined over exact powers of b by
+
+logy n—1
+
+g(n)= > al f(n/b!) (4.22)
+
+j=0
+has the following asymptotic bounds for exact powers of b:
+
+1. If f(n) = O(n'®+ 4) for some constant € > 0, then g(7) = O(n'°%¢),
+2. If f(n) = O(n'™>4), then g(n) = O(n! 4 Ign).
+
+3. Ifaf(n/b) < cf(n) for some constant c < | and for all sufficiently large n,
+then g(n) = O( f(n)).
+
+Proof For case 1, we have f(n) = O(n'°%»¢~*), which implies that f(n/b/) =
+O((n/b/)'2» &-), Substituting into equation (4.22) yields
+
+log, n—1 op a-€
+gin) = o( y a (4) * ) . (4.23)
+
+j=0
+We bound the summation within the O-notation by factoring out terms and simpli-
+fying, which leaves an increasing geometric series:
+
+lon t ay \ logy a-€ log, 0-4 lem mt 7 ape \F
+Jf — logy, a—€ —
+a - =n
+bi blosne
+j=0 j=0
+
+logy n=1
+
+= plea-e > (by
+j=0
+
+€logy n
+nloen a-€ D
+be
+
+ 
+ 
+

@@ -1,0 +1,45 @@
+Chapter 13: More Issues In Input/Output 469
+
+ 
+
+Rest of the program is same as the earlier file-copy program. This
+program is better than the earlier file-copy program on two counts:
+
+(a) There is no need to recompile the program every time we
+want to use this utility. It can be executed at command
+prompt.
+
+(b) We are able to pass source file name and target file name to
+main( ), and utilize them in main( ).
+
+One final comment... the while loop that we have used in our
+program can be written in a more compact form, as shown below:
+
+while ( (ch = fgetc (fs) ) != EOF )
+fputc (ch, ft) ;
+
+This avoids the usage of an indefinite loop and a break statement
+to come out of this loop. Here, first fgete ( fs ) gets the character
+from the file, assigns it to the variable ch, and then ch is compared
+against EOF. Remember that it is necessary to put the expression
+
+ch = fgetc (fs )
+
+within a pair of parentheses, so that first the character read is
+assigned to variable ch and then it is compared with EOF.
+
+There is one more way of writing the while loop. It is shown
+below:
+
+while ( !feof ( fs ) )
+
+{
+ch = fgetc (fs) ;
+fputc (ch, ft) ;
+
+}
+
+Here, feof( ) is a macro which returns a 0 if end of file is not
+reached. Hence we use the ! operator to negate this 0 to the truth
+value. When the end of file is reached feof( ) returns a non-zero
+

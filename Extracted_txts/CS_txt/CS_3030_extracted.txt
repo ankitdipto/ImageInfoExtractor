@@ -1,0 +1,81 @@
+Section 2.3
+man
+
+Structure of Intelligent Agents 43
+
+ 
+
+ 
+
+ 
+
+How the world
+
+What the world
+is like now
+
+ 
+
+ 
+
+What action |
+should do now
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 29 A reflex agent with internal state.
+
+ 
+
+ 
+
+function REFLEX-AGENT-WITH-STaTE( percept) returns action
+static: state, a description of the current world state
+rules, a set of condition-action rules
+
+state — UpDaTE-STATE(state, percept)
+rule — RULE-MATCH(state, rules)
+action — RULE-ACTION[rule]}
+
+state — UPDATE-STATE(state, action)
+return action
+
+ 
+
+ 
+
+Figure 210 A reflex agent with internal state. It works by finding a rule whose condition
+matches the current situation (as defined by the percept and the stored internal state) and then
+
+ 
+
+ 
+
+doing the action associated with that rule.
+
+ 
+
+Notice that decision-making of this kind is fundamentally different from the condition-
+action rules described earlier, in that it involves consideration of the future—both "What will
+happen if I do such-and-such?" and "Will that make me happy?" In the reflex agent designs,
+this information is not explicitly used, because the designer has precomputed the correct action
+for various cases. The reflex agent brakes when it sees brake lights. A goal-based agent, in
+principle, could reason that if the car in front has its brake lights on, it will slow down. From
+the way the world usually evolves, the only action that will achieve the goal of not hitting other
+cars is to brake. Although the goal-based agent appears less efficient, it is far more flexible. Ifit
+starts to rain, the agent can update its knowledge of how effectively its brakes will operate; this
+will automatically cause all of the relevant behaviors to be altered to suit the new conditions. For
+the reflex agent, on the other hand, we would have to rewrite a large number of condition-action
+

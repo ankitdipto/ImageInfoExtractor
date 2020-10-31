@@ -1,0 +1,69 @@
+736 Chapter 24. Perception
+
+ 
+
+ 
+
+  
+
+(a) (b)
+
+ 
+
+ 
+
+Figure 248 (a) A Rubik’s cube on a rotating turntable. (b) The same cube, shown 19/30
+seconds later, (Image courtesy of Richard Szeliski.)
+
+ 
+
+ 
+
+ 
+
+Cross-correlation works best when there is texture in the scene, resulting in windows containing
+significant brightness variation among the pixels. If one is looking at a uniform white wall, then
+the cross-correlation is going to be nearly the same for the different candidate matches g, and the
+algorithm is reduced to making a blind guess.
+Suppose that the viewer has translational velocity T and angular velocity w (which thus
+EGOMOTION describe the egomotion). One can derive an equation relating the viewer velocities, the optical
+flow, and the positions of objects in the scene. In fact, assuming f = 1,
+
+ 
+
+[__2.
+Vey) = — wy + wy} — x !-~—*— — ayy tyr,
+
+[ Zxy)
+2 L : f.
+way) = [ Za WX a y [ Ze»)
+where Z/x, y) gives the z-coordinate of the scene point corresponding to the image point at (x, y).
+One can get a good intuition by considering the case of pure translation. In that case, the
+flow field becomes
+
+~ Z(«%y)
+
+ 
+
+ 
+
+= Wr + Wy |
+
+vy) = EE yay = TEE
+_ Z(xy) ' “ Zixuyy
+One can observe some interesting properties. Both components of the optical flow, v(x, y) and
+ESM RSou v(x, ¥), are Zero at the pointx = 7,/T,,v= 7,/T,. This point is called the focus of expansion of
+
+the flow field. Suppose we change the origin in the xy plane to lie at the focus of expansion;
+then the expressions for optical flow take on a particularly simple form. Let (x’,)’) be the new
+coordinates defined by.” =x - T,/T.,y =y - T,/T,. Then
+
+XT.
+Ary) ary)
+
+ 
+
+wel Y=
+
+ 
+

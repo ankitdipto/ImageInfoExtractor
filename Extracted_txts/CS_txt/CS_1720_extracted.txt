@@ -1,0 +1,50 @@
+210  Chapter7 Process Synchronization
+
+do {
+wait (chopstick [i]);
+wait (chopstick[(it1) % 51);
+
+eat
+signal (chopstick[i]);
+signal(chopstick[(it1) % 51);
+
+think
+} while (1);
+Figure 7.17 The structure of philosopher i.
+
+ing her chopsticks. When she is finished eating, she puts down both of her
+chopsticks and starts thinking again.
+
+The dining-philosophers problem is considered a classic synchronization
+problem, neither because of its practical importance nor because computer
+scientists dislike philosophers, but because it is an example of a large class of
+concurrency-control problems. It is a simple representation of the need to allo-
+cate several resources among several processes in a deadlock- and starvation-
+free manner.
+
+One simple solution is to represent each chopstick by a semaphore. A
+philosopher tries to grab the chopstick by executing a wait operation on that
+semaphore; she releases her chopsticks by executing the signal operation on
+the appropriate semaphores. Thus, the shared data are
+
+semaphore chopstick[S5];
+
+where all the elements of chopstick are initialized to 1. The structure of
+philosopher i is shown in Figure 7.17.
+
+Although this solution guarantees that no two neighbors are eating simulta-
+neously, it nevertheless must be rejected because it has the possibility of creating
+a deadlock. Suppose that all five philosophers become hungry simultaneously,
+and each grabs her left chopstick. All the elements of chopstick will now be
+equal to 0. When each philosopher tries to grab her right chopstick, she will be
+delayed forever.
+
+Several possible remedies to the deadlock problem are listed next. In
+Section 7.7, we present a solution to the dining-philosophers problem that
+ensures freedom from deadlocks.
+
+Allow at most four philosophers to be sitting simultaneously at the table.
+
+« Allow a philosopher to pick up her chopsticks only if both chopsticks are
+available (to do this she must pick them up ina critical section).
+

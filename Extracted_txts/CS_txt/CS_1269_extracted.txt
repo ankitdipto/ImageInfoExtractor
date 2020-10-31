@@ -1,0 +1,72 @@
+ 
+
+Section 8.1.
+
+Properties of Good and Bad Knowledge Bases
+
+219
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+KNOWLEDGE ENGINEERING vs. PROGRAMMING
+
+A useful analogy can be made between knowledge engineering and programming.
+Both activities can be seen as consisting of four steps:
+
+Knowledge Engineering Programming
+
+(1) Choosing a logic Choosing a programming language
+
+(2) Building a knowledge base Writing a program
+
+(3) Implementing the proof theory Choosing or writing a compiler
+
+(4) Inferring new facts Running a program
+In both activities, one writes down a description of a problem or state of affairs,
+and then uses the definition of the language to derive new consequences. In the
+case of a program, the output is derived from the input and the program; in the case
+of a knowledge base, answers are derived from descriptions of problems and the
+knowledge base.
+
+Given these similarities, what is the point of doing "knowledge engineering" at
+all? Why not just admit that the final result will be a program, and set about to write
+that program from the start, using a traditional programming language?
+
+The main advantage of knowledge engineering is that it requires less commit-
+ment, and thus less work. A knowledge engineer only has to decide what objects
+and relations are worth representing, and which relations hold among which objects.
+A programmer has to do all that, and in addition must decide how to compute the
+relations between objects, given some initial input. The knowledge engineer specifies
+what is true, and the inference procedure figures out how to turn the facts into a solu-
+tion to the problem. Furthermore, because a fact is true regardless of what task one is
+trying to solve, knowledge bases can, in principle, be reused for a variety of different
+tasks without modification. Finally, debugging a knowledge base is made easier by
+the fact that any given sentence is true or false by itself whereas the correctness of a
+program statement depends very strongly on its context.
+
+The advantages of this declarative approach to system building have not been
+lost on other subfields of computer science. Database systems derive most of their
+usefulness from the fact that they provide a method to store and retrieve information
+in a way that is independent of the particular application. Database systems have
+also started to add the capability to do logical inference, thereby moving more of
+the functionality from the application program into the database system (Stonebraker,
+1992). The field of agent-based software engineering (Genesereth and Ketchpel,
+1994) attempts to make all sorts of systems and resources interoperable by providing
+a declarative interface based on first-order logic.
+
+ 
+
+ 
+
+ 
+
+ 
+

@@ -1,0 +1,42 @@
+254 Let Us C
+
+ 
+
+needed functions and macro definitions can be stored in a file,
+and that file can be included in every program we write,
+which would add all the statements in this file to our program
+as if we have typed them in.
+
+It is common for the files that are to be included to have a h
+extension. This extension stands for ‘header file’, possibly because
+it contains statements which when included go to the head of your
+program. The prototypes of all the library functions are grouped
+into different categories and then stored in different header files.
+For example prototypes of all mathematics related functions are
+stored in the header file ‘math.h’, prototypes of console
+input/output functions are stored in the header file ‘conio.h’, and
+so on.
+
+Actually there exist two ways to write #include statement. These
+are:
+
+#include "filename"
+#include <filename>
+
+The meaning of each of these forms is given below:
+
+#include "goto.c" This command would look for the file goto.c
+in the current directory as well as the
+specified list of directories as mentioned in
+the include search path that might have been
+set up.
+
+#include <goto.c> This command would look for the file goto.c
+in the specified list of directories only.
+
+The include search path is nothing but a list of directories that
+would be searched for the file being included. Different C
+compilers let you set the search path in different manners. If you
+are using Turbo C/C++ compiler then the search path can be set up
+by selecting ‘Directories’ from the ‘Options’ menu. On doing this
+

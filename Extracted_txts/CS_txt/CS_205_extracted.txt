@@ -1,0 +1,52 @@
+808
+
+Chapter 27 Multithreaded Algorithms
+
+P-SCAN-1(x)
+
+1 on =x.length
+
+2 let y[1..n] be a new array
+3 P-SCAN-1-AUx(x, y, 1,7)
+4 return y
+
+P-SCAN-1-AUX(x, y, i,j)
+
+1 parallel for / = i to j
+2 y[/] = P-REDUCE(x, 1,/)
+
+b. Analyze the work, span, and parallelism of P-SCAN-1.
+
+By using nested parallelism, we can obtain a more efficient @-prefix computa-
+tion:
+
+P-SCAN-2(x)
+
+1 on =x.length
+
+2 let y[1..n] be a new array
+3 P-SCAN-2-AUX(x, y, 1,7)
+4 return y
+
+P-SCAN-2-AUX(x, y,i, j)
+1 ifi==j7
+2 Jl) = xf]
+3 elsek = [(i + j)/2)
+spawn P-SCAN-2-AUX(x, y,i,k)
+P-SCAN-2-Aux(x, y,k + 1,7)
+syne
+parallel for / = k + 1 to j
+J = yk] @ vy]
+
+ 
+
+CIA
+
+c. Argue that P-SCAN-2 is correct, and analyze its work, span, and parallelism.
+
+We can improve on both P-SCAN-1 and P-SCAN-2 by performing the @-prefix
+computation in two distinct passes over the data. On the first pass, we gather the
+terms for various contiguous subarrays of x into a temporary array ¢, and on the
+second pass we use the terms in ¢ to compute the final result y. The following
+pseudocode implements this strategy, but certain expressions have been omitted:
+

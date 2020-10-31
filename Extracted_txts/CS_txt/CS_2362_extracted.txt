@@ -1,0 +1,61 @@
+502
+
+CHAPTER THIRTEEN Multiprocessors
+
+‘TABLE 13-1 IEEE Standard 796 Multibus Signals
+
+ 
+
+Signal name
+
+Data and address
+Data lines (16 lines) DATAO-DATAIS
+Address lines (24 lines) ADRSO-ADRS23
+Data transfer
+
+Memory read MRDC
+Memory write MWTC
+10 read IORC
+10 write rowc
+Transfer acknowledge TACK
+
+Interrupt control
+Interrupt request (8 lines) INTO-INT7
+
+Interrupt acknowledge INTA
+Miscellaneous control
+Master clock CLK
+System initialization INIT
+Byte high enable BHEN
+Memory inhibit (2 lines) INHI-INH2
+Bus lock LOCK
+Bus arbitration
+Bus request BREQ
+‘Common bus request CBRQ
+Bus busy BUSY
+Bus clock BCLK
+Bus priority in BPRN
+Bus priority out BPRO
+
+Power and ground (20 lines)
+
+ 
+
+Reprinted with permission of the IEEE.
+
+Serial Arbitration Procedure
+Arbitration procedures service all processor requests on the basis of established
+priorities. A hardware bus priority resolving technique can be established by
+means of a serial or parallel connection of the units requesting control of
+the system bus. The serial priority resolving technique is obtained from a
+daisy-chain connection of bus arbitration circuits similar to the priority inter-
+rupt logic presented in Sec. 11-5. The processors connected to the system bus
+are assigned priority according to their position along the priority controlline.
+The device closest to the priority line is assigned the highest priority. When
+multiple devices concurrently request the use of the bus, the device with the
+highest priority is granted access to it.
+
+Figure 13-10 shows the daisy-chain connection of four arbiters. It is
+assumed that each processor has its own bus arbiter logic with priority-in and
+priority-out lines. The priority out (PO) of each arbiter is connected to the
+

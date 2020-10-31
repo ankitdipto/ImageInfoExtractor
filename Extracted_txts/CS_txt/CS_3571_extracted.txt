@@ -1,0 +1,60 @@
+542 Chapter 20 van Emde Boas Trees
+
+PROTO-VEB-MINIMUM(V )
+1 ifV.w==2
+
+2 if V.A[0] == 1
+
+3 return 0
+
+4 elseif V.A[1] == 1
+
+5 return |
+
+6 else return NIL
+
+7 else min-cluster = PROTO-VEB-MINIMUM(V. summary)
+
+8 if min-cluster == NIL
+
+9 return NIL
+
+0 else offset = PROTO-VEB-MINIMUM (V.cluster[min-cluster])
+
+1 return index (min-cluster, offset)
+
+1
+
+This procedure works as follows. Line | tests for the base case, which lines 2-6
+handle by brute force. Lines 7-11 handle the recursive case. First, line 7 finds the
+number of the first cluster that contains an element of the set. It does so by recur-
+sively calling PROTO-VEB-MINIMUM on V.swmmary, which is a proto-v EB(./u)
+structure. Line 7 assigns this cluster number to the variable min-cluster. If the set
+is empty, then the recursive call returned NIL, and line 9 returns NIL. Otherwise,
+the minimum element of the set is somewhere in cluster number min-cluster. The
+recursive call in line 10 finds the offset within the cluster of the minimum element
+in this cluster. Finally, line 11 constructs the value of the minimum element from
+the cluster number and offset, and it returns this value.
+
+Although querying the summary information allows us to quickly find the clus-
+ter containing the minimum element, because this procedure makes two recursive
+calls on proto-vEB(,/1) structures, it does not run in O(lg1gu) time in the worst
+case. Letting T(u) denote the worst-case time for PROTO-VEB-MINIMUM on a
+proto-v EB(u) structure, we have the recurrence
+
+T(u) = 2T(Ju) +O). (20.3)
+Again, we use a change of variables to solve this recurrence, letting m = Igu,
+which gives
+
+T(2”) = 27 (2""?) + O(I).
+
+Renaming S(m) = T(2”) gives
+
+S(m) = 2S(m/2) + OV),
+
+which, by case | of the master method, has the solution S(m) = ©(m). By chang-
+ing back from S(n) to T(w), we have that T(w) = T(2") = S(m) = O(n) =
+
+@(lgu). Thus, we see that because of the second recursive call, PROTO-vEB-
+MINIMUM runs in @(lg w) time rather than the desired O(1g1gu) time.
+

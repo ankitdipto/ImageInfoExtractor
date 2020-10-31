@@ -1,0 +1,41 @@
+Chapter 6: Data Types Revisited 227
+
+ 
+
+A value stored in a CPU register can always be accessed faster
+than the one that is stored in memory. Therefore, if a variable is
+used at many places in a program it is better to declare its storage
+class as register. A good example of frequently used variables is
+loop counters. We can name their storage class as register.
+
+main()
+{
+register int i;
+
+for (i=1;i1<=10; i++)
+printf ( “\n%d", i) ;
+}
+
+Here, even though we have declared the storage class of i as
+register, we cannot say for sure that the value of i would be stored
+in a CPU register. Why? Because the number of CPU registers are
+limited, and they may be busy doing some other task. What
+happens in such an event... the variable works as if its storage class
+is auto.
+
+Not every type of variable can be stored in a CPU register.
+
+For example, if the microprocessor has 16-bit registers then they
+cannot hold a float value or a double value, which require 4 and 8
+bytes respectively. However, if you use the register storage class
+for a float or a double variable you won’t get any error messages.
+All that would happen is the compiler would treat the variables to
+be of auto storage class.
+
+Static Storage Class
+The features of a variable defined to have a static storage class are
+as under:
+
+Storage — Memory.
+Default initial value -— Zero.
+

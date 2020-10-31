@@ -1,0 +1,57 @@
+tightly coupled
+
+loosely coupled
+
+SECTION 1.2 Interconnection Structures 491.
+
+Multiprocessors are classified by the way their memory is organized. A
+multiprocessor system with common shared memory is classified as a shared-
+‘memory or tightly coupled multiprocessor. This does not preclude each processor
+from having its own local memory. In fact, most commercial tightly coupled
+multiprocessors provide a cache memory with each CPU. In addition, there is
+a global common memory that all CPUs can access. Information can therefore
+be shared among the CPUs by placing it in the comunon global memory.
+
+Analternative model of microprocessor is the distributed-memory or loosely
+coupled system. Each processor element in a loosely coupled system has its own
+private local memory. The processors are tied together by a switching scheme
+designed to route information from one processor to another through a mes-
+sage-passing scheme. The processors relay program and data to other proces-
+sors in packets. A packet consists of an address, the data content, and some
+error detection code. The packetsare addressed toa specific processor or taken
+by the firstavailable processor, depending on the communication system used.
+Loosely coupled systems are most efficient when the interaction between tasks
+is minimal, whereas tightly coupled systems can tolerate a higher degree of
+interaction between tasks.
+
+13.
+
+Thecomponents that form a multiprocessor systemare CPUs, IOPs connected
+to input-output devices, and a memory unit that may be partitioned into a
+number of separate modules. The interconnection between the components
+can have different physical configurations, depending on the number of trans-
+fer paths that are available between the processors and memory in a shared
+memory system or among the processing elements in a loosely coupled sys-
+tem. Thereare several physical forms available forestablishing an interconnec-
+tion network. Some of these schemes are presented in this section:
+
+ 
+
+Interconnection Structures
+
+1. Time-shared common bus
+
+2. Multiport memory
+
+3. Crossbar switch
+
+4. Multistage switching network
+5. Hypercube system
+
+Time-Shared Common Bus
+
+A common-bus multiprocessor system consists of a number of processors
+connected through a common path toa memory unit. A time-shared common
+bus for five processors is shown in Fig. 13-1. Only one processor can commu-
+nicate with the memory or another processor at any given time. Transfer
+

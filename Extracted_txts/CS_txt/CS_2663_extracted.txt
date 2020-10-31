@@ -1,0 +1,57 @@
+238
+
+Chapter 10 Elementary Data Structures
+
+LisT-INSERT(L, x)
+
+xX.next = L.head
+
+if L.head A NIL
+L.head.prev = x
+
+L.head = x
+
+X.prev = NIL
+
+UbwNe
+
+(Recall that our attribute notation can cascade, so that L.head.prev denotes the
+prev attribute of the object that L.head points to.) The running time for L1sT-
+INSERT on a list of n elements is O(1).
+
+Deleting from a linked list
+
+The procedure LIsT-DELETE removes an element x from a linked list L. It must
+be given a pointer to x, and it then “splices” x out of the list by updating pointers.
+If we wish to delete an element with a given key, we must first call LIsTt-SEARCH
+to retrieve a pointer to the element.
+
+List-DELETE(L, x)
+
+1 if x.prev A NIL
+
+2 X.prev.next = X.next
+3 else L.head = X.next
+
+4 if x.next # NIL
+
+5 X.next.prev = X.prev
+
+Figure 10.3(c) shows how an element is deleted from a linked list. LIsT-DELETE
+runs in O(1) time, but if we wish to delete an element with a given key, ©() time
+is required in the worst case because we must first call LIST-SEARCH to find the
+element.
+
+Sentinels
+
+The code for L1ST-DELETE would be simpler if we could ignore the boundary
+conditions at the head and tail of the list:
+
+LisT-DELETE’(L, x)
+
+1 X.prev.next = X.next
+2 X.next.prev = X.prev
+
+A sentinel is a dummy object that allows us to simplify boundary conditions. For
+example, suppose that we provide with list L an object L.nil that represents NIL
+

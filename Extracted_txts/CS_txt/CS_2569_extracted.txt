@@ -1,0 +1,65 @@
+338
+
+11.2 FROM PROBLEM SOLVING TO PLANNING
+
+Chapter 11. Planning
+
+ 
+
+function SIMPLE-PLANNING-AGENT( percept) returns an action
+static: KB, a knowledge base (includes action descriptions)
+p, a plan, initially NoPlan
+t, a counter, initially 0, indicating time
+local variables: G, a goal”
+current, a current state description
+
+TELL(KB,MAKE-PERCEPT-SENTENCE( percept, #))
+current — STATE-DESCRIPTION(KB, t)
+ifp = NoPlan then
+
+G — ASK(KB, MAKE-GOAL-QUERY(1))
+
+p — IDEAL-PLANNER(current, G, KB)
+if p= NoPlan orp is empty then action —NoOp
+else
+
+action — Firsv( p)
+
+p—REST(p)
+‘TELL(KB, MAKE-ACTION-SENTENCE(action, 1))
+tot+)
+return action
+
+ 
+
+ 
+
+Figure 11.1 A simple planning agent. The agent first generates a goal to achieve, and then
+constructs a plan to achieve it from the current state. Once it has a plan, it keeps executing it until
+the plan is finished, then begins again with a new goal.
+
+ 
+
+ 
+
+ 
+
+where the complete plan is in fact empty, because the goal is already true in the initial state. The
+agent interacts with the environment in a minimal way—it uses its percepts to define the initial
+state and thus the initial goal, but thereafter it simply follows the steps in the plan it has con- j
+structed. In Chapter 13, we discuss more sophisticated agent designs that allow more interaction
+between the world and the planner during plan execution.
+
+Planning and problem solving are considered different subjects because of the differences in
+the representations of goals, states, and actions, and the differences in the representation and
+construction of action sequences. In this section, we first describe some of the difficulties
+encountered by a search-based problem-solving approach, and then introduce the methods used
+by planning systems to overcome these difficulties.
+Recall the basic elements of a search-based problem-solver:
+* Representation of actions. Actions are described by programs that generate successor ]
+state descriptions.
+
+* Representation of states. In problem solving, a complete description of the initial state is
+
+ 
+

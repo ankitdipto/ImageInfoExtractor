@@ -1,0 +1,120 @@
+20.1 Preliminary approaches 535
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+5 0123
+summary [T]L [OTT] vi bits
+1 0 1
+NN Vu bits
+ofofi] i fifi folifofofojofofofifa A o[ofofofofoji
+012345678 90WN RBMIS 8 9 01 BR Bi Is
+(a) (b)
+
+Figure 20.2 (a) A tree of degree \/ superimposed on top of the same bit vector as in Figure 20.1.
+Each internal node stores the logical-or of the bits in its subtree. (b) A view of the same structure,
+but with the internal nodes at depth 1 treated as an array swnmmary[0.. ut — 1], where summary[i] is
+the logical-or of the subarray Afi /@.. (i + 1). /w — 1].
+
+each of the operations MINIMUM, MAXIMUM, SUCCESSOR, PREDECESSOR, and
+DELETE in O(,/u) time:
+
+* To find the minimum (maximum) value, find the leftmost (rightmost) entry in
+summary that contains a 1, say summary[i], and then do a linear search within
+the ith cluster for the leftmost (rightmost) 1.
+
+* To find the successor (predecessor) of x, first search to the right (left) within its
+cluster. If we find a 1, that position gives the result. Otherwise, let i = |x/./U]
+and search to the right (left) within the summary array from index i. The first
+position that holds a 1 gives the index of a cluster. Search within that cluster
+for the leftmost (rightmost) 1. That position holds the successor (predecessor).
+
+* To delete the value x, let i = |x/,/w]]. Set A[x] to 0 and then set summary(i]
+to the logical-or of the bits in the ith cluster.
+
+In each of the above operations, we search through at most two clusters of /i bits
+plus the swmmary array, and so each operation takes O(,/1) time.
+
+At first glance, it seems as though we have made negative progress. Superimpos-
+ing a binary tree gave us O(lg u)-time operations, which are asymptotically faster
+than O(/u) time. Using a tree of degree /1 will turn out to be a key idea of van
+Emde Boas trees, however. We continue down this path in the next section.
+
+Exercises
+
+20.1-1
+Modify the data structures in this section to support duplicate keys.
+

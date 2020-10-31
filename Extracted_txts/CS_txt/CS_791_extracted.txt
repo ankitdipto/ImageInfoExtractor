@@ -1,0 +1,56 @@
+176
+
+Chapter 6. Agents that Reason Logically
+
+ 
+
+3. Applying Modus Ponens to +52, and the sentence labelled R2, and then applying And-
+Elimination to the result, we obtain the three sentences
+
+AW) AW) AW,
+4. Applying Modus Ponens to 5,2 and the sentence labelled Ry, we obtain
+Wisv Wiav WooV Wis
+
+5. Now we apply the unit resolution rule, where a is W).3 V Wi2V W22 and 3 is Wi. (We
+derived =W;,; in step 2.) Unit resolution yields
+
+Wrav Wi2v Wo2
+
+6. Applying unit resolution again with W:3V Wy. as a and W22 as 3 (~W>,2 was derived in
+step 3), we obtain
+
+Wisv Wir
+
+7. Finally, one more resolution with W;3as Q and W/ 2 as 3 (we derived =W, > in step 2)
+gives us the answer we want, namely, that the wumpus is in [1,3]:
+
+Wis
+
+Translating knowledge into action
+
+We have shown how propositional logic can be used to infer knowledge such as the whereabouts
+of the wumpus. But the knowledge is only useful if it helps the agent take action. To do that,
+we will need additional rules that relate the current state of the world to the actions the agent
+should take. For example, ifthe wumpus is in the square straight ahead, then it is a bad idea to
+execute the action Forward. We can represent this with a series of rules, one for each location
+and orientation in which the agent might be. Here is the rule for the case where the agent is in
+[1,1] facing east:
+
+Aj, A East, A W2) => Forward
+
+Once we have these rules, we need a way to ASK the knowledge base what action to take.
+Unfortunately, propositional logic is not powerful enough to represent or answer the question
+“what action should I take?,” but it is able to answer a series of questions such as "should I go
+forward?" or "should I tun right?" That means that the algorithm for a knowledge-based agent
+using propositional logic would be as in Figure 6.16.
+
+Problems with the propositional agent
+
+Propositional logic allows us to get across all the important points about what a logic is and how
+it can be used to perform inference that eventually results in action. But propositional logic is so
+weak that it really cannot handle even a domain as simple as the wumpus world
+
+The main problem is that there are just too many propositions to handle. The simple rule
+"don't go forward if the wumpus is in front of you" can only be stated in propositional logic by
+a set of 64 rules (16 squares x 4 orientations for the agent). Naturally, it just gets worse ifthe
+

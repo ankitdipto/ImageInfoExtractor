@@ -1,0 +1,57 @@
+374
+
+CHAPTER TEN Computer Arithmetic
+
+Multiply
+
+   
+   
+
+Multiplicand in B
+Multiplier in Q
+
+ 
+
+A,= 0,08,
+4'-08, 0
+scvk
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 10-22 Flowchart for decimal multiplication.
+
+Division
+Decimal divisionis similar tobinary division except of course that the quotient
+digits may have any of the 10 values from 0 to 9. In the restoring division
+method, the divisor is subtracted from the dividend or partial remainder as
+many times as necessary until a negative remainder results. The correct re-
+mainder is then restored by adding the divisor. The digitin the quotientreflects
+the number of subtractions up to but excluding the one that caused the
+negative difference.
+The decimal division algorithm is shown in Fig. 10-23. It is similar to the
+algorithm with binary data except for the way the quotient bits are formed. The
+dividend (or partial remainder) is shifted to the left, with its most significant
+digit placed in A,. The divisor is then subtracted by adding its 10’s complement
+value. Since B, is initially cleared, its complement value is 9 as required. The
+carry in E determines the relative magnitude of A and B. If E = 0, it signifies
+
+ 
+

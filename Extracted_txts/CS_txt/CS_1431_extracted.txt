@@ -1,0 +1,41 @@
+Chapter 21: More Linux Programming 677
+
+ 
+
+repeatedly accept strings in a buffer and display them on the screen
+till the time the user does not enter an ‘n’ from the keyboard.
+Additionally, we want that this activity of receiving input should
+not be interrupted by the SIGINT or the SIGTERM signals.
+However, a SIGCONT should be permitted. So before we proceed
+with the loop we must block the SIGINT and SIGTERM signals.
+Once we are through with the loop we must unblock these signals.
+This blocking and unblocking of signals can be achieved using the
+sigprocmask( ) library function.
+
+The first parameter of the sigprocmask( ) function specifies
+whether we want to block/unblock a set of signals. The next
+parameter is the address of a structure (typedefed as sigset_t) that
+describes a set of signals that we want to block/unblock. The last
+parameter can be either NULL or the address of sigset_t type
+variable which would be set up with the existing set of signals
+before blocking/unblocking signals.
+
+There are library functions that help us to populate the sigset_t
+structure. The sigemptyset( ) empties a sigset_t variable so that it
+does not refer to any signals. The only parameter that this function
+accepts is the address of the sigset_t variable. We have used this
+function to quickly initialize the sigset_t variable block to a known
+empty state. To block the SIGINT and SIGTERM we have to add
+the signals to the empty set of signals. This can be achieved using
+the sigaddset( ) library function. The first parameter of
+sigaddset() is the address of the sigset_t variable and the second
+parameter is the ID of the signal that we wish to add to the existing
+set of signals.
+
+After the loop we have also used an infinite while loop to print the
+‘Program running’ message. This is done so that we can easily
+check that till the time the loop that receives input is not over the
+program cannot be terminated using Ctrl + C or kill command
+since the signals are blocked. Once the user enters ‘n’ from the
+keyboard the execution comes out of the while loop and unblocks
+

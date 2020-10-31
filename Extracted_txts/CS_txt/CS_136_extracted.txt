@@ -1,0 +1,57 @@
+116
+
+Chapter 4. Informed Search Methods
+
+ 
+
+of A* were corrected in a later paper (Hart ef al., 1972). An excellent summary of early work in
+search is provided by Nilsson (1971).
+
+The original A* paper introduced a property of heuristics called "consistency." The
+monotonicity property of heuristics was introduced by Pohl (1977) as a simpler replacement for
+the consistency property. Pearl (1984) showed that consistency and monotonicity were equivalent
+properties. The pathmax equation was first used in A* search by Mero (1984).
+
+Pohl (1970; 1977) pioneered the study of the relationship between the error in A*'s heuristic
+function and the time complexity of A*, The proof that A* runs in linear time if the error in the
+heuristic function is bounded by a constant can be found in Pohl (1977) and in Gaschnig (1979).
+Pearl (1984) strengthened this result to allow a logarithmic growth in the error. The "effective
+branching factor" measure of the efficiency of heuristic search was proposed by Nilsson (1971).
+
+A* and other state-space search algorithms are closely related to the branch-and-bound
+techniques that are widely used in operations research. An early survey of branch-and-bound
+techniques is given by Lawler and Wood (1966). The seminal paper by Held and Karp (1970)
+considers the use of the minimum-spanning-tree heuristic (see Exercise 4.11) for the travelling
+salesperson problem, showing how such admissible heuristics can be derived by examining
+relaxed problems. Generation of effective new heuristics by problem relaxation was successfully
+implemented by Prieditis (1993), building on earlier work with Jack Mostow (Mostow and
+Prieditis, 1989). The probabilistic interpretation of heuristics was investigated in depth by
+Hansson and Mayer (1989).
+
+The relationships between state-space search and branch-and-bound have been investigated
+in depth by Dana Nau, Laveen Kanal, and Vipin Kumar (Kumar and Kanal, 1983; Nau et al., 1984;
+Kumar ef al., 1988). Martelli and Montanari (1978) demonstrate a connection between dynamic
+programming (see Chapter 17) and certain types of state-space search. Kumar and Kanal (1988)
+attempt a "grand unification" of heuristic search, dynamic programming, and branch-and-bound
+techniques under the name of CDP—the "composite decision process." More material along
+these lines is found in Kumar (1991).
+
+There are a large number of minor and major variations on the A* algorithm. Pohl (1973)
+proposed the use of dynamic weighting, which uses a weighted sum f(r) = w,g(n)+ wah(n) of
+the current path length and the heuristic function as an evaluation function, rather than the simple
+sum f(n) = g(a) + h(n) used in A*, and dynamically adjusts the weights w, and #, according
+to certain criteria as the search progresses. Dynamic weighting usually cannot guarantee that
+optimal solutions will be found, as A* can, but under certain circumstances dynamic weighting
+can find solutions much more efficiently than A*
+
+The most-constrained-variable heuristic was introduced by Bitner and Reingold (1975), and
+further investigated by Purdom (1983). Empirical results on the n-queens problem were obtained
+by Stone and Stone (1986). Brelaz (1979) used the most-constraining-variable heuristic as a tie-
+breaker after applying the most-constrained-variable heuristic. The resulting algorithm, despite
+its simplicity, is still the best method for k-coloring arbitrary graphs. The least-constraining-value
+heuristic was developed and analyzed in Haralick and Elliot (1980). The min-conflicts heuristic
+was first proposed by Gu (1989), and was developed independently by Steve Minton (Minton et
+al., 1992). Minton explains the remarkable performance of min-conflicts by modelling the search
+process as a random walk that is biased to move toward solutions. The effectiveness of algorithms
+such as min-conflicts and the related GSAT algorithm (see Exercise 6.15) in solving randomly
+

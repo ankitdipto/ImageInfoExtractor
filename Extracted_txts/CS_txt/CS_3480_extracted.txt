@@ -1,0 +1,63 @@
+Section 25.7.
+
+Summary 813
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 25.26 An environment for online navigation.
+
+ 
+
+ 
+
+ 
+
+d. Can the two-dimensional path-planning problem be solved using Voronoi diagrams instead
+of visibility graphs? Explain the modifications that would be needed to the overall system.
+
+25.8 Suppose a robot can see two point landmarks L\ and L2, and that it measures the angle
+between them as 17°. What is the shape of the recognizable set corresponding to this sensor
+reading? What is the shape of the recognizable set if the angle measurement has an uncertainty
+of+1°? Sketch this situation.
+
+259 For the environment in Figure 25.26, sketch the path taken by the robot in executing
+the online navigation strategy. This strategy always completely circumnavigates any obstacle
+it encounters, which is often unnecessary. Try to think of another strategy that will travel less
+distance around some obstacles. Make sure your strategy will not get stuck in cycles. Your
+strategy will probably have a worse worst-case bound than the one presented in this chapter, but
+should be faster in typical cases.
+
+25.10 Implement a general environment in which to exercise the online navigation algorithm,
+such that arbitrary obstacles can be placed in the environment. Construct a specific environment
+corresponding to Figure 25.26. Then implement an agent that incorporates the online algorithm,
+and show that it works.
+
+25.11 Explain how to approach the problem of online navigation for a cylindrical robot of
+significant diameter. Does the point-robot algorithm need to be modified? What happens when
+the robot is heading down a passageway that becomes too narrow to get through?
+
+25.12 We stated in our discussion of online algorithms that some special classes ofenvironments
+are amenable to online algorithms with constant competitive ratios. An example is shown in
+Figure 25.27, which shows a robot on the bank of a river. We assume that the robot has an exact
+position sensor. The robot is trying to find the bridge, which it knows is somewhere nearby, but is
+not sure how far and in which direction. Unfortunately, there is a thick fog and the robot cannot
+see the bridge unless it stumbles right onto it.
+
+a. Describe an online algorithm for the robot that is guaranteed to find the bridge after a finite
+search, no matter where the bridge is.
+
+b. Calculate the total distance traversed by the robot using your algorithm, and compute its
+competitive ratio.
+

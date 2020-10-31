@@ -1,0 +1,39 @@
+8.3 Methods for Handling Deadlocks = 249
+
+ 
+
+Figure 8.3. Resource-allocation graph with a cycle but no deadlock.
+
+« We can ignore the problem altogether, and pretend that deadlocks never
+occur in the system. This solution is used by most operating systems,
+including UNIX.
+
+We shall elaborate briefly on each method. Then, in Sections 8.4 to 8.7, we shall
+present detailed algorithms.
+
+To ensure that deadlocks never occur, the system can use either a deadlock-
+prevention or a deadlock-avoidance scheme. Deadlock prevention is a set of
+methods for ensuring that at least one of the necessary conditions (Section 8.2.1)
+cannot hold. These methods prevent deadlocks by constraining how requests
+for resources can be made. We discuss these methods in Section 8.4.
+
+Deadlock avoidance, on the other hand, requires that the operating system
+be given in advance additional information concerning which resources a pro-
+cess will request and use during its lifetime. With this additional knowledge,
+we can decide for each request whether or not the process should wait. To
+decide whether the current request can be satisfied or must be delayed, the
+system must consider the resources currently available, the resources currently
+allocated to each process, and the future requests and releases of each process.
+We discuss these schemes in Section 8.5.
+
+If a system does not employ either a deadlock-prevention or a deadlock-
+avoidance algorithm, then a deadlock situation may occur. In this environment,
+the system can provide an algorithm that examines the state of the system to
+determine whether a deadlock has occurred, and an algorithm to recover from
+the deadlock (if a deadlock has indeed occurred). We discuss these issues in
+Section 8.6 and Section 8.7.
+
+If a system does not ensure that a deadlock will never occur, and also does
+not provide a mechanism for deadlock detection and recovery, then we may
+arrive at a situation where the system is in a deadlock state yet has no way
+

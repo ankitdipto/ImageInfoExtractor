@@ -1,0 +1,49 @@
+122 Chapter 4 Processes
+
+One issue that must be dealt with concerns differences in data representa-
+tion on the client and server machines. Consider the representation of 32-bit
+integers. Some systems use the high memory address to store the most signif-
+icant byte (known as big-endian), while other systems store the least significant
+byte at the high memory address (known as litle-endian). To resolve this, many
+RPC systems define a machine-independent representation of data. One such
+representation is known as external data representation (XDR). On the client
+side, parameter marshalling involves converting the machine-dependent data
+into XDR before being sent to the server. On the server side, the XDR data is
+unmarshalled and converted into the machine-dependent representation for the
+server.
+
+The RPC mechanism is common on networked systems, so we should
+discuss several other issues in regard to its operation. One important issue is
+the semantics of a call. Whereas local procedure calls fail only under extreme
+circumstances, RPCs can fail, or be duplicated and executed more than once,
+due to common network errors. Because we are dealing with message transfer
+over unreliable communication links, it is much easier for an operating system
+to ensure that a message was acted on at most once, than it is to ensure that the
+message was acted on exactly once. Because local procedure calls have the latter
+meaning, most systems attempt to duplicate that functionality. They do so by
+attaching to each message a timestamp. The server must keep a history of all
+the timestamps of messages it has already processed, or a history large enough
+to ensure that repeated messages are detected. Incoming messages that have a
+timestamp already in the history are ignored. Generation of these timestamps
+is discussed in Section 17.1.
+
+Another important issue concerns the communication between a server
+and a client. With standard procedure calls, some form of binding takes
+place during link, load, or execution time (Chapter 9), such that a procedure
+call’s name is replaced by the memory address of the procedure call. The
+RPC scheme requires a similar binding of the client and the server port, but
+how does a client know the port numbers on the server? Neither system
+has full information about the other because they do not share memory. Two
+approaches are common. First, the binding information may be predetermined,
+in the form of fixed port addresses. At compile time, an RPC call has a fixed
+port number associated with it. Once a program is compiled, the server cannot
+change the port number of the requested service. Second, binding can be
+done dynamically by a rendezvous mechanism. Typically, an operating system
+provides a rendezvous (also called a matchmaker) daemon on a fixed RPC
+port. A client then sends a message, containing the name of the RPC, to the
+rendezvous daemon requesting the port address of the RPC it needs to execute.
+The port number is returned, and the RPC calls may be sent to that port until
+the process terminates (or the server crashes). This method requires the extra
+overhead of the initial request, but is more flexible than the first approach.
+Figure 4.12 shows a sample interaction.
+

@@ -1,0 +1,68 @@
+668
+
+Chapter 22. Agents that Communicate
+
+ 
+
+¢ A variable can appear on the right-hand side of a DCG rule. The variable represents a
+single symbol in the input string, without saying what it is. We can use this to define the
+nonterminal category Double as the set of strings consisting ofa word repeated twice. Here
+is the definition in both DCG notation and normal first-order logic notation:
+
+DCG . First-Order Logic
+Double — ww (5, ={[w]A 52 =[w]) = Double(Append(s,,s2))
+
++ An arbitrary logical test can appear on the right-hand side ofa rule. Such tests are enclosed
+
+in curly braces in DCG notation.
+
+As an example using all three extensions, here are rules for Digit and Number in the grammar
+
+of arithmetic (see Appendix B). The nonterminals take an extra argument representing their
+semantic interpretation:
+
+DCG First-Order Logic
+
+Digit(sem) — sem {0< sem < 9} (s = [sem\) = Digit(sem,s)
+
+Number(sem) — Digit(sem) Digit(sem,s) => Number(sem,s)
+
+Number(sem) — Number(sem) Digit(semy) Number(sem, s;) A Digit(sem, >)
+{sem =10 x sem, + sem} Asem= 10x sem\ +sem) >
+
+ 
+
+Number(sem, Append(s1,.s))
+
+The first rule can be read as "a phrase of category Digit and semantic value sem can be formed
+from a symbol sem between 0 and 9." The second rule says that a number can consist ofa single
+digit, and has the same semantics as that digit. The third can be read as saying "a number with
+semantic value sem can be formed from a number with semantic value sem\ followed by a digit
+with semantic value sem, where sem = 10 x sem +sem.”
+
+There are now five things that can appear on the right-hand side of a rule in DCG nota-
+tion: an un-augmented nonterminal (Digit), an augmented nonterminal (Digit(sem)),a variable
+representing a terminal (sem), a constant terminal (word), or a logical test ({0 < sem < 9}). The
+left-hand side must consist of a single nonterminal, with or without augmentation.
+
+22.6 _AUGMENTING A GRAMMAR
+
+(OVERGENERATES
+
+CASES
+
+‘AGREEMENT
+
+The simple grammar for €) generates many sentences of English, but it also overgenerates—
+generates sentences that are not grammatical—such as "Me smells a stench" There are two
+problems with this string: it should be "L" not "me," and it should be "smell," not "smells." To
+fix these problems, we will first determine what the facts of English are, and then see how we
+can get the grammar to reflect the facts.
+
+Many languages divide their nouns into different cases, depending on their role in the
+sentence. Those who have taken Latin are familiar with this, but in English there is no notion
+of case on regular nouns, only on pronouns. We say that pronouns like "I" are in the subjective
+(or nominative) case, and pronouns like "me" are in the objective (or accusative) case. Many
+languages have a dative case for words in the indirect object position. Many languages also
+require agreement between the subject and main verb ofa sentence. Here, too, the distinctions
+

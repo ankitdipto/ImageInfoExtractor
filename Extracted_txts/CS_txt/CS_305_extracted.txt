@@ -1,0 +1,53 @@
+effective address
+
+SECTION 56 Memory-Reference Instructions 145,
+
+5-6 __Memory-Reference Instructions
+
+In order to specify the microoperations needed for the execution of each
+instruction, it is necessary that the function that they are intended to perform
+be defined precisely. Looking back to Table 5-2, where the instructions are
+listed, we find that some instructions have an ambiguous description. This is,
+because the explanation of an instruction in wordsis usually lengthy, and not
+enough space is available in the table for such a lengthy explanation We will
+now show that the function of the memory-reference instructions can be
+defined precisely by means of register transfer notation.
+
+Table 5-4 lists the seven memory-reference instructions. The decoded
+output D, fori = 0,1, 2, 3,4, 5, and 6 from the operation decoder that belongs
+to eachinstructionis included in the table. The effective address of the instruc-
+tion is in the address register AR and was placed there during timing signal
+T; when I = 0, or during timing signal T; when I = 1. The execution of the
+memory-reference instructions starts with timing signal T,. The symbolic de-
+scription of each instruction is specified in the table in terms of register transfer
+notation. The actual execution of the instruction in the bus system will require
+a sequence of microoperations. This is because data stored in memory cannot
+be processed directly. The data must be read from memory to aregister where
+they can be operated on with logic circuits. We now explain the operation of
+each instruction and list the control functions and microoperations needed for
+their execution. A flowchart that summarizes all the microoperations is pre-
+sented at the end of this section.
+
+TABLE 5-4 Memory Reference Instructions
+
+ 
+
+Operation
+Symbol decoder ‘Symbolic description
+AND De ACHAC A M[AR]
+ADD Di — ACHAC + MAR), ECon
+LDA D: — AC=M[AR]
+STA Ds M[AR]—AC
+BUN De PCHAR
+BSA Ds MIARJ=PC, PCHAR +1
+Isz, De MAR) M[AR] +1,
+
+If M[AR] + 1=Othen PC—PC +1
+
+ 
+
+AND to AC
+
+This is an instruction that performs the AND logic operation on pairs of bits
+in AC and the memory word specified by the effective address. The result of
+

@@ -1,0 +1,50 @@
+890
+
+Chapter 29 Linear Programming
+
+4 9x, X4
+PS 3 FTP Ts
+4 x Xa
+ee stg ts
+14 9x, Xa
+SBS FS ts
+
+This slack form has a feasible basic solution, and we can return it to procedure
+SIMPLEX.
+We now formally show the correctness of INITIALIZE-SIMPLEX.
+
+Lemma 29.12
+
+If a linear program L has no feasible solution, then INITIALIZE-SIMPLEX returns
+“infeasible.” Otherwise, it returns a valid slack form for which the basic solution
+is feasible.
+
+Proof First suppose that the linear program L has no feasible solution. Then by
+Lemma 29.11, the optimal objective value of Lax, defined in (29.106)-(29.108),
+is nonzero, and by the nonnegativity constraint on Xo, the optimal objective value
+must be negative. Furthermore, this objective value must be finite, since setting
+x; = 0, fori = 1,2,.... n, and Xo = |min/_, {b;}| is feasible, and this solution
+has objective value —|min7"_, {b;}|. Therefore, line 10 of INITIALIZE-SIMPLEX
+finds a solution with a nonpositive objective value. Let X be the basic solution
+associated with the final slack form. We cannot have Xp = 0, because then Laux
+would have objective value 0, which contradicts that the objective value is negative.
+Thus the test in line 11 results in line 16 returning “infeasible.”
+
+Suppose now that the linear program L does have a feasible solution. From
+Exercise 29.3-4, we know that if b; > 0 fori = 1,2..... m, then the basic solution
+associated with the initial slack form is feasible. In this case, lines 2-3 return the
+slack form associated with the input. (Converting the standard form to slack form
+is easy, since A, b, and c are the same in both.)
+
+In the remainder of the proof, we handle the case in which the linear program is
+feasible but we do not return in line 3. We argue that in this case, lines 4-10 find a
+feasible solution to La, with objective value 0. First, by lines 1-2, we must have
+
+be <0.
+and
+by <b; foreachie B. (29.112)
+
+In line 8, we perform one pivot operation in which the leaving variable x; (recall
+that / = n +k, so that b; < 0) is the left-hand side of the equation with mini-
+mum J;, and the entering variable is xo, the extra added variable. We now show
+

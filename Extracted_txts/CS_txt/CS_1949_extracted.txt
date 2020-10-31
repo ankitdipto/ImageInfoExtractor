@@ -1,0 +1,52 @@
+11.5 FileSharing 399
+
+variety of distributed information methods. Sun Microsystems introduced yel-
+low pages (since renamed to network information service (NIS)), and most of
+the industry adopted its use. It centralizes storage of user names, host names,
+printer information, and the like. Unfortunately, it uses unsecure authentica-
+tion methods, including sending user passwords unencrypted (in clear text) and
+identifying hosts by IP address. Sun’s NIS+ is a much more secure replacement
+for NIS, but is also much more complicated and has not been widely adopted.
+
+In the case of Microsoft networks (CIFS), network information is used in
+conjunction with user authentication (user name and password) to create a
+network login that the server uses to decide whether to allow or deny access to
+a requested file system. For this authentication to be valid, the user names must
+match between the machines (as with NFS). Microsoft uses two distributed-
+naming structures to provide a single namespace for users. The older naming
+technology is domains. The newer technology, available in Windows 2000 and
+beyond, is active directory. Once established, the distributed-naming facility is
+used by all clients and servers to authenticate users.
+
+The industry is moving toward lightweight directory-access protocol
+(LDAP) as a secure, distributed naming mechanism. In fact, active directory
+is based on LDAP. Sun Microsystems’ Solaris 8 allows LDAP to be used for user
+authentication as well as system-wide retrieval of information such as available
+printers. If the convergence of the use of LDAP succeeds, then one distributed
+LDAP directory will be used by an organization to store all user and resource
+information for all computers within that organization. The result would be
+secure single sign-on for users, who would enter their authentication infor-
+mation once for access to all computers within the organization. It would also
+ease systems-administration efforts by combining, into one location, informa-
+tion that is currently scattered in various files on each system or in differing
+distributed information services.
+
+11.5.2.3 Failure Modes
+
+Local file systems can fail for a variety of reasons, including failure of the disk
+containing the file system, corruption of the directory structure or other disk
+management information (collectively called metadata), disk-controller failure,
+cable failure, or host adapter failure. User or systems-administrator failure
+can also cause files to be lost, or entire directories or partitions to be deleted.
+Many of these failures would cause a host to crash and an error condition to be
+displayed, and require human intervention to repair.
+
+Some failures do not cause loss of data or loss of availability of data.
+Redundant arrays of inexpensive disks (RAID) can prevent the loss of a disk
+from resulting in the loss of data. RAID is covered further in Section 14.5.
+
+Remote file systems have more failure modes. By nature of the complexity
+of network systems and the required interactions between remote machines,
+many more problems can interfere with the proper operation of remote file
+systems. In the case of networks, the network can be interrupted between
+

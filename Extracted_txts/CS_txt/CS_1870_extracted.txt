@@ -1,0 +1,52 @@
+334 Chapter 10 Virtual Memory
+
+page on the disk has not been overwritten (by some other page, for example),
+then we can avoid writing the memory page to the disk: it is already there. This
+technique also applies to read-only pages (for example, pages of binary code).
+Such pages cannot be modified; thus, they may be discarded when desired.
+This scheme can reduce significantly the time required to service a page fault,
+since it reduces I/O time by one-half if the page is not modified.
+
+Page replacement is basic to demand paging. It completes the separation
+between logical memory and physical memory. With this mechanism, an
+enormous virtual memory can be provided for programmers on a smaller
+physical memory. With non-demand paging, user addresses are mapped into
+physical addresses, so the two sets of addresses can be different. All the pages of
+a process still must be in physical memory, however. With demand paging, the
+size of the logical address space is no longer constrained by physical memory.
+If we have a user process of 20 pages, we can execute it in ten frames simply
+by using demand paging, and using a replacement algorithm to find a free
+frame whenever necessary. If a page that has been modified is to be replaced,
+its contents are copied to the disk. A later reference to that page will cause a
+page fault. At that time, the page will be brought back into memory, perhaps
+replacing some other page in the process.
+
+We must solve two major problems to implement demand paging: We must
+develop a frame-allocation algorithm and a page-replacement algorithm. If
+we have multiple processes in memory, we must decide how many frames to
+allocate to each process. Further, when page replacement is required, we must
+select the frames that are to be replaced. Designing appropriate algorithms to
+solve these problems is an important task, because disk I/O is so expensive.
+Even slight improvements in demand-paging methods yield large gains in
+system performance.
+
+There are many different page-replacement algorithms. Every operating
+system probably has its own replacement scheme. How do we select a par-
+ticular replacement algorithm? In general, we want the one with the lowest
+page-fault rate.
+
+We evaluate an algorithm by running it on a particular string of memory
+references and computing the number of page faults. The string of memory
+references is called a reference string. We can generate reference strings
+artificially (by a random-number generator, for example) or we can trace a
+given system and record the address of each memory reference. The latter
+choice produces a large number of data (on the order of 1 million addresses
+per second). To reduce the number of data, we use two facts.
+
+First, for a given page size (and the page size is generally fixed by the
+hardware or system), we need to consider only the page number, rather than the
+entire address. Second, if we have a reference to a page p, then any immediately
+following references to page p will never cause a page fault. Page p will be in
+memory after the first reference; the immediately following references will not
+fault.
+

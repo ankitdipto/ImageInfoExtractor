@@ -1,0 +1,48 @@
+31.6 Powers of an element 955
+
+Theorem 31.31 (Fermat’s theorem)
+If p is prime, then
+
+a’-' =1 (mod p) foralla € Zp.
+Proof By equation (31.21), @(p) = p — 1 if p is prime. .
+
+Fermat’s theorem applies to every element in Z, except 0, since 0 ¢ Z},. For all
+a € Zp, however, we have a? = a (mod p) if p is prime.
+
+If ord, (g) = |Z;|, then every element in Z* is a power of g, modulo n, and
+g is a primitive root or a generator of Z*. For example, 3 is a primitive root,
+modulo 7, but 2 is not a primitive root, modulo 7. If Z* possesses a primitive
+root, the group Z> is eyelic. We omit the proof of the following theorem, which is
+proven by Niven and Zuckerman [265].
+
+Theorem 31.32
+The values of n > 1 for which Z* is cyclic are 2, 4, p®, and 2p°, for all primes
+Pp > 2 and all positive integers e. .
+
+If g is a primitive root of Z* and a is any element of Z*, then there exists a z such
+that g* = a (mod n). This z is a discrete logarithm or an index of a, modulo n,
+to the base g; we denote this value as ind, ¢ (a).
+
+Theorem 31.33 (Discrete logarithm theorem)
+If g is a primitive root of Z*, then the equation g* = g” (mod n) holds if and
+only if the equation x = y (mod ¢(n)) holds.
+
+Proof Suppose first that x = y (mod ¢(n)). Then, x = y + k(n) for some
+integer k. Therefore,
+
+ 
+
+g& gi tho) (mod n)
+g? -(g%)* (mod n)
+= glk (mod) (by Euler’s theorem)
+= g? (mod n) .
+
+Conversely, suppose that g* = g” (mod n). Because the sequence of powers of g
+generates every element of (g) and |(g)| = @(n), Corollary 31.18 implies that
+the sequence of powers of g is periodic with period ¢(n). Therefore, if g* = g”
+(mod 7), then we must have x = y (mod ¢(7)). .
+
+We now turn our attention to the square roots of 1, modulo a prime power. The
+following theorem will be useful in our development of a primality-testing algo-
+rithm in Section 31.8.
+

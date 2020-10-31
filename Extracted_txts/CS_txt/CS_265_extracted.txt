@@ -1,0 +1,43 @@
+856
+
+Chapter 29 Linear Programming
+
+tion. We call the resulting format slack form. If we write the linear program given
+in (29.33)-(29.37) in slack form, we obtain
+
+Z= 2x, — 3x. + 3x3 (29.38)
+XM = To-— xX -— xX + XB (29.39)
+Xs = —7 + X + % -— x3 (29.40)
+XxX = 4 — x, + 2x2 -— 2x3. (29.41)
+
+As with standard form, we find it convenient to have a more concise notation
+for describing a slack form. As we shall see in Section 29.3, the sets of basic and
+nonbasic variables will change as the simplex algorithm runs. We use N to denote
+the set of indices of the nonbasic variables and B to denote the set of indices of
+the basic variables. We always have that |V| = n, |B| = m, and NU B =
+{1,2...., n +m}. The equations are indexed by the entries of B, and the variables
+on the right-hand sides are indexed by the entries of NV. As in standard form, we use
+bj, cj, and aj; to denote constant terms and coefficients. We also use v to denote
+an optional constant term in the objective function. (We shall see a little later that
+including the constant term in the objective function makes it easy to determine the
+value of the objective function.) Thus we can concisely define a slack form by a
+tuple (NV, B, A, b,c, v), denoting the slack form
+
+2 = vp + Yejxj (29.42)
+jen
+
+x = br Yaix; forieB, (29.43)
+jeN
+
+in which all variables x are constrained to be nonnegative. Because we subtract
+the sum )°j<y 4ijX; in (29.43), the values aj; are actually the negatives of the
+coefficients as they “appear” in the slack form.
+
+For example, in the slack form
+
+x x. 2x,
+nese By RLS
+x. x.
+xy = 18 — s + >
+we have B = {1,2,4}, N = {3, 5, 6},
+

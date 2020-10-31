@@ -1,0 +1,93 @@
+352 cuarrentes Computer Arithmetic
+
+Hardware Algorithm
+
+The hardware divide algorithm is shown in the flowchart of Fig. 10-13. The
+dividend is in A and Qand the divisor in B. The sign of the result is transferred
+into Q, to be part of the quotient. A constant is set into the sequence counter
+SC to specify the number of bits in the quotient As in multiplication, we
+assume that operands are transferred to registers froma memory unit that has
+
+  
+
+Figure 10-13 Flowchart for divide operation.
+
+Divide operation
+
+ 
+
+C468,
+SCon=1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+FATA
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ADB
+
+ 
+
+EA~A+B
+DVF=1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+     
+
+     
+
+END.
+(Quotient isin @
+
+END
+(Divide overfiow)
+

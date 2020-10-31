@@ -1,0 +1,53 @@
+15.5. Optimal binary search trees 399
+
+where depth; denotes a node’s depth in the tree T. The last equality follows from
+equation (15.10). In Figure 15.9(a), we can calculate the expected search cost node
+by node:
+
+node depth probability _ contribution
+
+ky 1 0.15 0.30
+ko 0 0.10 0.10
+k3 2 0.05 0.15
+ka 1 0.10 0.20
+ks 2 0.20 0.60
+do 2 0.05 0.15
+dq 2 0.10 0.30
+dz 3 0.05 0.20
+d3 3 0.05 0.20
+da 3 0.05 0.20
+ds 3 0.10 0.40
+Total 2.80
+
+For a given set of probabilities, we wish to construct a binary search tree whose
+expected search cost is smallest. We call such a tree an optimal binary search tree.
+Figure 15.9(b) shows an optimal binary search tree for the probabilities given in
+the figure caption; its expected cost is 2.75. This example shows that an optimal
+binary search tree is not necessarily a tree whose overall height is smallest. Nor
+can we necessarily construct an optimal binary search tree by always putting the
+key with the greatest probability at the root. Here, key ks has the greatest search
+probability of any key, yet the root of the optimal binary search tree shown is ky.
+(The lowest expected cost of any binary search tree with ks at the root is 2.85.)
+
+As with matrix-chain multiplication, exhaustive checking of all possibilities fails
+to yield an efficient algorithm. We can label the nodes of any n-node binary tree
+with the keys k,,k2,...,k, to construct a binary search tree, and then add in the
+dummy keys as leaves. In Problem 12-4, we saw that the number of binary trees
+with 1 nodes is Q(4"/n3/?), and so we would have to examine an exponential
+number of binary search trees in an exhaustive search. Not surprisingly, we shall
+solve this problem with dynamic programming.
+
+ 
+
+Step 1: The structure of an optimal binary search tree
+
+To characterize the optimal substructure of optimal binary search trees, we start
+with an observation about subtrees. Consider any subtree of a binary search tree.
+
+It must contain keys in a contiguous range k;,...,k;, forsome 1 <i < j <n.
+In addition, a subtree that contains keys k;,..., kj; must also have as its leaves the
+dummy keys dj-1..... dj.
+
+Now we can state the optimal substructure: if an optimal binary search tree T
+has a subtree T’ containing keys k;,...,k;, then this subtree T’ must be optimal as
+

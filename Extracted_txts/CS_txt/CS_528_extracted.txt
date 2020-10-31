@@ -1,0 +1,69 @@
+34.3 NP-completeness and reducibility 1069
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ve CSN] yes,x €L,
+“ot, Pe Ay ~
+ee
+no, f(x) ¢ Ly no,x ZL,
+Ay
+
+ 
+
+ 
+
+ 
+
+Figure 34.5 The proof of Lemma 34.3. The algorithm F is a reduction algorithm that computes the
+reduction function f from L to L2 in polynomial time, and A2 is a polynomial-time algorithm that
+decides Lz. Algorithm A, decides whether x € Ly by using F to transform any input x into f(x)
+and then using Az to decide whether f(x) € Lo.
+
+why the “less than or equal to” notation for reduction is mnemonic. We can now
+define the set of NP-complete languages, which are the hardest problems in NP.
+A language L C {0, 1}* is NP-complete if
+
+1. L € NP, and
+2. L’ <p L for every L’ € NP.
+
+If a language L satisfies property 2, but not necessarily property 1, we say that L
+is NP-hard. We also define NPC to be the class of NP-complete languages.
+
+As the following theorem shows, NP-completeness is at the crux of deciding
+whether P is in fact equal to NP.
+
+Theorem 34.4
+
+If any NP-complete problem is polynomial-time solvable, then P = NP. Equiva-
+lently, if any problem in NP is not polynomial-time solvable, then no NP-complete
+problem is polynomial-time solvable.
+
+Proof Suppose that L € P and also that L € NPC. For any L’ € NP, we
+have L' <p L by property 2 of the definition of NP-completeness. Thus, by
+Lemma 34.3, we also have that L’ € P, which proves the first statement of the
+theorem.
+
+To prove the second statement, note that it is the contrapositive of the first state-
+ment. .
+
+It is for this reason that research into the P # NP question centers around the
+NP-complete problems. Most theoretical computer scientists believe that P 4 NP,
+which leads to the relationships among P, NP, and NPC shown in Figure 34.6.
+But, for all we know, someone may yet come up with a polynomial-time algo-
+rithm for an NP-complete problem, thus proving that P = NP. Nevertheless, since
+no polynomial-time algorithm for any NP-complete problem has yet been discov-
+

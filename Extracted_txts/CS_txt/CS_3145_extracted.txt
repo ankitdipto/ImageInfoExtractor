@@ -1,0 +1,66 @@
+Section 174.
+
+Decision-Theoretic Agent Design 511
+
+ 
+
+ 
+
+function DECISION-THEORETIC-AGENT(E;) returns an action
+inputs: E,, the percept at time ¢
+static: BN, a beliefnetwork with nodes X
+Bel(X),a vector of probabilities, updated over time
+
+ 
+
+BeUX,) — Sr, PO | Xr-1=Xr-1- Arai) RellX, =x, 1)
+Bel(X,)— a P(E, | P-X,) BeX,)
+
+action —argmass, Ty, | Belen) Dy, POer = Xo Naw A) Hes. |
+return action .
+
+ 
+
+ 
+
+ 
+
+Figure 17.9 Detailed design for a decision-theoretic agent.
+
+ 
+
+ 
+
+where E and X are random variables ranging over percepts and states, respectively. What this
+means is that given a state of the world, the chances of the sensor giving a certain reading will be
+the same today as it was yesterday. This does not mean, for example, that the sensor can never
+break; itjust means that we have to include in X all the variables that are important to the sensor's
+performance. The advantage of the stationary sensor model is that the fixed model P(E/X) can
+then be used at each time step.
+
+The basic idea of a sensor model can be implemented very simply in a belief network,
+because the assumption embodied in Equation (17.6) effectively isolates the sensor variables
+for a given time step from the rest of the network. Figure 17.10(a) shows an abstract belief
+network fragment with generalized state and sensor variables. The sensor model itself is the
+conditional probability table associated with the percept node. The direction of the arrow is the
+crucial element here: the state of the world causes the sensor to take on a particular value.*
+The sensor model is therefore an example of the general principle, stated in Chapter 7 and
+again in Chapter 15, that causal models are to be preferred when possible. Ifthe sensor gives
+a perfect report of the actual state, then the sensor model—the conditional probability table—
+will be purely deterministic. Noise and errors in the sensor are reflected in the probabilities of
+"incorrect" readings. In fact, we have already seen examples of sensor models of this kind: in
+the burglar-alarm network (Figure 15.1), both JohnCalls and MaryCallscan be viewed as sensor
+nodes for the Alarm state variable. Their conditional probability tables, shown in Figure 15.2,
+show how reliable they are as sensors.
+
+The next step is to break apart the generalized state and sensor variables into their compo-
+nents. Typically, each sensor only measures some small aspect of the total state. An example is
+shown in Figure 17.10(b), where temperature and pressure gauges measure the actual temperature
+and pressure of some system. Decomposing the overall sensor model in Figure 17.10(a) into
+its separate components greatly reduces the size of the CPTs, unless the sensors are very badly
+designed. As an example of how not to couple sensor nodes to state nodes: consider two sensors
+
++ Ofcourse, the process of inference will go the other way: evidence arrives at the sensor node, and is propagated to the
+state variable. The inference process essentially inverts the sensor model. This is basically what makes a Kalman filter
+simple. If P/E\X) is Gaussian, then P(YIE) is also Gaussian with an identical distribution, so that inversion is trivial
+

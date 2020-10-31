@@ -1,0 +1,53 @@
+456 charter TWELVE Memory Organization
+
+content addressable
+memory
+
+medium. Bits are recorded as magnetic spots on the tape along several tracks.
+Usually, seven or nine bits are recorded simultaneously to form a character
+together with a parity bit Read/write heads are mounted one in each track so
+that data can be recorded and read as a sequence of characters.
+
+‘Magnetic tape units can be stopped, started to move forward or in re-
+verse, or can be rewound. However, they cannot be started or stopped fast
+enoughbetweenindividualcharacters. For this reason, information is recorded
+in blocks referred to as records. Gaps of unrecorded tape are inserted between
+records where the tape can be stopped. The tape starts moving while in a gap
+and attains its constant speed by the time it reaches the next record. Each
+record on tape has an identification bit pattern at the beginning and end. By
+reading the bit pattern at the beginning, the tape control identifies the record
+number. By reading the bit pattern at the end of the record, the control
+recognizes the beginning of a gap. A tape unit is addressed by specifying the
+record number and the number of characters in the record. Records may be of,
+fixed or variable length.
+
+12-4 Associative Memory
+
+Many data-processingapplications require the search of itemsin a table stored
+inmemory. An assembler program searches the symboladdress table in order
+to extract the symbol's binary equivalent. An account number may be searched
+ina file to determine the holder's name and account status. The established
+way to search a table is to store all items where they can be addressed in
+sequence. The search procedure is a strategy for choosing a sequence of
+addresses, reading the content of memory at each address, and comparing the
+information read with the item being searched until a match occurs. The
+number of accesses to memory depends on the location of the item and the
+efficiency of the search algorithm. Many search algorithms have been devel-
+‘oped to minimize the number of accesses while searching for an item in a
+random or sequential access memory.
+
+The time required to find an item stored in memory can be reduced
+considerably ifstored data canbe identified foraccess by the content of the data
+itself rather than by an address. A memory unit accessed by content is called
+an associative memory or content addressable memory (CAM). This type of memory
+is accessed simultaneously and in parallel on the basis of data content rather
+than by specific address or location. When a word is written in an associative
+memory, no address is given. The memory is capable of finding an empty
+unused location to store the word. When a word is to be read from an associa-
+tive memory, the content of the word, or part of the word, is specified. The
+memory locates all words which match the specified content and marks them
+for reading.
+
+Because of its organization, the associative memory is uniquely suited to
+do parallel searches by data association. Moreover, searches can be done on
+

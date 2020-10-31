@@ -1,0 +1,71 @@
+638
+
+Chapter 21. Knowledge in Learning
+
+ 
+
+ 
+
+CONSTRUCTIVE
+INDUCTION
+
+ 
+
+George = Mum
+Spencer = Kydd Elizabeth —= Philip Margaret
+
+\
+
+Diana = Charles Anne —= Mark Andrew == Sarah Edward
+
+iN /\
+
+Wiliam Harry Peter Zara’ Beatrice Eugenie
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 215 A typical family tree.
+
+ 
+
+Notice that an attribute-based leaming algorithm such as DECISION-TREE-LEARNING will get
+nowhere in solving this problem. In order to express Grandparent as an attribute (i.e., a unary
+predicate), we would need to make pairs of people into objects:
+
+Grandparent((Mum, Charles)...
+
+Then we get stuck in trying to represent the example descriptions. The only possible attributes
+are horrible things such as
+
+FirstElementlsMotherOfElizabeth(Mum, Charles))
+
+The definition of Grandparent in terms of these attributes simply becomes a large disjunction of
+specific cases that does not generalize to new examples at all. Attribute-based learning algorithms
+are incapable of learning relational predicates. Thus, one of the principal advantages of ILP
+algorithms is their applicability to a much wider range of problems.
+
+The reader will certainly have noticed that a little bit of background knowledge would help
+in the representation of the Grandparent definition. For example, if Background included the
+sentence
+
+Parent(x,y) <> [Mother(x,) V Father(x,>*)]
+then the definition of Grandparent would be reduced to
+Grandparent(x, y) <> [Az Parent(x, >) A Parent(,>')]
+
+This shows how background knowledge can dramatically reduce the size of hypothesis required
+to explain the observations.
+
+It is also possible for ILP algorithms to create new predicates in order to facilitate the
+expression of explanatory hypotheses. Given the example data shown earlier, it is entirely
+reasonable to propose an additional predicate, which we would call “Parent:*in order to simplify
+the definitions of the target predicates. Algorithms that can generate new predicates are called
+constructive induction algorithms. Clearly, constructive induction is a necessary part of the
+picture ofcumulative learning sketched in the introduction. It has been one ofthe hardest problems
+in machine leaming, but some ILP techniques provide effective mechanisms for achieving it
+

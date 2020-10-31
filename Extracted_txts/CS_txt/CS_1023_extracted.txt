@@ -1,0 +1,45 @@
+Chapter 9: Puppetting On Strings 333
+
+ 
+
+While entering the string using scanf( ) we must be cautious about
+two things:
+
+(a)
+
+()
+
+The length of the string should not exceed the dimension of
+the character array. This is because the C compiler doesn’t
+perform bounds checking on character arrays. Hence, if you
+carelessly exceed the bounds there is always a danger of
+overwriting something important, and in that event, you
+would have nobody to blame but yourselves.
+
+scanf() is not capable of receiving multi-word strings.
+Therefore names such as ‘Debashish Roy’ would be
+unacceptable. The way to get around this limitation is by
+using the function gets(). The usage of functions gets() and
+its counterpart puts() is shown below.
+
+main()
+char name[25] ;
+
+printf (“Enter your full name " ) ;
+gets (name) ;
+puts ( "Hello!" ) ;
+puts (name) ;
+}
+
+And here is the output...
+
+Enter your name Debashish Roy
+Hello!
+Debashish Roy
+
+The program and the output are self-explanatory except for
+the fact that, puts() can display only one string at a time
+(hence the use of two puts() in the program above). Also, on
+displaying a string, unlike printf(), puts() places the cursor
+on the next line. Though gets() is capable of receiving only
+

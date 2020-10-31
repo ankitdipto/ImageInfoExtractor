@@ -1,0 +1,59 @@
+SECTION 1-6 FlipsFlops 23
+
+   
+ 
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+5 ° s Re | oa+n
+— pe ew No change
+0 Clear to 0
+—Ir b— 1 Setto 1
+? Indeterminate
+(a) Graphic symbol (b) Characteristic table
+
+Figure 1-19 SR flip-flop.
+
+indicator symbol denotes the fact that the flip-flop responds to a positive
+transition (from 0 to 1) of the input clock signal
+
+The operation of the SR flip-flop is as follows. If there is no signal at the
+clock input C, the output of the circuit cannot change irrespective of the values
+at inputs S and R. Only when the clock signal changes from 0 to 1 can the
+output be affected according to the values in inputs Sand R. IfS = landR =0
+when C changes from 0 to 1, output Qis set to 1. If $ = 0 and R = 1 when C
+changes from 0 to 1, output Q is cleared to 0. If both $ and R are 0 during the
+clock transition, the output does not change. When both S and R are equal to
+1, the output is unpredictable and may go to either 0 or 1, depending on
+internal timing delays that occur within the circuit.
+
+The characteristic table shown in Fig. 1-19(b) summarizes the operation
+of the SR flip-flop in tabular form. The $ and R columns give the binary values
+of the two inputs. Q(t) is the binary state of the Q output at a given time
+(referred to as present state). Q(t + 1) is the binary state of the Q output after
+the occurrence of a clock transition (referred to as next state). If S = R=0,a
+clock transition produces no change of state [i.e., Q(t + 1) = Q(t)]. If S$ =0
+and R = 1, the flip-flop goes to the 0 (clear) state. If S = 1 and R = 0, the
+flip-flop goes to the 1 (set) state. The SR flip-flop should not be pulsed when
+S = R= 1 since it produces an indeterminate next state. This indeterminate
+condition makes the SR flip-flop difficult to manage and therefore it is seldom
+used in practice.
+
+D Flip-Flop
+The D (data) flip-flop is a slight modification of the SR flip-flop. An SR flip-flop
+is converted to a D flip-flop by inserting an inverter between S and R and
+assigning the symbol D to the single input. The D input is sampled during the
+occurrence of a clock transition from 0 to 1. If D = 1, the outputof the flip-flop
+goes to the 1 state, but if D = 0, the output of the flip-flop goes to the 0 state.
+The graphic symbol and characteristic table of the D flip-flop are shown
+in Fig. 1-20. From the characteristic table we note that the next state Q(t + 1)
+

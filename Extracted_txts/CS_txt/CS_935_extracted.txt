@@ -1,0 +1,67 @@
+Section 7.1.
+
+ 
+
+QUANTIFIERS
+
+Syntax and Semantics 189
+
+Atomic sentences
+
+Now that we have terms for referring to objects, and predicate symbols for referring to relations,
+
+we can put them together to make atomic sentences that state" facts. An atomic sentence is
+
+formed from a predicate symbol followed by a parenthesized list of terms. For example,
+Brother(Richard, John)
+
+states, under the interpretation given before, that Richard the Lionheart is the brother of King
+John.? Atomic sentences can have arguments that are complex terms:
+
+Married(FatherOf (Richard), MotherOf John))
+
+states that Richard the Lionheart’s father is married to King John's mother (again, under a suitable
+interpretation). An atomic sentence is true ifthe relatign referred to by the predicate symbol
+holds between the objects referred to by the arguments,“The relation holds just in case the tuple
+of objects is in the relation) The truth ofa sentence therefore depends on both the interpretation
+and the world. :
+
+J
+
+Complex sentences
+
+We can use logical connectives to construct more complex sentences, just as in propositional
+calculus. The semantics of sentences formed using logical connectives is identical to that in the
+propositional case. For example:
+
+Brother(Richard, John) A Brother(John, Richard) is true just when John is the brother of
+Richard and Richard is the brother of John.
+
+Older(John,30) V Younger(John,30) is true just when John is older than 30 or John is
+younger than 30.
+
+Older(John,30) = —Younger(John,30) states that if John is older than 30, then he is not
+younger than 30.
+
+>Brother(Robin, John) is true just when Robin is not the brother of John.
+
+Quantifiers
+
+Once we have a logic that allows objects, it is only natural to want to express properties of entire
+collections of objects, rather than having to enumerate the objects by name. Quantifiers let us
+do this. First-order logic contains two standard quantifiers, called universal and existential.
+
+Universal quantification (V)
+
+Recall the difficulty we had in Chapter 6 with the problem of expressing general rules in propo-
+sitional logic. Rules such as "All cats are mammals" are the bread and butter of first-order logic.
+
+  
+
+2 We will usually follow the argument ordering convention that P(s, y) is interpreted as “xis a P ofy.”
+
+3. Although these last two sentences may seem like tautologies, they are not. There are interpretations of Younger and
+Older in which they are false
+
+ 
+

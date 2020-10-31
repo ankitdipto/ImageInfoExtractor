@@ -1,0 +1,51 @@
+242
+
+Chapter 10 Elementary Data Structures
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+prev
+
+ 
+
+Figure 10.5. The linked list of Figure 10.3(a) represented by the arrays key, next, and prev. Each
+vertical slice of the arrays represents a single object. Stored pointers correspond to the array indices
+shown at the top; the arrows show how to interpret them. Lightly shaded object positions contain list
+elements. The variable L keeps the index of the head.
+
+attribute of the tail and the prev attribute of the head, we usually use an integer
+(such as 0 or —1) that cannot possibly represent an actual index into the arrays. A
+variable L holds the index of the head of the list.
+
+A single-array representation of objects
+
+The words in a computer memory are typically addressed by integers from 0
+to M —1, where M is a suitably large integer. In many programming languages,
+an object occupies a contiguous set of locations in the computer memory. A pointer
+is simply the address of the first memory location of the object, and we can address
+other memory locations within the object by adding an offset to the pointer.
+
+We can use the same strategy for implementing objects in programming envi-
+ronments that do not provide explicit pointer data types. For example, Figure 10.6
+shows how to use a single array A to store the linked list from Figures 10.3(a)
+and 10.5. An object occupies a contiguous subarray A[j ..k]. Each attribute of
+the object corresponds to an offset in the range from 0 to k — j, and a pointer to
+the object is the index /. In Figure 10.6, the offsets corresponding to key, next, and
+prev are 0, 1, and 2, respectively. To read the value of i.prev, given a pointer 7, we
+add the value i of the pointer to the offset 2, thus reading A[i + 2].
+
+The single-array representation is flexible in that it permits objects of different
+lengths to be stored in the same array. The problem of managing such a heteroge-
+neous collection of objects is more difficult than the problem of managing a homo-
+geneous collection, where all objects have the same attributes. Since most of the
+data structures we shall consider are composed of homogeneous elements, it will
+be sufficient for our purposes to use the multiple-array representation of objects.
+

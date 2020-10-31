@@ -1,0 +1,62 @@
+538
+
+Chapter 18. Learning from Observations
+
+ 
+
+test SET
+
+LEARNING CURVE
+
+Assessing the performance of the learning algorithm
+
+A learning algorithm is good if it produces hypotheses that do a good job of predicting the
+classifications of unseen examples. In Section 18.6, we will see how prediction quality can be
+estimated in advance. For now, we will look at a methodology for assessing prediction quality
+after the fact. .
+
+Obviously, a prediction is good if it turns out to be true, so we can assess the quality ofa
+hypothesis by checking its predictions against the correct classification once we know it. We do
+this on a set of examples known as the test set. If we train on all our available examples, then
+we will have to go out and get some more to test on, so often it is more convenient to adopt the
+following methodology:
+
+. Collect a large set of examples.
+
+. Divide it into two disjoint sets: the training set and the test set.
+Use the learning algorithm with the training set as examples to generate a hypothesis H.
+Measure the percentage of examples in the test set that are correctly classified by H.
+
+wR wNe
+
+. Repeat steps 1 to 4 for different sizes of training sets and different randomly selected
+training sets of each size.
+
+The result of this is a set of data that can be processed to give the average prediction quality
+as a function of the size of the training set. This can be plotted on a graph, giving what is
+called the learning curve for the algorithm on the particular domain. The learning curve for
+DECISION-TREE-LEARNING with the restaurant examples is shown in Figure 18.9. Notice that as
+the training set grows, the prediction quality increases. (For this reason, such curves are also
+called happy graphs.) This is a good sign that there is indeed some pattern in the data and the
+learning algorithm is picking it up.
+
+The key idea of the methodology is to keep the training and test data separate, for the same
+reason that the results of an exam would not be a good measure of quality ifthe students saw the
+test beforehand. The methodology of randomly dividing up the examples into training and test
+sets is fair when each run is independent of the others—in that case, no run can "cheat" and tell
+the other runs what the right answers are. But there is the problem that you, as the designer of
+the learning algorithm, can cheat. If you run some examples, notice a pattern, and change either
+the learning or the performance element, then the runs are no longer independent, and you have
+effectively passed on information about the test set. In theory, every time you make a change to
+the algorithm, you should get a new set ofexamples to work from. In practice, this is too difficult,
+so people continue to run experiments on tainted sets of examples.
+
+Practical uses of decision tree learning
+
+Decision trees provide a simple representation for propositional knowledge that can be used for
+decision making and classification of objects. Although decision tree learning cannot generate
+interesting scientific theories because of its representational restrictions, it has been used in a
+wide variety of applications. Here we describe just two
+
+ 
+

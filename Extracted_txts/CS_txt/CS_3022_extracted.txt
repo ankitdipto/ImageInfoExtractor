@@ -1,0 +1,60 @@
+400 Chapter 13. Planning and Acting
+
+ 
+
+("the chair and table are the same color"). The chair is initially unpainted, and we have some
+paints and a paintbrush. Then we might use the plan
+
+[SenseColor(Table), Knows What(“Color(Table,c)”), GetPaint(c),Paint(Chair, ¢)]
+
+The last two steps are parameterized, because until execution the agent will not know the value
+
+runTmevariasle Of c. We call c a runtime variable, as distinguished from normal planning variables whose
+values are known as soon as the plan is made. The step SenseColor(Table) will have the effect of
+providing percepts sufficient to allow the agent to deduce the color of the table. Then the action
+KnowsWhat(“Color(Table, c)”)is executed simply by querying the knowledge base to establish
+a value for the variable c. This value can be used in subsequent steps such as GetPaint(c), or
+in conditional steps such as Jf(c= Green, [...], [...]). Sensing actions are defined just as in the
+binary-condition case:
+
+Op(ACTION:SenseColor(x),
+EFFECT: Knows What(“Color(%,c)”))
+
+In situation calculus, the action would be described by
+VYx,s Je KnowsWhat(‘Color(x, c)”, Result(SenseColor(x), s))
+
+The variables x and c are treated differently by the planner. Logically, c is existentially quantified
+in the situation calculus representation, and thus must be treated as a Skolem function of the j
+object being sensed and the situation in which it is sensed. In the planner, runtime variables like
+cunify only with ordinary variables, and not with constants or with each other. This corresponds
+exactly to what would happen with Skolem functions
+
+When we have the ability to discover that certain facts are true, as well as the ability to
+cause them to become true, then we may wish to have some control over which facts are changed
+and which are preserved. For example, the goal of having the table and chair the same color
+can be achieved by painting them both black, regardless of what color the table is at the start.
+This can be prevented by protecting the table's color so that the agent has to sense it, rather than
+
+MAINTENANCE Goal painting over it. A maintenance goal can be used to specify this:
+
+Color(Chair, c) A Color(Table,c) A Maintain(Color(Table, x))
+
+The Maintain goal will ensure that no action is inserted in the plan that has an ordinary causal
+effect that changes the color ofthe table. This is done in a causal-link planner by adding a causal
+link from the start step to the finish step protecting the table's initial color.
+
+Plans with conditionals start to look suspiciously like programs. Moreover, executing such
+plans starts to look rather like interpreting a program. The similarity becomes even stronger when
+we include loops in plans. A loop is like a conditional, except that when the condition holds, a
+portion of the plan is repeated. For example, we might include a looping step to make sure the
+chair is painted properly:
+
+While(Knows(“UnevenColor(Chairy )[Paint(Chair, ¢), CheckColor(Chair)])
+Techniques for generating plans with conditionals and loops are almost identical to those for
+
+ee generating programs from logical specifications (so-called automatic programming). Even a
+standard planner can do automatic programming ofa simple kind ifwe encode as STRIPS operators
+the actions corresponding to assignment statements, procedure calls, printing, and so on.
+
+ 
+

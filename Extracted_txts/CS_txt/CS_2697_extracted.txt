@@ -1,0 +1,48 @@
+11.3 Hash functions 265
+
+11.3.3. Universal hashing
+
+If a malicious adversary chooses the keys to be hashed by some fixed hash function,
+then the adversary can choose n keys that all hash to the same slot, yielding an av-
+erage retrieval time of @(7). Any fixed hash function is vulnerable to such terrible
+worst-case behavior; the only effective way to improve the situation is to choose
+the hash function randomly in a way that is independent of the keys that are actually
+going to be stored. This approach, called universal hashing, can yield provably
+good performance on average, no matter which keys the adversary chooses.
+
+In universal hashing, at the beginning of execution we select the hash function
+at random from a carefully designed class of functions. As in the case of quick-
+sort, randomization guarantees that no single input will always evoke worst-case
+behavior. Because we randomly select the hash function, the algorithm can be-
+have differently on each execution, even for the same input, guaranteeing good
+average-case performance for any input. Returning to the example of a compiler’s
+symbol table, we find that the programmer’s choice of identifiers cannot now cause
+consistently poor hashing performance. Poor performance occurs only when the
+compiler chooses a random hash function that causes the set of identifiers to hash
+poorly, but the probability of this situation occurring is small and is the same for
+any set of identifiers of the same size.
+
+Let # be a finite collection of hash functions that map a given universe U of
+keys into the range {0,1,...,™—1}. Such a collection is said to be universal
+if for each pair of distinct keys k,/ € U, the number of hash functions h € 3
+for which h(k) = h(/) is at most |#|/m. In other words, with a hash function
+randomly chosen from J, the chance of a collision between distinct keys k and /
+is no more than the chance 1/m of a collision if h(k) and h(/) were randomly and
+independently chosen from the set {0,1,.... m-—l}.
+
+The following theorem shows that a universal class of hash functions gives good
+average-case behavior. Recall that 1; denotes the length of list T [i].
+
+Theorem 11.3
+
+Suppose that a hash function / is chosen randomly from a universal collection of
+hash functions and has been used to hash 1 keys into a table T of size m, us-
+ing chaining to resolve collisions. If key k is not in the table, then the expected
+length E [nn] of the list that key k hashes to is at most the load factor # = n/m.
+If key k is in the table, then the expected length E [nx)] of the list containing key k
+is at most 1 + @.
+
+Proof We note that the expectations here are over the choice of the hash func-
+tion and do not depend on any assumptions about the distribution of the keys.
+For each pair k and / of distinct keys, define the indicator random variable
+

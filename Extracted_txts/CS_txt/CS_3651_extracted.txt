@@ -1,0 +1,61 @@
+100
+
+Chapter 4. Informed Search Methods
+
+ 
+
+LOCALLY FINITE
+GRAPHS
+
+ 
+
+Start
+
+c® G,
+
+ 
+
+ 
+
+Figure 4.6 Situation at the point where a suboptimal goal state G, is about to be expanded.
+Node 17 is a leaf node on an optimal path from the start node to the optimal goal state G.
+
+ 
+
+ 
+
+ 
+
+But because G2is a goal state, we have A(Gz) = 0; hence f(G2) = g(G2). Thus, we have proved,
+from our assumptions, that
+
+fF 2 g(G2).
+
+This contradicts the assumption that G: is suboptimal, so it must be the case that A* never selects
+a suboptimal goal for expansion. Hence, because it only returns a solution after selecting it for
+expansion, A* is an optimal algorithm.
+
+Proof of the completeness of A*
+
+We said before that because A* expands nodes in order ofincreasing f, it must eventually expand
+toreach a goal state. This is true, ofcourse, unless there are infinitely many nodes with f(n) < f*.
+The only way there could be an infinite number of nodes is either (a) there is a node with an
+infinite branching factor, or (b) there is a path with a finite path cost but an infinite number of
+nodes along it.?
+
+Thus, the correct statement is that A* is complete on locally finite graphs (graphs with a
+finite branching factor) provided there is some positive constant 6 such that every operator costs
+at least 6.
+
+Complexity of A*
+
+That A* search is complete, optimal, and optimally efficient among all such algorithms is rather
+satisfying. Unfortunately, it does not mean that A* is the answer to all our searching needs. The
+catch is that, for most problems, the number of nodes within the goal contour search space is still
+exponential in the length of the solution. Although the proof of the result is beyond the scope of
+this book, it has been shown that exponential growth will occur unless the error in the heuristic
+
+2 Zeno’s paradox, which purports to show that a rock thrown at a tree will never seach it, provides an example that
+violates condition (b). The paradox is created by imagining that the trajectory is divided into a series of phases, each of
+which covers half the remaining distance to the tree; this yields an infinite sequence of steps with a finite total cost.
+

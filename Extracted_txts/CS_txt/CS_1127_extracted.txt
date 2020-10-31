@@ -1,0 +1,44 @@
+416 Let Us C
+
+ften it is not enough to just display the data on the screen.
+
+This is because if the data is large, only a limited amount
+
+of it can be stored in memory and only a limited amount
+of it can be displayed on the screen. It would be inappropriate to
+store this data in memory for one more reason. Memory is volatile
+and its contents would be lost once the program is terminated. So
+if we need the same data again it would have to be either entered
+through the keyboard again or would have to be regenerated
+programmatically. Obviously both these operations would be
+tedious. At such times it becomes necessary to store the data in a
+manner that can be later retrieved and displayed either in part or in
+whole. This medium is usually a ‘file’ on the disk. This chapter
+discusses how file I/O operations can be performed.
+
+ 
+
+Data Organization
+
+Before we start doing file input/output let us first find out how data
+is organized on the disk. All data stored on the disk is in binary
+form. How this binary data is stored on the disk varies from one
+OS to another. However, this does not affect the C programmer
+since he has to use only the library functions written for the
+particular OS to be able to perform input/output. It is the compiler
+vendor’s responsibility to correctly implement these library
+functions by taking the help of OS. This is illustrated in Figure
+12.1.
+
+ 
+
+Figure 12.1
+
+ 
+
+ 
+
+ 
+
+ 
+

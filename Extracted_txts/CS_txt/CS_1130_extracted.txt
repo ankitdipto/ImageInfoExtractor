@@ -1,0 +1,53 @@
+Chapter 12: File Input/Output 419
+
+ 
+
+ 
+
+ 
+
+Memory
+
+ 
+
+ 
+
+ 
+
+DISK
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 12.2
+
+Same argument also applies to writing information in a file.
+Instead of writing characters in the file on the disk one character at
+a time it would be more efficient to write characters in a buffer an
+then finally transfer the contents from the buffer to the disk.
+
+To be able to successfully read from a file information like mode
+of opening, size of file, place in the file from where the next rea
+operation would be performed, etc. has to be maintained. Since all
+this information is inter-related, all of it is gathered together by
+fopen( ) in a structure called FILE. fopen( ) returns the address of
+this structure, which we have collected in the structure pointer
+called fp. We have declared fp as
+
+ 
+
+FILE “fp;
+

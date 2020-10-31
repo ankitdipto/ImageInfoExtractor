@@ -1,0 +1,61 @@
+Problems = 439
+
+request that it initiate transmission. 1t is used by: the secondary station to
+indicate the final transmitted frame. Thus the P/F field is cated P (poll) when
+the primary station is transmitting but is designated as F (final) when a sec-
+ondary station is transmitting. Each frame sent to the secondary station fom
+the primary station has a P bit set to. When the primary station is finished
+and ready for the secondary station to respond, the P bit is set to 1. The
+secondary station then responds with a number of frames in which the F bit
+is set to 0, When the secondary station sends the last frame, it sets the F bit
+to 1. Therefore, the P/F bit is used to determine when data transmission from
+a Station is finished.
+
+‘Thesupervisory formatof the control fieldis recognized from the firsttwo
+bits being 1 and0. Thenexttwobitsindicate the type ofcommand. This follows
+by a PIF bit and a receive sequence framecount. The frames of the supervisory
+formatdo not carry an information field. They are used to assist in the transfer
+ofinfermation in that they confirm the acceptance of preceding frames carry ing,
+information, convey ready'or busy conditions. and report ame numbering
+errors.
+
+‘The unnumbered format is recognized from the first two bits being 11.
+‘The Five code bits available in this format can specify up to 32 commands and
+responses. The primary station uses the control field to specify a command for
+a secondary station. The secondary station uses the control field to transmit
+a response to the ptimaiy station. Unnumbeted format frames are employed
+forieitialization of ink functions, reporting procedural errors, placing stations
+in a disconnected mode, and other data link control operation:
+
+ 
+
+   
+
+PROBLEMS
+
+ 
+
+ 
+
+ 
+
+Ut. The addresses assigned to the four registers of the VO interface of Fig. 11-2
+are equal to the birisry equivalent of 12, 13, 16, and 15. Show the exteenal
+Gircuit thet must be connected between an bit YO address fromthe CPU
+and the CS, RS1, end RSO inputs of the Interface.
+
+11-2, Sicinterfase unuts of the type shown inFig. 11-2 areconnevted toa CPU that
+uses on UO address of eight bits. Each one of the six chip select (CS) inputs
+is connected to a different address line. Thus the high-order addvess line is
+connected to the CS input of the first Interfase unitand the sixth address ine
+is connected to the CS input of the sixth interface unit. The two low-order
+address lines are connected to the RS1 ond R50 of all six interface units.
+Determine the 8.bit address of each register in each interface.
+
+113. _List four peripheral devices that produse an acceptable output for a persan
+fo understand
+
+11-4. Write your full namein ASCH usingeight bits per character withtheteftmrast
+bit always 0. Indude a space between names and a period after a middle
+initial,
+

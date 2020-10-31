@@ -1,0 +1,58 @@
+250
+
+Chapter 10 Elementary Data Structures
+
+10-2. Mergeable heaps using linked lists
+
+A mergeable heap supports the following operations: MAKE-HEAP (which creates
+an empty mergeable heap), INSERT, MINIMUM, EXTRACT-MIN, and Union.!
+Show how to implement mergeable heaps using linked lists in each of the following
+cases. Try to make each operation as efficient as possible. Analyze the running
+time of each operation in terms of the size of the dynamic set(s) being operated on.
+
+a. Lists are sorted.
+b. Lists are unsorted.
+
+c. Lists are unsorted, and dynamic sets to be merged are disjoint.
+
+10-3 Searching a sorted compact list
+
+Exercise 10.3-4 asked how we might maintain an n-element list compactly in the
+first 7 positions of an array. We shall assume that all keys are distinct and that the
+compact list is also sorted, that is, key[i] < key[nea[i]] for alli = 1,2,..., n such
+that next[i] # NIL. We will also assume that we have a variable L that contains
+the index of the first element on the list. Under these assumptions, you will show
+that we can use the following randomized algorithm to search the list in O(,/n)
+expected time.
+
+Compact-LisT-SEARCH(L,n,k)
+
+ 
+
+1i=L
+
+2 while i # NIL and key[i] <k
+3 Jj = RANDOM(1,n)
+
+4 if key[i] < key[j] and key[j] =k
+5 i=j
+
+6 if key[i] == k
+
+7 return
+
+8
+
+9 [i] > k
+10 return NIL
+11 else return i
+
+If we ignore lines 3-7 of the procedure, we have an ordinary algorithm for
+searching a sorted linked list, in which index i points to each position of the list in
+
+ 
+
+1 Because we have defined a mergeable heap to support MINIMUM and EXTRACT-MIN, we can also
+refer to it as a mergeable min-heap. Alternatively, if it supported MAXIMUM and EXTRACT-MAX,
+it would be a mergeable max-heap.
+

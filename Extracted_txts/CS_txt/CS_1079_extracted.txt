@@ -1,0 +1,62 @@
+202 Chapter 7. First-Order Logic
+
+ 
+
+ 
+
+function KB-AGENT( percept) returns an action
+static: KB, a knowledge base
+1, a counter, initially 0, indicating time
+
+TELL(KB, MAKE-PERCEPT-SENTENCE( percept, ‘))
+action — ASK(KB, MAKE-ACTION-QUERY(1))
+TELL(KB, MAKE-ACTION-SENTENCE(action, 1)
+t—ttl
+
+return action
+
+ 
+
+ 
+
+ 
+
+Figure 7.2 A generic knowledge-based agent.
+
+ 
+
+ 
+
+ 
+
+The agent's action must be one of the following:
+Turn(Right), Turn(Left), Forward, Shoot, Grab, Release, — Climb
+
+To determine which one is best, the function MAKE-ACTION-QUERY creates a query such as
+da Action(a, 5)
+
+with the intention that ASK returns a binding list such as {a/Grab} and Grab is assigned as the
+value of the variable action. The agent program then calls TELL once again to record which
+action was taken. Because the agent does not perceive its own actions, this is the only way the
+&B could know what the agent has done.
+
+7.5 __A SIMPLE REFLEX AGENT
+
+The simplest possible kind of agent has rules directly connecting percepts to actions. These rules
+resemble reflexes or instincts. For example, if the agent sees a glitter, it should do a grab in order
+to pick up the gold:
+
+Vs,b,u,c,t Percept([s, b, Glitter, 1, c],t) = Action(Grab,t)
+The connection between percept and action can be mediated by rules for perception, which
+abstract the immediate perceptual input into more useful forms:
+
+Vb, g,u,c,t Percept([Stench, b,g,u,c],t) = Stench(t)
+Vs, g.u,c,t Percept(|s,Breeze, g,u,c],t) = Breeze(t)
+Vs,b,u,c,t Percept([s,b, Glitter, u.c],t) = AtGold(t)
+
+Then a connection can be made from these predicates to action choices:
+Vt AtGold(t) => Action(Grab,t)
+
+This rule is more flexible than the direct connection, because it could be used with other means
+for deducing AtGold—tforexample, if one stubs one's toe on the gold.
+

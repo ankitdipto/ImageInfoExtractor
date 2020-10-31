@@ -1,0 +1,53 @@
+380 Let Us C
+
+ 
+
+operator requires a structure variable on its left. In such cases
+C provides an operator ->, called an arrow operator to refer to
+the structure elements. Remember that on the left hand side of
+the ‘.’ structure operator, there must always be a structure
+variable, whereas on the left hand side of the ‘->’ operator
+there must always be a pointer to a structure. The arrangement
+of the structure variable and pointer to structure in memory is
+shown in the Figure 10.2.
+
+ 
+
+ 
+
+bl.name bl.author bl.callno
+Let UsC YPK 101
+65472 65497 65522
+
+ 
+
+65524
+
+ 
+
+ 
+
+ 
+
+Figure 10.2
+
+Can we not pass the address of a structure variable to a
+function? We can. The following program demonstrates this.
+
+/" Passing address of a structure variable */
+struct book
+
+{
+char name[25] ;
+char author[25] ;
+int callno ;
+
+hi
+
+main()
+
+{
+
+struct book b1 ={"Let us C", "YPK", 101};
+display ( &b1) ;
+

@@ -1,0 +1,73 @@
+426 Chapter 12 File-System Implementation
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+directory entry
+test we 217,
+name start block
+0
+217 618
+339 | end-of-file
+618 339
+no. of disk blocks —1
+
+ 
+
+ 
+
+ 
+
+FAT
+
+Figure 12.7 File-allocation table.
+
+replaced with the end-of-file value. An illustrative example is the FAT structure
+of Figure 12.7 for a file consisting of disk blocks 217, 618, and 339.
+
+The FAT allocation scheme can result in a significant number of disk head
+seeks, unless the FAT is cached. The disk head must move to the start of the
+partition to read the FAT and find the location of the block in question, then
+move to the location of the block itself. In the worst case, both moves occur for
+each of the blocks. A benefit is that random access time is improved, because
+the disk head can find the location of any block by reading the information in
+the FAT.
+
+12.4.3 Indexed Allocation
+
+Linked allocation solves the external-fragmentation and size-declaration prob-
+lems of contiguous allocation. However, in the absence of a FAT, linked alloca-
+tion cannot support efficient direct access, since the pointers to the blocks are
+scattered with the blocks themselves all over the disk and need to be retrieved
+in order. Indexed allocation solves this problem by bringing all the pointers
+together into one location: the index block.
+
+Each file has its own index block, which is an array of disk-block addresses.
+The ith entry in the index block points to the ith block of the file. The directory
+contains the address of the index block (Figure 12.8). To read the ith block, we
+

@@ -1,0 +1,49 @@
+Notes for Chapter 22 623
+
+22-3. Euler tour
+
+An Euler tour of a strongly connected, directed graph G = (V, E) is a cycle that
+traverses each edge of G exactly once, although it may visit a vertex more than
+once.
+
+a. Show that G has an Euler tour if and only if in-degree(v) = out-degree(v) for
+each vertex v € V.
+
+b. Describe an O(£)-time algorithm to find an Euler tour of G if one exists. (Hint:
+Merge edge-disjoint cycles.)
+
+22-4 Reachability
+
+Let G = (V, E) be a directed graph in which each vertex u € V is labeled with
+a unique integer L(w) from the set {1,2,...,|V|}. For each vertex u € V, let
+R(u) = {v eV :u~ v} be the set of vertices that are reachable from u. Define
+min(2) to be the vertex in R(w) whose label is minimum, i.e., min(2) is the vertex v
+such that L(v) = min {L(w) : w € R(u)}. Give an O(V + E)-time algorithm that
+computes min(2) for all vertices u € V.
+
+  
+ 
+
+ 
+
+Chapter notes
+
+Even [103] and Tarjan [330] are excellent references for graph algorithms.
+
+Breadth-first search was discovered by Moore [260] in the context of finding
+paths through mazes. Lee [226] independently discovered the same algorithm in
+the context of routing wires on circuit boards.
+
+Hopcroft and Tarjan [178] advocated the use of the adjacency-list representation
+over the adjacency-matrix representation for sparse graphs and were the first to
+recognize the algorithmic importance of depth-first search. Depth-first search has
+been widely used since the late 1950s, especially in artificial intelligence programs.
+
+Tarjan [327] gave a linear-time algorithm for finding strongly connected compo-
+nents. The algorithm for strongly connected components in Section 22.5 is adapted
+from Aho, Hopcroft, and Ullman [6], who credit it to S. R. Kosaraju (unpublished)
+and M. Sharir [314]. Gabow [119] also developed an algorithm for strongly con-
+nected components that is based on contracting cycles and uses two stacks to make
+it run in linear time. Knuth [209] was the first to give a linear-time algorithm for
+topological sorting.
+

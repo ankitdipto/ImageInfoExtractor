@@ -1,0 +1,52 @@
+11.3 Directory Structure 391
+
+directory entry is marked as a link, then the name of the real file (or directory)
+is given. We resolve the link by using the path name to locate the real file. Links
+are easily identified by their format in the directory entry (or by their having a
+special type on systems that support types), and are effectively named indirect
+pointers. The operating system ignores these links when traversing directory
+trees to preserve the acyclic structure of the system.
+
+Another common approach to implementing shared files is simply to dupli-
+cate all information about them in both sharing directories. Thus, both entries
+are identical and equal. A link is clearly different from the original directory
+entry; thus, the two are not equal. Duplicate directory entries, however, make
+the original and the copy indistinguishable. A major problem with duplicate
+directory entries is maintaining consistency if the file is modified.
+
+An acyclic-graph directory structure is more flexible than is a simple tree
+structure, but it is also more complex. Several problems must be considered
+carefully. A file may now have multiple absolute path names. Consequently,
+distinct file names may refer to the same file. This situation is similar to the
+aliasing problem for programming languages. If we are trying to traverse the
+entire file system—to find a file, to accumulate statistics on all files, or to copy
+all files to backup storage—this problem becomes significant, since we do not
+want to traverse shared structures more than once.
+
+Another problem involves deletion. When can the space allocated to a
+shared file be deallocated and reused? One possibility is to remove the file
+whenever anyone deletes it, but this action may leave dangling pointers to the
+now-nonexistent file. Worse, if the remaining file pointers contain actual disk
+addresses, and the space is subsequently reused for other files, these dangling
+pointers may point into the middle of other files.
+
+Ina system where sharing is implemented by symbolic links, this situation
+is somewhat easier to handle. The deletion of a link does not need to affect
+the original file; only the link is removed. If the file entry itself is deleted, the
+space for the file is deallocated, leaving the links dangling. We can search for
+these links and remove them also, but unless a list of the associated links is
+kept with each file, this search can be expensive. Alternatively, we can leave
+the links until an attempt is made to use them. At that time, we can determine
+that the file of the name given by the link does not exist, and can fail to resolve
+the link name; the access is treated just like any other illegal file name. (In this
+case, the system designer should consider carefully what to do when a file is
+deleted and another file of the same name is created, before a symbolic link to
+the original file is used.) In the case of UNIX, symbolic links are left when a file
+is deleted, and it is up to the user to realize that the original file is gone or has
+been replaced. Microsoft Windows (all flavors) uses the same approach.
+
+Another approach to deletion is to preserve the file until all references to
+it are deleted. To implement this approach, we must have some mechanism
+for determining that the last reference to the file has been deleted. We could
+keep a list of all references to a file (directory entries or symbolic links). When a
+

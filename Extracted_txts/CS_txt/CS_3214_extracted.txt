@@ -1,0 +1,66 @@
+Section 19.3.
+
+Perceptrons 575
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+: HI Oo
+2
+ma 0 Ss
+1 4b ° 1 4
+(a) J, and Lh ) Lord, © xr
+
+ 
+
+ 
+
+Figure 199 Linear separability in perceptrons
+
+ 
+
+ 
+
+ 
+
+The fact that a perceptron can only represent linearly separable functions follows directly
+from Equation (19.2), which defines the function computed by aperceptron. A perceptron outputs
+a 1 onlyifW I> 0. This means that the entire input space is divided in two along a boundary
+defined by W * I = 0, that is, a plane in the input space with coefficients given by the weights
+With n inputs, the input space is n-dimensional, and linear separability can be rather hard to
+visualize ifn is too large. It is easiest to understand for the case where n = 2. In Figure 19.9(a),
+one possible separating "plane" is the dotted line defined by the equation
+
+=-h+15 or T+h=15
+The region above the line, where the output is 1 , is therefore given by
+
+-154+h+h>0
+or, in vector notation,
+
+W I= (15,11) -(-Lib) > 0
+
+With three inputs, the separating plane can still be visualized. Figure 19.10(a) shows an example
+in three dimensions. The function we are trying to represent is true if and only ifa minority of
+its three inputs are true. The shaded separating plane is defined by the equation
+
+Ty +/2 4/3 = 1.5
+This time the positive outputs lie below the plane, in the region
+(-1))+(-/2)+(-b) > -1.5
+
+Figure 19.10(b) shows a unit to implement the function.
+
+Learning linearly separable functions
+
+As with any performance element, the question of what perceptrons can represent is prior to
+the question of what they can leam. We have just seen that a function can be represented by a
+perceptron if and only if it is linearly separable. That is relatively bad news, because there are
+not many linearly separable functions. The (relatively) good news is that there is a perceptron
+algorithm that will learn any linearly separable function, given enough training examples.
+

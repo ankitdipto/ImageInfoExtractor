@@ -1,0 +1,32 @@
+Enable input
+
+HAPTER TWO Digital Components
+
+A
+
+A
+Ay
+
+ 
+
+Figure 2-1 3-to-8-line decoder.
+
+representing one of the combinations of the three binary input variables. The
+three inverters provide the complement of the inputs, and each of the eight
+AND gates generates one of the binary combination. A particular application
+of this decoder is a binary-to-octal conversion. The input variables represent
+a binary number and the outputs represent the eight digits of the octal number
+system. However, a3-to-8-line decoder can be used for decoding any 3-bit code
+to provide eight outputs, one for each combination of the binary code.
+Commercial decoders include one or more enable inputs to control the
+operation of the circuit. The decoder of Fig. 2-1 has one enable input, E. The
+decoder is enabled when E is equal to 1 and disabled when E is equal to 0.
+The operation of the decoder can be clarified using the truth table listed
+in Table 2-1. When the enable input E is equal to 0, all the outputs are equal
+to 0 regardless of the values of the other three data inputs. The three x's in
+the table designate don't-care conditions. When the enable input is equal to
+1, the decoder operates in a normal fashion. For each possible input combina-
+tion, there are seven outputs that are equal to 0 and only one that is equal to
+1. The output variable whose value is equal to 1 represents the octal number
+equivalent of the binary number that is available in the input data lines.
+

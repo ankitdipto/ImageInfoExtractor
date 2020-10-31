@@ -1,0 +1,50 @@
+452
+
+(CHAPTER TWELVE Memory Organization
+
+subdivided into groups of four bits each so that each group can be represented
+with a hexadecimal digit. The first hexadecimal digit represents lines 13 to 16
+and is always 0. The next hexadecimal digit represents lines 9 to 12, but lines
+11 and 12 are always 0. The range of hexadecimal addresses for each compo-
+nentis determined from the x's associated with it. These x’s represent abinary
+number that can range from an all-0's to an all-I's value.
+
+Memory Connection to CPU
+
+RAM and ROM chips are connected to a CPU through the data and address
+buses. The low-order lines in the address bus select the byte within the chips
+and other linesin the address bus select a particular chip through its chip select
+inputs. The connection of memory chips to the CPU is shown in Fig. 12-4. This
+configuration gives a memory capacity of 512 bytes of RAM and 512 bytes of
+ROM. It implements the memory map of Table 12-1. Each RAM receives the
+seven low-order bits of the address bus to select one of 128 possible bytes. The
+particular RAM chip selected is determined from lines 8 and 9 in the address
+bus. This is done through a2 x 4 decoder whose outputs go to the CS1 inputs
+in each RAM chip. Thus, when address lines 8 and 9 are equal to 00, the first
+RAM chip is selected. When 01, the second RAM chip is selected, and so on.
+The RD and WRoutputs from the microprocessor are applied to the inputs of
+each RAM chip.
+
+The selection between RAM and ROM is achieved through bus line 10.
+The RAMs are selected when the bitin this line is 0, and the ROM when the
+bitis 1. The other chip select input in the ROM is connected to the RD control
+line for the ROM chip to be enabled only during a read operation. Address bus
+lines 1 to 9 are applied to the input address of ROM without going through the
+decoder. This assigns addresses 0 to511 to RAM and 512 to 1023 to ROM. The
+data bus of the ROM has only an output capability, whereas the data bus
+connected to the RAMs can transfer information in both directions.
+
+‘The example just shown gives an indication of the interconnection com-
+plexity that can exist between memory chips and the CPU. The more chips that
+are connected, the more external decoders are required for selection among the
+chips. The designer must establish a memory map that assigns addresses to
+the various chips from which the required connections are determined.
+
+12-3 Auxiliary Memory
+
+The most common auxiliary memory devices used in computer systems are
+magnetic disks and tapes. Other components used, but not as frequently, are
+magnetic drums, magnetic bubble memory, and optical disks. To understand
+fully the physical mechanism of auxiliary memory devices one must have a
+knowledge of magnetics, electronics, and electromechanical systems. Al-
+

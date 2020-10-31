@@ -1,0 +1,54 @@
+Section 8.3
+
+The Electronic Circuits Domain 225
+
+ 
+
+The connectivity between gates can be represented by the predicate Connected, which
+takes two terminals as arguments, as in Connected(Out(1,X;), In(1,X2)).
+
+Finally, we need to know ifa signal is on or off. One possibility is to use a unary predicate,
+On, which is true when the signal at a terminal is on. This makes it a little difficult, however, to
+pose questions such as "What are all the possible values of the signals at the following terminals
+... 2” We will therefore introduce as objects two "signal values" On or Offand a function Signal
+which takes a terminal as argument and denotes a signal value
+
+Encode general rules
+
+One sign that we have a good ontology is that there are very few general rules that need to be
+specified. A sign that we have a good vocabulary is that each mule can be stated clearly and
+concisely. With our example, we need only seven simple rules:
+
+1. Iftwo terminals are connected, then they have the same signal:
+Wt,t2 Connected(t),t2) = Signal(t)) =Signal(tz)
+2. The signal at every terminal is either on or off (but not both):
+Vt Signal(t)= On V Signal(t)= Off
+On#Off
+3. Connected is a commutative predicate:
+Vth.t2 Connected(t),t2) <= Connected(tr, t))
+4. An OR gate's output is on if and only if any of its inputs are on:
+Vg Typelgr OR =
+Signal(Out(1, g))=On <= An Signal(In(n, g))=On
+5. An AND gate's output is off if and only if any of its inputs are off:
+Vg Type(g)=AND=>
+Signal(Out(1,g))=Off Jn Signal(In(n, 3))= Off
+6. An XOR gate's output is on if and only if its inputs are different:
+Vg Type(g)=XOR=>
+Signal(Out(1, g))= On <> Signal(n(1, g))#Signal(In(2, g))
+7. ANOT gate's output is different from its input:
+Vg (Type(g)=NOT) =>  Signal(Out(1, g))ASignalUn(, g))
+
+Encode the specific instance
+
+The circuit shown in Figure 8.1 is encoded as circuit C; with the following description. First, we
+categorize the gates:
+
+Type(X:= XOR —Type(X} = XOR
+
+Type(A)=AND — Type(A) = AND
+Type(O1)= OR
+
+ 
+
+ 
+

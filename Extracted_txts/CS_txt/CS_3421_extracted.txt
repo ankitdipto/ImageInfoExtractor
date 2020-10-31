@@ -1,0 +1,70 @@
+760
+
+Chapter 24. Perception
+
+ 
+
+LANGUAGE MODEL
+
+ACOUSTIC MODEL
+
+BIGRAM
+
+Defining the overall speech recognition model
+
+Speech recognition is the diagnostic task of recovering the words that produce a given acoustic
+signal. It is a classic example of reasoning with uncertainty. We are uncertain about how well
+the microphones (and digitization hardware) have captured the actual sounds, we are uncertain
+about which phones would give rise to the signal, and we are uncertain about which words would
+give rise to the phones. As is often the case, the diagnostic task can best be approached with a
+causal mode]—the words cause the signal. We can break this into components with Bayes' rule:
+Povords|signal)= Powords)P( signal] words)
+P(signal)
+
+Given a signal, our task is to find the sequence of words that maximizes P(words|signal). Of the
+three components on the right-hand side, P(signa/)is a normalizing constant that we can ignore.
+P(words)is known as the language model. It is what tells us, when we are not sure if we heard
+"bad boy" or "pad boy" that the former is more likely. Finally, P(signal|words)is the acoustic
+model. It is what tells us that "cat" is very likely to be pronounced /ket).
+
+The language model: P(words)
+
+In Take the Money and Run, a bank teller interprets Woody Alien's sloppily written hold-up note
+as saying "Ihave a gub.” A better language model would have enabled the teller to determine that
+the string "I have a gun" has a much higher prior probability of being on a hold-up note. That
+makes "gun" a better interpretation even if P(signal|gubyis a little higher than P(signal|gun).
+The language model should also tell us that "I have a gun" is a much more probable utterance
+than "gun a have 1"
+
+At first glance, the language model task seems daunting. We have to assign a probability
+to each of the (possibly infinite) number of strings. Context-free grammars are no help for this
+task, but probabilistic context-free grammars (PCFGs) are promising. Unfortunately, as we saw
+in Chapter 22, PCFGs aren't very good at representing contextual effects. In this section, we
+approach the problem using the standard strategy of defining the probability ofa complex event
+as a product of probabilities of simpler events. Using the notation w, * + *w,, to denote a string of
+awords and; to denote the ith word of the string, we can write an expression for the probability
+ofa string as follows:”
+
+Pow) + + wy) ~ PO) Plw2 wi) Povs|wiwer)
+
+= TT Posie =a)
+Most of these terms are quite complex and difficult to estimate or compute, and they have
+no obvious relation to CFGs or PCFGs. Fortunately, we can approximate this formula with
+something simpler and still capture a large part of the language model. One simple, popular,
+and effective approach is the bigram model. This model approximates P(wi|w1 * + -Wwi-1) with
+P(w;{wi_1)- In other words, it says that the probability ofany given word is determined solely by
+the previous word in the string. The probability ofa complete string is given by
+
+POwy + + = Wa) = PO* 1) POv2|1) POws|w2) == PO%n Wa) = [Tier POvilwi-
+
+ 
+
+  
+
+“Wra1)
+
+2 Actually, it would be better if all the probabilities were conditioned on the situation. Few speech recognizers do this,
+however, because it is difficult to formalize what counts as a situation,
+
+ 
+

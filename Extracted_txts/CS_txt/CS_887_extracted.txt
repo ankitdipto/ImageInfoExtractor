@@ -1,0 +1,43 @@
+Chapter 6: Data Types Revisited 223
+
+ 
+
+also true. If we exceed the range from negative side we end up
+on positive side.
+
+Storage Classes in C
+
+We have already said all that needs to be said about constants, but
+we are not finished with variables. To fully define a variable one
+needs to mention not only its ‘type’ but also its ‘storage class’. In
+other words, not only do all variables have a data type, they also
+have a ‘storage class’.
+
+We have not mentioned storage classes yet, though we have
+written several programs in C. We were able to get away with this
+because storage classes have defaults. If we don’t specify the
+storage class of a variable in its declaration, the compiler will
+assume a storage class depending on the context in which the
+variable is used. Thus, variables have certain default storage
+classes.
+
+From C compiler’s point of view, a variable name identifies some
+physical location within the computer where the string of bits
+representing the variable’s value is stored. There are basically two
+kinds of locations in a computer where such a value may be kept—
+Memory and CPU registers. It is the variable’s storage class that
+determines in which of these two locations the value is stored.
+
+Moreover, a variable’s storage class tells us:
+
+(a) Where the variable would be stored.
+
+(b) What will be the initial value of the variable, if initial value is
+not specifically assigned.(i.e. the default initial value).
+
+(c) What is the scope of the variable; i.e. in which functions the
+value of the variable would be available.
+
+(d) What is the life of the variable; i.e. how long would the
+variable exist.
+

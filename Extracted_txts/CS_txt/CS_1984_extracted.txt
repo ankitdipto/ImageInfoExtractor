@@ -1,0 +1,127 @@
+12.4 Allocation Methods 429
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+mode
+owners (2)
+timestamps (3)
+data
+size block
+data
+count
+i. data
+direct blocks
+lee data
+>| data
+single indirect. ——>} : : data
+double indirect Pl sate = data
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+triple indirect — rT data
+: data
+
+Figure 12.9 The UNIX inode.
+
+ 
+
+ 
+
+ 
+
+ 
+
+block. Since we can easily keep the initial address of the file in memory, we
+can calculate immediately the disk address of the ith block (or the next block)
+and read it directly.
+
+For linked allocation, we can also keep the address of the next block in
+memory and read it directly. This method is fine for sequential access; for direct
+access, however, an access to the ith block might require i disk reads. This
+problem indicates why linked allocation should not be used for an application
+requiring direct access.
+
+As a result, some systems support direct-access files by using contiguous
+allocation and sequential access by linked allocation. For these systems, the
+type of access to be made must be declared when the file is created. A file
+created for sequential access will be linked and cannot be used for direct access.
+A file created for direct access will be contiguous and can support both direct
+access and sequential access, but its maximum length must be declared when
+it is created. In this case, the operating system must have appropriate data
+structures and algorithms to support both allocation methods. Files can be
+converted from one type to another by the creation of a new file of the desired
+type, into which the contents of the old file are copied. The old file may then be
+deleted, and the new file renamed.
+
+Indexed allocation is more complex. If the index block is already in mem-
+ory, then the access can be made directly. However, keeping the index block in
+memory requires considerable space. If this memory space is not available, then
+

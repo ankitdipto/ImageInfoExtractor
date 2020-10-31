@@ -1,0 +1,50 @@
+4,3 The substitution method for solving recurrences 85
+
+solution to the recurrence. When 7 is large, the difference between [n/2| and
+{n/2] + 17 is not that large: both cut 7 nearly evenly in half. Consequently, we
+make the guess that T(n) = O(n lgn), which you can verify as correct by using
+the substitution method (see Exercise 4.3-6).
+
+Another way to make a good guess is to prove loose upper and lower bounds on
+the recurrence and then reduce the range of uncertainty. For example, we might
+start with a lower bound of T(m) = Q(n) for the recurrence (4.19), since we
+have the term 7 in the recurrence, and we can prove an initial upper bound of
+T(n) = O(n’). Then, we can gradually lower the upper bound and raise the
+lower bound until we converge on the correct, asymptotically tight solution of
+T(n) = O(nlgn).
+
+Subtleties
+
+Sometimes you might correctly guess an asymptotic bound on the solution of a
+recurrence, but somehow the math fails to work out in the induction. The problem
+frequently turns out to be that the inductive assumption is not strong enough to
+prove the detailed bound. If you revise the guess by subtracting a lower-order term
+when you hit such a snag, the math often goes through.
+
+Consider the recurrence
+
+T(n) = T(\n/2J) + T(fn/2]) +1.
+
+We guess that the solution is T(n) = O(n), and we try to show that T(n) < cn for
+an appropriate choice of the constant c. Substituting our guess in the recurrence,
+we obtain
+
+Tin) S e|n/2| +e fn/2]+1
+= n+l,
+
+which does not imply T(n) < cn for any choice of c. We might be tempted to try
+a larger guess, say T(n) = O(n?). Although we can make this larger guess work,
+our original guess of T(m) = O(n) is correct. In order to show that it is correct,
+however, we must make a stronger inductive hypothesis.
+
+Intuitively, our guess is nearly right: we are off only by the constant 1, a
+lower-order term. Nevertheless, mathematical induction does not work unless we
+prove the exact form of the inductive hypothesis. We overcome our difficulty
+by subtracting a lower-order term from our previous guess. Our new guess is
+T(n) < cn —d, where d > 0 is a constant. We now have
+
+Tin) < (c\|n/2)—d)+(c[n/2] —d) +1
+
+= cn—-2d +1
+< cn-d,
+

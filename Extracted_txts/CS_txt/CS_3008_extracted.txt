@@ -1,0 +1,58 @@
+Section 12.5.
+
+Resource Constraints 387
+
+ 
+
+the GasLevel resource, and there are operators such as Fil/Upthat produce more of the GasLevel
+resource (While consuming some of the Cash resource).
+
+To represent this, we allow inequality tests involving measures in the precondition of
+an operator. In the effect of an operator, we allow numeric assignment statements, where the
+left-hand side is a measure fluent and the right-hand side is an arithmetic expression involving
+measures. This is like an assignment and not like an equality in that the right-hand side refers to
+values before the action and the left-hand side refers to the value of the measure fluent after the
+action. As usual, the initial state is described by the effects ofthe start action:
+
+Op(ACTION:Start,
+EFFECT: Cash —$(12.50)A
+GasLevel — Gallons(5)A
+
+The Buy action reduces the amount of Cash one has:
+
+Op(ACTION:Buy(x, store),
+Errect: Have(x)A Cash — Cash — Price(x, store))
+
+Getting gas can be described by an abstract Fillup operator:
+
+Op( ACTION: Fillup(GasLeyvel),
+EFFECT: GasLevel — Gallons(15)A
+Cash — Cash - (UnitPrice(Gas) x (Gallons(\5) - GasLevel)))
+
+The declared upper and lower bounds serve as implicit preconditions for each operator. For
+example, Buy(x)has the implicit precondition Cash > Price(x) to ensure that the quantity will
+be within range after the action. It takes some reasonably sophisticated algebraic manipulation
+code to automatically generate these preconditions, but it is less error-prone to do that than to
+require the user to explicitly write down the preconditions.
+
+These examples should give you an idea of the versatility and power of using measures
+to reason about consumable resources. Although practical planners such as Sire, O-PLAN, and
+DEVISER all have mechanisms for resource allocation, the theory behind them has not been
+formulated in a clean way, and there is disagreement about just what should be represented and
+how it should be reasoned with. We will sketch an outline of one approach.
+
+It is a good idea to plan for scarce resources first. This can be done using an abstraction
+hierarchy ofpreconditions, as in Section 12.3, or by a special resource mechanism. Either way, it
+is desirable to delay the choice ofa causal link for the resource measures. That is, when planning
+to buy a quart of milk, it is a good idea to check if Cash > (Quarts(1)x UnitPrice(Milkstore)),
+but it would be premature to establish a causal link to that precondition from either the start state
+or some other step. The idea is to first pick the steps ofthe plan and do a rough check to see if the
+resource requirements are satisfiable. If they are, then the planner can continue with the normal
+mechanism of resolving threats for all the preconditions.
+
+An easy way of doing the rough check on resources is to keep track of the minimum
+and maximum possible values of each quantity at each step in the plan. For example, if in the
+initial state we have Cash — $(12.50) and in the description of measures we have $(0.50) <
+UnitPrice(Bananas, store) x Pounds(1) < $(1.00) and $(1.00) <  UnitPrice(Milk, store)x
+Quarts(1) < $(1.50), then a plan with the steps Buy(Milk)and Buy(Bananas) will have the
+

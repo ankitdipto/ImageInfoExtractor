@@ -1,0 +1,144 @@
+302 Chapter9 Memory Management
+
+reference requires at least two real-memory reads: one for the hash-table entry
+and one for the page table. To improve performance, recall that the TLB is
+searched first, before the hash table is consulted.
+
+9.4.5 Shared Pages
+
+Another advantage of paging is the possibility of sharing common code. This
+consideration is particularly important in a time-sharing environment. Con-
+sider a system that supports 40 users, each of whom executes a text editor. If
+the text editor consists of 150 KB of code and 50 KB of data space, we would
+need 8,000 KB to support the 40 users. If the code is reentrant code, however, it
+can be shared, as shown in Figure 9.16. Here we see a three-page editor—each
+page of size 50 KB; the large page size is used to simplify the figure—being
+shared among three processes. Each process has its own data page.
+
+Reentrant code (or pure code) is non-self-modifying code. If the code is
+reentrant, then it never changes during execution. Thus, two or more processes
+can execute the same code at the same time. Each process has its own copy of
+registers and data storage to hold the data for the process’ execution. The data
+for two different processes will, of course, vary for each process.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ed1
+3
+ed2 4 1| data 1
+6
+ed3 2| datas
+1
+data 1 page table 3} edt
+ce P, for P, ed1
+proce:
+‘ 3
+ed2 4
+ed3 7
+7
+data2 | page table
+for P,
+2
+edt process P,
+3
+ed2 4
+ed3 6
+2
+data3 | page table
+for Pa
+process P,,
+
+ 
+
+Figure 9.16 Sharing of code in a paging environment.
+

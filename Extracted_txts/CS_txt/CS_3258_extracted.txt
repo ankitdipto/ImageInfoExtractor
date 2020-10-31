@@ -1,0 +1,85 @@
+614 Chapter 20. Reinforcement Learning
+
+ 
+
+ 
+
+function Q-LEARNING-AGENT(e} returns an action
+static: Q, a table of action values
+N, a table of state-action frequencies
+a, the last action taken
+(, the previous state visited
+r, the reward received in state i
+
+j — State[e}
+if (is non-null then
+
+Nai] — Nai] +1
+
+Ola.i] —Ola.iJ+o(r + maxy Qa’ j] - Ola.i})
+if TERMINAL? [e] then
+
+i—null
+else
+
+ij
+
++ — REWARD[e}
+a —arg max, f(Qla’jJ, Mla’ i)
+return a
+
+ 
+
+ 
+
+Figure 20.12 An exploratory Q-learning agent. It is an active leamer that leams the value
+Q(a.i) of each action in each situation. It uses the same exploration function /'as the exploratory
+ADP agent, but avoids having to learn the transition model 1, because the Q-value of s state can
+be related directly to those of its neighbors.
+
+ 
+
+ 
+
+ 
+
+RMS error - —
+12 Policy loss
+
+ 
+
+ 
+
+ 
+
+08
+
+2
+=
+°
+D
+Ee
+
+1
+
+ 
+
+  
+
+20 40 60 80 100 20 40 60
+Number of iterations Number of epochs
+
+@) ()
+
+ 
+
+ 
+
+Figure 20.13 Performance of the exploratory TD Q-leaming agent. using R* = 2 and N. = 5.
+(a) Utility estimates for selected states over time. (b) The RMS eor in utility values and the
+associated policy loss.
+
+ 
+
+ 
+

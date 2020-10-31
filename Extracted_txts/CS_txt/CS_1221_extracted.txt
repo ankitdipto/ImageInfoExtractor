@@ -1,0 +1,57 @@
+Chapter 14: Operations On Bits 493
+
+ 
+
+year = 1980 + (date >> 9);
+month = ( (date << 7) >>12);
+day = ( (date << 11) >>11);
+printf ( “\nYear = %u ", year ) ;
+printf (“Month = %u ", month) ;
+printf ( "Day = %u", day) ;
+
+}
+
+And here is the output...
+
+Date = 5225
+Year = 1990 Month = 3 Day =9
+
+Bitwise AND Operator
+
+This operator is represented as &. Remember it is different than
+&&, the logical AND operator. The & operator operates on two
+operands. While operating upon these two operands they are
+compared on a bit-by-bit basis. Hence both the operands must be
+of the same type (either char or int). The second operand is often
+called an AND mask. The & operator operates on a pair of bits to
+yield a resultant bit. The rules that decide the value of the resultant
+it are shown below:
+
+ 
+
+ 
+
+ 
+
+First bit Second bit First bit & Second bit
+0 0 0
+0 1 0
+1 0 0
+1 1 1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 14.7
+

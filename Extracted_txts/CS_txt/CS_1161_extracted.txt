@@ -1,0 +1,46 @@
+444 Let Us C
+
+ 
+
+switch (choice )
+{
+case '1':
+fseek (fp, 0, SEEK_END ) ;
+another = 'Y' ;
+
+while ( another == 'Y' )
+{
+printf
+scanf
+
+“\nEnter name, age and basic sal." ) ;
+"%s %d %f", e.name, &e.age, &e.bs ) ;
+fwrite ( &e, recsize, 1, fp) ;
+
+printf ("\nAdd another Record (Y/N) ") ;
+fflush (stdin ) ;
+
+another = getche() ;
+
+}
+break ;
+case '2':
+rewind ( fp) ;
+
+while (fread ( &e, recsize, 1, fp) == 1)
+printf ( "In%s %d %f", e.name, e.age, e.bs ) ;
+
+break ;
+case '3' :
+
+another = 'Y' ;
+
+while ( another == 'Y' )
+
+{
+printf ( "\nEnter name of employee to modify ") ;
+scanf ("%s", empname ) ;
+
+rewind (fp);
+while (fread ( &e, recsize, 1, fp ) == 1)
+

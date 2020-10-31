@@ -1,0 +1,65 @@
+Section 20.1.
+
+Introduction 599
+
+ 
+
+PASSIVE LEARNER
+ACTIVE LEARNER
+
+ACTIONVALUE
+Q-LEARNING
+
+due to which actions. A game-playing agent may play flawlessly except for one blunder, and at
+the end of the game get a single reinforcement that says "you lose." The agent must somehow
+determine which move was the blunder.
+
+Within our framework of agents as functions from percepts to actions, a reward can be
+provided by a percept, but the agent must be "hardwired" to recognize that percept as a reward
+rather than as just another sensory input. Thus, animals seem to be hardwired to recognize pain
+and hunger as negative rewards, and pleasure and food as positive rewards. Training a dog is
+made easier by the fact that humans and dogs happen to agree that a low-pitched sound (either
+a growl or a "bad dog!”) is a negative reinforcement. Reinforcement has been carefully studied
+by animal psychologists for over 60 years.
+
+In many complex domains, reinforcement learning is the only feasible way to train a
+program to perform at high levels. For example, in game playing, it is very hard for a human
+to provide accurate and consistent evaluations of large numbers of positions, which would be
+needed to train an evaluation function directly from examples. Instead, the program can be told
+when it has won or lost, and can use this information to leam an evaluation function that gives
+reasonably accurate estimates of the probability of winning from any given position. Similarly,
+it is extremely difficult to program a robot to juggle; yet given appropriate rewards every time a
+ball is dropped or caught, the robot can learn to juggle by itself.
+
+In a way, reinforcement learning is a restatement of the entire AT problem. An agent in
+an environment gets percepts, maps some of them to positive or negative utilities, and then has
+to decide what action to take. To avoid reconsidering all of AI and to get at the principles of
+reinforcement learning, we need to consider how the learning task can vary:
+
+The environment can be accessible or inaccessible. In an accessible environment, states
+can be identified with percepts, whereas in an inaccessible environment, the agent must
+maintain some internal state to try to keep track ofthe environment
+
+The agent can begin with knowledge of the environment and the effects of its actions; or it
+will have to learn this model as well as utility information.
+
+Rewards can be received only in terminal states, or in any state.
+
+Rewards can be components of the actual utility (points for a ping-pong agent or dollars
+for a betting agent) that the agent is trying to maximize, or they can be hints as to the actual
+utility ("nice move" or "bad dog").
+
+The agent can be a passive learner or an active learner. A passive learner simply watches
+the world going by, and tries to learn the utility of being in various states; an active learner
+must also act using the leamed information, and can use its problem generator to suggest
+explorations of unknown portions of the environment.
+
+Furthermore, as we saw in Chapter 2, there are several different basic designs foragents. Because
+the agent will be receiving rewards that relate to utilities, there are two basic designs to consider:
+
++ The agent learns a utility function on states (or state histories) and uses it to select actions
+that maximize the expected utility of their outcomes
+
++ The agent leams an action-value function giving the expected utility of taking a given
+action in a given state. This is called Q-learning.
+

@@ -1,0 +1,65 @@
+ 
+
+482 Chapter13 1/O Systems
+
+ 
+
+   
+ 
+
+ 
+
+read queue
+
+f
+
+fead queue
+
+ 
+
+ 
+
+ 
+
+modules
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 13.11 The STREAMS structure.
+
+whereas putmsg() allows the user process to specify a message. Regardless of
+the system call used by the user process, the stream head copies the data into a
+message and delivers it to the queue for the next module in line. This copying of
+messages continues until the message is copied to the driver end and hence the
+device. Similarly, the user process reads data from the stream head using either
+the read() or getmsg() system calls. If read() is used, the stream head gets
+a message from its adjacent queue and returns ordinary data (an unstructured
+byte stream) to the process. If getmsg() is used, a message is returned to the
+process.
+
+STREAMS I/O is asynchronous (or non-blocking) with the exception of
+when the user process communicates with the stream head. When writing
+to the stream, the user process will block, assuming the next queue uses flow
+control, until there is room to copy the message. Likewise, the user process will
+block when reading from the stream until data is available.
+
+The driver end is similar to a stream head or a module in that it has a read
+and write queue. However, the driver end must respond to interrupts such
+as one triggered when a frame is ready to be read from a network. Unlike the
+stream head that may block if it is unable to copy a message to the next queue in
+line, the driver end must handle all incoming data. Drivers must support flow
+

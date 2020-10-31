@@ -1,0 +1,37 @@
+30
+
+Polynomials and the FFT
+
+The straightforward method of adding two polynomials of degree n takes O(n)
+time, but the straightforward method of multiplying them takes @(n7) time. In this
+chapter, we shall show how the fast Fourier transform, or FFT, can reduce the time
+to multiply polynomials to O(n Ign).
+
+The most common use for Fourier transforms, and hence the FFT, is in signal
+processing. A signal is given in the time domain: as a function mapping time to
+amplitude. Fourier analysis allows us to express the signal as a weighted sum of
+phase-shifted sinusoids of varying frequencies. The weights and phases associated
+with the frequencies characterize the signal in the frequency domain. Among the
+many everyday applications of FFT’s are compression techniques used to encode
+digital video and audio information, including MP3 files. Several fine books delve
+into the rich area of signal processing; the chapter notes reference a few of them.
+
+Polynomials
+
+A polynomial in the variable x over an algebraic field F represents a function A(x)
+as a formal sum:
+
+n-l
+A(x) = Yoajx! .
+j=0
+
+We call the values dp,d),..., a, the coefficients of the polynomial. The co-
+efficients are drawn from a field F,, typically the set C of complex numbers. A
+polynomial A(x) has degree k if its highest nonzero coefficient is az; we write
+that degree(A) = k. Any integer strictly greater than the degree of a polynomial
+is a degree-bound of that polynomial. Therefore, the degree of a polynomial of
+degree-bound 7 may be any integer between 0 and n — 1, inclusive.
+
+We can define a variety of operations on polynomials. For polynomial addi-
+tion, if A(x) and B(x) are polynomials of degree-bound 1, their sum is a polyno-
+

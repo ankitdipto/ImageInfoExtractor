@@ -1,0 +1,68 @@
+46 — cuarrer Two Digital Components
+
+When the circuit is disabled, none of the outputs are selected and all outputs
+are equal to 1. In general, a decoder may operate with complemented or
+uncomplemented outputs. The enable input may be activated with a 0 or with
+a 1 signal level. Some decoders have two or more enable inputs that must
+satisfy a given logic condition in order to enable the circuit.
+
+Decoder Expansion
+There are occasions when a certain-size decoder is needed but only smaller
+sizes are available. When this occurs it is possible to combine two or more
+decoders with enable inputs to form a larger decoder. Thus if a 6-to-64-line
+decoder is needed, itis possible to construct it with four 4-to-I6-line decoders.
+Figure 2-3 shows how decoders with enable inputs can be connected to
+form a larger decoder. Two 2-to-+-line decoders are combined to achieve a
+34o-8-line decoder. The two least significant bits of the input are connected to
+both decoders. The most significant bit is connected to the enable input of one
+decoder and through an inverter to the enable input of the other decoder. It
+is assumed that each decoder is enabled when its E input is equal to 1. When
+Eisequal to0, the decoder is disabled and all its outputs are in the Olevel. When
+‘Ax = 0, the upper decoder is enabled and the lower is disabled. The lower
+decoder outputs become inactive with all outputs at 0. The outputs of the upper
+decoder generate outputs D, through Ds, depending on the values of A; and
+‘Ag (While A; = 0). When Az = 1, the lower decoder is enabled and the upper
+is disabled. The lower decoder output generates the binary equivalent D,
+through D; since these binary numbers have a 1 in the A; position.
+
+Figure 2-3. A3 x 8 decoder constructed with two 2 x 4 decoders.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2x4
+
+decoder [-— Do
+
+4) ————— » t— >
+
+Ay 2 [— o:
+
+Aaa ye Dy
+2x4
+
+decoder |-— Dy
+
+LI 20 Lp,
+
+2 Ds
+
+E >
+
+ 
+
+ 
+
+ 
+
+ 
+

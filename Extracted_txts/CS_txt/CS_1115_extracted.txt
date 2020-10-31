@@ -1,0 +1,45 @@
+406 Let Us C
+
+ 
+
+digest what you have typed. However, we often want a function
+that will read a single character the instant it is typed without
+waiting for the Enter key to be hit. getch( ) and getche() are two
+functions which serve this purpose. These functions return the
+character that has been most recently typed. The ‘e’ in getche( )
+function means it echoes (displays) the character that you typed to
+the screen. As against this getch( ) just returns the character that
+you typed without echoing it on the screen. getchar( ) works
+similarly and echo’s the character that you typed on the screen, but
+unfortunately requires Enter key to be typed following the
+character that you typed. The difference between getchar( ) and
+fgetchar( ) is that the former is a macro whereas the latter is a
+function. Here is a sample program that illustrates the use of these
+functions.
+
+main()
+{
+char ch;
+
+printf ( "\nPress any key to continue" ) ;
+getch() ; /* will not echo the character */
+
+printf ( "\nType any character” ) ;
+ch = getche() ; /* will echo the character typed */
+
+printf ( "\nType any character” ) ;
+
+getchar() ; /* will echo character, must be followed by enter key */
+
+printf ("\nContinue Y/N") ;
+
+fgetchar() ; /* will echo character, must be followed by enter key */
+}
+
+And here is a sample run of this program...
+
+Press any key to continue
+Type any character B
+Type any character W
+Continue Y/N Y
+

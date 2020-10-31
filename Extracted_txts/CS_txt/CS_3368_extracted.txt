@@ -1,0 +1,52 @@
+712 Chapter 23. Practical Natural Language Processing
+
+ 
+
+0 Wh NP: [What book] did you read y?
+0 Wh PP: [With what] did you see it)?
+~ Wh PP: [Whence] did he come u?
+
+Echo questions can also be answered with a noun phrase, but they are normally used rhetorically
+to express the speaker's amazement at what was just said. For example, "I saw a 30-foot-high
+purple cow" is answered by "You saw what?” Sentences with normal declarative structure can
+be made into questions with the use of raising intonation at the end of the sentence. This is
+uncommon in written text. The verb "to be" is the only verb that can stand by itself (without
+another verb) in an inverted yes/no question. That is, we can say "Is it safe?" but not "Seems it
+safe?" or "Did they it?" In some dialects, "have" can be used, as in "Have you the time?" or
+“Have you any wool?" Finally, it is possible to have an Sinv with a prepositional phrase gap by
+prefacing it with a prepositional wh phrase like "from where" or "whence."
+
+Handling agrammatical strings
+
+No matter how thorough the grammar, there will always be strings that fall outside it. It doesn't
+much matter ifthis happens because the string is a mistake or because the grammar is missing
+something. Either way, the speaker is trying to communicate something and the system must
+process it in some way. Thus, it is the hearer's job to interpret a string somehow, even ifit is
+not completely grammatical. For example, ifa character in a mystery novel suddenly keels over
+but manages to gasp “Poison—Butler—Martini,” most people would be able to come up with
+a good interpretation of these dying words: the butler is the agent of the poisoning action of
+which the speaker is the victim and the martini is the instrument. We arrive at this interpretation
+by considering the possible semantic relations that could link each component together, and
+choosing the best one. It would not do to say "I'm sorry, that's not a grammatical sentence; could
+you please rephrase it?"
+
+23.5 __ AMBIGUITY
+
+In this chapter, we have extended the range of syntactic constructions and semantic representations
+that we can handle. This helps us cover a wider range of language, but it also makes the job
+of disambiguation harder, because there are more possibilities to choose from. Finding the
+right interpretation involves reasoning with uncertainty using the evidence provided by lexical,
+syntactic, semantic, and pragmatic sources.
+
+Historically, most approaches to the disambiguation problem have been based on logical
+inference with no quantitative measures of certainty. In the last few years, the trend has been
+toward quantitative probabilistic models such as belief networks and hidden Markov models.
+
+Belief networks provide an answer to one hard part of the problem—how to combine
+evidence from different sources. But we are still left with two more problems: deciding what
+evidence to put into the network, and deciding what to do with the answers that come back. We
+
+ 
+
+ 
+

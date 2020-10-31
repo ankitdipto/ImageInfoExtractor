@@ -1,0 +1,63 @@
+152 Chapter6 CPU Scheduling
+
+6.1.1 CPU-I/O Burst Cycle
+
+The success of CPU scheduling depends on the following observed property
+of processes: Process execution consists of a cycle of CPU execution and I/O
+wait. Processes alternate between these two states. Process execution begins
+with a CPU burst. That is followed by an I/O burst, then another CPU burst,
+then another I/O burst, and so on. Eventually, the last CPU burst will end with
+a system request to terminate execution, rather than with another I/O burst
+(Figure 6.1).
+
+The durations of these CPU bursts have been extensively measured.
+Although they vary greatly by process and by computer, they tend to have a
+frequency curve similar to that shown in Figure 6.2. The curve is generally
+characterized as exponential or hyperexponential, with many short CPU bursts,
+and a few long CPU bursts. An 1/O-bound program would typically have many
+very short CPU bursts. A CPU-bound program might have a few very long
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+load store
+
+add store
+
+read from file CPU burst
+‘wait for 1/0 VO burst
+store increment
+
+index CPU burst
+write to file
+
+wait for 0 VO burst
+
+load store
+
+add store
+
+read from file CPU burst
+wait for I/O VO burst
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 6.1 Alternating sequence of CPU and I/O bursts.
+

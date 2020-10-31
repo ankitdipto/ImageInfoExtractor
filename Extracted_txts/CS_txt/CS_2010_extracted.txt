@@ -1,0 +1,71 @@
+450
+
+12.5
+
+12.6
+
+12.7
+
+12.8
+
+12.9
+
+12.10
+
+12.11
+
+12.12
+
+12.13
+
+Chapter 12 File-System Implementation
+
+Consider a system that supports the strategies of contiguous, linked,
+and indexed allocation. What criteria should be used in deciding which
+strategy is best utilized for a particular file?
+
+Consider a file system on a disk that has both logical and physical block
+sizes of 512 bytes. Assume that the information about each file is already
+in memory. For each of the three allocation strategies (contiguous, linked,
+and indexed), answer these questions:
+
+a. How is the logical-to-physical address mapping accomplished in
+this system? (For the indexed allocation, assume that a file is always
+less than 512 blocks long.)
+
+b. If we are currently at logical block 10 (the last block accessed was
+block 10) and want to access logical block 4, how many physical
+blocks must be read from the disk?
+
+One problem with contiguous allocation is that the user must preallocate
+enough space for each file. If the file grows to be larger than the space
+allocated for it, special actions must be taken. One solution is to define
+a file structure consisting of an initial contiguous area (of a specified
+size). If this area is filled, the operating system automatically defines
+an overflow area that is linked to the initial contiguous area. If the
+overflow area is filled, another overflow area is allocated. Compare
+this implementation of a file with the standard contiguous and linked
+implementations.
+
+Fragmentation on a storage device could be eliminated by recompaction
+of the information. Typical disk devices do not have relocation or base
+registers (such as are used when memory is to be compacted), so how can
+we relocate files? Give three reasons why recompacting and relocation of
+files are often avoided.
+
+How do caches help improve performance? Why do systems not use
+more or larger caches if they are so useful?
+
+In what situations would using memory as a RAM disk be more useful
+than using it as a disk cache?
+
+Why is it advantageous to the user for an operating system to dynami-
+cally allocate its internal tables? What are the penalties to the operating
+system for doing so?
+
+Explain why logging metadata updates ensures recovery of a file system
+after a file system crash.
+
+Explain how the VFS layer allows an operating system easily to support
+multiple types of file systems.
+

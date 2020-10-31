@@ -1,0 +1,50 @@
+5.4 Pthreads 139
+
+associate each thread with its unique identifier we could use thread-specific
+data. Most thread libraries—including Win32 and Pthreads—provide some
+form of support for thread-specific data. Java provides support as well.
+
+5.4 = Pthreads
+
+Pthreads refers to the POSIX standard (IEEE 1003.1c) defining an API for thread
+creation and synchronization. This is a specification for thread behavior, not an
+implementation. Operating system designers may implement the specification
+in any way they wish. Generally, libraries implementing the Pthreads speci-
+fication are restricted to UNIX-based systems such as Solaris 2. The Windows
+operating systems have generally not supported Pthreads, although shareware
+versions are available in the public domain.
+
+In this section we introduce some of the Pthread API as an example of a
+user-level thread library. We refer to it as a user-level library because no distinct
+relationship exists between a thread created using the Pthread API and any
+associated kernel threads. The C program shown in Figure 5.5 demonstrates
+the basic Pthread API for constructing a multithreaded program. If you are
+interested in more details on the Pthread API, we encourage you to consult the
+Bibliographical Notes.
+
+The program shown in Figure 5.5 creates a separate thread that determines
+the summation of a non-negative integer. In a Pthread program, separate
+threads begin execution in a specified function. In Figure 5.5, this is the runner
+function. When this program begins, a single thread of control begins in main.
+After some initialization, main creates a second thread that begins control in
+the runner function.
+
+We will now provide a more detailed overview of this program. All
+Pthread programs must include the pthread.h header file. The statement
+pthread_t tid declares the identifier for the thread we will create. Each
+thread has a set of attributes including stack size and scheduling information.
+Thepthread_attr_t attr declaration represents the attributes for the thread.
+We will set the attributes in the function call pthread_attr_init (&attr).
+Because we did not explicitly set any attributes, we will use the default
+attributes provided. A separate thread is created with the pthread_create
+function call. In addition to passing the thread identifier and the attributes for
+the thread, we also pass the name of the function where the new thread will
+begin execution, in this case the runner function. Lastly, we pass the integer
+parameter that was provided on the command line, argv [1].
+
+At this point, the program has two threads: the initial thread in main and
+the thread performing the summation in the runner function. After creating
+the second thread, the main thread will wait for the runner thread to complete
+by calling the pthread_join function. The runner thread will complete when
+it calls the function pthread_exit.
+

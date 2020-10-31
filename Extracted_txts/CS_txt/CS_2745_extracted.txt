@@ -1,0 +1,38 @@
+Problems for Chapter 12 305
+
+ 
+
+Figure 12.5 A radix tree storing the bit strings 1011, 10, 011, 100, and 0. We can determine each
+node’s key by traversing the simple path from the root to that node. There is no need, therefore, to
+store the keys in the nodes; the keys appear here for illustrative purposes only. Nodes are heavily
+shaded if the keys corresponding to them are not in the tree; such nodes are present only to establish
+a path to other nodes.
+
+a. Argue that the average depth of a node in T is
+
+1
+trac. T)= {P) .
+xeT
+
+Thus, we wish to show that the expected value of P(T) is O(nlgn).
+
+b. Let Ty and Tp denote the left and right subtrees of tree T, respectively. Argue
+that if T has n nodes, then
+
+P(T) = P(T,) + P(r) +n—-1.
+
+c. Let P(n) denote the average total path length of a randomly built binary search
+tree with n nodes. Show that
+
+1 n-l
+P(n) =—) (PH) + Pri -1)+n-1).
+"io
+d. Show how to rewrite P(n) as
+
+n-l1
+P(n) = “> P(k) + O(n).
+k=1
+
+e. Recalling the alternative analysis of the randomized version of quicksort given
+in Problem 7-3, conclude that P(n) = O(n Ign).
+

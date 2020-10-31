@@ -1,0 +1,25 @@
+Part Four
+
+ 
+
+I/O SYSTEMS
+
+ 
+
+The devices that attach to a computer vary in many aspects. Some devices
+transfer a character or a block of characters at a time. Some can be accessed
+only sequentially, others randomly. Some transfer data synchronously, others
+asynchronously. Some are dedicated, some shared. They can be read-only or
+read—write. They vary greatly in speed. In many ways they are also the slowest
+major component of the computer.
+
+Because of all this device variation, the operating system needs to provide a
+wide range of functionality to applications, to allow them to control all aspects
+of the devices. One key goal of an operating system’s I/O subsystem is to
+provide the simplest interface possible to the rest of the system. Because devices
+are a performance bottleneck, another key is to optimize I/O for maximum
+concurrency. We initially describe the myriad variations of I/O devices and
+the ways in which operating systems control them. Afterwards we discuss the
+more complicated I/O devices used for secondary and tertiary storage, and we
+explain the special attention that operating systems must give them.
+

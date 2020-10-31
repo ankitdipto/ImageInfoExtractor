@@ -1,0 +1,47 @@
+Chapter 4 Divide-and-Conquer
+
+as long as d > 1. As before, we must choose the constant c large enough to handle
+the boundary conditions.
+
+You might find the idea of subtracting a lower-order term counterintuitive. Af-
+ter all, if the math does not work out, we should increase our guess, right?
+Not necessarily! When proving an upper bound by induction, it may actually be
+more difficult to prove that a weaker upper bound holds, because in order to prove
+the weaker bound, we must use the same weaker bound inductively in the proof.
+In our current example, when the recurrence has more than one recursive term, we
+get to subtract out the lower-order term of the proposed bound once per recursive
+term. In the above example, we subtracted out the constant d twice, once for the
+T (\n/2]) term and once for the T([n/2]) term. We ended up with the inequality
+T(n) <cn—2d + 1, and it was easy to find values of d to make cn — 2d + 1 be
+less than or equal to cn — d.
+
+Avoiding pitfalls
+
+It is easy to err in the use of asymptotic notation. For example, in the recur-
+rence (4.19) we can falsely “prove” T(n) = O(n) by guessing T(n) < cn and
+then arguing
+
+Tn) < 2%cln/2))+n
+< cn+n
+= O(n), <= wrong!!
+
+since c is a constant. The error is that we have not proved the exact form of the
+inductive hypothesis, that is, that T(m) < cn. We therefore will explicitly prove
+that T(n) < cn when we want to show that T() = O(n).
+
+Changing variables
+
+Sometimes, a little algebraic manipulation can make an unknown recurrence simi-
+lar to one you have seen before. As an example, consider the recurrence
+
+T(n) = 2T ([Vn]) +1gn,
+
+which looks difficult. We can simplify this recurrence, though, with a change of
+variables. For convenience, we shall not worry about rounding off values, such
+as ./i, to be integers. Renaming m = Ign yields
+
+T(2") = 27 (2/7) +m.
+We can now rename S(m) = T(2”) to produce the new recurrence
+
+S(m) = 2S(m/2) +m,
+

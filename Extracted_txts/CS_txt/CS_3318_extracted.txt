@@ -1,0 +1,52 @@
+70
+
+Chapter 3. Solving Problems by Searching
+
+is essentially two-dimensional. When the robot has arms and legs that must also be controlled,
+the search space becomes many-dimensional. Advanced techniques are required just to make
+the search space finite. We examine some of these methods in Chapter 25. In addition to the
+complexity of the problem, real robots must also deal with errors in their sensor readings and
+motor controls.
+
+Assembly sequencing
+
+Automatic assembly of complex objects by a robot was first demonstrated by FREDDY the
+robot (Michie, 1972). Progress since then has been slow but sure, to the point where assembly of
+objects such as electric motors is economically feasible. In assembly problems, the problem is to
+find an order in which to assemble the parts of some object. If the wrong order is chosen, there
+will be no way to add some part later in the sequence without undoing some ofthe work already
+done. Checking a step in the sequence for feasibility is a complex geometrical search problem
+closely related to robot navigation. Thus, the generation of legal successors is the expensive part
+of assembly sequencing, and the use of informed algorithms to reduce search is essential.
+
+34 SEARCHING FOR SOLUTIONS
+
+GENERATING
+EXPANDING
+
+SEARCH STRATEGY
+
+We have seen how to define a problem, and how to recognize a solution. The remaining part—
+finding a solution—is done by a search through the state space. The idea is to maintain and extend
+a set of partial solution sequences. In this section, we show how to generate these sequences and
+how to keep track of them using suitable data structures.
+
+Generating action sequences
+
+To solve the route-finding problem from Arad to Bucharest, forexample, we start off withjust the |
+initial state, Arad. The first step is to test ifthis is a goal state. Clearly it is not, but it is important
+to check so that we can solve trick problems like "starting in Arad, get to Arad." Because this is |
+not a goal state, we need to consider some other states. This is done by applying the operators
+to the current state, thereby generating a new set of states. The process is called expanding the
+state. In this case, we get three new states, "in Sibiu,” "in Timisoara,” and "in Zerind,” because
+there is a direct one-step route from Arad to these three cities. Ifthere were only one possibility,
+we would just take it and continue. But whenever there are multiple possibilities, we must make
+a choice about which one to consider further.
+
+This is the essence of search—choosing one option and putting the others aside for later, in
+case the first choice does not lead to a solution. Suppose we choose Zerind. We check to see if it
+is a goal state (it is not), and then expand it to get "in Arad" and "in Oradea.” We can then choose
+any of these two, or go back and choose Sibiu or Timisoara. We continue choosing, testing, and
+expanding until a solution is found, or until there are no more states to be expanded. The choice
+of which state to expand first is determined by the search strategy.
+

@@ -1,0 +1,65 @@
+ 
+
+28  Chapter2 Computer-System Structures
+
+disk disk printer tape drives
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+  
+
+tape-drive |
+controller
+
+   
+ 
+ 
+
+ 
+ 
+
+controller
+
+|< — system bus
+
+Figure 2.1 A modern computer system.
+
+For a computer to start running—for instance, when it is powered up or
+rebooted—it needs to have an initial program to run. This initial program,
+or bootstrap program, tends to be simple. Typically, it is stored in read-only
+memory (ROM) such as firmware or EEPROM within the computer hardware.
+It initializes all aspects of the system, from CPU registers to device controllers
+to memory contents. The bootstrap program must know how to load the
+operating system and to start executing that system. To accomplish this goal,
+the bootstrap program must locate and load into memory the operating-system
+kernel. The operating system then starts executing the first process, such as
+“init,” and waits for some event to occur.
+
+The occurrence of an event is usually signaled by an interrupt from either
+the hardware or the software. Hardware may trigger an interrupt at any time
+by sending a signal to the CPU, usually by way of the system bus. Software may
+trigger an interrupt by executing a special operation called a system call (also
+called a monitor call).
+
+Modern operating systems are interrupt driven. If there are no processes
+to execute, no I/O devices to service, and no users to whom to respond, an
+operating system will sit quietly, waiting for something to happen. Events are
+almost always signaled by the occurrence of an interrupt or a trap. A trap (or
+an exception) is a software-generated interrupt caused either by an error (for
+example, division by zero or invalid memory access) or by a specific request
+

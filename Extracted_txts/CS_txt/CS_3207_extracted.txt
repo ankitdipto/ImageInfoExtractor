@@ -1,0 +1,86 @@
+60
+
+Chapter 3. Solving Problems by Searching
+
+ 
+
+PROBLEM
+
+INITIAL STATE
+
+OPERATOR
+
+‘SUCCESSOR
+FUNCTION
+
+STATE SPACE
+PATH
+
+GOALTEST
+
+PATH COST
+
+‘SOLUTION
+
+STATE SET SPACE
+
+{
+
+Well-defined problems and solutions
+
+A problem is really a collection of information that the agent will use to decide what to do. We
+will begin by specifying the information needed to define a single-state problem.
+
+We have seen that the basic elements of a problem definition are the states and actions. To
+capture these formally, we need the following:
+
+*, The initial state that the agent knows itself to be in.
+
++ The set of possible actions available to the agent. The term operator is used to denote
+the description of an action in terms of which state will be reached by carrying out the
+action in a particular state. (An alternate formulation uses a successor function S. Given
+a particular state x, S/x) returns the set of states reachable from x by any single action.)
+
+Together, these define the state space of the problem: the set of all states reachable from the
+initial state by any sequence of actions. A path in the state space is simply any sequence of
+actions leading from one state to another. The next element of a problem is the following:
+
+* The goal test, which the agent can apply to a single state description to determine if it is
+a goal state. Sometimes there is an explicit set of possible goal states, and the test simply
+checks to see if we have reached one of them. Sometimes the goal is specified by an
+abstract property rather than an explicitly enumerated set of states. For example, in chess,
+the goal is to reach a state called "checkmate," where the opponent's king can be captured
+on the next move no matter what the opponent does.
+
+Finally, it may be the case that one solution is preferable to another, even though they both reach
+the goal. For example, we might prefer paths with fewer or less costly actions
+
++ A path cost function is a function that assigns a cost to a path. In all cases we will consider,
+the cost of a path is the sum of the costs of the individual actions along the path. The path
+cost function is often denoted by g.
+
+Together, the initial state, operator set, goal test, and path cost function define a problem.
+Naturally, we can then define a datatype with which to represent problems:
+
+ 
+
+datatypePROBLEM
+components: INITIAL-STATE, OPERATORS, GOAL-TEST, PATH-COST-FUNCTION
+
+ 
+
+ 
+
+ 
+
+Instances of this datatype will be the input to our search algorithms. The output of a search
+algorithm is a solution, that is, a path from the initial state to a state that satisfies the goal test.
+
+To deal with multiple-state problems, we need to make only minor modifications: a problem
+consists ofan initial state ser; a set of operators specifying for each action the set of states reached
+from any given state; and a goal test and path cost function as before. An operator is applied to
+a state set by unioning the results of applying the operator to each state in the set. A path now
+connects sets of states, and a solution is now a path that leads to a set of states all of which are
+goal states. The state space is replaced by the state set space (see Figure 3.7 for an example).
+Problems of both types are illustrated in Section 3.3.
+

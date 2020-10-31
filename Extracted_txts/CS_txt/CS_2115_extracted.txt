@@ -1,0 +1,43 @@
+ 
+
+Chapter 15
+
+DISTRIBUTED
+SYSTEM
+STRUCTURES
+
+ 
+
+ 
+
+A distributed system is a collection of processors that do not share memory or
+aclock. Instead, each processor has its own local memory. The processors com-
+municate with one another through various communication networks, such as.
+high-speed buses or telephone lines. In this chapter, we discuss the general
+structure of distributed systems and the networks that interconnect them. We
+contrast the main differences in operating-system design between these sys-
+tems and the centralized systems with which we were concerned previously.
+Detailed discussions are given in Chapters 16 and 17.
+
+1
+
+ 
+
+= Background
+
+A distributed system is a collection of loosely coupled processors intercon-
+nected by a communication network. From the point of view of a specific
+processor in a distributed system, the rest of the processors and their respective
+resources are remote, whereas its own resources are local.
+
+The processors in a distributed system may vary in size and function.
+They may include small microprocessors, workstations, minicomputers, and
+large general-purpose computer systems. These processors are referred to by a
+number of names, such as sites, nodes, computers, machines, or hosts, depending
+on the context in which they are mentioned. We mainly use site to indicate the
+location of a machine, and host to refer to a specific system at a site. Generally,
+one host at one site, the server, has a resource that another host at another site,
+the client (or user), would like to use. The purpose of the distributed system is to
+
+539
+

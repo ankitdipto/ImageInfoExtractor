@@ -1,0 +1,48 @@
+SECTION 2-4 Registers 51
+
+Ao
+Clock
+
+ 
+
+-— A
+
+ 
+
+ 
+
+Ap
+
+ 
+
+As
+
+ 
+
+ 
+
+ 
+
+ 
+
+oe
+
+Figure 2-6 4-bit register.
+
+clock pulse transition, we say that the loading is done in parallel. A clock
+transition applied to the C inputs of the register of Fig. 2-6 will load all four
+inputs I through I;in parallel. In this configuration, the clock must be inhibited
+from the circuit if the content of the register must be left unchanged.
+
+Register with Parallel Load
+
+Most digital systems have a master clock generator that supplies a continuous
+train of clock pulses. The clock pulses are applied to all flip-flops and registers
+in the system. The master clock acts like a pump that supplies a constant beat
+to all parts of the system. A separate control signal must be used to decide
+which specific clock pulse will have an effect on a particular register.
+
+A 4bit register with a load control input that is directed through gates
+and into the D inputs is shown in Fig. 2-7. The C inputs receive clock pulses
+at all times. The buffer gate in the clock input reduces the power requirement
+

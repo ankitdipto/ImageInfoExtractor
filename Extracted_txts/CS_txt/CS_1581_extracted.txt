@@ -1,0 +1,35 @@
+Chapter 4
+
+ 
+
+PROCESSES
+
+ 
+
+Early computer systems allowed only one program to be executed at a time.
+This program had complete control of the system, and had access to all the sys-
+tem’s resources. Current-day computer systems allow multiple programs to be
+loaded into memory and to be executed concurrently. This evolution required
+firmer control and more compartmentalization of the various programs. These
+needs resulted in the notion of a process, which is a program in execution. A
+process is the unit of work in a modern time-sharing system.
+
+The more complex the operating system, the more it is expected to do on
+behalf of its users. Although its main concern is the execution of user programs,
+it also needs to take care of various system tasks that are better left outside the
+kernel itself. A system therefore consists of a collection of processes: Operating-
+system processes executing system code, and user processes executing user
+code. All these processes can potentially execute concurrently, with the CPU
+(or CPUs) multiplexed among them. By switching the CPU between processes,
+the operating system can make the computer more productive.
+
+4.1 = Process Concept
+
+One impediment to our discussion of operating systems is the question of what
+to call all the CPU activities. A batch system executes jobs, whereas a time-
+shared system has user programs, or tasks. Even on a single-user system, such
+as Microsoft Windows and Macintosh OS, a user may be able to run several
+programs at one time: a word processor, web browser, and e-mail package.
+
+95
+

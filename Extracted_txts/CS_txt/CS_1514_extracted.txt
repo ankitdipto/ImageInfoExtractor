@@ -1,0 +1,57 @@
+2.4 Storage Hierarchy 41
+
+2.4.2 Coherency and Consistency
+
+In a hierarchical storage structure, the same data may appear in different levels
+of the storage system. For example, suppose that an integer A is located in
+file B that is to be incremented by 1, and file B resides on magnetic disk. The
+increment operation proceeds by first issuing an I/O operation to copy the
+disk block on which A resides to main memory. This operation is followed by
+copying A to the cache and to an internal register. Thus, the copy of A appears
+in several places: on the magnetic disk, in main memory, in the cache, and in an
+internal register (see Figure 2.7). Once the increment takes place in the internal
+register, the value of A differs in the various storage systems. The value of A
+becomes the same only after the new value of A is written from the internal
+register back to the magnetic disk.
+
+Ina computing environment where only one process executes ata time, this
+arrangement poses no difficulties, since an access to the integer A will always
+be to the copy at the highest level of the hierarchy. However, in a multitasking
+environment, where the CPU is switched back and forth among various pro-
+cesses, extreme care must be taken to ensure that, if several processes wish to
+access A, then each of these processes will obtain the most recently updated
+value of A.
+
+The situation becomes more complicated in a multiprocessor environment
+where, in addition to maintaining internal registers, each of the CPUs also
+contains a local cache. In such an environment, a copy of A may exist simulta-
+neously in several caches. Since the various CPUs can all execute concurrently,
+we must make sure that an update to the value of A in one cache is imme-
+diately reflected in all other caches where A resides. This situation is called
+cache coherency, and it is usually a hardware problem (handled below the
+operating-system level).
+
+Ina distributed environment, the situation becomes even more complex. In
+such an environment, several copies (or replicas) of the same file can be kept
+on different computers that are distributed in space. Since the various replicas
+may be accessed and updated concurrently, we must ensure that, whena replica
+is updated in one place, all other replicas are brought up-to-date as soon as
+possible. There are various ways to achieve this guarantee, as we discuss in
+Chapter 16.
+
+hardware
+
+register
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 2.7 Migration of integer A from disk to register.
+

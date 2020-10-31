@@ -1,0 +1,42 @@
+Chapter 3: The Loop Control Structure 105
+
+ 
+
+This is another indefinite loop, and it doesn’t give any output
+at all. The reason is, we have carelessly given a ; after the
+while. This would make the loop work like this...
+
+while (i <= 10)
+( i
+printf (“%d\n", i) ;
+
+i=i+1;
+
+}
+
+Since the value of i is not getting incremented the control
+would keep rotating within the loop, eternally. Note that
+enclosing printf( ) and i = i+1 within a pair of braces is not
+an error. In fact we can put a pair of braces around any
+individual statement or set of statements without affecting the
+execution of the program.
+
+More Operators
+
+There are variety of operators which are frequently used with
+while. To illustrate their usage let us consider a problem wherein
+numbers from 1 to 10 are to be printed on the screen. The program
+for performing this task can be written using while in the
+following different ways:
+
+(a)
+
+main()
+
+{
+int i=1;
+while (i <= 10)
+
+printf ( "%d\n", i) ;
+i=i+1;
+

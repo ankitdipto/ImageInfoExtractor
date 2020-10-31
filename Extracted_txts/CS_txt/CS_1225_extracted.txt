@@ -1,0 +1,73 @@
+Section 7.10.
+
+Summary 215
+
+ 
+
+George == Mum
+
+a
+
+Spencer —= Kydd Elizabeth Margaret
+
+Diana = Charles Anne == Mark Andrew == Sarah Edward
+
+ 
+
+Wiliam Hany Peter Zara’ Beatrice. Eugenie
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 74 A typical family tree.
+
+ 
+
+ 
+
+7.7 Explain what is wrong with the following proposed definition of the set membership
+predicate € :
+
+Va,s x€ {xs}
+
+Vas xes => Vy x€ {yls}
+
+78 Using the set axioms as examples, write axioms for the list domain, including all the
+constants, functions, and predicates mentioned in the chapter.
+
+79 This exercise can be done without the computer, although you may find it useful to use a
+backward chainer to check your proof for the last part. The idea is to formalize the blocks world
+
+domain using the situation calculus. The objects in this domain are blocks, tables, and situations.
+The predicates are
+
+On(x, y, 8) ClearTop(x,s) Block(x) Table(x)
+
+The only action is PutOn(x, y), where x must be a block whose top is clear of any other blocks,
+and y can be either the table or a different block with a clear top. The initial situation Sp has A
+on B on C on the table.
+
+a. Write an axiom or axioms describing PurOn.
+
+b. Describe the initial state, So, in which there is a stack of three blocks, A on B on C, where
+Cis on the table, 7.
+
+c. Give the appropriate query that a theorem prover can solve to generate a plan to build a
+stack where C is on top of B and B is on top ofA. Write down the solution that the theorem
+prover should return. (Hint: The solution will be a situation described as the result of
+doing some actions to SO.)
+
+d. Show formally that the solution fact follows from your description of the situation and the
+axioms for PutOn.
+
+710 Write sentences to define the effects of the Shoot action in the wumpus world. As well as
+describing its effects on the wumpus, remember that shooting uses the agent's arrow.
+
+711 In this exercise, we will consider the problem of planning a route from one city to another.
+The basic action taken by the robot is Go(x, y), which takes it from city x to city y provided there
+

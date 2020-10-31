@@ -1,0 +1,56 @@
+Chapter 12: File Input/Output 457
+
+ 
+
+[B]
+
+(a)
+
+()
+
+()
+
+}
+main( )
+{
+int fp;
+fp = fopen ( "students.c’, READ | BINARY ) ;
+if (fp ==-1)
+puts ( “cannot open file” ) ;
+else
+close (fp);
+}
+
+Answer the following:
+
+The macro FILE is defined in which of the following files:
+
+1. stdlib.h
+2. stdio.c
+
+3. ioh
+
+4. stdio.h
+
+If a file contains the line “I am a boy\r\n” then on reading this
+line into the array str[ ] using fgets( ) what would str[ ]
+contain?
+
+1. Lama boy\r\n\0
+2. Tama boy\r\0
+3. Tama boy\n\0
+4. Lama boy
+
+State True or False:
+
+1. The disadvantage of High Level Disk I/O functions is that
+the programmer has to manage the buffers.
+
+2. Ifa file is opened for reading it is necessary that the file
+
+must exist.
+
+3. Ifa file opened for writing already exists its contents
+
+would be overwritten.
+

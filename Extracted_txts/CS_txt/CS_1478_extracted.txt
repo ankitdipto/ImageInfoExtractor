@@ -1,0 +1,69 @@
+242 carter eiGHT Central Processing Unit
+
+bus system
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Antheetic
+Ly logic uit
+ALU)
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 81 Major components of CPU.
+
+a task that in large part involves choosing the hardware for implementing the
+machine instructions. The user who programs the computer in machine or
+assembly language must be aware of the register set, the memory structure,
+the type of data supported by the instructions, and the function that each
+instruction performs.
+
+Design examples of simple CPUs are carried out in Chaps. 5 and 7. This
+chapter describes the organization and architecture of the CPU with an empha-
+sis on the user’s view of the computer. We briefly describe how the registers
+communicate with the ALU through buses and explain the operation of the
+memory stack. We then present the type of instruction formats available, the
+addressing modes used toretrieve data from memory, and typical instructions
+commonly incorporated in computers. The last section presents the concept of
+reduced instruction set computer (RISC).
+
+8-2 General Register Organization
+
+In the programming examples of Chap. 6, we have shown that memory
+locations are needed for storing pointers, counters, return addresses, tempo-
+rary results, and partial products during multiplication Having to refer to
+memory locations for such applications is time consuming because memory
+access is the most time-consuming operation in, a computer. St is more conve-
+nient and more efficient to store these intermediate values in processor regis-
+ters. When a large number of registers are included in the CPU, it is most
+efficientto connect them through a common bus sy stem. The registers commu-
+nicate with eachothernotonly for direct data transfers, butalso while perform-
+ing various microoperations. Hence it is necessary to provide a common unit
+that can perform all the arithmetic, logic, and shift microoperations in the
+processor.
+
+‘A bus organization for seven CPU registers is shown in Fig. 8-2. The
+output of each register is connected to two multiplexers (MUX) to form the two
+buses 4 and B. The selection lines in each multiplexer select one register or the
+input data for the particular bus. The A and B buses form the inputs to a
+

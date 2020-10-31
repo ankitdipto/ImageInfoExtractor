@@ -1,0 +1,47 @@
+264  Chapter8 Deadlocks
+
+drop.) If the detection algorithm is invoked at arbitrary points in time, there
+may be many cycles in the resource graph. We would generally not be able to
+tell which of the many deadlocked processes “caused” the deadlock.
+
+8.7 = Recovery from Deadlock
+
+When a detection algorithm determines that a deadlock exists, several alter-
+natives exist. One possibility is to inform the operator that a deadlock has
+occurred, and to let the operator deal with the deadlock manually. The other
+possibility is to let the system recover from the deadlock automatically. There
+are two options for breaking a deadlock. One solution is simply to abort one
+or more processes to break the circular wait. The second option is to preempt
+some resources from one or more of the deadlocked processes.
+
+8.7.1 Process Termination
+
+To eliminate deadlocks by aborting a process, we use one of two methods. In
+both methods, the system reclaims all resources allocated to the terminated
+processes.
+
+Abort all deadlocked processes: This method clearly will break the dead-
+lock cycle, but at a great expense; these processes may have computed for a
+long time, and the results of these partial computations must be discarded
+and probably recomputed later.
+
+Abort one process at a time until the deadlock cycle is eliminated: This
+method incurs considerable overhead, since, after each process is aborted,
+a deadlock-detection algorithm must be invoked to determine whether any
+processes are still deadlocked.
+
+Aborting a process may not be easy. If the process was in the midst of
+updating a file, terminating it will leave that file in an incorrect state. Similarly,
+if the process was in the midst of printing data on the printer, the system must
+reset the printer to a correct state before printing the next job.
+
+If the partial termination method is used, then, given a set of deadlocked
+processes, we must determine which process (or processes) should be termi-
+nated in an attempt to break the deadlock. This determination is a policy
+decision, similar to CPU-scheduling problems. The question is basically an
+economic one; we should abort those processes the termination of which will
+incur the minimum cost. Unfortunately, the term minimum cost is not a precise
+one. Many factors may determine which process is chosen, including:
+
+1. What the priority of the process is
+

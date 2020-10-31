@@ -1,0 +1,48 @@
+33.1 Line-segment properties 1015
+
+an O(nlgn)-time divide-and-conquer algorithm for finding the closest pair of
+points in a set of 7 points in the plane.
+
+ 
+
+33.1 Line-segment properties
+
+Several of the computational-geometry algorithms in this chapter require answers
+to questions about the properties of line segments. A convex combination of two
+distinct points py = (%1, 1) and pr = (x2, y2) is any point p3 = (x3, y3) such
+that for some @ in the range 0 < a < 1, we have x3 = ax; + (1 — @)x2 and
+y3 =ay, + (l—a@)y2. We also write that p3 = ap; + (1 —@) po. Intuitively, p3
+is any point that is on the line passing through p; and p2 and is on or between p;
+and p2 on the line. Given two distinct points p; and pz, the line segment Di Pz
+is the set of convex combinations of p; and p2. We call p; and p2 the endpoints
+of segment Pi; P2. Sometimes the ordering of p; and p2 matters, and we speak of
+the directed segment Pi P3. If p, is the origin (0, 0), then we can treat the directed
+segment Pj P3 as the vector p>.
+In this section, we shall explore the following questions:
+
+1. Given two directed segments PoP; and PoP, is PoP; clockwise from PoP>
+with respect to their common endpoint po?
+
+2. Given two line segments PoPi and Pj; Pz, if we traverse PoPi and then Pi Po,
+do we make a left turn at point p;?
+
+3. Do line segments Dj Pz and D3 Pq intersect?
+
+There are no restrictions on the given points.
+
+We can answer each question in O(1) time, which should come as no surprise
+since the input size of each question is O(1). Moreover, our methods use only ad-
+ditions, subtractions, multiplications, and comparisons. We need neither division
+nor trigonometric functions, both of which can be computationally expensive and
+prone to problems with round-off error. For example, the “straightforward” method
+of determining whether two segments intersect—compute the line equation of the
+form y = mx +b for each segment (m is the slope and b is the y-intercept),
+find the point of intersection of the lines, and check whether this point is on both
+segments— uses division to find the point of intersection. When the segments are
+nearly parallel, this method is very sensitive to the precision of the division opera-
+tion on real computers. The method in this section, which avoids division, is much
+more accurate.
+
+ 
+ 
+

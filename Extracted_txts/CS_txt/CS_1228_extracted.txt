@@ -1,0 +1,54 @@
+498 Let Us C
+
+ 
+
+If the first operand happens to be 00000111, then to switch OFF
+bit number 1, our AND mask bit pattern should be 11111101. On
+applying this mask, we get,
+
+00000111 Original bit pattern
+11111101 AND mask
+
+00000101 — Resulting bit pattern
+
+Here in the AND mask we keep the value of all other bits as 1
+except the one which is to be switched OFF (which is purposefully
+kept as 0). Therefore, irrespective of whether the first bit is ON or
+OFF previously, it is switched OFF. At the same time the value 1
+provided in all the other bits of the AND mask (second operand)
+keeps the bit values of the other bits in the first operand unaltered.
+
+Let’s summarize the uses of bitwise AND operator:
+(a) It is used to check whether a particular bit in a number is ON
+
+or OFF.
+(b) It is used to turn OFF a particular bit in a number.
+
+Bitwise OR Operator
+
+Another important bitwise operator is the OR operator which is
+represented as |. The rules that govern the value of the resulting bit
+obtained after ORing of two bits is shown in the truth table below.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+| 0 1
+0 0 1
+1 1 1
+
+ 
+
+ 
+
+ 
+
+Figure 14.11
+

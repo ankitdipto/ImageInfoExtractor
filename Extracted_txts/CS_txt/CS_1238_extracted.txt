@@ -1,0 +1,104 @@
+518
+Let Use
+
+i es discussed in this chapter were either too large
+00 removed from the mainstream C programmii 7
+inclusion in the earlier rol
+
+Enumerated Data Type
+
+As an example, one coul
+which can have four
+
+widowed. Don’t confuse these values
+married, for instan
+
+mar_status as the number 15 has with a vai
+
+The format of the enum
+Here’s how the example
+
+The enumerated data typ
+own data type and defi
+
+complicated or when
+working on it. Using en
+reduce programming errors.
+
+© gives you an opportunity to iny.
+
+ne what values the variable of this ats on
+
+elp in making the program listings more
+be an advantage when a Program gets
+more than one programmer would be
+umerated data type can also help you
+
+Id invent a data ‘ype called mar_status
+possible values—single, married, divorced or
+with variable names;
+
+s : : S;
+ce, has the same relationship to the variable
+
+riable of type int.
+
+definition is similar to that of a structure.
+stated above can be implemented:
+
+enum mar_status
+
+{
+
+single, married, divorced, widowed
+
+num mar_status person1, person2 ;
+
+Like structures, this declaration has two parts:
+
+519
+
+Chapter 15: Miscellaneous Features
+
+a) The first part declares the data type and specifies its possible
+values. These values are called ‘enumerators’.
+(b) The second part declares variables of this data type.
+
+Now we can give values to these variables:
+rson1 = married ;
+person2 = divorced ;
+values that aren’t in the original
+
+Remember, we can’t use
+declaration.
+
+Thus, the following expression would cause an error:
+
+person1 = unknown ;
+
+Internally, the compiler treats the enumerators as integers. Each
+value on the list of permissible values corresponds to an integer,
+starting with 0. Thus, in our example, single is stored as 0, married
+is stored as 1, divorced as 2 and widowed as 3.
+
+This way of assigning numbers can be overridden by the
+
+programmer by initializing the enumerators to different integer
+
+values as shown below.
+
+enum mar_status
+
+single = 100, married = 200, divorced = 300, widowed = 400
+i
+
+enum mar_status person1, person? ;
+
+Uses of Enumerated Data Type
+
+Enumerated variables are usually used to clarify the operation of a
+program. For example, if we need to use employee departments in
+a payroll program, it makes the listing easier to read if we use
+
+506
+

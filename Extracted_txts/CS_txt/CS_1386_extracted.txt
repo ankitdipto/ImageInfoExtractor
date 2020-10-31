@@ -1,0 +1,68 @@
+Chapter 19: Interaction With Hardware 639
+
+ 
+
+{
+keybd_event (VK_CAPITAL , 0,
+KEYEVENTF_EXTENDEDKEY, 0) ;
+keybd_event (VK_CAPITAL , 0,
+KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0) ;
+}
+}
+return CallNextHookEx ( hkb, nCode, wParam, IParam ) ;
+}
+BOOL __declspec ( dllexport) removehook( )
+{
+return UnhookWindowsHookEx ( hkb ) ;
+}
+
+Follow the
+
+(a) Select
+
+steps mentioned below to create this program:
+
+File | New’ option to start a new project in VC++.
+
+(b) From the ‘Project’ tab select ‘Win32 Dynamic-Link Library’
+and click on the ‘Next’ button.
+
+(c) In the
+
+‘Win32 Dynamic-link Library Step 1 of 1’ select “An
+
+empty DLL project” and click on the ‘Finish’ button.
+
+(d) Select
+
+File | New’ option.
+
+(ce) From the ‘File’ tab select ‘C++ source file’ and give the file
+name as ‘hook.c’. Type the code listed above in this file.
+(f) Compile the program to generate the .DLL file.
+
+ 
+
+Note that this program doesn’t contain WinMain( ) since the
+
+program on
+
+compilation should not execute on its own. It has been
+
+replaced by a function called DllMain( ). This function acts as
+
+entry point
+loaded or un
+
+of the DLL program. It gets called when the DLL is
+nloaded.
+
+When the application loads the DLL the DlIMain( ) function
+would be called. In this function we have merely stored the handle
+
+to the DLL
+h for later u
+
+that has been loaded in memory into a global variable
+se.
+

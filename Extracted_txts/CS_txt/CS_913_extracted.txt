@@ -1,0 +1,61 @@
+Section 7.1.
+
+PREDICATE
+‘SYMBOLS
+
+TUPLES
+
+Syntax and Semantics 187
+
+ 
+
+Sentence — AtomicSentence
+| Sentence Connective Sentence
+| Quantifier Variable,. .. Sentence
+| - Sentence
+| (Sentence)
+AtomicSentence — Predicate(Term,...) Term = Term
+
+Term —> Function(Term,. . .)
+
+ 
+
+ 
+
+ 
+
+| Constant
+\ Variable
+Connective —- > |A V| ©
+Quantifier — V| 3
+Constant — A\ X\\ John | ---
+Variable ~ a|x s 88
+Predicate — Before \ HasColor\ Raining \ -
+Function — Mother \ LeftLegOf \
+Figure 7.1 The syntax of first-order logic (with equality) in BNF (Backus-Naur Form).
+
+ 
+
+ 
+
+interpretation, might refer to the evil King John, king of England from 1199 to 1216
+and younger brother of Richard the Lionheart. The symbol King could refer to the same
+object/person in the same interpretation.
+
+& Predicate symbols: Round, Brother, ...
+
+An interpretation specifies that a predicate symbol refers to a particular relation in
+the model. For example, the Brother symbol might refer to the relation of brotherhood.
+Brother is a binary predicate symbol, and accordingly brotherhood is a relation that holds
+(or fails to hold) between pairs of objects. In any given model, the relation is defined by
+the set of tuples of objects that satisfy it. A tuple is a collection of objects arranged in
+a fixed order. They are written with angle brackets surrounding the objects. In a model
+containing three objects, King John, Robin Hood, and Richard the Lionheart, the relation
+of brotherhood is defined by the set of tuples
+
+{ (King John, Richard the Lionheart),
+(Richard the Lionheart, King John) }
+
+Thus, formally speaking, Brother refers to this set of tuples under the interpretation we
+have chosen.
+

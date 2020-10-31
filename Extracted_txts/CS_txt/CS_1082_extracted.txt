@@ -1,0 +1,42 @@
+Chapter 10: Structures 381
+
+ 
+
+)
+
+}
+display (struct book “b )
+{
+
+printf ( "\n%s %s %d", b->name, b->author, b->callno ) ;
+}
+
+And here is the output...
+Letus C YPK 101
+
+Again note that to access the structure elements using pointer
+to a structure we have to use the ‘->’ operator.
+
+Also, the structure struct book should be declared outside
+main( ) such that this data type is available to display() while
+declaring pointer to the structure.
+
+Consider the following code snippet:
+
+struct emp
+{
+inta ;
+char ch ;
+float s ;
+};
+struct emp e ;
+printf ("%u %u %u", &e.a, &e.ch, &e.S ) ;
+
+If we execute this program using TC/TC++ compiler we get
+the addresses as:
+
+65518 65520 65521
+
+As expected, in memory the char begins immediately after
+the int and float begins immediately after the char.
+

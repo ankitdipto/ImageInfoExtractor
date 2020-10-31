@@ -1,0 +1,46 @@
+Problems for Chapter 19 529
+
+the binomial heap (or in the case of the UNION operation, in the two binomial
+heaps that are being united). The MAKE-HEAP operation should take constant
+time.
+
+d. Suppose that we were to implement only the mergeable-heap operations on a
+Fibonacci heap (i.e., we do not implement the DECREASE-KEY or DELETE op-
+erations). How would the trees in a Fibonacci heap resemble those in a binomial
+heap? How would they differ? Show that the maximum degree in an n-node
+Fibonacci heap would be at most [Ig 1].
+
+e. Professor McGee has devised a new data structure based on Fibonacci heaps.
+A McGee heap has the same structure as a Fibonacci heap and supports just
+the mergeable-heap operations. The implementations of the operations are the
+same as for Fibonacci heaps, except that insertion and union consolidate the
+root list as their last step. What are the worst-case running times of operations
+on McGee heaps?
+
+19-3 More Fibonacci-heap operations
+We wish to augment a Fibonacci heap H to support two new operations without
+changing the amortized running time of any other Fibonacci-heap operations.
+
+a. The operation FiB-HEAP-CHANGE-KEY (H, x, k) changes the key of node x
+to the value k. Give an efficient implementation of FiB-HEAP-CHANGE-KEY,
+and analyze the amortized running time of your implementation for the cases
+in which k is greater than, less than, or equal to x. key.
+
+b. Give an efficient implementation of FiB-HEAP-PRUNE(H,1), which deletes
+g = min(r, H.n) nodes from H. You may choose any q nodes to delete. Ana-
+lyze the amortized running time of your implementation. (Hint: You may need
+to modify the data structure and potential function.)
+
+19-4 2-3-4 heaps
+
+Chapter 18 introduced the 2-3-4 tree, in which every internal node (other than pos-
+sibly the root) has two, three, or four children and all leaves have the same depth. In
+this problem, we shall implement 2-3-4 heaps, which support the mergeable-heap
+operations.
+
+The 2-3-4 heaps differ from 2-3-4 trees in the following ways. In 2-3-4 heaps,
+only leaves store keys, and each leaf x stores exactly one key in the attribute x. key.
+The keys in the leaves may appear in any order. Each internal node x contains
+a value x.smaill that is equal to the smallest key stored in any leaf in the subtree
+rooted at x. The root r contains an attribute r.height that gives the height of the
+

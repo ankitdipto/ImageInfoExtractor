@@ -1,0 +1,43 @@
+242 Let Us C
+
+ 
+
+Ihe C preprocessor is exactly what its name implies. It is a
+
+program that processes our source program before it is
+
+passed to the compiler. Preprocessor commands (often
+known as directives) form what can almost be considered a
+language within C language. We can certainly write C programs
+without knowing anything about the preprocessor or its facilities.
+But preprocessor is such a great convenience that virtually all C
+programmers rely on it. This chapter explores the preprocessor
+directives and discusses the pros and cons of using them in
+programs.
+
+Features of C Preprocessor
+
+There are several steps involved from the stage of writing a C
+program to the stage of getting it executed. Figure 7.1 shows these
+different steps along with the files created during each stage. You
+can observe from the figure that our program passes through
+several processors before it is ready to be executed. The input and
+output to each of these processors is shown in Figure 7.2.
+
+Note that if the source code is stored in a file PR1.C then the
+expanded source code gets stored in a file PR1.I. When this
+expanded source code is compiled the object code gets stored in
+PRI1.OBJ. When this object code is linked with the object code of
+library functions the resultant executable code gets stored in
+PRI.EXE.
+
+The preprocessor offers several features called preprocessor
+directives. Each of these preprocessor directives begin with a #
+symbol. The directives can be placed anywhere in a program but
+are most often placed at the beginning of a program, before the
+first function definition. We would learn the following
+preprocessor directives here:
+
+(a) Macro expansion
+(b) File inclusion
+

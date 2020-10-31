@@ -1,0 +1,46 @@
+27.1 The basics of dynamic multithreading 777
+
+for the child to complete, as would normally happen in a serial execution. In this
+case, while the spawned child is computing P-F1B(n — 1), the parent may go on
+to compute P-F1B(n — 2) in line 4 in parallel with the spawned child. Since the
+P-FIB procedure is recursive, these two subroutine calls themselves create nested
+parallelism, as do their children, thereby creating a potentially vast tree of subcom-
+putations, all executing in parallel.
+
+The keyword spawn does not say, however, that a procedure must execute con-
+currently with its spawned children, only that it may. The concurrency keywords
+express the logical parallelism of the computation, indicating which parts of the
+computation may proceed in parallel. At runtime, it is up to a scheduler to deter-
+mine which subcomputations actually run concurrently by assigning them to avail-
+able processors as the computation unfolds. We shall discuss the theory behind
+schedulers shortly.
+
+A procedure cannot safely use the values returned by its spawned children until
+after it executes a syne statement, as in line 5. The keyword syne indicates that
+the procedure must wait as necessary for all its spawned children to complete be-
+fore proceeding to the statement after the syne. In the P-F1B procedure, a syne
+is required before the return statement in line 6 to avoid the anomaly that would
+occur if x and y were summed before x was computed. In addition to explicit
+synchronization provided by the syne statement, every procedure executes a syne
+implicitly before it returns, thus ensuring that all its children terminate before it
+does.
+
+A model for multithreaded execution
+
+It helps to think of a multithreaded computation—the set of runtime instruc-
+tions executed by a processor on behalf of a multithreaded program —as a directed
+acyclic graph G = (V, E), called a computation dag. As an example, Figure 27.2
+shows the computation dag that results from computing P-F1B(4). Conceptually,
+the vertices in V are instructions, and the edges in E represent dependencies be-
+tween instructions, where (u,v) € E means that instruction u must execute before
+instruction v. For convenience, however, if a chain of instructions contains no
+parallel control (no spawn, syne, or return from a spawn—via either an explicit
+return statement or the return that happens implicitly upon reaching the end of
+a procedure), we may group them into a single strand, each of which represents
+one or more instructions. Instructions involving parallel control are not included
+in strands, but are represented in the structure of the dag. For example, if a strand
+has two successors, one of them must have been spawned, and a strand with mul-
+tiple predecessors indicates the predecessors joined because of a syne statement.
+Thus, in the general case, the set V forms the set of strands, and the set E of di-
+rected edges represents dependencies between strands induced by parallel control.
+

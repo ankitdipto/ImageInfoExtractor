@@ -1,0 +1,54 @@
+SECTION 122 Main Memory 451.
+
+Chip select 1
+
+Chip select 2
+
+S-bit address
+
+ 
+
+ 
+
+Figure 12-3. Typical ROM chip.
+
+to be used are specified in Figs. 12-2 and 12-3, The memory address map for
+this configuration is shown in Table 12-1. The component column specifies
+whether a RAM or a ROM chip is used. The hexadecimal address column
+assigns a range of hexadecimal equivalent addresses for each chip. The address
+bus lines are listed in the third column. Although there are 16 lines in the
+address bus, the table shows only 10 lines because the other 6 are not used in
+this example and are assumed to be zero. The small x's under the address bus
+lines designate those lines that must be connected to the address inputs in each
+chip. The RAM chips have 128 bytes and need seven address lines. The ROM
+chip has 512 bytes and needs 9 address lines. The x’s are always assigned to
+the low-order bus lines: lines 1 through 7 for the RAM and lines 1 through 9
+for the ROM. It is now necessary to distinguish between four RAM chips by
+assigning to each a different address. For this particular example we choose bus
+lines 8and9 to represent four distinct binary combinations. Note that any other
+pair of unused bus lines can be chosen for this purpose. The table clearly shows
+that the nine low-order bus lines constitute a memory space for RAM equal to
+2 = 512 bytes The distinction between a RAMand ROM address is done with
+another bus line. Here we choose line 10 for this purpose. When line 10 is 0,
+the CPU selects a RAM, and when this line is equal to 1, it selects the ROM.
+
+‘The equivalent hexadecimal address for each chip is obtained from the
+information under the address bus assignment. The address bus lines are
+
+ 
+
+ 
+
+TABLE 12-1 Memory Address Map for Microprocomputer
+‘Address bus
+Hexadecimal
+
+Component address. «109-8765 4321
+RAMI  000-.007F «00 Ox xx xX XX
+RAM 2  OO89D-00FF 00 1 xxx xxx x
+RAM 3 O10-OI7F 0 1 OK KK KX K
+RAM4 = O1K0-01FF 0 1 1x x x xx xX
+Dx xx xX KK KK
+
+ROM 0200-03FF
+

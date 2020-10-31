@@ -1,0 +1,51 @@
+174 CHAPTER Sx Programming the Basic Computer
+
+instruction set
+
+the physical computer that runs his program. For example, a program written
+in standard Fortran is machine independent because most computers provide
+a translator program that converts the standard Fortran program to the binary
+code of the computer available in the particular installation. But the translator
+program itself is machine dependent because it must translate the Fortran
+program to the binary code recognized by the hardware of the particular
+computer used.
+
+This chapter introduces some elementary programming concepts and
+shows theirrelation to the hardware representation of instructions. The first
+part presents the basic operation and structure of a program that translates a
+user’s symbolic program into an equivalent binary program. The discussion
+emphasizes the important concepts of the translator rather than the details of
+actually producing the program itself. The usefulness of various machine
+instructions is then demonstrated by means of several basic programming
+examples.
+
+‘The instruction set of the basic computer, whose hardware organization
+was explored in Chap. 5, is used in this chapter to illustrate many of the
+techniques commonly used to program a computer. In this way it is possible
+to explore the relationship between a program and the hardware operations
+that execute the instructions.
+
+The 25 instructions of the basic computer are repeated in Table 6-1 to
+provide an easy reference for the programming examples that follow. Each
+instruction is assigned athree-letter symbol to facilitate writing symbolic pro-
+grams. The first seven instructions are memory-reference instructions and the
+other 18 are register-reference and input-output instructions. A memory-
+reference instruction has three parts: a mode bit, an operation code of three
+bits, and a 12-bit address. The first hexadecimal digit of a memory-reference
+instruction includes the mode bit and the operation code. The other three digits
+specify the address. In an indirect address instruction the mode bit is 1 and the
+first hexadecimal digit ranges in value from 8 to E. Ina direct mode, the range
+is from 0 to 6. The other 18 instructions have a 16-bit operation code. The code
+for each instruction is listed as a four-digit hexadecimal number. The first digit
+ofa register-reference instruction is always7. The first digit of an input-output
+instruction is always F. The symbol m used in the description column denotes
+the effective address. The letter M refersto the memory word (operand) found
+at the effective address.
+
+6-2 Machine Language
+
+A program is a list of instructions or statements for directing the computer to
+perform a required data-processing task. There are various types of program-
+ming languages that one may write fora computer, but the computer can execute
+programs only when they are represented internally in binary form. Programs
+

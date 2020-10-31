@@ -1,0 +1,60 @@
+Chapter 1: Getting Started 29
+
+ 
+
+Integer and Float Conversions
+
+In order to effectively develop C programs, it will be necessary to
+understand the rules that are used for the implicit conversion of
+floating point and integer values in C. These are mentioned below.
+Note them carefully.
+
+(a) An arithmetic operation between an integer and integer
+always yields an integer result.
+
+(b) An operation between a real and real always yields a real
+result.
+
+(c) An operation between an integer and real always yields a real
+result. In this operation the integer is first promoted to a real
+and then the operation is performed. Hence the result is real.
+
+I think a few practical examples shown in the following figure
+would put the issue beyond doubt.
+
+ 
+
+ 
+
+ 
+
+Operation Result Operation Result
+5/2 2 2/5 0
+5.0/2 2.5 2.0/5 04
+5/20 2.5 2/5.0 04
+5.0/2.0 2.5 2.0/5.0 04
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 1.6
+
+Type Conversion in Assignments
+
+It may so happen that the type of the expression and the type of the
+variable on the left-hand side of the assignment operator may not
+be same. In such a case the value of the expression is promoted or
+
+ 
+

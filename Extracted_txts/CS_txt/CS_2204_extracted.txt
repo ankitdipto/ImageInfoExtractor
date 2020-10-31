@@ -1,0 +1,61 @@
+SECTION 06 Decimal Arithmetic Unit 367
+
+ 
+
+or Z; must have a 1. The condition for a correction and an output-carry can be
+expressed by the Boolean function
+
+C=K+ ZZ + ZZ,
+
+When C = 1, it is necessary to add 0110 to the binary sum and provide an
+output-carry for the next stage.
+
+ABCD adder is a circuit that adds two BCD digitsin parallel and produces
+a sum digit also in BCD. A BCD adder must include the correction logic in its
+internal construction. To add 0110 to the binary sum, we use a second 4-bit
+binary adder as shown in Fig. 10-18. The two decimal digits, together with the
+input-carry, are first added in the top 4-bit binary adder to produce the binary
+sum. When the output-carry is equal to 0, nothing is added tothe binary sum.
+When it is equal to 1, binary 0110 is added to the binary sum through the
+bottom4-bitbinary adder. The output-carry generated from the bottom binary
+adder may be ignored, since it supplies information already available in the
+output-carry terminal.
+
+Figure 10-18 Block diagram of BCD adder.
+‘Addend ‘Augend
+
+Hey
+
+bit binary adder
+
+ 
+
+ 
+
+ 
+
+ 
+
+Output
+any
+
+ 
+
+ 
+
+ 
+
+4 bit binary adder
+
+rT
+
+Se Se SS
+
+ 
+
+ 
+
+ 
+
+ 
+

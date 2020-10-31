@@ -1,0 +1,41 @@
+Chapter 8: Arrays 273
+
+ 
+
+int marks[30] ;
+
+Here, int specifies the type of the variable, just as it does with
+ordinary variables and the word marks specifies the name of the
+variable. The [30] however is new. The number 30 tells how many
+elements of the type int will be in our array. This number is often
+called the ‘dimension’ of the array. The bracket ( [] ) tells the
+compiler that we are dealing with an array.
+
+Accessing Elements of an Array
+
+Once an array is declared, let us see how individual elements in the
+array can be referred. This is done with subscript, the number in
+the brackets following the array name. This number specifies the
+element’s position in the array. All the array elements are
+numbered, starting with 0. Thus, marks[2] is not the second
+element of the array, but the third. In our program we are using the
+variable i as a subscript to refer to various elements of the array.
+This variable can take different values and hence can refer to the
+different elements in the array in turn. This ability to use variables
+as subscripts is what makes arrays so useful.
+
+Entering Data into an Array
+Here is the section of code that places data into an array:
+
+for (i= 0; <= 29; i++)
+{
+printf ( “\nEnter marks ") ;
+scanf ("%d", &marks|i] ) ;
+}
+
+The for loop causes the process of asking for and receiving a
+student’s marks from the user to be repeated 30 times. The first
+time through the loop, i has a value 0, so the scanf( ) function will
+cause the value typed to be stored in the array element marks[0],
+the first element of the array. This process will be repeated until i
+

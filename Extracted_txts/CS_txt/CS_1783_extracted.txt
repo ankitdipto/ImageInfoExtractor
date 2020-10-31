@@ -1,0 +1,56 @@
+262 Chapter8 Deadlocks
+
+ 
+
+1. Let Work and Finish be vectors of length m and n, respectively. Ini alize
+Work := Available. For i = 1, 2, ..., n, if Allocation; 4 0, then Finish{i false;
+otherwise, Finish[i] := true.
+
+ 
+
+2. Find an index i such that both
+a. Finish{i] = false.
+b. Request; < Work.
+
+If no such i exists, go to step 4.
+
+3. Work := Work + Allocation;
+Finish{i] := true
+go to step 2.
+
+ 
+
+4. If Finish[i] = false, for some i, 1 <i <n, then the system is in a deadlock
+state. Moreover, if Finish[i] = false, then process P; is deadlocked.
+
+This algorithm requires an order of m x n® operations to detect whether the
+system is in a deadlocked state.
+
+You may wonder why we reclaim the resources of process P; (in step 3)
+as soon as we determine that Request; < Work (in step 2b). We know that P;
+
+is currently not involved in a deadlock (since Request; < Work). Thus, we take
+an optimistic attitude, and assume that P; will require no more resources to
+complete its task; it will thus soon return all currently allocated resources to
+the system. If our assumption is incorrect, a deadlock may occur later. That
+deadlock will be detected the next time that the deadlock-detection algorithm
+is invoked.
+
+To illustrate this algorithm, we consider a system with five processes Po
+through P, and three resource types A, B, C. Resource type A has 7 instances,
+resource type B has 2 instances, and resource type C has 6 instances. Suppose
+that, at time To, we have the following resource-allocation state:
+
+Allocation Request Available
+ABC ABC ABC
+
+Po 010 000 000
+Py 200 202
+P2 303 000
+P3 211 100
+Ps 002 002
+
+We claim that the system is not ina deadlocked state. Indeed, if we execute
+our algorithm, we will find that the sequence <Po, P2, P3, P1, P4> will result in
+Finish{i] = true for all i.
+

@@ -1,0 +1,64 @@
+76  Chapter3 Operating-System Structures
+
+ 
+
+ 
+
+ 
+
+signals terminal file system : CPU scheduling
+‘handling ‘swapping block VO “page replacement
+
+character 1/0 system system demand paging
+
+terminal drivers disk and tape drivers virtual memory
+
+   
+
+    
+
+device controllers
+disks and tapes
+
+memory controllers
+physical memory
+
+   
+
+ 
+
+ 
+
+ 
+
+Figure 3.7. UNIX system structure.
+
+down approach, the overall functionality and features are determined and
+are separated into components. This separation allows programmers to hide
+information; they are therefore free to implement the low-level routines as they
+see fit, provided that the external interface of the routine stays unchanged and
+that the routine itself performs the advertised task.
+
+3.5.2. Layered Approach
+
+The modularization of a system can be done in many ways. One method is the
+layered approach, in which the operating system is broken up into a number of
+layers (or levels), each built on top of lower layers. The bottom layer (layer 0) is
+the hardware; the highest (layer N) is the user interface.
+
+An operating-system layer is an implementation of an abstract object that
+is the encapsulation of data, and of the operations that can manipulate those
+data. A typical operating-system layer —say layer M—is depicted in Figure
+3.8. It consists of data structures and a set of routines that can be invoked
+by higher-level layers. Layer M, in turn, can invoke operations on lower-level
+layers.
+
+The main advantage of the layered approach is modularity. The layers
+are selected such that each uses functions (or operations) and services of only
+lower-level layers. This approach simplifies debugging and system verification.
+The first layer can be debugged without any concern for the rest of the system,
+because, by definition, it uses only the basic hardware (which is assumed
+correct) to implement its functions. Once the first layer is debugged, its correct
+functioning can be assumed while the second layer is debugged, and so on.
+If an error is found during the debugging of a particular layer, the error must
+

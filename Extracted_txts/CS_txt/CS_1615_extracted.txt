@@ -1,0 +1,30 @@
+4.6 Communication in Client-Server Systems 123
+
+client messages ‘server
+
+user calls kernel
+to send APC
+
+kernel sends
+RPC
+
+kernel receives
+
+reply, passes
+itto user
+
+ 
+
+ 
+
+ 
+
+Figure 4.12 Execution of a remote procedure call (RPC).
+
+The RPC scheme is useful in implementing a distributed file system (Chap-
+ter 16). Such a system can be implemented as a set of RPC daemons and clients.
+The messages are addressed to the DFS port ona server on which a file operation
+is to take place. The message contains the disk operation to be performed. Disk
+operations might be read, write, rename, delete, or status, corresponding
+to the usual file-related system calls. The return message contains any data
+

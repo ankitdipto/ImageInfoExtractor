@@ -1,0 +1,43 @@
+Chapter 19: Interaction With Hardware 623
+
+ 
+
+Hardware Interaction, Windows Perspective
+
+Like DOS, under Windows too a hardware interrupt gets generated
+whenever an external event occurs. As a reaction to this signal a
+table called Interrupt Descriptor Table (IDT) is looked up and a
+corresponding routine for the interrupt gets called. Unlike DOS the
+IDT contains addresses of various kernel routines (instead of BIOS
+routines). These routines are part of the Windows OS itself. When
+the kernel routine is called, it in turn calls the ISR present in the
+appropriate device driver. This ISR interacts with the hardware.
+Two questions may now occur to you:
+
+(a) Why the kernel routine does not interact with the hardware
+directly?
+
+(b) Why the ISR of the device driver not registered directly in the
+IDT?
+
+Let us find answer to the first question. Every piece of hardware
+works differently than the other. As new pieces of hardware come
+into existence new code has to be written to be able to interact with
+them. If this code is written in the kernel then the kernel would
+have to be rewritten and recompiled every time a new hardware
+comes into existence. This is practically impossible. Hence the
+new code to interact with the device is written in a separate
+program called device driver. With every new piece of hardware a
+new device driver is provided. This device driver is an extension
+of the OS itself.
+
+Let us now answer the second question. Out of the several
+components of Windows OS a component called kernel is tightly
+integrated with the processor architecture. If the processor
+architecture changes then the kernel is bound to change. One of
+goals of Windows NT family was to keep the other components of
+OS and the device drivers portable across different microprocessor
+architectures. All processor architectures may not use IDT for the
+registration and lookup mechanism. So, had registration of the
+device driver’s ISR in IDT been allowed, then the mechanism
+

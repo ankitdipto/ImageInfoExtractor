@@ -1,0 +1,53 @@
+710
+
+ 
+
+OO
+“EEK oO"
+* A | ‘
+O=ar-&
+
+Chapter 26 Maximum Flow
+
+Edmonton Saskatoon
+
+ 
+
+Calgary Regina
+(a) (b)
+
+Figure 26.1 (a) A flow network G = (V,E) for the Lucky Puck Company’s trucking problem.
+The Vancouver factory is the source s, and the Winnipeg warehouse is the sink r. The company ships
+pucks through intermediate cities, but only c(w, v) crates per day can go from city w to city v. Each
+edge is labeled with its capacity. (b) A flow f in G with value | f| = 19. Each edge (1, v) is labeled
+by f(,v)/c(u,v). The slash notation merely separates the flow and capacity; it does not indicate
+division.
+
+We call the nonnegative quantity f (u,v) the flow from vertex u to vertex v. The
+value | f | of a flow f is defined as
+
+Ifl= of.) - 2 fO,5), (26.1)
+
+veV vev
+
+that is, the total flow out of the source minus the flow into the source. (Here, the |-|
+notation denotes flow value, not absolute value or cardinality.) Typically, a flow
+network will not have any edges into the source, and the flow into the source, given
+by the summation }°,<y f(v.5), will be 0. We include it, however, because when
+we introduce residual networks later in this chapter, the flow into the source will
+become significant. In the maximum-flow problem, we are given a flow network G
+with source s and sink ft, and we wish to find a flow of maximum value.
+
+Before seeing an example of a network-flow problem, let us briefly explore the
+definition of flow and the two flow properties. The capacity constraint simply
+says that the flow from one vertex to another must be nonnegative and must not
+exceed the given capacity. The flow-conservation property says that the total flow
+into a vertex other than the source or sink must equal the total flow out of that
+vertex —informally, “flow in equals flow out.”
+
+An example of flow
+
+A flow network can model the trucking problem shown in Figure 26.1(a). The
+Lucky Puck Company has a factory (source s) in Vancouver that manufactures
+hockey pucks, and it has a warehouse (sink f) in Winnipeg that stocks them. Lucky
+

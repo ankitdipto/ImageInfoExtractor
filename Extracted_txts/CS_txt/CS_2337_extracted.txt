@@ -1,0 +1,57 @@
+SECTION 12.7 Memory Management Hardware 479
+
+segment table is a pointer address for a page table base. The page table base
+is added to the page number given in the logical address. The sum produces
+a pointer address to an entry in the page table. The value found in the page
+table provides the block number in physical memory. The concatenation of the
+block field with the word field produces the final physical mapped address.
+
+‘The two mapping tables may be stored in two separate small memories
+or in main memory. In either case, a memory reference from the CPU will
+require three accesses to memory: one from the segment table, one from the
+page table, and the third from main memory. This would slow the system
+significantly when compared to a conventional system that requires only one
+reference to memory. To avoid this speed penalty, a fast associative memory
+isused to hold the most recently referenced table entries. (This type of memory
+is sometimes called a translation lookaside buffer, abbreviated TLB.) The first time
+agiven blockisreferenced, its value together with the corresponding segment
+and page numbers are entered into the associative memory as shown in
+Fig. 12-21(b). Thus the mapping process is first attempted by associative search
+with the given segment and page numbers. If it succeeds, the mapping delay
+is only that of the associative memory. If no match occurs, the slower table
+mapping of Fig. 12-21(a) isused and the result transformed into the associative
+memory for future reference.
+
+  
+
+  
+
+Numerical Example
+
+‘A numerical example may clarify the operation of the memory management
+unit. Consider the 20-bit logical address specified in Fig. 12-22(a). The 4-bit
+segment number specifies one of 16 possible segments. The 8-bit page number
+can specify up to 256 pages, and the 8-bit word fieldimplies a page size of 256
+words. This configuration allows each segment to have any number of pages
+up to 256, The smallest possible segment will have one page or 256 words The
+largest possible segment will have 256 pages, for a total of 256 x 256 = 64K
+words.
+
+The physical memory shown in Fig. 12-22(b) consists of 2" words of 32
+bits each. The 20-bit address is divided into two fields: a 12-bit block number
+and an 8-bit word number. Thus, physical memory is divided into 4096 blocks
+of 256 words each. A. page in a logical address has a corresponding block in
+physical memory. Note that both the logical and physical address have 20 bits.
+Intheabsence of a memory management unit, the 20-bit address fromthe CPU
+can be used to access physical memory directly.
+
+Consider a program loaded into memory that requires five pages. The
+operating system may assign to this program segment 6 and pages 0 through
+4, as shown in Fig. 12-23(a) The total logical address range for the program is
+from hexadecimal 60000 to 604FF. When the program is loaded into physical
+memory, it is distributed among five blocks in physical memory where the
+operating system finds empty spaces. The correspondence between each
+memory block and logical page number is then entered in a table as shown in
+
+ 
+

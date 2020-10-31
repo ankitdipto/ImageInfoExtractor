@@ -1,0 +1,43 @@
+258 © Chapter8 Deadlocks
+
+1, Let Work and Finish be vectors of length m and n, respectively. Initialize
+Work := Available and Finish[i] := false for i = 1, 2, ..., n.
+
+2. Find ani such that both
+a. Finish{i] = false
+b. Need; < Work.
+If no such i exists, go to step 4.
+3. Work := Work + Allocation;
+Finish{i] := true
+go to step 2.
+4. If Finish[i] = true for all i, then the system is in a safe state.
+
+This algorithm may require an order of m x n? operations to decide whether a
+state is safe.
+
+8.5.3.2. Resource-Request Algorithm
+
+Let Request; be the request vector for process Pj. If Request;[j] = k, then process
+P; wants k instances of resource type Rj. When a request for resources is made
+by process P;, the following actions are taken:
+
+1. If Request; < Needj, go to step 2. Otherwise, raise an error condition, since
+the process has exceeded its maximum claim.
+
+2. If Request; < Available, go to step 3. Otherwise, P; must wait, since the
+resources are not available.
+
+3. Have the system pretend to have allocated the requested resources to
+process P; by modifying the state as follows:
+
+Available := Available - Request;;
+Allocation; := Allocation; + Request;
+Need; := Need; - Request;
+
+ 
+
+If the resulting resource-allocation state is safe, the transaction is completed
+and process P; is allocated its resources. However, if the new state is
+unsafe, then P; must wait for Request; and the old resource-allocation state
+is restored.
+

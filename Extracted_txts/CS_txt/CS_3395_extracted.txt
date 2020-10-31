@@ -1,0 +1,58 @@
+Section 24.4.
+
+DISPARITY
+
+Extracting 3-D Information Using Vision 737
+
+ 
+
+ 
+
+ 
+
+See 2 ae
+wens ee EOS
+. — :
+ee ee
+SESS soem
+Rpannpasanet rogers!
+TI ea
+SS .
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 24.9 Flow vectors calculated by comparing the two images in Figure 24.8. (Courtesy
+of Joe Weber and Jitendra Malik.)
+
+ 
+
+ 
+
+ 
+
+This equation has some interesting applications. Suppose you are a fly trying to land on wall,
+and you want to know the time to contact at the current velocity. This time is given by Z/T;.
+Note that although the instantaneous optical flow field cannot provide either the distance Z or the
+velocity component T,, it can provide the ratio of the two, and can therefore be used to control
+the landing approach. Experiments with real flies show that this is exactly what they use.
+
+To recover depth, one should make use of multiple frames. If the camera is looking at a
+rigid body, the shape does not change from frame to frame and thus we are able to better deal
+with the inherently noisy optical flow measurements. Results from one such approach due to
+Tomasi and Kanade (1992) are shown in Figures 24.10 and 24.11.
+
+Binocular stereopsis
+
+The idea here is rather similar to motion parallax, except that instead of using images over time,
+‘Wwe use two (or more) images separated in space, such as are provided by the forward-facing eyes
+of humans. Because a given feature in the scene will be in a different place relative to the z-axis
+of each image plane, if we superpose the two images, there will be a disparity in the location of
+

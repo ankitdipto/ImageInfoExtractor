@@ -1,0 +1,51 @@
+bus selection
+
+SECTION 4.3 Bus and Memory Transfers. 99
+
+The two selection lines S; and S are connected to the selection inputs of
+all four multiplexers. The selection lines choose the four bits of one register and
+transfer them into the four-line common bus. When S159 = 00, the 0 data
+inputs of all four multiplexers are selected and applied to the outputs that form
+the bus. This causes the bus lines to receive the content ofregister A since the
+outputs of this register are connected to the 0 data inputs of the multiplexers.
+Similarly, register B is selected if SiS, = 01, and so on. Table 42 shows the
+register that is selected by the bus for each of the four possible binary value
+of the selection lines.
+
+ 
+
+TABLE 4-2 Function Table for Bus of Fig. 43
+Si So Register selected
+A
+
+0
+1 B
+0 c
+1 D
+
+In general, a bus system will multiplex k registers of n bits each to produce
+an n-line common bus. The number of multiplexers needed to construct the
+bus is equal to n, the number of bits in each register. The size of each multi-
+plexer must be k X 1 since it multiplexes k data lines. For example, a common
+bus for eight registers of 16 bits each requires 16 multiplexers, one for each line
+in the bus Each multiplexer must have eight data input lines and three
+selection lines to multiplex one significant bit in the eight registers.
+
+The transfer of information from a bus into one of many destination
+registers can be accomplished by connecting the bus lines to the inputs of all
+destination registers and activating the load control of the particular destina-
+tion register selected. The symbolic statement for a bus transfer may mention
+the bus or its presence may be implied in the statement. When the bus is
+includes in the statement, the register transfer is symbolized as follows:
+
+BUS<C, Rl = BUS
+
+The content of register C is placed on the bus, and the content of the bus is
+loaded into register R11 by activating its load control input. If the bus is known
+to exist in the system, it may be convenient just to show the direct transfer.
+
+RI-C
+
+From this statement the designer knows which control signals must be acti-
+vated to produce the transfer through the bus.
+

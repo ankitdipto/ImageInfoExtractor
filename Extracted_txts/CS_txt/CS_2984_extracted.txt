@@ -1,0 +1,85 @@
+106 catarter FOUR Register Transfer and Microoperations
+
+arithmetic circuit
+
+input carry
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ay A A Ay 1
+P)ab | adj 4
+y xy xy :
+HA HA HA HA
+cos cos cos cos
+GS 5 St So
+
+Figure 48 4+tit binary incrementer.
+
+Arithmetic Circuit
+
+The arithmetic microoperations listed in Table 4-3 can be implemented in one
+compositearithmeticcircuit. The basiccomponentof an arithmetic circuit is the
+parallel adder. By controlling the data inputs to the adder, it is possible to
+obtain different types of arithmetic operations.
+
+The diagram of a 4-bitarithmeticcircuit is shown in Fig. 4-9, It has four
+full-adder circuits that constitute the 4-bit adder and four multiplexers for
+choosing different operations. There are two 4-bit inputs A and Banda 4-bit
+output D. The four inputs from A go directly to the X inputs of the binary
+adder. Each of the four inputs from B are connected to the data inputs of the
+multiplexers. The multiplexers data inputs also receive the complement of B.
+The other two data inputs are connected to logic-0 and logic-1. Logic-Oisa fixed
+voltage value (0 volts for TTL integrated circuits) and the logic-1 signal can be
+generated through an inverter whose input is Q. The four multiplexers are
+controlled by two selection inputs, 5, and S,, The input carry C,, goes to the
+carry input of the FA in the least significant position. The other carries are
+connected from one stage to the next.
+
+The output of the binary adder is calculated from the following arithmetic
+sum:
+
+D=A+Y+Cy
+
+where A is the 4-bit binary number at the X inputs and Y is the 4-bit binary
+number at the Y inputs of the binary adder. C,, is the input carry, which can
+be equal to 0 or 1. Note that the symbol + in the equation above denotes an
+arithmetic plus. By controlling the value of Y with the two selection inputs S;
+and S, and making C;, equal to 0 or 1, it is possible to generate the eight
+arithmetic microoperations listed in Table 4-4.
+

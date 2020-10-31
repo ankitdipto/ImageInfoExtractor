@@ -1,0 +1,70 @@
+Section 7.1.
+
+Syntax and Semantics 193
+
+ 
+
+OUALITY SYMBOL
+
+This is just like variable scoping in block-structured programming languages like Pascal and Lisp,
+where an occurrence of a variable name refers to the innermost block that declared the variable.
+Another way to think of it is this: 4x Brother(Richard,x)is a sentence about Richard (that he
+has a brother), not about.x; so putting a Vx outside it has no effect. It could equally well have
+been written 3z Brother(Richard, z). Because this can be a source of confusion, we will always
+use different variables.
+
+_ _ Every variable must be introduced by a quantifierbefore it is used. A sentence like Vx P(y),
+in which y does not have a quantifier, is incorrect.) The term well-formed formula or wif is
+sometimes used for sentences that have all their variables properly introduced.
+
+Connections between V and 3
+
+The two quantifiers are actually intimately connected with each other, through negation. When
+one says that everyone dislikes parsnips, one is also saying that there does not exist someone who
+likes them; and vice versa:
+
+Vx Likes(x,Parsnips) is equivalent to >4.x Likes(x, Parsnips)
+We can go one step further. "Everyone likes ice cream" means that there is no one who does not
+like ice cream:
+
+Vx Likes(x, IceCream) is equivalent to “3x Likes(x,eeCream) 5
+
+Because V is really a conjuniétion over the universe of objects and 3 is a ‘Uisjunction,, it should
+not be surprising that they obey De Morgan's rules. The De Morgan rules for quantified and
+unquantified sentences are as follows:
+
+Vx aP = AAx P “PA-Q
+“Wax P 3x —P —(P AQ) =PV-Q
+
+Vx P adx AP PAQ =(-P V AQ)
+dx P= 7AVx -P PVQ = ~(-P AQ)
+
+Thus, we do not really need both V and 3, just as we do not really need both A and V. Some
+formal logicians adopt a principal of parsimony, throwing out any syntactic item that is not strictly
+necessary. For the purposes of Al, the content, and hence the readability, of the sentences are
+important. Therefore, we will keep both of the quantifiers.
+
+=(P VQ)
+
+ 
+
+Equality
+
+First-order logic includes one more way to make atomic sentences, other than using a predicate
+and terms as described earlier. We can use the equality symbol to make statements to the effect
+that two terms refer to the same object. For example,
+
+Father(John) = Henry
+says that the object referred to by Father(John)and the object referred to by Henry are the same
+
+5 Sometimes there is an assumption that all unquantified variables are introduced with an implicit V. This is the case in
+most logic programming languages
+
+ 
+
+ 
+
+ 
+
+ 
+

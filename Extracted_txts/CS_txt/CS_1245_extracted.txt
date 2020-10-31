@@ -1,0 +1,90 @@
+530
+Let Us C
+
+# include <stdio.h>
+Void display( ) ;
+Void main( )
+
+void ( “func_ptr )() ;
+
+fi ae . :
+pint at i fee oe of function */
+
+&8s of function display is %u" :
+( func_ptr )(); P invokes the function Sint Ni
+
+ea display( )
+
+Puts ( "\nLong live viruses!!" )
+
+The output of the program would be:
+
+Address of function di i
+: I
+Long live viruses! di
+
+In main
+ain( ), we declare the function display( ) as a functi
+ction
+
+| of the declaratio:
+Void ( “func_ptr )( de .
+that comes i ine’
+S in the next line? We are obviously declaring somethi
+mething
+
+that, like display ‘
+pea 'Y(), will return nothi sa
+func_ptr enclosed in vais but what is it? And why is
+
+If we glance down a fe
+
+w lines i
+Statement, Hines in our Program, we see the
+
+func_ptr = display :
+
+531
+
+Chapter 15: Miscellaneous Features
+
+void ( *func_ptr )();
+means is, that func_ptr is a pointer to a function, which returns
+nothing. And to invoke the function, we are just required to write
+
+the statement,
+("func_ptr)(); “or simply, func_ptr(); */
+
+Pointers to functions are certainly awkward and off-putting. And
+why use them at all when we can invoke a function in a much
+simpler manner? What is the possible gain of using this esoteric
+feature of C? There are two possible uses:
+
+(a) in implementing callback mechanisms used popularly in
+Windows programming
+
+(b) in binding functions dynamically, at runtime in C++
+programming
+
+The first of these topics is discussed in Chapter 17 briefly. The
+second topic is beyond the scope of this book. If you want to
+explore it further you can refer the book “Let Us C++” or “Test
+Your C++ Skills” by Yashavant Kanetkar.
+
+Functions Returning Pointers
+
+The way functions return an int, a float, a double or any other data
+type, it can even return a pointer. However, to make a function
+return a pointer, it has to be explicitly mentioned in the calling
+function as well as in the function definition. The following
+
+program illustrates this.
+
+int *fun() ;
+void main( )
+{
+
+int *p;
+
+p=fun(); 515
+

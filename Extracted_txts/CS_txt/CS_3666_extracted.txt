@@ -1,0 +1,59 @@
+118 cuarren sour Register Transfer and Microoperations
+
+units. A particular microoperation is selected with inputs S; and So. A 4x 1
+multiplexer at the output chooses between an arithmetic output in E; and a logic
+output in H;, The data in the multiplexer are selected with inputs S; and S;.
+The other two data inputs to the multiplexer receive inputs A,-1 for the
+shift-right operation and A, , for theshift-leftoperation. Note that the diagram
+shows just one typical stage. The circuit of Fig, 4-13 must be repeated n times
+for an r-bit ALU. The output carry C, 1 of a given arithmetic stage must be
+connected to the input carry C; of the next stage in sequence. The input carry
+to the first stage is the input carry C,, which provides a selection variable for
+the arithmetic operations.
+
+The circuit whose one stage is specified in Fig. 4-13 provides eight arith-
+metic operation, four logic operations, and two shift operations. Each opera-
+tion is selected with the five variables $3, 52, Sy, So, and Ci The input carry Ci,
+is used for selecting an arithmetic operation only.
+
+Table 4-8 lists the 14 operations of the ALU. The first eight are arithmetic
+operations (see Table 4-4) and are selected with SS; = 00. The next four are
+logic operations (see Fig. 4-10) and are selected with S;S; = 01. The input carry
+has no effect during the logic operations and is marked with don’t-care x’s.
+The last two operations are shift operations and are selected with S382 = 10 and
+11. The other three selection inputs have no effect on the shift.
+
+TABLE 4-8 Function Table for Arithmetic Logic Shift Unit
+
+ 
+
+ 
+
+SS Function
+
+o 0 Transfer A
+
+o 0 Increment A
+
+o 0 Addition
+
+o 0 ‘Add with carry
+
+o 0 Subtract with borrow
+o 0 Subtraction
+
+o 0 Decrement A
+
+0 0 ‘Transfer A
+
+oo1 AND
+
+o 1 OR
+
+oo1 XOR
+
+o 1 Complement A
+
+1 0 Shift right A into F
+1a Shift left A into F
+

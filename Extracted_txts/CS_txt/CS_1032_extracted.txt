@@ -1,0 +1,55 @@
+SECTION 68 Input-Output Programming 205.
+TABLE 6-21 Program to Store Input Characters in a Buffer
+
+LDA ADS Load first address of buffer
+STAPTR Initialize pointer
+
+LOP, BSAIN2 _/Go to subroutine IN2 (Table 6-20)
+STAPTRI Store double character word in butfer
+
+ISZPTR —_/Increment pointer
+
+BUN LOP —/Branch to input more characters
+HLT
+
+HEX 500 /First address of buffer
+
+HEXO Location for pointer
+
+ 
+
+ 
+
+orif none of the symbols match. When a match occurs, the assembler retrieves
+the equivalent binary value. A program for comparing two words is listed in
+Table 6-22. The comparison is accomplished by forming the 2's complement of
+aword as ifitwerea number) and arithmetically addin git to the second word.
+If the result is zero, the two words are equal and a match occurs. If the result
+is not zero, the words are not the same. This program can serveas a subroutine
+ina table-lookup program.
+
+Program Interrupt
+
+The running time of input and output programs is made up primarily of the
+time spent by the computer in waiting for the external device to set its flag. The
+waiting loop that checks the flag keeps the computer occupied with a task that
+wastes a large amount of time. This waiting time can be eliminated if the
+interrupt facility is used to notify the computer when a flag is set. The advan-
+tage of using the interrupt is that the information transfer is initiated upon
+request from the external device. In the meantime, the computer can be busy
+performing other useful tasks, Obviously, if no other program resides in
+memory, there is nothing for the computer to do, so it might as well check for
+
+TABLE 622 Program to Compare Two Words
+LDA WD1 Load first word
+
+CMA
+INC /Form 2's complement
+ADD WD2__/Add second word
+SZA Skip if AC is zero
+
+BUN UEQ  /Branch to “unequat” routine
+BUNEQL — /Branch to “equal” routine
+WoL =
+Woz, —
+

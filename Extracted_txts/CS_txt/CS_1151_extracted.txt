@@ -1,0 +1,40 @@
+436 Let Us C
+
+ 
+
+Text versus Binary Mode: Newlines
+
+We have already seen that, in text mode, a newline character is
+converted into the carriage return-linefeed combination before
+being written to the disk. Likewise, the carriage return-linefeed
+combination on the disk is converted back into a newline when the
+file is read by a C program. However, if a file is opened in binary
+mode, as opposed to text mode, these conversions will not take
+place.
+
+Text versus Binary Mode: End of File
+
+The second difference between text and binary modes is in the way
+the end-of-file is detected. In text mode, a special character, whose
+ASCII value is 26, is inserted after the last character in the file to
+mark the end of file. If this character is detected at any point in the
+file, the read function would return the EOF signal to the program.
+
+As against this, there is no such special character present in the
+binary mode files to mark the end of file. The binary mode files
+keep track of the end of file from the number of characters present
+in the directory entry of the file.
+
+There is a moral to be derived from the end of file marker of text
+mode files. If a file stores numbers in binary mode, it is important
+that binary mode only be used for reading the numbers back, since
+one of the numbers we store might well be the number 26
+(hexadecimal 1A). If this number is detected while we are reading
+the file by opening it in text mode, reading would be terminated
+prematurely at that point.
+
+Thus the two modes are not compatible. See to it that the file that
+has been written in text mode is read back only in text mode.
+Similarly, the file that has been written in binary mode must be
+read back only in binary mode.
+

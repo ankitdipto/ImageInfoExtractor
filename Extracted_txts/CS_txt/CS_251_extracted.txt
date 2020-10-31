@@ -1,0 +1,51 @@
+844
+
+Chapter 29 Linear Programming
+
+ 
+
+policy urban suburban _ rural
+build roads
+
+gun control 8 20-5
+farm subsidies 0 o 10
+gasoline tax 10 0 -2
+
+Figure 29.1 The effects of policies on voters. Each entry describes the number of thousands of
+urban, suburban, or rural voters who could be won over by spending $1,000 on advertising support
+of a policy on a particular issue. Negative entries denote votes that would be lost.
+
+would win 20(—2)+0(8)+4(0)+9(10) = 50 thousand urban votes, 20(5) +0(2)+
+4(0)+9(0) = 100 thousand suburban votes, and 20(3) +0(—5) +4(10)+ 9(—2) =
+82 thousand rural votes. You would win the exact number of votes desired in the
+urban and suburban areas and more than enough votes in the rural area. (In fact,
+in the rural area, you would receive more votes than there are voters.) In order to
+garner these votes, you would have paid for 20 + 0+ 4 + 9 = 33 thousand dollars
+of advertising.
+
+Naturally, you may wonder whether this strategy is the best possible. That is,
+could you achieve your goals while spending less on advertising? Additional trial
+and error might help you to answer this question, but wouldn’t you rather have a
+systematic method for answering such questions? In order to develop one, we shall
+formulate this question mathematically. We introduce 4 variables:
+
+* x, is the number of thousands of dollars spent on advertising on building roads,
+* X is the number of thousands of dollars spent on advertising on gun control,
+
+* x3 is the number of thousands of dollars spent on advertising on farm subsidies,
+and
+
+* x4 is the number of thousands of dollars spent on advertising on a gasoline tax.
+We can write the requirement that we win at least 50,000 urban votes as
+—2x, + 8x2 + 0x3 + 10x4 > 50. (29.1)
+
+Similarly, we can write the requirements that we win at least 100,000 suburban
+votes and 25,000 rural votes as
+
+5x1 + 2x2 + 0x3 + Ox4 = 100 (29.2)
+and
+3x, — 5X2 + 10x3—2x4 > 25. (29.3)
+
+Any setting of the variables x), X2,.x3,x4 that satisfies inequalities (29.1)-(29.3)
+yields a strategy that wins a sufficient number of each type of vote. In order to
+

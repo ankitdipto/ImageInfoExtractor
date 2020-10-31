@@ -1,0 +1,51 @@
+ 
+
+14.7 Stable-Storage Implementation 515
+
+consistent and correct value, even if another failure occurs during the recovery.
+In the remainder of this section, we discuss how to meet our needs.
+A disk write results in one of three outcomes:
+
+1. Successful completion: The data were written correctly on disk.
+
+2. Partial failure: A failure occurred in the midst of transfer, so only some of
+the sectors were written with the new data, and the sector being written
+during the failure may have been corrupted.
+
+3. Total failure: The failure occurred before the disk write started, so the
+previous data values on the disk remain intact.
+
+We require that, whenever a failure occurs during writing of a block, the
+system detects it and invokes a recovery procedure to restore the block to a
+consistent state. To do that, the system must maintain two physical blocks for
+each logical block. An output operation is executed as follows:
+
+1. Write the information onto the first physical block.
+
+2. When the first write completes successfully, write the same information
+onto the second physical block.
+
+3. Declare the operation complete only after the second write completes suc-
+cessfully.
+
+During recovery from a failure, each pair of physical blocks is examined.
+If both are the same and no detectable error exists, then no further action is
+necessary. If one block contains a detectable error, then we replace its contents
+with the value of the other block. If both blocks contain no detectable error,
+but they differ in content, then we replace the content of the first block with
+the value of the second. This recovery procedure ensures that a write to stable
+storage either succeeds completely or results in no change.
+
+We can extend this procedure easily to allow the use of an arbitrarily large
+number of copies of each block of stable storage. Although a large number of
+copies further reduces the probability of a failure, it is usually reasonable to
+simulate stable storage with only two copies. The data in stable storage are
+guaranteed to be safe unless a failure destroys all the copies.
+
+Because waiting for disk writes to complete (synchronous I/O) is time
+consuming, many storage arrays add NVRAM as a cache. Because the memory
+is non-volatile (usually it has battery power as a backup to the unit’s power), it
+can be trusted to store the data on its way to the disks. It is thus considered part
+of the stable storage. Writes to it are much faster than to disk, so performance
+is greatly improved.
+

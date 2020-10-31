@@ -1,0 +1,55 @@
+182 cuarren six Programming the Basic Computer
+
+assembler
+
+Translation to Binary
+
+The translation of the symbolic program into binary is done by a special
+program called an assembler. The tasks performed by the assembler will be
+better understood if we first perform the translation on paper. The translation
+of the symbolic program of Table 68 into an equivalent binary code may be
+done by scanning the program and replacing the symbols by their machine
+code binary equivalent. Starting from the first line, we encounter an ORG
+pseudoinstruction. This tells us to start the binary program from hexadecimal
+location 100. The second line has two symbols. It must be a memory-reference
+instruction to be placed in location 100. Since the letter I is missing, the first
+bit of the instruction code must be 0. The symbolic name of the operation is
+LDA. Checking Table 6-1 we find that the first hexadecimal digit of the instruc-
+tion should be 2. The binary value of the address part must be obtained from
+the address symbol SUB. We scan the label column and find this symbol in line
+9. To determine its hexadecimal value we note that line 2 contains an instruc-
+tion for location 100 and every other line specifies a machine instruction or an
+operand for sequential memory locations. Counting lines, we find that label
+SUBin line 9 corresponds to memory location 107. So the hexadecimal address
+of the instruction LDA must be 107. When the two parts of the instruction are
+assembled, we obtain the hexadecimal code 2107. The other lines representing
+machine instructions are translated in a similarfashion and their hexadecimal
+code is listed in Table 6-9.
+
+Two linesin the symbolic program specify decimal operands with the
+pseudoinstruction DEC. A third specifies a zero by means of a HEX pseudo-
+instruction (DEC could be used as well). Decimal 83 is converted to binary and
+placed in location 106 in its hexadecimal equivalent. Decimal —23 is a negative
+number and must be converted into binary in signed-2's complement form.
+
+TABLE 6-9 Listing of Translated Program of Table 6-8
+Hexadecimal code
+
+Location Content Symbolic program
+
+‘ORG 100
+100 2107 LDA SUB
+101 7200 CMA
+
+102 7020 INC
+
+103 1105 ADD MIN
+104 3108 STA DIF
+105 7001 HLT
+
+106 0053 = MIN, DEC 83
+107 FFE9 SUB, DEC -23
+108 0000 «=««éDIF,,«- HEXO
+
+END
+

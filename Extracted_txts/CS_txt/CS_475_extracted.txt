@@ -1,0 +1,53 @@
+1026
+
+Chapter 33 Computational Geometry
+
+ 
+
+d
+
+bic a c
+c
+b
+
+a a doe
+. ~
+
+b boe
+
+b
+
+time
+
+Figure 33.5 The execution of ANY-SEGMENTS-INTERSECT. Each dashed line is the sweep line at
+an event point. Except for the rightmost sweep line, the ordering of segment names below each sweep
+line corresponds to the total preorder T at the end of the for loop processing the corresponding event
+point. The rightmost sweep line occurs when processing the right endpoint of segment c; because
+segments d and b surround c and intersect each other, the procedure returns TRUE.
+
+Correctness
+
+To show that ANY-SEGMENTS-INTERSECT is correct, we will prove that the call
+ANY-SEGMENTS-INTERSECT(S) returns TRUE if and only if there is an intersec-
+tion among the segments in S.
+
+It is easy to see that ANY-SEGMENTS-INTERSECT returns TRUE (on lines 7
+and 10) only if it finds an intersection between two of the input segments. Hence,
+if it retuns TRUE, there is an intersection.
+
+We also need to show the converse: that if there is an intersection, then ANY-
+SEGMENTS-INTERSECT returns TRUE. Let us suppose that there is at least one
+intersection. Let p be the leftmost intersection point, breaking ties by choosing the
+point with the lowest y-coordinate, and let a and b be the segments that intersect
+at p. Since no intersections occur to the left of p, the order given by T is correct at
+all points to the left of p. Because no three segments intersect at the same point, a
+and b become consecutive in the total preorder at some sweep line z.? Moreover,
+Z is to the left of p or goes through p. Some segment endpoint g on sweep line z
+
+ 
+
+7 If we allow three segments to intersect at the same point, there may be an intervening segment c that
+intersects both a and b at point p. That is, we may have a >w ¢ and ¢ > b forall sweep lines w to
+the left of p for which a = b. Exercise 33.2-8 asks you to show that ANY-SEGMENTS-INTERSECT
+is correct even if three segments do intersect at the same point.
+

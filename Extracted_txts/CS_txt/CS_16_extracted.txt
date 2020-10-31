@@ -1,0 +1,48 @@
+24.1 The Bellman-Ford algorithm 653
+
+Corollary 24.3
+
+Let G = (V, E) be a weighted, directed graph with source vertex s and weight
+function w : E — R, and assume that G contains no negative-weight cycles that
+are reachable from s. Then, for each vertex v € V, there is a path from s to v if
+and only if BELLMAN-FoRD terminates with v.d < 00 when it is run on G.
+
+Proof The proof is left as Exercise 24.1-2. .
+
+Theorem 24.4 (Correctness of the Bellman-Ford algorithm)
+
+Let BELLMAN-FoRD be run on a weighted, directed graph G = (V,£) with
+source s and weight function w : E — R. If G contains no negative-weight cycles
+that are reachable from s, then the algorithm returns TRUE, we have v.d = 4(s,v)
+for all vertices v € V, and the predecessor subgraph G, is a shortest-paths tree
+rooted at s. If G does contain a negative-weight cycle reachable from s, then the
+algorithm returns FALSE.
+
+Proof Suppose that graph G contains no negative-weight cycles that are reach-
+able from the source s. We first prove the claim that at termination, v.d = 6(s, v)
+for all vertices v € V. If vertex v is reachable from s, then Lemma 24.2 proves this
+claim. If v is not reachable from s, then the claim follows from the no-path prop-
+erty. Thus, the claim is proven. The predecessor-subgraph property, along with the
+claim, implies that G,, is a shortest-paths tree. Now we use the claim to show that
+BELLMAN-FORD returns TRUE. At termination, we have for all edges (u,v) € E,
+
+v.d = 8&(s,v)
+5(s,u) + w(u,v) (by the triangle inequality)
+u.d+w(u,v),
+
+IA Il
+
+and so none of the tests in line 6 causes BELLMAN-FORD to return FALSE. There-
+fore, it returns TRUE.
+
+Now, suppose that graph G contains a negative-weight cycle that is reachable
+from the source 5; let this cycle be c = (vo.V1...-. ve), Where Vo = vz. Then,
+
+k
+
+Yw(i-n.vi) <0. (24.1)
+i=l
+Assume for the purpose of contradiction that the Bellman-Ford algorithm returns
+TRUE. Thus, vj.d < vj-y.d + w(v;-1,v;) fori = 1,2,..., k. Summing the
+inequalities around cycle c gives us
+

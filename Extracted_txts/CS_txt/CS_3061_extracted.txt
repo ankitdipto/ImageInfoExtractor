@@ -1,0 +1,48 @@
+ 
+
+ 
+
+l 5 PROBABILISTIC
+REASONING SYSTEMS
+
+ 
+
+ 
+
+ 
+
+In which we explain how to build reasoning systems that use network models to
+reason with uncertainty according to the laws of probability theory.
+
+Chapter 14 gave the syntax and semantics of probability theory. This chapter introduces an
+inference mechanism, thus giving us everything we need to build an uncertain-reasoning system.
+
+The main advantage of probabilistic reasoning over logical reasoning is in allowing the
+agent to reach rational decisions even when there is not enough information to prove that any
+given action will work. We begin by showing how to capture uncertain knowledge in a natural
+and efficient way. We then show how probabilistic inference, although exponentially hard in the
+worst case, can be done efficiently in many practical situations. We conclude the chapter with a
+discussion of knowledge engineering techniques for building probabilistic reasoning systems, a
+case study of one successful system, and a survey of alternate approaches.
+
+15.1 _ REPRESENTING KNOWLEDGE IN AN UNCERTAIN DOMAIN
+
+BELIEF NETWORK
+
+In Chapter 14, we saw that the joint probability distribution can answer any question about
+the domain, but can become intractably large as the number of variables grows. Furthermore,
+specifying probabilities for atomic events is rather unnatural and may be very difficult unless a
+large amount of data is available from which to gather statistical estimates
+
+Wealso saw that, in the context ofusing Bayes' rule, conditional independence relationships
+among variables can simplify the computation of query results and greatly reduce the number
+of conditional probabilities that need to be specified. We use a data structure called a belief
+network! to represent the dependence between variables and to give a concise specification of
+the joint probability distribution. A belief network is a graph in which the following holds:
+
+1 This is the most common name, but there are many others, including Bayesian network, probabilistic network,
+causal network, and knowledge map. An extension ofbeliefnetworks called a decision network orinfluence diagram
+will be covered in Chapter 16.
+
+436
+

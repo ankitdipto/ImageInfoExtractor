@@ -1,0 +1,50 @@
+Exercises 313
+
+© Swapping: Any algorithm can have swapping added to it. At intervals
+determined by the operating system, usually dictated by CPU-scheduling
+policies, processes are copied from main memory to a backing store, and
+later are copied back to main memory. This scheme allows more processes
+to be run than can be fit into memory at one time.
+
+.
+
+Sharing: Another means of increasing the multiprogramming level is to
+share code and data among different users. Sharing generally requires
+that either paging or segmentation be used, to provide small packets of
+information (pages or segments) that can be shared. Sharing is a means
+of running many processes with a limited amount of memory, but shared
+programs and data must be designed carefully.
+
+Protection: If paging or segmentation is provided, different sections of a
+user program can be declared execute only, read only, or read—write. This
+restriction is necessary with shared code or data, and is generally useful
+in any case to provide simple run-time checks for common programming
+errors.
+
+= Exercises
+
+9.1 Name two differences between logical and physical addresses.
+9.2. Explain the difference between internal and external fragmentation.
+9.3. Describe the following allocation algorithms:
+
+a. First fit
+
+b. Best fit
+
+c. Worst fit
+
+9.4 When a process is rolled out of memory, it loses its ability to use the CPU
+(at least for a while). Describe another situation where a process loses its
+ability to use the CPU, but where the process does not get rolled out.
+
+9.5 Given memory partitions of 100 KB, 500 KB, 200 KB, 300 KB, and 600 KB (in
+order), how would each of the first-fit, best-fit, and worst-fit algorithms
+place processes of 212 KB, 417 KB, 112 KB, and 426 KB (in order)? Which
+algorithm makes the most efficient use of memory?
+
+9.6 Consider a system where a program can be separated into two parts: code
+and data. The CPU knows whether it wants an instruction (instruction
+fetch) or data (data fetch or store). Therefore, two base-limit register
+pairs are provided: one for instructions and one for data. The instruction
+base-limit register pair is automatically set to read only, so programs can
+

@@ -1,0 +1,68 @@
+SECTION &-7 Program Control 275
+
+_ tt
+
+A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Check for zero output
+
+ 
+
+Output F
+Figure 8-8 Status register bits.
+overflow when negative numbers are in2's complement (see Sec. 3-3)
+
+For the 8-bit ALU, V = 1 if the output is greater than +127 or less than
+~128,
+
+ 
+
+The status bits can be checked after an ALU operation to determine
+certain relationships that exist between the values of A and B. If bit V is set after
+the addition of two signed numbers, it indicates an overflow condition. If Zis
+set after an exclusive-OR operation, it indicates that A = B. This is so because
+x@®x = 0, and the exclusive-OR of two equal operands gives an all-0's result
+which sets the Z bit A single bit in A can be checked to determine if it is Oor
+1 by masking all bits except the bit in question and then checking the Z status
+bit. For example, let A = 101x1100, where xis the bit to be checked. The AND
+operation of A with B = 00010000 produces a result 000x000. If x = 0, the Z
+status bit is set, but if x = 1, the Z bit is cleared since the result is not zero. The
+AND operation can be generated with the TEST instruction listed in Table8-10
+if the original content of A must be preserved.
+
+ 
+
+  
+
+Conditional Branch Instructions
+
+Table8-11 givesa listof the most common branch instructions. Each mnemonic
+isconstructedwith the letter B (for branch) andan abbreviation of the condition
+name. When the opposite condition state is used, the letter N (for no) is
+

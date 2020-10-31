@@ -1,0 +1,59 @@
+130
+
+Chapter 5 Probabilistic Analysis and Randomized Algorithms
+
+the following recursive procedure returns a random m-subset S of {1,2,3,....n},
+in which each m-subset is equally likely, while making only m calls to RANDOM:
+
+RANDOM-SAMPLE(m, 1)
+
+ 
+
+1 ifm==0
+
+2 return
+
+3 else S = RANDOM-SAMPLE(m — 1,n — 1)
+4 i = RANDOM(I,n)
+
+5 ifie S
+
+6 S=SU{n}
+
+7 else S = S U {i}
+
+8 return S
+
+ 
+
+* 5.4 Probabilistic analysis and further uses of indicator random variables
+
+This advanced section further illustrates probabilistic analysis by way of four ex-
+amples. The first determines the probability that in a room of k people, two of
+them share the same birthday. The second example examines what happens when
+we randomly toss balls into bins. The third investigates “streaks” of consecutive
+heads when we flip coins. The final example analyzes a variant of the hiring prob-
+lem in which you have to make decisions without actually interviewing all the
+candidates.
+
+5.4.1 The birthday paradox
+
+Our first example is the birthday paradox. How many people must there be in a
+room before there is a 50% chance that two of them were born on the same day of
+the year? The answer is surprisingly few. The paradox is that it is in fact far fewer
+than the number of days in a year, or even half the number of days in a year, as we
+shall see.
+
+To answer this question, we index the people in the room with the integers
+1,2,...,k, where k is the number of people in the room. We ignore the issue
+of leap years and assume that all years have n = 365 days. Fori = 1,2,..., k,
+let b; be the day of the year on which person i’s birthday falls, where 1 < bj <n.
+We also assume that birthdays are uniformly distributed across the n days of the
+year, so that Pr{b; =r} = 1/n fori = 1,2,..., k andr =1,2,....n.
+
+The probability that two given people, say i and j, have matching birthdays
+depends on whether the random selection of birthdays is independent. We assume
+from now on that birthdays are independent, so that the probability that ’s birthday
+
+ 
+

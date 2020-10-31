@@ -1,0 +1,56 @@
+ 
+
+Using Vision for Manipulation and Navigation 749
+
+ 
+
+Waltz (1975) proposed an algorithm for this problem (actually for an augmented version with
+shadows, cracks, and separably concave edges) that was one of the first applications of constraint
+satisfaction in AI (see Chapter 3). In the terminology of CSPs, the variables are the junctions,
+the values are labellings for the junctions, and the constraints are that each line has a single
+label. Although Kirousis and Papadimitriou (1988) have shown that the line-labelling problem
+for trihedral scenes is NP-complete, standard CSP algorithms perform well in practice.
+
+Although the Huffman—Clowes—Waltz labeling scheme was limited to trihedral objects,
+subsequent work by Mackworth(1973) and Sugihara (1984) resulted in a generalization for
+arbitrary polyhedra and work by Malik (1987) for piecewise smooth curved objects.
+
+24.5 USING VISION FOR MANIPULATION AND NAVIGATION
+
+One of the principal uses of vision is to provide information for manipulating objects—picking
+them up, grasping, twirling, and so on—as well as navigating in a scene while avoiding obstacles.
+
+The capability to use vision for these purposes is present in the most primitive of animal
+visual systems. Perhaps the evolutionary origin of the vision sense can be traced back to the
+presence of a photosensitive spot on one end of an organism that enabled it to orient itself toward
+(or away from) the light. Flies use vision based on optic flow to control their landing responses.
+
+Mobile robots moving around in an environment need to know where the obstacles are,
+where free space corridors are available, and so on. More on this in Chapter 25.
+
+Let us study the use of vision in driving in detail. Consider the tasks for the driver of the
+car in the bottom left corner of Figure 24.24.
+
+1. Keep moving at a reasonable speed vo.
+
+2. Lateral control—ensure that the vehicle remains securely within its lane, that is, keep
+d = d,.
+
+3. Longitudinal control—ensure that there is a safe distance d) between it and the vehicle in
+front of it.
+
+4. Monitor vehicles in neighboring lanes (at distances d; and d;)and be prepared for appro-
+priate maneuvers if one of them decides to change lanes.
+
+The problem for the driver is to generate appropriate steering, actuation or braking actions to
+best accomplish these tasks. Focusing specifically on lateral and longitudinal control, what
+information is needed for these tasks?
+
+For lateral control, one needs to maintain a representation of the position and orientation
+of the car relative to the lane. The view of the road from a camera mounted on a car is shown in
+Figure 24.25. We detect edges corresponding to the lane marker segments and then fit smooth
+curves to these. The parameters of these curves carry information about the lateral position of the
+car, the direction it is pointing relative to the lane, and the curvature ofthe lane. This information,
+along with the dynamics of the car, is all that is needed by the steering control system. Note
+also that because from every frame to the next frame there is only a small change in the position
+

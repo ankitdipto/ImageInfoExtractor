@@ -1,0 +1,59 @@
+Chapter 14: Operations On Bits 501
+
+ 
+
+fifteen places. If the variable n’s most significant bit is 0, then k
+would contain a value 0, otherwise it would contain a non-zero
+value. If k contains 0 then printf( ) will print out 0 otherwise it
+will print out 1.
+
+On the second go-around of the loop, the value of i is decremented
+and hence the value of andmask changes, which will now be
+0100000000000000. This checks whether the next most significant
+bit is 1 or 0, and prints it out accordingly. The same operation is
+repeated for all bits in the number.
+
+Summary
+
+(a)
+()
+
+()
+@
+
+()
+
+(
+(g)
+
+To help manipulate hardware oriented data—individual bits
+rather than bytes a set of bitwise operators are used.
+
+The bitwise operators include operators like one’s
+complement, right-shift, left-shift, bitwise AND, OR, and
+XOR.
+
+The one’s complement converts all zeros in its operand to 1s
+and all 1s to 0s.
+
+The right-shift and left-shift operators are useful in
+eliminating bits from a number—either from the left or from
+the right.
+
+The bitwise AND operators is useful in testing whether a bit is
+on/off and in putting off a particular bit.
+
+The bitwise OR operator is used to turn on a particular bit.
+The XOR operator works almost same as the OR operator
+except one minor variation.
+
+Exercise
+
+[A] Answer the following:
+
+(a)
+
+The information about colors is to be stored in bits of a char
+variable called color. The bit number 0 to 6, each represent 7
+colors of a rainbow, i.e. bit 0 represents violet, 1 represents
+

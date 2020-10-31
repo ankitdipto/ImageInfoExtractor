@@ -1,0 +1,81 @@
+508
+
+Chapter 17. Making Complex Decisions
+
+ 
+
+17.4 DECISION-THEORETIC AGENT DESIGN
+
+DECISIONCYCLE
+
+‘STATE VARIABLES
+
+ 
+
+ 
+
+ 
+
+ 
+
+In this section, we outline a comprehensive approach to agent design for environments with
+uncertainty. It ties together belief and decision networks with the techniques for sequential
+decision problems discussed earlier. It addresses the problem of large state spaces by decomposing
+the state description into a set of random variables, much as the planning algorithms in Part IV
+used logical representations to decompose the state space used by search algorithms. We begin
+by describing the basic approach, which harks back to the sketch of the utility-based agent
+provided in Chapter 2. We then show how sensing works in an uncertain, partially accessible
+environment. Section 17.5 extends the idea of beliefnetworks to cover environments that change
+over time, and then Section 17.6 includes decisions, providing a complete agent design.
+
+The decision cycle of a rational agent
+
+Figure 17.8 repeats the schematic agent design for rational agents first shown in Figure 14.1. At
+each step, the processing done by the agent is called the decision cycle. In this section, we will
+make components of the cycle more precise. We begin with the first step, that of determining the
+current state of the world.
+
+ 
+
+function DECISION-THEORETIC-AGENT( percept) returns action
+
+calculate updated probabilities for current state based on
+
+available evidence including current percept and previous action
+calculate outcome probabilities for actions
+
+given action descriptions and probabilities of current states
+select action with highest expected utility
+
+given probabilities of outcomes and utility information
+return action
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 178 _A decision-theoretic agent (repeat of earlier figure).
+
+ 
+
+ 
+
+ 
+
+In general, we will assume that we have a set of random variables X, that refer to the
+current state of the world. We will call these the state variables. For example, if the agent is a
+robot moving in the X-Y plane, then we might use X, and Y, to refer to the robot's position at
+time t, and X, and Y, to refer to the velocity. Notice the similarity to the propositional version
+of situation calculus used in Chapter 6 for the first logical-agent design. This similarity is not
+a coincidence: probability theory essentially combines propositional logic with uncertainty. As
+in situation calculus, it is important to distinguish between beliefs about a changing world and
+changing beliefs about a given world. The former is achieved by having different propositions
+referring to different times, and the latter by conditioning the probability of a given proposition
+on additional evidence. Thus, if the percept history up to and including time f is Ey, .... Ex
+
+ 
+

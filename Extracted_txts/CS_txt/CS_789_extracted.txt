@@ -1,0 +1,38 @@
+Chapter 4: The Case Control Structure 143
+
+ 
+
+@®
+
+(g)
+
+main()
+{
+int i,j;
+
+printf (“Enter value of i") ;
+scanf ("%d", &i) ;
+
+switch (i)
+
+printf (“Hello”) ;
+
+If we have no default case, then the program simply falls
+through the entire switch and continues with the next
+instruction (if any,) that follows the closing brace of switch.
+
+Is switch a replacement for if? Yes and no. Yes, because it
+offers a better way of writing programs as compared to if, and
+no because in certain situations we are left with no choice but
+to use if. The disadvantage of switch is that one cannot have a
+case in a switch which looks like:
+
+case i <= 20:
+
+All that we can have after the case is an int constant or a char
+constant or an expression that evaluates to one of these
+constants. Even a float is not allowed.
+
+The advantage of switch over if is that it leads to a more
+structured program and the level of indentation is manageable,
+

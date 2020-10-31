@@ -1,0 +1,89 @@
+secvion 9.2 Pipelining 303
+
+example. Suppose that we want to perform the combined multiply and add
+operations with a stream of numbers.
+
+AmB +C, fori =1,2,3,...,7
+
+Each suboperation is to be implemented in a segment within a pipeline. Each
+
+‘ent has one or two registers and a combinational circuit as shown in Fig.
+9-2 R1 through R5 areregisters that receive new data with every clock pulse.
+The multiplier and adder are combinational circuits. The suboperations per-
+formed in each segment of the pipeline are as follows:
+
+RMA, RIB, Input A,and B;
+R3<R1*R2, R4<C, Multiply and input C,
+RS—R3 + RA ‘Add C; to product
+
+The five registers are loaded with new data every clock pulse. The effectofeach
+lock is shown in Table 9-1. The first clock pulse transfers 4; and B, into R1 and
+
+Figure 9-2 Example of pipeline processing.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+A a G
+YL
+RI RD
+Y
+Maltipier
+1
+RB Ra
+| |
+‘Adder
+
+ 
+
+ 
+
+ 
+
+ 
+
+RS
+
+ 
+
+ 
+
+ 
+

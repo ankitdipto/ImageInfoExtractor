@@ -1,0 +1,50 @@
+11.3 Hash functions 267
+
+expectation, therefore, the expected time for the entire sequence of n operations
+is O(n). Since each operation takes Q(1) time, the ©(7) bound follows. .
+
+Designing a universal class of hash functions
+
+It is quite easy to design a universal class of hash functions, as a little number
+theory will help us prove. You may wish to consult Chapter 31 first if you are
+unfamiliar with number theory.
+
+We begin by choosing a prime number p large enough so that every possible
+key k is in the range 0 to p — 1, inclusive. Let Zp denote the set {0,1,..., p-\.
+and let Z> denote the set {1,2,...,p — 1}. Since p is prime, we can solve equa-
+tions modulo p with the methods given in Chapter 31. Because we assume that the
+size of the universe of keys is greater than the number of slots in the hash table, we
+have p >m.
+
+We now define the hash function /4, for any a € Z), and any b € Zp using a
+linear transformation followed by reductions modulo p and then modulo m:
+
+Nav(k) = ((ak + b) mod p) mod m . (11.3)
+
+For example, with p = 17 andm = 6, we have /h3,4(8) = 5. The family of all
+such hash functions is
+Kom = {hay 2a € Zp and b € Zy} . (11.4)
+
+Each hash function /igy maps Zp to Zm. This class of hash functions has the nice
+property that the size m of the output range is arbitrary—not necessarily prime—a
+feature which we shall use in Section 11.5. Since we have p — | choices for a
+and p choices for b, the collection pm contains p(p — 1) hash functions.
+
+Theorem 11.5
+The class Jl», of hash functions defined by equations (11.3) and (11.4) is universal.
+
+Proof Consider two distinct keys k and/ from Zp, so that k # /. For a given
+hash function /igp we let
+
+r = (ak+b)modp,
+
+s = (al +b) mod p.
+
+We first note that r 4 s. Why? Observe that
+
+r—s =a(k—l) (mod p).
+
+It follows that r # s because p is prime and both a and (k — /) are nonzero
+modulo p, and so their product must also be nonzero modulo p by Theorem 31.6.
+Therefore, when computing any as € Hpm, distinct inputs k and / map to distinct
+

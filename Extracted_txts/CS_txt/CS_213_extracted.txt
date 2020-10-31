@@ -1,0 +1,52 @@
+Section 5.2.
+
+Perfect Decisions in Two-Person Games 123
+
+ 
+
+The presence of an opponent makes the decision problem somewhat more complicated
+than the search problems discussed in Chapter 3. The opponent introduces uncertainty, because
+one never knows what he or she is going to do. In essence, all game-playing programs must deal
+with the contingency problem defined in Chapter 3. The uncertainty is not like that introduced,
+say, by throwing dice or by the weather. The opponent will try as far as possible to make the least
+benign move, whereas the dice arid the weather are assumed (perhaps wrongly!) to be indifferent
+to the goals ofthe agent. This complication is discussed in Section 5.2.
+
+But what makes games really different is that they are usually much too hard to solve
+Chess, for example, has an average branching factor of about 35, and games often go to 50
+moves by each player, so the search tree has about 35!°° nodes (although there are "only" about
+10° different legal positions). Tic-Tac-Toe (noughts and crosses) is boring for adults precisely
+because it is easy to determine the right move. The complexity of games introduces a completely
+new kind of uncertainty that we have not seen so far; the uncertainty arises not because there is
+missing information, but because one does not have time to calculate the exact consequences of
+any move. Instead, one has to make one's best guess based on past experience, and act before
+one is sure of what action to take. In this respect, games are much more like the real world than
+the standard search problems we have looked at so far.
+
+Because they usually have time limits, games also penalize inefficiency very severely.
+Whereas an implementation of A* search that is 10% less efficient will simply cost a little bit
+extra to run to completion, a chess program that is 10% less effective in using its available time
+probably will be beaten into the ground, other things being equal. Game-playing research has
+therefore spawned a number of interesting ideas on how to make the best use of time to reach
+good decisions, when reaching optimal decisions is impossible. These ideas should be kept in
+mind throughout the rest of the book, because the problems of complexity arise in every area of
+AI. We will return to them in more detail in Chapter 16.
+
+We begin our discussion by analyzing how to find the theoretically best move. We then
+look at techniques for choosing a good move when time is limited. Pruning allows us to ignore
+portions of the search tree that make no difference to the final choice, and heuristic evaluation
+functions allow us to approximate the true utility of a state without doing a complete search.
+Section 5.5 discusses games such as backgammon that include an element of chance. Finally, we
+look at how state-of-the-art game-playing programs succeed against strong human opposition.
+
+3.2 PERFECT DECISIONS IN TWO-PERSON GAMES
+
+We will consider the general case of a game with two players, whom we will call MAX and MIN,
+for reasons that will soon become obvious. MAX moves first, and then they take turns moving
+until the game is over. At the end of the game, points are awarded to the winning player (or
+sometimes penalties are given to the loser). A game can be formally defined as a kind of search
+problem with the following components:
+
++ The initial state, which includes the board position and an indication of whose move it is
++ A set of operators, which define the legal moves that a player can make
+

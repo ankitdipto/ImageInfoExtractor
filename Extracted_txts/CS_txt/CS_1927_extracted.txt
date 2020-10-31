@@ -1,0 +1,61 @@
+380 Chapter11 File-System Interface
+
+systems, such as those of IBM, support many access methods, and choosing the
+right one for a particular application is a major design problem.
+
+11.2.1 Sequential Access
+
+The simplest access method is sequential access. Information in the file is
+processed in order, one record after the other. This mode of access is by far
+the most common; for example, editors and compilers usually access files in
+this fashion.
+
+The bulk of the operations on a file is reads and writes. A read operation
+reads the next portion of the file and automatically advances a file pointer,
+which tracks the I/O location. Similarly, a write appends to the end of the file
+and advances to the end of the newly written material (the new end of file).
+Such a file can be reset to the beginning and, on some systems, a program may
+be able to skip forward or backward n records, for some integer n—perhaps
+only for n = 1. Sequential access is depicted in Figure 11.2. Sequential access is
+based ona tape model of a file, and works as well on sequential-access devices
+as it does on random-access ones.
+
+11.2.2 Direct Access
+
+Another method is direct access (or relative access). A file is made up of fixed-
+length logical records that allow programs to read and write records rapidly
+in no particular order. The direct-access method is based on a disk model of
+a file, since disks allow random access to any file block. For direct access, the
+file is viewed as a numbered sequence of blocks or records. A direct-access file
+allows arbitrary blocks to be read or written. Thus, we may read block 14, then
+read block 53, and then write block 7. There are no restrictions on the order of
+reading or writing for a direct-access file.
+
+Direct-access files are of great use for immediate access to large amounts
+of information. Databases are often of this type. When a query concerning a
+particular subject arrives, we compute which block contains the answer, and
+then read that block directly to provide the desired information.
+
+As a simple example, on an airline-reservation system, we might store all
+the information about a particular flight (for example, flight 713) in the block
+
+current position
+
+beginning end
+
+ 
+
+ 
+
+ 
+
+ 
+
+ese ew i d See |
+
+ 
+
+kone read or write =—>
+
+Figure 11.2 Sequential-access file.
+

@@ -1,0 +1,31 @@
+ 
+
+Introduction
+
+This part presents several algorithms that solve the following sorting problem:
+
+Input: A sequence of n numbers (41,42,..., an).
+
+Output: A permutation (reordering) (a),a)..... a},) of the input sequence such
+that a) <a) <-+-- <a).
+
+The input sequence is usually an n-element array, although it may be represented
+in some other fashion, such as a linked list.
+
+The structure of the data
+
+In practice, the numbers to be sorted are rarely isolated values. Each is usually part
+of a collection of data called a record. Each record contains a key, which is the
+value to be sorted. The remainder of the record consists of satellite data, which are
+usually carried around with the key. In practice, when a sorting algorithm permutes
+the keys, it must permute the satellite data as well. If each record includes a large
+amount of satellite data, we often permute an array of pointers to the records rather
+than the records themselves in order to minimize data movement.
+
+In a sense, it is these implementation details that distinguish an algorithm from
+a full-blown program. A sorting algorithm describes the method by which we
+determine the sorted order, regardless of whether we are sorting individual numbers
+or large records containing many bytes of satellite data. Thus, when focusing on the
+problem of sorting, we typically assume that the input consists only of numbers.
+Translating an algorithm for sorting numbers into a program for sorting records
+

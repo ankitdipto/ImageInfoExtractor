@@ -1,0 +1,50 @@
+14.2. How to augment a data structure 345
+
+14.1-6
+
+Observe that whenever we reference the size attribute of a node in either OS-
+SELECT or OS-RANK, we use it only to compute a rank. Accordingly, suppose
+we store in each node its rank in the subtree of which it is the root. Show how to
+maintain this information during insertion and deletion. (Remember that these two
+operations can cause rotations.)
+
+14.1-7
+Show how to use an order-statistic tree to count the number of inversions (see
+Problem 2-4) in an array of size n in time O(n lgn).
+
+141-8 x
+
+Consider n chords ona circle, each defined by its endpoints. Describe an O(n lg n)-
+time algorithm to determine the number of pairs of chords that intersect inside the
+circle. (For example, if the n chords are all diameters that meet at the center, then
+the correct answer is (3).) Assume that no two chords share an endpoint.
+
+ 
+
+14.2 How to augment a data structure
+
+The process of augmenting a basic data structure to support additional functionality
+occurs quite frequently in algorithm design. We shall use it again in the next section
+to design a data structure that supports operations on intervals. In this section, we
+examine the steps involved in such augmentation. We shall also prove a theorem
+that allows us to augment red-black trees easily in many cases.
+
+We can break the process of augmenting a data structure into four steps:
+
+1. Choose an underlying data structure.
+2. Determine additional information to maintain in the underlying data structure.
+
+3. Verify that we can maintain the additional information for the basic modifying
+operations on the underlying data structure.
+
+4. Develop new operations.
+
+As with any prescriptive design method, you should not blindly follow the steps
+in the order given. Most design work contains an element of trial and error, and
+progress on all steps usually proceeds in parallel. There is no point, for example, in
+determining additional information and developing new operations (steps 2 and 4)
+if we will not be able to maintain the additional information efficiently. Neverthe-
+less, this four-step method provides a good focus for your efforts in augmenting
+a data structure, and it is also a good way to organize the documentation of an
+augmented data structure.
+

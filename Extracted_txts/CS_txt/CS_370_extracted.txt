@@ -1,0 +1,50 @@
+940
+
+Chapter 31 Number-Theoretic Algorithms
+
+4. Inverses: For each a € S, there exists a unique element b € S, called the
+inverse of a, such thata @b =b @a =e.
+
+As an example, consider the familiar group (Z,+) of the integers Z under the
+operation of addition: 0 is the identity, and the inverse of a is —a. Ifa group (S, ®)
+satisfies the commutative law a @b = b @a foralla,b € S, then it is an abelian
+group. If a group (S, @) satisfies |S| < 00, then it is a finite group.
+
+The groups defined by modular addition and multiplication
+
+We can form two finite abelian groups by using addition and multiplication mod-
+ulo 1, where n is a positive integer. These groups are based on the equivalence
+classes of the integers modulo n, defined in Section 31.1.
+
+To define a group on Z,, we need to have suitable binary operations, which
+we obtain by redefining the ordinary operations of addition and multiplication.
+We can easily define addition and multiplication operations for Z,, because the
+equivalence class of two integers uniquely determines the equivalence class of their
+sum or product. That is, if@ =a’ (mod n) and b = b’ (mod n), then
+
+a+b = a+b’ (modn),
+
+ab = dab (mod n) .
+
+Thus, we define addition and multiplication modulo n, denoted +,, and -,,, by
+
+lan +n [Jn = [a+P]n (31.18)
+[anon [Dn == [abn -
+
+(We can define subtraction similarly on Z, by [a]n —n [b]n = [a — b]n, but divi-
+sion is more complicated, as we shall see.) These facts justify the common and
+convenient practice of using the smallest nonnegative element of each equivalence
+class as its representative when performing computations in Z,. We add, subtract,
+and multiply as usual on the representatives, but we replace each result x by the
+representative of its class, that is, by x mod n.
+
+Using this definition of addition modulo n, we define the additive group
+modulo n as (Zn.+n). The size of the additive group modulo n is |Z,| = n.
+Figure 31.2(a) gives the operation table for the group (Zs. +6).
+
+Theorem 31.12
+The system (Z,. +n) is a finite abelian group.
+
+Proof Equation (31.18) shows that (Z,.+,,) is closed. Associativity and com-
+mutativity of +,, follow from the associativity and commutativity of +:
+

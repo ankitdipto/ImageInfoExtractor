@@ -1,0 +1,41 @@
+Chapter 7: The C Preprocessor 255
+
+ 
+
+a dialog box appears. In this dialog box against ‘Include
+Directories’ we can specify the search path. We can also specify
+multiple include paths separated by ‘;’ (semicolon) as shown
+below:
+
+c:\tc\lib ; c:\mylib ; d:\libfiles
+
+The path can contain maximum of 127 characters. Both relative
+and absolute paths are valid. For example ‘..\dir\incfiles’ is a valid
+path.
+
+Conditional Compilation
+
+We can, if we want, have the compiler skip over part of a source
+code by inserting the preprocessing commands #ifdef and #endif,
+which have the general form:
+
+#ifdef macroname
+statement 1 ;
+statement 2 ;
+statement 3 ;
+
+#endif
+
+If macroname has been #defined, the block of code will be
+processed as usual; otherwise not.
+
+Where would #ifdef be useful? When would you like to compile
+only a part of your program? In three cases:
+
+(a) To “comment out” obsolete lines of code. It often happens
+that a program is changed at the last minute to satisfy a client.
+This involves rewriting some part of source code to the
+client’s satisfaction and deleting the old code. But veteran
+programmers are familiar with the clients who change their
+mind and want the old code back again just the way it was.
+

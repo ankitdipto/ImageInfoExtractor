@@ -1,0 +1,49 @@
+10.4 Page Replacement 343
+
+10.4.5.3 Enhanced Second-Chance Algorithm
+
+We can enhance the second-chance algorithm by considering both the reference
+bit and the modify bit (Section 10.4) as an ordered pair. With these two bits, we
+have the following four possible classes:
+
+1. (0,0) neither recently used nor modified—best page to replace
+
+2. (0, 1) not recently used but modified—not quite as good, because the page
+will need to be written out before replacement
+
+3. (1,0) recently used but clean—it probably will be used again soon
+
+4. (1,1) recently used and modified—it probably will be used again soon, and
+the page will be need to be written out to disk before it can be replaced
+
+When page replacement is called for, each page is in one of these four classes.
+We use the same scheme as the clock algorithm, but instead of examining
+whether the page to which we are pointing has the reference bit set to 1,
+we examine the class to which that page belongs. We replace the first page
+encountered in the lowest nonempty class. Notice that we may have to scan the
+circular queue several times before we find a page to be replaced.
+
+This algorithm is used in the Macintosh virtual-memory-management
+scheme. The major difference between this algorithm and the simpler clock
+algorithm is that here we give preference to those pages that have been modi-
+fied to reduce the number of I/Os required.
+
+10.4.6 Counting-Based Page Replacement
+
+There are many other algorithms that can be used for page replacement. For
+example, we could keep a counter of the number of references that have been
+made to each page, and develop the following two schemes.
+
+« The least frequently used (LFU) page-replacement algorithm requires that
+the page with the smallest count be replaced. The reason for this selection
+is that an actively used page should have a large reference count. This
+algorithm suffers from the situation in which a page is used heavily during
+the initial phase of a process, but then is never used again. Since it was
+used heavily, it has a large count and remains in memory even though it is
+no longer needed. One solution is to shift the counts right by 1 bit at regular
+intervals, forming an exponentially decaying average usage count.
+
+« The most frequently used (MFU) page-replacement algorithm is based
+on the argument that the page with the smallest count was probably just
+brought in and has yet to be used.
+

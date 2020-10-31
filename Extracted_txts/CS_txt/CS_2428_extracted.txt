@@ -1,0 +1,52 @@
+3.1 Asymptotic notation 47
+
+expression does not indicate what variable is tending to infinity.? We shall often
+use the notation ©(1) to mean either a constant or a constant function with respect
+to some variable.
+
+O-notation
+
+The @-notation asymptotically bounds a function from above and below. When
+we have only an asymptotic upper bound, we use O-notation. For a given func-
+tion g(n), we denote by O(g(n)) (pronounced “big-oh of g of n” or sometimes
+just “oh of g of n”) the set of functions
+
+O(g(n)) = {f(n) : there exist positive constants c and 1 such that
+0 < f(n) <cg(n) foralln > no}.
+
+We use O-notation to give an upper bound on a function, to within a constant
+factor. Figure 3.1(b) shows the intuition behind O-notation. For all values n at and
+to the right of mo, the value of the function f(7) is on or below cg(n).
+
+We write f(n) = O(g(n)) to indicate that a function f (1) is a member of the
+set O(g(n)). Note that f(n) = O(g(n)) implies f(n) = O(g(n)), since O-
+notation is a stronger notion than O-notation. Written set-theoretically, we have
+O(g(n)) C O(g(n)). Thus, our proof that any quadratic function an? + bn +c,
+where a > 0, is in O(n?) also shows that any such quadratic function is in O(n?).
+What may be more surprising is that when a > 0, any linear function an + b is
+in O(n’), which is easily verified by taking c = a + |b| and np = max(1,—b/a).
+
+If you have seen O-notation before, you might find it strange that we should
+write, for example, n = O(n). In the literature, we sometimes find O-notation
+informally describing asymptotically tight bounds, that is, what we have defined
+using ©-notation. In this book, however, when we write f(n) = O(g(n)), we
+are merely claiming that some constant multiple of g() is an asymptotic upper
+bound on f(m), with no claim about how tight an upper bound it is. Distinguish-
+ing asymptotic upper bounds from asymptotically tight bounds is standard in the
+algorithms literature.
+
+Using O-notation, we can often describe the running time of an algorithm
+merely by inspecting the algorithm’s overall structure. For example, the doubly
+nested loop structure of the insertion sort algorithm from Chapter 2 immediately
+yields an O(n) upper bound on the worst-case running time: the cost of each it-
+eration of the inner loop is bounded from above by O(1) (constant), the indices i
+
+ 
+
+ 
+
+2The real problem is that our ordinary notation for functions does not distinguish functions from
+values. In A-calculus, the parameters to a function are clearly specified: the function n? could be
+written as An.n?, or even Ar.r?. Adopting a more rigorous notation, however, would complicate
+algebraic manipulations, and so we choose to tolerate the abuse.
+

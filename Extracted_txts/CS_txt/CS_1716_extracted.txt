@@ -1,0 +1,51 @@
+206  Chapter7 Process Synchronization
+
+The wait operation on the counting semaphore S can be implemented as
+follows:
+
+wait(S1);
+
+c--;
+
+if (C < 0) {
+signal (S1);
+wait (S2);
+
+}
+signal (S1);
+
+The signal operation on the counting semaphore S can be implemented
+as follows:
+
+wait (S1);
+C++;
+if (C <= 0)
+signal (S2);
+else
+signal (S1);
+
+7.5 = Classic Problems of Synchronization
+
+In this section, we present a number of different synchronization problems as
+examples for a large class of concurrency-control problems. These problems
+are used for testing nearly every newly proposed synchronization scheme.
+Semaphores are used for synchronization in our solutions.
+
+7.5.1 The Bounded-Buffer Problem
+
+The bounded-buffer problem was introduced in Section 7.1; it is commonly used
+to illustrate the power of synchronization primitives. We present here a gen-
+eral structure of this scheme, without committing ourselves to any particular
+implementation. We assume that the pool consists of n buffers, each capable
+of holding one item. The mutex semaphore provides mutual exclusion for
+accesses to the buffer pool and is initialized to the value 1. The empty and
+full semaphores count the number of empty and full buffers, respectively. The
+semaphore empty is initialized to the value n; the semaphore ful1 is initialized
+to the value 0.
+
+The code for the producer process is shown in Figure 7.12; the code for
+the consumer process is shown in Figure 7.13. Note the symmetry between
+the producer and the consumer. We can interpret this code as the producer
+producing full buffers for the consumer, or as the consumer producing empty
+buffers for the producer.
+

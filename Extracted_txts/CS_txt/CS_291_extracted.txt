@@ -1,0 +1,55 @@
+130 Chapter 5, Game Playing
+
+ 
+
+ 
+
+ 
+
+Black to move
+
+ 
+
+ 
+
+Figure 55 The horizon problem. A series of checks by the black rook forces the inevitable
+queening move by white "over the horizon" and makes this position look like a slight advantage
+for black, when it is really a sure win for white.
+
+ 
+
+ 
+
+ 
+
+PRUNING without examining it is called pruning the search tree. The particular technique we will examine 4
+A RRBETA is called alpha-beta pruning. When applied to a standard minimax tree, it returns the same move
+
+as minimax would, but prunes away branches that cannot possibly influence the final decision.
+Consider the two-ply game tree from Figure 5.2, shown again in Figure 5.6. The search
+proceeds as before: 4\, then A\\, A\2, Aj3, and the node under A, gets minimax value 3. Now
+we followA2, and A), which has value 2. At this point, we realize that if MAX plays Az, MIN has
+the option ofreaching a position worth 2, and some other options besides. Therefore, we can say
+already that move A) is worth at most 2 to MAX. Because we already know that move 4 | is worth 4
+3, there is no point at looking further under A2. In other words, we can prune the search tree at
+
+this point and be confident that the pruning will have no effect on the outcome.
+The general principle is this. Consider a node n somewhere in the tree (see Figure 5.7),
+such that Player has a choice of moving to that node. If Player has a better choice m either at the
+te parent node of n, or at any choice point further up, then n will never be reached in actual play.
+[Es So once we have found out enough about n (by examining some of its descendants) to reach this
+conclusion, we can prune it.
+
+Remember that minimax search is depth-first, so at any one time we just have to consider
+the nodes along a single path in the tree. Let a be the value of the best choice we have found so
+far at any choice point along the path for MAX, and 7 be the value ofthe best (.e., lowest-value)
+choice we have found so far at any choice point along the path formin. Alpha-beta search updates
+the value of a and 8 as it goes along, and prunes a subtree (i.e., terminates the recursive call) as
+soon as it is known to be worse than the current « or J3 value.
+
+The algorithm description in Figure 5.8 is divided into a MAX-VALUE function and a
+MIN-VALUE function. These apply to MAX nodes and In nodes, respectively, but each does the
+same thing: return the minimax value of the node, except for nodes that are to be pruned (in
+
+    
+

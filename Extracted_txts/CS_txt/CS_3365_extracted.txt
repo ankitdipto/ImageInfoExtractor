@@ -1,0 +1,58 @@
+Section 23.4.
+
+Scaling Up the Grammar 709
+
+ 
+
+So far, the rules are simple, and the mapping from strings to quasi-logical form is easy. The hard
+part is translating from quasi-logical form to logical form. Here are two examples of the logical
+form we would like to end up with:
+
+Three women carried a piano.
+
+As Cardinality(s= 3 AVw (w£s = Woman(w))
+A dp Piano(p) Ade (e € Carry,(s,p, Past)))
+
+(There is a set of 3 women; this set carried the piano.)
+
+Three women carried a baby.
+35 Cardinality(s)= 3 AVw ((wGs > Woman(w))
+Ab Baby(b) A Je (e € Carry2(w,p, Past)))
+
+(There is a set of 3 women; each woman in the set carried a baby.)
+These examples are ambiguous. In the most likely interpretations, it is the set of women, s,
+who are carrying the piano together in the first example, whereas in the second example, each
+woman is separately carrying a different baby. The subscripts on Carry indicate different senses.
+To account for these two different interpretations, we will have to make the rule for translating
+[3 w Woman(w)]capable of equating either the variable denoting the set (s) or the variable
+denoting the elements of the set (w) with the variable representing the subject of the verb phrase.
+
+Noun phrases revisited
+
+Now we look at the rules for noun phrases. The rule for pronouns is unchanged from Chapter 22,
+and the old rule for Article plus Noun could be updated simply by changing Article to Det and
+including case information and agreement in person and number, yielding the following rule:
+
+NP(case, Person(3), number, [qx sem(x)])— Det(number, q) Noun(number, sem)
+
+We stick to the convention that the semantics is always the last argument. The case variable
+is unbound, indicating that the NP can be used in either the subjective or objective case. The
+number variable can take on the values Singular or Plural, and the rule says that the Det and Noun
+must have the same number. For example, "a dog" and "those dogs" are grammatical because
+they agree in number, but "a dogs" and "those dog" are ungrammatical because they disagree.
+Note that some determiners (like "the") and some nouns (like "sheep") can be either singular or
+plural.
+
+Besides playing a role inside the noun phrase, the number variable is also important
+externally: in the S — NP VP rule, the subject noun phrase must agree with the verb phrase
+in number and person. All nouns are in the third person, which we have denoted Person(3).
+Pronouns have more variety; the pronoun "you," for example, is in the second person and "I" is in
+the third. Verbs are also marked for person and number. For example, the verb "am" is Singular
+and Person(I), and therefore "I am" is grammatical, while "you am" is not. Here is a rule that
+enforces subject/verb agreement:
+
+S(rel(obj))— NP(Subject, person, number, obj) VP(personjumber, rel)
+
+It is also possible to form a noun phrase from a noun with no determiner. There are several ways
+to do this. One is with a name, such as "John" or "Berkeley." There are several choices for the
+

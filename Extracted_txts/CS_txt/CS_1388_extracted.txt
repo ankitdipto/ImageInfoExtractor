@@ -1,0 +1,41 @@
+Chapter 19: Interaction With Hardware 641
+
+ 
+
+As we know, the OnCreate( ) and OnDestroy( ) handlers would
+be called when the WM_CREATE and WM_DESTROY
+messages arrive respectively. In OnCreate( ) we have loaded the
+DLL containing the hook procedure. To do this we have called the
+LoadLibrary( ) API function. Once the DLL is loaded we have
+obtained the address of the exported function installhook( ) using
+the GetProcAddress( ) API function. The returned address is
+stored in p, where p is a pointer to the installhook( ) function.
+Using this pointer we have then called the installhook( ) function.
+
+In the installhook( ) function we have called the API function
+SetWindowsHookEx( ) to register our hook procedure with the
+OS as shown below:
+
+hkb = SetWindowsHookEx ( WH_KEYBOARD,
+( HOOKPROC ) KeyboardProc, ( HINSTANCE ) h, 0) ;
+
+Here the first parameter is the type of hook that we wish to
+register, whereas the second parameter is the address of our hook
+procedure KeyboardProc( ). hkb stores the handle of the hook
+installed.
+
+From now on whenever a keyboard message is retrieved by the OS
+from the System Message Queue the message is firstly passed to
+our hook procedure, i.e. to KeyboardProc( ) function. Inside this
+function we have written code to ensure that the CapsLock always
+remains on. To begin with we have checked whether nCode
+parameter is less than 0. If it so then it necessary to call the next
+hook procedure. The MSDN documentation suggests that “if code
+is less than zero, the hook procedure must pass the message to the
+CallNextHookEx( ) function without further processing and
+should return the value returned by CallNextHookEx()”.
+
+Note that there can be several hook procedures installed by
+different programs, thus forming a chain of hook procedures.
+These hook procedures always get called in an order that is
+

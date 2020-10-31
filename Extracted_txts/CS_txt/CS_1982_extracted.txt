@@ -1,0 +1,53 @@
+428
+
+Chapter 12 File-System Implementation
+
+small header giving the name of the file, and a set of the first 100 disk-block
+addresses. The next address (the last word in the index block) is nil (for a
+small file) or is a pointer to another index block (for a large file).
+
+Multilevel index: A variant of the linked representation is to use a first-
+level index block to point to a set of second-level index blocks, which in
+turn point to the file blocks. To access a block, the operating system uses
+the first-level index to find a second-level index block, and that block to
+find the desired data block. This approach could be continued to a third or
+fourth level, depending on the desired maximum file size. With 4,096-byte
+blocks, we could store 1,024 4-byte pointers in an index block. Two levels
+of indexes allow 1,048,576 data blocks, which allows a file of up to 4 GB.
+
+Combined scheme: Another alternative, used in the UFS, is to keep the first,
+say, 15 pointers of the index block in the file’s inode. The first 12 of these
+pointers point to direct blocks; that is, they contain addresses of blocks that
+contain data of the file. Thus, the data for small (no more than 12 blocks)
+files do not need a separate index block. If the block size is 4 KB, then up
+to 48 KB of data may be accessed directly. The next 3 pointers point to
+indirect blocks. The first indirect block pointer is the address of a single
+indirect block. The single indirect block is an index block, containing not
+data, but rather the addresses of blocks that do contain data. Then there
+is a double indirect block pointer, which contains the address of a block
+that contains the addresses of blocks that contain pointers to the actual
+data blocks. The last pointer would contain the address of a triple indirect
+block. Under this method, the number of blocks that can be allocated toa
+file exceeds the amount of space addressable by the 4-byte file pointers used
+by many operating systems. A 32-bit file pointer reaches only 2°? bytes, or
+4GB. Many UNIX implementations, including Solaris and IBM’s AIX, now
+support up to 64-bit file pointers. Pointers of this size allow files and file
+systems to be terabytes in size. An inode is shown in Figure 12.9.
+
+Indexed-allocation schemes suffer from some of the same performance
+
+problems as does linked allocation. Specifically, the index blocks can be cached
+in memory, but the data blocks may be spread all over a partition.
+
+12.4.4 Performance
+
+The allocation methods that we have discussed vary in their storage efficiency
+and data-block access times. Both are important criteria in selecting the proper
+method or methods for an operating system to implement.
+
+Before selecting an allocation method, we need to determine how the
+
+systems will be used. A system with mostly sequential access should use a
+method different from that for a system with mostly random access. For any
+type of access, contiguous allocation requires only one access to get a disk
+

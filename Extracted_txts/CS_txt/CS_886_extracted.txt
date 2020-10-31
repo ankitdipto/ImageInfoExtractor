@@ -1,0 +1,45 @@
+222 Let Us C
+
+ 
+
+()
+
+(c)
+
+accurately by VC++ compiler as compared to TC/TC++
+compilers. This is because TC/TC++ targets its compiled code
+to 8088/8086 (16-bit) microprocessors. Since these
+microprocessors do not offer floating point support, TC/TC++
+performs all float operations using a software piece called
+Floating Pomt Emulator. This emulator has limitations and
+hence produces less accurate results. Also, this emulator
+becomes part of the EXE file, thereby increasing its size. In
+addition to this increased size there is a performance penalty
+since this bigger code would take more time to execute.
+
+If you look at ranges of chars and ints there seems to be one
+extra number on the negative side. This is because a negative
+number is always stored as 2’s compliment of its binary. For
+example, let us see how -128 is stored. Firstly, binary of 128
+is calculated (10000000), then its 1’s compliment is obtained
+(01111111). A 1’s compliment is obtained by changing all 0s
+to 1s and Is to 0s. Finally, 2’s compliment of this number, i.e.
+10000000, gets stored. A 2’s compliment is obtained by
+adding 1 to the 1’s compliment. Thus, for -128, 10000000
+gets stored. This is an 8-bit number and it can be easily
+accommodated in a char. As against this, +128 cannot be
+stored in a char because its binary 010000000 (left-most 0 is
+for positive sign) is a 9-bit number. However +127 can be
+stored as its binary 01111111 turns out to be a 8-bit number.
+
+What happens when we attempt to store +128 in a char? The
+first number on the negative side, i.e. -128 gets stored. This is
+because from the 9-bit binary of +128, 010000000, only the
+right-most 8 bits get stored. But when 10000000 is stored the
+left-most bit is 1 and it is treated as a sign bit. Thus the value
+of the number becomes -128 since it is indeed the binary
+of -128, as can be understood from (b) above. Similarly, you
+can verify that an attempt to store +129 in a char results in
+storing -127 in it. In general, if we exceed the range from
+positive side we end up on the negative side. Vice versa is
+

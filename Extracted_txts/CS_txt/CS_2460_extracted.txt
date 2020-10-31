@@ -1,0 +1,53 @@
+72
+
+Chapter 4 Divide-and-Conquer
+
+This procedure works as follows. Lines 1-7 find a maximum subarray of the
+left half, A[/ow..mid]. Since this subarray must contain A[mid], the for loop of
+lines 3—7 starts the index i at mid and works down to /ow, so that every subarray
+it considers is of the form Afi ..mid]. Lines 1-2 initialize the variables /eft-sum,
+which holds the greatest sum found so far, and sum, holding the sum of the entries
+in Afi .. mid]. Whenever we find, in line 5, a subarray Afi ..mid] with a sum of
+values greater than /eft-sum, we update /eft-sum to this subarray’s sum in line 6, and
+in line 7 we update the variable max-left to record this index 7. Lines 8-14 work
+analogously for the right half, A[mid +1. . high]. Here, the for loop of lines 10-14
+starts the index j at mid+1 and works up to high, so that every subarray it considers
+is of the form A[mid + 1.. j]. Finally, line 15 returns the indices max-left and
+max-right that demarcate a maximum subarray crossing the midpoint, along with
+the sum /eft-sum + right-sum of the values in the subarray A[max-left .. max-right].
+
+If the subarray A[/ow . . high] contains n entries (so that n = high — low + 1),
+we claim that the call FIND-MAXx-CROSSING-SUBARRAY (A, low, mid, high)
+takes ©(n) time. Since each iteration of each of the two for loops takes @(1)
+time, we just need to count up how many iterations there are altogether. The for
+loop of lines 3-7 makes mid — low + | iterations, and the for loop of lines 10-14
+makes high — mid iterations, and so the total number of iterations is
+
+(mid — low +1) + (high—mid) = high-low +1
+=n.
+With a linear-time FIND-MAX-CROSSING-SUBARRAY procedure in hand, we
+
+can write pseudocode for a divide-and-conquer algorithm to solve the maximum-
+subarray problem:
+
+FIND-MA XIMUM-SUBARRAY (A, low, high)
+1 if high == low
+2 return (Jow, high, A[low]) // base case: only one element
+3 else mid = |(low + high)/2|
+4 (left-low, left-high, left-sum) =
+FIND-MAXIMUM-SUBARRAY (A, low, mid)
+
+5 (right-low, right-high , right-sum) =
+FIND-MAXIMUM-SUBARRAY (A, mid + 1, high)
+6 (cross-low, cross-high, cross-sum) =
+
+FIND-MAX-CROSSING-SUBARRAY (A, low, mid, high)
+
+7 if left-sum > right-sum and left-sum > cross-sum
+
+8 return (/eft-low, left-high, left-sum)
+
+9 elseif right-sum > left-sum and right-sum > cross-sum
+10 return (right-low, right-high, right-sum)
+11 else return (cross-low, cross-high, cross-sum)
+

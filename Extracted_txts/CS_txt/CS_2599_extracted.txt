@@ -1,0 +1,49 @@
+186
+
+Chapter 7 Quicksort
+
+The next three questions ask you to give a careful argument that the procedure
+HOARE-PARTITION is correct. Assuming that the subarray A[p..r] contains at
+least two elements, prove the following:
+
+b. The indices i and j are such that we never access an element of A outside the
+subarray A[p..1].
+
+c. When HOARE-PARTITION terminates, it returns a value j such that p< j <r.
+
+d, Every element of A[p .. j'] is less than or equal to every element of A[j +1..1]
+when HOARE-PARTITION terminates.
+
+The PARTITION procedure in Section 7.1 separates the pivot value (originally
+in A[r]) from the two partitions it forms. The HOARE-PARTITION procedure, on
+the other hand, always places the pivot value (originally in A[p]) into one of the
+two partitions A[p.. j] and A[j + 1..r]. Since p < j < r, this split is always
+nontrivial.
+
+e. Rewrite the QUICKSORT procedure to use HOARE-PARTITION.
+
+7-2  Quicksort with equal element values
+
+The analysis of the expected running time of randomized quicksort in Section 7.4.2
+assumes that all element values are distinct. In this problem, we examine what
+happens when they are not.
+
+a. Suppose that all element values are equal. What would be randomized quick-
+sort’s running time in this case?
+
+b. The PARTITION procedure returns an index qg such that each element of
+A[p..q — 1] is less than or equal to A[q] and each element of A[g + 1..r]
+is greater than A[q]. Modify the PARTITION procedure to produce a procedure
+PARTITION’(A, p, 1"), Which permutes the elements of A[p.. 1] and returns two
+indices q and t, where p < q <t <1, such that
+
++ all elements of A[q.. 1] are equal,
+* each element of A[p..g — 1] is less than A[q], and
+* each element of A[t + 1..r] is greater than A[q].
+
+Like PARTITION, your PARTITION’ procedure should take ©(r — p) time.
+
+c. Modify the RANDOMIZED-QUICKSORT procedure to call PARTITION’, and
+name the new procedure RANDOMIZED-QUICKSORT’. Then modify the
+QUICKSORT procedure to produce a procedure QUICKSORT’(p,r) that calls
+

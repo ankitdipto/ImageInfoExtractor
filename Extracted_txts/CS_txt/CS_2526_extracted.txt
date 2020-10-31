@@ -1,0 +1,52 @@
+126
+
+Chapter 5 Probabilistic Analysis and Randomized Algorithms
+
+that Pr{E£2 | E,:} = 1/(n —1) because given that element A[1] has the small-
+est priority, each of the remaining n — 1 elements has an equal chance of hav-
+ing the second smallest priority. In general, fori = 2,3,..., n, we have that
+Pr{E; | Ej-19 Ej-2 N-++/N Ey} = 1/(n—i + 1), since, given that elements A[1]
+through Afi — 1] have the i — 1 smallest priorities (in order), each of the remaining
+n —(i —1) elements has an equal chance of having the i th smallest priority. Thus,
+
+mt BHA)
+
+Tm
+
+Pr{E, 0 Ey Es M+! Ey M En}
+
+and we have shown that the probability of obtaining the identity permutation
+is 1/nl.
+
+We can extend this proof to work for any permutation of priorities. Consider
+any fixed permutation o = (o(1),0(2),.... o(n)) of the set {1,2,..., n}. Let us
+denote by r; the rank of the priority assigned to element A[i], where the element
+with the jth smallest priority has rank j. If we define E; as the event in which
+element A[j] receives the o(i)th smallest priority, or r; = o(i), the same proof
+still applies. Therefore, if we calculate the probability of obtaining any particular
+permutation, the calculation is identical to the one above, so that the probability of
+obtaining this permutation is also 1/n!. .
+
+You might think that to prove that a permutation is a uniform random permuta-
+tion, it suffices to show that, for each element A[j], the probability that the element
+winds up in position j is 1/n. Exercise 5.3-4 shows that this weaker condition is,
+in fact, insufficient.
+
+A better method for generating a random permutation is to permute the given
+array in place. The procedure RANDOMIZE-IN-PLACE does so in O(n) time. In
+its ith iteration, it chooses the element A[/] randomly from among elements A[i]
+through A[n]. Subsequent to the / th iteration, A[/] is never altered.
+
+RANDOMIZE-IN-PLACE (A)
+
+1 n= A.length
+
+2 fori = 1ton
+
+3 swap A[i] with A[RANDOM(i,1)]
+
+We shall use a loop invariant to show that procedure RANDOMIZE-IN-PLACE
+produces a uniform random permutation. A k-permutation on a set of n ele-
+ments is a sequence containing k of the n elements, with no repetitions. (See
+Appendix C.) There are n!/(n — k)! such possible k -permutations.
+

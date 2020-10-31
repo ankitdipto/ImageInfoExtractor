@@ -1,0 +1,41 @@
+168  Chapter6 CPU Scheduling
+
+ 
+
+ 
+
+Figure 6.7 Multilevel feedback queues.
+
+and 1 are empty. A process that arrives for queue 1 will preempt a process in
+queue 2. A process that arrives for queue 0 will, in turn, preempt a process in
+queue 1.
+
+A process entering the ready queue is put in queue 0. A process in queue 0
+is given a time quantum of 8 milliseconds. If it does not finish within this time,
+it is moved to the tail of queue 1. If queue 0 is empty, the process at the head
+of queue 1 is given a quantum of 16 milliseconds. If it does not complete, it is
+preempted and is put into queue 2. Processes in queue 2 are run on an FCFS
+basis, only when queues 0 and 1 are empty.
+
+This scheduling algorithm gives highest priority to any process with a CPU
+burst of 8 milliseconds or less. Such a process will quickly get the CPU, finish its
+CPU burst, and go off to its next I/O burst. Processes that need more than 8, but
+less than 24, milliseconds are also served quickly, although with lower priority
+than shorter processes. Long processes automatically sink to queue 2 and are
+served in FCFS order with any CPU cycles left over from queues 0 and 1.
+
+In general, a multilevel feedback queue scheduler is defined by the follow-
+ing parameters:
+
+e The number of queues
+The scheduling algorithm for each queue
+
+« The method used to determine when to upgrade a process to a higher-
+priority queue
+
+« The method used to determine when to demote a process to a lower-priority
+queue
+
+The method used to determine which queue a process will enter when that
+process needs service
+

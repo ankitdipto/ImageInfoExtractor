@@ -1,0 +1,52 @@
+882
+
+Chapter 29 Linear Programming
+
+Then, to produce an optimal dual solution, we set
+
+i= —Cha; if (n +) eN, (29.91)
+. 0 otherwise .
+
+Thus, an optimal solution to the dual linear program defined in (29.86)-(29.90)
+is J) = 0 (sineen +1 = 4 € B), Jo = —c5 = 1/6, and J3 = —c§ = 2/3.
+Evaluating the dual objective function (29.86), we obtain an objective value of
+(30-0) + (24-(1/6)) + (36-(2/3)) = 28, which confirms that the objective value
+of the primal is indeed equal to the objective value of the dual. Combining these
+calculations with Lemma 29.8 yields a proof that the optimal objective value of the
+primal linear program is 28. We now show that this approach applies in general:
+we can find an optimal solution to the dual and simultaneously prove that a solution
+to the primal is optimal.
+
+ 
+
+Theorem 29.10 (Linear-programming duality)
+
+Suppose that SIMPLEX returns values ¥ = (X,,X2....,.X,) for the primal lin-
+ear program (A,b,c). Let N and B denote the nonbasic and basic variables for
+the final slack form, let c’ denote the coefficients in the final slack form, and let
+YH (No... Ym) be defined by equation (29.91). Then X¥ is an optimal so-
+lution to the primal linear program, ) is an optimal solution to the dual linear
+program, and
+
+Sot = Sas, . (29.92)
+j=l i=1
+
+ 
+
+ 
+
+Proof By Corollary 29.9, if we can find feasible solutions ¥ and j that satisfy
+equation (29.92), then X and y must be optimal primal and dual solutions. We
+shall now show that the solutions ¥ and j described in the statement of the theorem
+satisfy equation (29.92).
+
+Suppose that we run SIMPLEX on a primal linear program, as given in lines
+(29.16)-(29.18). The algorithm proceeds through a series of slack forms until it
+terminates with a final slack form with objective function
+
+zav + oon. (29.93)
+jEN
+Since SIMPLEX terminated with a solution, by the condition in line 3 we know that
+
+cj, <0 forall; eN. (29.94)
+

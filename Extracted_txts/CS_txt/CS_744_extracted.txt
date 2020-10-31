@@ -1,0 +1,47 @@
+Chapter 3: The Loop Control Structure 107
+
+ 
+
+printf ( "%d\n", i) ;
+}
+
+In the statement while ( i++ < 10 ), firstly the comparison of
+value of i with 10 is performed, and then the incrementation
+of i takes place. Since the incrementation of i happens after its
+usage, here the ++ operator is called a post-incrementation
+operator. When the control reaches printf( ), i has already
+been incremented, hence i must be initialized to 0.
+
+main()
+{
+int i=0;
+while (++i <= 10)
+printf ( "%d\n", i) ;
+}
+
+In the statement while ( ++i <= 10 ), firstly incrementation of
+i takes place, then the comparison of value of i with 10 is
+performed. Since the incrementation of i happens before its
+usage, here the ++ operator is called a pre-incrementation
+operator.
+
+The for Loop
+
+Perhaps one reason why few programmers use while is that they
+are too busy using the for, which is probably the most popular
+looping instruction. The for allows us to specify three things about
+a loop ina single line:
+
+(a)
+()
+
+()
+
+Setting a loop counter to an initial value.
+
+Testing the loop counter to determine whether its value has
+reached the number of repetitions desired.
+
+Increasing the value of loop counter each time the program
+segment within the loop has been executed.
+

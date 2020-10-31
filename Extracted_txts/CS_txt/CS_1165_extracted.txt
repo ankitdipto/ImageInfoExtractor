@@ -1,0 +1,42 @@
+448 Let Us C
+
+ 
+
+Writing a buffer full of data resembles the fwrite( ) function.
+However, unlike fwrite( ), the programmer must set up the buffer
+for the data, place the appropriate values in it before writing, and
+take them out after writing. Thus, the buffer in the low level /O
+functions is very much a part of the program, rather than being
+invisible as in high level disk I/O functions.
+
+Low level disk I/O functions offer following advantages:
+
+(a) Since these functions parallel the methods that the OS uses to
+write to the disk, they are more efficient than the high level
+disk I/O functions.
+
+(b) Since there are fewer layers of routines to go through, low
+level I/O functions operate faster than their high level
+counterparts.
+
+Let us now write a program that uses low level disk input/output
+functions.
+
+A Low Level File-copy Program
+
+Earlier we had written a program to copy the contents of one file to
+another. In that program we had read the file character by
+character using fgete( ). Each character that was read was written
+into the target file using fpute( ). Instead of performing the I/O on
+a character by character basis we can read a chunk of bytes from
+the source file and then write this chunk into the target file. While
+doing so the chunk would be read into the buffer and would be
+written to the file from the buffer. While doing so we would
+manage the buffer ourselves, rather than relying on the library
+functions to do so. This is what is low-level about this program.
+Here is a program which shows how this can be done.
+
+/" File-copy program which copies text, .com and .exe files */
+#include "fentl.h"
+#include "types.h" /* if present in sys directory use
+

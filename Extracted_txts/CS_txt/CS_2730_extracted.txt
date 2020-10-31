@@ -1,0 +1,55 @@
+292
+
+Chapter 12 Binary Search Trees
+
+successor of a node x is the node with the smallest key greater than x.key. The
+structure of a binary search tree allows us to determine the successor of a node
+without ever comparing keys. The following procedure returns the successor of a
+node x in a binary search tree if it exists, and NIL if x has the largest key in the
+tree:
+
+TREE-SUCCESSOR (x)
+
+1 if x.right A NIL
+
+2 return TREE-MINIMUM (x. right)
+3 y=xXxp
+
+4 while y # NIL and x == y.right
+
+5 x=y
+
+6 yayp
+
+7 return y
+
+We break the code for TREE-SUCCESSOR into two cases. If the right subtree
+of node x is nonempty, then the successor of x is just the leftmost node in x’s
+right subtree, which we find in line 2 by calling TREE-MINIMUM(x. right). For
+example, the successor of the node with key 15 in Figure 12.2 is the node with
+key 17.
+
+On the other hand, as Exercise 12.2-6 asks you to show, if the right subtree of
+node x is empty and x has a successor y, then y is the lowest ancestor of x whose
+left child is also an ancestor of x. In Figure 12.2, the successor of the node with
+key 13 is the node with key 15. To find y, we simply go up the tree from x until we
+encounter a node that is the left child of its parent; lines 3-7 of TREE-SUCCESSOR
+handle this case.
+
+The running time of TREE-SUCCESSOR on a tree of height / is O(/1), since we
+either follow a simple path up the tree or follow a simple path down the tree. The
+procedure TREE-PREDECESSOR, which is symmetric to TREE-SUCCESSOR, also
+runs in time O(/1).
+
+Even if keys are not distinct, we define the successor and predecessor of any
+node x as the node retumed by calls made to TREE-SUCCESSOR (x) and TREE-
+PREDECESSOR(x), respectively.
+
+In summary, we have proved the following theorem.
+
+Theorem 12.2
+
+We can implement the dynamic-set operations SEARCH, MINIMUM, MAXIMUM,
+SUCCESSOR, and PREDECESSOR so that each one runs in O(/) time on a binary
+search tree of height h. /
+

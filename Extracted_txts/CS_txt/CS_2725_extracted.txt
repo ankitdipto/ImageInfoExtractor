@@ -1,0 +1,52 @@
+288
+
+Chapter 12 Binary Search Trees
+
+INORDER-TREE- WALK (x)
+
+1 ifx # NIL
+
+2 INORDER-TREE- WALK (x. left)
+3 print x. key
+
+4 INORDER-TREE- WALK (x. right)
+
+As an example, the inorder tree walk prints the keys in each of the two binary
+search trees from Figure 12.1 in the order 2,5,5,6,7,8. The correctness of the
+algorithm follows by induction directly from the binary-search-tree property.
+
+It takes (7) time to walk an n-node binary search tree, since after the ini-
+tial call, the procedure calls itself recursively exactly twice for each node in the
+tree—once for its left child and once for its right child. The following theorem
+gives a formal proof that it takes linear time to perform an inorder tree walk.
+
+ 
+
+Theorem 12.1
+If x is the root of an n-node subtree, then the call INORDER-TREE-WALK (x)
+takes O(n) time.
+
+Proof Let T(n) denote the time taken by INORDER-TREE-WALK when it is
+called on the root of an n-node subtree. Since INORDER-TREE-WALK visits all 1
+nodes of the subtree, we have T(n) = Q(n). It remains to show that T(n) = O(n).
+
+Since INORDER-TREE-WALK takes a small, constant amount of time on an
+empty subtree (for the test x 4 NIL), we have T(0) = c for some constant c > 0.
+
+For n > 0, suppose that INORDER-TREE-WALK is called on a node x whose
+left subtree has k nodes and whose right subtree has n — k — | nodes. The time to
+perform INORDER-TREE-WALK (x) is bounded by T(n) < T(k)+T(n—k—1l)+d
+for some constant d > 0 that reflects an upper bound on the time to execute the
+body of INORDER-TREE-WALK (x), exclusive of the time spent in recursive calls.
+
+We use the substitution method to show that T(n) = O(n) by proving that
+T(n) < (c+d)n +c. Forn = 0, we have (c +-d)-0+c¢ = c = T(0). Forn > 0,
+we have
+
+Tin) < Tk) +T(n—k—-l +d
+(c+ d)k+c)+ (ec +d)(n—k—1)+ce)4+d
+(c+dn+ce-(c+d)+c+d
+(c+dn+c,
+
+which completes the proof. .
+

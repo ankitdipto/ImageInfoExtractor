@@ -1,0 +1,41 @@
+552 Let UsC
+
+ 
+
+calling the functions in the program (that react to different
+messages) is dictated by the order of occurrence of events. Hence
+this programming model is called ‘Event Driven Programming
+Model’.
+
+That’s really all that is there to event-driven programming. Your
+job is to anticipate what users are likely to do with your
+application’s user interface objects and have a function waiting,
+ready to execute at the appropriate time. Just when that time is, no
+one except the user can really say.
+
+Windows Programming, a Closer Look
+
+There can be hundreds of ways in which the user may interact with
+an application. In addition to this some events may occur without
+any user interaction. For example, events occur when we create a
+window, when the window’s contents are to be drawn, etc. Not
+only this, occurrence of one event may trigger a few more events.
+Thus literally hundreds of messages may be sent to an application
+thereby creating a chaos. Naturally, a question comes—in which
+order would these messages get processed by the application.
+Order is brought to this chaos by putting all the messages that
+reach the application into a ‘Queue’. The messages in the queue
+are processed in First In First Out (FIFO) order.
+
+In fact the OS maintains several such queues. There is one queue,
+which is common for all applications. This queue is known as
+“System Message Queue’. In addition there is one queue per
+application. Such queues are called ‘Application Message
+Queues’. Let us understand the need for maintaming so many
+queues.
+
+When we click a mouse and an event occurs the device driver
+posts a message into the System Message Queue. The OS retrieves
+this message finds out with regard to which application the
+message has been sent. Next it posts a message into the
+

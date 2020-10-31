@@ -1,0 +1,36 @@
+9.2 Selection in expected linear time 217
+
+the algorithm has a linear expected running time, though, and because it is random-
+ized, no particular input elicits the worst-case behavior.
+
+To analyze the expected running time of RANDOMIZED-SELECT, we let the run-
+ning time on an input array A[p..r] of n elements be a random variable that we
+denote by T(m), and we obtain an upper bound on E [T(n)] as follows. The pro-
+cedure RANDOMIZED-PARTITION is equally likely to return any element as the
+pivot. Therefore, for each k such that 1 < k <n, the subarray A[p..q] has k ele-
+ments (all less than or equal to the pivot) with probability 1/n. Fork = 1,2,..., n,
+we define indicator random variables X; where
+
+X, =I {the subarray A[p ..q] has exactly k elements} ,
+and so, assuming that the elements are distinct, we have
+E[X,]=1/n. (9.1)
+
+When we call RANDOMIZED-SELECT and choose A[q] as the pivot element, we
+do not know, a priori, if we will terminate immediately with the correct answer,
+recurse on the subarray A[p..q — 1], or recurse on the subarray A[g + 1..r].
+This decision depends on where the ith smallest element falls relative to A[g].
+Assuming that T(n) is monotonically increasing, we can upper-bound the time
+needed for the recursive call by the time needed for the recursive call on the largest
+possible input. In other words, to obtain an upper bound, we assume that the ith
+element is always on the side of the partition with the greater number of elements.
+For a given call of RANDOMIZED-SELECT, the indicator random variable Xx has
+the value 1 for exactly one value of k, and it is 0 for all other k. When X; = 1, the
+two subarrays on which we might recurse have sizes k — 1 and n — k. Hence, we
+have the recurrence
+
+Tin) < wh + (T(max(k — 1,n —k)) + O(n))
+k=1
+
+= SOX: Tmax — 1,1 -&) + OM).
+k=1
+

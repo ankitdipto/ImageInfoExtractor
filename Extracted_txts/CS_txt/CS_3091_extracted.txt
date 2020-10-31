@@ -1,0 +1,63 @@
+  
+
+Section 15.6.
+
+Other Approaches to Uncertain Reasoning 463
+
+ 
+
+FULLY SET THEORY
+
+Wy
+
+FUZZY LOGIC
+
+Representing vagueness: Fuzzy sets and fuzzy logic
+
+Fuzzy set theory is a means of specifying how well an object satisfies a vague description. For
+example, consider the proposition “Nate is tall." Is this true, given that Nate is 5’ 10"? Most
+people would hesitate to answer "true" or "false," preferring to say, "sort of." Note that this is not
+a question of uncertainty about the external world — we are sure of Nate's height. Rather it is a
+case of vagueness or uncertainty about the meaning of the linguistic term "tall." So most authors
+
+say thatfuzzy set theory is not a methodfor uncertain reasoning at all.
+
+Another way to think of this is as similarity to a prototype — how close is Nate to our
+prototype for tall person? We could express this in logical notation by making TallPersona
+constant and having a function Similarity that compares things to it:
+
+Similarity(Nate, TallPerson) = SortOf
+
+Fuzzy set theory takes a slightly different approach: it treats Tal/Person as a fuzzy predicate and
+says that the truth value of Tal/Person(Natejs a number between 0 and 1, rather than being just
+True or False. The name "fuzzy set" derives from the interpretation of the predicate as implicitly
+defining a set of its members, a set that does not have sharp boundaries. Consider a kennel
+with 60 rottweilers and 40 retrievers. If we pick a dog at random, the probability of it being a
+rottweiler is 0.6; this is uncertainty. The uncertainty can be resolved by looking at the dog. But if
+a rottweiler and a retriever were to mate, then the puppies would be half rottweiler, half retriever.
+There is no uncertainty here, no additional evidence we can gather to determine the breed of the
+puppies. Rather, this is a case of fuzziness at the boundary between two breeds.
+
+Fuzzy logic takes a complex sentence such as JallPerson(Nate)V Smart(Nate)and deter-
+mines its truth value as a function of the truth values of its components. The rules for evaluating
+the fuzzy truth, J of a complex sentence are
+
+TIAA By = min(T(A), T(B))
+T(AV B) = max(T(A),T(B))
+T(-A) = 1-—T(A)
+
+Fuzzy logic is therefore a truth-functional system, and is thus subject to all the usual problems.
+It has the additional problem that it is inconsistent with normal propositional or first-order logic.
+We would like any logic to ensure that standard equivalences such as A V =A <= True hold, but
+in fuzzy logic, T(A V 7A) #7 (True).
+
+Despite these serious semantic difficulties, fuzzy logic has been very successful in commer-
+cial applications, particularly in control systems for products such as automatic transmissions,
+trains, video cameras, and electric shavers. Elkan (1993) argues that these applications are suc-
+cessful because they have small rule bases, have no chaining of inferences, and have tunable
+parameters that can be adjusted to improve the system's performance (often by learning tech-
+niques). The fact that they are implemented with fuzzy operators is incidental to their success.
+Elkan predicts that when more complex applications are tackled with fuzzy logic, they will run
+into the same kinds of problems that plagued knowledge-based systems using certainty factors
+and other approaches. As one might expect, the debate continues.
+

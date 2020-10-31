@@ -1,0 +1,41 @@
+678 Let UsC
+
+ 
+
+the signals. As a result, pending signals, if any, are immediately
+delivered to the program. So if we press Ctrl + C or use the kill
+command when the execution of the loop that receives input is not
+over these signals would be kept pending. Once we are through
+with the loop the signal handlers would be called.
+
+Event Driven programming
+
+Having understood the mechanism of signal processing let us now
+see how signaling is used by Linux — based libraries to create
+event driven GUI programs. As you know, in a GUI program
+events occur typically when we click on the window, type a
+character, close the window, repaint the window, etc. We have
+chosen the GTK library version 2.0 to create the GUI applications.
+Here, GTK stands for Gimp’s Tool Kit. Refer Appendix H for
+installation of this toolkit. Given below is the first program that
+uses this toolkit to create a window on the screen.
+
+/* mywindow.c */
+# include <gtk/gtk.h>
+
+int main (int argc, char “argv[] )
+{
+GtkWidget *p ;
+
+gtk_init ( 8argc, &argy ) ;
+
+p = gtk_window_new (GTK_WINDOW_TOPLEVEL ) ;
+gtk_window_set_title (p , "Sample Window’) ;
+g_signal_connect (p, “destroy”, gtk_main_quit, NULL ) ;
+gtk_widget_set_size_request ( p, 300, 300) ;
+gtk_widget_show (p);
+
+gtk_main( ) ;
+
+return 0 ;
+

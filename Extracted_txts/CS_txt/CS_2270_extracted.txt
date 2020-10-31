@@ -1,0 +1,65 @@
+424 © cuarrer eLeveN Input—Ourput Organization
+
+ 
+
+Operation | Channel | Device
+code | address | address
+
+ 
+
+ 
+
+(@ WO instruction format
+
+ 
+
+wey | attests om |
+
+ 
+
+(®) Channel status word format
+
+ 
+
+(©) Channel command word format
+
+Figure 11-21 IBM 370 /O related word formats.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The VO instruction format has three fields: operation code, channel address,
+and device address. Thecomputersystem may have a numberof channels, and
+each is assigned an address. Similarly, each channel may be connected to
+several devices and each device is assigned an address. The operation code
+specifies one of eight I/O instructions: start /O, start I/O fast release, test /O,
+clear 1/0, halt /O, halt device, test channel, and store channel identification.
+The addressed channel responds to each of the L/O instructions and executes
+it. It also sets one of four condition codes in a processor register called PSW
+(processor status word). The CPU can check the condition code in the PSW to
+determine the result of the /O operation. The meaning of the four condition
+codes is dif ferent for each /O instruction. But, in general, they specify whether
+the channel or the device is busy, whether or not it is operational, whether
+interruptions are pending, if the /O operation had started successfully, and
+whether a status word was stored in memory by the channel.
+
+The format of the channel status word is shown in Fig. 11-21(b). It is
+always stored in location 64 in memory. The key field isa protection mechanism
+used to prevent unauthorized access by one user to information that belongs
+toanother user or to the operating system. The address field in the status word
+gives the address of the last command word used by the channel. The count
+field gives the residual count when the transfer was terminated. The count field
+will show zero if the transfer was completed successfully. The status field
+identifies the conditions in the device and the channel and any errors that
+occurred during the transfer.
+
+The differencebetween the start /O and start I/O fast release instructions
+is that the latter requires less CPU time for its execution. When the channel
+

@@ -1,0 +1,47 @@
+7.2. Performance of quicksort 175
+
+sort. If the partitioning is unbalanced, however, it can run asymptotically as slowly
+as insertion sort. In this section, we shall informally investigate how quicksort
+performs under the assumptions of balanced versus unbalanced partitioning.
+
+Worst-case partitioning
+
+The worst-case behavior for quicksort occurs when the partitioning routine pro-
+duces one subproblem with 1 — | elements and one with 0 elements. (We prove
+this claim in Section 7.4.1.) Let us assume that this unbalanced partitioning arises
+in each recursive call. The partitioning costs ©() time. Since the recursive call
+on an array of size 0 just returns, (0) = ©(1), and the recurrence for the running
+time is
+
+T(n) = T(n—1)+T(0) + Om)
+= T(n-1)+0(n).
+
+Intuitively, if we sum the costs incurred at each level of the recursion, we get
+an arithmetic series (equation (A.2)), which evaluates to @(n?). Indeed, it is
+straightforward to use the substitution method to prove that the recurrence T(n) =
+T(n— 1) + ©(n) has the solution T(n) = O(n?). (See Exercise 7.2-1.)
+
+Thus, if the partitioning is maximally unbalanced at every recursive level of the
+algorithm, the running time is ©(n?). Therefore the worst-case running time of
+quicksort is no better than that of insertion sort. Moreover, the ©(n?) running time
+occurs when the input array is already completely sorted—a common situation in
+which insertion sort runs in O(7) time.
+
+Best-case partitioning
+
+In the most even possible split, PARTITION produces two subproblems, each of
+size no more than 1/2, since one is of size [n/2} and one of size [n/2]—1. In this
+case, quicksort runs much faster. The recurrence for the running time is then
+
+T(n) = 2T(n/2) + On),
+
+where we tolerate the sloppiness from ignoring the floor and ceiling and from sub-
+tracting 1. By case 2 of the master theorem (Theorem 4.1), this recurrence has the
+solution T(n) = ©(n Ign). By equally balancing the two sides of the partition at
+every level of the recursion, we get an asymptotically faster algorithm.
+
+Balanced partitioning
+
+The average-case running time of quicksort is much closer to the best case than to
+the worst case, as the analyses in Section 7.4 will show. The key to understand-
+

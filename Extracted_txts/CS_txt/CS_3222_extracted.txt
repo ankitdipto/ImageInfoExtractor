@@ -1,0 +1,53 @@
+582
+
+Chapter 19. Learning in Neural and Belief Networks
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 19.16 An error surface for gradient descent search in weight space. When w =a and
+w2 = b, the error on the training set is minimized.
+
+ 
+
+ 
+
+ 
+
+the weights in an amount proportional to the slope in each direction. This moves the network as
+a whole in the direction of steepest descent on the error surface.
+
+Basically, this is the key: back-propagation provides a way of dividing the calculation
+afthe gradient among the units, so the change in each weight can be calculated by the unit to
+which the weight is attached, using only local information. Like any gradient descent search,
+back-propagation has problems with efficiency and convergence, as we will discuss shortly.
+Nonetheless, the decomposition of the learning algorithm is a major step towards parallelizable
+and biologically plausible learning mechanisms.
+
+For the mathematically inclined, we will now derive the back-propagation equations from
+first principles. We begin with the ezror function itself. Because of its convenient form, we use
+the sum of squared errors over the output values:
+
+1 2
+E=5 ua - Oy
+The key insight, again, is that the output values O; are a function of the weights (see Equa-
+
+tion (19.1), for example). For a general two-layer network, we can write
+2
+
+rm (r-a(Em))
+-33:(+-eEme(@ena))) 0
+
+ 
+

@@ -1,0 +1,50 @@
+SECTION 66 Programming Arithmetic and Logic Operations 193
+
+Wehave shown in Table 6-8 a program for subtracting two numbers. Programs
+for the other arithmetic operations can be developed in a similar fashion.
+
+Operations that are implemented in a computer with one machine in-
+struction are said to be implemented by hardware. Operations implemented
+bya set of instructions that constitute a program are said to be implemented
+by software Some computers provide an extensive set of hardware instruc-
+tions designed to speed up common tasks. Others contain a smaller set of
+hardware instructions and depend more heavily on the software implementa-
+tion of many operations. Hardware implementation is more costly because of
+the additional circuits needed to implement the operation. Software imple-
+mentation results in long programs both in number of instructions and in
+execution time.
+
+This section demonstrates the software implementation of a few arith-
+metic and logic operations. Programs can be developed for any arithmetic
+operation and not only for fixed-point binary data but for decimal and floating-
+point data as well. The hardware implementation of arithmetic operations is
+carried out in Chap. 10.
+
+Multiplication Program
+
+We now develop a program for multiplying two numbers To simplify the
+program, we neglect the sign bit and assume positive numbers. We also
+assume that the two binary numbers have no more than eight significant bits
+so their product cannot exceed the word capacity of 16 bits. It is possible to
+modify the program to take care of the signs or use 16-bit numbers. However,
+the product may be up to 31 bits in length and will occupy two words of
+memory.
+
+The program for multiplying two numbers is based on the procedure we
+use to multiply numbers with paper and pencil. As shown in the numerical
+example of Fig. 6-3, the multiplication process consists of checking the bits of
+the multiplier Y and adding the multiplicand X as many times as there are 1's
+in Y, provided that the value of X isshifted left from one line to the next. Since
+the computer can add only two numbers at a time, we reserve a memory
+location, denoted by P, to store intermediate sums The intermediate sums are
+called partial products since they hold a partial product until all numbers are
+added. As shown in the numerical example under P, the partial product starts
+with zero. The multiplicand X is added to the content of P for each bit of the
+multiplier Y that is 1 The value of X is shifted left after checking each bit of
+the multiplier. The final value in P forms the product. The numerical example
+has numbers with four significant bits. When multiplied, the product contains
+eight significant bits. The computer can use numbers with eight significantbits
+to produce a product of up to 16 bits.
+
+The flowchart of Fig, 6-3 shows the step-by-step procedure for program-
+

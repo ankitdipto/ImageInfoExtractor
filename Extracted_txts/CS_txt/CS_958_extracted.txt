@@ -1,0 +1,43 @@
+280 Let Us C
+
+ 
+
+Value of i = 3
+
+Value of j = 1.500000
+
+Value of k = c
+
+Original address in x = 65524
+Original address in y = 65520
+Original address in z = 65519
+New address in x = 65526
+New address in
+New address in z = 65520
+
+ 
+
+Observe the last three lines of the output. 65526 is original value in
+x plus 2, 65524 is original value in y plus 4, and 65520 is original
+value in z plus 1. This so happens because every time a pointer is
+incremented it points to the immediately next location of its type.
+That is why, when the integer pointer x is incremented, it points to
+an address two locations after the current location, since an int is
+always 2 bytes long (under Windows/Linux since int is 4 bytes
+long, new value of x would be 65528). Similarly, y points to an
+address 4 locations after the current location and z points 1
+location after the current location. This is a very important result
+and can be effectively used while passing the entire array to a
+function.
+
+The way a pointer can be incremented, it can be decremented as
+well, to point to earlier locations. Thus, the following operations
+
+can be performed on a pointer:
+
+(a) Addition of a number to a pointer. For example,
+
+ 
+
+(b) Subtraction of a number from a pointer. For example,
+

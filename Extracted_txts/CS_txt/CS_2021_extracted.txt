@@ -1,0 +1,33 @@
+13.2 YOHardware 461
+
+VO controller
+
+  
+
+CPU executing checks for
+interrupts between instructions
+'
+
+ 
+
+ 
+
+Figure 13.3 Interrupt-driven I/O cycle.
+
+can distinguish between high- and low-priority interrupts, and can respond
+with the appropriate degree of urgency. In modern computer hardware, these
+three features are provided by the CPU and by the interrupt-controller hard-
+ware.
+
+Most CPUs have two interrupt request lines. One is the nonmaskable
+interrupt, which is reserved for events such as unrecoverable memory errors.
+The second interrupt line is maskable: It can be turned off by the CPU before
+the execution of critical instruction sequences that must not be interrupted. The
+maskable interrupt is used by device controllers to request service.
+
+The interrupt mechanism accepts an address—a number that selects a
+specific interrupt-handling routine from a small set. In most architectures,
+this address is an offset in a table called the interrupt vector. This vector
+contains the memory addresses of specialized interrupt handlers. The purpose
+of a vectored interrupt mechanism is to reduce the need for a single interrupt
+

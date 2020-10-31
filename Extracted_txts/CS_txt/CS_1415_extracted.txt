@@ -1,0 +1,38 @@
+Chapter 19: Interaction With Hardware 663
+
+ 
+
+till the time the execution of the child process does not come to an
+end. This ensures that the child process never becomes orphaned.
+Once the child process, terminates the waitpid( ) function queries
+its exit code and returns back to the parent. As a result of querying,
+the child process does not become a zombie.
+
+The first parameter of waitpid( ) function is the pid of the child
+process for which the wait has to be performed. The second
+parameter is the address of an integer variable which is set up with
+the exit status code of the child process. The third parameter is
+used to specify some options to control the behavior of the wait
+operation. We have not used this parameter and hence we have
+passed a 0. Next we have made use of the WIFEXITED( ) macro
+to test if the child process exited normally or not. This macro takes
+the status value as a parameter and returns a non-zero value if the
+process terminated normally. Using this macro the parent suitably
+prints a message to report the status (normal/abnormal)
+termination of its child process.
+
+One Interesting Fact
+
+When we use fork( ) to create a child process the child process
+does not contain the entire data and code of the parent process.
+Then does it mean that the child process contains the data and code
+below the fork( ) call. Even this is not so. In actuality the code
+never gets duplicated. Linux internally manages to intelligently
+share it. As against this, some data is shared, some is not. Till the
+time both the processes do not change the value of the variables
+they keep getting shared. However, if any of the processes (either
+child or parent) attempt to change the value of a variable it is no
+longer shared. Instead a new copy of the variable is made for the
+process that is attempting to change it. This not only ensures data
+integrity but also saves precious memory.
+

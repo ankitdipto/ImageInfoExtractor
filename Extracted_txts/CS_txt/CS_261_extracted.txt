@@ -1,0 +1,51 @@
+852
+
+Chapter 29 Linear Programming
+
+Converting linear programs into standard form
+
+It is always possible to convert a linear program, given as minimizing or maxi-
+mizing a linear function subject to linear constraints, into standard form. A linear
+program might not be in standard form for any of four possible reasons:
+
+1. The objective function might be a minimization rather than a maximization.
+2. There might be variables without nonnegativity constraints.
+
+3. There might be equality constraints, which have an equal sign rather than a
+less-than-or-equal-to sign.
+
+4. There might be inequality constraints, but instead of having a less-than-or-
+equal-to sign, they have a greater-than-or-equal-to sign.
+
+When converting one linear program L into another linear program L’, we would
+like the property that an optimal solution to L’ yields an optimal solution to L. To
+capture this idea, we say that two maximization linear programs L and L’ are
+equivalent if for each feasible solution ¥ to L with objective value z, there is
+a corresponding feasible solution x’ to L’ with objective value z, and for each
+feasible solution x’ to L’ with objective value z, there is a corresponding feasible
+solution ¥ to L with objective value z. (This definition does not imply a one-to-
+one correspondence between feasible solutions.) A minimization linear program L
+and a maximization linear program L’ are equivalent if for each feasible solution ¥
+to L with objective value z, there is a corresponding feasible solution x’ to L’ with
+objective value —z, and for each feasible solution x’ to L’ with objective value z,
+there is a corresponding feasible solution X to L with objective value —z.
+
+We now show how to remove, one by one, each of the possible problems in the
+list above. After removing each one, we shall argue that the new linear program is
+equivalent to the old one.
+
+To convert a minimization linear program L into an equivalent maximization lin-
+ear program L’, we simply negate the coefficients in the objective function. Since
+L and L’ have identical sets of feasible solutions and, for any feasible solution, the
+objective value in L is the negative of the objective value in L’, these two linear
+programs are equivalent. For example, if we have the linear program
+
+minimize —2x,; + 3X2
+subject to
+
+xX + % = 7
+X;) — 2% << 4
+x1 2 0,
+
+and we negate the coefficients of the objective function, we obtain
+

@@ -1,0 +1,42 @@
+ 
+
+12 PRACTICAL PLANNING
+
+ 
+
+ 
+
+ 
+
+In which planning algorithms meet the real world and survive, albeit with some
+significant modifications.
+
+12.1 PRACTICAL PLANNERS
+
+Chapter 11 showed how a partial-order planner's search through the space of plans can be more
+efficient than a problem-solver's search through the space of situations. On the other hand, the
+POP planner can only handle problems that are stated in the STRIPS language, and its search
+process is so unguided that it can still only be used for small problems. In this chapter we
+begin by surveying existing planners that operate in complex, realistic domains. This will help
+to pinpoint the weaknesses of POP and suggest the necessary extensions. We then show how
+the planning language and algorithms of Chapter 11 can be extended and the search focused to
+handle domains like these.
+
+Spacecraft assembly, integration, and verification
+
+Optimum-AIV is a planner that is used by the European Space Agency to help in the assembly,
+integration, and verification (AIV) of spacecraft. The system is used both to generate plans
+and to monitor their execution. During monitoring, the system reminds the user of upcoming
+activities, and can suggest repairs to the plan when an activity is performed late, cancelled, or
+reveals something unexpected. In fact, the ability to quickly replan is the principal objective of
+OptiMUM-AIV. The system does not execute the plans; that is done by humans with standard
+construction and test equipment.
+
+In complex projects like this, it is common to use scheduling tools from operations research
+(OR) such as PERT charts or the critical path method. These tools essentially take a hand-
+constructed complete partial-order plan and generate an optimal schedule for it. Actions are
+
+ 
+
+367
+

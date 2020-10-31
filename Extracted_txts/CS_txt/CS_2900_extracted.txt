@@ -1,0 +1,51 @@
+16.3 Huffman codes 429
+
+a b c d e £
+Frequency (in thousands) 45 13 12 16 9 5
+Fixed-length codeword 000 001 O10 O11 100 101
+Variable-length codeword 0 101. 100 «111 =1101 1100
+
+ 
+
+Figure 16.3 A character-coding problem. A data file of 100,000 characters contains only the char-
+acters a-f, with the frequencies indicated. If we assign each character a 3-bit codeword, we can
+encode the file in 300,000 bits. Using the variable-length code shown, we can encode the file in only
+224,000 bits.
+
+in which each character is represented by a unique binary string, which we call a
+codeword. If we use a fixed-length code, we need 3 bits to represent 6 characters:
+a= 000, b= 001, ..., £=101. This method requires 300,000 bits to code the
+entire file. Can we do better?
+
+A variable-length code can do considerably better than a fixed-length code, by
+giving frequent characters short codewords and infrequent characters long code-
+words. Figure 16.3 shows such a code; here the 1-bit string 0 represents a, and the
+4-bit string 1100 represents £. This code requires
+
+(45-1 + 13-3 + 12-3 + 16-3 + 9-4 + 5-4) - 1,000 = 224,000 bits
+
+to represent the file, a savings of approximately 25%. In fact, this is an optimal
+character code for this file, as we shall see.
+
+Prefix codes
+
+We consider here only codes in which no codeword is also a prefix of some other
+codeword. Such codes are called prefix codes.* Although we won’t prove it here, a
+prefix code can always achieve the optimal data compression among any character
+code, and so we suffer no loss of generality by restricting our attention to prefix
+codes.
+
+Encoding is always simple for any binary character code; we just concatenate the
+codewords representing each character of the file. For example, with the variable-
+length prefix code of Figure 16.3, we code the 3-character file abc as 0-101-100 =
+0101100, where “-” denotes concatenation.
+
+Prefix codes are desirable because they simplify decoding. Since no codeword
+is a prefix of any other, the codeword that begins an encoded file is unambiguous.
+We can simply identify the initial codeword, translate it back to the original char-
+
+ 
+
+3Perhaps “prefix-free codes” would be a better name, but the term “prefix codes” is standard in the
+literature.
+

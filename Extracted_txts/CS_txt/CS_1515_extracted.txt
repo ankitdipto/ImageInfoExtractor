@@ -1,0 +1,58 @@
+ALL
+
+SECTION 82 General Register Organization 245
+
+TABLE 8-1 Encoding of Register Selection Fields
+
+ 
+
+Binary
+Code SELA SELB SELD
+
+000 = Input Input None
+
+01 RL RL RL
+o10 R2 R2 R2
+on R3 3 R3
+100 Ra Ra Ra
+101 RS BS RS
+10 R6 R6 R6
+
+Mm R7 R7 R7
+
+binary code listed in the first column of the table specifies the binary code for
+each of the three fields. The register selected by fields SELA, SELB, and SELD
+is the one whose decimal number is equivalent to the binary number in the
+code. When SELA or SELB is 000, the corresponding multiplexer selects the
+external input data. When SELD = 000, no destination register is selected but
+the contents of the output bus are available in the external output.
+
+The ALU provides arithmetic and logic operations. In addition, the CPU
+must provide shift operations. The shifter may be placed in the input of the
+ALU to providea preshift capability, or at the output of the ALU to provide
+postshifting capability. In some cases, the shift operations are included with
+the ALU. An arithmetic logic and shift unit was designed in Sec 4-7. The
+function table for this ALU is listed in Table 48. The encoding of the ALU
+operations for the CPU is taken from Sec. 4-7 and is specified in Table 8-2 The
+OPR field has five bits and each operation is designated witha symbolic name.
+
+TABLE 8-2 Encoding of ALU Operations
+
+ 
+
+OPR
+
+Select Operation Symbol
+00000 Transfer A TSFA
+00001 Increment A INCA
+00010 Add A+B ADD
+00101 SubtractA-B SUB
+00110 Decrement A DECA
+01000 AND Aand B AND
+01010 OR Aand B OR
+01100 XORA and B XOR
+01110 Complement A. COMA.
+10000 Shift right A SHRA
+
+11000 Shift left A SHLA
+

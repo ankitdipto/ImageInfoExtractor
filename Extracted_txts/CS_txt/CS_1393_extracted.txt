@@ -1,0 +1,41 @@
+644 Let UsC
+
+ 
+
+}
+
+In this hook procedure once again we have checked if the nCode
+parameter contains a value HC_ACTION. If it does then we have
+checked the present state of the key in question. If the present state
+of the key is ‘pressed’ (31" bit of Param is 0) then we have
+posted the message for the same key into the system message
+queue by calling the keybd_event( ). However, this may lead to a
+serious problem. Can you imagine which? The message that we
+post, once retrieved, would again bring the control to our hook
+procedure. Once again the conditions would become true and we
+would post the same message again. This would go on and on.
+This can be prevented by using a using a simple flag variable as
+shown in the code.
+
+Note that the rest of the functions in the DLL file are exactly same
+as in the previous program. So also is the application program.
+
+Mangling Keys
+
+How about one more program to bolster your confidence? Let us
+try one that would mangle every key that is pressed. That is,
+convert an A to a B, B to C, C to D, etc. This would be fairly
+straight-forward. We simply have to increment the key code before
+posting it into the system message queue. Also, further processing
+of key has to be prevented. This can be achieved by simply
+returning a non-zero value from the hook procedure (thus
+bypassing the call to CallNextHookEx( )). This is shown in the
+following hook procedure.
+
+LRESULT __declspec (dllexport ) __ stdcall KeyboardProc ( int nCode,
+WPARAM wParam, LPARAM IParam )
+{
+
+static BYTE key ;
+static BOOL flag = FALSE ;
+

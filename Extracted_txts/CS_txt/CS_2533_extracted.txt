@@ -1,0 +1,53 @@
+132
+
+Chapter 5 Probabilistic Analysis and Randomized Algorithms
+
+Pr{ Bu} Pr{ Br} Pr{Ax | Bea}
+
+Pr {Bi} Pr{Ax—a | Bro} Pr{Ax | Bea}
+
+Pr {By} Pr{Ao | Bi} Pr{A3 | Bo}---Pr{Ag | Bea}
+n—1)\(n-2 n-k+l1
+(OG) Gr)
+1 2 k-1
+Maa).
+
+Inequality (3.12), 1 + x < e*, gives us
+
+ 
+
+ 
+
+Pr{Bey < eM e Pl. eF—Vin
+
+= eo bictiln
+eK k-D/2n
+< 1/2
+
+when —k(k — 1)/2n < In(1/2). The probability that all k birthdays are distinct
+is at most 1/2 when k(k — 1) > 2n In2 or, solving the quadratic equation, when
+k > (1+ V1+4+(8In2)n)/2. For n = 365, we must have k > 23. Thus, if at
+least 23 people are in a room, the probability is at least 1/2 that at least two people
+have the same birthday. On Mars, a year is 669 Martian days long; it therefore
+takes 31 Martians to get the same effect.
+
+An analysis using indicator random variables
+
+We can use indicator random variables to provide a simpler but approximate anal-
+ysis of the birthday paradox. For each pair (i, j ) of the k people in the room, we
+define the indicator random variable Xj;, for 1 <i < j <k, by
+Xj; =  I{person i and person j have the same birthday}
+
+1 if person i and person j have the same birthday ,
+
+0 otherwise .
+
+By equation (5.6), the probability that two people have matching birthdays is 1/n,
+and thus by Lemma 5.1, we have
+
+E[X;;]_ = Pr{person i and person j have the same birthday}
+= I/n.
+
+Letting X be the random variable that counts the number of pairs of individuals
+having the same birthday, we have
+

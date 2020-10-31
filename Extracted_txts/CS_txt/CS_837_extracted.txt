@@ -1,0 +1,50 @@
+Chapter 5: Functions & Pointers 181
+
+ 
+
+main()
+
+{
+int i=3;
+
+printf ( "\nAddress of i = %u", &i) ;
+
+printf ( “\nValue of i = %d", i) ;
+
+printf ( “\nValue of i = %d", *( &i) ) ;
+}
+
+The output of the above program would be:
+
+Address of i = 65524
+Value of i = 3
+Value of i = 3
+
+Note that printing the value of *( &i ) is same as printing the value
+of i.
+
+The expression &i gives the address of the variable i. This address
+can be collected in a variable, by saying,
+
+j=8i;
+
+But remember that j is not an ordinary variable like any other
+integer variable. It is a variable that contains the address of other
+variable (i in this case). Since j is a variable the compiler must
+provide it space in the memory. Once again, the following memory
+map would illustrate the contents of i and j.
+
+ 
+
+  
+
+65524 65522
+
+ 
+
+ 
+
+ 
+
+Figure 5.2
+

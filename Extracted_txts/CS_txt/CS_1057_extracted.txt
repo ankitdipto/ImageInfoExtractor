@@ -1,0 +1,60 @@
+200
+
+Chapter 7. First-Order Logic
+
+ 
+
+SYNTACTIC SUGAR
+
+7. An object is a member of the intersection of two sets if and only if it is a member of each
+of the sets.
+Vx,51,52 Member(x, Intersection(s),82)) &
+Member(x,s,) A Member(x,s2)
+
+8. An object is a member of the union of two sets ifand only ifit is a member of either set.
+
+Wx,51,52 Member(x, Union(s,, 52))
+Member(x,s;) V Member(x,s2)
+
+The domain of lists is very similar to the domain of sets. The difference is that lists are ordered,
+and the same element can appear more than once ina list. We can use the vocabulary of Lisp for
+lists: Nil is the constant list with no elements; Cons, Append, First, and Rest are functions; and
+Find is the predicate that does for lists what Member does for sets. List? is a predicate that is true
+only of lists. Exercise 7.8 asks you to write axioms for the list domain.
+
+Special notations for sets, lists and arithmetic
+
+Because sets and lists are so common, and because there is a well-defined mathematical notation
+for them, it is tempting to extend the syntax of first-order logic to include this mathematical
+notation. The important thing to remember is that when this is done, it is only a change to the
+syntax of the language; it does not change the semantics. The notation is just an abbreviation
+for the normal first-order logic notation. Such notational extensions are often called syntactic
+sugar. We will use standard mathematical notation for arithmetic and set theory from here on,
+and will also use the nonstandard notation {as} as an abbreviationfor Adjoin(as). There is less
+consensus among mathematicians about the notation for lists; we have chosen the notation used
+by Prolog:
+
+ 
+
+ 
+
+0 = EmphSet f] = Nil
+{x} = Adjoin(x EmptySet) [x] = Cons(x, Nil)
+{x,y} = Adjoin(x, Adjoin(EmptySet)) [x,y] = Cons(x, Cons(y, Nil)
+{ays} = Adjoin(x, Adjoin(y,s)) [x yl] = Cons(x, Cons(y,/))
+rUs — Union(rs)
+rns = Intersection(r,s)
+xES Member(x,s)
+
+rCs = Subset(r,s)
+
+We will also use standard arithmetic notation in logical sentences, saying, for example, x > 0
+instead of >(x, Zero) and 1+2 instead of +(1,2). It should be understood that each use of an infix
+mathematical operator is just an abbreviation for a standard prefix predicate or function. The
+integers are used as constant symbols, with their usual interpretation.
+
+Asking questions and getting answers
+
+Although we will delay discussion of the intemals of TELL and ASK until chapters 9 and 10, it
+is important to understand how they are used in first-order logic. If we want to add the kinship
+

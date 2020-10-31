@@ -1,0 +1,53 @@
+462 Chapter 15. Probabilistic Reasoning Systems
+
+ 
+
+inference on polytrees. In other circumstances, certainty factors could yield disastrously incorrect
+degrees of belief through overcounting of evidence. Details of the method can be found under
+the "Certainty Factors" entry in Encyclopedia of Al,but the use of certainty factors is no longer
+recommended (even by one of its inventors—see the foreword to Heckerman (1991)).
+
+Representing ignorance: Dempster-Shafer theory
+
+pempster-sHareR The Dempster-Shafer theory is designed to deal with the distinction between uncertainty and
+ignorance. Rather than computing the probability of a proposition, it computes the probability
+
+BELIEF FUNCTION that the evidence supports the proposition. This measure of belief is called a belief function,
+written Bel(X).
+
+We return to coin flipping for an example of belief functions. Suppose a shady character
+comes up to you and offers to bet you $10 that his coin will come up heads on the next flip. Given
+that the coin may or may not be fair, what belief should you ascribe to the event of it coming up
+heads? Dempster-Shafer theory says that because you have no evidence either way, you have to
+say that the belief Bel(Heads) = 0, and also that Bel(-Heads)= 0. This makes Dempster-Shafer
+reasoning systems skeptical in a way that has some intuitive appeal. Now suppose you have an
+expert at your disposal who testifies with 90% certainty that the coin is fair (i.e., he is 90% sure
+that P(Heads) = 0.5). Then Dempster-Shafer theory gives Bel(Heads) = 0.9 x 0.5 = 045 and
+likewise Bel(-Heads)= 0.45. There is still a 0.1 "gap" that is not accounted for by the evidence.
+“Dempster’s rule" (Dempster, 1968) shows how to combine evidence to give new values for Bel,
+and Shafer's work extends this into a complete computational model
+
+As with default reasoning, there is a problem in connecting beliefs to actions. With prob-
+abilities, decision theory says that if P(Heads) = P(-Heads)- 0.5 then (assuming that winning
+$10 and losing $10 are considered equal opposites) the reasoner will be indifferent between the
+action of accepting and declining the bet. A Dempster-Shafer reasoner has Bel(-Heads)- 0,
+and thus no reason to accept the bet, but then it also has Bel(Heads)- 0, and thus no reason to
+decline it. Thus, it seems that the Dempster-Shafer reasoner comes to the same conclusion about
+how to act in this case. Unfortunately, Dempster-Shafer theory allows no definite decision in
+many other cases where probabilistic inference does yield a specific choice. In fact, the notion
+of utility in the Dempster-Shafer model is not yet well-understood, partly because the semantics
+of Bel is not defined precisely with respect to decision making. :
+
+One interpretation of Dempster-Shafer theory is that it defines a probability interval—the 4
+interval for Heads is [0, 1] before our expert testimony, and [0.45,0.55] after. The width of the
+interval can be a good aid in deciding when we need to acquire more evidence: it can tell you
+that the expert's testimony will help you if you do not know whether the coin is fair, but will
+not help you if you have already determined that the coin is fair. In the Bayesian approach, this
+kind of reasoning can be done easily by examining how much one's belief would change if one
+were to acquire more evidence. For example, knowing whether the coin is fair would have a
+significant impact on the belief that it will come up heads. A Bayesian probability therefore has
+an "implicit" uncertainty associated with the various possible changes that it might undergo as a
+result of future observations.
+
+   
+

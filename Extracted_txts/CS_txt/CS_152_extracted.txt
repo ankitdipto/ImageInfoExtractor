@@ -1,0 +1,59 @@
+764
+
+Chapter 26 Maximum Flow
+
+Show that if M is a matching and P is an augmenting path with respect to M,
+then the symmetric difference M @ P is a matching and |M @ P| =|M|+1.
+Show that if P;, P2,.... Px are vertex-disjoint augmenting paths with respect
+to M, then the symmetric difference M @ (P; U Pz U--++ U Px) is a matching
+with cardinality |M| +k.
+
+The general structure of our algorithm is the following:
+
+Hopcrort-K ARP(G)
+
+1
+2
+3
+
+wu
+
+M=96
+repeat
+let P = {P), Po,..., Px} be a maximal set of vertex-disjoint
+shortest augmenting paths with respect to M
+M = M @(P,U P2U---U Px)
+until P == 9
+return M
+
+The remainder of this problem asks you to analyze the number of iterations in
+
+the algorithm (that is, the number of iterations in the repeat loop) and to describe
+an implementation of line 3.
+
+b
+
+Given two matchings M and M* in G, show that every vertex in the graph
+G' = (V.M ® M*) has degree at most 2. Conclude that G’ is a disjoint
+union of simple paths or cycles. Argue that edges in each such simple path
+or cycle belong alternately to M or M*. Prove that if |M| < |M*|, then
+M © M* contains at least |M*|— |M| vertex-disjoint augmenting paths with
+respect to M.
+
+Let / be the length of a shortest augmenting path with respect to a matching M, and
+let P;, Po...., P; be a maximal set of vertex-disjoint augmenting paths of length /
+with respect to M. Let M’ = M @(P, U---U Px), and suppose that P is a shortest
+augmenting path with respect to M’.
+
+c.
+
+Show that if P is vertex-disjoint from P. P2..... P,, then P has more than /
+edges.
+
+Now suppose that P is not vertex-disjoint from P;, P2,.... P,. Let A be the
+set of edges (M @ M’) @ P. Show that A = (P; U P) U---U Py) @ P and
+that |A| > (k + 1)/. Conclude that P has more than / edges.
+
+Prove that if a shortest augmenting path with respect to M has / edges, the size
+of the maximum matching is at most |M| + |V|/( + D.
+

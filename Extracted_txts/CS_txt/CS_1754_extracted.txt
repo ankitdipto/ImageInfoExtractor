@@ -1,0 +1,64 @@
+ 
+
+238 Chapter7 Process Synchronization
+do {
+while(1) {
+flag[i] = want_in;
+j = turn;
+while (j != i) {
+if (flag[j] != idle)
+j = turn;
+else
+j = (jtt) % a;
+flag[i] = in-cs;
+j= 9
+while ((j <n) && (j==i || flag[j] != in-cs))
+jtt
+if ((j >= n) && (turn==i II flag[turn] == idle)) break;
+}
+turn = i;
+
+ 
+
+ 
+
+ 
+
+critical section
+
+ 
+
+ 
+
+j = (turnt1) % n;
+
+while (flag[j] == idle)
+j= Gtt) 4a;
+
+turn = j;
+
+flag{i] = idle;
+
+ 
+
+ 
+
+remainder section
+
+} while (1);
+
+Figure 7.28 The structure of process P; in Eisenberg and McGuire's algorithm.
+
+7.10
+
+needs three ingredients: tobacco, paper, and matches. One of the smoker
+processes has paper, another has tobacco, and the third has matches. The
+agent has an infinite supply of all three materials. The agent places two of
+the ingredients on the table. The smoker who has the remaining ingredient
+then makes and smokes a cigarette, signaling the agent on completion.
+The agent then puts out another two of the three ingredients, and the cycle
+repeats. Write a program to synchronize the agent and the smokers.
+Demonstrate that monitors, conditional critical regions, and semaphores
+are all equivalent, insofar as the same types of synchronization problems
+can be implemented with them.
+

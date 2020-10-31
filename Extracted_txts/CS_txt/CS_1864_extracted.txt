@@ -1,0 +1,49 @@
+10.3 Process Creation 329
+
+be shared by the parent and child processes. Note that only pages that may
+be modified need be marked as copy-on-write. Pages that cannot be modified
+(Le., pages containing executable code) may be shared by the parent and child.
+Copy-on-write is a common technique used by several operating systems when
+duplicating processes, including Windows 2000, Linux, and Solaris 2.
+
+When it is determined a page is going to be duplicated using copy-on-
+write, it is important to note where the free page will be allocated from. Many
+operating systems provide a pool of free pages for such requests. These free
+pages are typically allocated when the stack or heap for a process must expand
+or for managing copy-on-write pages. Operating systems typically allocate
+these pages using a technique known as zero-fill-on-demand. Zero-fill-on-
+demand pages have been zeroed-out before being allocated, thus erasing the
+previous contents of the page. With copy-on-write, the page being copied
+will be copied to a zero-filled page. Pages allocated for the stack or heap are
+similarly assigned zero-filled pages.
+
+Several versions of UNIX (including Solaris 2) also provide a variation
+of the fork() system call—vfork() (for virtual memory fork). vfork()
+operates differently than fork () with copy-on-write. With vfork() the parent
+Process is suspended and the child process uses the address space of the parent.
+Because vfork() does not use copy-on-write, if the child process changes
+any pages of the parent’s address space, the altered pages will be visible to
+the parent once it resumes. Therefore, vfork() must be used with caution,
+ensuring that the child process does not modify the address space of the
+parent. vfork() is intended to be used when the child process calls exec()
+immediately after creation. Because no copying of pages takes place, vfork()
+is an extremely efficient method of process creation and is sometimes used to
+implement UNIX command-line shell interfaces.
+
+10.3.2, Memory-Mapped Files
+
+Consider a sequential read of a file on disk using the standard system calls
+open(), read(), and write(). Every time the file is accessed requires a
+system call and disk access. Alternatively, we can use the virtual-memory
+techniques discussed so far to treat file I/O as routine memory accesses. This
+approach is known as memory mapping a file, allowing a part of the virtual-
+address space to be logically associated with a file. Memory mapping a file
+is possible by mapping a disk block to a page (or page(s)) in memory. Initial
+access to the file proceeds using ordinary demand paging, resulting in a page
+fault. However, a page-sized portion of the file is read from the file system
+into a physical page (some systems may in fact opt to read in more than a
+page-sized chunk of memory at a time.) Subsequent reads and writes to the
+file are handled as routine memory accesses, thereby simplifying file access and
+usage by allowing file manipulation through memory rather than the overhead
+of using the read() and write() system calls. Note that writes to the file
+

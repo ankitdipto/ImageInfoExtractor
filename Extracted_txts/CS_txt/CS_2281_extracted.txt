@@ -1,0 +1,68 @@
+SECTION 11-8 Serial Communication 433
+
+received. If they do not match the bits of the SYN character, the receiver accepts
+the next bit, rejects the previous high-order bit, and again checks the last eight
+bits received for a SYN character. This is repeated after each clock pulse and
+bit received until a SYN character is recognized. Once a SYN character is
+detected, the receiver has framed acharacter. From here on the receiver counts
+every eight bits and accepts them as a single character. Usually, the receiver
+checks two consecutive SYN characters to remove any doubt that the first did
+not occur as a result of a noise signal on the line. Moreover, when the trans-
+mitter is idle and does not have any message characters to send, it sends a
+continuous string of SYN characters. The receiver recognizes these characters
+asa condition for synchronizing the line and goes into a synchronous idlestate.
+Inthisstate, the twounits maintain bit and character synchronism even though
+no meaningful information is communicated.
+
+Messages are transmitted through the data link with an established
+format consisting of a header field, a text field, and an error-checking field. A
+typical message format fora character-oriented protocol is shown in Fig. 11-25.
+The two SYN characters assure proper synchronization at the start of the
+message. Following the SYN characters is the header, which starts with an
+SOH (tart of heading) character. The header consists of address and control
+information The STX character terminates the header and signifies the begin-
+ning of the text transmission. The text portion of the message is variable in
+length and may contain any ASCII characters except the communication con-
+trol characters. The text field is terminated with the ETX character. The last field
+is a block check character (BCC) used for error checking. It is usually either a
+longitudinal redundancy check (LRC) or a cyclic redundancy check (CRO).
+
+The receiver accepts the message and calculates its own BCC. If the BCC
+transmitted does not agree withthe BCC calculated by the receiver, the receiver
+responds with a negative acknowledge (NAK) character. The message is then
+retransmitted and checked again. Retransmission will be typically attempted
+several times before it is assumed that the line is faulty. When the transmitted
+BCC matches the one calculated by the receiver, the response is a positive
+acknowledgment using the ACK character.
+
+‘Transmission Example
+
+In order to appreciate the function of a data communication processor, let us
+illustrate by a specific example the method by which a terminal and the
+processor communicate. The communication withthe memory unit and CPU
+is similar to any /O processor.
+
+Figure 11-25 Typical message format for characteroriented protocol
+
+ 
+
+syn | SYN | SOH | Header | STX Text ETx | Bcc
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

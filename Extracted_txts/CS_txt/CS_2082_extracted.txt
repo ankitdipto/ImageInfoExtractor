@@ -1,0 +1,59 @@
+SECTIONS Redused (necruccon Sec Compures (RISC) 291
+
+Theload and store instructions move data between a register and mem-
+ory. The load instructions aecommodate signed or unsigned data of eight bits
+(byte) or 16 bits (short word). The long-word instructions operate on 32-bit
+data. Although there appears to be a register plus displacement addressing
+mode in data transfer instructions, register indirect addressing and direct
+addressing is also possible. The folowing are examples of load long instruc-
+tions with different addressing modes.
+
+LDL (R22)#1SO,RS = RSe-M[ R22] + 350
+LDL (R22)#0,R5 RS M[ REZ)
+LDL (RO) #S0D,RS RS+-m[S00)
+
+Theeffective addressin the firstinstruction s evaluated from the contents of
+register R22 plus a displacement of 150. The second instruction uses a 0
+displacement, which reduces it toa register indirect mode. The third instruc-
+tion uses all 0's from register RO to Producea direct address type of instruction.
+
+The program conércl instructions operate with the program counter PC
+tocontrol the progeam sequence. Thereare twojump and two callinstructions.
+One uses an index plus displacement addressing; the second uses a relative
+to PC mode with the 19-bit Y value as the relative address. The call and ecturn
+instructions use a 3-bit CWP (current window pointer) register whieh points
+to the currently active register window. Every time the program calls a new
+procedure, CWP is decremented by one to point to the next-lower register
+window, Alter a return instruction CWP isincremented by one to return to the
+previous register window.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+PROBLEMS
+
+81, Abus organized CCU slumlario Fig 8-2 has 16 registers with 32 bits in each,
+an ALU, and a destination decoder.
+4 How many multiplexers are there in the A bus, and what is the size of
+each multplexer?
+b. How many selection inputs are ceeded for MUX A and MUX B?
+¢. How many inputs and outputs are there in the decnder?
+4. How many inputs and outputs are there in the ALU for data, including,
+‘input and output corres?
+¢. Formulate a control word for the system assuming that the ALU has 35
+operations.
+82 The bus system of Fig. 8:2 has the fallowing propagation delay times: 30.ns
+for the signals to propagate through the multipleers, 80 ns to pesfarm the
+ADD operation inthe ALU, 20 ns delay inthe destination decoder, and 10
+1s to clock the data into the destination register. Wiatis the minimum cyde
+time that can be used for the clock?
+

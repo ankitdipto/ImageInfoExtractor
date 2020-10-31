@@ -1,0 +1,58 @@
+280 cuarter HoHT Central Processing Unit
+
+program status word
+
+supervisor mode
+
+necessary to define the state of the CPU rather than storing only the program
+counter. These three procedural concepts are clarified further below.
+
+After a program has been interrupted and the service routine been exe-
+cuted, the CPU must return to exactly the same state that it was when the
+interrupt occurred. Only if this happens will the interrupted program be able
+to resume exactly as if nothing had happened. The state of the CPU at the end
+of the execute cycle (when the interrupt is recognized) is determined from:
+
+1. The content of the program counter
+2. The content of all processor registers
+3. The content of certain status conditions
+
+The collection of all status bit conditions in the CPU is sometimes called
+aprogramstatus word or PSW. The PSW is stored ina separate hardware register
+and contains the status information that characterizes the state of the CPU.
+Typically, it includes the status bits from thelast ALU operation and it specifies
+the interrupts that are allowed to occur and whether the CPU is operating in
+a supervisor or user mode. Many computers have a resident operating system
+that controls and supervises all other programs in the computer. When the
+CPU is executing a program that is part of the operating system, it is said to
+be in the supervisor or system mode. Certain instructions are privileged and
+canbe executedin this mode only. The CPU isnormally in the user mode when
+executing user programs. The mode that the CPU is operating at any given time
+is determined from special status bits in the PSW.
+
+Some computers store only the program counter when responding to an
+interrupt. The service program must then include instructions to store status
+and register content before these resources are used. Only afew computers
+store both program counter and all status and register content in response to
+an interrupt. Most computers just store the program counter and the PSW. In
+some cases, there exist two sets of processor registers within the computer, one
+for each CPU mode. In this way, when the program switches from the user to
+the supervisor mode (or vice versa) in response to an interrupt, it is not
+necessary to store the contents of processor registers as each mode uses its own
+set of registers.
+
+‘The hardware procedure for processing an interrupt is very similar to the
+execution of a subroutine call instruction. The state of the CPU is pushed into
+amemory stack and the beginning address of the service routine is transferred
+to the program counter. The beginning address of the service routine is deter-
+mined by the hardware rather than the address field of an instruction. Some
+computers assign one memory location where interrupts are always trans-
+ferred. Theserviceroutine must then determine what caused the interrupt and
+proceed to service it. Some computers assign a memory location for each
+possible interrupt. Sometimes, the hardware interrupt provides its own ad-
+dress that directs the CPU to the desired service routine. In any case, the CPU
+
+ 
+
+ 
+

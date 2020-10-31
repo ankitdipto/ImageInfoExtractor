@@ -1,0 +1,55 @@
+Section 2.5.
+
+Summary 49
+
+ 
+
+ENVIHONMENT
+Class:
+
+work in an environment class, a whole set of different environments. For example, we design
+a chess program to play against any of a wide collection of human and machine opponents. If
+we designed it for a single opponent, we might be able to take advantage of specific weaknesses
+in that opponent, but that would not give us a good program for general play. Strictly speaking,
+in order to measure the performance of an agent, we need to have an environment generator
+that selects particular environments (with certain likelihoods) in which to run the agent. We are
+then interested in the agent's average performance over the environment class. This is fairly
+straightforward to implement for a simulated environment, and Exercises 2.5 to 2.11 take you
+through the entire development of an environment and the associated measurement process.
+
+A possible confusion arises between the state variable in the environment simulator and
+the state variable in the agent itself (see REFLEX-AGENT-WITH-STATE). As a programmer imple-
+menting both the environment simulator and the agent, it is tempting to allow the agent to peek
+at the environment simulator's state variable. This temptation must be resisted at all costs! The
+agent's version of the state must be constructed from its percepts alone, without access to the
+complete state information.
+
+2.5 _ SUMMARY
+
+This chapter has been something of a whirlwind tour of Al, which we have conceived of as the
+science of agent design. The major points to recall are as follows:
+
+« An agent is something that perceives and acts in an environment. We split an agent into
+an architecture and an agent program.
+
+An ideal agent is one that always takes the action that is expected to maximize its perfor-
+mance measure, given the percept sequence it has seen so far.
+
+An agent is autonomous to the extent that its action choices depend on its own experience,
+rather than on knowledge of the environment that has been built-in by the designer.
+
+An agent program maps from a percept to an action, while updating an internal state.
+
+There exists a variety of basic agent program designs, depending on the kind of information
+made explicit andused in the decision process. The designs vary in efficiency, compactness,
+and flexibility. The appropriate design of the agent program depends on the percepts,
+actions, goals, and environment
+
+Reflex agents respond immediately to percepts, goal-based agents act so that they will
+achieve their goal(s), and utility-based agents try to maximize their own "happiness."
+The process of making decisions by reasoning with knowledge is central to AI and to
+successful agent design. This means that representing knowledge is important.
+
+Some environments are more demanding than others. Environments that are inaccessible,
+nondeterministic, nonepisodic, dynamic, and continuous are the most challenging
+

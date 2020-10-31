@@ -1,0 +1,72 @@
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+482 Chapter 16. Making Simple Decisions
+12 1 ~
+1 i 08 /
+08
+20.6 = sl —
+s 7 SL £0.4 3
+®o4 Sz. Oe
+02 02
+0 mS 0
+6 55 3 45 4 35 3 25 2 6 -S.5 5 -4.5 4 -3.5 3-25 2
+Negative cost Negative cost
+@) ()
+Figure 163 Stochastic dominance. (a) S; stochastically dominates $2 on cost. (b) Cumulative
+distributions for the negative cost of S; and S2.
+
+ 
+
+that utility decreases with cost, we can say that S; stochastically dominates S$; — that is, Sy can be
+discarded. It is important to note that this does not follow from comparing the expected costs.
+For example, if we knew the cost of S| to be exactly $3.7 billion, then we would be unable to
+make a decision without additional information on the utility of money.’
+
+The exact relationship between the attribute distributions needed to establish stochastic
+dominance is best seen by examining the cumulative distributions, shown in Figure 16.3(b). The
+cumulative distribution measures the probability that the cost is less than or equal to any given
+amount — that is, it integrates the original distribution. If the cumulative distribution for S\ is
+always to the right ofthe cumulative distribution for 5, then stochastically speaking S, is cheaper
+than S>. Formally, if two actions A; and A2 lead to probability distributions p)(x) and p2(x) on
+attribute X, then 4; stochastically dominates A2 on X if
+
+x x
+‘
+
+Vx [ mcrae > prox’) dx
+we =e
+
+Ifan action is stochastically dominated by another action on all attributes, then it can be discarded.
+The stochastic dominance condition might seem rather technical, and perhaps not so easy
+to determine without extensive probability calculations. In fact, it can be decided very easily 10
+many cases. Suppose, for example, that the construction cost depends on the distance to centers
+of population. The cost itself is uncertain, but the greater the distance, the greater the cost. If
+5S, is less remote than $5, then §, will dominate S) on cost. Although we will not present them
+here, there exist algorithms for propagating this kind of qualitative information among uncertain
+variables in qualitative probabilistic networks, enabling a system to make rational decisions
+based on stochastic dominance without ever needing to use numerical probabilities or utilities.
+
+    
+
+7 It might seem odd that more information on the cost of $, could make the agent less able to decide. The paradox i$
+resolved by noting that the decision reached in the absence of exact cost information is less likely to be correct.
+
+  
+ 
+

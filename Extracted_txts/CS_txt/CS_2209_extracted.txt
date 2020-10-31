@@ -1,0 +1,48 @@
+SECTION 10-7 Decimal Arithmetic Operations 371.
+
+Addition and Subtraction
+
+The algorithm for addition and subtraction of binary signed-magnitude num-
+bers applies also to decimal signed-magnitude numbers provided that we
+interpret the microoperation symbols in the proper manner. Similarly, the
+algorithm for binary signed-2’s complement numbers applies to decimal
+signed-10’s complement numbers. The binary data must employ a binary
+adder and a complementer. The decimal data must employ a decimal arith-
+metic unit capable of adding two BCD numbers and forming the 9s comple-
+ment of the subtrahend as shown in Fig. 10-19.
+
+Decimal datacan be added in three different ways, as shown in Fig. 10-20.
+The parallel method uses a decimal arithmetic unit composed of as many BCD
+adders as there are digits in the number. The sum is formed in parallel and
+requires only one microoperation. In the digit-serial bit-parallel method, the
+digits are applied to a single BCD adder serially, while the bits of each coded
+digit are transferred in parallel. The sum is formed by shifting the decimal
+numbers through the BCD adder one at a time. For k decimal digits, this
+configuration requires k microoperations, one for each decimal shift. In the all
+serial adder, the bits are shifted one at a time through a full-adder. The binary
+sum formed after four shifts must be corrected into a valid BCD digit. This
+correction, discussed in Sec. 10-6, consists of checking the binary sum. If it is
+greater than or equal to 1010, the binary sumis corrected by adding to it 0110
+and generating a carry for the next pair of digits.
+
+The parallel method is fast but requires a large number of adders. The
+digit-serial bit-parallel method requires only one BCD adder, which is shared
+by all the digits. It is slower than the parallel method because of the time
+required to shift the digits. The all serial method requires a minimum amount
+of equipment but is very slow.
+
+Multiplication
+The multiplication of fixed-point decimal numbers is similar to binary except
+for the way the partial products are formed. A decimal multiplierhas digits that
+range in value from 0 to 9, whereas a binary multiplier has only 0 and 1 digits.
+In the binary case, the multiplicand is added to the partial product if the
+multiplier bit is 1. In the decimal case, the multiplicand must be multiplied by
+the digit multiplier and the result added to the partial product. This operation
+can be accomplished by adding the multiplicand to the partial product a
+number of times equal to the value of the multiplier digit.
+
+The registers organization for the decimal multiplication is shown in
+Fig. 10-21. We are assuming here four-digit numbers, with each digit occupy-
+ing four bits, for a total of 16 bits for each number. There are three registers,
+A, B, and Q, each having a corresponding sign flip-flop A,, B,, and Q,.
+

@@ -1,0 +1,50 @@
+4.1 The maximum-subarray problem 69
+
+lls
+
+ 
+
+ 
+
+104
+94
+84 Price [10 11 7 10 6
+74 Change 1-4 3 -4
+64
+
+Figure 4.2 An example showing that the maximum profit does not always start at the lowest price
+or end at the highest price. Again, the horizontal axis indicates the day, and the vertical axis shows
+the price. Here, the maximum profit of $3 per share would be earned by buying after day 2 and
+selling after day 3. The price of $7 after day 2 is not the lowest price overall, and the price of $10
+after day 3 is not the highest price overall.
+
+demonstrating that the maximum profit sometimes comes neither by buying at the
+lowest price nor by selling at the highest price.
+
+A brute-force solution
+
+We can easily devise a brute-force solution to this problem: just try every possible
+pair of buy and sell dates in which the buy date precedes the sell date. A period of n
+days has ('}) such pairs of dates. Since (1) is O(n), and the best we can hope for
+is to evaluate each pair of dates in constant time, this approach would take Q(n?)
+time. Can we do better?
+
+A transformation
+
+In order to design an algorithm with an 0(n?) running time, we will look at the
+input in a slightly different way. We want to find a sequence of days over which
+the net change from the first day to the last is maximum. Instead of looking at the
+daily prices, let us instead consider the daily change in price, where the change on
+day i is the difference between the prices after day i — 1 and after day 7. The table
+in Figure 4.1 shows these daily changes in the bottom row. If we treat this row as
+an array A, shown in Figure 4.3, we now want to find the nonempty, contiguous
+subarray of A whose values have the largest sum. We call this contiguous subarray
+the maximum subarray. For example, in the array of Figure 4.3, the maximum
+subarray of A[1.. 16] is A[8..11], with the sum 43. Thus, you would want to buy
+the stock just before day 8 (that is, after day 7) and sell it after day 11, earning a
+profit of $43 per share.
+
+At first glance, this transformation does not help. We still need to check
+
+("5') = (7) subarrays for a period of n days. Exercise 4.1-2 asks you to show
+

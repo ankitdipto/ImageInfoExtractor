@@ -1,0 +1,44 @@
+280
+
+Chapter 11 Hash Tables
+
+We now turn to the issue of ensuring that the overall memory used is O(n).
+Since the size mj of the jth secondary hash table grows quadratically with the
+number 71; of keys stored, we run the risk that the overall amount of storage could
+be excessive.
+
+If the first-level table size is m = n, then the amount of memory used is O(n)
+for the primary hash table, for the storage of the sizes mj; of the secondary hash
+tables, and for the storage of the parameters a; and b; defining the secondary hash
+functions h; drawn from the class Hp, of Section 11.3.3 (except when nj = 1
+and we use a = b = 0). The following theorem and a corollary provide a bound on
+the expected combined sizes of all the secondary hash tables. A second corollary
+bounds the probability that the combined size of all the secondary hash tables is
+superlinear (actually, that it equals or exceeds 47).
+
+Theorem 11.10
+
+Suppose that we store n keys in a hash table of size m = n using a hash function /t
+randomly chosen from a universal class of hash functions. Then, we have
+
+m1
+E [= a] <2n,
+j=0
+where 11; is the number of keys hashing to slot /.
+
+Proof We start with the following identity, which holds for any nonnegative inte-
+ger a:
+
+@a0+2(). (11.6)
+
+We have
+
+E
+
+(by equation (11.6))
+)| (by linearity of expectation)
+
+(by equation (11.1))
+
+ 
+

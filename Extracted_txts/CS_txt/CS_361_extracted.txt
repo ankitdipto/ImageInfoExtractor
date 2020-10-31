@@ -1,0 +1,47 @@
+31.2 Greatest common divisor 933
+
+31.1-8
+
+For any integer k > 0, an integer n is a kth power if there exists an integer a such
+that a* = n. Furthermore, n > 1 is a nontrivial power if it is a kth power for
+some integer k > 1. Show how to determine whether a given f-bit integer n is a
+nontrivial power in time polynomial in f.
+
+31.1-9
+Prove equations (31.6)—(31.10).
+
+31.1-10
+Show that the gcd operator is associative. That is, prove that for all integers a, b,
+and c,
+
+ged(a, ged(b, c)) = ged(ged(a, b),c) .
+
+311-11 x
+Prove Theorem 31.8.
+
+31.1-12
+
+Give efficient algorithms for the operations of dividing a B-bit integer by a shorter
+integer and of taking the remainder of a f-bit integer when divided by a shorter
+integer. Your algorithms should run in time @(B7).
+
+31.1-13
+
+Give an efficient algorithm to convert a given f-bit (binary) integer to a decimal
+representation. Argue that if multiplication or division of integers whose length
+is at most 6 takes time M(f), then we can convert binary to decimal in time
+©(M(f) lg B). (Hint: Use a divide-and-conquer approach, obtaining the top and
+bottom halves of the result with separate recursions.)
+
+ 
+
+31.2 Greatest common divisor
+
+In this section, we describe Euclid’s algorithm for efficiently computing the great-
+est common divisor of two integers. When we analyze the running time, we shall
+see a surprising connection with the Fibonacci numbers, which yield a worst-case
+input for Euclid’s algorithm.
+
+We restrict ourselves in this section to nonnegative integers. This restriction is
+justified by equation (31.8), which states that ged(a,b) = ged(|a|. |b]).
+

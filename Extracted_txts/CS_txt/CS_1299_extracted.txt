@@ -1,0 +1,38 @@
+Chapter 17: Windows Programming 569
+
+ 
+
+void OnDestroy ( HWND hWnd )
+{
+
+PostQuitMessage (0) ;
+}
+
+On execution of this program the window shown in Figure 17.4
+appears on the screen. We can use minimize and the maximize
+button it its title bar to minimize and maximize the window. We
+can stretch its size by dragging its boundaries. Finally, we can
+close the window by clicking on the close window button in the
+title bar.
+
+rites BEE
+
+Figure 17.4
+
+Let us now try to understand this program step by step.
+
+Creation and Displaying of Window
+
+Creating and displaying a window on the screen is a 4-step
+process. These steps are:
+
+(a) Creation of a window class.
+
+(b) Registering the window class with the OS.
+
+(c) Creation of a window based on the registered class.
+(d)_ Displaying the window on the screen.
+
+Creation of a window class involves setting up of elements of a
+structure called WNDCLASSEX. This structure contains several
+

@@ -1,0 +1,60 @@
+control address
+register
+
+sequencer
+
+pipeline register
+
+SECTION 74 Control Memory 215
+
+control memory address register specifies the addresso f the microinstruction,
+and the control data register holds the microinstruction read from memory.
+The microinstruction contains a control word that specifies one or more micro-
+operations for the data processor. Once these operations are executed, the
+control must determine the next address. The location of the next microinstruc-
+tion may be the one next in sequence, or it may be located somewhere else in
+the control memory. For this reason it is necessary to use some bits of the
+present microinstruction to control the generation of the address of the next
+microinstruction. The next address may also be a function of external input
+conditions. While the microoperationsare being executed, the next address is
+computed in the next address generator circuit and then transferred into the
+control address register to read the next microinstruction. Thusa microinstruc-
+tion contains bits for initiating microoperations in the data processor part and
+bits that determine the address sequence for the control memory.
+
+‘The next address generator is sometimes called a microprogram sequencer,
+as it determines the address sequence that is read from control memory. The
+address of the next microinstruction can be specified in several ways, depend-
+ing on the sequencer inputs. Typical functions of a microprogram sequencer
+are incrementing the control address register by one, loading into the control
+address register an address from control memory, transferring an external
+address, or loading an intial address to start the control operations.
+
+The control data register holds the present microinstruction while the
+next address is computed and read from memory. The data register is some-
+times called a pipeline register. It allows the execution of the microoperations
+specified by the control word simultaneously with the generation of the next
+microinstruction. Thiscon figuration requires a two-phase clock, with one clock
+applied to the address register and the other to the data register.
+
+The system can operate without the control data register by applying a
+single-phase clock to the address register. The control word and next-address
+information are taken directly from thecontrol memory. It mustbe realized that
+a ROM operates asa combinational circuit, with the address value as the input
+and the corresponding word as the output. The content of the specified word
+in ROM remains in the output wires as long as its address value remainsin the
+address register. No read signalis needed as in arandom-access memory. Each
+clock pulse will execute the microoperations specified by the control word and
+also transfera new address to the control address register. In the example that
+follows we assume a single-phase clock and therefore we do not use a control
+data register. In this way the address register is the only component in the
+control system that receives clock pulses. The other two components: the
+sequencer and the control memory are combinational circuits and do not need
+a clock.
+
+‘The main advantage of the microprogrammed controlis the fact that once
+the hardware configuration is established, there should be no need for further
+hardware or wiring changes. If we want to establish a different control se-
+
+ 
+

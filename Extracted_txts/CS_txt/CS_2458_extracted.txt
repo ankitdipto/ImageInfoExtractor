@@ -1,0 +1,56 @@
+Section 109.
+
+Summary 327
+
+ 
+
+ATMS
+
+it loses all justification, we merely mark the sentence as being out of the knowledge base. Ifa
+subsequent assertion restores one of the justifications, then we mark the sentence as being back
+in. In this way, the JTMS retains all of the inference chains that it uses, and need not rederive
+sentences when a justification becomes valid again.
+
+To solve the car diagnosis problem with a JIMS, we would first assume (that is, assert)
+that there is gas in the car and that it is reaching the cylinders. These sentences would be labelled
+as in. Given the right background knowledge, the sentence representing the fact that the car will
+not start would also become labelled in. We could then ask the JTMS for an explanation. On the
+other hand, ifit turned out that the assumptions were not sufficient (i.e., they did not lead to "car
+won't start" being in), then we would retract the original assumptions and make some new ones.
+We still have a search problem—the TMS does only part of the job.
+
+The JTMS was the first type of TMS, but the most popular type is the ATMS or assumption-
+based truth maintenance system. The difference is that a JTMS represents one consistent state
+of the world at a time. The maintenance ofjustifications allows you to quickly move from one
+state to another by making a few retractions and assertions, but at any time only one state is
+represented. An ATMS represents all the states that have ever been considered at the same time.
+Whereas a JIMS simply labels each sentence as being in or out, an ATMS keeps track, for
+each sentence, of which assumptions would cause the sentence to be true. In other words, each
+sentence has a label that consists of a set of assumption sets. The sentence holds just in those
+cases where all the assumptions in one of the assumption sets hold.
+
+To solve problems with an ATMS, we can make assumptions (such as P; or "gas in car")
+in any order we like. Instead of retracting assumptions when one line of reasoning fails, we just
+assert all the assumptions we are interested in, even if they contradict each other. We then can
+check a particular sentence to determine the conditions under which it holds. For example, the
+label on the sentence Q would be {{P;},{R}}.meaning that Q is true under the assumption that
+P; is true or under the assumption that R is true. A sentence that has the empty set as one of its
+assumption sets is necessarily true—it is true with no assumptions at all. On the other hand, a
+sentence with no assumption sets is just false.
+
+The algorithms used to implement truth maintenance systems are a little complicated, and
+we do not cover them here. The computational complexity of the truth maintenance problem is
+at least as great as that of propositional inference—that is, NP-hard. Therefore, you should not
+expect truth maintenance to be a panacea (except for trivially small problems). But when used
+carefully (for example, with an informed choice about what is an assumption and what is a fact
+that can not be retracted), a TMS can be an important part ofa logical system.
+
+10.9 SUMMARY
+
+ 
+
+This chapter has provided a connection between the conceptual foundations of knowledge rep-
+resentation and reasoning, explained in Chapters 6 through 9, and the practical world of actual
+reasoning systems. We emphasize that real understanding of these systems can only be obtained
+by trying them out.
+

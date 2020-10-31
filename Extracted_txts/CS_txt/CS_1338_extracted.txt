@@ -1,0 +1,21 @@
+Chapter 18: Graphics Under Windows 599
+
+ 
+
+Mi FreeHand
+
+ 
+
+Figure 18.5
+
+It appears that for drawing the freehand we should simply receive
+the mouse coordinates as it is moved and then highlight the pixels
+at these coordinates using the SetPixel( ) API function. However,
+if we do so the freehand would be broken at several places. This is
+because usually the mouse is dragged pretty fast whereas the
+mouse move messages won’t arrive so fast. A solution to this
+problem is to construct the freehand using small little line
+segments. This is what has been done in our program. These lines
+are so small is size that you would not even recognize that the
+freehand has been drawn by connecting these small lines.
+

@@ -1,0 +1,69 @@
+360
+
+Chapter 11. Planning
+
+ 
+
+move a block onto it. To fix this, we do two things. First, we introduce another operator to move
+a block b from.x to the table:
+
+Op(ACTION:MoveToTable(b, x),
+PRECOND:On(b, x) A Clear(b),
+EFFECT: On(b, Table) A Clear(x)A >On(b, x))
+
+Second, we take the interpretation of Clear(x)to be "there is a clear space on x to hold a block."
+Under this interpretation, Clear(Table) will always be part of the initial situation, and it is proper 4
+that Move(b, Table,y) has the effect Clear(Table). The only problem is that nothing prevents 4
+the planner from using Move(b,x, Table) instead of MoveToTable(b,x). We could either live |
+with this problem—it will lead to a larger-than-necessary search space, but will not lead to
+incorrect answers—or we could introduce the predicate Block and add Block(b) A Block(y)to the |
+precondition of Move.
+
+Finally, there is the problem of spurious operations like Move(B,C, C), which should be a
+no-op, but which instead has contradictory effects. It is common to ignore problems like this,
+because they tend not to have any effect on the plans that are produced. To really fix the problem,
+we need to be able to put inequalities in the precondition: bAx#y.
+
+  
+ 
+  
+  
+ 
+ 
+   
+  
+   
+  
+
+Shakey's world
+
+The original STRIPS program was designed to control Shakey,’ a robot that roamed the halls of
+SRI in the early 1970s. It turns out that most of the work on STRIPS involved simulations where
+the actions performed were just printing to a terminal, but occasionally Shakey would actually
+move around, grab, and push things, based on the plans created by STRIPS. Figure 11.15 shows a
+version of Shakey's world consisting of four rooms lined up along a corridor, where each room
+has a door and a light switch.
+
+Shakey can move from place to place, push movable objects (such as boxes), climb on
+and off of rigid objects (such as boxes), and turn light switches on and off. We will develop the }
+vocabulary of literals along with the operators: {
+
+1. Go from current location to location y: Go(y)
+This is similar to the Go operator used in the shopping problem, but somewhat restricted. }
+The precondition Ar(Shakey, x) establishes the current location, and we will insist that ¥
+and y be Jn the same room: Jn(x,r) A In(y,r). To allow Shakey to plan a route from room |
+to room, we will say that the door between two rooms is Jn both of them.
+
+2. Push an object b from location x to location y: Push(b, x, y)
+
+Again we will insist that the locations be in the same room. We introduce the predicate
+Pushable(b), but otherwise this is similar to Go.
+
+3. Climb up onto a box: Climb(b).
+
+We introduce the predicate On and the constant Floor, and make sure that a precondition.
+of Go is On(Shakey, Floor). For Climb(b),the preconditions are that Shakey is A? the same ]
+place as b, and b must be Climbable.
+
+7 Shakey's name comes from the fact that its motors made it a little unstable when it moved.
+

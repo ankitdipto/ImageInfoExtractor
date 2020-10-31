@@ -1,0 +1,42 @@
+34.5 NP-complete problems 1099
+
+XM X22 Ns Cr Co Go Cy
+
+y= 1 0 0 0 1 1 0
+wy = O 1 0 1 1 1 0
+vy = 0 0 1 0 Oo 1 1
+sy = 0 0 0 1 0 0 0
+sy = 0 0 0 2 0 0 0
+sy = 0 0 0 0 2 0 0
+3s = 0 0 0 0 0 1 0
+sy = 0 0 0 0 0 0 1
+sy = 0 0 0 0 0 0 2
+t= 1 1 1 4 4 4 4
+
+Figure 34.19 The reduction of 3-CNF-SAT to SUBSET-SUM. The formula in 3-CNF is ¢ =
+Cy AC2AC3AC4, where Cy = (1 V7X2V7N3), C2 = (4X1 V7xK2V7N3), C3 = (441 V7X2VN3),
+and C4 = (x1 V x2 V x3). A satisfying assignment of ¢ is (x1 = 0,x2 = 0,x3 = 1). The set S
+produced by the reduction consists of the base-10 numbers shown; reading from top to bottom, S =
+{1001001, 1000110, 100001, 101110, 10011, 11100, 1000, 2000, 100, 200, 10, 20, 1, 2}. The target 7
+is 1114444, The subset S’  S is lightly shaded, and it contains v',, v5, and v3, corresponding to the
+satisfying assignment. It also contains slack variables 51, 54, 54, 53, 84, and s4 to achieve the target
+value of 4 in the digits labeled by C; through C4.
+
+the s; and Sj values). Interpreting these numbers in base 10, therefore, no carries
+can occur from lower digits to higher digits.'!
+
+We can perform the reduction in polynomial time. The set S contains 2n + 2k
+values, each of which has n + k digits, and the time to produce each digit is poly-
+nomial inn + k. The target ¢ has n + k digits, and the reduction produces each in
+constant time.
+
+We now show that the 3-CNF formula ¢ is satisfiable if and only if there exists
+asubset S’ C S whose sum is f. First, suppose that ¢ has a satisfying assignment.
+Fori =1,2,...,n, if x; = 1 in this assignment, then include v; in S’. Otherwise,
+include v;. In other words, we include in S’ exactly the v; and vj values that cor-
+
+ 
+
+11tn fact, any base b, where b > 7, would work. The instance at the beginning of this subsection is
+the set S and target ¢ in Figure 34.19 interpreted in base 7, with S listed in sorted order.
+

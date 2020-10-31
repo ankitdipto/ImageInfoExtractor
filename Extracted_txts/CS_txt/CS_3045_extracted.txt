@@ -1,0 +1,78 @@
+  
+
+Section 14.2.
+
+Basic Probability Notation 421
+
+ 
+
+      
+  
+ 
+
+PROBABILITY
+DISTRIBUTION
+
+‘CONDITIONAL
+POSTERIOR
+
+PRODUCT RULE
+
+vector of values for the probabilities of each individual state ofthe weather. Given the preceding
+values, for example, we would write
+
+P( Weather) = {0.7, 0.2, 0.08, 0.02)
+
+This statement defines a probability distribution for the random variable Weather.
+
+We will also use expressions such as P( Weather, Cavity) to denote the probabilities of all
+combinations ofthe values ofa set ofrandom variables. In this case, P( Weather, Cavity) denotes
+a4 x 2 table of probabilities. We will see that this notation simplifies many equations.
+
+We can also use logical connectives to make more complex sentences and assign probabil-
+ities to them. For example,
+
+P(Cavity A 7Insured)- 0.06
+says there is an 6% chance that a patient has a cavity and has no insurance.
+
+Conditional probability
+
+Once the agent has obtained some evidence conceming the previously unknown propositions
+making up the domain, prior probabilities are no longer applicable. Instead, we use conditional
+or posterior probabilities, with the notation P(A\B). This is read as "the probability of A given
+that all we know is B.” For example,
+
+P(Cavity|Toothache) - 08
+indicates that ifa patient is observed to have a toothache, and no other informationis yet available,
+then the probability of the patient having a cavity will be 0.8. It is important to remember that
+P(A\B) can only be used when all we know is B. As soon as we know C, then we must compute
+P(A\B A C) instead of P(A|B). A prior probability P/4) can be thought of as a special case of
+conditional probability P(A] ), where the probability is conditioned on no evidence
+
+We can also use the P notation with conditional probabilities. P(X\ Y) is a two-dimensional
+table giving the values of P(X =x;|Y=y;) for each possible i,j. Conditional probabilities can be
+defined in terms of unconditional probabilities. The equation
+P(A AB)
+
+P(B)
+
+holds whenever P(B) > 0. This equation can also be written as
+
+P(A A B) = P(A|B)P(B)
+which is called the product rule. The product rule is perhaps easier to remember: it comes from
+the fact that ford and B to be true, we need B to be true, and then 4 to be true given B. We can
+also have it the other way around:
+
+P(A 4 B) = P(B\A)P(A)
+In some cases, it is easier to reason in terms of prior probabilities of conjunctions, but for the
+most part, we will use conditional probabilities as our vehicle for probabilistic inference.
+
+We can also extend our P notation to handle equations like these, providing a welcome
+degree of conciseness. For example, we might write
+
+P(X, Y) = PRX|Y)PCY)
+
+P(A|B) = (14.1)
+
+ 
+

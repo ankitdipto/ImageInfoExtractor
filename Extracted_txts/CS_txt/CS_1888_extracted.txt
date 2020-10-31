@@ -1,0 +1,43 @@
+10.6 Thrashing 349
+
+faulting processes must use the paging device to swap pages in and out. As
+they queue up for the paging device, the ready queue empties. As processes
+wait for the paging device, CPU utilization decreases.
+
+The CPU scheduler sees the decreasing CPU utilization, and increases the
+degree of multiprogramming as a result. The new process tries to get started by
+taking frames from running processes, causing more page faults, and a longer
+queue for the paging device. As a result, CPU utilization drops even further,
+and the CPU scheduler tries to increase the degree of multiprogramming even
+more. Thrashing has occurred and system throughput plunges. The page-
+fault rate increases tremendously. As a result, the effective memory access time
+increases. No work is getting done, because the processes are spending all their
+time paging.
+
+This phenomenon is illustrated in Figure 10.15, in which CPU utilization
+is plotted against the degree of multiprogramming. As the degree of multi-
+programming increases, CPU utilization also increases, although more slowly,
+until a maximum is reached. If the degree of multiprogramming is increased
+even further, thrashing sets in and CPU utilization drops sharply. At this point,
+to increase CPU utilization and stop thrashing, we must decrease the degree of
+multiprogramming.
+
+We can limit the effects of thrashing by using a local replacement algorithm
+(or priority replacement algorightm). With local replacement, if one process
+starts thrashing, it cannot steal frames from another process and cause the latter
+to thrash also. Pages are replaced with regard to the process of which they
+are a part. However, if processes are thrashing, they will be in the queue for
+the paging device most of the time. The average service time for a page fault
+will increase, due to the longer average queue for the paging device. Thus, the
+effective access time will increase even for a process that is not thrashing.
+
+4
+
+‘thrashing
+
+ 
+
+degree of multiprogramming
+
+Figure 10.15 Thrashing.
+

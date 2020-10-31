@@ -1,0 +1,41 @@
+Chapter 9: Puppetting On Strings 343
+
+ 
+
+Note that the target string has been made big enough to hold the
+final string. I leave it to you to develop your own xstreat() on
+lines of xstrlen() and xstrepy().
+
+stremp()
+
+This is a function which compares two strings to find out whether
+they are same or different. The two strings are compared character
+by character until there is a mismatch or end of one of the strings
+is reached, whichever occurs first. If the two strings are identical,
+stremp() returns a value zero. If they’re not, it returns the numeric
+difference between the ASCII values of the first non-matching
+pairs of characters. Here is a program which puts stremp() in
+action.
+
+main()
+
+{
+char string1[] = "Jerry" ;
+char string2[] = "Ferry" ;
+int i,j,k;
+
+i = stremp (string1, “Jerry” ) ;
+j= strcmp (string1, string2 ) ;
+k = strcmp (string1, “Jerry boy" ) ;
+
+printf ( "\n%d %d %d", i,j, kK) ;
+}
+
+And here is the output...
+04-32
+
+In the first call to stremp(), the two strings are identical—‘Jerry”
+and “Jerry”—and the value returned by stremp() is zero. In the
+second call, the first character of “Jerry” doesn't match with the
+first character of “Ferry” and the result is 4, which is the numeric
+

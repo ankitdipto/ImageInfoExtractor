@@ -1,0 +1,62 @@
+15.2. Matrix-chain multiplication 375
+
+Observe that we have relatively few distinct subproblems: one subproblem for
+each choice of i and j satisfying 1 <i <j <n, or (3) +n = O(n’) in all.
+A recursive algorithm may encounter each subproblem many times in different
+branches of its recursion tree. This property of overlapping subproblems is the
+second hallmark of when dynamic programming applies (the first hallmark being
+optimal substructure).
+
+Instead of computing the solution to recurrence (15.7) recursively, we compute
+the optimal cost by using a tabular, bottom-up approach. (We present the corre-
+sponding top-down approach using memoization in Section 15.3.)
+
+We shall implement the tabular, bottom-up method in the procedure MATRIX-
+CHAIN-ORDER, which appears below. This procedure assumes that matrix A;
+has dimensions pj-; x p; fori = 1,2,..., n. Its input is a sequence p =
+(Pos Piss +++ Pn), Where p.length = n + 1. The procedure uses an auxiliary
+table m[1..n,1..n] for storing the mf, j] costs and another auxiliary table
+s[l..n —1,2..n] that records which index of k achieved the optimal cost in com-
+puting m[i, j]. We shall use the table s to construct an optimal solution.
+
+In order to implement the bottom-up approach, we must determine which entries
+of the table we refer to when computing m{[i, j]. Equation (15.7) shows that the
+cost m[i, j] of computing a matrix-chain product of j —i +1 matrices depends only
+on the costs of computing matrix-chain products of fewer than j —i + 1 matrices.
+That is, fork =i,i+1,..., j —1, the matrix A;.4 is a product of k —i +1 <
+j —i +1 matrices and the matrix Ag+1,; is a product of j —k < j-it+l
+matrices. Thus, the algorithm should fill in the table m ina manner that corresponds
+to solving the parenthesization problem on matrix chains of increasing length. For
+the subproblem of optimally parenthesizing the chain A; Aj+,--- Aj, we consider
+the subproblem size to be the length 7 —i + 1 of the chain.
+
+MATRIX-CHAIN-ORDER(p)
+
+ 
+
+1 n= p.length—1
+
+2 letm[l..n,1..n] and s[1..n—1,2..n] be new tables
+3 fori = 1ton
+
+4 ii] =0
+
+5 for! =2ton // 1 is the chain length
+
+6 fori = lton—/+1
+
+7 j=it+l-1
+
+8 mii, j] = co
+
+9 fork =itoj—1
+
+10 q = mli,k] + mk +1. f] + pint Pe Dj
+ll if q < mii, j]
+
+12 mili. j) =4
+
+13 sli, jJ =k
+
+14 return m ands
+

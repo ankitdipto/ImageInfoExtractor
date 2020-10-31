@@ -1,0 +1,46 @@
+400 Let Us C
+
+ 
+
+printf ( "\n%f %f %f", 305.0, 1200.9, 3005.3 ) ;
+}
+
+And here is the output...
+
+5.000000 13.500000 133.900000
+305.000000 1200.900000 3005.300000
+
+Even though the numbers have been printed, the numbers have not
+been lined up properly and hence are hard to read. A better way
+would be something like this...
+
+main()
+
+printf ( "\n%10.1f %10.1f %10.1f", 5.0, 13.5, 133.9) ;
+printf ( "\n%10.1f %10.1f %10.1f", 305.0, 1200.9, 3005.3 );
+}
+
+This results into a much better output...
+
+01234567890123456789012345678901
+5.0 13.5 133.9
+305.0 1200.9 3005.3
+
+The format specifiers could be used even while displaying a string
+of characters. The following program would clarify this point:
+
+/* Formatting strings with printf( ) */
+
+main()
+
+{
+char firstname1[] =
+char surname1[
+char firstname2[] ;
+char surname2[] = "Gurubaxani" ;
+
+    
+
+printf ("\n%20s%20s", firstname, surname! ) ;
+printf ("\n%20s%20s", firstname2, surname? ) ;
+

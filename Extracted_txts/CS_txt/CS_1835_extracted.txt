@@ -1,0 +1,59 @@
+ 
+
+270 Chapter 9. Inference in First-Order Logic
+
+2. Ittakes sensible steps—ituses substitutions that are guaranteed to help rather than randomly
+
+UNIFICATION trying Universal Eliminations. The unification algorithm takes two sentences and returns
+a substitution that makes them look the same if such a substitution exists.
+
+3. It makes use ofa precompilation step that converts all the sentences in the knowledge base
+
+CANONICAL FORM into a canonical form. Doing this once and for all at the start means we need not waste
+
+HORN SENTENCES
+
+UNFIER
+
+time trying conversions during the course of the proof.
+
+We will deal with canonical form and unification in turn.
+
+Canonical Form
+
+We are attempting to build an inferencing mechanism with one inference rule—the generalized
+version of Modus Ponens. That means that all sentences in the knowledge base should be in a
+form that matches one of the premises of the Modus Ponens rule—otherwise, they could never 4
+be used. In other words, the canonical form for Modus Ponens mandates that each sentence in
+the knowledge base be either an atomic sentence or an implication with a conjunction of atomic
+sentences on the left hand side and a single atom on the right. As we saw on page 174, sentences
+ofthis form are called Horn sentences, and a knowledge base consisting of only Horn sentences
+is said to be in Horn Normal Form.
+
+We convert sentences into Hom sentences when they are first entered into the knowledge }
+base, using Existential Elimination and And-Elimination.> For example, 3x Owns(Nono,x)A
+Missile(x)is converted into the two atomic Horn sentences Owns(Nono,M1)and Missle(M1).
+Once the existential quantifiers are all eliminated, it is traditional to drop the universal quantifiers,
+so that Vy Owns(y,M l)would be written as Owns(y,M1). This is just an abbreviation—the:
+meaning ofy is still a universally quantified variable, but it is simpler to write and read sentences
+without the quantifiers. We return to the issue of canonical form on page 278.
+
+Unification
+
+The job of the unification routine, UNIFY, is to take two atomic sentences p and g and retum a
+substitution that would make p and q look the same. (Ifthere is no such substitution, then UNIFY
+should return fail.) Formally,
+
+UNIFY (p, q) = 6 where SuBST(O, p)= SUBST(4, q)
+
+0 is called the unifier of the two sentences. We will illustrate unification in the context of an
+example, delaying discussion of detailed algorithms until Chapter 10. Suppose we have a rule
+
+Knows(John,x) > Hates(John, x)
+
+("John hates everyone he knows") and we want to use this with the Modus Ponens inference rule
+to find out whom he hates. In other words, we need to find those sentences in the knowledge base
+
+3. We will see in Section 9.5 that not all sentences can be converted into Horn form. Fortunately, the sentences in our
+example (and in many other problems) can be
+

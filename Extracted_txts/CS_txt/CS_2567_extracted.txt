@@ -1,0 +1,52 @@
+6.4 The heapsort algorithm 159
+
+gn J lignJ
+n h
+
+[sa O(h) = 0 (: y x) .
+h=0 h=0
+We evalaute the last summation by substituting x = 1/2 in the formula (A.8),
+yielding
+Sh _ 1/2
+
+mh ~ G—1/2)2
+m? (= 1/2)
+
+= 2.
+
+Thus, we can bound the running time of BUILD-MAX-HEAP as
+
+tenth Sh
+h=0
+
+h=0
+Om).
+
+Hence, we can build a max-heap from an unordered array in linear time.
+
+We can build a min-heap by the procedure BUILD-MIN-HEAP, which is the
+same as BUILD-MAX-HEAP but with the call to MAX-HEAPIFY in line 3 replaced
+by a call to MIN-HEAPIFY (see Exercise 6.2-2). BUILD-MIN-HEAP produces a
+min-heap from an unordered linear array in linear time.
+
+Exercises
+
+6.3-1
+Using Figure 6.3 as a model, illustrate the operation of BUILD-MAX-HEAP on the
+array A = (5,3, 17, 10,84, 19,6, 22,9).
+
+6.3-2
+Why do we want the loop index / in line 2 of BUILD-MAX-HEaP to decrease from
+[A.length/2| to 1 rather than increase from | to |A.length/2]?
+
+6.3-3
+Show that there are at most fn/2'*¥) nodes of height / in any n-element heap.
+
+ 
+
+6.4 The heapsort algorithm
+
+The heapsort algorithm starts by using BUILD-MAX-HEAP to build a max-heap
+on the input array A[l..], where n = A.length. Since the maximum element
+of the array is stored at the root A[1], we can put it into its correct final position
+

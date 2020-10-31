@@ -1,0 +1,58 @@
+ey
+
+Chapter 8. Building a Knowledge Base
+
+ 
+
+There are four types of gates: AND, OR, and XOR gates have exactly two input terminals, and
+NOT gates have one. All gates have exactly one output terminal. Circuits, which are composed
+of gates, also have input and output terminals.
+
+Our main purpose is to analyze the design of circuits to see ifthey match their specification.
+Thus, we need to talk about circuits, their terminals, and the signals at the terminals. To determine
+what these signals will be, we need to know about individual gates, and gate types: AND, OR,
+XOR, and NOT.
+
+Not everything that is in the domain needs to show up in the ontology. We do not need
+to talk about the wires themselves, or the paths the wires take, or the junctions where two wires
+come together. All that matters is the connectivity of terminals—we can say that one output
+terminal is connected to another input terminal without having to mention the wire that actually
+connects them. There are many other factors of the domain that are irrelevant to our analysis,
+such as the size, shape, color, or cost of the various components.
+
+A special-purpose ontology such as this depends not only on the domain, but also on the
+task to be solved. If our purpose were something other than verifying designs at the gate level,
+the ontology would be different. For example, if we were interested in debugging faulty circuits,
+then it would probably be a good idea to include the wires in the ontology, because a faulty wire
+can corrupt the signal flowing along it. For resolving timing faults, we would need to include
+gate delays. If we were interested in designing a product that would be profitable, then the cost
+of the circuit and its speed relative to other products on the market would be important
+
+Decide on a vocabulary
+
+We now know that we want to talk about circuits, terminals, signals, gates, and gate types. The
+next step is to choose functions, predicates, and constants to name them. We will start from
+individual gates and move up to circuits.
+
+First, we need to be able to distinguish a gate from other gates. This is handled by naming
+gates with constants: X),X2, and so on. Next, we need to know the type ofa gate. A function
+is appropriate for this: Type(X)=XOR. ‘This introduces the constant XOR for a particular gate
+type; the other constants will be called OR, AND, and NOT. The Type function is not the only
+way to encode the ontological distinction. We could have used a type predicate: Type(X| XORY
+or several predicates, such as XOR(X\). Either of these choices would work fine, but by choosing
+the function Type, we avoid the need for an axiom that says that each individual gate can have
+only one type. The semantics of functions already guarantees this
+
+Next we consider terminals. A gate or circuit can have one or more input terminals and
+one or more output terminals. We could simply name each one with a constant, just as we named
+gates. Thus, gate X, could have terminals named X,/n,, X\Jn2, and X; Out. Names as long and
+structured as these, however, are as bad as BearOfVerySmallBrain. They should be replaced with
+a notation that makes it clear that X; Our, is a terminal for gate X,. and that it is the first output
+terminal. A function is appropriate for this; the function Our(1,X:)denotes the first (and only)
+output terminal for gate X;. A similar function Jn is used for input terminals.
+
+ 
+
+4 Note that we have used names beginning with appropriate letters—Aj, Xi, and so on—purely to make the example
+easier to read. The knowledge base must still contain type information for the gates.
+

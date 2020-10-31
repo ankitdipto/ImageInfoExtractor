@@ -1,0 +1,52 @@
+14.3 Disk Management 499
+
+(or physical formatting). Low-level formatting fills the disk with a special data
+structure for each sector. The data structure for a sector typically consists of a
+header, a data area (usually 512 bytes in size), and a trailer. The header and
+trailer contain information used by the disk controller, such as a sector number
+and an error-correcting code (ECC). When the controller writes a sector of data
+during normal I/O, the ECC is updated with a value calculated from all the
+bytes in the data area. When the sector is read, the ECC is recalculated and
+is compared with the stored value. If the stored and calculated numbers are
+different, this mismatch indicates that the data area of the sector has become
+corrupted and that the disk sector may be bad (Section 14.3.3). The ECC is an
+error-correcting code because it contains enough information that, if only a few
+bits of data have been corrupted, the controller can identify which bits have
+changed and can calculate what their correct values should be. The controller
+automatically does the ECC processing whenever a sector is read or written.
+
+Most hard disks are low-level formatted at the factory as a part of the
+manufacturing process. This formatting enables the manufacturer to test the
+disk and to initialize the mapping from logical block numbers to defect-free
+sectors on the disk. For many hard disks, when the disk controller is instructed
+to low-level format the disk, it can also be told how many bytes of data space
+to leave between the header and trailer of all sectors. It is usually possible
+to choose among a few sizes, such as 256, 512, and 1,024 bytes. Formatting a
+disk with a larger sector size means that fewer sectors can fit on each track, but
+that also means fewer headers and trailers are written on each track, and thus
+increases the space available for user data. Some operating systems can handle
+only a sector size of 512 bytes.
+
+To use a disk to hold files, the operating system still needs to record its own
+data structures on the disk. It does so in two steps. The first step is to partition
+the disk into one or more groups of cylinders. The operating system can treat
+each partition as though it were a separate disk. For instance, one partition can
+hold a copy of the operating system’s executable code, while another holds user
+files. After partitioning, the second step is logical formatting (or creation of a
+file system). In this step, the operating system stores the initial file-system data
+structures onto the disk. These data structures may include maps of free and
+allocated space (a FAT or inodes) and an initial empty directory.
+
+Some operating systems give special programs the ability to use a disk
+partition as a large sequential array of logical blocks, without any file-system
+data structures. This array is sometimes called the raw disk, and I/O to this
+array is termed raw I/O. For example, some database systems prefer raw I/O
+because it enables them to control the exact disk location where each database
+record is stored. Raw I/O bypasses all the file-system services, such as the buffer
+cache, file locking, prefetching, space allocation, file names, and directories.
+We can make certain applications more efficient by implementing their own
+special-purpose storage services on a raw partition, but most applications
+perform better when they use the regular file-system services.
+
+ 
+

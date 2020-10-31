@@ -1,0 +1,57 @@
+1130
+
+Chapter 35 Approximation Algorithms
+
+that if two values in L are close to each other, then since we want just an approxi-
+mate solution, we do not need to maintain both of them explicitly. More precisely,
+we use a trimming parameter 6 such that 0 < 5 < 1. When we fim a list L by 6,
+we remove as many elements from L as possible, in such a way that if L’ is the
+result of trimming L, then for every element y that was removed from L, there is
+an element Z still in L’ that approximates y, that is,
+y
+
+a <i<y. (35.24)
+We can think of such a z as “representing” y in the new list L’. Each removed
+element y is represented by a remaining element z satisfying inequality (35.24).
+For example, if § = 0.1 and
+
+L = (10, 11,12, 15, 20,21, 22,23, 24,29) ,
+then we can trim L to obtain
+L’ = (10, 12, 15,20, 23,29) ,
+
+where the deleted value 11 is represented by 10, the deleted values 21 and 22
+are represented by 20, and the deleted value 24 is represented by 23. Because
+every element of the trimmed version of the list is also an element of the original
+version of the list, trimming can dramatically decrease the number of elements kept
+while keeping a close (and slightly smaller) representative value in the list for each
+deleted element.
+
+The following procedure trims list L = (yi. y2...-. Ym) in time ©(m), given L
+and 6, and assuming that L is sorted into monotonically increasing order. The
+output of the procedure is a trimmed, sorted list.
+
+TRIM(L, 64)
+
+1 let m be the length of L
+
+2 L'=(n)
+
+3 last = y1
+
+4 fori =2tom
+
+5 if y; > last-(1 +4) // y; = last because L is sorted
+6 append y; onto the end of L’
+
+7 last = yj
+
+8 return L’
+
+The procedure scans the elements of L in monotonically increasing order. A num-
+ber is appended onto the returned list L’ only if it is the first element of L or if it
+cannot be represented by the most recent number placed into L’.
+
+Given the procedure TRIM, we can construct our approximation scheme as fol-
+lows. This procedure takes as input a set S = {X1,X2,..., Xn} of n integers (in
+arbitrary order), a target integer f, and an “approximation parameter” €, where
+

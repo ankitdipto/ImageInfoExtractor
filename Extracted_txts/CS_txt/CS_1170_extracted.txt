@@ -1,0 +1,56 @@
+216 curren seven Microprogrammed Control
+
+hardwired control
+
+routine
+
+mapping
+
+quence for the system, all we need to do is specify a different set of microin-
+structions for control memory. The hardware configuration should not be
+changed for different operations; the only thing that must be changed is the
+microprogram residing in control memory.
+
+Tt should be mentioned that most computers based on the reduced in-
+struction set computer (RISC) architecture concept (see Sec. 8-8) use hardwired
+control rather than a control memory with a microprogram. An example of a
+hardwired control for a simple computer is presented in Sec. 5-4.
+
+7-2_Address Sequencing
+
+Microinstructions are stored in control memory in groups, with each group
+specifying a routine. Each computer instruction has its own microprogram
+routine in control memory to generate the microoperations that execute the
+instruction. The hardware that controls the address sequencing of the control
+memory must be capable of sequencing the microinstructions within a routine
+and be able to branch from one routine to another. To appreciate the address
+sequencing in a microprogram control unit, let us enumerate the steps that the
+control must undergo during the execution of a single computer instruction
+
+An initial address is loaded into the control address register when power
+is turned on in the computer. This address is usually the address of the first
+microinstruction that activates the instruction fetch routine. The fetch routine
+may be sequenced by incrementing the control address register through the
+rest of its microinstructions. At the end of the fetch routine, the instruction is
+in the instruction register of the computer.
+
+The control memory next must go through the routine that determines
+the effective address of the operand. A machine instruction may have bits that
+specify various addressing modes, such as indirect address and index regis-
+ters. The effective address computation routine in control memory can be
+reached througha branch microinstruction, whichis conditioned on thestatus
+of the mode bits of the instruction. When the effective address computation
+routine is completed, the address of the operand is available in the memory
+address register.
+
+The next step is to generate the microoperations that execute the instruc-
+tion fetched from memory. The microoperation steps to be generated in proc-
+cessor registers depend on the operation code part of the instruction. Each
+instruction has its own microprogram routine stored in a given location of
+control memory. The transformation from the instruction code bits to an
+address in control memory where the routine is located is referred to as a
+mapping process. A mapping procedure isa rule that transforms the instruction
+code intoa control memory address. Once the required routine is reached, the
+microinstructions that execute the instruction may be sequenced by increment-
+ing the control address register, but sometimes the sequence of microopera-
+

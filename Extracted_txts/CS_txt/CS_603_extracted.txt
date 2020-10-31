@@ -1,0 +1,55 @@
+35.5 The subset-sum problem 1129
+
+eratively computes L;, the list of sums of all subsets of {x1,..., x;} that do not
+exceed f, and then it returns the maximum value in L,,.
+
+If L is a list of positive integers and x is another positive integer, then we let
+L +x denote the list of integers derived from L by increasing each element of L
+by x. For example, if L = (1,2.3,5,9), then L +2 = (3, 4,5, 7,11). We also use
+this notation for sets, so that
+
+S+x={stxviseS}.
+
+We also use an auxiliary procedure MERGE-LisTs(L, L’), which returns the
+sorted list that is the merge of its two sorted input lists L and L’ with duplicate
+values removed. Like the MERGE procedure we used in merge sort (Section 2.3.1),
+MERGE-LISTS runs in time O(|L| + |L’|). We omit the pseudocode for MERGE-
+Lists.
+
+EXACT-SUBSET-SUM(S, f)
+
+1 n=|S|
+
+2 Lo = (0)
+
+3 fori = lton
+
+4 L; = MERGE-Lists(Lj-;, Li-) + Xi)
+
+5 remove from L; every element that is greater than f
+6 return the largest element in L,
+
+To see how EXACT-SUBSET-SUM works, let P; denote the set of all values
+
+obtained by selecting a (possibly empty) subset of {x,,x2..... X;} and summing
+its members. For example, if S = {1, 4,5}, then
+P, = {0.1},
+
+Py = {0.1.4.5},
+
+Ps {0,1,4,5,6,9, 10}.
+
+Given the identity
+
+P; = Pi, U(P}-1 +i). (35.23)
+we can prove by induction on i (see Exercise 35.5-1) that the list L; is a sorted list
+containing every element of P; whose value is not more than f. Since the length
+of L; can be as much as 2', EXACT-SUBSET-SUM is an exponential-time algorithm
+in general, although it is a polynomial-time algorithm in the special cases in which ¢
+is polynomial in |S| or all the numbers in S are bounded by a polynomial in |S.
+
+A fully polynomial-time approximation scheme
+
+We can derive a fully polynomial-time approximation scheme for the subset-sum
+problem by “trimming” each list L; after it is created. The idea behind trimming is
+

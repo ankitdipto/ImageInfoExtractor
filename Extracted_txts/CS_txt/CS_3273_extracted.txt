@@ -1,0 +1,68 @@
+628
+
+Chapter 21. Knowledge in Leaming
+
+ 
+
+RELEVANCE
+
+RELEVANCE-BASED
+LEARNING
+
+   
+
+KNOWLEDGE-BASED
+INDUCTIVE
+LEARNING
+
+INDUCTIVE LOGIC
+PROGRAMMING
+
+the same language; on the other hand, Fernando is not assumed to be the name of all Brazilians
+because this kind of regularity does not hold for names. Similarly, the freshman physics student
+also would be hard put to explain the particular values that she discovers for the conductance and
+density of copper. She does know, however, that the material of which an object is composed and
+its temperature together determine its conductance. In each case, the prior knowledge Background
+concems the relevance of a set of features to the goal predicate. This knowledge, together with
+the observations, allows the agent to infer a new, general rule that explains the observations:
+
+Hypothesis A Descriptions = Classifications a2
+Background A Descriptions A Classifications | Hypothesis (21.2)
+
+We call this kind of generalization relevance-based learning, or RBL (although the name is not
+standard). Notice that whereas RBL does make use of the content of the observations, it does
+not produce hypotheses that go beyond the logical content of the background knowledge and the
+observations. It is a deductive form of learning, and cannot by itself account for the creation of
+new knowledge starting from scratch. We discuss applications of RBL in Section 21.3
+
+In the case of the medical student watching the expert, we assume that the student's prior
+knowledge is sufficient to infer the patient's disease D from the symptoms. This is not, however,
+enough to explain the fact that the doctor prescribes a particular medicine M. The student needs
+to propose another rule, namely, that M generally is effective against D. Given this rule, and
+the student's prior knowledge, the student can now explain why the expert prescribes M in this
+particular case. We can generalize this example to come up with the entailment constraint:
+
+Background A Hypothesis A Descriptions | Classifications (21.3)
+
+That is, the background knowledge and the new hypothesis combine to explain the examples. As
+with pure inductive learning, the learning algorithm should propose hypotheses that are as simple
+as possible, consistent with this constraint. Algorithms that satisfy constraint 21.3 are called
+knowledge-based inductive learning, or KBIL, algorithms.
+
+KBIL algorithms, which are described in detail in Section 21.4, have been studied mainly
+in the field of inductive logic programming or ILP. In ILP systems, prior knowledge plays two
+key roles in reducing the complexity of learning:
+
+1. Because any hypothesis generated must be consistent with the prior knowledge as well as
+with the new observations, the effective hypothesis space size is reduced to include only
+those theories that are consistent with what is already known.
+
+2. For any given set of observations, the size of the hypothesis required to construct an
+explanation for the observations can be much reduced, because the prior knowledge will
+be available to help out the new rules in explaining the observations. The smaller the
+hypothesis, the easier it is to find.
+
+In addition to allowing the use of prior knowledge in induction, ILP systems can formulate
+hypotheses in general first-order logic, rather than the restricted languages used in Chapter 18-
+This means that they can learn in environments that cannot be understood by simpler systems.
+

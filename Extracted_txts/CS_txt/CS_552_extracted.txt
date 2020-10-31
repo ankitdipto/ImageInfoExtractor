@@ -1,0 +1,48 @@
+34.5 NP-complete problems 1089
+
+cannot be complements. Thus, by the construction of G, the edge (v7, v;) belongs
+to E.
+
+Conversely, suppose that G has a clique V’ of size k. No edges in G connect
+vertices in the same triple, and so V’ contains exactly one vertex per triple. We can
+assign 1 to each literal /? such that v7 € V’ without fear of assigning 1 to both a
+literal and its complement, since G contains no edges between inconsistent literals.
+Each clause is satisfied, and so ¢ is satisfied. (Any variables that do not correspond
+to a vertex in the clique may be set arbitrarily.) .
+
+In the example of Figure 34.14, a satisfying assignment of ¢ has x. = 0 and
+x3 = 1. A corresponding clique of size k = 3 consists of the vertices correspond-
+ing to 4X2 from the first clause, x3 from the second clause, and x3 from the third
+clause. Because the clique contains no vertices corresponding to either x; or 7X),
+we can set x, to either 0 or | in this satisfying assignment.
+
+Observe that in the proof of Theorem 34.11, we reduced an arbitrary instance
+of 3-CNF-SAT to an instance of CLIQUE with a particular structure. You might
+think that we have shown only that CLIQUE is NP-hard in graphs in which the
+vertices are restricted to occur in triples and in which there are no edges between
+vertices in the same triple. Indeed, we have shown that CLIQUE is NP-hard only
+in this restricted case, but this proof suffices to show that CLIQUE is NP-hard in
+general graphs. Why? If we had a polynomial-time algorithm that solved CLIQUE
+on general graphs, it would also solve CLIQUE on restricted graphs.
+
+The opposite approach—reducing instances of 3-CNF-SAT with a special struc-
+ture to general instances of CLIQUE—would not have sufficed, however. Why
+not? Perhaps the instances of 3-CNF-SAT that we chose to reduce from were
+“easy,” and so we would not have reduced an NP-hard problem to CLIQUE.
+
+Observe also that the reduction used the instance of 3-CNF-SAT, but not the
+solution. We would have erred if the polynomial-time reduction had relied on
+knowing whether the formula ¢ is satisfiable, since we do not know how to decide
+whether ¢ is satisfiable in polynomial time.
+
+34.5.2 The vertex-cover problem
+
+A vertex cover of an undirected graph G = (V, E) is a subset V’ C V such that
+if (u,v) € E, thenu € V' or v € V’ (or both). That is, each vertex “covers” its
+incident edges, and a vertex cover for G is a set of vertices that covers all the edges
+in E. The size of a vertex cover is the number of vertices in it. For example, the
+graph in Figure 34.15(b) has a vertex cover {w, z} of size 2.
+
+The vertex-cover problem is to find a vertex cover of minimum size in a given
+graph. Restating this optimization problem as a decision problem, we wish to
+

@@ -1,0 +1,56 @@
+796
+
+Chapter 25. Robotics
+
+ 
+
+recognizable set o~'(so) the robot is in. From there, the planner can determine where the robot
+might move next, given a motion command with uncertainty, and what the next sensor reading
+s; could be. Thinking of recognizable sets as states of the robot, the motion command caused a
+nondeterministic transition from the state 7~!(so)to one of the states «7! (s;). Although there are
+infinitely many such states with a continuous sensor, it is still possible to represent the possible
+transitions, and to find a correct plan if one exists. Unfortunately, the complexity of doing this is
+extremely high—in fact, doubly exponential in the number of plan steps (Canny and Reif, 1987).
+
+25.6 NAVIGATION AND MOTION PLANNING
+
+DECOMPOSITION
+
+We now turn to the question of how to move around successfully. Given our analysis of robotics
+problems as motion in configuration spaces, we will begin with algorithms that handle C directly.
+These algorithms usually assume that an exact description ofthe space is available, so they cannot
+be used where there is significant sensor error and motion error. In some cases, no description of
+the space is available until the robot actually starts moving around in it.
+
+We can identify five major classes of algorithms, and arrange them roughly in order of the
+amount of information required at planning time and execution time:
+
+Cell decomposition methods break continuous space into a finite number of cells, yielding
+a discrete search problem.
+
+> Skeletonization methods compute a one-dimensional "skeleton" of the configuration
+space, yielding an equivalent graph search problem.
+
+< Bounded-error planning methods assume bounds on sensor and actuator uncertainty, and
+in some cases can compute plans that are guaranteed to succeed even in the face of severe
+actuator error.
+
+0 Landmark-based navigation methods assume that there are some regions in which the
+robot's location can be pinpointed using landmarks, whereas outside those regions it may
+have only orientation information.
+
+< Online algorithms assume that the environment is completely unknown initially, although
+most assume some form of accurate position sensor.
+
+As always, we are interested in establishing some of of the properties of these algorithms,
+including their soundness, completeness, and complexity. When we talk about the complexity
+ofa planning method, we must keep in mind both offline costs (before execution) and the online
+cost of execution.
+
+Cell decomposition
+
+Recalling that motion planning for a robot reduces to navigating a point in free space F. the basic
+idea of celldecomposition is easy to state:
+
+ 
+

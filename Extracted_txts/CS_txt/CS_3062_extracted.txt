@@ -1,0 +1,54 @@
+Section 15.1.
+
+Representing Knowledge in an Uncertain Domain 437
+
+ 
+
+1. A set ofrandom variables makes up the nodes of the network.
+2. A set of directed links or arrows connects pairs of nodes. The intuitive meaning of an
+
+arrow from node X to node Y is that.X has a direct influence on Y.
+
+3. Each node has a conditional probability table that quantifies the effects that the parents
+have on the node. The parents ofa node are all those nodes that have arrows pointing to it
+4. The graph has no directed cycles (hence is a directed, acyclic graph, or DAG).
+It is usually easy for a domain expert to decide what direct conditional dependence relationships
+hold in the domain—much easier, in fact, than actually specifying the probabilities themselves.
+Once the topology of the belief network is specified, we need only specify conditional probabil-
+ities for the nodes that participate in direct dependencies, and use those to compute any other
+probability values.
+
+Consider the following situation. You have a new burglar alarm installed at home. It is
+fairly reliable at detecting a burglary, but also responds on occasion to minor earthquakes. (This
+example is due to Judea Pearl, a resident of Los Angeles; hence the acute interest in earthquakes.)
+You also have two neighbors, John and Mary, who have promised to call you at work when they
+hear the alarm. John always calls when he hears the alarm, but sometimes confuses the telephone
+ringing with the alam and calls then, too. Mary, on the other hand, likes rather loud music and
+sometimes misses the alarm altogether. Given the evidence of who has or has not called, we
+would like to estimate the probability of a burglary. This simple domain is described by the belief
+network in Figure 15.1.
+
+The topology of the network can be thought of as an abstract knowledge base that holds
+in a wide variety of different settings, because it represents the general structure of the causal
+processes in the domain rather than any details of the population of individuals. In the case of the
+burglary network, the topology shows that burglary and earthquakes directly affect the probability
+of the alarm going off, but whether or not John and Mary call depends only on the alarm—the
+network thus represents our assumption that they do not perceive any burglaries directly, and they
+do not feel the minor earthquakes.
+
+Burglary Earthquake
+
+ 
+
+Figure 15.1 A typical belief network.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

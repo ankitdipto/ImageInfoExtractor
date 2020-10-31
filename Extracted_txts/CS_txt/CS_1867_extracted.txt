@@ -1,0 +1,127 @@
+332 Chapter10 Virtual Memory
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+valid—invalid
+0 H frame bit 0} monitor
+ye t
+ae
+4}v 2 D
+siv
+3| M i 3 H
+logical memory page table 4] load M
+for user 1 for user 1
+5 J
+6} A
+valid-invalid 7) &
+o; A frame, lt ,
+Ye physical
+1 8 éiv memory
+2| D il
+20y
+3 E 7 Vv
+logical memory page table
+for user 2 for user 2
+
+Figure 10.6 Need for page replacement.
+
+be aware that their processes are running on a paged system—paging should
+be logically transparent to the user. So this option is not the best choice.
+
+The operating system could swap out a process, freeing all its frames, and
+reducing the level of multiprogramming. This option is a good one in certain
+circumstances; we consider it further in Section 10.6. Here, we discuss a more
+intriguing possibility: page replacement.
+
+10.4.1 Basic Scheme
+
+Page replacement takes the following approach. If no frame is free, we find one
+that is not currently being used and free it. We can free a frame by writing its
+contents to swap space, and changing the page table (and all other tables) to
+indicate that the page is no longer in memory (Figure 10.7). We can now use
+the freed frame to hold the page for which the process faulted. We modify the
+page-fault service routine to include page replacement:
+
+1. Find the location of the desired page on the disk.
+2. Find a free frame:
+
+a. If there is a free frame, use it.
+

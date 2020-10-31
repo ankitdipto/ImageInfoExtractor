@@ -1,0 +1,95 @@
+338  Chapter10 Virtual Memory
+
+reference string
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+7 0 1 2 03 0 4 2 8 o 3 2 1 2 014 7 0 1
+7/7) \7\ \2 2 2 2 2
+0} | 9 0 4 0j
+1 | 3 3| 1
+page frames
+
+Figure 10.11 Optimal page-replacement algorithm.
+
+2 replaces page 7, because 7 will not be used until reference 18, whereas page
+0 will be used at 5, and page 1 at 14. The reference to page 3 replaces page 1,
+as page 1 will be the last of the three pages in memory to be referenced again.
+With only nine page faults, optimal replacement is much better than a FIFO
+algorithm, which had 15 faults. (If we ignore the first three, which all algorithms
+must suffer, then optimal replacement is twice as good as FIFO replacement.) In
+fact, no replacement algorithm can process this reference string in three frames
+with less than nine faults.
+
+Unfortunately, the optimal page-replacement algorithm is difficult to
+implement, because it requires future knowledge of the reference string. (We
+encountered a similar situation with the SJF CPu-scheduling algorithm in
+Section 6.3.2.) Asa result, the optimal algorithm is used mainly for comparison
+studies. For instance, it may be useful to know that, although a new algorithm
+is not optimal, it is within 12.3 percent of optimal at worst, and within 47
+percent on average.
+
+10.4.4 LRU Page Replacement
+
+If the optimal algorithm is not feasible, perhaps an approximation to the opti-
+mal algorithm is possible. The key distinction between the FIFO and OPT
+algorithms (other than looking backward or forward in time) is that the FIFO
+algorithm uses the time when a page was brought into memory; the OPT algo-
+rithm uses the time when a page is to be used. If we use the recent past as an
+approximation of the near future, then we will replace the page that has not
+been used for the longest period of time (Figure 10.12). This approach is the
+least-recently-used (LRU) algorithm.
+
+LRU replacement associates with each page the time of that page’s last use.
+When a page must be replaced, LRU chooses that page that has not been used
+for the longest period of time. This strategy is the optimal page-replacement
+algorithm looking backward in time, rather than forward. (Strangely, if we
+let S® be the reverse of a reference string S, then the page-fault rate for the
+OPT algorithm on $ is the same as the page-fault rate for the OPT algorithm on
+

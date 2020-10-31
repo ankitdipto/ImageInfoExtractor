@@ -1,0 +1,46 @@
+SECTION 56 Memory-Reference Instructions 147
+
+memory word into DR first and then transfer the content of DR into AC. The
+reason for not connecting the bus to the inputs of AC is the delay encountered
+in the adder and logic circuit. It is assumed that the time it takes to read from
+memory and transfer the word through the bus as well as the adder and logic
+Circuit is more than the time of one clock cycle. By not connecting the bus to
+the inputs of AC we can maintain one clock cycle per microoperation.
+
+STA: Store AC
+
+This instruction stores the content of AC into the memory word specified by
+the effective address, Since the output of AC is applied to the bus and the data
+input of memory is connected to the bus, we can execute this instruction with
+‘one microoperation:
+
+DjT¢ MIAR] — AC, SC —0
+
+BUN: Branch Unconditionally
+
+This instruction transfers the program to the instruction specified by the
+effective address. Remember that PC holds the address of the instruction to be
+read from memory in the next instruction cycle. PC is incremented at time T;
+to prepare it for the address of the next instruction in the program sequence.
+The BUN instruction allows the programmer to specify an instruction out of
+sequence and we say that the program branches (or jumps) unconditionally.
+The instruction is executed with one microoperation:
+
+Dil: PC — AR, SC —0
+
+The effective address from AR is transferred through the common bus to PC.
+Resetting SC to 0 transfers control to Te The next instruction is then fetched
+and executed from the memory address given by the new value in PC.
+
+BSA: Branch and Save Return Address
+
+This instruction is useful for branching to a portion of the program called a
+subroutine or procedure. When executed, the BSA instruction stores the ad-
+dress of the next instruction in sequence (which is available in PC) into a
+memory location specified by the effective address. The effective address plus
+one is then transferred to PC to serve as the address of the first instruction in
+the subroutine. This operation was specified in Table 54 with the following
+register transfer:
+
+MAR] — PC, PC — AR +1
+

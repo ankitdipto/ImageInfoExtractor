@@ -1,0 +1,82 @@
+392 Chapter 11 File-System Interface
+
+link or a copy of the directory entry is established, a new entry is added to the
+file-reference list. When a link or directory entry is deleted, we remove its entry
+on the list. The file is deleted when its file-reference list is empty.
+
+The trouble with this approach is the variable and potentially large size
+of the file-reference list. However, we really do not need to keep the entire
+list we need to keep only a count of the number of references. A new link
+or directory entry increments the reference count; deleting a link or entry
+decrements the count. When the count is 0, the file can be deleted; there are
+no remaining references to it. The UNIX operating system uses this approach
+for nonsymbolic links (or hard links), keeping a reference count in the file
+information block (or inode, see Appendix A.7.2). By effectively prohibiting
+multiple references to directories, we maintain an acyclic-graph structure.
+
+To avoid these problems, some systems do not allow shared directories or
+links. For example, in MS-DOS, the directory structure is a tree structure, rather
+than an acyclic graph.
+
+11.3.5 General Graph Directory
+
+One serious problem with using an acyclic-graph structure is ensuring that
+there are no cycles. If we start with a two-level directory and allow users to
+create subdirectories, a tree-structured directory results. It should be fairly
+easy to see that simply adding new files and subdirectories to an existing tree-
+structured directory preserves the tree-structured nature. However, when we
+add links to an existing tree-structured directory, the tree structure is destroyed,
+resulting in a simple graph structure (Figure 11.10).
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+root avi te jim
+text | mail | count | book book | mail untex| hyp
+avi | count unhex| hex
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11.10 General graph directory.
+

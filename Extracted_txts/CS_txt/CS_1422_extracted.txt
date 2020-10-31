@@ -1,0 +1,38 @@
+670 Let UsC
+
+ 
+
+of this function specifies the ID of the signal that we wish to
+register. The second parameter is the address of a function that
+should get called whenever the signal is received by our program.
+This address has to be typecasted to a void * before passing it to
+the signal( ) function.
+
+Now when we press Ctrl + C the registered handler, namely,
+sighandler( ) would get called. This function would display the
+message ‘SIGINT received. Inside sighandler’ and return the
+control back to main( ). Note that unlike the default handler, our
+handler does not terminate the execution of our program. So only
+way to terminate it is to kill the running process from a different
+terminal. For this we need to open a new instance of command
+prompt (terminal). How to start a new instace of command prompt
+is discussed in Appendix H. Next do a ps —a to obtain the list of
+processes running at all the command prompts that we have
+launched. Note down the process id of a.out. Finally kill ‘a.out’
+process by saying
+
+# kill 3276
+
+In my case the terminal on which I executed a.out was tty1 and its
+process id turned out to be 3276. In your case the terminal name
+and the process id might be a different number.
+
+If we wish we can abort the execution of the program in the signal
+handler itself by using the exit ( 0 ) beyond the printf( ).
+
+Note that signals work asynchronously. That is, when a signal is
+received no matter what our program is doing, the signal handler
+would immediately get called. Once the execution of the signal
+handler is over the execution of the program is resumed from the
+point where it left off when the signal was received.
+

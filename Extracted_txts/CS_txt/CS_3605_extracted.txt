@@ -1,0 +1,40 @@
+21.3. Disjoint-set forests 569
+
+A
+
+(e) @
+
+© © ©
+@) ® tb)
+
+Figure 21.4 A disjoint-set forest. (a) Two trees representing the two sets of Figure 21.2. The
+tree on the left represents the set {b,c, e,h}, with c as the representative, and the tree on the right
+represents the set {d, fg}, with f as the representative. (b) The result of UNION(e, g).
+
+We perform the three disjoint-set operations as follows. A MAKE-SET operation
+simply creates a tree with just one node. We perform a FIND-SET operation by
+following parent pointers until we find the root of the tree. The nodes visited on
+this simple path toward the root constitute the find path. A UNION operation,
+shown in Figure 21.4(b), causes the root of one tree to point to the root of the other.
+
+Heuristics to improve the running time
+
+So far, we have not improved on the linked-list implementation. A sequence of
+n—1 UNION operations may create a tree that is just a linear chain of n nodes. By
+using two heuristics, however, we can achieve a running time that is almost linear
+in the total number of operations m.
+
+The first heuristic, union by rank, is similar to the weighted-union heuristic we
+used with the linked-list representation. The obvious approach would be to make
+the root of the tree with fewer nodes point to the root of the tree with more nodes.
+Rather than explicitly keeping track of the size of the subtree rooted at each node,
+we shall use an approach that eases the analysis. For each node, we maintain a
+rank, which is an upper bound on the height of the node. In union by rank, we
+make the root with smaller rank point to the root with larger rank during a UNION
+operation.
+
+The second heuristic, path compression, is also quite simple and highly effec-
+tive. As shown in Figure 21.5, we use it during FIND-SET operations to make each
+node on the find path point directly to the root. Path compression does not change
+any ranks.
+

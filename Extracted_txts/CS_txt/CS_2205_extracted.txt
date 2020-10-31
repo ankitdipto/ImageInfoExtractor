@@ -1,0 +1,53 @@
+368 cuarren TEN Computer Arithmetic
+
+A decimal parallel-adder that adds n decimal digits needs n BCD adder
+stages with the output-carry from one stage connected to the input-carry of the
+next-higher-order stage. To achieve shorter propagation delays, BCD adders
+include the necessary circuits for carry look-ahead. Furthermore, the adder
+circuit for the correction does not need all four full-adders, and this circuit can
+be optimized.
+
+BCD Subtraction
+
+A straight subtraction of two decimal numbers will require a subtractor circuit
+that will be somewhat different from a BCD adder. It is more economical to
+perform the subtraction by taking the 9's or 10’s complement of the subtrahend
+and adding it to the minuend. Since the BCD is nota self-complementing code,
+the 9’s complement cannot be obtained by complementing each bit in the code.
+It must be formed by a circuit that subtracts each BCD digit from 9.
+
+The 9s complement of a decimal digit represented in BCD may be ob-
+tained by complementing the bits in the coded representation of the digit
+provided a correction is included. There are two possible correction methods.
+In the first method, binary 1010 (decimal 10) is added to each complemented
+digit and the carry discarded after each addition. In the second method, binary
+0110 (decimal 6) is added before the digit is complemented. As a numerical
+illustration, the 9’s complement of BCD 0111 (decimal 7) is computed by first
+complementing each bit to obtain 1000. Adding binary 1010 and discarding the
+carry, we obtain 0010 (decimal 2). By the second method, we add 0110 to 0111
+toobtain 1101. Complementing each bit, we obtain the required result of 0010.
+Complementing each bit of a 4-bit binary number N is identical to the subtrac-
+tion of the number from 1111 (decimal 15). Adding the binary equivalent of
+decimal 10 gives 15 - N + 10 = 9 ~ N + 16. But 16 signifies the carry that is
+discarded, so the result is 9 - Nas required. Adding the binary equivalent of
+decimal 6 and then complementing gives 15 ~ (N + 6) = 9 ~ N as required.
+
+The 9s complement of a BCD digit can also be obtained through a
+combinational circuit. When this circuit is attached to a BCD adder, the result
+is a BCD adder/subtractor. Let the subtrahend (or addend) digit be denoted by
+the four binary variables Bs, By Bz, and By. Let M be a mode bit that controls
+the add/subtract operation. When M = 0, the two digits are added; when
+M = 1, the digits are subtracted. Let the binary variables xs, x, x2, and x: be
+the outputs of the 9’s complementer circuit. By an examination of the truth
+table for the circuit, it may be observed (see Prob. 10-30) that By should always
+be complemented; B, is always the same in the 9’s complement asin the original
+digit; x is 1 when the exclusive-OR of B, and By is 1; and xs is 1 when
+Bs B,B; = 000. The Boolean functions for the 9’s complementer circuit are
+
+ 
+
+ 
+
+2 = BM! + BM
+¥2 = By
+

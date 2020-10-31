@@ -1,0 +1,66 @@
+registers
+
+register transfer
+
+SECTION 42 Register Transfer 95
+
+4-2 Register Transfer
+
+Computer registers are designated by capital letters (sometimes followed by
+numerals) to denote the function of the register. For example, the register that
+holds an address for the memory unit is usually called a memory address
+register and is designated by the name MAR. Other designations for registers
+are PC (for program counter), IR (for instruction register, and R1 (for processor
+register). The individual flip-flops in an n-bit register are numbered in se-
+quence from 0 through n — 1, starting from 0 in the rightmost position and
+increasing the numbers toward the left. Figure 4-1 shows the representation
+of registers in block diagram form. The most common way to represent a
+register is by a rectangular box with the name of the register inside, as in
+Fig. 4-1(a), The individual bits can be distinguished as in (b). The numbering
+of bits in a 16-bit register can be marked on top of the box as shown in (c). A
+16-bit register is partitioned into two parts in (d). Bits 0 through 7 are assigned
+the symbol L (for low byte) and bits 8 through 15 are assigned the symbol H
+(for high byte). The name of the 16-bit register is PC. The symbol PC(0-7) or
+PC(L) refers to the low-order byte and PC(8-15) or PC(H) to the high-order
+byte
+
+Information transfer from one register to another is designated in sym-
+bolic form by means of a replacement operator. The statement
+
+R2-R1
+
+denotes a transfer of the content of register R1 into register R2. It designates
+a replacement of the content of R2 by the content of R1. By definition, the
+content of the source register R1 does not change after the transfer.
+
+A statement that specifies a register transfer implies that circuits are
+available from the outputs of the source register to the inputs of the destination
+register and that the destination register has a parallel load capability. Nor-
+
+ 
+
+Figure 4-1 Block diagram of register.
+
+ 
+
+ 
+
+ 
+
+AL 76543210
+(a) Register R (©) Showing individual bits
+1s o - 87 o
+R PC, Pew)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(Numbering of bits (@) Divided into two pans
+

@@ -1,0 +1,65 @@
+734
+
+Chapter 24. Perception
+
+ 
+
+244 EXTRACTING 3-D INFoRMaATION USING VISION
+
+‘SEGMENTATION
+
+POSE
+
+SLANT
+m1
+
+SHAPE
+
+We need to extract 3-D information for performing certain tasks such as manipulation, navigation,
+and recognition. There are three aspects of this:
+
+1, Segmentation of the scene into distinct objects.
+2. Determining the position and orientation of each object relative to the observer.
+3. Determining the shape ofeach object.
+
+Segmentation of the image is a key step towards organizing the array of image pixels into
+regions that would correspond to semantically meaningful entities in the scene. For recognition,
+we would like to know what features belong together so that one could compare them with stored
+models; to grasp an object, one needs to know what belongs together as an object.
+
+Edge detection, as discussed in the last section, is a useful first step toward image and scene
+segmentation, but not adequate by itself. This is because of two reasons: (a) some fraction of
+the edge curves that correspond to surface boundaries may be low contrast and not get detected;
+(b) many of the edge curves that are detected may correspond to noise, surface markings, or
+shadows. Segmentation is best viewed as part of extraction of 3-D information about the scene.
+
+Determining the position and orientation of an object relative to the observer (the so-called
+pose of the object) is most important for manipulation and navigation tasks. To move around
+in a grocery store, one needs to know the locations of the obstacles, so that one can plan a path
+avoiding them. Ifone wants to pick up and grasp an object, one needs to know its position relative
+to the hand so that an appropriate trajectory of moves could be generated. Manipulation and
+navigation actions typically are done in a control loop setting—the sensory information provides
+feedback to modify the motion of the robot, or the robot arm. In fact, often we may be interested
+more in relative change of position.
+
+Let us specify position and orientation in mathematical terms. The position ofa point P in
+the scene is characterized by three numbers, the (X, Y, Z) coordinates of P in a coordinate frame
+with its origin at the pinhole and the Z-axis along the optical axis (Figure 24.1). What we have
+available is the perspective projection of the point in the image (x, y). This specifies the ray from
+the pinhole along which P lies; what we do not know is the distance. The term "orientation"
+could be used in two senses:
+
+1, The orientation of the object as a whole. This can be specified in terms of a three-
+dimensional rotation relating its coordinate frame to that of the camera
+
+2. The orientation of the surface of the object at P. This can be specified by a vector n that
+specifies the direction of the unit surface normal vector, which is locally perpendicular to
+the surface. Often we express the surface orientation using the variables slant and tilt.
+Slant is the angle between the Z-axis and n. Tilt is the angle between the X-axis and the
+projection of n on the image plane
+
+When the camera moves relative to an object, both the object's distance and its orientation change.
+What is preserved is the shape of the object. Ifthe object is a cube, that fact is not changed when
+the object moves. Geometers have been attempting to formalize shape for centuries—the basic
+concept being that shape is what remains unchanged under some group of transformations, for
+

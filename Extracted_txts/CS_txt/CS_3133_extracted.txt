@@ -1,0 +1,67 @@
+Section 17.1
+
+Sequential Decision Problems 501
+
+ 
+
+ 
+
+    
+
+2 2 | 0762
+1 1 | 0.705 0.611 | 0.388
+1 2 3 4 1 2 3 4
+(a) (b)
+
+ 
+
+ 
+
+Figure 17.2 (a) An optimal policy for the stochastic environment. (b) The utilities of the states.
+
+ 
+
+ 
+
+function SIMPLE-POLICY-AGENT( percept) returns an action
+static: M, a transition model
+U, a utility function on environment histories
+P, apolicy, initially unknown
+
+if P is unknown then P *—- the optimal policy given UM
+return Plpercept]
+
+ 
+
+ 
+
+Figure 17.3 An agent that calculates and uses an optimal policy.
+
+ 
+
+ 
+
+ 
+
+is equipped with a sonar ring that gives it the distance to the nearest wall in each of the four
+directions. For such an agent, the locations (2,1) and (2,3) are indistinguishable, yet different
+actions are needed in each. Furthermore, the Markov property does not hold for percepts (as
+opposed to states), because the next percept does not depend just on the current percept and the
+action taken.
+
+The correct approach for POMDPs is to calculate a probability distribution over the possible
+states given all previous percepts, and to base decisions on this distribution. Although the optimal
+decision is not uniquely determined by the current percept, it is determined uniquely (up to ties)
+by the agent's probability distribution over the possible states that it could be in. For example,
+the sonar-equipped agent might believe that it is in state (2,]) with probability 0.8 and in state
+(2,3) with probability 0.2. The utility of action 4 is then
+
+0.8 x utility of doing A in (2,1) +
+
+0.2 x utility of doing 4 in (2,3)
+This seems simple enough. Unfortunately, in POMDPs, calculating the utility of an action in a
+state is made more difficult by the fact that actions will cause the agent to obtain new percepts,
+which will cause the agent's beliefs to change in complex ways. Essentially, the agent must take
+
+ 
+

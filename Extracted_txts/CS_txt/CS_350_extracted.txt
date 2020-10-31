@@ -1,0 +1,50 @@
+924
+
+Chapter 30 Polynomials and the FFT
+
+Let g be a generator of Z*, and let w = g* mod p.
+
+b. Argue that the DFT and the inverse DFT are well-defined inverse operations
+modulo p, where w is used as a principal nth root of unity.
+
+c. Show how to make the FFT and its inverse work modulo p in time O(n lgn),
+where operations on words of O(lg) bits take unit time. Assume that the
+algorithm is given p and w.
+
+d. Compute the DFT modulo p = 17 of the vector (0,5, 3,7, 7,2, 1,6). Note that
+& = 3 isa generator of Z},.
+
+ 
+
+Chapter notes
+
+Van Loan’s book [343] provides an outstanding treatment of the fast Fourier trans-
+form. Press, Teukolsky, Vetterling, and Flannery [283, 284] have a good descrip-
+tion of the fast Fourier transform and its applications. For an excellent introduction
+to signal processing, a popular FFT application area, see the texts by Oppenheim
+and Schafer [266] and Oppenheim and Willsky [267]. The Oppenheim and Schafer
+book also shows how to handle cases in which n is not an integer power of 2.
+
+Fourier analysis is not limited to 1-dimensional data. It is widely used in image
+processing to analyze data in 2 or more dimensions. The books by Gonzalez and
+Woods [146] and Pratt [281] discuss multidimensional Fourier transforms and their
+use in image processing, and books by Tolimieri, An, and Lu [338] and Van Loan
+[343] discuss the mathematics of multidimensional fast Fourier transforms.
+
+Cooley and Tukey [76] are widely credited with devising the FFT in the 1960s.
+The FFT had in fact been discovered many times previously, but its importance was
+not fully realized before the advent of modern digital computers. Although Press,
+Teukolsky, Vetterling, and Flannery attribute the origins of the method to Runge
+and K6nig in 1924, an article by Heideman, Johnson, and Burrus [163] traces the
+history of the FFT as far back as C. F. Gauss in 1805.
+
+Frigo and Johnson [117] developed a fast and flexible implementation of the
+FFT, called FFTW (“fastest Fourier transform in the West”). FFTW is designed for
+situations requiring multiple DFT computations on the same problem size. Before
+actually computing the DFTs, FFTW executes a “planner,” which, by a series of
+trial runs, determines how best to decompose the FFT computation for the given
+problem size on the host machine. FFTW adapts to use the hardware cache ef-
+ficiently, and once subproblems are small enough, FFTW solves them with opti-
+mized, straight-line code. Furthermore, FFTW has the unusual advantage of taking
+©(n gn) time for any problem size n, even when n is a large prime.
+

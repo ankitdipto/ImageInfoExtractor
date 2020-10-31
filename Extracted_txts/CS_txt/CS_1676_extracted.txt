@@ -1,0 +1,63 @@
+174 Chapter6 CPU Scheduling
+
+With the RR algorithm, we execute the processes as
+
+ 
+
+Py Po {Pa} Pa Ps | Pp [Ps me |
+
+0 10 20 23 30 40 50 52 61
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The waiting time is 0 milliseconds for process P;, 32 milliseconds for process
+P>, 20 milliseconds for process P3, 23 milliseconds for process Ps, and 40
+milliseconds for process Ps. Thus, the average waiting time is (0 + 32 + 20 +
+23 + 40)/5 = 23 milliseconds.
+
+We see that, in this case, the SJF policy results in less than one-half the
+average waiting time obtained with FCFS scheduling; the RR algorithm gives
+us an intermediate value.
+
+Deterministic modeling is simple and fast. It gives exact numbers, allowing
+the algorithms to be compared. However, it requires exact numbers for input,
+and its answers apply to only those cases. The main uses of deterministic
+modeling are in describing scheduling algorithms and providing examples.
+In cases where we may be running the same programs over and over again
+and can measure the program's processing requirements exactly, we may be
+able to use deterministic modeling to select a scheduling algorithm. Over a
+set of examples, deterministic modeling may indicate trends that can then be
+analyzed and proved separately. For example, it can be shown that, for the
+environment described (all processes and their times available at time 0), the
+SJF policy will always result in the minimum waiting time.
+
+In general, however, deterministic modeling is too specific, and requires too
+much exact knowledge, to be useful.
+
+6.6.2 Queueing Models
+
+The processes that are run on many systems vary from day to day, so there is
+no static set of processes (and times) to use for deterministic modeling. What
+can be determined, however, is the distribution of CPU and I/O bursts. These
+distributions may be measured and then approximated or simply estimated.
+The result is a mathematical formula describing the probability of a particular
+CPU burst. Commonly, this distribution is exponential and is described by its
+mean. Similarly, the distribution of tines when processes arrive in the system
+—the arrival-time distribution —must be given.
+
+The computer system is described as a network of servers. Each server has
+a queue of waiting processes. The CPU is a server with its ready queue, as is the
+1/O system with its device queues. Knowing arrival rates and service rates, we
+can compute utilization, average queue length, average wait time, and so on.
+This area of study is called queueing-network analysis.
+

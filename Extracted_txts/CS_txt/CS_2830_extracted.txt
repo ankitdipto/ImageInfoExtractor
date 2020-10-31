@@ -1,0 +1,44 @@
+15.2. Matrix-chain multiplication 373
+
+4. Construct an optimal solution from computed information.
+
+We shall go through these steps in order, demonstrating clearly how we apply each
+step to the problem.
+
+Step 1: The structure of an optimal parenthesization
+
+For our first step in the dynamic-programming paradigm, we find the optimal sub-
+structure and then use it to construct an optimal solution to the problem from opti-
+mal solutions to subproblems. In the matrix-chain multiplication problem, we can
+perform this step as follows. For convenience, let us adopt the notation A;..;, where
+i < j, for the matrix that results from evaluating the product Aj Aj+1--- Aj. Ob-
+serve that if the problem is nontrivial, i.e., i < j, then to parenthesize the product
+Aj Aj+1 +++ Aj, we must split the product between Ag and Ag+, for some integer k
+in the range i < k < j. Thatis, for some value of k, we first compute the matrices
+Aj_« and Ax41,; and then multiply them together to produce the final product Aj, ;.
+The cost of parenthesizing this way is the cost of computing the matrix A;_x, plus
+the cost of computing A;;.,;, plus the cost of multiplying them together.
+
+The optimal substructure of this problem is as follows. Suppose that to op-
+timally parenthesize A; Aj;,,---A;, we split the product between Ay and Ag 41.
+Then the way we parenthesize the “prefix” subchain A; Aj+1--- Ax within this
+optimal parenthesization of A; Aj +1 --- Aj; must be an optimal parenthesization of
+Aj Aj41 +++ Ax. Why? If there were a less costly way to parenthesize Aj Aj+1--- Ax,
+then we could substitute that parenthesization in the optimal parenthesization
+of A; A; +1-+- A; to produce another way to parenthesize A; A;+, --- Aj whose cost
+was lower than the optimum: a contradiction. A similar observation holds for how
+we parenthesize the subchain Ax +, Ax +2-+- A; in the optimal parenthesization of
+A; Aj+1 +++ Aj: it must be an optimal parenthesization of Ag+) Ax+2-++ Aj.
+
+Now we use our optimal substructure to show that we can construct an optimal
+solution to the problem from optimal solutions to subproblems. We have seen that
+any solution to a nontrivial instance of the matrix-chain multiplication problem
+requires us to split the product, and that any optimal solution contains within it op-
+timal solutions to subproblem instances. Thus, we can build an optimal solution to
+an instance of the matrix-chain multiplication problem by splitting the problem into
+two subproblems (optimally parenthesizing A; Aj+41--- Ag and Ax +1Ax42°+- Aj),
+finding optimal solutions to subproblem instances, and then combining these op-
+timal subproblem solutions. We must ensure that when we search for the correct
+place to split the product, we have considered all possible places, so that we are
+sure of having examined the optimal one.
+

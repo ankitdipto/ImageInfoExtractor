@@ -1,0 +1,55 @@
+170 Let Us C
+
+ 
+
+a)
+
+@
+
+G)
+
+In the last statement a garbage value is returned to the calling
+function since we are not returning any specific value. Note
+that in this case the parentheses after return are dropped.
+
+If we want that a called function should not return any value,
+in that case, we must mention so by using the keyword void
+
+as shown below.
+
+void display()
+{
+
+ 
+
+printf ("\nHeads | win..." ) ;
+printf ( “\nTails you lose" ) ;
+}
+
+A function can return only one value at a time. Thus, the
+following statements are invalid.
+
+return (a,b);
+return (x, 12) ;
+
+There is a way to get around this limitation, which would be
+discussed later in this chapter when we learn pointers.
+
+If the value of a formal argument is changed in the called
+function, the corresponding change does not take place in the
+calling function. For example,
+
+main()
+{
+
+int a= 30;
+
+fun (a);
+
+printf ( "\n%d", a) ;
+}
+
+fun (int b)
+{
+b=60;
+

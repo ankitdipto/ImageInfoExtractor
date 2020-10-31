@@ -1,0 +1,59 @@
+3.3 System Calls 65
+
+register
+
+   
+
+ 
+
+  
+
+code for
+system
+call 13
+
+VC
+
+ 
+
+user program
+
+ 
+
+ 
+
+ 
+
+operating system
+Figure 3.1 Passing of parameters as a table.
+
+the memory buffer into which the input should be read. Of course, the device
+or file and length may be implicit in the call.
+
+Three general methods are used to pass parameters to the operating system.
+The simplest approach is to pass the parameters in registers. In some cases,
+however, there may be more parameters than registers. In these cases, the
+parameters are generally stored in a block or table in memory, and the address of
+the block is passed as a parameter in a register (Figure 3.1). This is the approach
+taken by Linux. Parameters can also be placed, or pushed, onto the stack by
+the program, and popped off the stack by the operating system. Some operating
+systems prefer the block or stack methods, because those approaches do not
+limit the number or length of parameters being passed.
+
+System calls can be grouped roughly into five major categories: process
+control, file management, device management, information maintenance, and
+communications. In Sections 3.3.1 through 3.3.5, we discuss briefly the types of
+system calls that may be provided by an operating system. Most of these system
+calls support, or are supported by, concepts and functions that are discussed
+in later chapters. Figure 3.2 summarizes the types of system calls normally
+provided by an operating system.
+
+3.3.1 Process Control
+
+Arunning program needs to be able to halt its execution either normally (end)
+or abnormally (abort). If a system call is made to terminate the currently
+running program abnormally, or if the program runs into a problem and causes
+an error trap, a dump of memory is sometimes taken and an error message
+generated. The dump is written to disk and may be examined by a debugger
+to determine the cause of the problem. Under either normal or abnormal
+

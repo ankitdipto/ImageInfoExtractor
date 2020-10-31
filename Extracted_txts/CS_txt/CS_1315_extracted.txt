@@ -1,0 +1,44 @@
+582 Let UsC
+
+ 
+
+Windows environment loads GDI32.DLL into memory when it is
+needed for graphical output. Windows also loads a ‘device driver’
+program if the hardware conversions are not part of GDI32.DLL.
+Common examples are VGA.SYS for VGA video screen and
+HPPLC.SYS for the HP LaserJet printer. Drivers are just programs
+that assist the GDI in converting Windows graphics commands to
+hardware commands.
+
+Thus GDI provides all the basic drawing functionality for
+Windows; the device context represents the device providing a
+layer of abstraction that insulates your applications from the
+trouble of drawing directly to the hardware. The GDI provides this
+insulation by calling the appropriate device driver in response to
+windows graphics function calls.
+
+Hello Windows
+
+We would begin our tryst with graphics programming under
+windows by displaying a message “Hello Windows” in different
+fonts. Note that though we are displaying text under Windows
+even text gets drawn graphically in the window. First take a look at
+the program given below before we set out to understand it.
+
+# include <windows.h>
+# include "helper.h"
+
+void OnPaint (HWND ) ;
+void OnDestroy (HWND ) ;
+
+int __stdcall WinMain ( HINSTANCE hinstance, HINSTANCE hPrevinstance,
+LPSTR IpszCmdline, int nCmdShow )
+
+{
+MSG m;
+
+/* Perform application initialization */
+nitInstance ( hInstance, nCmdShow, "Text" ) ;
+
+ 
+

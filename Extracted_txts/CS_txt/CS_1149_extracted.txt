@@ -1,0 +1,44 @@
+434 Let Us C
+
+ 
+
+Text Files and Binary Files
+
+All the programs that we wrote in this chapter so far worked on
+text files. Some of them would not work correctly on binary files.
+A text file contains only textual information like alphabets, digits
+and special symbols. In actuality the ASCII codes of these
+characters are stored in text files. A good example of a text file is
+any C program, say PR1.C.
+
+As against this, a binary file is merely a collection of bytes. This
+collection might be a compiled version of a C program (say
+PR1.EXE), or music data stored in a wave file or a picture stored
+in a graphic file. A very easy way to find out whether a file is a
+text file or a binary file is to open that file in Turbo C/C++. If on
+opening the file you can make out what is displayed then it is a
+text file, otherwise it is a binary file.
+
+As mentioned while explaining the file-copy program, the program
+cannot copy binary files successfully. We can improve the same
+program to make it capable of copying text as well as binary files
+as shown below.
+
+#include "stdio.h"
+main()
+
+FILE “fs, “ft;
+int ch ;
+
+fs = fopen ("prt.exe", "tb") ;
+
+if (fs == NULL)
+
+{
+puts ( "Cannot open source file” ) ;
+exit() ;
+
+}
+
+ft = fopen (“newpr1.exe", "wb" ) ;
+

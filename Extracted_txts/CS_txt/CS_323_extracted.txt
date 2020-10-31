@@ -1,0 +1,79 @@
+904
+
+Chapter 30 Polynomials and the FFT
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1g, 44,0 nt Ordinary multiplication ae © Coefficient
+jJ_—_—_ el 9,04, -- «Con
+bo, bys. ..sDn—1 Time (2) Oe ae representations
+Evaluation Interpolation
+Time @(n Ign) Time @(n Ign)
+A(o},,), B(S,) CO},)
+A(3,), B(@3,) Pointwise multiplication C(o;,) Point-value
+j—__—omtwise mutipucation __,.|
+FI Time ©(n) FI representations
+A(wsn'), B(wsn') Con)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 30.1 A graphical outline of an efficient polynomial-multiplication process. Representations
+on the top are in coefficient form, while those on the bottom are in point-value form. The arrows
+from left to right correspond to the multiplication operation, The @2n terms are complex (2n)th roots
+of unity,
+
+on whether we can convert a polynomial quickly from coefficient form to point-
+value form (evaluate) and vice versa (interpolate).
+
+We can use any points we want as evaluation points, but by choosing the eval-
+uation points carefully, we can convert between representations in only O(n lgn)
+time. As we shall see in Section 30.2, if we choose “complex roots of unity” as
+the evaluation points, we can produce a point-value representation by taking the
+discrete Fourier transform (or DFT) of a coefficient vector. We can perform the
+inverse operation, interpolation, by taking the “inverse DFT” of point-value pairs,
+yielding a coefficient vector. Section 30.2 will show how the FFT accomplishes
+the DFT and inverse DFT operations in @(n 1g) time.
+
+Figure 30.1 shows this strategy graphically. One minor detail concerns degree-
+bounds. The product of two polynomials of degree-bound n is a polynomial of
+degree-bound 2n. Before evaluating the input polynomials A and B, therefore,
+we first double their degree-bounds to 2 by adding n high-order coefficients of 0.
+Because the vectors have 2n elements, we use “complex (27)th roots of unity,”
+which are denoted by the 5, terms in Figure 30.1.
+
+Given the FFT, we have the following @(n lg n)-time procedure for multiplying
+two polynomials A(x) and B(x) of degree-bound n, where the input and output
+representations are in coefficient form. We assume that 7 is a power of 2; we can
+always meet this requirement by adding high-order zero coefficients.
+
+1. Double degree-bound: Create coefficient representations of A(x) and B(x) as
+degree-bound 2n polynomials by adding n high-order zero coefficients to each.
+

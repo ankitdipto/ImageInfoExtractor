@@ -1,0 +1,47 @@
+25.1 Shortest paths and matrix multiplication 687
+
+The structure of a shortest path
+
+We start by characterizing the structure of an optimal solution. For the all-pairs
+shortest-paths problem on a graph G = (V, £), we have proven (Lemma 24.1)
+that all subpaths of a shortest path are shortest paths. Suppose that we represent
+the graph by an adjacency matrix W = (wj). Consider a shortest path p from
+vertex i to vertex j, and suppose that p contains at most m edges. Assuming that
+there are no negative-weight cycles, m is finite. If i = j, then p has weight 0
+and no edges. If vertices i and j are distinct, then we decompose path p into
+
+i2k—a Jj, where path p’ now contains at most m — 1 edges. By Lemma 24.1,
+Pp’ is ashortest path from i to k, and so 6(i, 7) = 8(i,k) + we.
+
+A recursive solution to the all-pairs shortest-paths problem
+Now, let i” be the minimum weight of any path from vertex i to vertex j that
+contains at most m edges. When m = 0, there is a shortest path from i to j with
+no edges if and only if i = j. Thus,
+
+10 -)9 ifi=s.
+iu oo ifi xj.
+
+For m > 1, we compute as the minimum of ie? (the weight of a shortest
+path from i to j consisting of at most m—1 edges) and the minimum weight of any
+path from i to j consisting of at most m edges, obtained by looking at all possible
+predecessors k of j. Thus, we recursively define
+
+(m)
+Ui;
+
+(my _ ‘ (m-1) . (m-1)
+17? = min Ca > main {lie + wnj})
+_ « ¢(m—1) |
+= nin {Ly + wej} : (25.2)
+
+The latter equality follows since wj; = 0 for all 7.
+
+What are the actual shortest-path weights 5(i, 7)? If the graph contains
+no negative-weight cycles, then for every pair of vertices i and j for which
+5(i, 7) < 00, there is a shortest path from i to j that is simple and thus contains at
+most 1 — 1 edges. A path from vertex i to vertex j with more than n — 1 edges
+cannot have lower weight than a shortest path from i to j. The actual shortest-path
+weights are therefore given by
+
+Gf) =H HIP HIM =e, (25.3)
+

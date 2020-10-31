@@ -1,0 +1,72 @@
+i.)
+0
+
+Chapter 8. Building a Knowledge Base
+
+ 
+
+The next step is to describe meals and dishes in terms of their parts:
+
+RequiredParts({MainCourses }, Meals)
+
+OptionaiParts({ FirstCourses, SideDishes, Salads, Dessert.
+
+RequiredParts({ Lettuce, Dressing}, GreenSalads)
+
+Optional Parts({ Tomatoes, Cucumbers, Peppers, Carrots, ...}, GreenSalads)
+
+RequiredParts({ Pasta, BologneseSauce}. PastaBolognese, )
+
+OptionaParts( { GratedCheese}, PastaBolognese)
+
+RequiredParts({ Onions, OliveOil, Butter, Celery, Carrots, GroundBeef Salt,
+White Wines, Milk, TomatoStuff} BologneseSauce)
+
+Then we need taxonomic information for dishes and foods:
+
+GreenSalads C Salads
+
+Salads C Dishes
+
+PastaBolognese C FirstCourses
+
+FirstCourses C Dishes
+
+Tomatoes C TomatoStuff
+
+CannedTomatoes C TomatoStuff
+
+Tagliatelle C Pasta
+
+Now we want to be able to determine what dishes can be made from the shopping list "tomatoes,
+yellow onions, celery, a carrot, ground beef, milk, white wine, tagliatelle.” As mentioned earlier,
+this is complicated by the fact that the salt, butter, and olive oil that are required for the Bolognese
+dish are not on the shopping list. We define the predicate CanMake to hold between a shopping
+list and a dish if the categories on the list, when combined with typical staples, cover all the
+required parts of the dish. ae
+
+V/, d CanMake(1,d) = d € Dishes A Required Part s(p, d) A p C Union(1, Staples)
+{Salt,Butter, OliveOil} C Staples
+
+With what we have so far, this would allow us to infer that Pasta Bolognese is the only dish 4
+that can be made from the shopping list. The next question is what to do if fresh tomatoes are
+not available. It turns out that all we have to do is replace the shopping list (or the part of the
+shopping list that makes up this dish) with the list of part categories for this dish. In this case, that
+means that Tomatoes would be replaced by TomatoStuffwhich could be satisfied by gathering
+an instance of CannedTomatoes.
+
+ 
+
+Meals)
+
+Navigating
+
+An agent that wants to find a book in a library could traverse the entire library, looking at each
+book until the desired one is found. But it would be more efficient to find the call number for the
+book, find a map describing where that number can be found, and go directly there. It is the same
+way with a supermarket, although the catalog system is not as good. A shopping agent should
+know that supermarkets are arranged into aisles, that aisles have signs describing their contents 4
+(in rough terms), and that objects that are near each other in the taxonomic hierarchy are likely to
+be near each other in physical space. For example, British immigrants to the United States leam
+that to find a package of tea, they should look for the aisle marked "Coffee."
+

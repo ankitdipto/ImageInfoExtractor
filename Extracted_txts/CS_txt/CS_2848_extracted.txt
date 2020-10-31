@@ -1,0 +1,58 @@
+388
+
+Chapter 15 Dynamic Programming
+
+MEMOIZED-MATRIX-CHAIN(p)
+n = p.length—1
+let m[1..n,1..n] be a new table
+fori = lton
+for j =iton
+mii, j] = co
+return LOOKUP-CHAIN(m, p, 1,1)
+
+AnkRwWNH
+
+Looxkup-CHAIN(m, p, i,j)
+if m[i, j] < 00
+return m[i, j]
+if i ==]
+mii, j] = 0
+else for k =i to j —1
+q = Looxup-CHAIN(m, p,i,k)
++ Looxup-CHain(in, pk +1, j) + Dia PrP;
+ifg < mii, j]
+mii, j]=4
+return m/[i, j]
+
+ 
+
+AnkhwWwNH
+
+Can
+
+The MEMOIZED-MATRIX-CHAIN procedure, like MATRIX-CHAIN-ORDER,
+maintains a table m[1.., 1 ..n] of computed values of m/[i, j], the minimum num-
+ber of scalar multiplications needed to compute the matrix A;_;. Each table entry
+initially contains the value oo to indicate that the entry has yet to be filled in. Upon
+calling LOOKUP-CHAIN(m, p.i, j), if line | finds that m[f, j)] < 00, then the pro-
+cedure simply returns the previously computed cost m{[i, j] in line 2. Otherwise,
+the cost is computed as in RECURSIVE-MATRIX-CHAIN, stored in m[i, j], and
+retumed. Thus, LOOKUP-CHAIN(m, p,i, j) always returns the value of m[i, j],
+but it computes it only upon the first call of LooKuP-CHAIN with these specific
+values of i and j.
+
+Figure 15.7 illustrates how MEMOIZED-MATRIX-CHAIN saves time compared
+with RECURSIVE-MATRIX-CHAIN. Shaded subtrees represent values that it looks
+up rather than recomputes.
+
+Like the bottom-up dynamic-programming algorithm MATRIX-CHAIN-ORDER,
+the procedure MEMOIZED-MATRIX-CHAIN runs in O(n3) time. Line 5 of
+MEMOIZED-MATRIX-CHAIN executes ©(77) times. We can categorize the calls
+of LooKuP-CHAIN into two types:
+
+ 
+
+1. calls in which m[i, j] = 00, so that lines 3-9 execute, and
+
+2. calls in which m[i, j] < oo, so that LooKUP-CHAIN simply returns in line 2.
+

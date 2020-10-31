@@ -1,0 +1,61 @@
+136 ceurrer rive Basic Computer Organization and Design
+
+hardwired control
+
+microprogrammed
+control
+
+control unit
+
+timing signals
+
+a control signal. The control signals are generated in the control unit and
+provide controlinputs for the multiplexers in the common bus, control inputs
+in processor registers, and microoperations for the accumulator.
+
+There are two major types of control organization: hardwired control and
+microprogrammed control. In the hardwired organization, the control logic is
+implemented with gates, flip-flops, decoders, and other digital circuits. It has
+the advantage that it can be optimized to produce a fast mode of operation.
+In the microprogrammed organization, the control information is stored in a
+control memory. The control memory is programmed to initiate the required
+sequence of microoperations. A hardwired control, as the name implies, re-
+quires changes in the wiring among the various components if the design has
+to be modified or changed. In the microprogrammed control, any required
+changes or modifications can be done by updating the microprogram in control
+memory. A hardwired control for the basic computer is presented in this
+section. A microprogrammed control unit for a similar computer is presented
+in Chap. 7.
+
+The block diagram of the control unit is shown in Fig, 5-6. It consists of
+two decoders, a sequence counter, and a number of control logic gates. An
+instruction read from memory is placed in the instruction register (IR). The
+position of this register in the common bus system is indicated in Fig. 5-4. The
+instruction register is shown again in Fig. 5-6, where it is divided into three
+parts: the Ibit, the operation code, and bits 0 through 11. The operation code
+in bits 12 through 14 are decoded with a 3 x 8 decoder. The eight outputs of
+the decoder are designated by the symbols Dy through D;. The subscripted
+decimal number is equivalent to the binary value of the corresponding opera-
+tion code. Bit 15 of the instruction is transferred to a flip-flop designated by the
+symbol I. Bits 0 through 11 are applied to the control logic gates. The 4-bit
+sequence counter can count in binary from 0 through 15. The outputs of the
+counter are decoded into 16 timing signals T, through Ts The internal logic
+of the control gates will be derived later when we consider the design of the
+computer in detail.
+
+The sequence counter SC can be incremented or cleared synchronously
+(see the counter of Fig. 2-11). Most of the time, the counter is incremented to
+provide the sequence of timing signals out of the 4 x 16 decoder. Once in
+awhile, the counter is cleared to 0, causing the next active timing signal to be
+Tp. Asan example, consider the case where SCis incremented to provide timing
+signals To, T,, Tz,Ts, and, insequence. At time T,, SCis cleared to Oif decoder
+output Dj is active. This is expressed symbolically by the statement
+
+ 
+
+DT~ SC —0
+
+The timing diagram of Fig. 5-7 shows the time relationship of the control
+signals, The sequence counter SC responds to the positive transition of the
+lock. Initially, the CLR input of SC is active. The first positive transition of the
+

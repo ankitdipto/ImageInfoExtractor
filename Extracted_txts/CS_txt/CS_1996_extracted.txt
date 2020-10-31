@@ -1,0 +1,48 @@
+12.8 Log-Structured File System 439
+
+that the file has not changed since that date, then the file does not need to be
+copied again. A typical backup schedule may then be as follows:
+
+¢ Day 1: Copy to a backup medium all files from the disk. This is called a
+full backup.
+
+* Day 2: Copy to another medium all files changed since day 1. This is an
+incremental backup.
+
+« Day 3: Copy to another medium all files changed since day 2.
+
+© Day N: Copy to another medium all files changed since day N— 1. Then go
+back to Day 1.
+
+The new cycle can have its backup written over the previous set, or onto
+a new set of backup media. In this manner, we can restore an entire disk
+by starting restores with the full backup, and continuing through each of the
+incremental backups. Of course, the larger N is, the more tapes or disks need
+to be read for a complete restore. An added advantage of this backup cycle is
+that we can restore any file accidentally deleted during the cycle by retrieving
+the deleted file from the backup of the previous day. The length of the cycle is
+a compromise between the amount of backup medium needed and the number
+of days back from which a restore can be done.
+
+A user may notice that a particular file is missing or corrupted long after
+the damage was done. For this reason, we usually plan to take a full backup
+from time to time that will be saved “forever,” rather than reusing that backup
+medium. It is a good idea to store these permanent backups far away from
+the regular backups to protect against hazard, such as a fire that destroys the
+computer and all the backups too. And if the backup cycle reuses media, one
+must take care not to reuse the media too many times—if the media wear out,
+it might not be possible to restore any data from the backups.
+
+12.8 = Log-Structured File System
+
+Frequently in computer science, algorithms and technologies transition from
+their original use to other applicable areas. Such is the case with the database
+log-based-recovery algorithms described in Section 7.9.2. These logging algo-
+rithms have been applied successfully to the problem of consistency checking.
+The resulting implementations are known as log-based transaction-oriented
+(or journaling) file systems.
+
+ 
+
+ 
+

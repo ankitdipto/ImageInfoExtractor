@@ -1,0 +1,42 @@
+Notes for Chapter 21 585
+
+a. Argue that line 10 executes exactly once for each pair {u,v} € P.
+
+b. Argue that at the time of the call LCA(w), the number of sets in the disjoint-set
+data structure equals the depth of u in T.
+
+c. Prove that LCA correctly prints the least common ancestor of u and v for each
+pair {u,v} e P.
+
+d. Analyze the running time of LCA, assuming that we use the implementation of
+the disjoint-set data structure in Section 21.3.
+
+ 
+
+Chapter notes
+
+Many of the important results for disjoint-set data structures are due at least in part
+to R. E. Tarjan. Using aggregate analysis, Tarjan [328, 330] gave the first tight
+upper bound in terms of the very slowly growing inverse @(m,n) of Ackermann’s
+function. (The function A,(j) given in Section 21.4 is similar to Ackermann’s
+function, and the function @() is similar to the inverse. Both a(n) and @(m,n)
+are at most 4 for all conceivable values of m and n.) An O(m1g* 1) upper bound
+was proven earlier by Hopcroft and Ullman [5, 179]. The treatment in Section 21.4
+is adapted from a later analysis by Tarjan [332], which is in turn based on an anal-
+ysis by Kozen [220]. Harfst and Reingold [161] give a potential-based version of
+Tarjan’s earlier bound.
+
+Tarjan and van Leeuwen [333] discuss variants on the path-compression heuris-
+tic, including “one-pass methods,” which sometimes offer better constant factors
+in their performance than do two-pass methods. As with Tarjan’s earlier analyses
+of the basic path-compression heuristic, the analyses by Tarjan and van Leeuwen
+are aggregate. Harfst and Reingold [161] later showed how to make a small change
+to the potential function to adapt their path-compression analysis to these one-pass
+variants. Gabow and Tarjan [121] show that in certain applications, the disjoint-set
+operations can be made to run in O(m) time.
+
+Tarjan [329] showed that a lower bound of Q(m @(m,n)) time is required for
+operations on any disjoint-set data structure satisfying certain technical conditions.
+This lower bound was later generalized by Fredman and Saks [113], who showed
+that in the worst case, Q(m &(m,n)) (lgn)-bit words of memory must be accessed.
+

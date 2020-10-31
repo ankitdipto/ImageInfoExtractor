@@ -1,0 +1,69 @@
+Section 19.3.
+
+Perceptrons 577
+
+ 
+
+LOCAL ENCODING
+
+DISTRIBUTED
+ENCODING
+
+ 
+
+function NEURAL-NETWORK-LEARNING(examples) returns network
+
+network — a network with randomly assigned weights
+repeat
+for each e in examplesdo »
+O — NEURAL-NETWORK-OUTPUT(nenvork, e)
+T —the observed output values from e
+update the weights in network based on e, O, and T
+end
+until all examples correctly predicted or stopping criterion is reached
+return network
+
+ 
+
+ 
+
+Figure 19.11 The generic neural network learning method: adjust the weights until predicted
+output values O and true values T agree.
+
+ 
+
+ 
+
+ 
+
+perceptrons. It was not until 1969 that Minsky and Papert undertook what should have been the
+first step: analyzing the class of representable functions. Their book Perceptrons (Minsky and
+Papert, 1969) clearly demonstrated the limits of linearly separable functions.
+
+In retrospect, the perceptron convergence theorem should not have been surprising. The
+perceptron is doing a gradient descent search through weight space (see Chapter 4). It is fairly
+easy to show that the weight space has no local minima. Provided the learning rate parameter is
+not so large as to cause "overshooting," the search will converge on the correct weights. In short,
+perceptron learning is easy because the space of representable functions is simple.
+
+We can examine the learning behavior of perceptrons using the method of constructing
+learning curves, as described in Chapter 18. There is a slight difference between the example
+descriptions used for neural networks and those used for other attribute-based methods such as
+decision trees. In a neural network, all inputs are real numbers in some fixed range, whereas
+decision trees allow for multivalued attributes with a discrete set of values. For example, the
+attribute for the number of patrons in the restaurant has values None, Some, and Full. There are
+two ways to handle this. In a local encoding, we use a single input unit and pick an appropriate
+number of distinct values to correspond to the discrete attribute values. For example, we can use
+None = 0.0, Some = 0.5, and Full = 1.0. In a distributed encoding, we use one input unit for
+each value of the attribute, turning on the unit that corresponds to the correct value.
+
+Figure 19.12 shows the learning curve for a perceptron on two different problems. On
+the left, we show the curve for learning the majority function with 11 Boolean inputs (ie., the
+function outputs a 1 if 6 or more inputs are 1). As we would expect, the perceptron leams the
+function quite quickly because the majority function is linearly separable. On the other hand,
+the decision tree leamer makes no progress, because the majority function is very hard (although
+not impossible) to represent as a decision tree. On the right of the figure, we have the opposite
+situation. The WillWait problem is easily represented as a decision tree, but is not linearly
+separable. The perceptron algorithm draws the best plane it can through the data, but can manage
+no more than 65% accuracy.
+

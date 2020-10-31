@@ -1,0 +1,50 @@
+2.3 Storage Structure 35
+
+Ideally, we want the programs and data to reside in main memory perma-
+nently. This arrangement is not possible for the following two reasons:
+
+1. Main memory is usually too small to store all needed programs and data
+permanently.
+
+2. Main memory is a volatile storage device that loses its contents when power
+is turned off or otherwise lost.
+
+Thus, most computer systems provide secondary storage as an extension
+of main memory. The main requirement for secondary storage is that it be able
+to hold large quantities of data permanently.
+
+The most common secondary-storage device is a magnetic disk, which
+provides storage of both programs and data. Most programs (web browsers,
+compilers, word processors, spreadsheets, and so on) are stored on a disk until
+they are loaded into memory. Many programs then use the disk as both a source
+and a destination of the information for their processing. Hence, the proper
+management of disk storage is of central importance to a computer system, as
+we discuss in Chapter 14.
+
+Ina larger sense, however, the storage structure that we have described —
+consisting of registers, main memory, and magnetic disks—is only one of many
+possible storage systems. There are also cache memory, CD-ROM, magnetic
+tapes, and so on. Each storage system provides the basic functions of storing
+a datum, and of holding that datum until it is retrieved at a later time. The
+main differences among the various storage systems lie in speed, cost, size, and
+volatility. In Sections 2.3.1 through 2.3.3, we describe main memory, magnetic
+disks, and magnetic tapes, because they illustrate the general properties of all
+important, commercially-available storage devices. In Chapter 14, we discuss
+the specific properties of many particular devices, such as floppy disks, hard
+disks, CD-ROMs, and DVDs.
+
+2.3.1 Main Memory
+
+Main memory and the registers built into the processor itself are the only stor-
+age that the CPU can access directly. There are machine instructions that take
+memory addresses as arguments, but none that take disk addresses. Therefore,
+any instructions in execution, and any data being used by the instructions, must
+be in one of these direct-access storage devices. If the data are not in memory,
+they must be moved there before the CPU can operate on them.
+
+In the case of I/O, as mentioned in Section 2.1, each I/O controller includes
+registers to hold commands and the data being transferred. Usually, special 1/O
+instructions allow data transfers between these registers and system memory.
+To allow more convenient access to I/O devices, many computer architectures
+provide memory-mapped I/O. In this case, ranges of memory addresses are
+

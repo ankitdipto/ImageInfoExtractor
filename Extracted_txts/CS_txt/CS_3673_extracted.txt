@@ -1,0 +1,60 @@
+Chapter 4. Informed Search Methods
+
+ 
+
+MANHATTAN
+DISTANCE
+
+EFFECTIVE,
+BRANCHING FACTOR
+
+DOMINATES
+
+ 
+
+heuristic function. If we want to find the shortest solutions, we need a heuristic function that
+never overestimates the number of steps to the goal. Here are two candidates:
+
++ h\ =the number of tiles that are in the wrong position. For Figure 4.7, none of the 8 tiles
+is in the goal position, so the start state would have fh; = 8. A, is an admissible heuristic,
+because it is clear that any tile that is out of place must be moved at least once.
+
+* hy = the sum of the distances of the tiles from their goal positions. Because tiles cannot
+move along diagonals, the distance we will count is the sum of the horizontal and vertical
+distances. This is sometimes called the city block distance or Manhattan distance. hz is
+also admissible, because any move can only move one tile one step closer to the goal. The
+8 tiles in the start state give a Manhattan distance of
+
+Ay =24+3424+ 1424+ 24142515
+
+The effect of heuristic accuracy on performance
+
+One way to characterize the quality of a heuristic is the effective branching factor b*. Ifthe
+total number of nodes expanded by A* for a particular problem is N, and the solution depth is
+d, then b* is the branching factor that a uniform tree of depth d would have to have in order to
+contain N nodes. Thus,
+
+N= 1th +t +b
+
+For example, if A* finds a solution at depth 5 using 52 nodes, then the effective branching factor is
+
+1.91. Usually, the effective branching factor exhibited by a given heuristic is fairly constant over
+a large range of problem instances, and therefore experimental measurements of b” on a small
+set of problems can provide a good guide to the heuristic's overall usefulness. A well-designed
+heuristic would have a value of b* close to 1, allowing fairly large problems to be solved. To
+test the heuristic functions h\ and 42, we randomly generated 100 problems each with solution
+lengths 2,4,..., 20, and solved them using A* search with h\ and Ap, as well as with uninformed
+iterative deepening search. Figure 4.8 gives the average number of nodes expanded by each
+strategy, and the effective branching factor. The results show that /2 is better than 4), and that
+uninformed search is much worse.
+
+One might ask if hz is always better than hy. The answer is yes. It is easy to see from the
+definitions of the two heuristics that for any node n, h2(1) > h(n). We say that hz dominates 4.
+Domination translates directly into efficiency: A* using /» will expand fewer nodes, on average,
+than A* using hy. We can show this using the following simple argument. Recall the observation
+on page 98 that every node with f(n) < f* will be expanded. This is the same as saying that every
+node with h(n) </* — g(n) will be expanded. But because hp is at least as big as h\ for all nodes,
+every node that is expanded by A* search with A, will also be expanded with h. and 4, may also
+cause other nodes to be expanded as well. Hence, it is always better to use a heuristic function
+with higher values, as long as it does not overestimate.
+

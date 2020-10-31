@@ -1,0 +1,59 @@
+266
+
+Chapter 9. Inference in First-Order Logic
+
+ 
+
+UNIVERSAL
+ELIMINATION.
+
+EXISTENTIAL
+ELIMINATION.
+
+EXISTENTIAL
+
+INTRODUCTION
+
+The three new inference rules are as follows:
+
+O Universal Elimination: For any sentence a, variable v, and ground term! g:
+Vva
+Supst({v/g}.a) >
+For example, from Vx Likes(x,IceCream), we can use the substitution {x/Ben} and infer
+Likes(Ben, IceCream).
+O Existential Elimination: For any sentence a, variable v, and constant symbol k that does
+not appear elsewhere in the knowledge base:
+dva
+Sust({v/k}, a)
+For example, from 4x Kill(x, Victim), we can infer Kill(Murderer, Victim), as long as
+Murderer does not appear elsewhere in the knowledge base.
+~ Existential Introduction: For any sentence «, variable v that does not occur in a, and
+ground term g that does occur in «:
+a
+dv Susst({g/}.a)
+For example, from Likes(Jerry.IceCream) we can infer 3x Likes(x, IceCream).
+
+You can check these rules using the definition of a universal sentence as the conjunction of all its
+possible instantiations (so Universal Elimination is like And-Elimination) and the definition of
+an existential sentence as the disjunction of all its possible instantiations.
+
+It is very important that the constant used to replace the variable in the Existential Elimi-
+nation rule is new. If we disregard this requirement, it is easy to produce consequences that do
+not follow logically. For example, suppose we have the sentence 3.x Father(x,John) ("John has
+a father"). If we replace the variable x by the constant John, we get Father(John,John), which is
+certainly not a logical consequence of the original sentence. Basically, the existential sentence
+says there is some object satisfying a condition, and the elimination process is just giving a name
+to that object. Naturally, that name must not already belong to another object. Mathematics
+provides a nice example: suppose we discover that there is a number that is a little bigger than
+2.71828 and that satisfies the equation d(x")/dy =.xfor x. We can give this number a name, such
+as e, but it would be a mistake to give it the name of an existing object, like 7.
+
+9.2__ AN EXAMPLE PROOF
+
+Having defined some inference rules, we now illustrate how to use them to do a proof. From here,
+it is only a short step to an actual proof procedure, because the application of inference rules is
+simply a question of matching their premise patterns to the sentences in the KB and then adding
+
+4 Recall from Chapter 7 that a ground term is a term that contains no variables—that is, either a constant symbol or a
+function symbol applied to some ground terms.
+

@@ -1,0 +1,40 @@
+350 Let Us C
+
+ 
+
+“akshay",
+“parag’,
+“raman",
+“srinivas’,
+“gopal”,
+"rajesh"
+hi
+char “temp ;
+
+printf ( “Original: %s %s", names[2], names[3] ) ;
+
+temp = names[2] ;
+names[2] = names[3] ;
+names[3] = temp ;
+
+printf ("\nNew: %s %s", names[2], names[3] ) ;
+}
+
+And here is the output...
+
+Original: raman srinivas
+New: srinivas raman
+
+The output is same as the earlier program. In this program all that
+we are required to do is exchange the addresses (of the names)
+stored in the array of pointers, rather than the names themselves.
+Thus, by effecting just one exchange we are able to interchange
+names. This makes handling strings very convenient.
+
+Thus, from the point of view of efficient memory usage and ease
+of programming, an array of pointers to strings definitely scores
+over a two-dimensional character array. That is why, even though
+in principle strings can be stored and handled through a two-
+dimensional array of characters, in actual practice it is the array of
+pointers to strings, which is more commonly used.
+

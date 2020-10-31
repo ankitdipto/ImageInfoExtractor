@@ -1,0 +1,41 @@
+Chapter 6: Data Types Revisited 219
+
+ 
+
+overcome this difficulty? Would declaring ch as an unsigned char
+solve the problem? Even this would not serve the purpose since
+when ch reaches a value 255, cht++ would try to make it 256
+which cannot be stored in an unsigned char. Thus the only
+altemative is to declare ch as an int. However, if we are bent upon
+writing the program using unsigned char, it can be done as shown
+below. The program is definitely less elegant, but workable all the
+same.
+
+main()
+{
+unsigned char ch ;
+
+for (ch=0; ch <= 254; ch++)
+printf ( “\n%d %c", ch, ch ) ;
+
+printf (“\n%d %c", ch, ch) ;
+}
+
+Floats and Doubles
+
+A float occupies four bytes in memory and can range from -3.4e38
+to +3.4e38. If this is insufficient then C offers a double data type
+that occupies 8 bytes in memory and has a range from -1.7e308 to
++1.7e308. A variable of type double can be declared as,
+
+double a, population ;
+
+If the situation demands usage of real numbers that lie even
+beyond the range offered by double data type, then there exists a
+long double that can range from -1.7e4932 to +1.7e4932. A long
+double occupies 10 bytes in memory.
+
+You would see that most of the times in C programming one is
+required to use either chars or ints and cases where floats,
+doubles or long doubles would be used are indeed rare.
+

@@ -1,0 +1,51 @@
+21.3 Disjoint-set forests S71
+
+MAKE-SET(x)
+
+1 xp=x
+
+2 x.rank = 0
+
+UNION(x, y)
+
+1 LINK(FIND-SET(x), FIND-SET(y))
+
+LINK (x, y)
+
+1 if. x.rank > y.rank
+
+2 yp=x
+
+3 elsex.p=y
+
+4 if x.rank == y.rank
+
+5 y.rank = y.rank +1
+
+The FIND-SET procedure with path compression is quite simple:
+
+FIND-SET(x)
+1 ifx Ax.p
+2 X.p = FIND-SET(x.p)
+3° return x.p
+
+The FIND-SET procedure is a two-pass method: as it recurses, it makes one pass
+up the find path to find the root, and as the recursion unwinds, it makes a second
+pass back down the find path to update each node to point directly to the root. Each
+call of FIND-SET(x) returns x.p in line 3. If x is the root, then FIND-SET skips
+line 2 and instead returns x.p, which is x; this is the case in which the recursion
+bottoms out. Otherwise, line 2 executes, and the recursive call with parameter x.p
+returns a pointer to the root. Line 2 updates node x to point directly to the root,
+and line 3 returns this pointer.
+
+Effect of the heuristics on the running time
+
+Separately, either union by rank or path compression improves the running time of
+the operations on disjoint-set forests, and the improvement is even greater when
+we use the two heuristics together. Alone, union by rank yields a running time
+of O(m lg n) (see Exercise 21.4-4), and this bound is tight (see Exercise 21.3-3).
+Although we shall not prove it here, for a sequence of n MAKE-SET opera-
+tions (and hence at most 1 — 1 UNION operations) and f FIND-SET opera-
+tions, the path-compression heuristic alone gives a worst-case running time of
+O(n + f (+ loge, pj 0).
+

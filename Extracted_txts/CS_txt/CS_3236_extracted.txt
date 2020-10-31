@@ -1,0 +1,57 @@
+Section 19.7.
+
+Summary 595
+
+ 
+
+same time criticizing contemporary connectionism circa 1988 for the same lack ofrigor that had
+plagued the early perceptron work.
+
+The papers in (Hinton and Anderson, 1981),based on a conference in San Diego in 1979,
+can be regarded as marking the renaissance of connectionism. The two-volume “PDP” (Parallel
+Distributed Processing) anthology (Rumelhart ef a/., 1986) really put neural networks on the
+map for many AI researchers, as well as popularizing the back-propagation algorithm. Several
+advances made this possible. Hopfield (1982) analyzed symmetric networks using statistical
+mechanics and analogies from physics. The Boltzmann Machine (Hinton and Sejnowski, 1983;
+Hinton and Sejnowski, 1986) and the analysis of neural networks using the physical theory of
+magnetic spin glasses (Amit ef a/., 1985) tightened the links between statistical mechanics and
+neural network theory—providing not only useful mathematical insights but also respectability.
+The back-propagation technique had been invented quite early (Bryson and Ho, 1969) but it was
+rediscovered several times (Werbos, 1974; Parker, 1985). Minsky and Papert (1988) criticize the
+generalized delta rule as a straightforward variant of simple hill-climbing, just as the perceptron
+learning algorithm had been.
+
+The expressiveness of multilayer networks was investigated by Cybenko (1988; 1989),
+who showed that two hidden layers are enough to represent any function and a single layer is
+enough to represent any continuous function. These results, although reassuring, are not very
+exciting when one realizes that they are achieved by allocating a separate collection of units to
+represent the output value for each small region of the (exponentially large) input space.
+
+The problem of finding a good structure for a multilayer network was addressed using
+genetic algorithms by Harp et al. (1990) and by Milleret al. (1989). The "optimal brain damage"
+method forremoving useless connections is by LeCun et al. (1989), and Sietsma and Dow (1988)
+show how to remove useless units. The tiling algorithm for growing larger structures is by Mézard.
+and Nadal (1989). Similar algorithms that grow slightly different topologies were proposed by
+Marchand et al. (1990) and by Frean (1990).
+
+The complexity of neural network learning has been investigated by researchers in compu-
+tational learning theory. Some of the earliest results were obtained by Judd (1990), who showed
+that the general problem of finding a set of weights consistent with a set of examples is NP-
+complete, even under very restrictive assumptions. Avrim Blum and Ron Rivest (1992) proved
+that training even a three-node network is NP-complete! These results suggest that weight space
+can contain an exponential number of local minima, for otherwise a random-restart hill-climbing
+algorithm would be able to find a global optimum in polynomial time
+
+One topic of great current interest in neural network research is the use of specialized
+parallel hardware, including analog computation. Systems may use analog VLSI (Alspector et
+al., 1987; Mead, 1989), optoelectronics (Farhat eral, 1985; Peterson et al., 1990), or exotic, fully
+optical computing technologies such as spatial light modulation (Abu-Mostafaand Psaltis, 1987;
+Hsu er al., 1988).
+
+Neural networks constitute a large field of study with an abundance of resources available
+for the inquirer. Probably the best available textbook is Introduction to the Theory of Neural
+Computation (Hertz et al., 1991), which emphasizes the connections with statistical mechanics
+(the authors are physicists). Self-Organization and Associative Memory (Kohonen, 1989) pro-
+vides considerable mathematical background. For biological nervous systems, a very thorough
+introduction is (Kandel et a/., 1991). A good introduction to the detailed functioning ofindividual
+

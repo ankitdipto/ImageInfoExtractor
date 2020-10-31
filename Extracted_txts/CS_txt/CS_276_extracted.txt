@@ -1,0 +1,46 @@
+29.3 The simplex algorithm 865
+
+We now describe the main idea behind an iteration of the simplex algorithm.
+Associated with each iteration will be a “basic solution” that we can easily obtain
+from the slack form of the linear program: set each nonbasic variable to 0 and
+compute the values of the basic variables from the equality constraints. An iteration
+converts one slack form into an equivalent slack form. The objective value of the
+associated basic feasible solution will be no less than that at the previous iteration,
+and usually greater. To achieve this increase in the objective value, we choose a
+nonbasic variable such that if we were to increase that variable’s value from 0, then
+the objective value would increase, too. The amount by which we can increase
+the variable is limited by the other constraints. In particular, we raise it until some
+basic variable becomes 0. We then rewrite the slack form, exchanging the roles
+of that basic variable and the chosen nonbasic variable. Although we have used a
+particular setting of the variables to guide the algorithm, and we shall use it in our
+proofs, the algorithm does not explicitly maintain this solution. It simply rewrites
+the linear program until an optimal solution becomes “obvious.”
+
+An example of the simplex algorithm
+
+We begin with an extended example. Consider the following linear program in
+standard form:
+
+maximize 3x; + X2 + 2x3 (29.53)
+subject to
+
+xX) + X. + 3x3 S 30 (29.54)
+2x, + 2x, + 5x3  < 24 (29.55)
+4x; + xX, + 2x3 < 36 (29.56)
+
+X1,X2,X3 > 0. (29.57)
+
+In order to use the simplex algorithm, we must convert the linear program into
+slack form; we saw how to do so in Section 29.1. In addition to being an algebraic
+manipulation, slack is a useful algorithmic concept. Recalling from Section 29.1
+that each variable has a corresponding nonnegativity constraint, we say that an
+equality constraint is fight for a particular setting of its nonbasic variables if they
+cause the constraint’s basic variable to become 0. Similarly, a setting of the non-
+basic variables that would make a basic variable become negative violates that
+constraint. Thus, the slack variables explicitly maintain how far each constraint is
+from being tight, and so they help to determine how much we can increase values
+of nonbasic variables without violating any constraints.
+
+Associating the slack variables x4, x5, and x¢ with inequalities (29.54)—(29.56),
+respectively, and putting the linear program into slack form, we obtain
+

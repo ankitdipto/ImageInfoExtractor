@@ -1,0 +1,46 @@
+24.5 Proofs of shortest-paths properties 673
+
+some vertices u,v € V. Suppose that G is initialized by INITIALIZE-SINGLE-
+SouRcE(G,s) and then a sequence of relaxation steps that includes the call
+RELAX(u,v, w) is executed on the edges of G. If u.d = 6(s,u) at any time
+prior to the call, then v.d = 6(s, v) at all times after the call.
+
+Proof By the upper-bound property, if u.d = 5(s,u) at some point prior to re-
+laxing edge (u,v), then this equality holds thereafter. In particular, after relaxing
+edge (u,v), we have
+
+vd < u.d+w(u,v) (by Lemma 24.13)
+= 6(s,u) + w(u,v)
+= 6(s,v) (by Lemma 24.1) .
+
+By the upper-bound property, v.d > 6(s,v), from which we conclude that
+v.d = 6(s,v), and this equality is maintained thereafter. /
+
+Lemma 24.15 (Path-relaxation property)
+
+Let G = (V, E) be a weighted, directed graph with weight function w : E > R,
+and let s € V be a source vertex. Consider any shortest path p = (vo. V1..... Ve)
+from 5 = Vo to vg. If G is initialized by INITIALIZE-SINGLE-SOURCE(G, s) and
+then a sequence of relaxation steps occurs that includes, in order, relaxing the edges
+(V0. V1), (V1, V2), (Ve-1, Ve), then vg.d = S(s, vg) after these relaxations and
+at all times afterward. This property holds no matter what other edge relaxations
+occur, including relaxations that are intermixed with relaxations of the edges of p.
+
+Proof We show by induction that after the ith edge of path p is relaxed, we have
+v;.d = 6(s, v;). For the basis, i = 0, and before any edges of p have been relaxed,
+we have from the initialization that vo.d = s.d = 0 = 6(s,s). By the upper-bound
+property, the value of s.d never changes after initialization.
+
+For the inductive step, we assume that vj-1.d = 6(s,v;-1), and we examine
+what happens when we relax edge (v;-1,v;). By the convergence property, after
+relaxing this edge, we have v;.d = 6(s,v;), and this equality is maintained at all
+times thereafter. 7
+
+Relaxation and shortest-paths trees
+
+We now show that once a sequence of relaxations has caused the shortest-path es-
+timates to converge to shortest-path weights, the predecessor subgraph G, induced
+by the resulting 7 values is a shortest-paths tree for G. We start with the follow-
+ing lemma, which shows that the predecessor subgraph always forms a rooted tree
+whose root is the source.
+

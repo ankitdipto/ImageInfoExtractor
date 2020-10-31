@@ -1,0 +1,41 @@
+546 Let UsC
+
+ 
+
+Inconsistent Look and Feel
+
+Every DOS program has a different user interface that the user has
+to get used to before he can start getting work out of the program.
+For example, successful DOS-based software like Lotus 1-2-3,
+Foxpro, Wordstar offered different types of menus. This happened
+because DOS/BIOS doesn’t provide any functions for creating
+user interface elements like menus. As the look and feel of all
+DOS based programs is different, the user takes a lot of time in
+learning how to interact with the program
+
+Messy Calling Mechanism
+
+It is difficult to remember interrupt numbers and the registers that
+are to be used for communication with DOS/BIOS functions. For
+example, if we are to position the cursor on the screen using a
+BIOS function we are required to remember the following details:
+
+Interrupt number - 16
+
+CPU Registers to be used:
+AH - 2 (Service number)
+DH - Row number where cursor is to be positioned
+DL - Column number where cursor is to be positioned
+
+While using these interrupt numbers and registers there is always a
+chance of error.
+
+Hardware Dependency
+
+DOS programs are always required to bother about the details of
+the hardware on which they are running. This is because for every
+new piece of hardware introduced there are new interrupt numbers
+and new register details. Hence DOS programmers are under the
+constant fear that if the hardware on which the programs are
+running changes then the program may crash.
+

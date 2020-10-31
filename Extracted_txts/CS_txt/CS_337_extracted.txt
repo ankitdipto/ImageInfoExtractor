@@ -1,0 +1,48 @@
+30.2) The DFT and FFT 913
+
+Yo 1 1 1 1 te 1 do
+2 3 —1
+yi 1 Op, On On OF a
+V2 1 wo W& e  @perD a
+vy | [1 oof 2 vs @3e-D as
+Vn 1 on wo (n—1) o30-) a Oo -DO-V Qn-1
+
+The (k, j) entry of V, is wf’, for j,k = 0,1,..., n —1. The exponents of the
+entries of V,, form a multiplication table.
+
+For the inverse operation, which we write as a = DFT;'(y), we proceed by
+multiplying y by the matrix V,~', the inverse of V,,.
+
+Theorem 30.7
+For j,k =0,1,...,1—1, the (j,k) entry of V7! is a7 /n.
+
+Proof We show that V1 V, = In, the n x n identity matrix. Consider the (j, j’)
+entry of Vi' Va:
+
+n-1
+Vein = SiO," /mok")
+k=0
+
+n-l
+= Voll.
+k=0
+
+This summation equals | if j’ = j, and it is 0 otherwise by the summation lemma
+(Lemma 30.6). Note that we rely on —(n — 1) < j’— j <n—1, so that j’— j is
+not divisible by , in order for the summation lemma to apply. .
+
+Given the inverse matrix V,-!, we have that DFT," () is given by
+1 n-l
+aj => Ye yeeoy” (30.11)
+k=0
+
+for j = 0,1,..., n —1. By comparing equations (30.8) and (30.11), we see that
+by modifying the FFT algorithm to switch the roles of a and y, replace w,, by w;,',
+and divide each element of the result by n, we compute the inverse DFT (see Ex-
+ercise 30.2-4). Thus, we can compute DFT,,' in O(n lg) time as well.
+
+We see that, by using the FFT and the inverse FFT, we can transform a poly-
+nomial of degree-bound n back and forth between its coefficient representation
+and a point-value representation in time ©(n lg). In the context of polynomial
+multiplication, we have shown the following.
+

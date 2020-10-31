@@ -1,0 +1,57 @@
+set selected bits
+
+complement selected
+bits
+
+SECTION 86 Data Transfer and Manipulation 271
+
+TABLE 8-8 Typical Logical and Bit
+Manipulation Instructions
+
+‘Name ‘Mnemonic
+Clear CLR
+‘Complement COM
+AND AND
+OR OR
+Exclusive-OR XOR
+Clear carry CLRC
+Set carry SETC
+‘Complement carry coMc
+Enable interrupt EL
+
+Disable interrupt DI
+
+does not change in value when ANDed with a 1 Therefore, the AND instruc-
+tion can be used to clear bits of an operand selectively by ANDing the operand
+with another operand that has(’s in the bit positions that must be cleared. The
+ANDinstruction is also called a mask because it masks orinserts 0's in a selected
+portion of an operand.
+
+The OR instruction is used to set a bit or a selected group of bits of an
+operand. Forany Boolean variable x, the relationships x + 1 = 1andx + 0
+dictate that a binary variable ORed witha 1 produces a 1; but the variable does
+not change when ORed with a 0. Therefore, the OR instruction can be used
+to selectively set bits of an operand by ORing it with another operand with 1's
+in the bit positions that must be set to 1.
+
+Similarly, the XOR instruction is used to selectively complement bits of
+an operand. This is because of the Boolean relationships x@1 = x and
+x@0= x Thusa binary variable is complemented when XORed with a 1 but
+does not change in value when XORed witha 0. Numerical examples showing
+the three logic operations are given in Sec. 4-5.
+
+‘A few other bit manipulation instructions are included in Table 8-8.
+Individual bits such as a carry can be cleared, set, or complemented with
+appropriate instructions. Another example is a flip-flop that controls the inter-
+rupt facility and is either enabled or disabled by means of bit manipulation
+instructions.
+
+   
+
+Shift Instructions
+
+Instructions to shift the content of an operand are quite useful and are often
+provided in several variations. Shiftsare operations in which the bits of a word
+are moved to the left or right. The bit shifted in at the end of the word
+determines the type of shift used. Shift instructions may specify either logical
+

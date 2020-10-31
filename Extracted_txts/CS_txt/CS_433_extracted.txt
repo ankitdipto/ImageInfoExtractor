@@ -1,0 +1,61 @@
+32.2. The Rabin-Karp algorithm 993
+
+P[l..m] = T[s+1..s +m]. If q is large enough, then we hope that spurious
+hits occur infrequently enough that the cost of the extra checking is low.
+
+The following procedure makes these ideas precise. The inputs to the procedure
+are the text J’, the pattern P, the radix d to use (which is typically taken to be |=]),
+and the prime ¢ to use.
+
+RABIN-KARP-MATCHER(T, P,d,q)
+
+ 
+
+1 n= T.length
+
+2 m= P.length
+
+3 h=d™"' modq
+
+4 p=0
+
+5 t=0
+
+6 fori =1tom // preprocessing
+7 p = (dp + Pii]) mod q
+
+8 to = (dio + T[i]) mod q
+
+9 fors =Oton—m H/ matching
+
+10 if p == ts
+
+rn if P[1..m]==T[s+1..s +m]
+
+12 print “Pattern occurs with shift” s
+13 ifs<n—m
+
+14 ts41 = (d(ts— T[s + 1h) + T[s +m + 1]) mod q
+
+The procedure RABIN-KARP-MATCHER works as follows. All characters are
+interpreted as radix-d digits. The subscripts on f are provided only for clarity; the
+program works correctly if all the subscripts are dropped. Line 3 initializes h to the
+value of the high-order digit position of an m-digit window. Lines 4-8 compute p
+as the value of P[1..m] mod g and fo as the value of T[1..m] mod q. The for
+loop of lines 9-14 iterates through all possible shifts s, maintaining the following
+invariant:
+
+Whenever line 10 is executed, tf; = T[s + 1..s +m] mod q.
+
+If p = fy in line 10 (a “hit”), then line 11 checks to see whether P[1..m] =
+T|s +1..s +m] in order to rule out the possibility of a spurious hit. Line 12 prints
+out any valid shifts that are found. If s <n — m (checked in line 13), then the for
+loop will execute at least one more time, and so line 14 first executes to ensure that
+the loop invariant holds when we get back to line 10. Line 14 computes the value
+of ts; mod q from the value of fs mod g in constant time using equation (32.2)
+directly.
+
+RABIN-KARP-MATCHER takes @(m) preprocessing time, and its matching time
+is O((n — m + 1)m) in the worst case, since (like the naive string-matching algo-
+rithm) the Rabin-Karp algorithm explicitly verifies every valid shift. If P = a”
+

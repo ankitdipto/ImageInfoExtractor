@@ -1,0 +1,59 @@
+Section 25.6.
+
+Navigation and Motion Planning 799
+
+ 
+
+VISIBILITY GRAPH
+
+ 
+
+“ ra
+4
+S
+
+ 
+
+y
+
+sweeping line
+
+ 
+
+ 
+
+Figure 25.14 A cylindrical cell decomposition of the configuration space for a two-link robot.
+There are three critical points indicated by dots, and nine cylinders.
+
+ 
+
+ 
+
+ 
+
+"minimal" description of free space. They avoid an explicit description of the boundary of free
+space, and this can provide considerable time savings. There is only one kind of data structure
+needed to describe skeleton curves, and this helps simplify implementation.
+
+To be complete for motion planning, skeletonization methods must satisfy two properties:
+
+1. IfS is a skeleton of free space F, then S should have a single connected piece within each
+connected region of F,
+
+2. For any point p in F, it should be "easy" to compute a path from p to the skeleton.
+
+The second condition is rather vague, but it will become clearer from the examples of skele-
+tonization methods coming up. The condition is crucial, because otherwise we could construct a
+skeleton that consisted of a single point in each connected region of F. Such a skeleton would be
+a procrastination of the planning problem, rather than a solution of it. There are many types of
+skeletonization methods in two dimensions. These include visibility graphs, Voronoi diagrams,
+and roadmaps. We briefly describe each in turn.
+
+The visibility graph for a polygonal configuration space C consists of edges joining all
+pairs of vertices that can see each other. That is, there is an unobstructed straight linejoining those
+vertices. It is shown in Figure 25.15. To see that the visibility graph is complete for planning,
+we need only observe that the shortest path between two points with polygonal obstacles lies
+entirely on the visibility graph, except for its first and last segment (see Exercise 25.7)
+
+ 
+

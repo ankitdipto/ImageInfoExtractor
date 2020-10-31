@@ -1,0 +1,51 @@
+108 Chapter4 Processes
+
+© Modularity: We may want to construct the system in a modular fashion,
+dividing the system functions into separate processes or threads, as we
+discussed in Chapter 3.
+
+¢ Convenience: Even an individual user may have many tasks on which
+to work at one time. For instance, a user may be editing, printing, and
+compiling in parallel.
+
+Concurrent execution of cooperating processes requires mechanisms that allow
+processes to communicate with one another (Section 4.5) and to synchronize
+their actions (Chapter 7).
+
+To illustrate the concept of cooperating processes, let us consider the pro-
+ducer-consumer problem, which is a common paradigm for cooperating pro-
+cesses. A producer process produces information that is consumed by a con-
+sumer process. For example, a print program produces characters that are
+consumed by the printer driver. A compiler may produce assembly code, which
+is consumed by an assembler. The assembler, in turn, may produce object
+modules, which are consumed by the loader.
+
+To allow producer and consumer processes to run concurrently, we must
+have available a buffer of items that can be filled by the producer and emptied
+by the consumer. A producer can produce one item while the consumer is
+consuming another item. The producer and consumer must be synchronized,
+so that the consumer does not try to consume an item that has not yet been
+produced. In this situation, the consumer must wait until an item is produced.
+
+The unbounded-buffer producer-consumer problem places no practical
+limit on the size of the buffer. The consumer may have to wait for new items, but
+the producer can always produce new items. The bounded-buffer producer—
+consumer problem assumes a fixed buffer size. In this case, the consumer must
+wait if the buffer is empty, and the producer must wait if the buffer is full.
+
+The buffer may either be provided by the operating system through the use
+of an interprocess-communication (IPC) facility (Section 4.5), or by explicitly
+coded by the application programmer with the use of shared memory. Let
+us illustrate a shared-memory solution to the bounded-buffer problem. The
+producer and consumer processes share the following variables:
+
+#define BUFFER.SIZE 10
+typedef struct {
+
+} item; ‘
+
+item buffer [BUFFER SIZE] ;
+
+int in = 0;
+int out = 0;
+

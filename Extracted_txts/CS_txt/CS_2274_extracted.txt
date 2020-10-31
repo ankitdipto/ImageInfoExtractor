@@ -1,0 +1,55 @@
+SECTION 11-7 Input-Output Processor 427
+
+ 
+
+the transfer and stores it in location 64. Upon interruption, the CPU can refer
+to memory location 64 for the status word.
+
+Intel 8089 IOP
+
+The Intel 8089 LO processoris contained in a40-pinintegrated circuit package.
+Within the 8089 are two independent units called channels. Each channel
+combines the general characteristics of a processor unit with those of a direct
+memory access controller. The 8089 is designed to function as an IOP in a
+microcomputer system where the Intel 8086 microprocessor is used as the
+CPU. The 8086 CPUinitiates an LO operation by building a message in memory
+that describes the function to be performed. The 8089 IOP reads the message
+from memory, carries out the operation, and notifies the CPU when it has
+finished.
+
+In contrast to the IBM 370 channel, which has only six basic /O com-
+mands, the 8089 IOP has 50 basic instructions that can operate on individual
+bits, on bytes, or 16-bit words The IOP can execute programs in a manner
+similar to a CPU except that the instruction set is specifically chosen to provide
+efficient input-output processing. The instruction set includes general data
+transfer instructions, basic arithmetic and logic operations, conditional and
+unconditional branch operations, and subroutine call and return capabilities.
+The set also includes special instructions to initiate DMA transfers and issue
+an interruptrequestto the CPU. It provides efficient datatransferbetween any
+‘two components attached to the system bus, such as /O to memory, memory
+to memory, or /O to VO.
+
+‘A microcomputer system using the Intel 8086/8089 pair of integrated
+circuits is shown in Fig. 11-23. The 8086 functions as the CPU and the 8089 as
+the IOP. The two units share a common memory through a bus controller
+connected to a system bus, which iscalled a “multibus” by Intel. The IOP uses
+a local bus to communicate with various interface units connected to JO
+devices The CPU communicates with the IOP by enabling the chanel attention
+line. The select lineis used by the CPU to select one of twochannels in the 8089.
+The IOP gets the attention of the CPU by sending an interrupt request.
+
+The CPU and IOP communicate with each other by writing messages for
+one another in system memory. The CPU prepares the message area and
+signals the IOP by enabling the channel attention line. The IOP reads the
+message, performs the required I/O functions, and executes the appropriate
+channel program. When the channel has completed its program, it issues an
+interrupt request to the CPU.
+
+The communication scheme consists of program sections called “blocks,”
+which are storedin memory as shown in Fig. 11-24. Each blockcontainscontrol
+and parameterinformation as well asan address pointer to its successor block.
+The address of the control block is passed to each IOP channel during initial-
+ization. The busy flag indicates whether the IOP is busy or ready to perform
+
+ 
+

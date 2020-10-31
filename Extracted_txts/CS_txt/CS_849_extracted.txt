@@ -1,0 +1,40 @@
+Chapter 5: Functions & Pointers 191
+
+ 
+
+Work through the above program carefully, till you understand the
+logic of the program properly. Recursive factorial function can be
+understood only if you are thorough with the above logic.
+
+Following is the recursive version of the function to calculate the
+factorial value.
+
+main()
+{
+int a, fact ;
+
+printf ( "\nEnter any number " ) ;
+scanf ("%d", &a) ;
+
+fact = rec (a);
+printf ("Factorial value = %d", fact) ;
+
+}
+rec (int x)
+{
+int f;
+if (x==1)
+return(1);
+else
+f=x"rec(x-1);
+return (f);
+}
+
+And here is the output for four runs of the program
+
+Enter any number 1
+Factorial value = 1
+Enter any number 2
+Factorial value = 2
+Enter any number 3
+

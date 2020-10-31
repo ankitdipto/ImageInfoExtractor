@@ -1,0 +1,51 @@
+13.2. VO Hardware 463
+
+raise interrupts when they are ready for service. These interrupts signify that
+output has completed, or that input data are available, or that a failure has
+been detected. The interrupt mechanism is also used to handle a wide variety
+of exceptions, such as dividing by zero, accessing a protected or nonexistent
+memory address, or attempting to execute a privileged instruction from user
+mode. The events that trigger interrupts have a common property: They are
+occurrences that induce the CPU to execute an urgent, self-contained routine.
+
+An operating system has other good uses for an efficient hardware mech-
+anism that saves a small amount of processor state, and then calls a privileged
+routine in the kernel. For example, many operating systems use the interrupt
+mechanism for virtual-memory paging. A page fault is an exception that raises
+an interrupt. The interrupt suspends the current process and jumps to the page-
+fault handler in the kernel. This handler saves the state of the process, moves
+the process to the wait queue, performs page-cache management, schedules an
+1/O operation to fetch the page, schedules another process to resume execution,
+and then returns from the interrupt.
+
+Another example is found in the implementation of system calls. A system
+call is a function called by an application to invoke a kernel service. The system
+call checks the arguments given by the application, builds a data structure to
+convey the arguments to the kernel, and then executes a special instruction
+called a software interrupt (or a trap). This instruction has an operand that
+identifies the desired kernel service. When the system call executes the trap
+instruction, the interrupt hardware saves the state of the user code, switches
+to supervisor mode, and dispatches to the kernel routine that implements the
+requested service. The trap is given a relatively low interrupt priority compared
+to those assigned to device interrupts—executing a system call on behalf of an
+application is less urgent than servicing a device controller before its FIFO queue
+overflows and loses data.
+
+Interrupts can also be used to manage the flow of control within the kernel.
+For example, consider the processing required to complete a disk read. One
+step is to copy data from kernel space to the user buffer. This copying is time
+consuming but not urgent—it should not block other high-priority interrupt
+handling. Another step is to start the next pending I/O for that disk drive. This
+step has higher priority: If the disks are to be used efficiently, we need to start
+the next I/O as soon as the previous one completes. Consequently, a pair of
+interrupt handlers implements the kernel code that completes a disk read. The
+high-priority handler records the I/O status, clears the device interrupt, starts
+the next pending I/O, and raises a low-priority interrupt to complete the work.
+Later, when the CPU is not occupied with high-priority work, the low-priority
+interrupt will be dispatched. The corresponding handler completes the user-
+level I/O by copying data from kernel buffers to the application space, and then
+by calling the scheduler to place the application on the ready queue.
+
+A threaded kernel architecture is well suited to implement multiple inter-
+tupt priorities and to enforce the precedence of interrupt handling over back-
+

@@ -1,0 +1,73 @@
+382 Chapter 11. File-System Interface
+
+11.2.3 Other Access Methods
+
+Other access methods can be built on top of a direct-access method. These
+methods generally involve the construction of an index for the file. The index,
+like an index in the back of a book, contains pointers to the various blocks. To
+find a record in the file, we first search the index, and then use the pointer to
+access the file directly and to find the desired record. .
+
+For example, a retail-price file might list the universal product codes (UPCs)
+for items, with the associated prices. Each record consists of a 10-digit UPC and
+a 6-digit price, for a 16-byte record. If our disk has 1,024 bytes per block, we
+can store 64 records per block. A file of 120,000 records would occupy about
+2,000 blocks (2 million bytes). By keeping the file sorted by UPC, we can define
+an index consisting of the first UPC in each block. This index would have 2,000
+entries of 10 digits each, or 20,000 bytes, and thus could be kept in memory. To
+find the price of a particular item, we can (binary) search the index. From this
+search, we would know exactly which block contains the desired record and
+access that block. This structure allows us to search a large file doing little 1/0.
+
+With large files, the index file itself may become too large to be kept in
+memory. One solution is to create an index for the index file. The primary
+index file would contain pointers to secondary index files, which would point
+to the actual data items.
+
+For example, IBM’s indexed sequential-access method (ISAM) uses a small
+master index that points to disk blocks of a secondary index. The secondary
+index blocks point to the actual file blocks. The file is kept sorted on a defined
+key. To find a particular item, we first make a binary search of the master index,
+which provides the block number of the secondary index. This block is read
+in, and again a binary search is used to find the block containing the desired
+
+ 
+
+ 
+
+ 
+
+ 
+
+logical record
+last name number
+Adams
+Arthur
+Asher
+
+  
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+index file relative file
+
+Figure 11.4 Example of index and relative files.
+

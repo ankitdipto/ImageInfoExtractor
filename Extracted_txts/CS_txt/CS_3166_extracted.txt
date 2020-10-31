@@ -1,0 +1,54 @@
+Section 18.3.
+
+Learning Decision Trees 531
+
+ 
+
+design of learning algorithms for belief networks is also a very active area of research, and a
+brief sketch is provided in Section 19.6.
+
+The choice of representation for the desired function is probably the most important issue
+facing the designer ofa learning agent. As well as affecting the nature of the learning algorithm,
+it can affect whether the problem is feasible at all. As with reasoning, in learning there is
+a fundamental trade-off between expressiveness—is the desired function representable in the
+representation language—and efficiency—ishe leaming problem going to be tractable for a
+given choice of representation language. If one chooses to learn sentences in a nice, expressive
+language such as first-order logic, then one will probably have to pay a heavy penalty in terms of
+both computation time and the number of examples required to leam a good set of sentences.
+
+By “a good set of sentences," we mean a set that not only correctly reflects the experiences
+the agent has already had, but also one that correctly predicts its future experiences. Therein
+lies one of the most vexing philosophical problems of all time. How can one possibly know that
+one's learning algorithm has produced a theory that will correctly predict the future? And if one
+does not, then how can one say that the algorithm is any good? Certainly, ifone cannot say for
+sure that an algorithm is any good, then one cannot hope to design good learning algorithms!
+In Section 18.6, we discuss a mathematical approach to the study of induction algorithms that
+provides tentative answers to these questions, and also sheds considerable light on the complexity
+of leaming different kinds of function representations.
+
+18.3 LEARNING DECISION TREES
+
+Decision TREE
+
+GOAL PREDICATE
+
+Decision tree induction is one ofthe simplest and yet most successful forms of learning algorithm.
+It serves as a good introduction to the area of inductive learning, and is easy to implement. We
+first describe the performance element, and then show how to leam it. Along the way, we will
+introduce many of the ideas and terms that appear in all areas of inductive learning.
+
+Decision trees as performance elements
+
+A decision tree takes as input an object or situation described by a set ofproperties, and outputs a
+yes/no "decision." Decision trees therefore represent Boolean functions. Functions with a larger
+range of outputs can also be represented, but for simplicity we will usually stick to the Boolean
+case. Each internal node in the tree corresponds to a test of the value of one of the properties,
+and the branches from the node are labelled with the possible values of the test. Each leaf node
+in the tree specifies the Boolean value to be returned if that leafis reached.
+
+As an example, consider the problem of whether to wait for a table ata restaurant. The aim
+here is to leam a definition for the goal predicate’ Wil/Wait,where the definition is expressed as a
+
+4 The term goak concept is often used. Unfortunately, the word "concept" has been used in so many different ways in
+machine learning that we think it best to avoid it for a few years.
+

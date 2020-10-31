@@ -1,0 +1,50 @@
+4.5 Interprocess Communication 109
+
+The shared buffer is implemented as a circular array with two logical
+pointers: in and out. The variable in points to the next free position in the
+buffer; out points to the first full position in the buffer. The buffer is empty
+when in == out ; the buffer is full when ((in + 1) % BUFFER SIZE) == out.
+
+The code for the producer and consumer processes follows. The producer
+process has a local variable nextProduced in which the new item to be pro-
+duced is stored:
+
+while (1) {
+/* produce an item in nextProduced */
+while (((in + 1) % BUFFER-SIZE) == out)
+3 /* do nothing +/
+buffer[in] = nextProduced;
+in = (in + 1) % BUFFER.SIZE;
+
+}
+
+The consumer process has a local variable nextConsumed in which the item to
+be consumed is stored:
+
+while (1) {
+while (in == out)
+3 // do nothing
+
+nextConsumed = buffer[out] ;
+out = (out + 1) % BUFFER_SIZE;
+/* consume the item in nextConsumed +/
+
+}
+
+This scheme allows at most BUFFER.SIZE — 1 items in the buffer at the same
+time. We leave it as an exercise for you to provide a solution where BUFFER SIZE
+items can be in the buffer st the same time.
+
+In Chapter 7, we discuss how synchronization among cooperating pro-
+cesses can be implemented effectively in a shared-memory environment.
+
+4.5 = Interprocess Communication
+
+In Section 4.4, we showed how cooperating processes can communicate in a
+shared-memory environment. The scheme requires that these processes share
+a common buffer pool, and that the code for implementing the buffer be
+written explicitly by the application programmer. Another way to achieve the
+same effect is for the operating system to provide the means for cooperating
+Processes to communicate with each other via an interprocess communication
+(IPC) facility.
+

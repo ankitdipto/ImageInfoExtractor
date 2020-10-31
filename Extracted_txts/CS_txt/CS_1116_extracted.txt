@@ -1,0 +1,48 @@
+Chapter 11: Console Input/Output 407
+
+ 
+
+putch() and putchar() form the other side of the coin. They print
+a character on the screen. As far as the working of putch( )
+putchar( ) and fputchar( ) is concerned it’s exactly same. The
+following program illustrates this.
+
+main()
+
+{
+char ch =A’;
+
+putch (ch) ;
+
+putchar (ch) ;
+
+fputchar (ch) ;
+
+putch (‘Z') ;
+
+putchar (‘Z') ;
+
+fputchar ('Z') ;
+}
+
+And here is the output...
+
+AAAZZZ
+
+The limitation of putch( ), putchar( ) and fputchar( ) is that they
+can output only one character at a time.
+
+gets() and puts()
+
+gets( ) receives a string from the keyboard. Why is it needed?
+Because scanf( ) function has some limitations while receiving
+string of characters, as the following example illustrates...
+
+main()
+{
+char name[50] ;
+
+printf ( “\nEnter name ") ;
+scanf ("%s", name ) ;
+printf ("%s", name ) ;
+

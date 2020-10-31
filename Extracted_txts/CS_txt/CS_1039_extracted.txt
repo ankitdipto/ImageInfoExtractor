@@ -1,0 +1,79 @@
+346 Let Us C
+
+ 
+
+While comparing the strings through stremp(), note that the
+addresses of the strings are being passed to stremp(). As seen in
+the last section, if the two strings match, stremp() would return a
+value 0, otherwise it would return a non-zero value.
+
+The variable flag is used to keep a record of whether the control
+did reach inside the if or not. To begin with, we set flag to
+NOTFOUND. Later through the loop if the names match, flag is
+set to FOUND. When the control reaches beyond the for loop, if
+flag is still set to NOTFOUND, it means none of the names in the
+masterlist[ ][ ] matched with the one supplied from the keyboard.
+
+The names would be stored in the memory as shown in Figure 9.3.
+Note that each string ends with a ‘\0’. The arrangement as you can
+appreciate is similar to that of a two-dimensional numeric array.
+
+ 
+
+ 
+
+ 
+
+ 
+
+65454 |}a}k}/s|h}jaly | \0
+65464 | p}alr|a}g/]\o
+65474 |r |ajmja|n|\0
+
+ 
+
+65484 |s|rjijn ‘0
+65494 | g}o|pja
+
+65504 |r}/a/jje]s }h | \0 65513
+(ast location)
+
+4
+»
+
+ 
+
+S
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 9.3
+

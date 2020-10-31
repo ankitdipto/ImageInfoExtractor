@@ -1,0 +1,63 @@
+580
+
+Chapter 19. Learning in Neural and Belief Networks
+
+ 
+
+TRAINING CURVE
+
+ERROR SURFACE
+
+each of the output nodes to which it connects. Thus, the A; values are divided according to the
+strength of the connection between the hidden node and the output node, and propagated back to
+provide the A, values for the hidden layer. The propagation rule for the A values is the following:
+
+Ay = sin) >) Waid (19.4)
+: .
+
+ 
+
+Now the weight update rule for the weights between the inputs and the hidden layer is almost
+identical to the update rule for the output layer:
+
+Wij Wij t Q Xd XA;
+The detailed algorithm is shown in Figure 19.14, It can be summarized as follows:
+
+* Compute the A values for the output units using the observed error.
+* Starting with output layer, repeat the following for each layer in the network, until the
+earliest hidden layer is reached:
+
+- Propagate the A values back to the previous layer.
+- Update the weights between the two layers.
+
+Recall thatin computing the observed errorfora given example, NEURAL-NETWORK-LEARNING
+first feeds the example to the network inputs in order to calculate the predicted output values.
+During this computation, it is a good idea to save some of the intermediate values computed
+in each unit. In particular, caching the activation gradient g’(in;) in each unit speeds up the
+subsequent back-propagation phase enormously.
+
+Now that we have a learning method for multilayer networks, we can test our claim that
+adding a hidden layer makes the network more expressive. In Figure 19.15, we show two curves.
+The first is a training curve, which shows the mean squared error on a given training set of 100
+restaurant examples during the weight-updatingprocess. This demonstrates that the network does
+indeed converge to a perfect fit to the training data. The second curve is the standard leaming
+curve for the restaurant data, with one minor exception: the y-axis is no longer the proportion
+of correct answers on the test set, because sigmoid units do not give 0/1 outputs. Instead, we
+use the mean squared error on the test set, which happens to coincide with the proportion of
+correct answers in the 0/1 case. The curve clearly shows that the network is capable of leaming
+in the restaurant domain; indeed, the curve is very similar to that for decision-tree learning, albeit
+somewhat shallower.
+
+Back-propagation as gradient descent search
+
+We have given some suggestive reasons why the back-propagation equations are reasonable
+It turns out that the equations also can be given a very simple interpretation as a method for
+performing gradient descent in weight space. In this case, the gradient is on the error surface:
+the surface that describes the error on each example as a function of the all the weights in the
+network. An example error surface is shown in Figure 19.16. The current set of weights defines
+a point on this surface. At that point, we look at the slope of the surface along the axis formed
+by each weight. This is known as the partial derivative of the surface with respect to each
+weight—how much the error would change if we made a small change in weight. We then alter
+
+ 
+

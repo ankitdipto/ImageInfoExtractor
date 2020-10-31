@@ -1,0 +1,64 @@
+global
+priority
+
+highest
+
+lowest
+
+scheduling
+order
+
+first
+
+last
+
+67
+
+class-
+specific
+priorities
+
+teal time
+
+system
+
+interactive and
+time sharing
+
+Process Scheduling Models 179
+
+scheduler run
+classes queue
+
+kernel
+threads of real-
+time LWPs
+
+kernel
+service
+threads
+
+kernel
+threads of
+interactive and
+time-sharing
+LWPs
+
+Figure 6.10 Solaris 2 scheduling.
+
+Each scheduling class includes a set of priorities. However, the scheduler
+converts the class-specific priorities into global priorities, and selects to run the
+thread with the highest global priority. The selected thread runs on the CPU
+
+until one of the following occurs:
+
+1. It blocks
+
+2. It uses its time slice (if it is not a system thread)
+
+3. Itis preempted by a higher-priority thread
+
+If multiple threads have the same priority, the scheduler uses a round-robin
+
+queue.
+

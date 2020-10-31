@@ -1,0 +1,55 @@
+Section 25.7. Summary 811
+
+ 
+
+one wishes a robot arm (for instance) to undertake, and then design physical devices and control
+systems to carry out the motions described. The mechanics and control of multilink robot arms
+are among the most complex problems studied in applied mathematics today.
+
+Robot Manipulators: Mathematics, Programming, and Control (Paul, 1981) is a classic
+guide to the basics of robot arm design. Yoshikawa (1990) provides a more up-to-date text
+in this area. Latombe (1991) presents a good specialized textbook on motion planning. The
+robot motion planning problem, stated in the most natural way, is PSPACE-hard (Reif, 1979)
+(see page 853 for a description of PSPACE). Canny (1988) gives a book-length treatment of the
+computational complexity ofrobot motion planning, dealing with a number of ways of stating the
+problem. The major conference for robotics is the JEEE International Conference on Robotics
+and Automation. Robotics journals include JEEE Robotics and Automation, the International
+Journal of Robotics Research, and Robotics and Autonomous Systems.
+
+ 
+
+EXERCISES
+
+25.1 (This exercise was first devised by Michael Genesereth and Nils Nilsson.) Humans are so
+adept at basic tasks such as picking up cups or stacking blocks that they often forget what it was
+like to try such things as newbom babies. The idea of this exercise is to make explicit some of
+the difficulties involved, in a very direct manner. As you solve these difficulties, you should find
+yourself recapitulating the last 20 years of developments in robotics.
+
+First, pick a task. The task should not be too difficult! (For example, making a column
+from three cereal boxes standing on end takes over an hour.) Set up the initial environment.
+Then, build a robot out of four other humans as follows:
+
+© Brain: the job of the Brain is to come up with a plan to achieve the goal, and to direct the
+hands in the execution of the plan. The Brain receives input from the Eyes, but cannot see
+the scene directly.
+
+< Eyes: the Eyes' job is to report a brief description of the scene to the Brain. The Eyes
+should stand a few feet away from the working environment, and can provide qualitative
+descriptions (such as "There is a red box standing on top ofa green box, which is on its
+side") or quantitative descriptions ("The green box is about two feet to the left of the blue
+cylinder"). Eyes can also answer questions from the Brain such as, "Is there a gap between
+the Left Hand and the red box?" The Eyes should not know what the goal is.
+
+0 Hands (Left and Right): one person plays each Hand. The two Hands stand next to each
+other; the Left Hand uses only his or her left hand, and the Right Hand only his or her
+righthand. The Hands execute only simple commands from the Brain—for example, "Left
+Hand, move two inches forward." They cannot execute commands other than motions; for
+example, "Pick up the box" is not something a Hand can do. To discourage cheating, you
+might want to have the hands wear gloves, or have them operate tongs. As well as being
+ignorant of the goal, the Hands must be blindfolded. The only sensory capability they have
+is the ability to tell when their path is blocked by an immovable obstacle such as a table or
+the other Hand. In such cases, they can beep to inform the Brain of the difficulty.
+
+ 
+

@@ -1,0 +1,116 @@
+speedup
+
+secrios 62 Pipelining 305
+
+ 
+
+ 
+
+we sy Hele be] ss befebe} ss Left} sy Pep be
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 9.3. Four-segment pipeline.
+
+segment number. The diagram shows six tasks; through T; executed in four
+segments. Initially, task T, is handled by segment 1. After the first clock,
+segment 2 is busy with 7,, while segment 1 is busy with task T;. Continuing
+in this manner, the first task T, is completed after the fourth clock cycle. From
+then on, the pipe completes a task every clock cycle. No matter how many
+segments there are in the system, once the pipeline is full, it takes only one
+clock period to obtain an output.
+
+‘Now consider the case where ak-segment pipeline with aclock cycle time
+1, is used to execute n tasks. The first task T; requires a time equal to kt, to
+complete its operation since there are k segments in the pipe. The remaining
+n~ 1 tasks emerge from the pipe at the rate of one task per clock cycle and
+they will be completed after a time equal to (n ~ 1)f,. Therefore, to complete
+ntasks using a k-segment pipelinerequiresk + (n — 1) clock cycles. For exam-
+ple, the diagram of Fig. 9-4 shows four segments and six tasks. The time
+required to complete all the operations is 4+ (6 — 1) = 9 dlock cycles, as
+indicated in the diagram.
+
+‘Next consider a nonpipeline unit that performs the same operation and
+takesa time equal tof, to complete each task. The total time required for m tasks
+is nt,. The speedup of a pipeline processing over an equivalent nonpipeline
+processing is defined by the ratio
+
+ 
+
+ty
+
+$= Grn Dt,
+
+Figure 9-4 Space-time diagram for pipeline.
+
+rf2fafa4]fsfe,7],s]9
+
+ 
+
+ 
+
+ 
+
+Clock cycles
+Segment: 1] 7) | Tz | Ts | Te | 7s | 7
+
+2 t| tm | tm | % | Ts | %
+
+3 nim] | m | | te
+
+ 
+
+4 nilnalo| nt | t
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

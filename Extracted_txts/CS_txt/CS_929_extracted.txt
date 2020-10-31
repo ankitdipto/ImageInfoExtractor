@@ -1,0 +1,44 @@
+Chapter 7: The C Preprocessor 257
+
+ 
+
+different types of computers and you are expected to write a
+program that works on both the machines. You can do so by
+isolating the lines of code that must be different for each
+machine by marking them off with #ifdef. For example:
+
+main()
+{
+#ifdef INTEL
+code suitable for a Intel PC
+#else
+code suitable for a Motorola PC
+#endif
+code common to both the computers
+}
+
+When you compile this program it would compile only the
+code suitable for a Intel PC and the common code. This is
+because the macro INTEL has not been defined. Note that the
+working of #ifdef - #else - #endif is similar to the ordinary if -
+else control instruction of C.
+
+If you want to run your program on a Motorola PC, just add a
+statement at the top saying,
+
+#define INTEL
+
+Sometimes, instead of #ifdef the #ifndef directive is used.
+The #ifndef (which means ‘if not defined’) works exactly
+opposite to #ifdef. The above example if written using
+#ifndef, would look like this:
+
+main()
+
+#ifndef INTEL
+
+code suitable for a Intel PC
+#else
+
+code suitable for a Motorola PC
+

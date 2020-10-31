@@ -1,0 +1,47 @@
+ 
+
+DS ROBOTICS
+
+ 
+
+ 
+
+ROBOT
+
+‘AUTONOMOUS
+ROBOTS
+
+In which agents are endowed with physical effectors with which to do mischief,
+
+INTRODUCTION
+
+The Robot Institute of America defines a robot as a programmable, multifunction manipulator
+designed to move material, parts, tools, or specific devices through variableprogrammed motions
+Sor the performance ofa variety oftasks. This definition is not very demanding; a conveyer belt
+with a two-speed switch would arguably satisfy it
+
+We will define robot simply as an active, artificiaiagent whose environment is the physical
+world. The active part rules out rocks, the artificial part rules out animals, and the physical part
+tules out pure software agents or softbots, whose environment consists of computer file systems,
+databases and networks. We will be concerned primarily with autonomous robots, those that
+make decisions on their own, guided by the feedback they get from their physical sensors.
+
+Most of the design of an autonomous robot is the same as the design of any autonomous
+agent. To some extent, we could take a generic planning agent (Chapter 11) or decision-making
+agent (Chapter 16), equip it with wheels, grippers, and a camera, point it out the door, and wish it
+good luck. Unfortunately, unless we pointed it at an exceptionally benign environment, it would
+not fare very well. The real world, in general, is very demanding. We can see this by considering
+the five properties of environments from page 46:
+
+* The real world is inaccessible. Sensors are imperfect, and in any case can only perceive
+stimuli that are near the agent.
+* The real world is nondeterministic, at least from the robot's point of view. Wheels slip,
+
+batteries run down, and parts break, so you never know if an action is going to work. That
+means a robot needs to deal with uncertainty (Part V).
+
++ The real world is nonepisodic—the effects of an action change over time. So a robot has
+to handle sequential decision problems (Chapter 17) and learning (Part VI)
+
+773
+

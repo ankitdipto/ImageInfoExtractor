@@ -1,0 +1,105 @@
+4.1 The maximum-subarray problem 71
+
+crosses the midpoint
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Almid +1... j]
+low mid high low i mid ————, high
+—— mid +1 °° —~——~ ——— mid +1 i
+entirely in A[low..mid] entirely in Amid +1. . high] Afi .. mid]
+(a) (b)
+
+Figure 4.4 (a) Possible locations of subarrays of Allow .. high]: entirely in Allow .. mid], entirely
+in Almid + 1.. high], or crossing the midpoint mid. (b) Any subarray of Allow’... high] crossing
+the midpoint comprises two subarrays Alf ..mid] and Almid +1.. j], where low < i < mid and
+mid < j < high.
+
+maximum subarray that crosses the midpoint, and take a subarray with the largest
+sum of the three.
+
+We can easily find a maximum subarray crossing the midpoint in time linear
+in the size of the subarray A[/ow.. high]. This problem is not a smaller instance
+of our original problem, because it has the added restriction that the subarray it
+chooses must cross the midpoint. As Figure 4.4(b) shows, any subarray crossing
+the midpoint is itself made of two subarrays A[i .. mid] and A[mid + 1.. 7], where
+low <i < mid and mid < j < high. Therefore, we just need to find maximum
+subarrays of the form Ali .. mid] and A[mid + 1.. j] and then combine them. The
+procedure FIND-MAX-CROSSING-SUBARRAY takes as input the array A and the
+indices low, mid, and high, and it returns a tuple containing the indices demarcating
+a maximum subarray that crosses the midpoint, along with the sum of the values in
+a maximum subarray.
+
+FIND-MAX-CROSSING-SUBARRAY (A, low, mid, high)
+
+1 left-sum = —oo
+
+2 sum =0
+
+3 for i = mid downto low
+4 sum = sum + Afi]
+5 if sum > left-sum
+
+6 left-sum = sum
+7 max-left = i
+
+8 right-sum = —oo
+
+9 sum =0
+
+10 for j = mid + 1 to high
+1 sum = sum + A[j]
+12 if sum > right-sum
+13 right-sum = sum
+14 max-right = j
+
+15 return (max-left, max-right, left-sum + right-sum)
+

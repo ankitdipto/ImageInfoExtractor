@@ -1,0 +1,92 @@
+390 Chapter 11 File-System Interface
+
+ 
+
+root | dict | spell
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+list
+
+ 
+
+list
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11.9 Acyclic-graph directory structure.
+
+their own directories. The common subdirectory should be shared. A shared
+directory or file will exist in the file system in two (or more) places at once.
+
+A tree structure prohibits the sharing of files or directories. An acyclic
+graph allows directories to have shared subdirectories and files (Figure 11.9).
+The same file or subdirectory may be in two different directories. An acyclic
+graph, that is, a graph with no cycles, is a natural generalization of the tree-
+structured directory scheme.
+
+A shared file (or directory) is not the same as two copies of the file. With
+two copies, each programmer can view the copy rather than the original, but
+if one programmer changes the file, the changes will not appear in the other’s
+copy. With a shared file, only one actual file exists, so any changes made by one
+person are immediately visible to the other. Sharing is particularly important
+for subdirectories; a new file created by one person will automatically appear
+in all the shared subdirectories.
+
+When people are working as a team, all the files they want to share may
+be put into one directory. The UFDs of all the team members would each
+contain this directory of shared files as a subdirectory. Even when there is a
+single user, his file organization may require that some files be put into different
+subdirectories. For example, a program written for a particular project should
+be both in the directory of all programs and in the directory for that project.
+
+Shared files and subdirectories can be implemented in several ways. A
+common way, exemplified by many of the UNIX systems, is to create a new
+directory entry called a link. A link is effectively a pointer to another file or
+subdirectory. For example, a link may be implemented as an absolute or relative
+path name. When a reference to a file is made, we search the directory. If the
+

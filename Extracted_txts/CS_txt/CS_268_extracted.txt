@@ -1,0 +1,105 @@
+142 qurrerave Basic Computer Organization and Design
+
+ 
+
+Stan
+sceo
+
+r———1_ |,
+
+AR& PC
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+i
+
+IRE MIAR), PCH PC +1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+     
+ 
+ 
+ 
+ 
+
+Decode operation code in IR (12-14)
+AR «IR (O~ 11), FIR (15)
+
+ 
+
+(Register or 1/0) (Memory-reference)
+
+    
+
+=0 (cegister) (indirect) 0 Girect)
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+b
+Execute Execute [ar rari] Nothing
+inputoutput register-reference
+‘instruction instruction
+sce sCo0
+Execute
+smemary-reference
+instruction
+sce
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 5-9 Flowchart for instruction cycle (initial con figuration).
+
+register-reference or input-output type. If D; = 0, the operation code must be
+one of the other seven values 000 through 110, specifying a memory-reference
+instruction. Control then inspects the value of the first bit of the instruction,
+which is now available in flip-flop I. If Dy = 0 and I = 1, we have a memory-
+reference instruction with an indirect address. It is then necessary to read the
+

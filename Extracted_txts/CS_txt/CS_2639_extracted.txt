@@ -1,0 +1,57 @@
+218
+
+Chapter 9 Medians and Order Statistics
+
+Taking expected values, we have
+
+E[T@)]
+
+< # [doar —I,n—k))+ on
+
+k=1
+
+>» E [Xx - T(max(k — 1,n —k))] + O(n) (by linearity of expectation)
+k=1
+
+SCE LX] -E[T(max(k — 1,1 —k))] + O(n) (by equation (C.24))
+k=1
+> -E[T(max(k — 1,n —k))] + O(n) (by equation (9.1)) .
+k=1
+
+In order to apply equation (C.24), we rely on Xz and T(max(k — 1,n — k)) being
+independent random variables. Exercise 9.2-2 asks you to justify this assertion.
+Let us consider the expression max(k — 1,1 —k). We have
+
+k-1 ifk>[n/2],
+
+max(k Ln) =) ith < [n/2].
+
+If n is even, each term from T([n/2]) up to T(n — 1) appears exactly twice in
+the summation, and if 1 is odd, all these terms appear twice and T(|n/2|) appears
+once. Thus, we have
+
+2 nol
+E[T@|<= )° E[T&]+ 0M).
+
+n k=|n/2)
+We show that E[T(n)] = O(n) by substitution. Assume that E[T(n)] < cn for
+some constant c that satisfies the initial conditions of the recurrence. We assume
+that T(n) = O(1) for n less than some constant; we shall pick this constant later.
+We also pick a constant a such that the function described by the O(7) term above
+(which describes the non-recursive component of the running time of the algo-
+rithm) is bounded from above by an for all > 0. Using this inductive hypothesis,
+we have
+
+n-l
+
+= » ck +an
+n k=|n/2)
+
+2 (ta [n/2J-1
+= = (Se > k)+an
+k=1 k=1
+
+E[T@)]
+
+IA
+

@@ -1,0 +1,47 @@
+22.2 Breadth-first search 599
+
+Lemma 22.3
+Suppose that during the execution of BFS on a graph G = (V, E), the queue Q
+contains the vertices (v1.V2...., v,), Where v, is the head of Q and v, is the tail.
+
+Then, v,.d < vy.d + Land vj.d < vj41.d fori = 1,2,..., r-1.
+
+Proof The proof is by induction on the number of queue operations. Initially,
+when the queue contains only s, the lemma certainly holds.
+
+For the inductive step, we must prove that the lemma holds after both dequeuing
+and enqueuing a vertex. If the head v; of the queue is dequeued, v. becomes the
+new head. (If the queue becomes empty, then the lemma holds vacuously.) By the
+inductive hypothesis, v;.d < V2.d. But then we have v,.d < vj.d+1<v2.d+1,
+and the remaining inequalities are unaffected. Thus, the lemma follows with v2 as
+the head.
+
+In order to understand what happens upon enqueuing a vertex, we need to ex-
+amine the code more closely. When we enqueue a vertex v in line 17 of BFS, it
+becomes v,+1. At that time, we have already removed vertex u, whose adjacency
+list is currently being scanned, from the queue Q, and by the inductive hypothesis,
+the new head 1; has v;.d > u.d. Thus, v;41.d = v.d =u.d+1 <v).d+1. From
+the inductive hypothesis, we also have v,.d < u.d +1, and sov,.d<u.d+1l=
+v.d = V,41.d, and the remaining inequalities are unaffected. Thus, the lemma
+follows when v is enqueued. .
+
+The following corollary shows that the d values at the time that vertices are
+enqueued are monotonically increasing over time.
+
+Corollary 22.4
+Suppose that vertices v; and v; are enqueued during the execution of BFS, and
+that v; is enqueued before v;. Then v;.d < v;.d at the time that v; is enqueued.
+
+Proof Immediate from Lemma 22.3 and the property that each vertex receives a
+finite d value at most once during the course of BFS. .
+
+We can now prove that breadth-first search correctly finds shortest-path dis-
+tances.
+
+Theorem 22.5 (Correctness of breadth-first search)
+
+Let G = (V,E) be a directed or undirected graph, and suppose that BFS is run
+on G from a given source vertex s € V. Then, during its execution, BFS discovers
+every vertex v € V that is reachable from the source s, and upon termination,
+v.d = 8(s,v) for all v € V. Moreover, for any vertex v # s that is reachable
+

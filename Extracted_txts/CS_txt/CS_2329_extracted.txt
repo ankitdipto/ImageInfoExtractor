@@ -1,0 +1,69 @@
+474
+
+CHAPTER TWELVE Memory Organization
+
+transfers the content of the word to the main memory buffer register ready to
+be used by the CPU. If the presence bit in the word read from the page table
+is 0, it signifies that the content of the word referenced by the virtual address
+does not reside in main memory. A call to the operating system is then
+generated to fetch the required page from auxiliary memory and place it into
+main memory before resuming computation.
+
+Associative Memory Page Table
+
+‘A random-access memory page table is inefficient with respect to storage
+utilization. In the example of Fig. 12-19 we observe that eight words of memory
+are needed, one for each page, but at least four words will always be marked
+empty because main memory cannot accomunodate more than four blocks. In
+general, a system with n pages and m blocks would require a memory-page
+table of n locations of which up to m blocks will be marked with block numbers
+and all others will be empty. As a second numerical example, consider an
+address space of 1024K words and memory space of 32K words. If each page
+or block contains 1K words, the number of pages is 1024 and the number of
+blocks 32. The capacity of the memory-page table mustbe 1024 wordsand only
+32 locations may have a presence bitequal to 1. At any given time, at least 992
+locations will be empty and not in use.
+
+‘A more efficient way to organize the page table would be to construct it
+with anumber of words equal to the number of blocks in main memory. In this
+‘way the size of the memory is reduced and each location is fully utilized. This
+method can be implemented by means of an associative memory with each
+word in memory containing a page number together with its corresponding
+
+Figure 12-20 An associative memory page table.
+Virtud address
+
+ 
+
+ 
+
+ror Line number Argument register
+
+ 
+
+ 
+
+T1100 | Keyregster
+
+ 
+
+ 
+
+ 
+
+ 
+
+Associative memory
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Pageno. Block no.
+

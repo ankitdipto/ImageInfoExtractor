@@ -1,0 +1,51 @@
+694
+
+Chapter 25 All-Pairs Shortest Paths
+
+all intermediate vertices in {1,2,...,k — 1} all intermediate vertices in {1,2,...,k — 1}
+
+OE
+nO A >,
+O
+©
+a
+
+p: all intermediate vertices in {1,2,...,k}
+
+Figure 25.3 Path p is a shortest path from vertex i to vertex j, and k is the highest-numbered
+intermediate vertex of p. Path p1, the portion of path p from vertex i to vertex k, has all intermediate
+vertices in the set {1,2,...,k — 1}. The same holds for path p2 from vertex k to vertex j.
+
+fore, p is a shortest path from i to k with all intermediate vertices in the set
+{1,2,...,4 —1}. Similarly, p> is a shortest path from vertex k to vertex j with
+all intermediate vertices in the set {1,2,...,k — 1}.
+
+ 
+
+A recursive solution to the all-pairs shortest-paths problem
+
+Based on the above observations, we define a recursive formulation of shortest-
+path estimates that differs from the one in Section 25.1. Let di? be the weight
+of a shortest path from vertex i to vertex j for which all intermediate vertices
+are in the set {1,2,...,k}. When k = 0, a path from vertex i to vertex j with
+no intermediate vertex numbered higher than 0 has no intermediate vertices at all.
+Such a path has at most one edge, and hence d? = wij. Following the above
+
+discussion, we define d\? recursively by
+
+ra) Wij ifk =0,
+
+oo 25.5
+
+u min (df? de? +dk) ifk > 1. (25.5)
+Because for any path, all intermediate vertices are in the set {1,2,...,}, the ma-
+
+trix D™ = (a) gives the final answer: a” = 6(i, j) for alli, j eV.
+
+Computing the shortest-path weights bottom up
+
+Based on recurrence (25.5), we can use the following bottom-up procedure to com-
+pute the values di in order of increasing values of k. Its input is an xn matrix W
+defined as in equation (25.1). The procedure returns the matrix D) of shortest-
+path weights.
+

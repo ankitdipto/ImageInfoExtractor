@@ -1,0 +1,52 @@
+Section 21.5. Summary 645
+
+ 
+
+Relevance-based learning (RBL) uses prior knowledge in the form of determinations to
+identify the relevant attributes, thereby generating a reduced hypothesis space and speeding
+up learning. RBL also allows deductive generalizations from single examples
+Knowledge-based inductive learning (KBIL) finds inductive hypotheses that explain sets
+of observations with the help of background knowledge
+
+Inductive logic programming (ILP) techniques perform KBIL using knowledge expressed
+in first-order logic. ILP methods can learn relational knowledge that is not expressible in
+attribute-based systems.
+
+ILP methods naturally generate new predicates with which concise new theories can be
+expressed, and show promise as general-purpose scientific theory formation systems.
+
+ 
+
+BIBLIOGRAPHICAL AND HISTORICAL NOTES
+
+The use of prior knowledge in learning from experience has had a surprisingly brief period
+of intensive study. Fact, Fiction, and Forecast, by the philosopher Nelson Goodman (1954),
+refuted the earlier supposition that induction was simply a matter of seeing enough examples
+of some universally quantified proposition and then adopting it as a hypothesis. Consider, for
+GRUE example, the hypothesis "All emeralds are grue,” where grue means "green if observed before
+time ¢, but blue if observed thereafter." At any time up to ¢, we might have observed millions
+of instances confirming the rule that emeralds are grue, and no disconfirming instances, and yet
+we are unwilling to adopt the rule. This can only be explained by appeal to the role of relevant
+prior knowledge in the induction process. Goodman proposes a variety of different kinds of prior
+knowledge that might be useful, including a version of determinations called overhypotheses.
+Unfortunately, Goodman's work was never taken up in early studies of machine learning.
+
+EBL had its roots in the techniques used by the STRIPS planner (Fikes et al., 1972),
+When a plan was constructed, a generalized version of it was saved in a plan library and
+used in later planning as a macro-operator. Similar ideas appeared in Anderson's ACT*
+architecture, under the heading of knowledge compilation (Anderson, 1983); and in the SOAR
+architecture as chunking (Laird et al., 1986). Schema acquisition (DeJong, 1981), analytical
+generalization (Mitchell, 1982), and constraint-based generalization (Minton, 1984) were
+immediate precursors of the rapid growth of interest in EBL stimulated by the publication
+of(Mitchell et a/., 1986; DeJong and Mooney, 1986). Hirsh (1987) introduced the EBL algorithm
+described in the text, showing how it could be incorporated directly into a logic programming
+system. Van Harmelen and Bundy (1988) explain EBL as a variant of the partial evaluation
+method used in program analysis systems (Jones ef al., 1993).
+
+More recently, rigorous analysis and experimental work has led to a better understanding
+of the potential costs and benefits of EBL in terms of problem-solving speed. Minton (1988)
+showed that without extensive extra work, EBL could easily slow down a program significantly.
+Tambe ef al. (1990) found a similar problem with chunking, and proposed a reduction in the
+expressive power of the rule language in order to minimize the cost of matching rules against
+working memory. This work bears strong parallels with recent results on the complexity of
+

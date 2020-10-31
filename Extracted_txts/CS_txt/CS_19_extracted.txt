@@ -1,0 +1,24 @@
+656
+
+Chapter 24 Single-Source Shortest Paths
+
+ 
+
+Figure 24.5 The execution of the algorithm for shortest paths in a directed acyclic graph. The
+vertices are topologically sorted from left to right. The source vertex is s. The d values appear
+within the vertices, and shaded edges indicate the z values. (a) The situation before the first iteration
+of the for loop of lines 3-5. (b)-(g) The situation after each iteration of the for loop of lines 3-5.
+The newly blackened vertex in each iteration was used as 1 in that iteration. The values shown in
+part (g) are the final values.
+
+Theorem 24.5
+
+If a weighted, directed graph G = (V, E) has source vertex s and no cycles, then
+at the termination of the DAG-SHORTEST-PATHS procedure, v.d = 6(s, v) for all
+vertices v € V, and the predecessor subgraph G, is a shortest-paths tree.
+
+Proof We first show that v.d = 6(s,v) for all vertices v € V at termina-
+tion. If v is not reachable from s, then v.d = 6(s,v) = oo by the no-path
+property. Now, suppose that v is reachable from s, so that there is a short-
+est path p = (Vo, V1.....Ve), Where vo = s and vy = v. Because we pro-
+

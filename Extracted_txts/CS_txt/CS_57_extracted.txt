@@ -1,0 +1,55 @@
+688
+
+Chapter 25 All-Pairs Shortest Paths
+
+Computing the shortest-path weights bottom up
+
+Taking as our input the matrix W = (wj;), we now compute a series of matrices
+LY L®...., L®-), where form = 1,2,..., n—1, we have L™ = (1).
+The final matrix L~ contains the actual shortest-path weights. Observe that
+i? = w; for all vertices i, 7 € V, and so LY = Ww.
+
+The heart of the algorithm is the following procedure, which, given matrices
+L- and W, returns the matrix L. That is, it extends the shortest paths com-
+puted so far by one more edge.
+
+EXTEND-SHORTEST-PATHS(L, W)
+1 on = L.rows
+
+2 let L’ = (I) be anewn x n matrix
+
+3 fori = 1ton
+
+4 for j = 1ton
+
+5 Ij; = 00
+
+6 fork = 1ton
+
+7 Uj, = min(Ij;, lik + Wej)
+8 return L’
+
+The procedure computes a matrix L’ = (/;;), which it returns at the end. It does so
+by computing equation (25.2) for all i and j, using L for L~” and L’ for L™.
+(It is written without the superscripts to make its input and output matrices inde-
+pendent of m.) Its running time is ©(n>) due to the three nested for loops.
+
+Now we can see the relation to matrix multiplication. Suppose we wish to com-
+pute the matrix product C = A- B of twon x n matrices A and B. Then, for
+i,j =1,2,..., n, we compute
+
+cy = Drain Bey (25.4)
+k=1
+
+Observe that if we make the substitutions
+pd,
+ws
+jm),
+min >
++>
+
++o C8
+
+in equation (25.2), we obtain equation (25.4). Thus, if we make these changes to
+EXTEND-SHORTEST-PATHS and also replace oo (the identity for min) by 0 (the
+

@@ -1,0 +1,61 @@
+11.3 Directory Structure 383.
+
+record. Finally, this block is searched sequentially. In this way, any record can
+be located from its key by at most two direct-access reads. Figure 11.4 shows a
+similar situation as implemented by VMS index and relative files.
+
+11.3 = Directory Structure
+
+The file systems of computers can be extensive. Some systems store millions of
+files on terabytes of disk. To manage all these data, we need to organize them.
+This organization is usually done in two parts. First, disks are split into one or
+more partitions, also known as minidisks in the IBM world or volumes in the PC
+and Macintosh arenas. Typically, each disk on a system contains at least one
+partition, which is a low-level structure in which files and directories reside.
+Sometimes, partitions are used to provide several separate areas within one
+disk, each treated as a separate storage device, whereas other systems allow
+partitions to be larger than a disk to group disks into one logical structure. In
+this way, the user needs to be concerned with only the logical directory and
+file structure, and can ignore completely the problems of physically allocating
+space for files. For this reason partitions can be thought of as virtual disks.
+Partitions can also store multiple operating systems, allowing a system to boot
+and run more than one.
+
+Second, each partition contains information about files within it. This
+information is kept in entries in a device directory or volume table of contents.
+The device directory (more commonly known simply as a directory) records
+information—such as name, location, size, and type—for all files on that
+partition. Figure 11.5 shows the typical file-system organization.
+
+The directory can be viewed as a symbol table that translates file names
+into their directory entries. If we take such a view, we see that the directory
+
+ 
+
+directory
+
+artition A
+P disk 2
+
+ 
+
+disk 1
+directory partition C
+
+ 
+
+partition B
+disk 3
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11.5 A typical file-system organization.
+

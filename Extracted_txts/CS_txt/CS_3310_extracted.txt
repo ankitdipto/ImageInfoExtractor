@@ -1,0 +1,79 @@
+662
+
+Chapter 22. Agents that Communicate
+
+ 
+
+22.3
+
+ 
+
+Language
+
+  
+
+Language
+
+   
+  
+ 
+
+   
+
+ 
+
+ 
+
+_
+
+_ _
+Percepts Actions Percepts Actions
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 223 Two agents communicating with language.
+
+ 
+
+ 
+
+ 
+
+An agent that communicates
+
+We will now look at an example of communication, in the form of a wumpus world agent that
+acts as a robot slave that can be commanded by a master. On each turn, the slave describes its
+percepts in English (actually in a restricted subset), waits for a command from the master, and
+then interprets the command and executes it. Here is a fragment ofa typical dialogue:
+
+ROBOT SLAVE MASTER
+I feel a breeze. Go to 1 2
+Nothing is here. Go north.
+I feel a breeze and I smell a stench
+
+and I see a glitter. Grab it.
+
+The agent program is shown in Figure 22.4. The rest of this chapter fills in the missing routines
+in the agent program. First, Section 22.3 defines the subset of English in which the agents
+communicate. Then, Section 22.4 shows how to implement the PARSE function to syntactically
+analyze strings of the language. Section 22.7 shows how to recover the meaning of a string
+(the function SEMANTICS), and Section 22.8 shows what to do when there are several possible
+meanings (the function DISAMBIGUATE). The function GENERATE-DESCRIPTION is not covered in
+depth, but in general much the same knowledge that is used for understanding can also be used
+for producing language.
+
+A FORMAL GRAMMAR FOR A SUBSET OF ENGLISH
+
+In this section, we define a formal grammar for a small subset of English that is suitable for
+making statements about the wumpus world. We will call this language &. In defining the
+language this way, we are implicitly claiming that formal language techniques are appropriate for
+dealing with natural language. In many ways, they are appropriate: natural languages make use
+
+ 
+

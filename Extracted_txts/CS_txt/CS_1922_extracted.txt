@@ -1,0 +1,50 @@
+376 Chapter 11 File-System Interface
+
+Some operating systems provide facilities to lock sections of an open file for
+multiprocess access, to share sections of a file among several processes (using
+shared pages), and to map sections of a file into memory on virtual- memory
+systems using memory mapping (Section 10.3.2).
+
+11.1.3 File Types
+
+When we design a file system, indeed the entire operating system, we always
+consider whether the operating system should recognize and support file types.
+If an operating system recognizes the type of a file, it can then operate on the file
+in reasonable ways. For example, a common mistake occurs when a user tries
+to print the binary-object form of a program. This attempt normally produces
+garbage, but can be prevented if the operating system has been told that the file
+is a binary-object program.
+
+A common technique for implementing file types is to include the type as
+part of the file name. The name is split into two parts—a name and an extension,
+usually separated by a period character (Figure 11.1). In this way, the user and
+the operating system can tell from the name alone what the type of a file is. For
+example, in MS-DOS, a name can consist of up to eight characters followed by
+a period and terminated by an extension of up to three characters. The system
+uses the extension to indicate the type of the file and the type of operations
+that can be done on that file. For instance, only a file with a .com, .exe, or
+.bat extension can be executed. The .com and .exe files are two forms of binary
+executable files, whereas a .bat file is a batch file containing, in ASCII format,
+commands to the operating system. MS-DOS recognizes only a few extensions,
+but application programs also use extensions to indicate file types in which
+they are interested. For example, assemblers expect source files to have an .asm
+extension, and the WordPerfect word processor expects its file to end with a
+wp extension. These extensions are not required, so a user may specify a file
+without the extension (to save typing), and the application will look for a file
+with the given name and the extension it expects. Because these extensions are
+not supported by the operating system, they can be considered as “hints” to
+applications that operate on them.
+
+Another example of the utility of file types comes from the TOPS-20 oper-
+ating system. If the user tries to execute an object program whose source file
+has been modified (or edited) since the object file was produced, the source file
+will be recompiled automatically. This function ensures that the user always
+runs an up-to-date object file. Otherwise, the user could waste a significant
+amount of time executing the old object file. For this function to be possible, the
+operating system must be able to discriminate the source file from the object file,
+to check the time that each file was created or last modified, and to determine
+the language of the source program (in order to use the correct compiler).
+
+Consider the Apple Macintosh operating system. In this system, each file
+has a type, such as text or pict. Each file also has a creator attribute containing
+

@@ -1,0 +1,52 @@
+114 Chapter4 Processes
+
+¢ Bounded capacity: The queue has finite length n; thus, at most n messages
+can reside in it. If the queue is not full when a new message is sent, the
+latter is placed in the queue (either the message is copied or a pointer to the
+message is kept), and the sender can continue execution without waiting.
+The link has a finite capacity, however. If the link is full, the sender must
+block until space is available in the queue.
+
+© Unbounded capacity: The queue has potentially infinite length; thus, any
+number of messages can wait in it. The sender never blocks.
+
+The zero-capacity case is sometimes referred to as a message system with no
+buffering; the other cases are referred to as automatic buffering.
+
+4.5.5 An Example: Mach
+
+As an example of a message-based operating system, consider the Mach oper-
+ating system, developed at Carnegie Mellon University. The Mach kernel
+supports the creation and destruction of multiple tasks, which are similar to
+processes but have multiple threads of control. Most communication in Mach
+—including most of the system calls and all intertask information—is carried
+out by messages. Messages are sent to and received from mailboxes, called ports
+in Mach.
+
+Even system calls are made by messages. When each task is created,
+two special mailboxes—the Kernel mailbox and the Notify mailbox—are also
+created. The kernel uses the Kernel mailbox to communicate with the task.
+The kernel sends notification of event occurrences to the Notify port. Only
+three system calls are needed for message transfer. The msg_send call sends
+a message to a mailbox. A message is received via msg_receive. Remote
+procedure calls (RPCs) are executed via msg_rpc, which sends a message and
+waits for exactly one return message from the sender. In this way, RPC model a
+typical subroutine procedure call, but can work between systems.
+
+The port_allocate system call creates a new mailbox and allocates space
+for its queue of messages. The maximum size of the message queue defaults to
+eight messages. The task that creates the mailbox is that mailbox’s owner. The
+owner also is given receive access to the mailbox. Only one task at a time can
+either own or receive from a mailbox, but these rights can be sent to other tasks
+if desired.
+
+The mailbox has an initially empty queue of messages. As messages are
+sent to the mailbox, the messages are copied into the mailbox. All messages
+have the same priority. Mach guarantees that multiple messages from the same
+sender are queued in first-in, first-out (FIFO) order, but does not guarantee an
+absolute ordering. For instance, messages sent from each of two senders may
+be queued in any order.
+
+The messages themselves consist of a fixed-length header, followed bya
+variable-length data portion. The header includes the length of the message
+

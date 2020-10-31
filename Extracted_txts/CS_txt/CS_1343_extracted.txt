@@ -1,0 +1,50 @@
+230 cHAPTERSEVEN Microprogrammed Control
+
+TABLE 7-3 Binary Microprogram for Control Memory (Partial)
+
+ 
+
+ 
+
+Address Binary Microinstruction
+Micro =§ —————
+Routine Decimal Binary Fl F2 F3 CD BR AD
+ADD © 0000000 000 000 000 01 011000011
+1 0000001 000 100 000 00 00000010
+2 0000010 001 000 000 00 00 1000000
+3 0000011 000 000 000 00 001000000
+BRANCH 4 0000100 000-000 000 10000000110
+5 0000101 000 000 000 00 © 001000000
+6 0000110 000 000 000 «at = 1000011
+7 0000111 000 000 110 00 00 1000000
+STORE 8 001000 000 000 000 1 1 1000011
+9 0001001 000 101 000 00 00 no1010
+10 001010111 000 000 00 © 001000000
+11 0001011. 000 000 000 00 © 001000000
+EXCHANGE 120001100 000-000 000 Ol_-—«s_—«1000011
+13 001101 001 000 000 00 © 00 apoizi0
+14 0001110 100 101 000 00 00 coal
+15 0001111 111 000 000 00 +00 1000000
+FETCH 64 1000000 110 000 000 00 © 001000001
+65 1000001 000 100 101 00 00 1000010
+66 1000010 101 000 000 00 © 110000000
+INDRCT 67 1000011 000 100 000 00 © 001000100
+68 1000100 101 000 000 00 10 0000000
+
+microprogram binary list provides the truth table for fabricating the unit. This
+fabrication is a hardware process and consists of creating a mask for the ROM
+so as to produce the I’s and 0's for each word. The bits of ROM are fixed once
+the internal links are fused during the hardware production. The ROM is made
+of IC packages that can be removed if necessary and replaced by other pack-
+ages. To modify the instruction set of the computer, itis necessary to generate
+a new microprogram and mask a new ROM. The old one can be removed and
+the new one inserted in its place.
+Ifawritable controlmemory isemployed, the ROMisreplaced by aRAM
+
+The advantage of employing a RAM for the control memory is that the mi-
+croprogram can be altered simply by writing a new pattern of I's and 0's
+without resorting to hardware procedures. A writable control memory pos-
+sesses the flexibility of choosing theinstruction set of a computer dynamically
+by changing the microprogram under processor control. However, most mi-
+croprogrammed systems use a ROM for the control memory because it is
+

@@ -1,0 +1,51 @@
+914
+
+Chapter 30 Polynomials and the FFT
+
+Theorem 30.8 (Convolution theorem)
+For any two vectors a and b of length n, where n is a power of 2,
+
+a @ b = DFT3} (DFT, (a) - DFT, (b)) .
+
+where the vectors a and b are padded with Os to length 27 and - denotes the com-
+ponentwise product of two 2n-element vectors. .
+
+Exercises
+
+30.2-1
+Prove Corollary 30.4.
+
+30.2-2
+Compute the DFT of the vector (0, 1,2, 3).
+
+30.2-3
+Do Exercise 30. 1-1 by using the @(n lgm)-time scheme.
+
+30.24
+Write pseudocode to compute DFT,,' in @(n Ign) time.
+
+30.2-5
+Describe the generalization of the FFT procedure to the case in which n is a power
+of 3. Give a recurrence for the running time, and solve the recurrence.
+
+3026 x
+
+Suppose that instead of performing an n-element FFT over the field of complex
+numbers (where n is even), we use the ring Z,, of integers modulo m, where
+m= 2'"/2 4 ] and ¢ is an arbitrary positive integer. Use @ = 2° instead of w,
+as a principal nth root of unity, modulo m. Prove that the DFT and the inverse DFT
+are well defined in this system.
+
+30.2-7
+
+Given a list of values Zo, Z1,.... Zn—1 (possibly with repetitions), show how to find
+the coefficients of a polynomial P(x) of degree-bound n + | that has zeros only
+at Zo,Z1,..-, Zn—1 (possibly with repetitions). Your procedure should run in time
+O(n lg? n). (Hint: The polynomial P(x) has a zero at z; if and only if P(x) isa
+multiple of (x — z;).)
+
+302-8 x
+The chirp uae of a vector a = = (ao. y,..., n-1) is the vector y =
+
+(Yo. Vises Yn—1), Where yy = Vir 942 and z is any complex number. The
+

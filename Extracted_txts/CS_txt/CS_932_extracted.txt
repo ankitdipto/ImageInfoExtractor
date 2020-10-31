@@ -1,0 +1,47 @@
+260 Let Us C
+
+ 
+
+Observe that by using the #elif directives the number of #endifs
+used in the program get reduced.
+
+#if ADAPTER == VGA
+
+code for video graphics array
+#elif ADAPTER == SVGA
+
+code for super video graphics array
+#else
+
+code for extended graphics adapter
+#endif
+
+Miscellaneous Directives
+
+There are two more preprocessor directives available, though they
+are not very commonly used. They are:
+
+(a) #undef
+
+(b) #pragma
+
+#undef Directive
+
+On some occasions it may be desirable to cause a defined name to
+become ‘undefined’. This can be accomplished by means of the
+#undef directive. In order to undefine a macro that has been earlier
+#defined, the directive,
+
+#undef macro template
+
+can be used. Thus the statement,
+
+#undef PENTIUM
+
+would cause the definition of PENTIUM to be removed from the
+system. All subsequent #ifdef PENTIUM statements would
+evaluate to false. In practice seldom are you required to undefine a
+
+macro, but for some reason if you are required to, then you know
+that there is something to fall back upon.
+

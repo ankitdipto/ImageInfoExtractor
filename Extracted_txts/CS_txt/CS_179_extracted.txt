@@ -1,0 +1,49 @@
+27.1 The basics of dynamic multithreading 787
+
+seems to ignore the overhead for recursive spawning in implementing the parallel
+loops, however. In fact, the overhead of recursive spawning does increase the work
+of a parallel loop compared with that of its serialization, but not asymptotically.
+To see why, observe that since the tree of recursive procedure instances is a full
+binary tree, the number of internal nodes is 1 fewer than the number of leaves (see
+Exercise B.5-3). Each internal node performs constant work to divide the iteration
+range, and each leaf corresponds to an iteration of the loop, which takes at least
+constant time (©(n) time in this case). Thus, we can amortize the overhead of re-
+cursive spawning against the work of the iterations, contributing at most a constant
+factor to the overall work.
+
+Asa practical matter, dynamic-multithreading concurrency platforms sometimes
+coarsen the leaves of the recursion by executing several iterations in a single leaf,
+either automatically or under programmer control, thereby reducing the overhead
+of recursive spawning. This reduced overhead comes at the expense of also reduc-
+ing the parallelism, however, but if the computation has sufficient parallel slack-
+ness, near-perfect linear speedup need not be sacrificed.
+
+We must also account for the overhead of recursive spawning when analyzing the
+span of a parallel-loop construct. Since the depth of recursive calling is logarithmic
+in the number of iterations, for a parallel loop with 1 iterations in which the ith
+iteration has span iferoo(i), the span is
+
+To.(n) = O(lgn) + max iter.(i) .
+lsi<n
+
+For example, for MAT-VEC on ann x 1 matrix, the parallel initialization loop in
+lines 3-4 has span ©(lg 7), because the recursive spawning dominates the constant-
+time work of each iteration. The span of the doubly nested loops in lines 5-7
+is Q(n), because each iteration of the outer parallel for loop contains n iterations
+of the inner (serial) for loop. The span of the remaining code in the procedure
+is constant, and thus the span is dominated by the doubly nested loops, yielding
+an overall span of @(7) for the whole procedure. Since the work is @(n7), the
+parallelism is @(n?)/@(n) = O(n). (Exercise 27.1-6 asks you to provide an
+implementation with even more parallelism.)
+
+Race conditions
+
+A multithreaded algorithm is deterministic if it always does the same thing on the
+same input, no matter how the instructions are scheduled on the multicore com-
+puter. It is nondeterministic if its behavior might vary from run to run. Often, a
+multithreaded algorithm that is intended to be deterministic fails to be, because it
+contains a “determinacy race.”
+
+Race conditions are the bane of concurrency. Famous race bugs include the
+Therac-25 radiation therapy machine, which killed three people and injured sev-
+

@@ -1,0 +1,25 @@
+19.3 Decreasing a key and deleting a node 521
+
+  
+
+Figure 19.5 Two calls of FiB-HEAP-DECREASE-KEY. (a) The initial Fibonacci heap. (b) The
+node with key 46 has its key decreased to 15. The node becomes a root, and its parent (with key 24),
+which had previously been unmarked, becomes marked. (c)-(e) The node with key 35 has its key
+decreased to 5. In part (c), the node, now with key 5, becomes a root. Its parent, with key 26,
+is marked, so a cascading cut occurs. The node with key 26 is cut from its parent and made an
+unmarked root in (d). Another cascading cut occurs, since the node with key 24 is marked as well.
+This node is cut from its parent and made an unmarked root in part (¢). The cascading cuts stop
+at this point, since the node with key 7 is a root. (Even if this node were not a root, the cascading
+cuts would stop, since it is unmarked.) Part (e) shows the result of the FIB-HEAP-DECREASE-KEY
+operation, with H.min pointing to the new minimum node.
+
+Fis-HEAP-DECREASE-KEY creates a new tree rooted at node x and clears x’s
+mark bit (which may have already been FALSE). Each call of CASCADING-CUT,
+except for the last one, cuts a marked node and clears the mark bit. Afterward, the
+Fibonacci heap contains t (H)+c trees (the original t (#7) trees, c—1 trees produced
+by cascading cuts, and the tree rooted at x) and at most m(H)—c +2 marked nodes
+(c—1 were unmarked by cascading cuts and the last call of CASCADING-CUT may
+have marked a node). The change in potential is therefore at most
+
+((((H) +.) +2(m(H) —c +2)) = (t(H) +2m(H)) = 4-c.
+

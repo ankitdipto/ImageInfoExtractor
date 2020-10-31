@@ -1,0 +1,51 @@
+ 
+
+13.4 Kernel /O Subsystem = 475
+
+data space is common in operating systems, despite the overhead that this
+operation introduces, because of the clean semantics. The same effect can be
+obtained more efficiently by clever use of virtual-memory mapping and copy-
+on-write page protection.
+
+13.4.3 Caching
+
+A cache is a region of fast memory that holds copies of data. Access to the
+cached copy is more efficient than access to the original. For instance, the
+instructions of the currently running process are stored on disk, cached in
+physical memory, and copied again in the CPU’s secondary and primary caches.
+The difference between a buffer and a cache is that a buffer may hold the only
+existing copy of a data item, whereas a cache, by definition, just holds a copy
+on faster storage of an item that resides elsewhere.
+
+Caching and buffering are distinct functions, but sometimes a region of
+memory can be used for both purposes. For instance, to preserve copy seman-
+tics and to enable efficient scheduling of disk I/O, the operating system uses
+buffers in main memory to hold disk data. These buffers are also used as a
+cache, to improve the I/O efficiency for files that are shared by applications or
+that are being written and reread rapidly. When the kernel receives a file 1/O
+request, the kernel first accesses the buffer cache to see whether that region
+of the file is already available in main memory. If so, a physical disk 1/O
+can be avoided or deferred. Also, disk writes are accumulated in the buffer
+cache for several seconds, so that large transfers are gathered to allow efficient
+write schedules. This strategy of delaying writes to improve I/O efficiency is
+discussed, in the context of remote file access, in Section 16.3.
+
+13.4.4 Spooling and Device Reservation
+
+A spool is a buffer that holds output for a device, such as a printer, that cannot
+accept interleaved data streams. Although a printer can serve only one job
+at a time, several applications may wish to print their output concurrently,
+without having their output mixed together. The operating system solves this
+problem by intercepting all output to the printer. Each application’s output
+is spooled to a separate disk file. When an application finishes printing, the
+spooling system queues the corresponding spool file for output to the printer.
+The spooling system copies the queued spool files to the printer one at a time.
+In some operating systems, spooling is managed by a system daemon process.
+In other operating systems, it is handled by an in-kernel thread. In either case,
+the operating system provides a control interface that enables users and system
+administrators to display the queue, to remove unwanted jobs before those jobs
+print, to suspend printing while the printer is serviced, and so on.
+
+Some devices, such as tape drives and printers, cannot usefully multiplex
+the I/O requests of multiple concurrent applications. Spooling is one way that
+

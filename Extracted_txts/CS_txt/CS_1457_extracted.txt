@@ -1,0 +1,42 @@
+704 Let UsC
+
+ 
+
+[4]
+
+Inadvertently, we have fallen in an indefinite loop. Cause is
+the semicolon after while. This in effect makes the compiler
+feel that you wanted the loop to work in the following
+manner:
+
+while (j <= 100);
+
+This is an indefinite loop since j never gets incremented and
+hence eternally remains less that 100.
+
+Omitting the break statement at the end of a case in a switch
+statement.
+
+Remember that if a break is not included at the end of a case,
+then execution will continue into the next case.
+
+main()
+int ch=1;
+
+switch (ch)
+{
+case 1:
+printf ( “\nGoodbye" ) ;
+case 2:
+printf ( "\nLieutenant” ) ;
+}
+}
+
+Here, since the break has not been given after the printf() in
+case 1, the control runs into case 2 and executes the second
+printf() as well.
+
+However, this sometimes turns out to be a blessing in
+disguise. Especially, in cases when we are checking whether
+the value of a variable equals a capital letter or a small case
+

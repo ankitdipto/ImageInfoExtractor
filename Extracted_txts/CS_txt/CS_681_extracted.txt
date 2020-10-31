@@ -1,0 +1,42 @@
+Chapter 2: The Decision Control Structure 55
+
+ 
+
+tot = (qty * rate ) - (qty * rate * dis / 100) ;
+printf ( "Total expenses = Rs. %f", tot) ;
+}
+
+Here is some sample interaction with the program.
+
+Enter quantity and rate 1200 15.50
+Total expenses = Rs. 16740.000000
+
+Enter quantity and rate 200 15.50
+Total expenses = Rs. 3100.000000
+
+In the first run of the program, the condition evaluates to true, as
+1200 (value of qty) is greater than 1000. Therefore, the variable
+dis, which was earlier set to 0, now gets a new value 10. Using this
+new value total expenses are calculated and printed.
+
+In the second run the condition evaluates to false, as 200 (the value
+of qty) isn’t greater than 1000. Thus, dis, which is earlier set to 0,
+remains 0, and hence the expression after the minus sign evaluates
+to zero, thereby offering no discount.
+
+ 
+
+Is the statement dis = 0 necessary? The answer is yes, since in C, a
+variable if not specifically initialized contains some unpredictable
+value (garbage value).
+
+The Real Thing
+
+We mentioned earlier that the general form of the if statement is as
+follows
+
+if (condition )
+statement ;
+
+Truly speaking the general form is as follows:
+

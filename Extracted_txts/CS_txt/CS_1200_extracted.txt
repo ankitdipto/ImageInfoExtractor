@@ -1,0 +1,42 @@
+476 Let Us C
+
+ 
+
+/* File name: ascii.c*/
+main()
+{
+
+int ch;
+
+for (ch =0; ch <= 255 ; ch++ )
+printf (“\n%d %c", ch, ch) ;
+}
+
+When this program is compiled and then executed at command
+prompt using the redirection operator,
+
+C>ASCILEXE > TABLE.TXT
+
+the output is written to the file. This can be a useful capability any
+time you want to capture the output in a file, rather than displaying
+it on the screen.
+
+DOS predefines a number of filenames for its own use. One of
+these names in PRN, which stands for the printer. Output can be
+redirected to the printer by using this filename. For example, if you
+invoke the “ascii.exe” program this way:
+
+C>ASCILEXE > PRN
+
+the ASCII table will be printed on the printer.
+
+Redirecting the Input
+
+We can also redirect input to a program so that, instead of reading
+a character from the keyboard, a program reads it from a file. Let
+us now see how this can be done.
+
+To redirect the input, we need to have a file containing something
+to be displayed. Suppose we use a file called NEWPOEM.TXT
+containing the following lines:
+

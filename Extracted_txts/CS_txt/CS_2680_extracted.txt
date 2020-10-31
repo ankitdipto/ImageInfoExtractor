@@ -1,0 +1,153 @@
+Chapter 11. Planning
+
+ 
+
+ 
+
+Start Start
+
+  
+
+ 
+
+Initial | State
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Goal State LeftShoeOn, » RightShoeOn
+y
+Finish Finish
+) )
+
+ 
+
+ 
+
+ 
+
+Figure 11.4 (a) Problems are defined by partial plans containing only Start and Finish steps.
+The initial state is entered as the effects of the Start step, and the goal state is the precondition of
+the Finish step. Ordering constraints are shown as arrows between boxes. (b) The initial plan for
+the shoes-and-socks problem.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Partial Order Plan: Total Order Plans:
+Start Start Start Start Start Start Start
+7N 1 : i t 1 t
+7 XN Right Right Left Left Right Left
+Sock Sock Sock Sock Sock Sock
+Left Right —t
+Sock Sock { { i
+Left Left Right } [Right Right Left
+Sock Sock Sock Sock Shoe Shoe
+LeftSockon _RightSockOn 1 1 { { 1
+Left Right Right Left Right Teft Teft Right ]
+Shoe Shoe “+ - - 7 ~ | [Sock
+Left Right Left Right Left Right
+N\ 4 Shoe Shoe Shoe Shoe Shoe Shoe
+LeftShoeOn, RightShoeOn 1 i i 1 1 t
+Finish Finish] | Finish} | Finish] | Finish] | Finish] | Finish
+4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 115 A partial-order plan for putting on shoes and socks (including preconditions on
+steps), and the six possible linearizations of the plan.
+
+ 
+
+ 
+
+ 
+

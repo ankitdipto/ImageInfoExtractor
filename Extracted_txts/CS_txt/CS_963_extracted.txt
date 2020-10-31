@@ -1,0 +1,43 @@
+284 Let Us C
+
+ 
+
+array. When you run this program, you may get different
+addresses, but what is certain is that each subsequent address
+would be 2 bytes (4 bytes under Windows/Linux) greater than its
+immediate predecessor.
+
+Our next two programs show ways in which we can access the
+elements of this array.
+
+main()
+
+{
+int num[] = (24, 34, 12, 44, 56, 17};
+int i;
+
+for (i=O;i<=5;i++)
+{
+printf ("\naddress = %u ", &numfi] ) ;
+printf (“element = %d", numf[i] ) ;
+}
+}
+
+The output of this program would be:
+
+address = 65512 element = 24
+address = 65514 element = 34
+address = 65516 element = 12
+address = 65518 element = 44
+address = 65520 element = 56
+address = 65522 element = 17
+
+This method of accessing array elements by using subscripted
+variables is already known to us. This method has in fact been
+given here for easy comparison with the next method, which
+accesses the array elements using pointers.
+
+main()
+
+int num[] = { 24, 34, 12, 44, 56, 17};
+

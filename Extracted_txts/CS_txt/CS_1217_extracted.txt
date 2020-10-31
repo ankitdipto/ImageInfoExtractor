@@ -1,0 +1,51 @@
+490 Let Us C
+
+ 
+
+The binary equivalent of 5225 is 0001 0100 0110 1001. This
+inary value is placed in the date field in the directory entry of the
+file as shown below.
+
+ 
+
+ 
+
+ 
+
+15 14 13 12 11 109 8 7 6 5 4 3 2 1 ~=0
+Oo; Oo} OJ 1] O} 1 0 1} 07} Oj 1
+h year te day +|
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 14.4
+
+Just to verify this bit distribution, let us take the bits representing
+the month,
+
+month = 0011
+=1°2+1"1
+=3
+
+Similarly, the year and the day can also be verified.
+
+When we issue the command DIR or use Windows Explorer to list
+the files, the file’s date is again presented on the screen in the
+usual date format of mm/dd/yy. How does this integer to date
+conversion take place? Obviously, using left shift and right shift
+operators.
+
+When we take a look at Figure 14.4 depicting the bit pattern of the
+2- byte date field, we see that the year, month and day exist as a
+bunch of bits in contiguous locations. Separating each of them is a
+matter of applying the bitwise operators.
+
+For example, to get year as a separate entity from the two bytes
+entry we right shift the entry by 9 to get the year. Just see, how...
+

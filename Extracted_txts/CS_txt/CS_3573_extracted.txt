@@ -1,0 +1,79 @@
+Section 4.1.
+
+Best-First Search 93
+
+ 
+
+ 
+
+HEURISTIC.
+FUNCTION
+
+GREEDY SEARCH
+
+‘STRAIGHT-LINE
+DISTANCE
+
+ 
+
+function BEST-FIRST-SEARCH( problem, EV AL-FN) returns a solution sequence
+inputs: problem, aproblem
+Fval-Fn, an evaluation function
+
+Queueing-Fn —a function that orders nodes by EVAL-FN
+return GENERAL-SEARCH( problem, Queueing-Fn)
+
+ 
+
+ 
+
+Figure 4.1 An implementation ofbest-first search using the general search algorithm.
+
+ 
+
+ 
+
+ 
+
+functions. Because they aim to find low-cost solutions, these algorithms typically use some
+estimated measure of the cost of the solution and try to minimize it. We have already seen one
+such measure: the use ofthe path cost g to decide which path to extend. This measure, however,
+does not direct search toward the goal. In order tofocus the search, the measure must incorporate
+some estimate ofthe cost of the path from a state to the closest goal state. We look at two basic
+approaches. The first tries to expand the node closest to the goal. The second tries to expand the
+node on the least-cost solution path.
+
+Minimize estimated cost to reach a goal: Greedy search
+
+One ofthe simplest best-first search strategies is to minimize the estimated cost to reach the goal.
+That is, the node whose state is judged to be closest to the goal state is always expanded first.
+For most problems, the cost of reaching the goal from a particular state can be estimated but
+cannot be determined exactly. A function that calculates such cost estimates is called a heuristic
+function, and is usually denoted by the letter /:
+
+h(n) = estimated cost of the cheapest path from the state at node # to a goal state.
+
+A best-first search that uses h to select the next node to expand is called greedy search, for
+reasons that will become clear. Given a heuristic function h, the code for greedy search is just
+the following:
+
+ 
+
+function GREEDY-SEARCH( problem) returns a solution or failure
+return BEST-FIRST-SEARCH( problem, h)
+
+ 
+
+ 
+
+ 
+
+Formally speaking, / can be any function at all. We will require only that (7) = 0 ifn is a goal
+To get an idea of what a heuristic function looks like, we need to choose a particular
+problem, because heuristic functions are problem-specific. Let us return to the route-finding
+problem from Arad to Bucharest. The map for that problem is repeated in Figure 4.2.
+A good heuristic function for route-finding problems like this is the straight-line distance
+to the goal. That is,
+
+hsrp(n)= straight-line distance between n and the goal location.
+

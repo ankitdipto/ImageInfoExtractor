@@ -1,0 +1,70 @@
+Section 8.4,
+
+General Ontology 239
+
+ 
+
+midnight (GMT) on January 1, 1900, has time 0. The functions Start and End pick out the earliest
+and latest moments in an interval, and the function Time delivers the point on the time scale for
+a moment. The function Duration gives the difference between the end time and the start time.
+
+Vi Interval(i) = Duration(i)=(Time(End(i)) — Time(Start(i)))
+Time(Start(AD1900)) =Seconds(0)
+
+Time(Start(AD: 99 1 )) =Seconds(2871 694800)
+
+Time(End(AD1 99 1 )) = Seconds(2903230800)
+
+Duration(AD1 991) =Seconds(31 536000)
+
+To make these numbers easier to read, we also introduce a function Date, which takes six
+arguments (hours, minutes, seconds, month, day, and year) and returns a point on the time scale:
+
+Time(Start(AD1991)) =SecondsDate(00, 00, 00, Jan,|, 1991)
+Date(12, 34,56, Feb, 14, 1993)=2938682096
+
+The simplest relation between intervals is Meet. Two intervals Meet if the end time of the
+first equals the start time of the second. It is possible to define predicates such as Before, After,
+During, and Overlap solely in terms of Meet, but it is more intuitive to define them in terms of
+points on the time scale. (See Figure 8.5 for a graphical representation.)
+
+Vij Meet(i,j) 4 Time(End(i)) = Time(Start(j))
+
+Vij Before(i,j) <= Time(End(i))< ‘Time(Start(j))
+
+Vij After(j,i) = Before(i.j)
+
+Vij During(i.j) = Time(Start()< Time(Start(i))A Time(End(i)) <_ Time(End(j))
+Vij Overlapli,j) 3k During(k, i) A During(k,j)
+
+ 
+
+ 
+
+i
+
+Meet) = -—— A;
+
+HK
+i
+Before(i,j) — -————— j
+Aftertji)
+i
+Duringlij) -—,—
+K———_
+
+Overlaptij) = .-_»“———
+Overlap(j,i) J
+
+ 
+
+ 
+
+Figure 85 Predicates on time intervals.
+
+ 
+
+ 
+
+ 
+

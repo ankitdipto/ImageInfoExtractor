@@ -1,0 +1,55 @@
+1112
+
+Chapter 35 Approximation Algorithms
+
+c(A)= YO ctv).
+
+(uv)eA
+
+In many practical situations, the least costly way to go from a place u to a place w
+is to go directly, with no intermediate steps. Put another way, cutting out an inter-
+mediate stop never increases the cost. We formalize this notion by saying that the
+cost function c satisfies the triangle inequality if, for all vertices u,v, w € V,
+
+c(u,w) <c(u,v)+c(v,w).
+
+The triangle inequality seems as though it should naturally hold, and it is au-
+tomatically satisfied in several applications. For example, if the vertices of the
+graph are points in the plane and the cost of traveling between two vertices is the
+ordinary euclidean distance between them, then the triangle inequality is satisfied.
+Furthermore, many cost functions other than euclidean distance satisfy the triangle
+inequality.
+
+As Exercise 35.2-2 shows, the traveling-salesman problem is NP-complete even
+if we require that the cost function satisfy the triangle inequality. Thus, we should
+not expect to find a polynomial-time algorithm for solving this problem exactly.
+Instead, we look for good approximation algorithms.
+
+In Section 35.2.1, we examine a 2-approximation algorithm for the traveling-
+salesman problem with the triangle inequality. In Section 35.2.2, we show that
+without the triangle inequality, a polynomial-time approximation algorithm with a
+constant approximation ratio does not exist unless P = NP.
+
+35.2.1 The traveling-salesman problem with the triangle inequality
+
+Applying the methodology of the previous section, we shall first compute a struc-
+ture—a minimum spanning tree—whose weight gives a lower bound on the length
+of an optimal traveling-salesman tour. We shall then use the minimum spanning
+tree to create a tour whose cost is no more than twice that of the minimum spanning
+tree’s weight, as long as the cost function satisfies the triangle inequality. The fol-
+lowing algorithm implements this approach, calling the minimum-spanning-tree
+algorithm MST-PRIM from Section 23.2 as a subroutine. The parameter G is a
+complete undirected graph, and the cost function c satisfies the triangle inequality.
+
+APPROX-TSP-TouR(G,c)
+
+1 select a vertex r € G. V to be a “root” vertex
+
+2 compute a minimum spanning tree T for G from root r
+using MST-PRIM(G, c,1r')
+
+3 let H be a list of vertices, ordered according to when they are first visited
+in a preorder tree walk of T
+
+4 return the hamiltonian cycle H
+

@@ -1,0 +1,56 @@
+w
+Ss
+
+Chapter 19. Learning in Neural and Belief Networks
+
+network that reflects the causal structure of the domain. This prior knowledge should help the
+network to learn much faster from a given set of examples. Moreover, the results of learning
+are more easily understood, and, because probabilities are produced, the results can be used in
+making rational decisions.
+
+One can also use the gradient-descent method in association with an algorithm designed
+to generate the structure of the network. Because such algorithms usually work by evaluating
+candidate structures for their ability to model the data, one can simply use the gradient descent
+to find the best fit between any candidate structure and the data
+
+A comparison of belief networks and neural networks
+
+Given the close similarity between belief networks (particularly the adaptive variety) and neural
+networks, a detailed comparison is in order. The two formalisms can be compared as represen-
+tation systems, inference systems, and learning systems
+
+Both neural networks and belief networks are attribute-based representations. Both handle
+discrete and continuous inputs, although algorithms for handling continuous variables in belief
+networks are less developed. The principal difference is that belief networks are localized rep-
+resentations, whereas neural networks are distributed representations. Nodes in belief networks
+represent propositions with well-defined semantics and well-defined probabilistic relationships to
+other propositions. Units in neural networks, on the other hand, typically do not represent specific
+propositions. Even if they did, the calculations carried by the network do not treat propositions
+in any semantically meaningful way. In practical terms, this means that humans can neither
+construct nor understand neural network representations. The well-defined semantics of belief
+networks also means that they can be constructed automatically by programs that manipulate
+first-order representations.
+
+Another representational difference is that belief network variables have nyo dimensions
+of “activation”—the range of values for the proposition, and the probability assigned to each
+of those values. The outputs of a neural network can be viewed as either the probability of a
+Boolean variable, or an exact value for a continuous variable, but neural networks cannot handle
+both probabilities and multivalued or continuous variables simultaneously.
+
+As inference mechanisms—once they have been trained—feedforward neural networks
+can execute in linear time, whereas general belief network inference is NP-hard. On closer
+inspection, this is not as clear an advantage as it might seem, because a neural network would in
+some cases have to be exponentially larger in order to represent the same input/output mapping as
+a belief network (else we would be able to solve hard problems in polynomial time). Practically
+speaking, any neural network that can be trained is small enough so that inference is fast, whereas
+it is not hard to construct belief networks that take a long time to run. One other important aspect
+of belief networks is their flexibility, in the sense that at any time any subset ofthe variables can
+be treated as inputs, and any other subset as outputs, whereas feedforward neural networks have
+fixed inputs and outputs.
+
+With respect to learning, a comparison is difficult because adaptive probabilistic networks
+(APNs) are a very recent development. One can expect the time per iteration of an APN to be
+slower, because it involves an inference process. On the other hand, a human (or another part of
+
+ 
+

@@ -1,0 +1,52 @@
+584 Chapter 19. Learning in Neural and Belief Networks
+
+ 
+
+in the training set. At the cost of some additional computation, the simulated annealing
+method (Chapter 4) can be used to assure convergence to a global optimum.
+
+0 Generalization: As we have seen in our experiments on therestaurant data, neural networks
+can do a good job of generalization. One can say, somewhat circularly, that they will
+generalize well on functions for which they are well-suited. These seem to be functions in
+which the interactions between inputs are not too intricate, and for which the output varies
+smoothly with the input. There is no theorem to be proved here, but it does seem that
+neural networks have had reasonable success in a number of real-world problems.
+
+~ Sensitivity to noise: Because neural networks are essentially doing nonlinear regression,
+they are very tolerant of noise in the input data. They simply find the best fit given the
+constraints of the network topology. On the other hand, it is often useful to have some idea
+of the degree of certainty of the output values. Neural networks do not provide probability
+distributions on the output values. For this purpose, belief networks seem more appropriate
+
+Transparency: Neural networks are essentially black boxes. Even ifthe network does a
+good job of predicting new cases, many users will still be dissatisfied because they will
+have no idea why a given output value is reasonable. If the output value represents, for
+example, a decision to perform open heart surgery, then an explanation is clearly in order.
+With decision trees and other logical representations, the output can be explained as a
+logical derivation and by appeal to a specific set of cases that supports the decision. This
+is not currently possible with neural networks.
+
+© Prior knowledge: As we mentioned in Chapter 18, learning systems can often benefit
+from prior knowledge that is available to the user or expert. Prior knowledge can mean the
+difference between learning from a few well-chosen examples and failing to learn anything
+at all. Unfortunately, because of the lack of transparency, it is quite hard to use one's
+knowledge to "prime" a network to learn better. Some tailoring of the network topology
+can be done—for example, when training on visual images it is common to connect only
+small sets of nearby pixels to any given unit in the first hidden layer. On the other hand,
+such “rules of thumb" do not constitute a mechanism by which previously accumulated
+knowledge can be used to learn from subsequent experience. It is possible that learning
+methods for belief networks can overcome this problem (see Section 19.6).
+
+All these considerations suggest that simple feed-forward networks, although very promising
+as construction tools for leaming complex input/output mappings, do not fulfill our needs for a
+comprehensive theory of learning in their present form. Researchers in AI, psychology, theoretical
+computer science, statistics, physics, and biology are working hard to overcome the difficulties.
+
+195 APPLICATIONS OF NEURAL NETWORKS
+
+In this section, we give just a few examples of the many significant applications of neural
+networks. In each case, the network design was the result of several months of trial-and-error
+experimentation by researchers. From these examples, it can be seen that neural networks have
+
+ 
+

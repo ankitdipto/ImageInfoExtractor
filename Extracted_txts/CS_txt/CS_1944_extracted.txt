@@ -1,0 +1,50 @@
+396 Chapter 11 File-System Interface
+
+In this section, we examine more aspects of file sharing. First is the topic
+of multiple users and the sharing methods possible. Once multiple users are
+allowed to share files, the challenge is to extend sharing to multiple file systems,
+including remote file systems. Finally, there can be several interpretations of
+conflicting actions occurring on shared files. For instance, if multiple users
+are writing to the file, should all the writes be allowed to occur, or should
+the operating system protect the user actions from each other? Consistency
+semantics is discussed in Section 11.5.3.
+
+11.5.1 Multiple Users
+
+When an operating system accommodates multiple users, the issues of file
+sharing, file naming, and file protection become preeminent. Given a directory
+structure that allows files to be shared by users, the system must mediate the
+file sharing. The system either can allow a user to access the files of other users
+by default, or it may require that a user specifically grant access to the files.
+These are the issues of access control and protection, which are covered below.
+
+To implement sharing and protection, the system must maintain more file
+and directory attributes than on a single-user system. Although there have been
+many approaches to this topic historically, most systems have evolved to the
+concepts of file/directory owner (or user) and group. The owner is the user who
+may change attributes, grant access, and has the most control over the file or
+directory. The group attribute of a file is used to define a subset of users who
+may share access to the file. For example, the owner of a file on a UNIX system
+may issue all operations ona file, while members of the file’s group may execute
+one subset of those operations, and all other users may execute another subset
+of operations. Exactly which operations can be executed by group members
+and other users is definable by the file’s owner. More details on permission
+attributes are included in the next section.
+
+Most systems implement owner attributes by managing a list of user names
+and associated user identifiers (user IDs). In Windows NT parlance, this is
+a Security ID (SID). These numerical IDs are unique, one per user. When a
+user logs in to the system, the authentication stage determines the appropriate
+user ID for the user. That user ID is associated with all of the user’s processes
+and threads. When they need to be user readable, they are translated back
+to the user name via the user name list. Likewise, group functionality can
+be implemented as a system-wide list of group names and group identifiers.
+Every user can be in one or more groups, depending upon operating system
+design decisions. The user’s group IDs are also included in every associated
+process and thread.
+
+The owner and group IDs of a given file or directory are stored with the
+other file attributes. When a user requests an operation on a file, the user ID can
+be compared to the owner attribute to determine if the requesting user is the
+owner of the file. Likewise, the group IDs can be compared. The result indicates
+

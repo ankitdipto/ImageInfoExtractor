@@ -1,0 +1,43 @@
+Chapter 12: File Input/Output 435
+
+ 
+
+if (ft== NULL)
+
+{
+puts (“Cannot open target file" ) ;
+fclose (fs ) ;
+exit() ;
+
+}
+
+while (1)
+ch = fgetc (fs ) ;
+
+if (ch == EOF)
+break ;
+else
+fpute ( ch, ft) ;
+}
+
+fclose (fs) ;
+fclose (ft) ;
+}
+
+Using this program we can comfortably copy text as well as binary
+files. Note that here we have opened the source and target files in
+“rb” and “wb” modes respectively. While opening the file in text
+
+mode we can use either “r” or “rt”, but since text mode is the
+default mode we usually drop the ‘t’.
+
+From the programming angle there are three main areas where text
+and binary mode files are different. These are:
+
+(a) Handling of newlines
+(b) Representation of end of file
+
+(c) Storage of numbers
+
+Let us explore these three differences.
+

@@ -1,0 +1,49 @@
+11.1 FileConcept 373
+
+© Size: The current size of the file (in bytes, words, or blocks), and possibly
+the maximum allowed size are included in this attribute.
+
+Protection: Access-control information determines who can do reading,
+writing, executing, and so on.
+
+¢ Time, date, and user identification: This information may be kept for
+creation, last modification, and last use. These data can be useful for
+protection, security, and usage monitoring.
+
+The information about all files is kept in the directory structure that also resides
+on secondary storage. Typically, the directory entry consists of the file’s name
+and its unique identifier. The identifier in turn locates the other file attributes.
+It may take more than a kilobyte to record this information for each file. In
+a system with many files, the size of the directory itself may be megabytes.
+Because directories, like files, must be nonvolatile, they must be stored on the
+device and brought into memory piecemeal, as needed.
+
+11.1.2 File Operations
+
+A file is an abstract data type. To define a file properly, we need to consider the
+operations that can be performed on files. The operating system can provide
+system calls to create, write, read, reposition, delete, and truncate files. Let
+us also consider what the operating system must do for each of the six basic
+file operations. It should then be easy to see how similar operations, such as
+renaming a file, would be implemented.
+
+¢ Creating a file: Two steps are necessary to create a file. First, space in the
+file system must be found for the file. We shall discuss how to allocate space
+for the file in Chapter 12. Second, an entry for the new file must be made
+in the directory. The directory entry records the name of the file and the
+location in the file system, and possibly other information.
+
+¢ Writing a file: To write a file, we make a system call specifying both the
+name of the file and the information to be written to the file. Given the
+name of the file, the system searches the directory to find the location of the
+file. The system must keep a write pointer to the location in the file where
+the next write is to take place. The write pointer must be updated whenever
+a write occurs.
+
+Reading a file: To read from a file, we use a system call that specifies the
+name of the file and where (in memory) the next block of the file should be
+put. Again, the directory is searched for the associated directory entry, and
+the system needs to keep a read pointer to the location in the file where the
+next read is to take place. Once the read has taken place, the read pointer is
+updated. A given process is usually only reading or writing a given file, and
+

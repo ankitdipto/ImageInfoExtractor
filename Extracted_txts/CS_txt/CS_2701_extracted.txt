@@ -1,0 +1,51 @@
+‘flow detection
+
+SECTION 3.3 Fixed-Point Representation 81
+
+complement form. When two signed numbersare added, the sign bitis treated
+as part of the number and the end carry does not indicate an overflow.
+
+‘An overflow cannot occur after an addition if one number is positive and
+the other is negative, since adding a positive number to a negative number
+produces a result that is smaller than the larger of the two original numbers.
+‘An overflow may occur if the two numbers added are both positive or both
+negative. To see how this can happen, consider the following example. Two
+signed binary numbers, +70 and +80, are stored in two &-bit registers. The
+range of numbers that each register can accommodate is from binary +127 to
+binary -128, Since the sum of the two numbersis +150, itexceeds the capacity
+of the 8-bit register. This is true if the numbers are both positive or both
+negative. The two additions in binary are shown below together with the last
+two carries.
+
+carries: 01 carries: 10
++70 0 1000110 =70 10111010
++80 0 1010000 -80 10110000
++150 TO010110 -150 0 1101010
+
+Note that the 8-bit result that should have been positive has a negative sign
+bit and the 8-bit result that should have been negative has a positive sign bit.
+If, however, the carry out of the sign bit position is taken as the sign bit of the
+result, the9-bit answer so obtained will be correct. Since the answer cannot be
+accommodated within 8 bits, we say that an overflow occurred.
+
+‘An overflow condition can be detected by observing the carry into the
+sign bit position and the carry out of the sign bit position. If these two carries
+are not equal, an overflow condition is produced. This is indicated in the
+examples where the two carries are explicitly shown. If the two carries are
+applied to an exclusive-OR gate, an overflow will be detected when the output
+of the gate is equal to 1
+
+Decimal Fixed-Point Representation
+
+The representation of decimal numbers in registers is a function of the binary
+code used to represent a decimal digit. A 4-bit decimal code requires four
+flip-flops for each decimal digit. The representation of 4385 in BCD requires 16
+flipflops, four flip-flops for each digit The number will be represented in a
+register with 16 flip-flops as follows:
+
+0100 0011 1000 0101
+By representing numbers in decimal we are wasting a considerable
+
+amount of storage space since the number of bits needed to store a decimal
+number in a binary code is greater than the number of bits needed for its
+

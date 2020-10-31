@@ -1,0 +1,111 @@
+624 Let UsC
+
+ 
+
+would fail on processors which do not use IDT, thereby
+compromising portability of device drivers.
+
+Refer Figure 19.3 for understanding the interrupt handling
+mechanism under Windows.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Key hit / Mouse click
+generates an interrupt
+Microprocessor
+Suitable
+Microprocessor . ISR is
+Suitabl
+looks up IDT Kemel called
+routine ISR
+1s Kemel Device Driver
+Address | Address called | youtine1 | Suitable
+of ISR1 | of ISR2 ISR is
+called
+IDT Kernel
+routine2 ISR =
+Device Driver
+Figure 19.3
+
+If we are to gain finer control while reacting to interrupts we
+would be required to write a device driver containing a new ISR to
+0 so.
+
+Under Windows explicit communication with hardware is much
+ifferent than the way it was done under DOS. This is primarily
+because under Windows every device is shared amongst multiple
+applications running in memory. To avoid conflict between
+ifferent programs accessing the same device simultaneously
+
+ 
+

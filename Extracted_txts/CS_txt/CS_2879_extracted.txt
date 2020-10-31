@@ -1,0 +1,51 @@
+366
+
+  
+
+Chapter !1. Planning
+
+ 
+
+ 
+  
+  
+ 
+  
+   
+  
+   
+ 
+   
+  
+   
+ 
+  
+    
+
+11.8 POP is a nondeterministic algorithm, and has a choice about which operator to add to
+the plan at each step and how to resolve each threat. Can you think of any domain-independent
+heuristics for ordering these choices that are likely to improve POP's efficiency? Will they help }
+in Shakey’s world? Are there any additional, domain-dependent heuristics that will improve the
+efficiency still further?
+
+11.9 In this exercise we will consider the monkey-and-bananas problem, in which there is a
+
+monkey in aroom with some bananas hanging out of reach from the ceiling, but a box is available
+that will enable the monkey to reach the bananas if he climbs on it. Initially, the monkey is at
+A, the bananas at B, and the box at C. The monkey and box have height Low, but ifthe monkey
+climbs onto the box he will have height High, the same as the bananas. The actions available
+to the monkey include Go from one place to another, Push an object from one place to another,
+Climb onto an object, and Grasp an object. Grasping results in holding the object if the monkey
+and object are in the same place at the same height.
+
+a. Write down the initial state description in predicate calculus. ;
+b. Write down STRIPS-style definitions of the four actions, providing at least the obvious
+preconditions. 3
+c. Suppose the monkey wants to fool the scientists, who are offto tea, by grabbing the bananas
+but leaving the box in its original place. Write this as a general goal (i.e., not assuming the
+box is necessarily at C) in the language of situation calculus. Can this goal be solved by a
+STRIPS-style system?
+d. Your axiom for pushing is probably incorrect, because ifthe object is too heavy, its position
+will remain the same when the Push operator is applied. Is this an example of the frame
+problem or the qualification problem?
+

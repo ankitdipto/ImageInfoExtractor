@@ -1,0 +1,30 @@
+34.4 NP-completeness proofs 1083
+
+ 
+
+Figure 34.11 The tree corresponding to the formula @ = ((%1 > x2) V7((7¥ 1 X3)VX4)) ATX2-
+
+Mimicking the reduction in the proof of Theorem 34.9, we introduce a vari-
+able y; for the output of each internal node. Then, we rewrite the original for-
+mula ¢ as the AND of the root variable and a conjunction of clauses describing the
+operation of each node. For the formula (34.3), the resulting expression is
+
+g = yA (1S (2 AX)
+A (Yo (3 V ya))
+A (3 <> (%1 > X2))
+A (Y4 < 7Ys)
+A (Ys (Yo V X4))
+A (Yo <> (7X1 <> x3).
+
+Observe that the formula ¢’ thus obtained is a conjunction of clauses /, each of
+which has at most 3 literals. The only requirement that we might fail to meet is
+that each clause has to be an OR of 3 literals.
+
+The second step of the reduction converts each clause ¢/ into conjunctive normal
+form. We construct a truth table for ¢/ by evaluating all possible assignments to
+its variables. Each row of the truth table consists of a possible assignment of the
+variables of the clause, together with the value of the clause under that assignment.
+Using the truth-table entries that evaluate to 0, we build a formula in disjunctive
+normal form (or DNF)—an OR of ANDs—that is equivalent to —¢/. We then
+negate this formula and convert it into a CNF formula ¢/ by using DeMorgan’s
+

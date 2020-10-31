@@ -1,0 +1,110 @@
+ 
+
+Section 9.6. Resolution: A Complete Inference Procedure 279
+Conjunctive Normal Form Implicative Normal Form
+=P(w) V Ot) Pow) > Q0w)
+P(x) V RX) True > P(x) VRQ) 41)
+=O) V SY) AW) => Sy)
+aR(z)V S(z) : R(z) => S(z)
+
+ 
+
+The two forms are notational variants of each other, and as we will see on page 281, any set
+of sentences can be translated to either form. Historically, conjunctive normal form is more
+common, but we will use implicative normal form, because we find it more natural.
+
+It is important to recognize that resolution is a generalization ofmodus ponens. Clearly,
+the implicative normal form is more general than Horn form, because the right-hand side can be a
+disjunction, not just a single atom. But at first glance it seems that Modus Ponens has the ability
+to combine atoms with an implication to infer a conclusion in a way that resolution cannot do.
+This is just an illusion—once we realize that an atomic sentence “ in implicative normal form is
+written as True = a, we can see that modus ponens is just a special case of resolution:
+
+aaa 3
+ft
+
+Even though True =+ « is the "correct" way to write an atomic sentence in implicative normal
+form, we will sometimes write 4 as an abbreviation.
+
+Tre > a a> 3
+
+equivalent to
+aseq True => 3
+
+Resolution proofs
+
+One could use resolution in a forward- or backward-chaining algorithm, just as Modus Ponens is
+used. Figure 9.5 shows a three-step resolution proof of S(4) from the KB in (9.41).
+
+ 
+
+ 
+
+ 
+
+Pow) = Ow] — | Oy) * Su)
+
+ 
+
+ 
+
+ 
+
+{yw}
+
+ 
+
+P(w) => S(w) True > P(x) VR(x)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+[w/s}
+
+ 
+
+True -> S(x) VR(x) Riz) > Slz)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+{x/A, SA}
+
+ 
+
+True => S(A)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 9.5 A proof that 5(A) follows from the KB in (9.41), using resolution. Each “vee” in
+the proof tree represents a resolution step: the two sentences at the top are the premises, and the
+one at the bottom is the conclusion or resolvent. The substitution is shown for each resolution.
+
+ 
+
+ 
+
+ 
+

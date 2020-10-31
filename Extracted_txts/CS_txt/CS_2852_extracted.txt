@@ -1,0 +1,45 @@
+15.4 Longest common subsequence 391
+
+bases, where the possible bases are adenine, guanine, cytosine, and thymine.
+Representing each of these bases by its initial letter, we can express a strand
+of DNA as a string over the finite set {A,C,G,T}. (See Appendix C for
+the definition of a string.) For example, the DNA of one organism may be
+S| = ACCGGTCGAGTGCGCGGAAGCCGGCCGAA, and the DNA of another organ-
+ism may be S, = GTCGTTCGGAATGCCGTTGCTCTGTAAA. One reason to com-
+pare two strands of DNA is to determine how “similar” the two strands are, as some
+measure of how closely related the two organisms are. We can, and do, define sim-
+ilarity in many different ways. For example, we can say that two DNA strands are
+similar if one is a substring of the other. (Chapter 32 explores algorithms to solve
+this problem.) In our example, neither S; nor S3 is a substring of the other. Alter-
+natively, we could say that two strands are similar if the number of changes needed
+to turn one into the other is small. (Problem 15-5 looks at this notion.) Yet another
+way to measure the similarity of strands S, and S, is by finding a third strand S;
+in which the bases in S3 appear in each of S; and S,; these bases must appear
+in the same order, but not necessarily consecutively. The longer the strand S3 we
+can find, the more similar S; and S, are. In our example, the longest strand S3 is
+GTCGTCGGAAGCCGGCCGAA.
+
+We formalize this last notion of similarity as the longest-common-subsequence
+problem. A subsequence of a given sequence is just the given sequence with zero or
+
+more elements left out. Formally, given a sequence X = (X1,X2,..-, Xm), another
+sequence Z = (Z1, Z2...-. Zk) is a subsequence of X if there exists a strictly
+increasing sequence (i, .i2.....i,) of indices of X such that forall 7 = 1,2..... k,
+
+we have x;, = Z;. For example, Z = (B,C, D, B) is a subsequence of X =
+(A, B,C, B, D, A, B) with corresponding index sequence (2,3, 5,7).
+
+Given two sequences X and Y, we say that a sequence Z is a common sub-
+sequence of X and Y if Z is a subsequence of both X and Y. For example, if
+X = (A,B,C, B,D,A,B) and Y = (B, D.C, A, B, A), the sequence (B,C, A) is
+a common subsequence of both X and Y. The sequence (B,C, A) is not a longest
+common subsequence (LCS) of X and Y, however, since it has length 3 and the
+sequence (B,C, B, A), which is also common to both X and Y, has length 4. The
+sequence (B, C, B, A) is an LCS of X and Y, as is the sequence (B, D, A, B),
+since X and Y have no common subsequence of length 5 or greater.
+
+In the longest-common-subsequence problem, we are given two sequences
+X = (X1.X2.-.-, Xm) and Y = (yy, y2..--, Yn) and wish to find a maximum-
+length common subsequence of X and Y. This section shows how to efficiently
+solve the LCS problem using dynamic programming.
+

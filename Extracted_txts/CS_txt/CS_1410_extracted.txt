@@ -1,0 +1,42 @@
+Chapter 19: Interaction With Hardware 659
+
+ 
+
+#ps-A
+
+Here the switch —A indicates that we want to list all the running
+processes.
+
+More Processes
+
+Suppose we want to execute a program on the disk as part of a
+child process. For this first we should create a child process using
+fork( ) and then from within the child process we should call an
+exec function to execute the program on the disk as part of a child
+process. Note that there is a family of exec library functions, each
+basically does the same job but with a minor variation. For
+example, execl( ) function permits us to pass a list of command
+line arguments to the program to be executed. execv( ) also does
+the same job as execl( ) except that the command line arguments
+can be passed to it in the form of an array of pointers to strings.
+There also exist other variations like execle( ) and execvp( ).
+
+Let us now see a program that uses execl( ) to run a new program
+in the child process.
+
+# include <unistd.h>
+int main()
+
+int pid ;
+
+pid = fork() ;
+
+if (pid == 0)
+
+{
+execl (“/bin/Is","-al", "/etc", NULL ) ;
+printf ( "Child: After exec()\n") ;
+
+else
+printf ( "Parent process\n" ) ;
+

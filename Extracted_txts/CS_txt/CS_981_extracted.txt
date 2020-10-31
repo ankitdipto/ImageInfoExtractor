@@ -1,0 +1,48 @@
+Chapter 8: Arrays 299
+
+ 
+
+9016
+
+1234
+5678
+9016
+
+1234
+5678
+9016
+
+In the display() function we have collected the base address of the
+2-D array being passed to it in an ordinary int pointer. Then
+through the two for loops using the expression * (q +i* col+j)
+we have reached the appropriate element in the array. Suppose i is
+equal to 2 and j is equal to 3, then we wish to reach the element
+a[2][3]. Let us see whether the expression * (q +i* col +j ) does
+give this element or not. Refer Figure 8.7 to understand this.
+
+ 
+
+ 
+
+1 31 4 5 | 6 7| 8 9 0 1 6
+65502 ...04 ...06 ...08 ...10 ...12 ...14...16 ...18 ...20 ...22 ...24
+
+ 
+
+ 
+
+ 
+
+Figure 8.7
+
+The expression * (q +i * col +j ) becomes * ( 65502 +2 * 4 +3).
+This turns out to be * (65502 + 11 ). Since 65502 is address of an
+integer, * ( 65502 + 11 ) turns out to be * (65524). Value at this
+address is 6. This is indeed same as a[2][3]. A more general
+formula for accessing each array element would be:
+
+“(base address + row no. * no. of columns + column no. )
+
+In the show( ) function we have defined q to be a pointer to an
+array of 4 integers through the declaration:
+

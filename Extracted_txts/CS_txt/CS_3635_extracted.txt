@@ -1,0 +1,52 @@
+594
+
+Chapter 22. Elementary Graph Algorithms
+
+ 
+
+22.2 Breadth-first search
+
+Breadth-first search is one of the simplest algorithms for searching a graph and
+the archetype for many important graph algorithms. Prim’s minimum-spanning-
+tree algorithm (Section 23.2) and Dijkstra’s single-source shortest-paths algorithm
+(Section 24.3) use ideas similar to those in breadth-first search.
+
+Given a graph G = (V, £) and a distinguished source vertex s, breadth-first
+search systematically explores the edges of G to “discover” every vertex that is
+reachable from s. It computes the distance (smallest number of edges) from s
+to each reachable vertex. It also produces a “breadth-first tree” with root s that
+contains all reachable vertices. For any vertex v reachable from s, the simple path
+in the breadth-first tree from s to v corresponds to a “shortest path” from s to v
+in G, that is, a path containing the smallest number of edges. The algorithm works
+on both directed and undirected graphs.
+
+Breadth-first search is so named because it expands the frontier between discov-
+ered and undiscovered vertices uniformly across the breadth of the frontier. That
+is, the algorithm discovers all vertices at distance k from s before discovering any
+vertices at distance k + 1.
+
+To keep track of progress, breadth-first search colors each vertex white, gray, or
+black. All vertices start out white and may later become gray and then black. A
+vertex is discovered the first time it is encountered during the search, at which time
+it becomes nonwhite. Gray and black vertices, therefore, have been discovered, but
+breadth-first search distinguishes between them to ensure that the search proceeds
+in a breadth-first manner.’ If (u,v) € E and vertex wu is black, then vertex v
+is either gray or black; that is, all vertices adjacent to black vertices have been
+discovered. Gray vertices may have some adjacent white vertices; they represent
+the frontier between discovered and undiscovered vertices.
+
+Breadth-first search constructs a breadth-first tree, initially containing only its
+root, which is the source vertex 5. Whenever the search discovers a white vertex v
+in the course of scanning the adjacency list of an already discovered vertex u, the
+vertex v and the edge (u, v) are added to the tree. We say that u is the predecessor
+or parent of v in the breadth-first tree. Since a vertex is discovered at most once, it
+has at most one parent. Ancestor and descendant relationships in the breadth-first
+tree are defined relative to the root s as usual: if u is on the simple path in the tree
+from the root 5 to vertex v, then w is an ancestor of v and v is a descendant of u.
+
+ 
+
+1 We distinguish between gray and black vertices to help us understand how breadth-first search op-
+erates, In fact, as Exercise 22.2-3 shows, we would get the same result even if we did not distinguish
+between gray and black vertices.
+

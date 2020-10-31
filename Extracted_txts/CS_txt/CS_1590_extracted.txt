@@ -1,0 +1,46 @@
+4.3 Operations on Processes 103
+
+diagrammed in Figure 4.6, removes processes from memory (and from active
+contention for the CPU), and thus reduces the degree of multiprogramming. At
+some later time, the process can be reintroduced into memory and its execution
+can be continued where it left off. This scheme is called swapping. The pro-
+cess is swapped out, and is later swapped in, by the medium-term scheduler.
+Swapping may be necessary to improve the process mix, or because a change in
+memory requirements has overcommitted available memory, requiring mem-
+ory to be freed up. Swapping is discussed in Chapter 9.
+
+4.2.3 Context Switch
+
+Switching the CPU to another process requires saving the state of the old process
+and loading the saved state for the new process. This task is known as a
+context switch. The context of a process is represented in the PCB of a process;
+it includes the value of the CPU registers, the process state (Figure 4.1), and
+memory-management information. When a context switch occurs, the kernel
+saves the context of the old process in its PCB and loads the saved context of the
+new process scheduled to run. Context-switch time is pure overhead, because
+the system does no useful work while switching. Its speed varies from machine
+to machine, depending on the memory speed, the number of registers that must
+be copied, and the existence of special instructions (such as a single instruction
+to load or store all registers). Typical speeds range from 1 to 1000 microseconds.
+
+Context-switch times are highly dependent on hardware support. For
+instance, some processors (such as the Sun UltraSPARC) provide multiple sets of
+registers. A context switch simply includes changing the pointer to the current
+register set. Of course, if active processes exceed register sets, the system resorts
+to copying register data to and from memory, as before. Also, the more complex
+the operating system, the more work must be done during a context switch.
+As we will see in Chapter 9, advanced memory-management techniques may
+require extra data to be switched with each context. For instance, the address
+space of the current process must be preserved as the space of the next task is
+prepared for use. How the address space is preserved, and what amount of
+work is needed to preserve it, depend on the memory-management method
+of the operating system. As we will see in Chapter 5, context switching
+has become such a performance bottleneck that programmers are using new
+structures (threads) to avoid it whenever possible.
+
+4.3m Operations on Processes
+
+The processes in the system can execute concurrently, and they must be cre-
+ated and deleted dynamically. Thus, the operating system must provide a
+mechanism (or facility) for process creation and termination.
+

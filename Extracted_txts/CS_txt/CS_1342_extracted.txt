@@ -1,0 +1,43 @@
+Chapter 18: Graphics Under Windows 603
+
+ 
+
+(d) The drawing objects that an application explicitly creates can
+be shared within DCs of the same application, but is never
+shared between different applications.
+
+(e) Two different applications would need two different DCs
+even though both would be used to draw to the same screen.
+In other words with one screen multiple DCs can exist.
+
+(f) A common Device Driver would serve the drawing requests
+coming from different applications. (Truly speaking the
+request comes from GDI functions that our application calls).
+
+Screen and printer DC is OK, but what purpose would a memory
+DC serve? Well, that is what the next program would explain.
+
+Displaying a Bitmap
+
+We are familiar with drawing normal shapes on screen using a
+device context. How about drawing images on the screen?
+Windows does not permit displaying a bitmap image directly using
+a screen DC. This is because there might be color variations in the
+screen on which the bitmap was created and the screen on which it
+is being displayed. To account for such possibilities while
+displaying a bitmap Windows uses a different mechanism—a
+“Memory DC’
+
+The way anything drawn using a screen DC goes to screen,
+anything drawn using a printer DC goes to a printer, similarly
+anything drawn using a memory DC goes to memory (RAM). But
+where in RAM—in the 1 x 1 pixel bitmap whose handle is present
+im memory DC. (Note that this handle was of little use In case of
+screen/printer DC). Thus if we attempt to draw a line using a
+memory DC it would end up on the 1 x 1 pixel bitmap. You would
+agree 1 x 1 is too small a place to draw even a small line. Hence
+we need to expand the size and color capability of this bitmap.
+How can this be done? Simple, just replace the handle of the 1 x 1
+bitmap with the handle of a bigger and colored bitmap object. This
+is shown in Figure 18.7.
+

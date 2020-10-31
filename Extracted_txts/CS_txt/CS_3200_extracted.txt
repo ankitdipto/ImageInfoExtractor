@@ -1,0 +1,41 @@
+562
+
+Chapter 18. Learning from Observations
+
+ 
+
+attribute, but to weight each value according to its frequency among all ofthe examples that
+reach that node in the decision tree. The classification algorithm should follow all branches
+at any node for which a value is missing, and should multiply the weights along each path.
+Write a modified classification algorithm for decision trees that has this behavior.
+
+b. Now modify the information gain calculation so that in any given collection of examples C
+at a given node in the tree during the construction process, the examples with missing values
+for any of the remaining attributes are given “as—if” values according to the frequencies of
+those values in the set C.
+
+18.12 In the chapter, we noted that attributes with many different possible values can cause
+problems with the gain measure. Such attributes tend to split the examples into many small classes
+or even singleton classes, thereby appearing to be highly relevant according to the gain measure.
+The gain ratio criterion selects attributes according to the ratio between their gain and their
+intrinsic information content, that is, the amount of information contained in the answer to the
+question, "What is the value of this attribute?" The gain ratio criterion therefore tries to measure
+how efficiently an attribute provides information on the correct classification of an example.
+Write a mathematical expression for the information content of an attribute, and implement the
+gain ratio criterion in DECISION-TREE-LEARNING.
+
+1813 In this exercise, we will consider the expressiveness of decision lists, as defined in
+Section 18.6.
+
+a. Show that ifthe tests can be of any size, decision lists can represent any Boolean function.
+
+b. Show that if the tests can contain at most k literals each, then decision lists can represent
+any function that can be represented by a decision tree of depth k.
+
+18.14 We have shown how a learning element can improve the performance element. What if
+we wanted to improve the learning element (or the critic or the problem generator)? Give some
+examples of this kind of improvement in the taxi domain. Is it possible to represent this kind of
+learning with our general model of learning agents? How?
+
+ 
+

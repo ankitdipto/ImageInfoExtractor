@@ -1,0 +1,45 @@
+424 Let Us C
+
+ 
+
+Here is a sample run...
+
+Number of characters = 125
+Number of blanks = 25
+Number of tabs = 13
+Number of lines = 22
+
+The above statistics are true for a file “PR1.C”, which I had on my
+disk. You may give any other filename and obtain different results.
+I believe the program is self-explanatory.
+
+In this program too we have opened the file for reading and then
+read it character by character. Let us now try a program that needs
+to open a file for writing.
+
+A File-copy Program
+
+We have already used the function fgete( ) which reads characters
+from a file. Its counterpart is a function called fpute( ) which
+writes characters to a file. As a practical use of these character I/O
+functions we can copy the contents of one file into another, as
+demonstrated in the following program. This program takes the
+contents of a file and copies them into another file, character by
+character.
+
+#include "stdio.h"
+
+main()
+
+{
+FILE “fs, “ft;
+char ch;
+
+fs = fopen("pri.c’,"t") ;
+
+if (fs == NULL)
+
+{
+puts ( "Cannot open source file” ) ;
+exit() ;
+

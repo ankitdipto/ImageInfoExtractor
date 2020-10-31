@@ -1,0 +1,78 @@
+Section 4.2
+
+Heuristic Functions 105
+
+ 
+
+Most.
+CONSTRAINED-
+VARIABLE
+
+8
+2
+
+INING-
+
+$92
+
+AR
+
+£
+
+Ee
+
+ae
+
+IAINING-
+
+Ee
+
+fa
+
+To illustrate the basic idea, we will use the map-coloring problem shown in Figure 4.9.
+(The idea of map coloring is to avoid coloring adjacent countries with the same color.) Suppose
+that we can use at most three colors (red, green, and blue), and that we have chosen green for
+country A andred for country B. Intuitively, it seems obvious that we should colorE next, because
+the only possible color for E is blue. All the other countries have a choice of colors, and we
+might make the wrong choice and have to backtrack. In fact, once we have colored E blue, then
+we are forced to color C red and F green. After that, coloring D either blue or red results in a
+solution. In other words, we have solved the problem with no search at all.
+
+Figure 4.9 A map-coloring problem after the first two variables (A and B) have been selected.
+Which country should we color next?
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+This intuitive idea is called the most-constrained-variable heuristic. It is used with
+forward checking (see Section 3.7), which keeps track of which values are still allowed for each
+variable, given the choices made so far. At each point in the search, the variable with thefewest
+possible values is chosen to have a value assigned. In this way, the branching factor in the search
+tends to be minimized. For example, when this heuristic is used in solving n-queens problems,
+the feasible problem size is increased from around 30 for forward checking to approximately
+100. The most-constraining-variable heuristic is similarly effective. It attempts to reduce the
+branching factor on future choices by assigning a value to the variable that is involved in the
+largest number of constraints on other unassigned variables.
+
+Once a variable has been selected, we still need to choose a value for it. Suppose that
+we decide to assign a value to country C after A and B. One's intuition is that red is a better
+choice than blue, because it leaves more freedom for future choices. This intuition is the
+Jeast-constraining-value heuristic—choose a value that rules out the smallest number of values
+in variables connected to the current variable by constraints. When applied to the n-queens
+problem, it allows problems up to n=1000 to be solved.
+
+ 
+
+ 
+
+ 
+

@@ -1,0 +1,52 @@
+12.4 Allocation Methods 425
+
+can be used to satisfy a request. The size of a file does not need to be declared
+when that file is created. A file can continue to grow as long as free blocks are
+available. Consequently, it is never necessary to compact disk space.
+
+Linked allocation does have disadvantages, however. The major problem
+is that it can be used effectively only for sequential-access files. To find the ith
+block of a file, we must start at the beginning of that file, and follow the pointers
+until we get to the ith block. Each access to a pointer requires a disk read, and
+sometimes a disk seek. Consequently, it is inefficient to support a direct-access
+capability for linked allocation files.
+
+Another disadvantage to linked allocation is the space required for the
+pointers. If a pointer requires 4 bytes out of a 512-byte block, then 0.78 percent
+of the disk is being used for pointers, rather than for information. Each file
+requires slightly more space than it would otherwise.
+
+The usual solution to this problem is to collect blocks into multiples, called
+clusters, and to allocate the clusters rather than blocks. For instance, the file
+system may define a cluster as 4 blocks, and operate on the disk in only cluster
+units. Pointers then use a much smaller percentage of the file’s disk space.
+This method allows the logical-to-physical block mapping to remain simple,
+but improves disk throughput (fewer disk head seeks) and decreases the space
+needed for block allocation and free-list management. The cost of this approach
+is an increase in internal fragmentation, because more space is wasted if a
+cluster is partially full than when a block is partially full. Clusters can be used
+to improve the disk-access time for many other algorithms, so they are used in
+most operating systems.
+
+Yet another problem of linked allocation is reliability. Since the files are
+linked together by pointers scattered all over the disk, consider what would
+happen if a pointer were lost or damaged. A bug in the operating-system
+software or a disk hardware failure might result in picking up the wrong
+pointer. This error could result in linking into the free-space list or into another
+file. Partial solutions are to use doubly linked lists or to store the file name and
+relative block number in each block; however, these schemes require even more
+overhead for each file.
+
+An important variation on the linked allocation method is the use of a file-
+allocation table (FAT). This simple but efficient method of disk-space allocation
+is used by the MS-DOS and OS/2 operating systems. A section of disk at the
+beginning of each partition is set aside to contain the table. The table has one
+entry for each disk block, and is indexed by block number. The FAT is used
+much as is a linked list. The directory entry contains the block number of
+the first block of the file. The table entry indexed by that block number then
+contains the block number of the next block in the file. This chain continues
+until the last block, which has a special end-of-file value as the table entry.
+Unused blocks are indicated by a 0 table value. Allocating a new block to a
+file is a simple matter of finding the first 0-valued table entry, and replacing
+the previous end-of-file value with the address of the new block. The 0 is then
+

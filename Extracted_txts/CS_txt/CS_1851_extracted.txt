@@ -1,0 +1,51 @@
+318  Chapter10 Virtual Memory
+
+can help to ease this restriction, but they generally require special precautions
+and extra work by the programmer. This restriction seems both necessary and
+reasonable, but it is also unfortunate, since it limits the size of a program to the
+size of physical memory.
+
+In fact, an examination of real programs shows us that, in many cases, the
+entire program is not needed. For instance,
+
+Programs often have code to handle unusual error conditions. Since these
+errors seldom, if ever, occur in practice, this code is almost never executed.
+
+Arrays, lists, and tables are often allocated more memory than they actually
+need. An array may be declared 100 by 100 elements, even though it is
+seldom larger than 10 by 10 elements. An assembler symbol table may
+have room for 3,000 symbols, although the average program has less than
+200 symbols.
+
+Certain options and features of a program may be used rarely. For instance,
+the routines on U.S. government computers that balance the budget have
+only recently been used.
+
+Even in those cases where the entire program is needed, it may not all be
+needed at the same time (such is the case with overlays, for example).
+
+The ability to execute a program that is only partially in memory would
+confer many benefits:
+
+« A program would no longer be constrained by the amount of physical
+memory that is available. Users would be able to write programs for an
+extremely large virtual-address space, simplifying the programming task.
+
+e Because each user program could take less physical memory, more pro-
+grams could be run at the same time, with a corresponding increase in
+CPU utilization and throughput, but with no increase in response time or
+turnaround time.
+
+¢ Less I/O would be needed to load or swap each user program into memory,
+so each user program would run faster.
+
+Thus, running a program that is not entirely in memory would benefit both
+the system and the user.
+
+Virtual memory is the separation of user logical memory from physical
+memory. This separation allows an extremely large virtual memory to be pro-
+vided for programmers when only a smaller physical memory is available (Fig-
+ure 10.1). Virtual memory makes the task of programming much easier, because
+the programmer no longer needs to worry about the amount of physical mem-
+ory available, or about what code can be placed in overlays; she can concentrate
+

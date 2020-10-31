@@ -1,0 +1,43 @@
+Chapter 12: File Input/Output 433
+
+ 
+
+Let us now write a program that reads the employee records
+created by the above program. Here is how it can be done...
+
+I" Read records from a file using structure */
+#include "stdio.h"
+
+main()
+
+{
+FILE “fp;
+struct emp
+
+char name[40] ;
+int age ;
+float bs ;
+
+hi
+
+struct emp e;
+
+fp = fopen ("EMPLOYEE.DAT", "") ;
+if (fp == NULL)
+{
+puts ("Cannot open file” ) ;
+exit() ;
+}
+
+while (fscanf ( fp, "%s %d %f", e.name, &e.age, &e.bs ) != EOF )
+printf ( "\n%s %d %f", e.name, e.age, e.bs ) ;
+
+fclose (fp) ;
+}
+
+And here is the output of the program...
+
+Sunil 34 1250.500000
+Sameer 21 1300.500000
+Rahul 34 1400.500000
+

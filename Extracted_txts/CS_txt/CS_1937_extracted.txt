@@ -1,0 +1,50 @@
+11.3. Directory Structure 389
+
+two approaches can be taken. Some systems, such as MS-DOS, will not delete a
+directory unless it is empty. Thus, to delete a directory, the user must first delete
+all the files in that directory. If any subdirectories exist, this procedure must be
+applied recursively to them, so that they can be deleted also. This approach
+may result in a substantial amount of work.
+
+An alternative approach, such as that taken by the UNIX rm command, is
+to provide the option that, when a request is made to delete a directory, all that
+directory’s files and subdirectories are also to be deleted. Either approach is
+fairly easy to implement; the choice is one of policy. The latter policy is more
+convenient, but more dangerous, because an entire directory structure may be
+removed with one command. If that command were issued in error, a large
+number of files and directories would need to be restored from backup tapes.
+
+With a tree-structured directory system, users can access, in addition to
+their files, the files of other users. For example, user B can access files of user
+A by specifying their path names. User B can specify either an absolute or a
+relative path name. Alternatively, user B could change her current directory to
+be user A’s directory, and access the files by their file names. Some systems also
+allow users to define their own search paths. In this case, user B could define
+her search path to be (1) her local directory, (2) the system file directory, and (3)
+user A’s directory, in that order. As long as the name of a file of user A did not
+conflict with the name of a local file or system file, it could be referred to simply
+by its name.
+
+A path to a file in a tree-structured directory can be longer than that in
+a two-level directory. To allow users to access programs without having to
+remember these long paths, the Macintosh operating system automates the
+search for executable programs. It maintains a file, called the Desktop File,
+containing the name and location of all executable programs it has seen. When
+a new hard disk or floppy disk is added to the system, or the network is
+accessed, the operating system traverses the directory structure, searching for
+executable programs on the device and recording the pertinent information.
+This mechanism supports the double-click execution functionality described
+previously. A double-click on a file causes its creator attribute to be read,
+and the Desktop File to be searched for a match. Once the match is found, the
+appropriate executable program is started with the clicked-on file as its input.
+The Microsoft Windows family of operating systems (95, 95, NT, 2000) maintains
+an extended two-level directory structure, with devices and partitions assigned
+a drive letter (Section 11.4).
+
+11.3.4 Acyclic-Graph Directories
+
+Consider two programmers who are working on a joint project. The files asso-
+ciated with that project can be stored in a subdirectory, separating them from
+other projects and files of the two programmers. But since both programmers
+are equally responsible for the project, both want the subdirectory to be in
+

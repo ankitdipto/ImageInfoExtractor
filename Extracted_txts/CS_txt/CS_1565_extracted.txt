@@ -1,0 +1,51 @@
+pop
+
+SECTION #3 Stack Organization 249.
+
+If (SP = 0) then (FULL <1) Check if stackis full
+EMTY<0 Mark the stack not empty
+
+The stack pointer is incremented so that it points to the address of the
+nexthigher word. A memory write operation inserts the word from DR into
+the top of the stack. Note that SP holds the address of the top of the stack and
+that M[SP] denotes the memory word specified by the address presently
+available in SP. The first item stored in the stack is at address 1. The last item
+is stored at address 0. If SP reaches 0, the stack is full of items, so FULL is set
+to 1. This condition is reached if the top item prior to the last push was in
+location63 and, after incrementing SP, the last item is stored in location 0. Once
+an item is stored in location 0, there are no more empty registers in the stack.
+Ifan itemis written in the stack, obviously the stack cannot be empty, so EMTY
+is cleared to 0.
+
+‘A new item is deleted from the stack if the stack is not empty (if
+EMTY = 0). The pop operation consists of the following sequence of micro-
+operations:
+
+DR—M{SP] Read item from the top of stack
+SP—SP -1 Decrement stack pointer
+
+If (SP = 0) then (EMTY 1) _ Check if stack is empty
+FULL<0 Mark the stack not full
+
+‘The top item is read from the stack into DR. The stack pointer is then
+decremented. If its value reaches zero, the stack is empty, so EMTY is set to
+1. This condition is reached if the item read was in location 1. Once this item
+isread out, SPisdecremented andreaches thevalue0, whichis the initial value
+of SP. Note that if a pop operation reads the item from location Oand then SP
+is decremented, SP changes to 111111, which is equivalent to decimal 63. In
+this configuration, the word in address 0 receives the last item in the stack.
+Note also that an erroneous operation will result if the stack is pushed when
+FULL = 1 or popped when EMTY = 1
+
+ 
+
+Memory Stack
+
+‘Asstack can exist as. stand-alone unit as in Fig, 8-3 or can be implemented in
+a random-access memory attached toa CPU. The implementation of a stack
+in the CPU is done by assigning a portion of memory to a stack operation and
+using a processor register as a stack pointer. Figure 8-4 shows a portion of
+computer memory partitioned into three segments: program, data, and stack.
+The program counter PC points at the address of the next instruction in the
+program. The address register AR points at an array of data. The stack pointer
+

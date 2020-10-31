@@ -1,0 +1,52 @@
+ 
+
+528 Chapter 14 Mass-Storage Structure
+
+removable cartridge is a combination of a drive name and a file name within
+that drive. This convention is simpler but potentially more confusing than is
+using a name that identifies a specific cartridge.
+
+For tapes, the operating system generally just provides a raw interface.
+Many operating systems have no built-in support for jukeboxes. Jukebox
+support can be provided by a device driver or by a privileged application
+designed for backups or for HSM.
+
+Three important aspects of performance are bandwidth, latency, and relia-
+bility. A wide variety of bandwidths is available for both disks and tapes, but
+the random-access latency for a tape is generally much slower than that for a
+disk. Switching cartridges in a jukebox is also relatively slow. Because a jukebox
+has a low ratio of drives to cartridges, reading a large fraction of the data ina
+jukebox can take a long time. Optical media, which protect the sensitive layer
+by a transparent coating, are generally more robust than magnetic media, which
+expose the magnetic material to a greater possibility of physical damage.
+
+= Exercises
+14.1 None of the disk-scheduling disciplines, except FCFS, are truly fair (star-
+vation may occur).
+a. Explain why this assertion is true.
+
+b. Describe a way to modify algorithms such as SCAN to ensure fair-
+ness.
+
+c. Explain why fairness is an important goal in a time-sharing system.
+
+d. Give three or more examples of circumstances in which it is impor-
+tant that the operating system be unfair in serving I/O requests.
+
+14.2 Suppose that a disk drive has 5,000 cylinders, numbered 0 to 4999. The
+drive is currently serving a request at cylinder 143, and the previous
+request was at cylinder 125. The queue of pending requests, in FIFO
+order, is
+
+86, 1470, 913, 1774, 948, 1509, 1022, 1750, 130.
+
+Starting from the current head position, what is the total distance (in
+cylinders) that the disk arm moves to satisfy all the pending requests
+for each of the following disk-scheduling algorithms?
+
+a. FCFS
+b. SSTF
+c. SCAN
+
+ 
+

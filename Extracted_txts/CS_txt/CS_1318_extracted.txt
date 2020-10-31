@@ -1,0 +1,65 @@
+228 — cHATERSEVEN Microprogrammed Control
+
+execution of
+instructions
+
+TABLE 72 Symbolic Microprogram (Partial)
+
+ 
+
+ 
+
+Label Microoperations CD BR AD
+
+ORGO
+
+ADD: NOP I CALL INDRCT
+READ Us IMP—sNEXT
+ADD Us JMP_— FETCH
+ORG 4
+
+BRANCH: NOP S IMP OVER
+NOP U  JMP_— FETCH
+
+OVER: NOP 1 CALL INDRCT
+ARTPC U IMP FETCH
+ORG8
+
+STORE: NOP I CALL INDRCT
+ACTDR Us JMP—ONEXT.
+WRITE Us JMP_—sFETCH
+ORG 12
+
+EXCHANGE: NOP I CALL INDRCT
+READ Us IMP_—sNEXT.
+ACTDR, DRTAC U — JMP_—sNEXT.
+WRITE U JMP_—s FETCH
+ORG 64
+
+FETCH: PCTAR Us IMP-—sNEXT.
+READ, INCPC Us IMP_—sNEXT.
+DRTAR U MAP
+
+INDRCT: READ Us JMP-—sNEXT.
+
+U_— RET
+
+DRTAR
+
+Remember that an indirect address considers the address part of the
+instruction as the address where the effective address is stored rather than the
+address of the operand. Therefore, the memory has to be accessed to get the
+effective address, whichis then transferred to AR. The return from subroutine
+(RET) transfers the address from SBR to CAR, thus returning to the second
+microinstruction of the ADD routine.
+
+The execution of the ADD instruction is carried out by the microinstruc-
+tions at addresses 1 and 2. The first microinstruction reads the operand from
+memory into DR. The second microinstruction performs an add microoper
+tion with the content of DR and AC and then jumps back to the beginning of
+the fetch routine.
+
+‘The BRANCH instruction should cause a branch to the effective address
+
+ 
+

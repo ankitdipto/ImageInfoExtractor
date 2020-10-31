@@ -1,0 +1,68 @@
+section 3.7.
+
+Constraint Satisfaction Search 83
+
+ 
+
+37 CONSTRAINT SATISFACTION SEARCH
+
+CON
+
+sraANT
+SISFACTION
+FRO
+
+   
+
+VARABLES
+‘CONSTRAINTS
+
+DOMAIN
+
+A constraint satisfaction problem (or CSP) is a special kind of problem that satisfies some
+additional structural properties beyond the basic requirements for problems in general. In a CSP,
+the states are defined by the values of a set of variables and the goal test specifies a set of
+constraints that the values must obey. For example, the 8-queens problem can be viewed as a
+CSP in which the variables are the locations of each of the eight queens; the possible values are
+squares on the board; and the constraints state that no two queens can be in the same row, column
+or diagonal. A solution to a CSP specifies values for all the variables such that the constraints
+are satisfied. Cryptarithmetic and VLSI layout can also be described as CSPs (Exercise 3.20).
+Many kinds of design and scheduling problems can be expressed as CSPs, so they form a very
+important subclass. CSPs can be solved by general-purpose search algorithms, but because of
+their special structure, algorithms designed specifically for CSPs generally perform much better.
+
+Constraints come in several varieties. Unary constraints concern the value of a single vari-
+able. Forexample, the variables corresponding to the leftmost digit on any row ofacryptarithmetic
+puzzle are constrained not to have the value 0. Binary constraints relate pairs of variables. The
+constraints in the 8-queens problem are all binary constraints. Higher-order constraints involve
+three or more variables—for example, the columns in the cryptarithmetic problem must obey
+an addition constraint and can involve several variables. Finally, constraints can be absolute
+constraints, violation of which rules out a potential solution, or preference constraints that say
+which solutions are preferred.
+
+Each variable V; in a CSP has a domain D;, which is the set of possible values that the
+variable can take on. The domain can be discrete or continuous. In designing a car, for instance,
+the variables might include component weights (continuous) and component manufacturers (dis-
+crete). A unary constraint specifies the allowable subset of the domain, and a binary constraint
+between two variables specifies the allowable subset of the cross-product of the two domains. In
+discrete CSPs where the domains are finite, constraints can be represented simply by enumerating
+the allowable combinations of values. For example, in the 8-queens problem, let /\ be the row
+that the first queen occupies in the first column, and let V2 be the row occupied by the second
+queen in the second column. The domains of /\ and V2 are {1,2.3,4,5,6,7,8}. The no-attack
+constraint linking V1 and V- can be represented by a set of pairs of allowable values for V\ and
+Vo: {(1,3), (1.4), (1,5),.... (2,4), (2,5),...} and so on. Altogether, the no-attack constraint
+between V/\ and V5 rules out 22 of the 64 possible combinations. Using this idea of enumeration,
+any discrete CSP can be reduced to a binary CSP.
+
+Constraints involving continuous variables cannot be enumerated in this way, and solving
+continuous CSPs involves sophisticated algebra. In this chapter, we will handle only discrete,
+absolute, binary (or unary) constraints. Such constraints are still sufficiently expressive to handle
+a wide variety of problems and to introduce most of the interesting solution methods.
+
+Eet us first consider how we might apply a general-purpose search algorithm to a CSP. The
+initial state will be the state in which all the variables are unassigned. Operators will assign a
+value to a variable from the set of possible values. The goal test will check if all variables are
+assigned and all constraints satisfied. Notice that the maximum depth of the search tree is fixed
+
+ 
+

@@ -1,0 +1,46 @@
+ 
+
+24 PERCEPTION
+
+ 
+
+ 
+
+ 
+
+In which we connect the computer to the raw, unwashed world.
+
+24.1__ INTRODUCTION
+
+Perception provides agents with information about the world they inhabit. Perception is initiated
+SENSORS by sensors. A sensor is anything that can change the computational state of the agent in response
+to achange in the state ofthe world. It could be as simple as a one-bit sensor that detects whether
+a switch is on or off, or as complex as the retina of the human eye, which contains more than a
+hundred million photosensitive elements.
+
+There are a variety of sensory modalities that are available to artificial agents. Those they
+share with humans include vision, hearing, and touch. In this chapter, our focus will be on vision,
+because this is by far the most useful sense for dealing with the physical world. Hearing in the
+context of speech recognition is also covered briefly in Section 24.7. Touch, or tactile sensing,
+is discussed in Chapter 25, where we examine its use in dextrous manipulation by robots
+
+We will not have all that much to say about the design of sensors themselves. The main
+focus will be on the processing of the raw information that they provide. The basic approach
+taken is to first understand how sensory stimuli are created by the world, and then to ask the
+following question: ifsensory stimuli are produced in such and such a way by the world, then
+what must the world have been like to produce this particular stimulus? We can write a crude
+mathematical analogue of this question. Let the sensory stimulus be S, and let W be the world
+(where W will include the agent itself). If the function f describes the way in which the world
+generates sensory stimuli, then we have
+
+S =fW)
+
+Now, our question is: given f and S, what can be said about W? A straightforward approach
+wouldtry to calculate what the world is like by inverting the equation for generating the stimulus:
+
+W=f-'(S)
+
+ 
+
+724
+

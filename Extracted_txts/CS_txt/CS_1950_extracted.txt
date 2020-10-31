@@ -1,0 +1,51 @@
+400 Chapter 11. File-System Interface
+
+the two hosts. This could be due to hardware failure or misconfiguration, or
+networking implementation issues at any of the involved hosts. Although some
+networks have built-in resiliency, including multiple paths between each host,
+many do not. Any single failure could interrupt the flow of DFS commands.
+
+Consider a client in the midst of using a remote file system. It has remote
+file systems mounted and may have files open from the remote host; among
+other activities, it may be performing directory lookups to open files, reading
+or writing data to files, and closing files. Now consider a partitioning of the
+network, a crash of the server, or even a scheduled shutdown of that server,
+such that the remote file system is no longer reachable. This scenario is rather
+common, so it would not be appropriate for the client to act as it would in the
+case of a loss of a local file system.
+
+Rather, the system could either terminate all operations to the lost server,
+or delay operations until the server is again reachable. This failure semantics
+is defined and implemented as part of the remote file system protocol. Termi-
+nation of all operations can result in users losing data, and patience. Most DFS
+protocols either enforce or allow delaying of file-system operations to remote
+hosts, with the hope that the remote host will become available again.
+
+For this kind of recovery from failure, some kind of state information may
+be maintained on both the client and server. If the server has crashed, but
+must recognize that it had exported file systems, remotely mounted them, and
+opened certain files, NFS takes a simple approach, implementing a stateless
+DFS. In essence, it assumes that a client request for a file read or write would not
+have occurred unless the file system had been remotely mounted and the file
+had been previously open. The NFS protocol carries all the information needed
+to locate the appropriate file and perform the requested operation on a file.
+Likewise, it does not track which clients have its exported partitions mounted,
+again assuming that if a request comes it, it must be legitimate. While this
+stateless approach makes NFS resilient and rather easy to implement, it makes
+it unsecure. For example, forged read or write requests could be allowed by an
+NES server even though the requisite mount request and permission check have
+not take place.
+
+11.5.3 Consistency Semantics
+
+Consistency semantics is an important criterion for evaluating any file system
+that supports file sharing. It is a characterization of the system that specifies the
+semantics of multiple users accessing a shared file simultaneously. In particular,
+these semantics should specify when modifications of data by one user are
+observable by other users. The semantics are typically implemented as code
+with the file system.
+
+Consistency semantics are directly related to the process synchronization
+algorithms of Chapter 7. However, the complex algorithms of that chapter tend
+not to be implemented in the case of file I/O because of the great latencies and
+

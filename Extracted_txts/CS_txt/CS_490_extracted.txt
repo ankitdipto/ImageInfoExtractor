@@ -1,0 +1,55 @@
+160 — crarten rive Basic Computer Organization and Design
+
+control unit
+
+are similar to integrated circuit type 74163. The flip-flops can be either of the
+Dork type, as described in Sec. 1-6, The two decoders are standard compo-
+nents similar to the ones presented in Sec. 2-2. The common bus system can
+be constructed with sixteen 8 x 1 multiplexers in a configuration similar to the
+‘one shown in Fig. 4-3. We are now going to show how to design the control
+logic gates. The next section deals with the design of the adder and logiccircuit
+associated with AC.
+
+Control Logic Gates
+
+The block diagram of the control logic gates is shown in Fig. 5-6. The inputs
+
+to this circuit come from the two decoders, the I flip-flop, and bits 0 through
+
+U1 of IR. The other inputs to the control logicare: AC bits 0 through 15 tocheck
+Oand to detect the sign bit in AC(15); DR bits 0 through 15 to check if
+0; and the values of the seven flip-flops.
+
+“The outputs of the control logic circuit are:
+
+ 
+
+1. Signals to control the inputs of the nine registers,
+2. Signals to control the read and write inputs of memory
+3. Signals to set, clear, or complement the flip-flops
+
+4. Signals for S;, 5, and Sq to select a register for the bus
+5. Signals to control the AC adder and logic circuit
+
+The specifications for the various control signals can be obtained directly from
+the list of register transfer statements in Table 5-6.
+
+Control of Registers and Memory
+
+The registers of the computer connected to a common bus system are shown
+in Fig. 5-4. The control inputs of the registers are LD (load), INR (increment),
+and CLR (clear). Suppose that we want toderive the gate structure associated
+with the control inputs of AR. We scan Table5-6 to find all the statements that
+change the content of AR:
+
+RTs AR@PC
+RT: AR <IR(-11)
+
+D3ITy: AR<M[AR]
+RT: ARO
+
+DsT¢ ARCAR +1
+
+The first three statements specify transfer of information from a register
+or memory to AR. The content of the source register or memory is placed on
+

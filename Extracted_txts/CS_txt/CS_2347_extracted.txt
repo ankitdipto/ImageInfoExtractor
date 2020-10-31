@@ -1,0 +1,60 @@
+Section 10.6.
+
+Frame Systems and Semantic Networks 317
+
+ 
+
+is called a semantic network or a logic, has no effect on its meaning or on its implementation.
+
+Having said this, we should also say that the format of a language can have a significant
+effect on its clarity for a human reader. Some things are easier to understand in a graphical
+notation; some are better shown as strings of characters. Fortunately, there is no need to choose
+one or the other; the skilled AI practitioner can translate back and forth between notations,
+choosing the one that is best for the task at hand, but drawing intuitions from other notations.
+Some systems, such as the CYC system mentioned in Chapter 8, provide both kinds of interfaces.
+
+Besides the appeal of pretty node-and-link diagrams, semantic networks have been success-
+ful for the same reason that Prolog is more successful than full first-order logic theorem provers:
+because most semantic network formalisms have a very simple execution model. Programmers
+can build a large network and still have a good idea about what queries will be efficient, because
+(a) it is easy to visualize the steps that the inference procedure will go through, and (b) the query
+language is so simple that difficult queries cannot be posed. This may be the reason why many
+of the pioneering researchers in commonsense ontology felt more comfortable developing their
+theories with the semantic network approach.
+
+ 
+
+Syntax and semantics of semantic networks
+
+Semantic networks concentrate on categories of objects and the relations between them. It is
+very natural to draw the link
+
+Cats Subse’ Mammals
+
+to say that cats are mammals. Ofcourse, it is just as easy to write the logical sentence Cats C
+Mammals, but when semantic networks were first used in AI (around 1961), this was not widely
+appreciated; people thought that in order to use logic they would have to write
+
+Vx Cat(x) = Mammal(x)
+
+which seemed a lot more intimidating. It was also felt that Vx did not allow exceptions, but that
+Subset was somehowmore forgiving.”
+
+We now recognize that semantics is more important than notation. Figure 10.7 gives an
+example of a typical frame-based network, and a translation of the network into first-order logic.
+This network can be used to answer the query "How many legs does Opus have?" by following
+the chain of Member and Subse links from Opus to Penguins to Birds, and seeing that birds have
+two legs. This is an example ofinheritance, as described in Section 8.4. That is clear enough,
+but what happens, when, say, there are two different chains to two different numbers of legs?
+Ironically, semantic networks sometimes lack a clear semantics. Often the user is left to induce
+the semantics ofthe language from the behavior of the program that implements it. Consequently,
+users often think of semantic networks at the implementation level rather than the logical level
+or the knowledge level.
+
+7 In many systems, the name /sA was given to both subset and set-membership links, in correspondence with English
+usage: "a cat is a mammal” and “Fifi is a cat.” This can lead directly to inconsistencies, as pointed out by Drew
+McDermott (1976) in his article " Artificial Intelligence Meets Natural Stupidity.” Some systems also failed to distinguish
+between properties of members of a category and properties of the category as a whole.
+
+ 
+

@@ -1,0 +1,51 @@
+770
+
+Part VII Selected Topics
+
+Chapter 30 studies operations on polynomials and shows how to use a well-
+known signal-processing technique—the fast Fourier transform (FFT)—to multi-
+ply two degree-n polynomials in O(n lgn) time. It also investigates efficient im-
+plementations of the FFT, including a parallel circuit.
+
+Chapter 31 presents number-theoretic algorithms. After reviewing elementary
+number theory, it presents Euclid’s algorithm for computing greatest common di-
+visors. Next, it studies algorithms for solving modular linear equations and for
+raising one number to a power modulo another number. Then, it explores an impor-
+tant application of number-theoretic algorithms: the RSA public-key cryptosystem.
+This cryptosystem can be used not only to encrypt messages so that an adversary
+cannot read them, but also to provide digital signatures. The chapter then presents
+the Miller-Rabin randomized primality test, with which we can find large primes
+efficiently —an essential requirement for the RSA system. Finally, the chapter cov-
+ers Pollard’s “rho” heuristic for factoring integers and discusses the state of the art
+of integer factorization.
+
+Chapter 32 studies the problem of finding all occurrences of a given pattern
+string in a given text string, a problem that arises frequently in text-editing pro-
+grams. After examining the naive approach, the chapter presents an elegant ap-
+proach due to Rabin and Karp. Then, after showing an efficient solution based
+on finite automata, the chapter presents the Knuth-Morris-Pratt algorithm, which
+modifies the automaton-based algorithm to save space by cleverly preprocessing
+the pattern.
+
+Chapter 33 considers a few problems in computational geometry. After dis-
+cussing basic primitives of computational geometry, the chapter shows how to use
+a “sweeping” method to efficiently determine whether a set of line segments con-
+tains any intersections. Two clever algorithms for finding the convex hull of a set of
+points —Graham’s scan and Jarvis’s march—also illustrate the power of sweeping
+methods. The chapter closes with an efficient algorithm for finding the closest pair
+from among a given set of points in the plane.
+
+Chapter 34 concerns NP-complete problems. Many interesting computational
+problems are NP-complete, but no polynomial-time algorithm is known for solving
+any of them. This chapter presents techniques for determining when a problem is
+NP-complete. Several classic problems are proved to be NP-complete: determining
+whether a graph has a hamiltonian cycle, determining whether a boolean formula
+is satisfiable, and determining whether a given set of numbers has a subset that
+adds up to a given target value. The chapter also proves that the famous traveling-
+salesman problem is NP-complete.
+
+Chapter 35 shows how to find approximate solutions to NP-complete problems
+efficiently by using approximation algorithms. For some NP-complete problems,
+approximate solutions that are near optimal are quite easy to produce, but for others
+even the best approximation algorithms known work progressively more poorly as
+

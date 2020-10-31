@@ -1,0 +1,76 @@
+264
+
+Chapter 11 Hash Tables
+
+w bits
+
+ 
+
+k
+
+ 
+
+ 
+
+x s=A-2"
+
+ 
+
+ 
+
+ 
+
+ 
+
+nm To
+
+ 
+
+ 
+
+—~— extract p bits
+h(k)
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11.4 The multiplication method of hashing. The w-bit representation of the key k is multi-
+plied by the w-bit value s = A- 2”. The p highest-order bits of the lower w-bit half of the product
+form the desired hash value h(k).
+
+fractional part of kA. Then, we multiply this value by m and take the floor of the
+result. In short, the hash function is
+
+h(k) = |m (kA mod 1)] ,
+
+where “k A mod 1” means the fractional part of kA, that is, kA — [kA].
+
+An advantage of the multiplication method is that the value of m is not critical.
+We typically choose it to be a power of 2 (m = 2? for some integer p), since we
+can then easily implement the function on most computers as follows. Suppose
+that the word size of the machine is w bits and that k fits into a single word. We
+restrict A to be a fraction of the form s/2”, where s is an integer in the range
+0 <s < 2”. Referring to Figure 11.4, we first multiply k by the w-bit integer
+s = A-2”. The result is a 2w-bit value 7,2” +19, where 1, is the high-order word
+of the product and rg is the low-order word of the product. The desired p-bit hash
+value consists of the p most significant bits of ro.
+
+Although this method works with any value of the constant A, it works better
+with some values than with others. The optimal choice depends on the character-
+istics of the data being hashed. Knuth [211] suggests that
+
+Aw (V5 —1)/2 = 0.6180339887... (11.2)
+
+is likely to work reasonably well.
+
+As an example, suppose we have k = 123456, p = 14,m = 24 = 16384,
+and w = 32. Adapting Knuth’s suggestion, we choose A to be the fraction of the
+form s/2*? that is closest to (5 — 1)/2, so that A = 2654435769/2. Then
+k +s = 327706022297664 = (76300 - 2**) + 17612864, and so r; = 76300
+and ro = 17612864. The 14 most significant bits of ro yield the value h(k) = 67.
+

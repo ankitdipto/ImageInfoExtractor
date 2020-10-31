@@ -1,0 +1,59 @@
+60 carrer Two Digital Components
+
+byte
+
+‘write and
+read operations
+
+bits that move in and out of storage as a unit. A memory word is a group of
+Ys and 0's and may represent a number, an instruction code, one or more
+alphanumeric characters, or any other binary-coded information. A group of
+eight bits is called a byte. Most computer memories use words whose number
+bits is a multiple of 8. Thus a 16-bit word contains two bytes, and a 32-bit
+
+word is made up of four bytes. The capacity of memories in commercial
+computers is usually stated as the total number of bytes that can be stored.
+
+The internal structure of a memory unit is specified by the number of
+words it containsand the number ofbitsin each word. Specialinputlines called
+address lines select one particular word. Each word in memory is assigned an
+identification number, called an address, starting from 0 and continuing with
+1,2, 3, up to 2 — 1 where k is the number of address lines. The selection of
+a specific word inside the memory is done by applying the k-bit binary address
+to the address lines. A decoder inside the memory accepts this address and
+opens the paths needed to select the bits of the specified word. Computer
+memories may range from 1024 words, requiring an address of 10bits, to 2”
+words, requiring32 address bits. Itis customary torefer to the number of words
+(or bytes) ina memory with one of the letters K (kilo), M (mega), o G (giga).
+Kis equal to2"°, Mis equal to 2", and Gis equal to2®. Thus 64K = 2'6,2M = 22,
+and 4G = 2.
+
+‘Two major types of memories are used in computer systems: random-
+access memory (RAM) and read-only memory (ROM).
+
+Random-Access Memory
+
+In random-access memory (RAM) the memory cells can be accessed for infor-
+mation transfer from any desired random location. That is, the process of
+locating a word in memory is the same and requires an equal amount of time
+no matter where the cells are located physically in memory: thus the name
+“random access.”
+
+‘Communication between a memory and its environment is achieved
+through data input and output lines, address selection lines, and control lines
+that specify the direction of transfer. A block diagram of a RAM unit is shown
+in Fig, 2-12. The n data input lines provide the information to be stored in
+memory, and the n data output lines supply the information coming out of
+memory. The k address lines provide a binary number of k bits that specify a
+particular word chosen among the 2 available inside the memory. The two
+control inputs specify the direction of transfer desired.
+
+The two operations that a random-access memory can perform are the
+write and read operations. The write signal specifies a transfer-in operation
+and the read signal specifies a transfer-out operation. On accepting one of
+these control signals, the internal circuits inside the memory provide the
+desired function The steps that must be taken for the purpose of transferring
+a new word to be stored into memory are as follows:
+
+1. Apply the binary address of the desired word into the address lines.
+

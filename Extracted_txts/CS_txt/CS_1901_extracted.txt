@@ -1,0 +1,50 @@
+10.8 Other Considerations 359
+
+the majority of applications, the 8 KB page size is sufficient, although Solaris 2
+maps the first 4 MB of kernel code and data with two 4 MB pages. Solaris 2 also
+allows applications—such as databases—to take advantage of the large 4 MB
+page size as well
+
+However, providing support for multiple pages requires the operating
+system—not hardware—to manage the TLB. For example, one of the fields
+in a TLB entry must indicate the size of the page frame corresponding to the
+TLB entry. Managing the TLB in software and not hardware comes at a cost
+in performance. However, the increased hit ratio and TLB reach offsets the
+performance costs. Indeed, recent trends indicate a move towards software-
+managed TLBs and operating-system support for multiple page sizes. The
+UltraSparc, MIPS, and Alpha architectures employ software-managed TLBs.
+The PowerPC and Pentium manage the TLB in hardware.
+
+10.8.4 Inverted Page Table
+
+In Section 9.4.4.3, the concept of an inverted page table was introduced. The
+purpose of this form of page management was to reduce the amount of physical
+memory that is needed to track virtual-to-physical address translations. We
+accomplish this savings by creating a table that has one entry per physical
+memory page, indexed by the pair <process-id, page-number>.
+
+Because they keep information about which virtual-memory page is stored
+in each physical frame, inverted page tables reduce the amount of physical
+memory needed to store this information. However, the inverted page table
+no longer contains complete information about the logical address space of a
+process, and that information is required if a referenced page is not currently
+in memory. Demand paging requires this information to process page faults.
+For this information to be available, an external page table (one per process)
+must be kept. Each such table looks like the traditional per-process page table,
+containing information on where each virtual page is located.
+
+But do external page tables negate the utility of inverted page tables? Since
+these tables are referenced only when a page fault occurs, they do not need to
+be available quickly. Instead, they are themselves paged in and out of memory
+as necessary. Unfortunately, a page fault may now result in the virtual-memory
+manager causing another page fault as it pages in the external page table it
+needs to locate the virtual page on the backing store. This special case requires
+careful handling in the kernel and a delay in the page-lookup processing.
+
+10.8.5 Program Structure
+
+Demand paging is designed to be transparent to the user program. In many
+cases, the user is completely unaware of the paged nature of memory. In other
+cases, however, system performance can be improved if the user (or compiler)
+has an awareness of the underlying demand paging.
+

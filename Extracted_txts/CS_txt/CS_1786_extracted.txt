@@ -1,0 +1,51 @@
+SECTION 86 Data Transfer ard Manipulation 267
+
+Data Transfer Instructions
+
+Data transfer instructions move data fromone place in the computer to another
+without changing the data content. The most common transfers are between
+memory and processor registers, between processor registers and input or
+output, and between the processor registers themselves. Table 8-5 gives a list
+of eight data transfer instructions used in many computers. Accompanying
+each instruction is a mnemonic symbol. It must be realized that different
+computers use different mnemonics for the same instruction name.
+
+The load instruction has been used mostly to designate a transfer from
+memory toa processor register, usually an accumulator. The store instruction
+designates a transfer from a processor register into memory. The move instruc-
+tion has been used in computers with multiple CPU registers to designate a
+transfer from one register to another. It has also been used for data transfers
+between CPU registers and memory or between two memory words The
+exchange instruction swaps information between two registers or a register and
+amemory word. The input and output instructions transfer data among proces-
+sor registers and input or output terminals. The push and pop instructions
+transfer data between processor registers and a memory stack
+
+It must be realized that the instructions listed in Table 8-5, as well as in
+subsequent ables in this section, are often associated with a variety of address-
+ing modes. Some assembly language conventions modify the mnemonic sym-
+bol to differentiate between the different addressing modes For example, the
+mnemonic for load immediate becomes LDL Other assembly language conven-
+tions use a special character to designate the addressing mode. For example,
+the immediate mode is recognized from a pound sign # placed before the
+operand. In any case, the important thing is to realize that each instruction can
+occur with a variety of addressing modes. As an example, consider the load to
+accumulator instruction when used with eight different addressing modes.
+
+TABLE 8-5 Typical Data Transfer
+
+ 
+
+Instructions
+‘Name Mnemonic
+
+Load LD
+Store sT
+Move Mov
+Exchange xCH
+Input IN
+Output OUT
+Push PUSH
+
+Pop POP
+

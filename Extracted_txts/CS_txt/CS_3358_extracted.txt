@@ -1,0 +1,64 @@
+704
+
+Chapter 23. Practical Natural Language Processing
+
+ 
+
+ICTIONARY LOOKUP
+
+ERROR RECOVERY
+
+ance company employee). Languages such as Finish, Turkish, Inuit, and Yupik have recursive
+morphological rales that can generate an infinite number of infinitely long words.
+
+Dictionary lookup is performed on every token (except for special ones such as punctu-
+ation). It may be more efficient to store morphologically complex words like "walked" in the
+dictionary, or it may be better to do morphological analysis first: a morphological rule applies
+to the input and says that we strip off the “ed” and look up "walk." If we find that it is a verb
+that is not marked as being irregular, then the rule says that "walked" is the past tense of the root
+verb. Either way, the task of dictionary lookup is to find a word in the dictionary and return its
+definition. Thus, any implementation of the table abstract data type can serve as a dictionary.
+Good choices include hash tables, binary trees, b-trees, and tries. The choice depends in part on
+if there is room to fit the dictionary in primary storage, or if it resides in a file.
+
+Error recovery is undertaken when a word is not found in the dictionary. There are at
+least four types of error recovery. First, morphological rules can guess at the word's syntactic
+class: “smarply” is not in the dictionary, but it is probably an adverb. Second, capitalization is a
+clue that a word (or sequence of words) is a proper name. Third, other specialized formats denote
+dates, times, social security numbers, and so forth. These are often domain-dependent
+
+Finally, spelling correction routines can be used to find a word in the dictionary that is
+close to the input word. There are two popular models of "closeness" between words. In the
+letter-based model, an error consists of inserting or deleting a single letter, transposing two
+adjacent letters, or replacing one letter with another. Thus, a 10-letter word is one error away
+from 555 other words: 10 deletions, 9 swaps, 10 x 25 replacements, and 11 x 26 insertions.
+Exercise 23.11 discusses the implications of this for dictionary implementation. This model is
+good for correcting slips of the finger, where one key on the keyboard is hit instead of another.
+
+In the sound-based model, words are translated into a canonical form that preserves most of
+information needed to pronounce the word, but abstracts away some of the details. For example,
+the word "attention" might be translated into the sequence [a,T,a,N,SH,a,N], where "a" stands
+for any vowel. The idea is that words such as “attension” and “‘atennshun” translate to the
+same sequence. If no other word in the dictionary translates to the same sequence, then we can
+unambiguously correct the spelling error. Note that the letter-based approach would workjust as
+well for "attension," but not for "atennshun," which is 5 errors away from "attention."
+
+Practical NLP systems have lexicons with from 10,000to 100,000 root word forms. Build-
+inga lexicon ofthis size is a big investment in time and money, and one that dictionary publishers
+and companies with NLP programs have not been willing to share. An exception is Wordnet, a
+freely available dictionary of roughly 100,000 words produced by a group at Princeton led by
+George Miller. Figure 23.7 gives some of the information on the word "ride" in Wordnet.
+
+As useful as dictionaries like Wordnet are, they do not provide all the lexical information
+you would like. The two missing pieces are frequency information and semantic restrictions.
+Frequency information tells us that the teasing sense of ride is unusual, while the other senses are
+common, or that the female swan sense of "pen" is very rare, while the other senses are common.
+Semantic restrictions tell us that the direct object of the first sense ofride is a horse, camel, or
+similar animal, while the direct object of the second kind is a means of conveyance such as a
+car, bus, skateboard, or airplane. Some frequency information and semantic restrictions can be
+captured with the help of a large corpus of text.
+
+ 
+
+ 
+

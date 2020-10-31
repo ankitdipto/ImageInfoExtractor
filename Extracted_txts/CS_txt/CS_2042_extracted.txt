@@ -1,0 +1,54 @@
+ 
+
+13.5 Transforming I/O to Hardware Operations = 479
+
+system to associate extra functionality with each device. For instance, it is easy
+to invoke spooling on any files written to the printer.
+
+If, instead, the device name space is incorporated in the regular file-system
+name space, as it is in UNIX, the normal file-system name services are provided
+automatically. If the file system provides ownership and access control to all
+file names, then devices have owners and access control. Since files are stored
+on devices, such an interface provides access to the I/O system at two levels.
+Names can be used to access the devices themselves, or to access the files stored
+on the devices.
+
+UNIX represents device names in the regular file-system name space.
+Unlike an MS-DOS file name, which has the colon separator, a UNIX path name
+has no clear separation of the device portion. In fact, no part of the path
+name is the name of a device. UNIX has a mount table that associates pre-
+fixes of path names with specific device names. To resolve a path name, UNIX
+looks up the name in the mount table to find the longest matching prefix; the
+corresponding entry in the mount table gives the device name. This device
+name also has the form of a name in the file-system name space. When UNIX
+looks up this name in the file-system directory structures, instead of finding an
+inode number, UNIX finds a <major, minor> device number. The major device
+number identifies a device driver that should be called to handle I/O to this
+device. The minor device number is passed to the device driver to index into
+a device table. The corresponding device-table entry gives the port address or
+the memory-mapped address of the device controller.
+
+Modern operating systems obtain significant flexibility from the multiple
+stages of lookup tables in the path between a request and a physical device
+controller. The mechanisms that pass requests between applications and drivers
+are general. Thus, we can introduce new devices and drivers into a computer
+without recompiling the kernel. In fact, some operating systems have the ability
+to load device drivers on demand. At boot time, the system first probes the
+hardware buses to determine what devices are present, and then the system
+loads in the necessary drivers, either immediately, or when first required by an
+I/O request.
+
+Now we describe the typical lifecycle of a blocking read request, as depicted
+in Figure 13.10. The figure suggests that an I/O operation requires a great many
+steps that together consume a tremendous number of CPU cycles.
+
+1. A process issues a blocking read () system call to a file descriptor of a file
+that has been opened previously.
+
+2. The system-call code in the kernel checks the parameters for correctness. In
+the case of input, if the data are already available in the buffer cache, the
+data are returned to the process and the I/O request is completed.
+
+3. Otherwise, a physical I/O needs to be performed, so the process is removed
+from the run queue and is placed on the wait queue for the device, and the
+

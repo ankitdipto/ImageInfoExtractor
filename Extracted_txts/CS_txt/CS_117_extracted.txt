@@ -1,0 +1,48 @@
+26.3 Maximum bipartite matching 735
+
+Corollary 26.11
+The cardinality of a maximum matching M in a bipartite graph G equals the value
+of a maximum flow / in its corresponding flow network G’.
+
+Proof We use the nomenclature from Lemma 26.9. Suppose that M is a max-
+imum matching in G and that the corresponding flow f in G’ is not maximum.
+Then there is a maximum flow f’ in G’ such that |f’| > |f|. Since the ca-
+pacities in G’ are integer-valued, by Theorem 26.10, we can assume that f” is
+integer-valued. Thus, f’ corresponds to a matching M’ in G with cardinality
+\M’| = |f'| > |f| = |M], contradicting our assumption that M is a maximum
+matching. Ina similar manner, we can show that if f is a maximum flow in G’, its
+corresponding matching is a maximum matching on G. .
+
+Thus, given a bipartite undirected graph G, we can find a maximum matching by
+creating the flow network G’, running the Ford-Fulkerson method, and directly ob-
+taining a maximum matching M from the integer-valued maximum flow f found.
+Since any matching ina bipartite graph has cardinality at most min(L, R) = O(V),
+the value of the maximum flow in G’ is O(V). We can therefore find a maximum
+matching in a bipartite graph in time O(VE’) = O(VE), since |E’| = O(E).
+
+Exercises
+
+26.3-1
+
+Run the Ford-Fulkerson algorithm on the flow network in Figure 26.8(c) and show
+the residual network after each flow augmentation. Number the vertices in L top
+to bottom from | to 5 and in R top to bottom from 6 to 9. For each iteration, pick
+the augmenting path that is lexicographically smallest.
+
+26.3-2
+Prove Theorem 26.10.
+
+26.3-3
+
+Let G = (V, E) be a bipartite graph with vertex partition V = L U R, and let G’
+be its corresponding flow network. Give a good upper bound on the length of any
+augmenting path found in G’ during the execution of FORD-FULKERSON.
+
+26.3-4 &
+
+A perfect matching is a matching in which every vertex is matched. Let G =
+(V, E) be an undirected bipartite graph with vertex partition V = L U R, where
+|L| = |R|. For any X C V, define the neighborhood of X as
+
+N(X) = {y €V: (x,y) € E for some x € X} ,
+

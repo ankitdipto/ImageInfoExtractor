@@ -1,0 +1,50 @@
+286 Chapter9 Memory Management
+
+This procedure is a particular instance of the general dynamic storage-
+allocation problem, which is how to satisfy a request of size n from a list of free
+holes. There are many solutions to this problem. The set of holes is searched
+to determine which hole is best to allocate. The first-fit, best-fit, and worst-fit
+strategies are the most common ones used to select a free hole from the set of
+available holes.
+
+© First fit: Allocate the first hole that is big enough. Searching can start either
+at the beginning of the set of holes or where the previous first-fit search
+ended. We can stop searching as soon as we find a free hole that is large
+enough.
+
+© Best fit: Allocate the smallest hole that is big enough. We must search the
+entire list, unless the list is kept ordered by size. This strategy produces the
+smallest leftover hole.
+
+© Worst fit: Allocate the largest hole. Again, we must search the entire list,
+unless it is sorted by size. This strategy produces the largest leftover hole,
+which may be more useful than the smaller leftover hole from a best-fit
+approach.
+
+Simulations have shown that both first fit and best fit are better than worst
+fit in terms of decreasing both time and storage utilization. Neither first fit nor
+best fit is clearly better in terms of storage utilization, but first fit is generally
+faster.
+
+These algorithms, however, suffer from external fragmentation. As pro-
+cesses are loaded and removed from memory, the free memory space is broken
+into little pieces. External fragmentation exists when enough total memory
+space exists to satisfy a request, but it is not contiguous; storage is fragmented
+into a large number of small holes. This fragmentation problem can be severe.
+In the worst case, we could have a block of free (or wasted) memory between
+every two processes. If all this memory were in one big free block, we might be
+able to run several more processes.
+
+The selection of the first-fit versus best-fit strategies can affect the amount
+of fragmentation. (First fit is better for some systems, whereas best fit is better
+for others.) Another factor is which end of a free block is allocated. (Which is
+the leftover piece—the one on the top, or the one on the bottom?) No matter
+which algorithm is used, external fragmentation will be a problem.
+
+Depending on the total amount of memory storage and the average process
+size, external fragmentation may be a minor or a major problem. Statistical
+analysis of first fit, for instance, reveals that, even with some optimization,
+given N allocated blocks, another 0.5N blocks will be lost due to fragmentation.
+That is, one-third of memory may be unusable! This property is known as the
+50-percent rule.
+

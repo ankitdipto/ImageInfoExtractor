@@ -1,0 +1,40 @@
+ 
+
+14.5 RAID Structure 511
+
+stripe
+
+stripe
+
+ 
+
+  
+ 
+
+stripe
+mirror mirror
+
+b) RAID 1 + 0 with a single disk failure
+
+Figure 14.10 RAIDO+1and1+0.
+
+space overhead, RAID level 5 is often preferred for storing large volumes of
+data. Level 6 is not supported currently by many RAID implementations, but it
+should offer better reliability than level 5.
+
+RAID system designers have to make several other decisions as well. For
+example, how many disks should be in an array? How many bits should be
+protected by each parity bit? If more disks are in an array, data-transfer rates
+are higher, but the system is more expensive. If more bits are protected by a
+parity bit, the space overhead due to parity bits is lower, but the chance that a
+second disk will fail before the first failed disk is repaired is greater, and that
+will result in data loss.
+
+One other aspect of most RAID implementations is a hot spare disk or disks.
+A hot spare is not used for data, but is configured to be used as a replacement
+should any other disk fail. For instance, a hot spare can be used to rebuild a
+mirror pair should one of the disks in the pair fail. In this way, the RAID level
+can be reestablished automatically, without waiting for the failed disk to be
+replaced. Allocating more than one hot spare allows more than one failure to
+be repaired without human intervention.
+

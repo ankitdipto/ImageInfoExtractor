@@ -1,0 +1,46 @@
+4.6 Communication in Client-Server Systems 119
+
+import java.net.*;
+import java.io.*;
+
+public class Server
+{
+public static void main(String[] args) throws IOException {
+Socket client = null;
+PrintWriter pout = null;
+ServerSocket sock = null;
+
+try {
+sock = new ServerSocket (5155) ;
+
+// now listen for connections
+
+while (true) {
+client = sock.accept();
+
+// we have a connection
+pout = new PrintWriter(client.getOutputStream(), true);
+
+// write the Date to the socket
+pout.printin(new java.util.Date().toString());
+
+pout .close();
+client .close();
+
+}
+
+catch (I0Exception ioe) {
+System.err.println(ioe) ;
+
+finally {
+if (client != null)
+client .close();
+if (sock != null)
+sock.close();
+
+Figure 4.10 Time-of-day server.
+
+server process sends the time of day to the client calling the method print1n.
+Once it has written the time of day to the socket, the server closes the socket to
+the client and resumes listening for more requests.
+

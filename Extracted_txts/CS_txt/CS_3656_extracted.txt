@@ -1,0 +1,50 @@
+610
+
+Chapter 22. Elementary Graph Algorithms
+
+an edge that reaches another gray vertex has reached an ancestor. The third case
+handles the remaining possibility; Exercise 22.3-5 asks you to show that such an
+edge (u,v) is a forward edge if u.d < v.d and a cross edge if u.d > v.d.
+
+An undirected graph may entail some ambiguity in how we classify edges,
+since (u,v) and (v,u) are really the same edge. In such a case, we classify the
+edge as the first type in the classification list that applies. Equivalently (see Ex-
+ercise 22.3-6), we classify the edge according to whichever of (u,v) or (v, u) the
+search encounters first.
+
+We now show that forward and cross edges never occur in a depth-first search of
+an undirected graph.
+
+Theorem 22.10
+In a depth-first search of an undirected graph G, every edge of G is either a tree
+edge or a back edge.
+
+Proof Let (u,v) bean arbitrary edge of G, and suppose without loss of generality
+that u.d < v.d. Then the search must discover and finish v before it finishes u
+(while u is gray), since v is on u’s adjacency list. If the first time that the search
+explores edge (u,v), it is in the direction from u to v, then v is undiscovered
+(white) until that time, for otherwise the search would have explored this edge
+already in the direction from v to u. Thus, (u,v) becomes a tree edge. If the
+search explores (u,v) first in the direction from v to uv, then (u,v) is a back edge,
+since u is still gray at the time the edge is first explored. .
+
+We shall see several applications of these theorems in the following sections.
+
+Exercises
+
+22.3-1
+
+Make a 3-by-3 chart with row and column labels WHITE, GRAY, and BLACK. In
+each cell (i, j), indicate whether, at any point during a depth-first search of a di-
+rected graph, there can be an edge from a vertex of color i to a vertex of color j.
+For each possible edge, indicate what edge types it can be. Make a second such
+chart for depth-first search of an undirected graph.
+
+223-2
+
+Show how depth-first search works on the graph of Figure 22.6. Assume that the
+for loop of lines 5—7 of the DFS procedure considers the vertices in alphabetical
+order, and assume that each adjacency list is ordered alphabetically. Show the
+discovery and finishing times for each vertex, and show the classification of each
+edge.
+

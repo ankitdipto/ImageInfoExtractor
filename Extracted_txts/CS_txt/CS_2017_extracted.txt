@@ -1,0 +1,72 @@
+458  Chapter13 I/O Systems
+
+this communication can occur is through the use of special 1/O instructions
+that specify the transfer of a byte or word to an I/O port address. The I/O
+instruction triggers bus lines to select the proper device and to move bits into
+or out of a device register. Alternatively, the device controller can support
+memory-mapped I/O. In this case, the device-control registers are mapped
+into the address space of the processor. The CPU executes I/O requests using
+the standard data-transfer instructions to read and write the device-control
+registers.
+
+Some systems use both techniques. For instance, PCs use 1/O instructions
+to control some devices and memory-mapped I/O to control others. Figure 13.2
+shows the usual PC 1/O port addresses. The graphics controller has I/O ports
+for basic control operations, but the controller has a large memory-mapped
+region to hold screen contents. The process sends output to the screen by
+writing data into the memory-mapped region. The controller generates the
+screen image based on the contents of this memory. This technique is simple
+to use. Moreover, writing millions of bytes to the graphics memory is faster
+than issuing millions of I/O instructions. But the ease of writing to a memory-
+mapped 1/O controller is offset by a disadvantage. Because a common type
+of software fault is a write through an incorrect pointer to an unintended
+region of memory, a memory-mapped device register is vulnerable to accidental
+modification. Of course, protected memory helps to reduce this risk.
+
+An I/O port typically consists of four registers, called the status, control,
+data-in, and data-out registers.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+VO address range (hexadecimal) device
+000-00F DMA controller
+020-021 interrupt controller
+040-043, timer
+200-20F game controller
+2F8-2FF serial port (secondary)
+320-32F hard-disk controller
+378-37F parallel port
+3D0-3DF graphics controller
+3F0-3F7 diskette-drive controller
+3F8-3FF serial port (primary)
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 13.2 Device I/O port locations on PCs (partial).
+

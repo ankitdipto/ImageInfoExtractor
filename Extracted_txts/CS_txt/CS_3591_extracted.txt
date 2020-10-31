@@ -1,0 +1,50 @@
+558
+
+Chapter 20 van Emde Boas Trees
+
+c. Modify the VEB-TREE-INSERT procedure to produce pseudocode for the pro-
+cedure RS-VEB-TREE-INSERT(V, x), which inserts x into the RS-vEB tree V,
+calling CREATE-NEW-RS-VEB-TREE as appropriate.
+
+d. Modify the VEB-TREE-SUCCESSOR procedure to produce pseudocode for
+the procedure RS-VEB-TREE-SUCCESSOR(V, x), which returns the successor
+of x in RS-vEB tree V, or NIL if x has no successor in V.
+
+e. Prove that, under the assumption of simple uniform hashing, your RS-VEB-
+TREE-INSERT and RS-VEB-TREE-SUCCESSOR procedures run in O(Ig lg u)
+expected time.
+
+f. Assuming that elements are never deleted from a vEB tree, prove that the space
+requirement for the RS-vEB tree structure is O(n), where n is the number of
+elements actually stored in the RS-vEB tree.
+
+g. RS-vEB trees have another advantage over vEB trees: they require less time to
+create. How long does it take to create an empty RS-vEB tree?
+
+20-2 y-fast tries
+
+This problem investigates D. Willard’s “y-fast tries” which, like van Emde Boas
+trees, perform each of the operations MEMBER, MINIMUM, MAXIMUM, PRE-
+DECESSOR, and SUCCESSOR on elements drawn from a universe with size u in
+O(lglg wu) worst-case time. The INSERT and DELETE operations take O(lglgu)
+amortized time. Like reduced-space van Emde Boas trees (see Problem 20-1), y-
+fast tries use only O(1) space to store n elements. The design of y-fast tries relies
+on perfect hashing (see Section 11.5).
+
+As apreliminary structure, suppose that we create a perfect hash table containing
+not only every element in the dynamic set, but every prefix of the binary represen-
+tation of every element in the set. For example, if uv = 16, so that lgu = 4, and
+x = 13 is in the set, then because the binary representation of 13 is 1101, the
+perfect hash table would contain the strings 1, 11, 110, and 1101. In addition to
+the hash table, we create a doubly linked list of the elements currently in the set, in
+increasing order.
+
+a. How much space does this structure require?
+
+b. Show how to perform the MINIMUM and MAXIMUM operations in O(1) time;
+the MEMBER, PREDECESSOR, and SUCCESSOR operations in O(lg lg u) time;
+and the INSERT and DELETE operations in O(lg 1) time.
+
+To reduce the space requirement to O(n), we make the following changes to the
+data structure:
+

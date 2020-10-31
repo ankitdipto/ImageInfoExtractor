@@ -1,0 +1,43 @@
+26.5 The relabel-to-front algorithm 753
+
+ 
+
+  
+
+ 
+
+6
+5 10
+4 s
+(d) 3 x x
+2 z z
+1
+0
+6
+5 12 14
+4
+© 3 x x
+2 z z z
+1
+0
+6
+5 15
+4 s
+@ 3 x
+2
+1
+0
+(g)
+
+cH Nw EUD
+
+ 
+
+Figure 26.9, continued (d) In iteration 10, (y,s) is inadmissible, but iteration 11 pushes 5 units
+of excess flow from y to x. (e) Because y.current did not advance in iteration 11, iteration 12
+finds (j’, x) to be inadmissible. Iteration 13 finds (y,z) inadmissible, and iteration 14 relabels ver-
+tex y and resets y.current. (f) Iteration 15 pushes 6 units of excess flow from y to s. (g) Vertex y
+now has no excess flow, and DISCHARGE terminates. In this example, DISCHARGE both starts and
+finishes with the current pointer at the head of the neighbor list, but in general this need not be the
+case.
+

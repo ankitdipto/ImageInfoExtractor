@@ -1,0 +1,51 @@
+360 cuarrer TEN Computer Arithmetic
+
+the content of BR into AC and also complement its sign if the numbers are to
+be subtracted. If neither number is equal to zero, we proceed to align the
+mantissas.
+
+‘The magnitudecomparatorattached to exponents. and b provides three
+outputs that indicate their relative magnitude. If the two exponents are equal,
+‘we go to perform the arithmetic operation. If the exponents are not equal, the
+mantissa having the smaller exponent is shifted to the right and its exponent
+incremented. This process is repeated until the two exponents are equal.
+
+The addition and subtraction of the two mantissas is identical to the
+fixed-point addition and subtraction algorithm presented in Fig. 10-2. The
+magnitude part is added or subtracted depending on the operation and the
+signs of the two mantissas. If an overflow occurs when the magnitudes are
+added, itis transferred into flip-flop E. If E is equal to 1, the bit is transferred
+into A, and all other bits of A are shifted right. The exponent must be incre-
+mented to maintain the correct number. No underflow may occur in this case
+because the original mantissa that was not shifted during the alignment was
+already in a normalized position.
+
+If the magnitudes were subtracted, the result may be zero or may have
+an underflow. If the mantissa is zero, the entire floating-point number in the
+AC is made zero. Otherwise, the mantissa must have at least one bit that is
+equal to 1 Themantissa has an underflow ifthe most significant bit in position
+‘Ay isO. In that case, the mantissa is shifted left and the exponent decremented.
+The bit in Ay is checked again and the process is repeated until it is equal to
+1. When A; = 1, the mantissa is normalized and the operation is completed.
+
+Multiplication
+
+The multiplication of two floating-point numbers requires that we multiply the
+mantissas and add the exponents. No comparison of exponents or alignment
+of mantissas is necessary. The multiplication of the mantissas is performed in
+the same way as in fixed-point to provide a double-precision product. The
+double-precision answer is used in fixed-point numbers to increase the accu-
+racy of the product In floating-point, the range of a single-precision mantissa
+combined with the exponent is usually accurate enough so that only single-
+precision numbers are maintained. Thus the half most significant bits of the
+mantissa product and the exponent will be taken together to form a single-
+precision floating-point product.
+
+The multiplication algorithm can be subdivided into four parts:
+
+1. Check for zeros.
+2. Add the exponents.
+
+3. Multiply the mantissas.
+4. Normalize the product.
+

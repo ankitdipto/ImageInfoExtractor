@@ -1,0 +1,48 @@
+Problems for Chapter 30 923
+
+30-5 Polynomial evaluation at multiple points
+
+We have seen how to evaluate a polynomial of degree-bound n at a single point in
+O(n) time using Homer’s rule. We have also discovered how to evaluate such a
+polynomial at all 7 complex roots of unity in O(n lgn) time using the FFT. We
+shall now show how to evaluate a polynomial of degree-bound n at n arbitrary
+points in O(n lg? n) time.
+
+To do so, we shall assume that we can compute the polynomial remainder when
+one such polynomial is divided by another in O(n lg 7) time, a result that we state
+without proof. For example, the remainder of 3x3 + x? — 3x + 1 when divided by
+x? +x +42 is
+
+(3x3 +x? — 3x +1) mod (x? +x +2) =—7x 45.
+
+Given the coefficient representation of a polynomial A(x) = To ayx* and
+Nn points X9,Xq,..., Xn-1, We wish to compute the n values A(X), A(x1).-...
+A(X,—-1). For 0 <i < j <n — 1, define the polynomials P;;(x) = [],_;(% — xx)
+and Q;;(x) = A(x) mod P;;(x). Note that Q;;(x) has degree at most j —i.
+
+a. Prove that A(x) mod (x — z) = A(z) for any point z.
+b. Prove that Oxy (x) = A(x) and that Qo,,—-1(x) = A(x).
+
+c. Prove that fori < k < j, we have Ojx(x) = Qj; (x) mod Pix(x) and
+Oxj (x) = Qij(x) mod Py (x).
+
+d. Give an O(n lg? n)-time algorithm to evaluate A(x), A(x1),.--. A(Xn-1).
+
+30-6 FFT using modular arithmetic
+
+As defined, the discrete Fourier transform requires us to compute with complex
+numbers, which can result in a loss of precision due to round-off errors. For some
+problems, the answer is known to contain only integers, and by using a variant of
+the FFT based on modular arithmetic, we can guarantee that the answer is calcu-
+lated exactly. An example of such a problem is that of multiplying two polynomials
+with integer coefficients. Exercise 30.2-6 gives one approach, using a modulus of
+length Q(n) bits to handle a DFT on n points. This problem gives another ap-
+proach, which uses a modulus of the more reasonable length O(lg 1); it requires
+that you understand the material of Chapter 31. Let 1 be a power of 2.
+
+a. Suppose that we search for the smallest k such that p = kn + 1 is prime. Give
+a simple heuristic argument why we might expect k to be approximately Inn.
+(The value of k might be much larger or smaller, but we can reasonably expect
+to examine O(lg 7) candidate values of k on average.) How does the expected
+length of p compare to the length of 1?
+

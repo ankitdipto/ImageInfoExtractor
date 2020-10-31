@@ -1,0 +1,47 @@
+Chapter 34 NP-Completeness 1051
+
+we are given an undirected graph G and vertices u and v, and we wish to find a
+path from w to v that uses the fewest edges. In other words, SHORTEST-PATH
+is the single-pair shortest-path problem in an unweighted, undirected graph. NP-
+completeness applies directly not to optimization problems, however, but to deci-
+sion problems, in which the answer is simply “yes” or “no” (or, more formally, “1”
+or “0”).
+
+Although NP-complete problems are confined to the realm of decision problems,
+we can take advantage of a convenient relationship between optimization problems
+and decision problems. We usually can cast a given optimization problem as a re-
+lated decision problem by imposing a bound on the value to be optimized. For
+example, a decision problem related to SHORTEST-PATH is PATH: given a di-
+rected graph G, vertices u and v, and an integer k, does a path exist from wu to v
+consisting of at most k edges?
+
+The relationship between an optimization problem and its related decision prob-
+lem works in our favor when we try to show that the optimization problem is
+“hard.” That is because the decision problem is in a sense “easier,” or at least “no
+harder.” As a specific example, we can solve PATH by solving SHORTEST-PATH
+and then comparing the number of edges in the shortest path found to the value
+of the decision-problem parameter k. In other words, if an optimization prob-
+lem is easy, its related decision problem is easy as well. Stated in a way that has
+more relevance to NP-completeness, if we can provide evidence that a decision
+problem is hard, we also provide evidence that its related optimization problem is
+hard. Thus, even though it restricts attention to decision problems, the theory of
+NP-completeness often has implications for optimization problems as well.
+
+Reductions
+
+The above notion of showing that one problem is no harder or no easier than an-
+other applies even when both problems are decision problems. We take advantage
+of this idea in almost every NP-completeness proof, as follows. Let us consider a
+decision problem A, which we would like to solve in polynomial time. We call the
+input to a particular problem an instance of that problem; for example, in PATH,
+an instance would be a particular graph G, particular vertices u and v of G, and a
+particular integer k. Now suppose that we already know how to solve a different
+decision problem B in polynomial time. Finally, suppose that we have a procedure
+that transforms any instance @ of A into some instance f of B with the following
+characteristics:
+
+* The transformation takes polynomial time.
+
+* The answers are the same. That is, the answer for a is “yes” if and only if the
+answer for B is also “yes.”
+

@@ -1,0 +1,50 @@
+18 Chapter1 Introduction
+
+puter must analyze the data and possibly adjust controls to modify the sensor
+inputs. Systems that control scientific experiments, medical imaging systems,
+industrial control systems, and certain display systems are real-time systems.
+Some automobile-engine fuel-injection systems, home-appliance controllers,
+and weapon systems are also real-time systems.
+
+A real-time system has well-defined, fixed time constraints. Processing
+must be done within the defined constraints, or the system will fail. For
+instance, it would not do for a robot arm to be instructed to halt after it had
+smashed into the car it was building. A real-time system functions correctly
+only if it returns the correct result within its time constraints. Contrast this
+requirement toa time-sharing system, where it is desirable (but not mandatory)
+to respond quickly, or to a batch system, which may have no time constraints at
+all.
+
+Real-time systems come in two flavors: hard and soft. A hard real-time
+system guarantees that critical tasks be completed on time. This goal requires
+that all delays in the system be bounded, from the retrieval of stored data to
+the time that it takes the operating system to finish any request made of it. Such
+time constraints dictate the facilities that are available in hard real-time systems.
+Secondary storage of any sort is usually limited or missing, with data instead
+being stored in short-term memory or in read-only memory (ROM). ROM is
+located on nonvolatile storage devices that retain their contents even in the case
+of electric outage; most other types of memory are volatile. Most advanced
+operating-system features are absent too, since they tend to separate the user
+from the hardware, and that separation results in uncertainty about the amount
+of time an operation will take. For instance, virtual memory (Chapter 10) is
+almost never found on real-time systems. Therefore, hard real-time systems
+conflict with the operation of time-sharing systems, and the two cannot be
+mixed. Since none of the existing general-purpose operating systems support
+hard real-time functionality, we do not concern ourselves with this type of
+system in this text.
+
+A less restrictive type of real-time system is a soft real-time system, where
+a critical real-time task gets priority over other tasks, and retains that priority
+until it completes. As in hard real-time systems, the operating-system kernel
+delays need to be bounded: A real-time task cannot be kept waiting indefinitely
+for the kernel to run it. Soft real time is an achievable goal that can be mixed
+with other types of systems. Soft real-time systems, however, have more limited
+utility than hard real-time systems. Given their lack of deadline support, they
+are risky to use for industrial control and robotics. They are useful, however
+in several areas, including multimedia, virtual reality, and advanced scientific
+projects—such as undersea exploration and planetary rovers. These systems
+need advanced operating-system features that cannot be supported by hard
+real-time systems. Because of the expanded uses for soft real-time functionality,
+it is finding its way into most current operating systems, including major
+versions of UNIX.
+

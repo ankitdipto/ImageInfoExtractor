@@ -1,0 +1,47 @@
+252
+
+CHAPTER EGHT Central Processing Unit
+
+are written in infix notation, with each operator written between the operands.
+Consider the simple arithmetic expression
+
+A*B+C*D
+
+The star (denoting multiplication) is placed between two operands A and B or
+Cand D. The plus is between the two products. To evaluate this arithmetic
+expression it is necessary to compute the product A +*B, store this product
+while computing * D, and then sum the two products. From this example we
+see that to evaluate arithmetic expressions in infix notation it is necessary to
+scan back and forth along the expression to determine the next operation to
+be performed.
+
+The Polish mathematician Lukasiewicz showed that arithmetic expres-
+sions can be represented in prefix notation. This representation, often referred
+to as Polish notation, places the operator before the operands. The postfix
+notation, referred to as reverse Polish notation (RPN), places the operator after the
+operands. The following examples demonstrate the three representations:
+
+A+B __Infix notation
++AB Prefix or Polish notation
+AB+ Postfix or reverse Polish notation
+The reverse Polish notation is in a form suitable for stack manipulation. The
+expression
+A*B+C*D
+is written in reverse Polish notation as
+
+AB*CD*+
+
+and is evaluated as follows: Scan the expression from left to right. When an
+operator is reached, perform the operation with the two operands found on
+the left side of the operator. Remove the two operands and the operator and
+replace them by the number obtained from the result of the operation. Con-
+tinue to scan the expression and repeat the procedure for every operator
+encountered until there are no more operators.
+
+For the expression above we find the operator * after A and B. We
+perform the operation A * Band replace A, B, and + by the product to obtain
+
+(A*B)CD++
+
+where (A * B) is a single quantity obtained from the product. The next operator
+

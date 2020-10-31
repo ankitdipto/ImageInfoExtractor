@@ -1,0 +1,55 @@
+ 
+
+13.7 Performance 485
+
+increased the maximum number of network logins from a few hundred to a
+few thousand on a large server.
+
+Other systems use separate front-end processors for terminal I/O, to
+reduce the interrupt burden on the main CPU. For instance, a terminal con-
+centrator can multiplex the traffic from hundreds of remote terminals into one
+port on a large computer. An I/O channel is a dedicated, special-purpose CPU
+found in mainframes and in other high-end systems. The job of a channel is
+to offload 1/O work from the main CPU. The idea is that the channels keep the
+data flowing smoothly, while the main CPU remains free to process the data.
+Like the device controllers and DMA controllers found in smaller computers, a
+channel can process more general and sophisticated programs, so channels can
+be tuned for particular workloads.
+
+We can employ several principles to improve the efficiency of I/O:
+
+* Reduce the number of context switches.
+
+« Reduce the number of times that data must be copied in memory while
+passing between device and application.
+
+e Reduce the frequency of interrupts by using large transfers, smart con-
+trollers, and polling (if busy-waiting can be minimized).
+
+¢ Increase concurrency by using DMA-knowledgeable controllers or channels
+to offload simple data copying from the CPU.
+
+e Move processing primitives into hardware, to allow their operation in
+device controllers concurrent with the CPU and bus operation.
+
+« Balance CPU, memory subsystem, bus, and I/O performance, because an
+overload in any one area will cause idleness in others.
+
+Devices vary greatly in complexity. For instance, a mouse is simple. The
+mouse movements and button clicks are converted into numeric values that are
+passed from hardware, through the mouse device driver, to the application. By
+contrast, the functionality provided by the NT disk device driver is complex. It
+not only manages individual disks but also implements RAID arrays (Section
+14.5). To do so, it converts an application’s read or write request into a
+coordinated set of disk I/O operations. Moreover, it implements sophisticated
+error-handling and data-recovery algorithms, and takes many steps to optimize
+disk performance, because of the importance of secondary-storage performance
+to overall system performance.
+
+Where should the I/O functionality be implemented—in the device hard-
+ware, in the device driver, or in application software? Sometimes we observe
+the progression depicted in Figure 13.13.
+
+Initially, we implement experimental I/O algorithms at the application
+level, because application code is flexible, and application bugs are unlikely
+

@@ -1,0 +1,51 @@
+30 charrer one Digital Logic Circuits
+
+present state
+
+next state
+
+The sequential circuit also has an external output, which is a function of
+the input variable and the state of the flip-flops. This output can be specified
+algebraically by the expression
+
+y = Ax’ + Bx’
+
+From this example we note that a flip-flop input equation is a Boolean
+expression for a combinational circuit. The subscripted variable is a binary
+variable name for the output of a combinational circuit. This output is always
+connected to a flip-flop input.
+
+State Table
+
+The behavior of a sequential circuit is determined from the inputs, the outputs,
+and the state ofits flip-flops. Both the outputs and the next state are a function
+of the inputs and the present state. A sequential circuit is specified by a state
+table that relates outputs and next states as a function of inputs and present
+states. In clocked sequential circuits, the transition from present state to next
+state is activated by the presence of a clock signal.
+
+The state table for the circuit of Fig. 1-25 is shown in Table 1-4. The table
+consists of four sections, labeled present state, input, next tate, and output. The
+present-state section shows the states of flip-flops A and B at any given time
+#. The input section gives a value of x for each possible present state. The
+next-state section shows the states of the flip-flops one clock period later at ime
+£ +1, The output section gives the value ofy for each present state and input
+condition.
+
+The derivation of a state table consists of first listing all possible binary
+combinations of present state and inputs. In this case we have eight binary
+combinations from 000 to 111. The next-state values are then determined from
+the logic diagram or from the input equations. The input equation for flip-flop
+Ais
+
+D, = Ax + Br
+
+Thenext-state value of a each flip-flop is equal to its D input valuein the present
+state. The transition from present state to next state occurs after application of
+aclock signal. Therefore, the next state of Ais equal to 1 when the present state
+and input values satisfy the conditions Ax = 1 or Bx = 1, which makes Dy
+equal 1. This is shown in the state table with three 1’s under the column for
+next state of A. Similarly, the input equation for flip-flop B is
+
+Ds=A'x
+

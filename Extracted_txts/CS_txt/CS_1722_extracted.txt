@@ -1,0 +1,48 @@
+212. Chapter7 Process Synchronization
+
+may be discovered only if several processes are simultaneously active in
+their critical sections. Note that this situation may not always be repro-
+ducible.
+
+Suppose that a process replaces signal (mutex) with wait (mutex). That
+is, it executes
+
+wait (mutex) ;
+critical section
+wait (mutex) ;
+In this case, a deadlock will occur.
+
+¢ Suppose that a process omits the wait (mutex), or the signal (mutex),
+or both. In this case, either mutual exclusion is violated or a deadlock will
+occur.
+
+These examples illustrate that various types of errors can be generated eas-
+ily when semaphores are used incorrectly to solve the critical-section problem.
+Similar problems may arise in the other synchronization models we discussed
+in Section 7.5.
+
+To deal with the type of errors we have outlined, a number of high-level
+language constructs have been introduced. In this section, we describe one fun-
+damental high-level synchronization construct—the critical region (sometimes
+referred to as conditional critical region). In Section 7.7, we present another
+fundamental synchronization construct—the monitor. In our presentation of
+these two constructs, we assume that a process consists of some local data, and a
+sequential program that can operate on the data. The local data can be accessed
+by only the sequential program that is encapsulated within the same process.
+That is, one process cannot directly access the local data of another process.
+Processes can, however, share global data.
+
+The critical-region high-level language synchronization construct requires
+that a variable v of type T, which is to be shared among many processes, be
+declared as
+
+v: shared T;
+
+The variable v can be accessed only inside a region statement of the following
+form:
+
+region v when B do S;
+
+This construct means that, while statement S is being executed, no other
+process can access the variable v. The expression B is a Boolean expression
+

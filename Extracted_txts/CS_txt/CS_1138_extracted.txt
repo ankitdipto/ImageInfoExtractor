@@ -1,0 +1,36 @@
+Chapter 12: File Input/Output 425
+
+ 
+
+}
+ft = fopen ("pr2.c’, "w") ;
+if (ft== NULL)
+{
+puts (“Cannot open target file" ) ;
+fclose (fs ) ;
+exit() ;
+}
+while (1)
+{
+ch = fgetc (fs ) ;
+if (ch == EOF)
+break ;
+else
+fputc (ch, ft) ;
+}
+fclose (fs) ;
+fclose (ft) ;
+
+I hope most of the stuff in the program can be easily understood,
+since it has already been dealt with in the earlier section. What is
+new is only the function fpute( ). Let us see how it works.
+
+Writing to a File
+
+The fputc( ) function is similar to the putch( ) function, in the
+sense that both output characters. However, putch( ) function
+always writes to the VDU, whereas, fputc( ) writes to the file.
+Which file? The file signified by ft. The writing process continues
+till all characters from the source file have been written to the
+target file, following which the while loop terminates.
+

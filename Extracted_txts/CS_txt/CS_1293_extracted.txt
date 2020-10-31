@@ -1,0 +1,64 @@
+226 © cHAFTERSEVEN Microprogrammed Control
+
+address field
+
+ORG
+
+fetch and decode
+
+3. The CD field has one of the letters U, I, S, or Z.
+
+4. The BR field contains one of the four symbols defined in Table 7-1.
+
+5. The AD field specifies a value for the address field of the microinstruc-
+tion in one of three possible ways:
+a. With a symbolic address, which must also appear as a label.
+. With the symbol NEXT to designate the next address in sequence.
+c. When the BR field contains a RET or MAP symbol, the AD field is
+
+left empty and is converted to seven zeros by the assembler.
+
+‘We will use also the pseudoinstruction ORG to define the origin, or first
+address, of a microprogram routine. Thus the symbol ORG 64 informs the
+assembler to place the next microinstruction in control memory at decimal
+address 64, which is equivalent to the binary address 1000000.
+
+ 
+
+The Fetch Routine
+
+The control memory has 128 words, and each word contains 20 bits. To
+microprogram the control memory, it is necessary to determine the bit values
+of each of the 128 words. The first 64 words (addresses 0 to 63) are to be
+occupied by theroutines for the 16 instructions. The last 64 words may be used
+for any other purpose. A convenient starting location for the fetch routine is
+address 64. The microinstructions needed for the fetch routine are
+
+AR<PC
+DR<—M[AR], PC—PC +1
+AR<DR(0-10), CAR(2-5)<—DR(1-14), CAR(0,1,6)-0
+
+‘The address of the instruction is transferred from PC to AR and the instruction
+is then read from memory into DR. Since no instruction register is available,
+the instruction code remains in DR . The address part is transferred to AR and
+thencontrol is transferred to one of 16routines by mapping the operation code
+part of the instruction from DR into CAR.
+
+The fetch routine needs three microinstructions, which are placed in
+control memory at addresses 64, 65, and 66. Using the assembly language
+conventions defined previously, we can write the symbolic microprogram for
+the fetch routine as follows:
+
+ 
+
+ 
+
+ORG &4
+
+FETCH: PCTAR Uo JMP NEXT
+READ, INCPC U  JMP NEXT
+DRTAR Uo MAP
+
+The translation of the symbolic microprogram to binary produces the
+following binary microprogram. The bit values are obtained from Table 7-1.
+

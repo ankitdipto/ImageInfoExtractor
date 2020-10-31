@@ -1,0 +1,150 @@
+Section 9.6,
+
+Resolution: A Complete Inference Procedure 283
+
+ 
+
+The problem is now to show that Kills(Curiosity, Tuna) is true. We do that by assuming the
+negation, Kills(Curiosity, Tuna) = False, and applying the resolution inference rule seven
+times, as shown in Figure 9.7. We eventually derive a contradiction, False, which means that the
+assumption must be false, and Kills(Curiosity, Tuna) is true after all. In English, the proofcould
+be paraphrased as follows:
+
+Suppose Curiosity did not kill Tuna. We know that either Jack or Curiosity did,
+thus Jack must have. But Jack owns D, and D is a dog, so Jack is an animal lover.
+Furthermore, Tuna is a cat, and cats are animals, so Tuna is an animal. Animal lovers
+don't kill animals, so Jack couldn't have killed Tuna. But this is a contradiction,
+because we already concluded that Jack must have killed Tuna. Hence, the original
+supposition (that Curiosity did not kill Tuna) must be wrong, and we have proved
+that Curiosity did kill Tuna
+
+The proof answers the question "Did Curiosity kill the cat?" but often we want to pose more
+general questions, like "Who killed the cat?" Resolution can do this, but it takes a little more
+work to obtain the answer. The query can be expressed as Jw Kills(w, Tuna). If you repeat the
+proof tree in Figure 9.7, substituting the negation of this query, Kills(w, Tuna) = False for the
+old query, you end up with a similar proof tree, but with the substitution {w/Curiosity}in one of
+the steps. So finding an answer to "Who killed the cat" is just a matter of lookingin the proof tree
+to find the binding of w. It is straightforward to maintain a composed unifier so that a solution is
+available as soon as a contradiction is found.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Dog(D) oss) ‘A Ouns(xy) > Animal Lover(x) AnimalLover(x) A Animalty) A Killstxy) > False
+(s/D}
+Owns(x,D) % AnimalLover(x) Owns(Jack,D) Cat(Tuna) Cattx) > Animal(x)
+[allack} {x/Tuna}
+AnimatLover(Jack) Animal(Tuna)
+[y/Tuna}
+Kills(JackTura} v Kills(Curiosity, Tuna) AnimalLover(x) A Kills(x, Tuna) > False
+{x/lack}
+Kills(Curiosity,Tuna) > False Kills(Jack,Tuna) > False
+i}
+Kills(Jack,Tuna)
+u
+False
+Figure 9.7__ A proof that Curiosity killed the cat, using resolution with refutation.
+
+ 
+
+ 
+
+ 
+

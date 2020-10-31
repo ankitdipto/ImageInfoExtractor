@@ -1,0 +1,69 @@
+98
+
+Chapter4 Processes
+
+Process state: The state may be new, ready, running, waiting, halted, and
+so on.
+
+Program counter: The counter indicates the address of the next instruction
+to be executed for this process.
+
+CPU registers: The registers vary in number and type, depending on the
+computer architecture. They include accumulators, index registers, stack
+pointers, and general-purpose registers, plus any condition-code informa-
+tion. Along with the program counter, this state information must be saved
+when an interrupt occurs, to allow the process to be continued correctly
+afterward (Figure 4.3).
+
+CPU-scheduling information: This information includes a process prior-
+ity, pointers to scheduling queues, and any other scheduling parameters.
+(Chapter 6 describes process scheduling.)
+
+Memory-management information: This information may include such
+information as the value of the base and limit registers, the page tables,
+or the segment tables, depending on the memory system used by the
+operating system (Chapter 9).
+
+process P, operating system process P,
+
+interrupt or system call
+executing
+
+ 
+
+save state into PCB,
+
+ 
+
+idle
+
+ 
+
+teload state from PCB,
+
+ 
+
+idle executing
+
+interrupt or system call
+
+ 
+
+save state into PCB,
+
+ 
+
+ 
+
+teload state from PCB,
+
+executing —_ |
+
+Figure 4.3 Diagram showing CPU switch from process to process.
+
+ 
+
+ 
+
+ 
+

@@ -1,0 +1,53 @@
+ 
+
+Section 23.4.
+
+Scaling Up the Grammar TL
+
+ 
+
+‘SUBLECT-AUX
+INVERSION
+
+To represent filler-gap relationships, we augment most of the category predicates with a gap
+argument. This argument says what is missing from the phrase. For example, the sentence "I
+saw him" has no gaps, which we represent as S(Gap(None)). The phrases “saw him" and 'I
+saw ,,” are both represented as S(Gap(NP)).
+To define relative clauses, all we have to do is say that an NP can be modified by following
+it with a relative clause, and that a relative clause consists of a relative pronoun followed by a
+sentence that contains an NP gap. This allows us to handle both "the person that I saw ,,” and
+“the person that saw him." Here are the rules with all other augmentations removed:
+NP(gap) — NP(gap) RelClause
+RelClause — Pronoun(Relative) S(Gap(NP))}
+We also have to say that the empty string, ¢, comprises an NP with an NP gap in it:
+NP(Gap(NP))— 6
+The rest of the grammar has to cooperate by passing the gap argument along; for example:
+S(Gap(Concat(g), g2))) — NP(Gap(g1)) VP(Gap(g2))
+
+Here Concat(g), g>)means g\ and g; together. Ifg\ and g> are both Gap(None),then the S as a
+whole has no gap. But if, say, gy is Gap(NP) and g> is Gap(None),then the Shas an NP gap.
+
+Questions
+
+In English, there are two main types of questions:
+
+0 Yes/No: Did you see that?
+< Wh (gapped): What did you see ,?
+A yes/no question, as the name implies, expects a yes or no as answer. It isjust like a declarative
+sentence, except that it has an auxiliary verb that appears before the subject NP. We call this
+subject-aux inversion and use the category Sinv to denote a sentence that has it. If there are
+several auxiliary verbs, only the first one comes before the subject: "Should you have been seeing
+that?" Thus, the grammar rules covering simple yes/no sentences are as follows:
+S— Question
+Question — Sinv
+Sinv — Aux NP VP
+Wh questions (pronounced “double-U H”) expect a noun phrase as an answer. In the simplest
+case, they start with an interogative pronoun (who, what, when, where, why, how), which is
+followed by a gapped Sinv:
+Question — Pronoun(Interrogative) Sinv(Gap(NP))
+There are also some less common question constructions, as these examples show:
+0 Echo: You saw what?
+0 Raising intonation: You see something?
+Yes/No with "be": Is it safe?
+0 Wh subject: What is the frequency, Kenneth?
+

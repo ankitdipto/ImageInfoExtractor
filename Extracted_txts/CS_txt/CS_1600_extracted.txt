@@ -1,0 +1,47 @@
+112. Chapter4 Processes
+
+which messages can be placed by processes and from which messages can be
+removed. Each mailbox has a unique identification. In this scheme, a process
+can communicate with some other process via a number of different mailboxes.
+‘Two processes can communicate only if they share a mailbox. The send and
+receive primitives are defined as follows:
+
+e send(A, message) —Send a message to mailbox A.
+
+« receive(A, message) —Receive a message from mailbox A.
+In this scheme, a communication link has the following properties:
+
+« A link is established between a pair of processes only if both members of
+the pair have a shared mailbox.
+
+A link may be associated with more than two processes.
+
+e A number of different links may exist between each pair of communicating
+processes, with each link corresponding to one mailbox.
+
+Now suppose that processes P1, P2, and P3 all share mailbox A. Process P;
+sends a message to A, while P2 and P3 each execute a receive from A. Which
+process will receive the message sent by P;? The answer depends on the scheme
+that we choose:
+
+Allow a link to be associated with at most two processes.
+Allow at most one process at a time to execute a receive operation.
+
+Allow the system to select arbitrarily which process will receive the mes-
+sage (that is, either P2 or P3, but not both, will receive the message). The
+system may identify the receiver to the sender.
+
+A mailbox may be owned either by a process or by the operating system.
+If the mailbox is owned by a process (that is, the mailbox is part of the address
+space of the process), then we distinguish between the owner (who can only
+receive messages through this mailbox) and the user (who can only send
+messages to the mailbox). Since each mailbox has a unique owner, there can be
+no confusion about who should receive a message sent to this mailbox. When a
+process that owns a mailbox terminates, the mailbox disappears. Any process
+that subsequently sends a message to this mailbox must be notified that the
+mailbox no longer exists.
+
+On the other hand, a mailbox owned by the operating system is indepen-
+dent and is not attached to any particular process. The operating system then
+must provide a mechanism that allows a process to do the following:
+

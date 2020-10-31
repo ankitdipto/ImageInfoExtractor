@@ -1,0 +1,41 @@
+566 Let UsC
+
+ 
+
+The WS_OVERLAPPEDWINDOW style is a collection of the
+following styles:
+
+WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME |
+WS_MINIMIZEBOX | WS_MAXIMIZEBOX
+
+As you can make out from these macros they essentially control
+the look and feel of the window being created. All these macros
+are #defined in the ‘Windows.’ header file.
+
+On executing this program a window and a message box appears
+on the screen as shown in the Figure 17.2. The window and the
+message box disappear as soon as we click on OK. This is because
+on doing so execution of WinMain( ) comes to an end and
+moreover we have made no provision to interact with the window.
+
+You can try to remove the call to MessageBox( ) and see the
+result. You would observe that no sooner does the window appear
+it disappears. Thus a call to MessageBox( ) serves the similar
+purpose as getch() does in sequential programming.
+
+More Windows
+
+Now that we know how to create a window let us create several
+windows on the screen. The program to do this is given below.
+
+#include <windows.h>
+
+int _stdcall WinMain ( HINSTANCE hinstance, HINSTANCE hPrevinstance,
+LPSTR IpszCmdLine, int nhCmdShow )
+{
+HWND h[10] ;
+int x;
+
+for (x =0;X<=9;X++)
+{
+

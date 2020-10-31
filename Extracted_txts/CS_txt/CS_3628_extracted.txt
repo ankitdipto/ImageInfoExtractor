@@ -1,0 +1,68 @@
+shifter
+
+SECTION 46 Shift Microoperations 115
+
+Cab R2 | —— R | fo
+
+Sign
+bit
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 4-11 Avthmetieshife right.
+
+when it is multiplied or divided by 2. The leftmost bit in a register holds the
+sign bit, and the remaining bits hold the number. The sign bit is 0 for positive
+and 1 for negative. Negative numbers are in 2’s complement form Figure 4-11
+shows a typical register of m bits. Bit R,-1 in the leftmost position holds the
+sign bit. R,2 is the most significant bit of the number and Ry is the least
+significant bit. The arithmetic shift-right leaves the sign bit unchanged and
+shifts the number (including the sign bit) to the right. Thus R, -, remains the
+same, R, 2 receives the bit from R, -1, and so on for the other bits in the
+register. The bit in Ro is lost.
+
+The arithmetic shift-left inserts a 0 into Ro, and shifts all otherbits to the
+left. The initial bit of R, - is lost and replaced by the bit from R, - >. A sign
+reversal occurs if the bit in R, - , changes in value after the shift. This happens
+if the multiplication by 2 causes an overflow. An overflow occurs after an
+arithmetic shift left ifinitially, before the shift, R, - is not equal to R, ->. AN
+overflow flip-flop V, can be used to detect an arithmetic shift-left overflow.
+
+V, = Ry-1®Ry-2
+
+If V, = 0, there is no overflow, but if V, = 1, there is an overflow and a sign
+reversal after the shift. V, must be transferred into the overflow flip-flop with
+the same clock pulse that shifts the register.
+
+‘Hardware Implementation
+A possible choice for a shift unit would be a bidirectional shift register with
+parallel load (see Fig. 2-9). Information can be transferred to the register in
+parallel and then shifted to the right or left. In this type of configuration, aclock
+pulse is needed for loading the data into the register, and another pulse is
+needed to initiate the shift. In a processor unit with many registers it is more
+efficient to implement the shift operation with a combinational circuit. In this
+way the content of a register that has to be shifted is first placed onto a common
+bus whose output is corinected to the combinational shifter, and the shifted
+numberis then loaded back into the register. This requires only one clock pulse
+for loading the shifted value into the register.
+
+‘A combinational circuit shifter can be constructed with multiplexers as.
+shown in Fig, 4-12. The 4-bit shifter has four data inputs, Ag through Ay, and
+four data outputs, He through H There are two serial inputs, one for shift left
+

@@ -1,0 +1,62 @@
+Section 20.8.
+
+Genetic Algorithms and Evolutionary Programming 619
+
+ 
+
+20.8 GENETIC ALGORITHMS AND EVOLUTIONARY PROGRAMMING
+
+FITNESS FUNCTION
+
+GENE
+
+Nature has a robust way ofevolving successful organisms. The organisms that are ill-suited for an
+environment die off, whereas the: ones that are fit live to reproduce. Offspring are similar to their
+parents, so each new generation has organisms that are similar to the fit members of the previous
+generation. Ifthe environment changes slowly, the species can gradually evolve along with it,
+but a sudden change in the environment is likely to wipe out a species. Occasionally, random
+mutations occur, and although most of these mean a quick death for the mutated individual, some
+mutations lead to new successful species. The publication of Darwin's The Origin of Species on
+the Basis of Natural Selection was a major turning point in the history of science.
+
+It turns out that what's good for nature is also good for artificial systems. Figure 20.15
+shows the GENETIC-ALGORITHM, which starts with a set of one or more individuals and applies
+selection and reproduction operators to "evolve" an individual that is successful, as measured by
+a fitness function. There are several choices for what the individuals are. They can be entire
+agent functions, in which case the fitness function is a performance measure or reward function,
+and the analogy to natural selection is greatest. They can be component functions of an agent, in
+which case the fitness function is the critic. Or they can be anything at all that can be framed as
+an optimization problem.
+
+Since the evolutionary process learns an agent function based on occasional rewards (off-
+spring) as supplied by the selection function, it can be seen as a form of reinforcement learning
+Unlike the algorithms described in the previous sections, however, no attempt is made to learn
+the relationship between the rewards and the actions taken by the agent or the states of the
+environment. GENETIC-ALGORITHM simply searches directly in the space of individuals, with
+the goal of finding one that maximizes the fitness function. The search is parallel because each
+individual in the population can be seen as a separate search. It is hill climbing because we are
+making small genetic changes to the individuals and using the best resulting offspring. The key
+question is how to allocate the searching resources: clearly, we should spend most of our time on
+the most promising individuals, but if we ignore the low-scoring ones, we risk getting stuck on a
+local maximum. It can be shown that, under certain assumptions, the genetic algorithm allocates
+resources in an optimal way (see the discussion of n-armed bandits in, e.g., Goldberg (1989)).
+
+Before we can apply Genetic-ALGoriTuM to a problem, we need to answer the following
+four questions:
+
++ What is the fitness function?
+
+* How is an individual represented?
+
+* How are individuals selected?
+
+* How do individuals reproduce?
+The fitness function depends on the problem, but in any case, it is a function that takes an
+individual as input and returns a real number as output
+
+In the "classic" genetic algorithm approach, an individual is represented as a string over a
+finite alphabet. Each element of the string is called a gene. In real DNA, the alphabet is AGTC
+
+(adenine, guanine, thymine, cytosine), but in genetic algorithms, we usually use the binary alpha-
+bet (0,1). Some authors reserve the term "genetic algorithm" for cases where the representation
+

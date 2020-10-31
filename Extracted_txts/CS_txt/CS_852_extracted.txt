@@ -1,0 +1,53 @@
+194 Let Us C
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+help you keep track of how the control flows during successive
+recursive calls.
+from main()
+rec (int x ) rec (int x ) rec (int x )
+int f; int f; int f;
+if«=1) if«=1) if«=1)
+return (1); return (1); r—return (1);
+else else else
+f=x*rec(x-1); f=x*rec(x-1); f=x*rec(x-1):
+4 4
+retum(f);— return (f) ; return (f);
+} } }
+to main() <
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 5.4
+
+Recursion may seem strange and complicated at first glance, but it
+is often the most direct way to code an algorithm, and once you are
+familiar with recursion, the clearest way of doing so.
+
+Recursion and Stack
+
+There are different ways in which data can be organized. For
+example, if you are to store five numbers then we can store them
+in five different variables, an array, a linked list, a binary tree, etc.
+All these different ways of organizing the data are known as data
+structures. The compiler uses one such data structure called stack
+for implementing normal as well as recursive function calls.
+

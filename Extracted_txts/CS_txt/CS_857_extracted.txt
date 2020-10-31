@@ -1,0 +1,56 @@
+182
+
+Chapter 6. Agents that Reason Logically
+
+ 
+
+ 
+
+ 
+
+612 (Adapted from (Davis, 1990).) Jones, Smith, and Clark hold the jobs of programmer,
+knowledge engineer, and manager (not necessarily in that order). Jones owes the programmer
+$10. The manager's spouse prohibits borrowing money. Smith is not married. Your task is to
+figure out which person has which job
+
+Represent the facts in propositional logic. You should have nine propositional symbols to
+represent the possible person/job assignments. For example, you might use the symbol SM to
+indicate that Smith is the manager. You do not need to represent the relation between owing and
+borrowing, or being married and having a spouse; you canjust use these to draw conclusions (e.g,
+from "Smith is not married" and "the manager's spouse" we know that Smith can't be the manager,
+which you can represent as —$M). The conjunction of all the relevant facts forms a sentence
+which you can call KB. The possible answers to the problem are sentences like JP A SK A CM.
+There are six such combinations of person/job assignments. Solve the problem by showing that
+only one of them is implied by KB, and by saying what its interpretation is.
+
+6.13 What is the performance score that one could expect from the optimal wumpus world
+agent? Design an experiment wherein you look at all possible 4 x 4 wumpus worlds (or a random
+sample of them if there are too many), and for each one determine the shortest safe path to pick
+up the gold and return to start, and thus the best score. This gives you an idea of the expected
+performance score for an ideal omniscient agent. How could you determine the expected score
+for an optimal non-omniscient agent?
+
+6.14 Implement a function VALIDITY that takes a sentence as input and returns either valid,
+satisfiable, or unsatisfiable. Use it to answer the questions in Exercise 6.12. You will need
+to define an implementation-level representation of sentences. The cleanest way to do this is
+to define an abstract data type for compound sentences. Begin by writing EVAL-TRUTH as a
+recursive function that takes a sentence and an assignment of truth values to proposition symbols,
+and returns true or false. Then call EVAL-TRUTH for all possible assignments of truth values to
+the proposition symbols.
+
+615 SAT is the abbreviation for the satisfiability problem: given a propositional sentence,
+determine if it is satisfiable, and if it is, show which propositions have to be true to make the
+sentence true. 3SAT is the problem of finding a satisfying truth assignment for a sentence in a
+special format called 3-CNF, which is defined as follows:
+¢ A literal is a proposition symbol or its negation (e.g., P or =P).
++ A clause is a disjunction of literals; a 3-clause is a disjunction of exactly 3 literals (¢.g.,
+PV QV-R).
++ A sentence in CNF or conjunctive normal form is a conjunction of clauses; a 3-CNF
+sentence is a conjunction of 3-clauses,
+For example,
+(PV OV 7S)A (GP V 2V 2) A(GPV ARV 7S) A (PV SV 1)
+
+is a 3-CNF sentence with four clauses and five proposition symbols.
+In this exercise, you will implement and test GSAT, an algorithm for solving SAT problems
+that has been used to investigate how hard 3SAT problems are. GSAT is a random-restart, hill-
+

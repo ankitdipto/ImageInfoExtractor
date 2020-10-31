@@ -1,0 +1,49 @@
+8.6 Deadlock Detection 263
+
+Suppose now that process P) makes one additional request for an instance
+of type C. The Request matrix is modified as follows:
+
+Request
+
+ABC
+Po 000
+Py 202
+P2 001
+P3 100
+Py 002
+
+We claim that the system is now deadlocked. Although we can reclaim the
+resources held by process Pg, the number of available resources is not sufficient
+to fulfill the requests of the other processes. Thus, a deadlock exists, consisting
+of processes P}, P2, P3, and P4.
+
+8.6.3 Detection-Algorithm Usage
+
+When should we invoke the detection algorithm? The answer depends on two
+factors:
+
+1. How often is a deadlock likely to occur?
+2. How many processes will be affected by deadlock when it happens?
+
+If deadlocks occur frequently, then the detection algorithm should be invoked
+frequently. Resources allocated to deadlocked processes will be idle until the
+deadlock can be broken. In addition, the number of processes involved in the
+deadlock cycle may grow.
+
+Deadlocks occur only when some process makes a request that cannot be
+granted immediately. This request may be the final request that completes a
+chain of waiting processes. In the extreme, we could invoke the deadlock-
+detection algorithm every time a request for allocation cannot be granted imme-
+diately. In this case, we can identify not only the set of processes that is dead-
+locked, but also the specific process that “caused” the deadlock. (In reality, each
+of the deadlocked processes is a link in the cycle in the resource graph, so all of
+them, jointly, caused the deadlock.) If there are many different resource types,
+one request may cause many cycles in the resource graph, each cycle completed
+by the most recent request and “caused” by the one identifiable process.
+
+Of course, invoking the deadlock-detection algorithm for every request
+may incur a considerable overhead in computation time. A less expensive alter-
+native is simply to invoke the algorithm at less frequent intervals—for example,
+once per hour, or whenever CPU utilization drops below 40 percent. (A dead-
+lock eventually cripples system throughput and will cause CPU utilization to
+

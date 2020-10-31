@@ -1,0 +1,78 @@
+356
+
+  
+
+Chapter 11. Planning §
+
+ 
+
+ 
+
+ 
+
+function POP(initial, goal, operators) returns plan
+
+plan — Make-MINIMAL-PLAN(initial, goal)
+loop do
+if SOLUTION plan) then return plan
+Sheedy € — SELECT-SUBGOAL( plan)
+CHOOSE-OPERATOR( plan, operators, Sneed C)
+RESOLVE-THREATS( plan)
+end
+
+function SELECT-SUBGOAL( plan) returns Shee. €
+
+pick a plan step Sree from STEPS( plan)
+with a precondition c that has not been achieved
+return Speed, ¢
+
+ 
+
+procedure CHOOSE-OPERATOR(plan, operators, Sneed. C)
+
+choose a step Siiq from operators or STEPS( plan) that has c as an effect
+if there is no such step then fail
+add the causal link Sadd . Syeey to LINKS( plan)
+add the ordering constraint Sada < Sneed (0 ORDERINGS( plan)
+if Said is a newly added step from operators then
+add Siui to STEPS( plan)
+add Start < Sui < Finish to ORDERINGS( plan)
+
+procedure RESOLVE-THREATS(plan)
+
+ 
+
+for each Sire: that threatens a link 5,
+choose either
+Promotion: Add Sire ~< S; t0 ORDERINGS( plan)
+Demotion: Add §; = Stirear to ORDERINGS( plan)
+if not CONSISTENT( plan) then fail
+end
+
+S, in LINKS( plan) do
+
+ 
+
+ 
+
+ 
+
+Figure 11.13 The partial-order planning algorithm, POP.
+
+ 
+
+ 
+
+   
+ 
+
+can just pick a precondition and move ahead without worrying about backtracking. The pick we }
+make affects only the speed, and not the possibility, of finding a solution.
+
+Notice that POP is a regression planner, because it starts with goals that need to be
+achieved and works backwards to find operators that will achieve them. Once it has achieved all
+the preconditions of all the steps, it is done; it has a solution. POP is sound and complete. Every
+plan it returns is in fact a solution, and if there is a solution, then it will be found (assuming
+a breadth-first or iterative deepening search strategy). At this point, we suggest that the reader
+return to the example of the previous section, and trace through the operation of POP in detail.
+

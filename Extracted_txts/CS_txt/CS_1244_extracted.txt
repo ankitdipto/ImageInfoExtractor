@@ -1,0 +1,53 @@
+222 —cuarreRSEVEN Microprogrammed Control
+
+instruction format
+
+microinstruction
+format
+
+forms microoperations with data from AC and DR and places the result in AC.
+Note that memory receives its address from AR. Input data written to memory
+come from DR, and data read from memory can go only to DR.
+
+‘The computer instruction format is depicted in Fig. 7-5(a). It consists of
+three fields: a 1-bit field for indirect addressing symbolized by I, a 4-bit oper-
+ation code (opcode), and an 11-bit address field. Figure 7-5(b) lists four of the
+16 possible memory-reference instructions. The ADD instruction adds the
+content ofthe operand found in the effective address to the content of AC. The
+BRANCH instruction causes a branch to the effective address if the operand
+in ACis negative The program proceeds with the next consecutive instruction
+if AC is not negative. The AC is negative if its sign bit (the bit in the leftmost
+position of the register) isa 1. The STORE instruction transfers the content of
+AC intothe memory word specified by the effective address. The EXCHANGE
+instruction swaps the data between AC and thememory word specified by the
+effective address.
+
+It will be shown subsequently that each computer instruction must be
+microprogrammed. In order not to complicate the microprogramming exam-
+ple, only four instructions are considered here. It should be realized that 12
+other instructions can be included and each instruction must be micropro-
+grammed by the procedure outlined below.
+
+Microinstruction Format
+
+‘The microinstruction format for the control memory is shown in Fig, 7-6. The
+20 bits of the microinstruction are divided into four functional parts. The three
+fields Fl, F2, and F3 specify microoperations for the computer. The CD field
+
+  
+
+Figure 7-5 Computer instructions,
+
+Opeode ‘Addcess
+
+(@) Instruction format
+
+Symbol Opcode Description
+ADD (0000 AC CAC +M IEA}
+BRANCH 001 IF(AC <0) then (PC EA)
+STORE 010 M[EA}-AC
+EXCHANGE 0011 AC @MIEA), MIEA) — AC
+EA is theeffective address
+
+(©) Four computer instructions
+

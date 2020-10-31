@@ -1,0 +1,48 @@
+15.5. Optimal binary search trees 397
+
+15.4-5
+Give an O(n?)-time algorithm to find the longest monotonically increasing subse-
+quence of a sequence of numbers.
+
+154-6 x
+
+Give an O(n lg n)-time algorithm to find the longest monotonically increasing sub-
+sequence of a sequence of n numbers. (Hint: Observe that the last element of a
+candidate subsequence of length 7 is at least as large as the last element of a can-
+didate subsequence of length i — 1. Maintain candidate subsequences by linking
+them through the input sequence.)
+
+ 
+
+15.5 Optimal binary search trees
+
+Suppose that we are designing a program to translate text from English to French.
+For each occurrence of each English word in the text, we need to look up its French
+equivalent. We could perform these lookup operations by building a binary search
+tree with n English words as keys and their French equivalents as satellite data.
+Because we will search the tree for each individual word in the text, we want the
+total time spent searching to be as low as possible. We could ensure an O(1g 7)
+search time per occurrence by using a red-black tree or any other balanced binary
+search tree. Words appear with different frequencies, however, and a frequently
+used word such as the may appear far from the root while a rarely used word such
+as machicolation appears near the root. Such an organization would slow down the
+translation, since the number of nodes visited when searching for a key in a binary
+search tree equals one plus the depth of the node containing the key. We want
+words that occur frequently in the text to be placed nearer the root.° Moreover,
+some words in the text might have no French translation,” and such words would
+not appear in the binary search tree at all. How do we organize a binary search tree
+so as to minimize the number of nodes visited in all searches, given that we know
+how often each word occurs?
+
+What we need is known as an optimal binary search tree. Formally, we are
+given a sequence K = (k,k2,....kn) of n distinct keys in sorted order (so that
+ky <ky <-+++ <k,), and we wish to build a binary search tree from these keys.
+For each key k;, we have a probability p; that a search will be for k;. Some
+searches may be for values not in K, and so we also have n + 1 “dummy keys”
+
+ 
+
+Tf the subject of the text is castle architecture, we might want machicolation to appear near the root.
+
+7 Yes, machicolation has a French counterpart: machicoulis.
+

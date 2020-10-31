@@ -1,0 +1,36 @@
+25
+
+All-Pairs Shortest Paths
+
+In this chapter, we consider the problem of finding shortest paths between all pairs
+of vertices in a graph. This problem might arise in making a table of distances be-
+tween all pairs of cities for a road atlas. As in Chapter 24, we are given a weighted,
+directed graph G = (V, E) with a weight function w : E — R that maps edges
+to real-valued weights. We wish to find, for every pair of vertices u,v € V,a
+shortest (least-weight) path from u to v, where the weight of a path is the sum of
+the weights of its constituent edges. We typically want the output in tabular form:
+the entry in u’s row and v’s column should be the weight of a shortest path from u
+tov.
+
+We can solve an all-pairs shortest-paths problem by running a single-source
+shortest-paths algorithm |V| times, once for each vertex as the source. If all
+edge weights are nonnegative, we can use Dijkstra’s algorithm. If we use
+the linear-array implementation of the min-priority queue, the running time is
+O(V3 + VE) = O(V?). The binary min-heap implementation of the min-priority
+queue yields a running time of O(VE lg V), which is an improvement if the graph
+is sparse. Alternatively, we can implement the min-priority queue with a Fibonacci
+heap, yielding a running time of O(V? Ig V + VE).
+
+If the graph has negative-weight edges, we cannot use Dijkstra’s algorithm. In-
+stead, we must run the slower Bellman-Ford algorithm once from each vertex. The
+resulting running time is O(V?E), which on a dense graph is O(V*). In this chap-
+ter we shall see how to do better. We also investigate the relation of the all-pairs
+shortest-paths problem to matrix multiplication and study its algebraic structure.
+
+Unlike the single-source algorithms, which assume an adjacency-list represen-
+tation of the graph, most of the algorithms in this chapter use an adjacency-
+matrix representation. (Johnson’s algorithm for sparse graphs, in Section 25.3,
+uses adjacency lists.) For convenience, we assume that the vertices are numbered
+1,2,..., |V|, so that the input is ann x n matrix W representing the edge weights
+of an n-vertex directed graph G = (V, E). That is, W = (w;;), where
+

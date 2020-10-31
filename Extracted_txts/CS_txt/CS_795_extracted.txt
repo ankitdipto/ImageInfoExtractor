@@ -1,0 +1,45 @@
+148 Let Us C
+
+ 
+
+main()
+{
+int i,j,k;
+
+for (i= 1; 1 <= 3; i++)
+{
+for (j=1;j<=3;j++)
+{
+for (k=1;k <=3;k++)
+{
+if (i == 3 &&j==3 &&k ==3)
+goto out ;
+else
+printf ("%d %d %d\n", i, j, k) ;
+
+}
+}
+out :
+printf ( "Out of the loop at last!" ) ;
+}
+
+Go through the program carefully and find out how it works. Also
+write down the same program without using goto.
+
+Summary
+
+(a) When we need to choose one among number of alternatives, a
+switch statement is used.
+
+(b) The switch keyword is followed by an integer or an
+expression that evaluates to an integer.
+
+(c) The case keyword is followed by an integer or a character
+constant.
+
+(d) The control falls through all the cases unless the break
+statement is given.
+
+(e) The usage of the goto keyword should be avoided as it usually
+violets the normal flow of execution.
+

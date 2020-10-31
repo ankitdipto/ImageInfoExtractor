@@ -1,0 +1,52 @@
+60  Chapter3 Operating-System Structures
+
+consider message routing and connection strategies, and the problems of con-
+tention and security.
+
+A distributed system collects physically separate, possibly heterogeneous,
+systems into a single coherent system, providing the user with access to the
+various resources that the system maintains. Access to a shared resource allows
+computation speedup, increased functionality, increased data availability, and
+enhanced reliability. Operating systems usually generalize network access as
+a form of file access, with the details of networking being contained in the
+network interface’s device driver. The protocols that create a distributed system
+can have a great effect on that system’s utility and popularity. The innovation
+of the World Wide Web was to create a new access method for information
+sharing. It improved on the existing file-transfer protocol (FTP) and network
+file-system (NFS) protocol by removing the need for a user to log in before she is
+allowed to use a remote resource. It defined a new protocol, hypertext transfer
+protocol (http), for use in communication between a web server and a web
+browser. A web browser then just needs to send a request for information to a
+remote machine’s web server, and the information (text, graphics, links to other
+information) is returned. This increase in convenience fostered huge growth in
+the use of http and of the Web in general.
+
+We discuss networks and distributed systems in Chapters 15 through 17.
+
+3.1.7 Protection System
+
+If a computer system has multiple users and allows the concurrent execution
+of multiple processes, then the various processes must be protected from one
+another’s activities. For that purpose, mechanisms ensure that the files, mem-
+ory segments, CPU, and other resources can be operated on by only those
+processes that have gained proper authorization from the operating system.
+
+For example, memory-addressing hardware ensures that a process can
+execute only within its own address space. The timer ensures that no process
+can gain control of the CPU without eventually relinquishing control. Device-
+control registers are not accessible to users, so that the integrity of the various
+peripheral devices is protected.
+
+Protection is any mechanism for controlling the access of programs, pro-
+cesses, or users to the resources defined by a computer system. This mechanism
+must provide means for specification of the controls to be imposed and means
+for enforcement.
+
+Protection can improve reliability by detecting latent errors at the interfaces
+between component subsystems. Early detection of interface errors can often
+prevent contamination of a healthy subsystem by another subsystem that is
+malfunctioning. An unprotected resource cannot defend against use (or mis-
+use) by an unauthorized or incompetent user. A protection-oriented system
+provides a means to distinguish between authorized and unauthorized usage,
+as we discuss in Chapter 18.
+

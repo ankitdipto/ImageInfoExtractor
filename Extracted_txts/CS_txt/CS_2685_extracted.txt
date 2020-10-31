@@ -1,0 +1,48 @@
+11.1 Direct-address tables 255
+
+For some applications, the direct-address table itself can hold the elements in the
+dynamic set. That is, rather than storing an element’s key and satellite data in an
+object external to the direct-address table, with a pointer from a slot in the table to
+the object, we can store the object in the slot itself, thus saving space. We would
+use a special key within an object to indicate an empty slot. Moreover, it is often
+unnecessary to store the key of the object, since if we have the index of an object
+in the table, we have its key. If keys are not stored, however, we must have some
+way to tell whether the slot is empty.
+
+Exercises
+
+I1.1-1
+
+Suppose that a dynamic set S is represented by a direct-address table T of length m.
+Describe a procedure that finds the maximum element of S. What is the worst-case
+performance of your procedure?
+
+111-2
+
+A bit vector is simply an array of bits (Os and Is). A bit vector of length m takes
+much less space than an array of m pointers. Describe how to use a bit vector
+to represent a dynamic set of distinct elements with no satellite data. Dictionary
+operations should run in O(1) time.
+
+I1.1-3
+
+Suggest how to implement a direct-address table in which the keys of stored el-
+ements do not need to be distinct and the elements can have satellite data. All
+three dictionary operations (INSERT, DELETE, and SEARCH) should run in O(1)
+time. (Don’t forget that DELETE takes as an argument a pointer to an object to be
+deleted, not a key.)
+
+I1.1-4 x
+
+We wish to implement a dictionary by using direct addressing on a huge array. At
+the start, the array entries may contain garbage, and initializing the entire array
+is impractical because of its size. Describe a scheme for implementing a direct-
+address dictionary on a huge array. Each stored object should use O(1) space;
+the operations SEARCH, INSERT, and DELETE should take O(1) time each; and
+initializing the data structure should take O(1) time. (Hint: Use an additional array,
+treated somewhat like a stack whose size is the number of keys actually stored in
+the dictionary, to help determine whether a given entry in the huge array is valid or
+not.)
+
+ 
+

@@ -1,0 +1,99 @@
+244
+
+Chapter 10 Elementary Data Structures
+
+ 
+
+ 
+
+ 
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+next
+key
+
+prev
+
+next
+key
+
+prev
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+next
+key
+
+prev
+
+ 
+
+ 
+
+Figure 10.7 The effect of the ALLOCATE-OBJECT and FREE-OBJECT procedures. (a) The list
+of Figure 10.5 (lightly shaded) and a free list (heavily shaded). Arrows show the free-list structure.
+(b) The result of calling ALLOCATE-OBJECT() (which returns index 4), setting key[4] to 25, and
+calling LIST-INSERT(L, 4). The new free-list head is object 8, which had been next[4] on the free
+list. (c) After executing List-DELETE(L, 5), we call FREE-OBJECT(5). Object 5 becomes the new
+free-list head, with object 8 following it on the free list.
+
+ALLOCATE-OBJECT()
+
+1 if free == NIL
+
+2 error “out of space”
+3 else x = free
+
+4 free = X.next
+
+5 return x
+
+ 
+
+FREE-OBJECT (x)
+
+1 x.next = free
+
+2 free=x
+
+The free list initially contains all n unallocated objects. Once the free list has been
+exhausted, running the ALLOCATE-OBJECT procedure signals an error. We can
+even service several linked lists with just a single free list. Figure 10.8 shows two
+linked lists and a free list intertwined through key, next, and prev arrays.
+
+The two procedures run in O(1) time, which makes them quite practical. We
+can modify them to work for any homogeneous collection of objects by letting any
+one of the attributes in the object act like a next attribute in the free list.
+

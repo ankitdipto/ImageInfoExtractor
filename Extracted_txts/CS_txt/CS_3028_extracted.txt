@@ -1,0 +1,90 @@
+406
+
+Chapter 13. Planning and Acting
+
+plan state is shown in Figure 13.14. Notice that although there are now no actions in the plan,
+there is still an open condition for the FINISH step.
+
+ 
+
+ 
+
+Ontable(A) ~
+see
+In(C. OniC,D}
+S55}
+
+CleariG)
+
+ 
+
+ 
+
+Figure 13.14 After Move(C,D) is executed and removed from the plan, the effects of the
+START step reflect the fact that C endedup on 4 instead of the intended D. The goal precondition
+On(C, D) is still open.
+
+ 
+
+ 
+
+ 
+
+The agent now does the same planning operations as a normal planner, adding a new
+step to satisfy the open condition. Once again, Move(C, D)will satisfy the goal condition. Its
+preconditions are satisfied in turn by new causal links from the START step. The new plan appears
+in Figure 13.15.
+
+SAT rover
+ea(C}) Move
+ame et
+
+. OnBE)
+
+onc
+
+ 
+
+ 
+
+    
+
+nica) Onic.0)
+58) Finish
+[son] 888 a
+Gear
+Gear)
+Clear(G)
+
+ 
+
+ 
+
+Figure 1315 The open condition is resolved by adding Move(C, Dyback in. Notice the new
+bindings for the preconditions. |
+
+ 
+
+ 
+
+ 
+
+  
+ 
+
+Once again, Move(C, D)is ready for execution. This time it works, resulting in the goal
+state shown in Figure 13.10(d). Once the step is dropped from the plan, the goal condition
+On(C, D) becomes open again. Because the START step is updated to reflect the new world state,
+however, the goal condition can be satisfied immediately by a link from the START step. This
+is the normal course of events when an action is successful. The final plan state is shown i0
+Figure 13.16. Because all the goal conditions are satisfied by the START step and there are no
+remaining actions, the agent resets the plan and looks for something else to do.
+
+The complete agent design is shown in Figure 13.17 in much the same form as used for
+POP and CPOP, although we abbreviate the part in common (resolving standard flaws). One
+significant structural difference is that planning and acting are the same "loop" as implemented by
+the coupling between agent and environment. After each plan modification, an action is returned
+(even if it is a NoOp) and the world model is updated from the new percept. We assume that each
+action finishes executing before the next percept arrives. To allow for extended execution with a
+completion signal, an executed action must remain in the plan until it is completed.
+

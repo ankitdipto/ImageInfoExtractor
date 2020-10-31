@@ -1,0 +1,22 @@
+23.2. The algorithms of Kruskal and Prim 633
+
+ 
+
+Figure 23.4, continued Further steps in the execution of Kruskal’s algorithm.
+
+The running time of Kruskal’s algorithm for a graph G = (V, E£) depends
+on how we implement the disjoint-set data structure. We assume that we use
+the disjoint-set-forest implementation of Section 21.3 with the union-by-rank and
+path-compression heuristics, since it is the asymptotically fastest implementation
+known. Initializing the set A in line 1 takes O(1) time, and the time to sort the
+edges in line 4 is O(E lg E). (We will account for the cost of the |V| MAKE-SET
+operations in the for loop of lines 2-3 in a moment.) The for loop of lines 5-8
+performs O(E£) FIND-SET and UNION operations on the disjoint-set forest. Along
+with the |V| MAKE-SET operations, these take a total of O((V + E) a(V)) time,
+where @ is the very slowly growing function defined in Section 21.4. Because we
+assume that G is connected, we have |E| > |V| — 1, and so the disjoint-set opera-
+tions take O(Ea(V)) time. Moreover, since w(|V|) = O(lg V) = O(Ig E), the to-
+tal running time of Kruskal’s algorithm is O(E lg E). Observing that |E| < |V|’,
+we have lg|E| = O(lg V), and so we can restate the running time of Kruskal’s
+algorithm as O(E lg V).
+

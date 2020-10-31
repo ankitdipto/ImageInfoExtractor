@@ -1,0 +1,45 @@
+Problems for Chapter 16 447
+
+b. Suppose that the available coins are in the denominations that are powers of c,
+ie., the denominations are c°,c!,... .c* for some integers c > l andk > 1.
+Show that the greedy algorithm always yields an optimal solution.
+
+c. Give a set of coin denominations for which the greedy algorithm does not yield
+an optimal solution. Your set should include a penny so that there is a solution
+for every value of n.
+
+d, Give an O(nk)-time algorithm that makes change for any set of k different coin
+denominations, assuming that one of the coins is a penny.
+
+16-2 Scheduling to minimize average completion time
+
+Suppose you are given a set S = {a1.d2.....d,} of tasks, where task a; re-
+quires p; units of processing time to complete, once it has started. You have one
+computer on which to run these tasks, and the computer can run only one task at a
+time. Let c; be the completion time of task a;, that is, the time at which task a; com-
+pletes processing. Your goal is to minimize the average completion time, that is,
+to minimize (1/n) )?_, ¢;. For example, suppose there are two tasks, a and ap,
+with p; = 3 and p2 = 5, and consider the schedule in which a runs first, followed
+by a. Then cy = 5, c; = 8, and the average completion time is (5 + 8)/2 = 6.5.
+If task a, runs first, however, then c; = 3, cy = 8, and the average completion
+time is (3 + 8)/2 = 5.5.
+
+a. Give an algorithm that schedules the tasks so as to minimize the average com-
+pletion time. Each task must run non-preemptively, that is, once task a; starts, it
+must run continuously for p; units of time. Prove that your algorithm minimizes
+the average completion time, and state the running time of your algorithm.
+
+b. Suppose now that the tasks are not all available at once. That is, each task
+cannot start until its release time r;. Suppose also that we allow preemption, so
+that a task can be suspended and restarted at a later time. For example, a task a;
+with processing time pj = 6 and release time 7; = 1 might start running at
+time | and be preempted at time 4. It might then resume at time 10 but be
+preempted at time 11, and it might finally resume at time 13 and complete at
+time 15. Task a; has run for a total of 6 time units, but its running time has been
+divided into three pieces. In this scenario, a;’s completion time is 15. Give
+an algorithm that schedules the tasks so as to minimize the average completion
+time in this new scenario. Prove that your algorithm minimizes the average
+completion time, and state the running time of your algorithm.
+
+ 
+

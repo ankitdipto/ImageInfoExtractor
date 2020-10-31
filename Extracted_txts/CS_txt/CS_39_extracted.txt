@@ -1,0 +1,52 @@
+672
+
+Chapter 24 Single-Source Shortest Paths
+
+Proof We prove the invariant v.d > 6(s,v) for all vertices v € V by induction
+over the number of relaxation steps.
+
+For the basis, v.d > 6(s, v) is certainly true after initialization, since v.d = 00
+implies v.d > 5(s,v) for all v € V — {s}, and since s.d = 0 > 6(s,s5) (note that
+5(s,5) = —oo if s is on a negative-weight cycle and 0 otherwise).
+
+For the inductive step, consider the relaxation of an edge (u,v). By the inductive
+hypothesis, x.d > 6(s,x) for all x € V prior to the relaxation. The only d value
+that may change is v.d. If it changes, we have
+
+vd = u.d+w(u,v)
+> d(s,u)+w(u.v) (by the inductive hypothesis)
+= d(s,v) (by the triangle inequality) ,
+
+and so the invariant is maintained.
+
+To see that the value of v.d never changes once v.d = 6(s,v), note that having
+achieved its lower bound, v.d cannot decrease because we have just shown that
+v.d > 4(s,v), and it cannot increase because relaxation steps do not increase d
+values. /
+
+Corollary 24.12 (No-path property)
+
+Suppose that in a weighted, directed graph G = (V, £) with weight function
+w : E — R, no path connects a source vertex s € V to a given vertex v € V.
+Then, after the graph is initialized by INITIALIZE-SINGLE-SOURCE(G, 5), we
+have v.d = 6(s,v) = oo, and this equality is maintained as an invariant over
+any sequence of relaxation steps on the edges of G.
+
+Proof By the upper-bound property, we always have oo = 8(s,v) < v.d, and
+thus v.d = 00 = 4(s, v). .
+
+Lemma 24.13
+
+Let G = (V, E) be a weighted, directed graph with weight function w : E > R,
+and let (u,v) € E. Then, immediately after relaxing edge (u,v) by executing
+RELAX(u, v, w), we have v.d < u.d + w(u,v).
+
+Proof If, just prior to relaxing edge (u,v), we have v.d > u.d + w(u,v), then
+v.d = u.d + w(u,v) afterward. If, instead, v.d < u.d + w(u,v) just before
+the relaxation, then neither u.d nor v.d changes, and so v.d < u.d + w(u,v)
+afterward. 7
+
+Lemma 24.14 (Convergence property)
+Let G = (V, E) be a weighted, directed graph with weight function w : E > R,
+let s € V be a source vertex, and let s ~+ u — v be a shortest path in G for
+

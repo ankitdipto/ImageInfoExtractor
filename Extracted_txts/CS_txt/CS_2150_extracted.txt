@@ -1,0 +1,58 @@
+SECTION 946 Vector Processing 321
+
+Artificial intelligence and expert systems
+Mapping the human genome
+Image processing
+
+Without sophisticated computers, many of the required computations cannot
+be completed withina reasonable amount of time. Toachieve the required level
+of high performance it is necessary to utilize the fastest and most reliable
+hardware and apply innovative procedures from vector and parallel processing
+techniques.
+
+Vector Operations
+
+Many scientific problems require arithmetic operations on large arrays of
+numbers, These numbers are usually formulated as vectors and matrices of
+floating-point numbers, A vectoris an ordered set of a one-dimensional array
+of data items. A vector V of length n is represented as a row vector by
+V=[V, Vy Vy -++ Val-Itmaybe represented asa columnvector if the data
+items are listed in a column. A conventional sequential computer is capable of
+processing operands one ata time. Consequently, operations on vectors must
+be broken down into single computations with subscripted variables. The
+element V, of vector V is written as V(I) and the index I refers to a memory
+address or register where the number is stored. To examine the difference
+between a conventional scalar processor and a vector processor, consider the
+following Fortran DO loop:
+
+Do 201=1, 100
+20 C(I) =B(I) + A(I)
+This is a program for adding two vectors A and B of length 100 to produce a
+
+vector C. This is implemented in machine language by the following sequence
+of operations.
+
+ 
+
+InitializeT
+20 Read A(T)
+
+Read B(I)
+
+Store C(I) = A(I) + B(T)
+
+Increment I=I+1
+
+If I= 100 go to 20
+
+Continue
+
+a
+
+This constitutes a program loop that reads a pair of operands from arrays A
+and B and performs a floating-point addition. The loop control variable is then
+updated and the steps repeat 100 times.
+
+‘A.computer capable of vector processing eliminates the overhead associ-
+ated with the time it takes to fetch and execute the instructions in the program
+

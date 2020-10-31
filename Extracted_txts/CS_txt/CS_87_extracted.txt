@@ -1,0 +1,37 @@
+26.1 Flow networks 711
+
+ 
+
+Figure 26.2 Converting a network with antiparallel edges to an equivalent one with no antiparallel
+edges. (a) A flow network containing both the edges (v1, v2) and (v2, v1). (b) An equivalent network
+with no antiparallel edges. We add the new vertex v’, and we replace edge (v1, v2) by the pair of
+edges (v1, v’) and (v’, vz), both with the same capacity as (v1, v2).
+
+Puck leases space on trucks from another firm to ship the pucks from the factory
+to the warehouse. Because the trucks travel over specified routes (edges) between
+cities (vertices) and have a limited capacity, Lucky Puck can ship at most c(u, v)
+crates per day between each pair of cities u and v in Figure 26.1(a). Lucky Puck
+has no control over these routes and capacities, and so the company cannot alter
+the flow network shown in Figure 26.1(a). They need to determine the largest
+number p of crates per day that they can ship and then to produce this amount, since
+there is no point in producing more pucks than they can ship to their warehouse.
+Lucky Puck is not concerned with how long it takes for a given puck to get from
+the factory to the warehouse; they care only that p crates per day leave the factory
+and p crates per day arrive at the warehouse.
+
+We can model the “flow” of shipments with a flow in this network because the
+number of crates shipped per day from one city to another is subject to a capacity
+constraint. Additionally, the model must obey flow conservation, for in a steady
+state, the rate at which pucks enter an intermediate city must equal the rate at which
+they leave. Otherwise, crates would accumulate at intermediate cities.
+
+Modeling problems with antiparallel edges
+
+Suppose that the trucking firm offered Lucky Puck the opportunity to lease space
+for 10 crates in trucks going from Edmonton to Calgary. It would seem natural to
+add this opportunity to our example and form the network shown in Figure 26.2(a).
+This network suffers from one problem, however: it violates our original assump-
+tion that if an edge (v;, v2) € E, then (v2, v,) ¢ E. We call the two edges (1, v2)
+and (v2, ¥;) antiparallel. Thus, if we wish to model a flow problem with antipar-
+allel edges, we must transform the network into an equivalent one containing no
+

@@ -1,0 +1,42 @@
+140 Let Us C
+
+ 
+
+The Tips and Traps
+
+A few useful tips about the usage of switch and a few pitfalls to be
+avoided:
+
+(a) The earlier program that used switch may give you the wrong
+impression that you can use only cases arranged in ascending
+order, 1, 2, 3 and default. You can in fact put the cases in any
+order you please. Here is an example of scrambled case order:
+
+main()
+{
+int i= 22;
+
+switch (i)
+{
+case 121:
+printf ( "lamin case 121 \n") ;
+break ;
+case 7:
+printf ("lamin case 7 \n") ;
+break ;
+case 22:
+printf (“lamin case 22 \n") ;
+break ;
+default :
+printf ( "lam in default \n") ;
+}
+}
+
+The output of this program would be:
+| am in case 22
+
+(b) You are also allowed to use char values in case and switch as
+shown in the following program:
+
+main()
+

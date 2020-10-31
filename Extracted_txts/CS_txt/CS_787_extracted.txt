@@ -1,0 +1,41 @@
+Chapter 4: The Case Control Structure 141
+
+ 
+
+{
+char c='x';
+
+switch ( c )
+{
+case'V':
+printf ("I am in case v\n") ;
+break ;
+case'a':
+printf ("I am in case a \n") ;
+break ;
+case'x':
+printf ("I am in case x \n") ;
+break ;
+default :
+printf ("I am in default \n" ) ;
+}
+}
+
+The output of this program would be:
+
+lam in case x
+
+In fact here when we use ‘v’, ‘a’, ‘x’ they are actually
+replaced by the ASCII values (118, 97, 120) of these character
+constants.
+
+(c) At times we may want to execute a common set of statements
+for multiple cases. How this can be done is shown in the
+following example.
+
+main()
+char ch;
+
+printf (“Enter any of the alphabet a, b, orc") ;
+scanf ("%c", &ch) ;
+

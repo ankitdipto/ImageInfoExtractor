@@ -1,0 +1,52 @@
+34 curren one Digital Logic Circuits
+
+required state transitions, The flip-flop input conditions are a function of the
+type of flip-flop used. If we employ JK flip-flops, we need columns for the |
+and K inputs of each flip-flop. We denote the inputs of flip-flop A by J, and
+K,, and those of flip-flop B by Jy and Ky.
+
+The excitation table for the JK flip-flop specified in Table 1-3 is now used
+to derive the excitation table of the sequential circuit. For example, in the first
+row of Table 1-5, we have a transition for flip-flop A from in the present state
+to in the next state. In Table 1-3 we find that a transition of states from Q(t) = 0
+to Q(t + 1) = 0 ina]k flip-flop requires that input J = 0 and input K = x. So
+Oand x are copied in the firstrow under, and K,, respectively. Since the first
+row also shows a transition for flip-flop B from 0 in the present state to 0 in
+the next state, 0 and x are copied in the first row under Jy and Ky. The second
+row of Table 1-5 shows a transition for flip-flop B from 0 in the present state
+to lin the next state. From Table 1-3 we find that a transition from Q(t) = 0
+to Q(t + 1) = 1 requires that input J = 1 and input K = x. So 1 and x are
+copied in the second row under J, and Ky, respectively. This process is contin-
+ued for each row of the table and for each flip-flop, with the input conditions
+as specified in Table 1-3 being copied into the proper row of the particular
+flip-flop being considered.
+
+Let us now consider the information available in an excitation table such
+as Table 1-5. We know that a sequential circuit consists of anumber of flip-flops
+and a combinational circuit From the block diagram of Fig. 1-24, we note that
+the outputs of the combinational circuit must go to the four flip-flop inputs J,,
+Ky Ja, and Ky. The inputs to the combinational circuit are the external input
+x and the present-state values of flip-flops A and B. Moreover, the Boolean
+functions thatspecify a combinational circuit are derived from a truth table that
+shows the input-output relationship of the circuit. The entries that list the
+combinational circuit inputs are specified under the “present state” and “in-
+put” columns in the excitation table. The combinational circuit outputs are
+specified under the “flip-flop inputs” columns. Thus an excitation table trans-
+formsa state diagram to a truth table needed for the design of the combina-
+tional circuit part of the sequential circuit.
+
+The simplified Boolean functions for the combinational circuit can now
+be derived. The inputs are the variables A, B, and x. The outputs are the
+variables J4, Ks, Js, and Ky. The information from the excitation table is trans-
+ferred into the maps of Fig. 1-28, where the four simplified flip-flop input
+equations are derived:
+
+ 
+
+Ja = Bx Ky = Br
+In=x  Ky=x
+The logic diagram is drawn in Fig, 1-29 and consists of two JK flip-flops and
+
+an AND gate. Note that inputs J and K determine the next state of the counter
+when a clock signal occurs. If both J and K are equal to 0, a clock signal will
+

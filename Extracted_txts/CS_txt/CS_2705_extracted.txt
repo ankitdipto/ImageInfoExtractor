@@ -1,0 +1,47 @@
+11.4 Open addressing 271
+
+terminate (unsuccessfully) when it finds an empty slot, since k would have been
+inserted there and not later in its probe sequence. (This argument assumes that keys
+are not deleted from the hash table.) The procedure HASH-SEARCH takes as input
+ahash table T and akey k, returning ; if it finds that slot j contains key k, or NIL
+if key k is not present in table T.
+
+HASH-SEARCH(T,k)
+i=0
+repeat
+
+ 
+
+until T[j] == NIL or i ==m
+return NIL
+
+CIDARWNH
+
+Deletion from an open-address hash table is difficult. When we delete a key
+from slot 7, we cannot simply mark that slot as empty by storing NIL in it. If
+we did, we might be unable to retrieve any key k during whose insertion we had
+probed slot i and found it occupied. We can solve this problem by marking the
+slot, storing in it the special value DELETED instead of NIL. We would then modify
+the procedure HASH-INSERT to treat such a slot as if it were empty so that we can
+insert anew key there. We do not need to modify HASH-SEARCH, since it will pass
+over DELETED values while searching. When we use the special value DELETED,
+however, search times no longer depend on the load factor @, and for this reason
+chaining is more commonly selected as a collision resolution technique when keys
+must be deleted.
+
+In our analysis, we assume uniform hashing: the probe sequence of each key
+is equally likely to be any of the m! permutations of (0. 1, ..., m— 1). Uni-
+form hashing generalizes the notion of simple uniform hashing defined earlier to a
+hash function that produces not just a single number, but a whole probe sequence.
+True uniform hashing is difficult to implement, however, and in practice suitable
+approximations (such as double hashing, defined below) are used.
+
+We will examine three commonly used techniques to compute the probe se-
+quences required for open addressing: linear probing, quadratic probing, and dou-
+ble hashing. These techniques all guarantee that ((k,0),h(k,1),..., h(k,m—1))
+is a permutation of (0,1,..., m — 1) for each key k. None of these techniques ful-
+fills the assumption of uniform hashing, however, since none of them is capable of
+generating more than m? different probe sequences (instead of the m! that uniform
+hashing requires). Double hashing has the greatest number of probe sequences and,
+as one might expect, seems to give the best results.
+

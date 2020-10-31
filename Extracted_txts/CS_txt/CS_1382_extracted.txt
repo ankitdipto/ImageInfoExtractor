@@ -1,0 +1,38 @@
+Chapter 19: Interaction With Hardware 635
+
+ 
+
+(b) If we hit a key once it should appear twice on the screen.
+(c) If we hit a key A then B should appear on the screen, if we hit
+a B then C should occur and so on.
+
+Note that all these effects should work on a system-wide basis for
+all Win32 applications. To be able to achieve these effect we need
+understand two important mechanisms—‘Dynamic Linking’ and
+‘Windows Hooks’. Let us understand these mechanisms one by
+one.
+
+Dynamic Linking
+
+As we saw in Chapter 16, Windows permits linking of libraries
+stored ina .DLL file during execution. A .DLL file is a binary file
+that cannot execute on its own. It contains functions that can be
+shared between several applications running in memory.
+
+Windows Hooks
+
+As the name suggests, the hook mechanism permits us to intercept
+and alter the flow of messages in the OS before they reach the
+application. Since hooks are used to alter the messaging
+mechanism on a system-wide basis the code for hooking has to be
+written ina DLL. The hooking mechanism involves writing a hook
+procedure in a DLL file and registering this procedure with the
+OS. Since the DLL cannot execute on its own we need a separate
+program that would load and execute the DLL.
+
+For different messages there are different types of hooks. For
+example, for keyboard messages there is a keyboard hook, for
+mouse messages there is mouse hook, etc. You can refer MSDN
+for nearly a dozen more types of hooks. Here we would restrict our
+discussion only to the keyboard hook.
+

@@ -1,0 +1,49 @@
+20.2. A recursive structure 537
+
+If we use the same technique, changing variables, we can show that recur-
+rence (20.2) has the solution T(u) = O(iglgu). Let m = lgu, so that u = 2”
+and we have
+
+T(2") = 7 (2?) + O(1).
+Now we rename S(m) = T(2”), giving the new recurrence
+S(m) = S(m/2) + O().
+
+By case 2 of the master method, this recurrence has the solution S(m) = O(lgm).
+We change back from S(m) to T(u), giving T(u) = T(2”) = S(m) = O(lgm) =
+Ollg Igu).
+
+Recurrence (20.2) will guide our search for a data structure. We will design a
+recursive data structure that shrinks by a factor of /v in each level of its recursion.
+When an operation traverses this data structure, it will spend a constant amount of
+time at each level before recursing to the level below. Recurrence (20.2) will then
+characterize the running time of the operation.
+
+Here is another way to think of how the term lglgu ends up in the solution to
+recurrence (20.2). As we look at the universe size in each level of the recursive data
+structure, we see the sequence u,u!/?,u'/4,u/8,.... If we consider how many bits
+we need to store the universe size at each level, we need lgu at the top level, and
+each level needs half the bits of the previous level. In general, if we start with b
+bits and halve the number of bits at each level, then after lg b levels, we get down
+to just one bit. Since b = lgu, we see that after lglg u levels, we have a universe
+size of 2.
+
+Looking back at the data structure in Figure 20.2, a given value x resides in
+cluster number |x/./u]. If we view x as a lgu-bit binary integer, that cluster
+number, [x/,/w], is given by the most significant (Igu)/2 bits of x. Within its
+cluster, x appears in position x mod ,/v#, which is given by the least significant
+(lgu)/2 bits of x. We will need to index in this way, and so let us define some
+functions that will help us do so:
+
+high(x) = [x/Ju] .
+low(x) = x mod Ju,
+index(x,y) = xJ/u+y.
+
+ 
+
+The function high(x) gives the most significant (Ig u)/2 bits of x, producing the
+number of x’s cluster. The function low(x) gives the least significant (Ig w)/2 bits
+of x and provides x’s position within its cluster. The function index(x, y) builds an
+element number from x and y, treating x as the most significant (lg 7) /2 bits of the
+element number and y as the least significant (lg) /2 bits. We have the identity
+X = index(high(x), low(x)). The value of u used by each of these functions will
+

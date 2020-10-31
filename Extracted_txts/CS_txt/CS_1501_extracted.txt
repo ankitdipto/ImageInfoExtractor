@@ -1,0 +1,71 @@
+ 
+
+2.2 W/O Structure 31
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+requesting process.
+user { waiting requesting process } user
+device driver device driver
+eee Ob 1
+kernel ‘ interrupt handler ¥ 3 interrupt handler kernel
+| hardware I hardware
+
+data transfer = ~ data transfer
+
+time ———> time ———>
+
+(a) (b)
+
+Figure 2.3 Two I/O methods: (a) synchronous, and (b) asynchronous.
+
+waiting for the I/O to complete. The 1/O then can continue while other system
+operations occur (Figure 2.3).
+
+Waiting for 1/O completion may be accomplished in one of two ways. Some
+computers have a special wait instruction that idles the CPU until the next
+interrupt. Machines that do not have such an instruction may have a wait loop:
+
+Loop: jmp Loop
+
+This tight loop simply continues until an interrupt occurs, transferring control
+to another part of the operating system. Such a loop might also need to poll any
+I/O devices that do not support the interrupt structure; instead, these devices
+simply set a flag in one of their registers and expect the operating system to
+notice that flag.
+
+If the CPU always waits for I/O completion, at most one I/O request is
+outstanding at a time. Thus, whenever an I/O interrupt occurs, the operat-
+ing system knows exactly which device is interrupting. On the other hand,
+this approach excludes concurrent I/O operations to several devices, and also
+excludes the possibility of overlapping useful computation with 1/0.
+
+A better alternative is to start the I/O and then to continue processing other
+operating-system or user program code. A system call is then needed to allow
+the user program to wait for I/O completion, if desired. If no user programs are
+ready to run, and the operating system has no other work to do, we still require
+the wait instruction or idle loop, as before. We also need to be able to keep
+track of many I/O requests at the same time. For this purpose, the operating
+system uses a table containing an entry for each I/O device: the device-status
+table (Figure 2.4). Each table entry indicates the device’s type, address, and
+state (not functioning, idle, or busy). If the device is busy with a request, the
+type of request and other parameters will be stored in the table entry for that
+

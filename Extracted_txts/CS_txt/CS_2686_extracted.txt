@@ -1,0 +1,48 @@
+256
+
+Chapter 11 Hash Tables
+
+ 
+
+11.2 Hash tables
+
+The downside of direct addressing is obvious: if the universe U is large, storing
+a table T of size |U| may be impractical, or even impossible, given the memory
+available on a typical computer. Furthermore, the set K of keys actually stored
+may be so small relative to U that most of the space allocated for T would be
+wasted.
+
+When the set K of keys stored in a dictionary is much smaller than the uni-
+verse U of all possible keys, a hash table requires much less storage than a direct-
+address table. Specifically, we can reduce the storage requirement to ©(|K|) while
+we maintain the benefit that searching for an element in the hash table still requires
+only O(1) time. The catch is that this bound is for the average-case time, whereas
+for direct addressing it holds for the worst-case time.
+
+With direct addressing, an element with key k is stored in slot k. With hashing,
+this element is stored in slot /(k); that is, we use a hash function h to compute the
+slot from the key k. Here, / maps the universe U of keys into the slots of a hash
+table T(0..m — 1]:
+
+h:U +{0,1,....m—l},
+
+where the size m of the hash table is typically much less than |U|. We say that an
+element with key k hashes to slot h(k); we also say that h(x) is the hash value of
+key k. Figure 11.2 illustrates the basic idea. The hash function reduces the range
+of array indices and hence the size of the array. Instead of a size of |U|, the array
+can have size m.
+
+htky)
+hk,
+
+hk) = tks)
+
+(ks)
+
+ 
+
+ml
+
+Figure 11.2. Using a hash function h to map keys to hash-table slots. Because keys k2 and ks map
+to the same slot, they collide.
+

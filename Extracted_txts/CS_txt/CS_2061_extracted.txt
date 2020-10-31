@@ -1,0 +1,31 @@
+ 
+
+494 Chapter 14 Mass-Storage Structure
+
+queue = 98, 183, 37, 122, 14, 124, 65, 67
+
+head starts at 53
+0 14 37 536567 98 122124 183 199
+
+Figure 14.1 FCFS disk scheduling.
+
+For our example request queue, the closest request to the initial head
+position (53) is at cylinder 65. Once we are at cylinder 65, the next closest
+request is at cylinder 67. From there, the request at cylinder 37 is closer than
+98, so 37 is served next. Continuing, we service the request at cylinder 14, then
+98, 122, 124, and finally 183 (Figure 14.2). This scheduling method results in
+a total head movement of only 236 cylinders —little more than one-third of the
+distance needed for FCFS scheduling of this request queue. This algorithm gives
+a substantial improvement in performance.
+
+SSTF scheduling is essentially a form of shortest-job-first (SJF) scheduling,
+and, like SJF scheduling, it may cause starvation of some requests. Remember
+that requests may arrive at any time. Suppose that we have two requests in
+
+queue = 98, 183, 37, 122, 14, 124, 65, 67
+head starts at 53
+
+Oo 14 37 536567 98 122124 183 199
+
+Figure 14.2 SSTF disk scheduling.
+

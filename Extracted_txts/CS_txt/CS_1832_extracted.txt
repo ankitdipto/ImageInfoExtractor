@@ -1,0 +1,50 @@
+9.5 Segmentation — 303
+
+Only one copy of the editor needs to be kept in physical memory. Each
+user’s page table maps onto the same physical copy of the editor, but data pages
+are mapped onto different frames. Thus, to support 40 users, we need only one
+copy of the editor (150 KB), plus 40 copies of the 50 KB of data space per user.
+The total space required is now 2,150 KB, instead of 8,000 KB—a significant
+savings.
+
+Other heavily used programs can also be shared—compilers, window
+systems, run-time libraries, database systems, and so on. To be sharable, the
+code must be reentrant. The read-only nature of shared code should not be
+left to the correctness of the code; the operating system should enforce this
+property. This sharing of memory among processes on a system is similar to
+the sharing of the address space of a task by threads, described in Chapter 5.
+Furthermore, recall from Chapter 4 where we described shared memory as a
+method of interprocess communication. Some operating systems implement
+shared memory using shared pages.
+
+Systems that use inverted page tables have difficulty implementing shared
+memory. Shared memory is usually implemented as multiple virtual addresses
+(one for each process sharing the memory) that are mapped to one physical
+address. This standard method cannot be used, however, as there is only one
+virtual page entry for every physical page, so one physical page cannot have
+two (or more) shared virtual addresses.
+
+Organizing memory according to pages provides numerous other benefits
+in addition to allowing several processes to share the same physical pages. We
+will cover several other benefits in Chapter 10.
+
+9.5 = Segmentation
+
+An important aspect of memory management that became unavoidable with
+paging is the separation of the user’s view of memory and the actual physical
+memory. The user’s view of memory is not the same as the actual physical
+memory. The user’s view is mapped onto physical memory. The mapping
+allows differentiation between logical memory and physical memory.
+
+9.5.1 Basic Method
+
+Do users think of memory as a linear array of bytes, some containing instruc-
+tions and others containing data? Most people would say no. Rather, users
+prefer to view memory as a collection of variable-sized segments, with no
+necessary ordering among segments (Figure 9.17).
+
+Consider how you think of a program when you are writing it. You think
+of it as a main program with a set of subroutines, procedures, functions, or
+modules. There may also be various data structures: tables, arrays, stacks,
+variables, and so on. Each of these modules or data elements is referred to by
+

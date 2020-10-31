@@ -1,0 +1,63 @@
+‘control memory
+
+SECTION 7.3 Microprogram Example 229
+
+if AC < 0. The AC will beless than zero ifits sign is negative, which is detected
+from status bit Sbeinga 1. TheBRANCH routine in Table 7-2 starts by checking,
+the value of S. If Sis equal to0, no branch occurs and the next microinstruction
+causes a jump back to the fetch routine without altering the content of PC. If
+S is equal to 1, the first JMP microinstruction transfers control to location
+OVER. The microinstruction at this location calls the INDRCT subroutine if
+I= L The effective address is then transferred from AR to PC and the mi-
+croprogram jumps back to the fetch routine.
+
+The STORE routine again uses the INDRCT subroutine if
+content of AC is transferred into DR. A memory write operation is
+store the content of DR in a location specified by the effective address in AR.
+
+‘The EXCHANGE routine reads the operand from the effective address
+and places it in DR. The contents of DR and AC are interchanged in the third
+microinstruction This interchange is possible when the registers are of the
+edge-triggered type (see Fig. 1-23). The original content of AC that is now in
+DR is stored back in memory.
+
+Note that Table7-2 contains a partial list of the microprogram. Only four
+cout of 16 possible computer instructions have been microprogrammed. Also,
+control memory words at locations 69 to 127 have not been used. Instructions
+such as multiply, divide, and others that require a long sequence of micro-
+operations will need more than four microinstructions for their execution.
+Control memory words 69 to 127 can be used for this purpose.
+
+   
+
+Binary Microprogram
+
+The symbolic microprogram is a convenient form for writing microprograms
+ina way that people can read and understand. But this is not the way that the
+microprogram is stored in memory. The symbolic microprogram must be
+translated to binary either by means of an assembler program or by the user
+if the microprogram is simple enough as in this example.
+
+Theequivalentbinary form of the microprogram is listed in Table 7-3. The
+addresses for control memory are given in both decimaland binary. The binary
+content of each microinstruction is derived from the symbols and their equiv-
+alent binary values as defined in Table 7-1.
+
+Note thataddress 3 has noequivalent inthe symbolic microprogram since
+the ADDroutine has only three microinstructions at addresses 0, 1, and 2. The
+next routine startsat address 4. Even though address3 is not used, some binary
+value must be specified for each word in control memory. We could have
+specified all 0's in the word since this location will never be used. However,
+if some unforeseen error occurs, or if a noise signal sets CAR to the value of
+3, it will be wise to jump to address 64, which is the beginning of the fetch
+routine.
+
+The binary microprogram listed in Table 7-3 specifies the word content
+of the control memory. When a ROM is used for the control memory, the
+
+ 
+
+ 
+
+ 
+

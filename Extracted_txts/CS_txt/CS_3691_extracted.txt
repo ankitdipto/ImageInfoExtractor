@@ -1,0 +1,73 @@
+Problems for Chapter 23 639
+
+then contract all chosen edges (see Section B.4). Rather than contracting these
+edges one at a time, we first identify sets of vertices that are united into the same
+new vertex. Then we create the graph that would have resulted from contracting
+these edges one at a time, but we do so by “renaming” edges according to the sets
+into which their endpoints were placed. Several edges from the original graph may
+be renamed the same as each other. In such a case, only one edge results, and its
+weight is the minimum of the weights of the corresponding original edges.
+
+Initially, we set the minimum spanning tree T being constructed to be empty,
+and for each edge (u,v) € E, we initialize the attributes (u,v).orig = (u,v)
+and (u,v).c = w(u,v). We use the orig attribute to reference the edge from the
+initial graph that is associated with an edge in the contracted graph. The c attribute
+holds the weight of an edge, and as edges are contracted, we update it according to
+the above scheme for choosing edge weights. The procedure MST-REDUCE takes
+inputs G and T, and it returns a contracted graph G’ with updated attributes orig’
+and c’. The procedure also accumulates edges of G into the minimum spanning
+tree T.
+
+MST-REDUCE(G, T)
+
+1 for each vy € G.V
+
+2 v.mark = FALSE
+3 MAKE-SET(v)
+
+4 for eachu € G.V
+
+5 if u.mark
+6
+
+7
+
+8
+
+ 
+
+FALSE
+
+choose v € G.Adj{u] such that (uv, v).c is minimized
+UNION(u, v)
+T =T U{(u,v).orig}
+
+9 u.mark = v.mark = TRUE
+
+10 G'.V = {FIND-SET(V) : v € G.V}
+
+ll G.E=96
+
+12 for each (x,y) €G.E
+
+13 u = FIND-SET(x)
+
+14 v = FIND-SET(y)
+
+15 if (u,v) GE
+
+16 G'.E = G'.EU{(u,v)}
+
+17 (u,v).orig’ = (x, y).orig
+
+18 (u,v).c’ = (x, y).c
+
+19 else if (x, y).c < (u,v).c’
+
+20 (u,v).orig’ = (x, y).orig
+
+21 (u,v).c! = (x, y).c
+
+22 construct adjacency lists G’.Adj for G’
+23 return G’ and T
+

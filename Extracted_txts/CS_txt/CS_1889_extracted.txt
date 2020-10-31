@@ -1,0 +1,264 @@
+350 Chapter 10 Virtual Memory
+
+To prevent thrashing, we must provide a process as many frames as it
+needs. But how do we know how many frames it “needs”? There are several
+techniques. The working-set strategy (Section 10.6.2) starts by looking at how
+many frames a process is actually using. This approach defines the locality
+model of process execution.
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+ 
+ 
+
+ 
+
+  
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+3a Hh Tot
+(aa on salsa
+|
+32}— 7 a tt t
+bf l ! | : :
+I!
+30 tilda cut ih 1 L
+ti ir if if i i i i in
+sdbihijillihe : henley il t
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+    
+     
+
+      
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+zr mt -
+é
+38 7 ‘a
+5 ll IAL Mat
+. rl
+24 IF —
+Lt 7
+wt Muth ate h
+aa rr ie
+ci = A al
+ON er ee
+g servi tl tan ent iis
+E a a yee
+ae a Nig
+
+ 
+
+ 
+
+ 
+
+ 
+
+execution time ———>
+
+Figure 10.16 Locality in a memory-reference pattern.
+

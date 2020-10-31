@@ -1,0 +1,50 @@
+698
+
+Chapter 25 All-Pairs Shortest Paths
+
+10 0 0 1000 10 0 0
+wm (0111 ee ee @m (0111
+P'=lo110) T =fo110) T Fhor id
+1ou.d 1o1t od
+10 0 0 1000
+@ (0111 we fii ii
+me=hou1 id Te rfi iad
+Pid Pidiid
+
+Figure 25.5 A directed graph and the matrices T™ computed by the transitive-closure algorithm.
+
+TRANSITIVE-CLOSURE(G)
+1 n=|G.V|
+
+ 
+
+2 let TO = (?) be anew 1 x n matrix
+
+3 fori = lton
+
+4 for j = lton
+
+5 if jor(i,j)€GE
+
+6 ) =]
+
+7 else 1 =0
+
+8 fork = lton
+
+9 let TO = (() be anew n xn matrix
+10 fori = lton
+
+ll for j = lton
+
+e 1 = VO aif?)
+
+13° return 7”
+
+Figure 25.5 shows the matrices 7 computed by the TRANSITIVE-CLOSURE
+procedure on a sample graph. The TRANSITIVE-CLOSURE procedure, like the
+Floyd-Warshall algorithm, runs in @(73) time. On some computers, though, log-
+ical operations on single-bit values execute faster than arithmetic operations on
+integer words of data. Moreover, because the direct transitive-closure algorithm
+uses only boolean values rather than integer values, its space requirement is less
+

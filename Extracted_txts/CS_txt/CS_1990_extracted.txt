@@ -1,0 +1,67 @@
+284
+
+DENODULATION
+
+PARAMODULATION
+
+Chapter 9. Inference in First-Order Logic
+
+Dealing with equality
+
+There is one problem that we have not dealt with so far, namely, finding appropriate inference
+tules for sentences containing the equality symbol. Unification does a good job of matching
+variables with other terms: P(x) unifies with P(4). But P(A) and P(B) fail to unify, even if the
+sentence A = Bis in the knowledge base. The problem is that unification only does a syntactic test
+based on the appearance of the argument terms, not a true semantic test based on the objects they
+represent. Of course, no semantic test is available because the inference system has no access
+to the objects themselves, but it should still be able to take advantage of what knowledge it has
+concerning the identities and differences among objects
+
+One way to deal with this is to axiomatize equality, by writing down its properties. We
+need to say that equality is reflexive, symmetric, and transitive, and we also have to say that we
+can substitute equals for equals in any predicate or function. So we need three basic axioms, and
+then one for each predicate and function:
+
+ 
+
+ 
+
+VxycwsypAyez>x=2
+Vxyx=y > (PiQ) & Pi(y))
+Vay xsy => (Pr) = Pr(y))
+
+Vwyxy, 7 wey Axes
+Vuwxny 2 wey A
+
+ 
+
+= (Fi(w,x) =F, 2)
+=> (F2(w,x) = Foy, 2)
+
+ 
+
+The other way to deal with equality is with a special inference rule. The demodulation
+tule takes an equality statement x=y and any sentence with a nested term that unifies with and
+derives the same sentence with y substituted for the nested term. More formally, we can define
+the inference rule as follows:
+
+0 Demodulation: For any terms x,7, and =, where UNIFY(x. z) = 6:
+
+x=y, (.. )
+(... SUBST(8,>")....)
+
+If we write all our equalities so that the simpler term is on the right (e.g, (x + 0)=0), then
+demodulation will do simplification, because it always replaces an expression on the left with
+one on the right. A more powerful rule called paramodulation deals with the case where we do }
+not know x=y, but we do know, say, x=y V P(x).
+
+ 
+
+Resolution strategies
+
+We know that repeated applications of the resolution inference rule will find a proof if one exists,
+but we have no guarantee of the efficiency of this process. In this section we look at four of the
+strategies that have been used to guide the search toward a proof.
+
+ 
+

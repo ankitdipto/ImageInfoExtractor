@@ -1,0 +1,50 @@
+ 
+
+240 Chapter 8. Building a Knowledge Base
+For example, to say that the reign of Elizabeth II followed that of George VI, and the reign of
+Elvis overlapped with the 1950s, we can write the following:
+
+After(ReignOf (ElizabethI1), ReignOf(GeorgeV1))
+
+Overlap( Fifties, ReignOf (Elvis))
+Start(Fifties) =Start(AD1950)
+Endifties) = End(AD 1959)
+
+Temporal relations among intervals are used principally in describing actions. This is done j
+in much the same way in event calculus as it is in situation calculus. The difference is that instead
+of defining a resulting situation and describing it, one defines a resulting interval, in which a
+certain state occurs. The following examples illustrate the general idea:
+
+1. Iftwo people are engaged, then in some future interval, they will either marry or break the
+engagement.
+Vxyio T(Engaged(x.y), io) >
+3%) (Meet(ini) V After(is.io)) A
+T(Marry(x,y) V BreakEngagement(x, y),i))
+2. When two people marry, they are spouses for some interval starting at the end of the
+marrying event.
+Vx,y,io T(Marry(x,y),in)=> Ji; T(Spouse(xy), il) A MeetCio, il)
+3. The result of going from one place to another is to be at that other place.
+Vx,a,b,i9 ,Fiy T(Golx,a,b),i9) > TUn(x,b). iA Meet(ig, i1)
+We shall have more to say on the subject ofactions and intervals in PartIV, which covers planning
+with these sorts of action descriptions.
+Objects revisited
+One purpose of situation calculus was to allow objects to have different properties at different
+times. Event calculus achieves the same goal. For example, we can say that Poland's area in
+1426 was 233,000 square miles, whereas in 1950itwas 117,000 square miles:
+T(Area( Poland, SqMiles(233000)), AD1426)
+T(Area(Poland,SqMiles(\ 17000)),AD 1950)
+In fact, as well as growing and shrinking, Poland has moved about somewhat on the map. We-
+could plot its land area over time, as shown in Figure 8.6. We see that Poland has a temporal
+| bee as well as spatial extent. Jt tums out to be perfectly consistent to view Poland as an event.
+= We can then use temporal subevents such as /9thCenturyPoland,and spatial subevents such as
+
+CentralPoland.
+
+The USA has also changed various aspects over time. One aspect that changes every four
+or eight years, barring mishaps, is its president. In event calculus, President(USA) denotes an
+object that consists of different people at different times. President(USA) is the object that is
+George Washington from 1789 to 1796, John Adams from 1796 to 1800, and so on (Figure 8.7).
+To say that the president of the USA in 1994 is a Democrat, we would use
+
+T(Democrat(PresidentUSA)),AD 1994)
+

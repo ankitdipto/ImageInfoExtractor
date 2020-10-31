@@ -1,0 +1,105 @@
+Chapter 2. Getting Started
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+4.5 6 1203 4 5 6 1 2 4.5 6
+(a) 6]1]3 (b) [2 eet: 1/3 () f2]4 a 3
+4.5 6 12 3 4 5 6 12 3 4 5 6
+(@) a:18 © [1 )2]4]sfe @ [if2]3]4]sfe
+A A\A\A
+
+ 
+
+Figure 2.2 The operation of INSERTION-SorT on the array A = (5,2, 4, 6, 1,3). Array indices
+appear above the rectangles, and values stored in the array positions appear within the rectangles.
+(a)-(e) The iterations of the for loop of lines 1-8. In each iteration, the black rectangle holds the
+key taken from A[j], which is compared with the values in shaded rectangles to its left in the test of
+line 5. Shaded arrows show array values moved one position to the right in line 6, and black arrows
+indicate where the key moves to in line 8. (f) The final sorted array.
+
+INSERTION-SORT(A)
+
+1 for j = 2to A.length
+
+2 “key = Ali]
+
+3 // Insert A[j] into the sorted sequence A[1.. j — 1].
+4 i=j-l
+
+5 while i > 0 and A[i] > key
+
+6 Ali +1] = Afi]
+
+7 i=i-l
+8 Ali + 1] = key
+
+Loop invariants and the correctness of insertion sort
+
+Figure 2.2 shows how this algorithm works for A = (5, 2, 4,6, 1, 3). The in-
+dex j indicates the “current card” being inserted into the hand. At the beginning
+of each iteration of the for loop, which is indexed by /, the subarray consisting
+of elements A[1..j — 1] constitutes the currently sorted hand, and the remaining
+subarray A[j + 1..n] corresponds to the pile of cards still on the table. In fact,
+elements A[1.. j — 1] are the elements originally in positions 1 through j — 1, but
+now in sorted order. We state these properties of A[1..j — 1] formally as a loop
+invariant:
+
+At the start of each iteration of the for loop of lines 1-8, the subarray
+A[l.. j —1] consists of the elements originally in A[1.. j — 1], but in sorted
+order.
+
+We use loop invariants to help us understand why an algorithm is correct. We
+must show three things about a loop invariant:
+

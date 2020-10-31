@@ -1,0 +1,55 @@
+854
+
+Chapter 29 Linear Programming
+
+n
+> aj x; >= b;
+j=l
+
+is equivalent to
+
+n
+> aijgXj; <—b;.
+
+Thus, by replacing each coefficient a;; by —a;; and each value b; by —b;, we obtain
+an equivalent less-than-or-equal-to constraint.
+
+Finishing our example, we replace the equality in constraint (29.22) by two in-
+equalities, obtaining
+
+ 
+
+maximize 2x, — 3x, + 3xz
+subject to
+Mo to - XY 5 7
+Mo + xX -— xy = 7 (29.23)
+x — 2x, + Ixy < 4
+X11 XG. XY > 0.
+
+Finally, we negate constraint (29.23). For consistency in variable names, we re-
+name x} to x2 and x to x3, obtaining the standard form
+
+maximize 2x, — 3x, + 3X3 (29.24)
+subject to
+
+X + XxX -— XxX, < 7 (29.25)
+
+—X} — XX. + x3 < —7 (29.26)
+
+xX; — 2x, + 2x, <5 4 (29.27)
+
+X1,X2,X3 > 0. (29.28)
+
+Converting linear programs into slack form
+
+To efficiently solve a linear program with the simplex algorithm, we prefer to ex-
+press it in a form in which some of the constraints are equality constraints. More
+precisely, we shall convert it into a form in which the nonnegativity constraints are
+the only inequality constraints, and the remaining constraints are equalities. Let
+
+n
+
+Yaijx; <i (29.29)
+
+ 
+

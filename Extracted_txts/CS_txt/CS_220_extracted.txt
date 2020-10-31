@@ -1,0 +1,49 @@
+28.1 Solving systems of linear equations 819
+
+5 6 3 x 8
+0 0.8 —0.6 Xo }={ 14].
+0 0 2.5 X3 1.5
+
+thereby obtaining the desired answer
+
+—14
+x= 2.2
+0.6
+
+by computing first x3, then x2, and finally x1.
+
+Computing an LU decomposition
+
+We have now shown that if we can create an LUP decomposition for a nonsingular
+matrix A, then forward and back substitution can solve the system Ax = b of
+linear equations. Now we show how to efficiently compute an LUP decomposition
+for A. We start with the case in which A is ann x n nonsingular matrix and P is
+absent (or, equivalently, P = J,,). In this case, we factor A = LU. We call the
+two matrices L and U an LU decomposition of A.
+
+We use a process known as Gaussian elimination to create an LU decomposi-
+tion. We start by subtracting multiples of the first equation from the other equations
+in order to remove the first variable from those equations. Then, we subtract mul-
+tiples of the second equation from the third and subsequent equations so that now
+the first and second variables are removed from them. We continue this process
+until the system that remains has an upper-triangular form—in fact, it is the ma-
+trix U. The matrix L is made up of the row multipliers that cause variables to be
+eliminated.
+
+Our algorithm to implement this strategy is recursive. We wish to construct an
+LU decomposition for ann x n nonsingular matrix A. If n = 1, then we are done,
+since we can choose L = J, and U = A. Forn > 1, we break A into four parts:
+
+Pa
+ll
+
+ 
+
+Gm | 4n2 *** Ann
+
+ay wt
+vA’ ye
+
+where v is a column (n — 1)-vector, w™ is a row (” — 1)-vector, and A’ is an
+(n — 1) x (n — 1) matrix. Then, using matrix algebra (verify the equations by
+

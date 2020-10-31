@@ -1,0 +1,65 @@
+program counter (PC)
+
+mode field
+
+SECTION #5 Addressing Modes 261
+
+computer. The control unit ofa computeris designed togothrough an instruc-
+tion cycle that is divided into three major phases:
+
+1. Fetch the instruction from memory.
+2. Decode the instruction.
+3. Execute the instruction,
+
+There is one register in the computer called the program counter or PC that
+keeps track of the instructions in the program stored in memory. PC holds the
+address of the instruction to be executed next and is incremented each time an
+instruction is fetched from memory. The decoding done in step 2 determines
+the operation to be performed, the addressing mode ofthe instruction, andthe
+location of the operands. The computer then executes the instruction and
+returns to step 1 to fetch the next instruction in sequence.
+
+In some computers the addressing mode of the instruction is specified
+with a distinct binary code, just like the operation code is specified. Other
+computers use a single binary code that designates both the operation and the
+mode of the instruction. Instructions may be defined with a variety of address-
+ing modes, and sometimes, two or more addressing modes are combined in
+one instruction.
+
+Anexample of aninstruction format with adistinct addressing mode field
+is shown in Fig. 8-6. The operation code specifies the operation to be per-
+formed. The mode field is used to locate the operands needed for the opera-
+tion. There may or may not be an address field in the instruction. If there is
+an address field, it may designate a memory address or a processor register.
+Moreover, as discussed in the preceding section, the instruction may have
+more than one address field, and each address field may be associated with
+its own particular addressing mode.
+
+Although most addressing modes modify the address field of the instruc-
+tion, there are two modes that need no address field at all. These are the
+implied and immediate modes.
+
+ 
+
+Implied Mode: In this mode the operands are specified implicitly in the
+definition of the instruction. For example, the instruction “complement accu-
+mulator” is an implied-mode instruction because the operand in the accumu-
+lator register is implied in the definition of the instruction. In fact, all register
+reference instructions that use an accumulator are implied-mode instructions.
+
+ 
+
+Figure 8-6 Instruction format with mode field
+
+ 
+
+ 
+
+ 
+
+ 
+
+‘Opeode ‘Mode “Address
+
+ 
+

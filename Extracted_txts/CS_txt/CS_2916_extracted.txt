@@ -1,0 +1,44 @@
+442
+
+Chapter 16 Greedy Algorithms
+
+Corollary 16.9 says that any element that cannot be used immediately can never
+be used. Therefore, GREEDY cannot make an error by passing over any initial
+elements in S that are not an extension of @, since they can never be used.
+
+Lemma 16.10 (Matroids exhibit the optimal-substructure property)
+
+Let x be the first element of S chosen by GREEDY for the weighted matroid
+M = (S,1). The remaining problem of finding a maximum-weight indepen-
+dent subset containing x reduces to finding a maximum-weight independent subset
+of the weighted matroid M’ = (S’, I’), where
+
+So = fyeS:tyyyeT,
+Do= {BCS—{x}:Bu{ryel.
+
+and the weight function for M’ is the weight function for M, restricted to S’. (We
+call M’ the contraction of M by the element x.)
+
+Proof If Ais any maximum-weight independent subset of M containing x, then
+A’ = A— {x} is an independent subset of M’. Conversely, any independent sub-
+set A’ of M’ yields an independent subset A = A’ U {x} of M. Since we have in
+both cases that w(A) = w(A’) + w(x), a maximum-weight solution in M contain-
+ing x yields a maximum-weight solution in M’, and vice versa. .
+
+Theorem 16.11 (Correctness of the greedy algorithm on matroids)
+If M = (S, I) is a weighted matroid with weight function w, then GREEDY(M, w)
+returns an optimal subset.
+
+Proof By Corollary 16.9, any elements that GREEDY passes over initially be-
+cause they are not extensions of § can be forgotten about, since they can never
+be useful. Once GREEDY selects the first element x, Lemma 16.7 implies that
+the algorithm does not err by adding x to A, since there exists an optimal subset
+containing x. Finally, Lemma 16.10 implies that the remaining problem is one of
+finding an optimal subset in the matroid M’ that is the contraction of M by x.
+After the procedure GREEDY sets A to {x}, we can interpret all of its remaining
+steps as acting in the matroid M’ = (S’, I’), because B is independent in M’ if
+and only if B U {x} is independent in M, for all sets B € I’. Thus, the subsequent
+operation of GREEDY will find a maximum-weight independent subset for M’, and
+the overall operation of GREEDY will find a maximum-weight independent subset
+for M. /
+

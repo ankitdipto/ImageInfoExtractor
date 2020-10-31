@@ -1,0 +1,43 @@
+286 Let Us C
+
+ 
+
+statements are executed for the second time they print out the
+second element of the array and its address (i.e. 34 and 65514)...
+and so on till the last element of the array has been printed.
+
+Obviously, a question arises as to which of the above two methods
+should be used when? Accessing array elements by pointers is
+always faster than accessing them by subscripts. However, from
+the point of view of convenience in programming we should
+observe the following:
+
+Array elements should be accessed using pointers if the elements
+are to be accessed in a fixed order, say from beginning to end, or
+from end to beginning, or every alternate element or any such
+definite logic.
+
+Instead, it would be easier to access the elements using a subscript
+if there is no fixed logic in accessing the elements. However, in
+this case also, accessing the elements by pointers would work
+faster than subscripts.
+
+Passing an Entire Array to a Function
+
+In the previous section we saw two programs—one in which we
+passed individual elements of an array to a function, and another in
+which we passed addresses of individual elements to a function.
+Let us now see how to pass an entire array to a function rather than
+its individual elements. Consider the following example:
+
+/* Demonstration of passing an entire array to a function */
+main()
+{
+
+int num[] = (24, 34, 12, 44, 56, 17};
+
+dislpay ( &num[0], 6) ;
+
+display (int ‘j, int n)
+{
+

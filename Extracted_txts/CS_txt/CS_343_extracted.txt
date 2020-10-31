@@ -1,0 +1,71 @@
+148 carrer rive Basic Computer Organization and Design
+
+return address
+
+subroutine call
+
+Anumerical example that demonstrates how thisinstruction is used with
+a subroutine is shown in Fig. 5-10. The BSA instruction is assumed to be in
+memory at address 20. The I bit is 0 and the address part of the instruction has
+the binary equivalent of 135. After the fetch and decode phases, PC contains
+21, whichis the address of the next instruction in the program (referred to as
+the return address). AR holds the effective address 135. This is shown in part
+
+of the figure. The BSA instruction performs the following numerical oper-
+ation:
+
+ 
+
+‘M[135] < 21, PC < 135 +1 = 136
+
+Theresult of this operation is shownin part (b) ofthe figure. Thereturnaddress
+21 is stored in memory location 135 and control continues with the subroutine
+program starting from address 136, The return to the original program (at
+address 21) is accomplished by means of an indirect BUN instruction placed
+at the end of the subroutine. When this instruction is executed, control goes
+totheindirectphase to read the effective address at location 135, where it finds
+the previously saved address 21. When the BUN instruction is executed, the
+effective address 21 is transferred to PC. The next instruction cycle finds PC
+with the value 21, so control continues to execute the instruction at the return
+address.
+
+The BSA instruction performs the function usually referred to as a sub-
+routine call, The indirect BUN instruction at the end of the subroutine performs
+the function referred toas a subroutine return. In mostcommercial computers,
+the return address associated with a subroutine is stored in either a processor
+
+ 
+
+Figure 5-10 Example of BSA instruction execution.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Memory Memory
+m[ oo BSA__s m[o BSA 35
+Pc=2 Next instruction a ‘Next instruction
+AR= 135 138 2
+136 ‘Subroutine PC=136 ‘Subroutine
+1 BUN bs 1 BUN 135
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(a) Memory, PC, and AR at time Ty (©) Memory and PC after execution
+

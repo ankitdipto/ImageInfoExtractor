@@ -1,0 +1,50 @@
+17.3 The potential method 459
+
+17.2-2
+Redo Exercise 17.1-3 using an accounting method of analysis.
+
+17.2-3
+
+Suppose we wish not only to increment a counter but also to reset it to zero (ie.,
+make all bits in it 0). Counting the time to examine or modify a bit as ©(1),
+show how to implement a counter as an array of bits so that any sequence of n
+INCREMENT and RESET operations takes time O(n) on an initially zero counter.
+(Hint: Keep a pointer to the high-order 1.)
+
+ 
+
+17.3. The potential method
+
+Instead of representing prepaid work as credit stored with specific objects in the
+data structure, the potential method of amortized analysis represents the prepaid
+work as “potential energy,” or just “potential,” which can be released to pay for
+future operations. We associate the potential with the data structure as a whole
+rather than with specific objects within the data structure.
+
+The potential method works as follows. We will perform 7 operations, starting
+with an initial data structure Do. For eachi = 1,2,..., n, we let c; be the actual
+cost of the ith operation and D; be the data structure that results after applying
+the 7th operation to data structure D;-,. A potential function ® maps each data
+structure Dj; to a real number ®(D;), which is the potential associated with data
+structure D;. The amortized cost ¢; of the ith operation with respect to potential
+function ® is defined by
+
+G = 6 + O(D;) — O(D;-1) - (17.2)
+
+The amortized cost of each operation is therefore its actual cost plus the change in
+potential due to the operation. By equation (17.2), the total amortized cost of the n
+operations is
+
+Ma = Ve +o) - oD.)
+i=1 i=l
+
+Yoci + ®(Dn) — P(Do) . (17.3)
+
+i=l
+
+The second equality follows from equation (A.9) because the ®(D;) terms tele-
+scope.
+
+If we can define a potential function ® so that ®(D,) > ®(Do), then the total
+amortized cost )7}_, G gives an upper bound on the total actual cost )7/_, ci.
+

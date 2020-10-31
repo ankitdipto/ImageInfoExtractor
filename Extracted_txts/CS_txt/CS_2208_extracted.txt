@@ -1,0 +1,58 @@
+370
+
+CHAPTER TEN Computer Arithmetic
+
+flowcharts can be used for both types of data provided that we interpret the
+microoperation symbols properly. Decimal numbers in BCD are stored in
+computer registers in groups of four bits. Each 4-bit group represents a decimal
+digit and must be taken as a unit when performing decimal microoperations.
+
+For convenience, we will use the same symbols for binary and decimal
+arithmetic microoperations but give them a different interpretation. Asshown
+in Table 10-5, a bar over the register letter symbol denotes the 9’s complement
+of the decimal number stored in the register. Adding 1 to the 9’s complement
+Produces the 10's complement. Thus, for decimal numbers, the symbol
+AA +B + 1 denotes a transfer of the decimal sum formed by adding the
+original content A to the 10's complement of B. The use of identical symbols
+for the 9's complement and the 1’s complement may be confusing if both types
+of data are employed in the same system. If this is the case, it may be better
+to adopt a different symbol for the 9’s complement. If only one type of data
+is being considered, the symbol would apply to the type of data used.
+
+Incrementing or decrementing a register is the same for binary and
+decimal except for the number of states that the registeris allowed to have. A
+binary counter goes through 16 states, from 0000 to 1111, when incremented.
+‘A decimal counter goes through 10 states from 0000 to 1001 and back to 0000,
+since 9 is the last count. Similarly, a binary counter sequences from 1111 to 0000
+when decremented. A decimal counter goes from 1001 to 0000.
+
+A decimal shift right or left is preceded by the letter d to indicate a shift
+over the four bits that hold the decimal digits. As a numerical illustration
+consider a register A holding decimal 7860 in BCD. The bit pattern of the 12
+flip-flops is
+
+0111 1000 o110 0000
+
+‘The microoperation dshr A shifts the decimal number one digit to the right to
+give 0786. This shift is over the four bitsand changes the content of the register
+into
+
+0000 0111 1000 0110
+
+TABLE 10-5 Decimal Arithmetic Microoperation Symbols,
+
+ 
+
+ 
+
+ 
+
+‘Symbolic Designation Description
+ACA+B ‘Add decimal numbers and transfer sum into A
+5 ¥s complement of B
+ACA+B +1 Contentof A plus 10's complement of B into A
+QQ +1 Increment BCD number in Q.
+dshr A Decimal shift-right register A
+
+dshl A Decimal shift-eft register A
+

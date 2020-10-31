@@ -1,0 +1,95 @@
+328
+
+CHAPTER NINE Pipeline and Vector Processing
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+PE, My
+Master onto Pe wn
+PES My
+Main memory
+PE, My
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 9-15. SIMD array processor organization.
+
+directly executed within the master control unit. Vectorinstructions are broad-
+cast to all PEs simultaneously. Each PE uses operands stored in its local
+memory. Vector operands are distributed to the local memories prior to the
+parallel execution of the instruction.
+
+Consider, for example, the vector addition C = A + B. The master con-
+trol unit first stores the ith components a, and b, of A and B in local memory
+M, for i = 1,2,3,...,.n. It then broadcasts the floating-point add instruction
+¢ =a, +b; toall PEs, causing the addition to take place simultaneously. The
+components of c, are stored in fixed locations in each local memory. This
+produces the desired vector sum in one add cycle.
+
+Masking schemes are used to control the status of each PE during the
+execution of vector instructions. Each PE has a flag that is set when the PE is
+active and reset when the PEis inactive. This ensures that only those PEs that
+need to participate are active during the execution of the instruction. For
+example, suppose that the array processor containsa set of 64 PEs. If a vector
+length of less than 64 data items is to be processed, the control unit selects the
+proper number of PEs to be active. Vectors of greater length than 64 must be
+divided into 64-word portions by the control unit.
+
+The best known SIMD array processors the ILLIAC IV computer devel-
+oped at the University of Llinois and manufactured by the Burroughs Corp.
+This computer is no longer in operation. SIMD processors are highly special-
+ized computers. They are suited primarily for numerical problems that can be
+expressed in vector or matrix form. However, they are not very efficient in
+other types of computations or in dealing with conventional data-processing
+programs.
+
+   
+

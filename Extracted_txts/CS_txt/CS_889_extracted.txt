@@ -1,0 +1,43 @@
+Chapter 6: Data Types Revisited 225
+
+ 
+
+are unpredictable. So always make it a point that you initialize the
+automatic variables properly, otherwise you are likely to get
+unexpected results. Note that the keyword for this storage class is
+auto, and not automatic.
+
+Scope and life of an automatic variable is illustrated in the
+following program.
+
+main()
+{
+auto int i= 1;
+{
+{
+{
+printf ( "\n%d ", i);
+}
+printf ("%d", i) ;
+}
+printf ( "%d", i);
+}
+}
+
+The output of the above program is:
+111
+
+This is because, all printf() statements occur within the outermost
+block (a block is all statements enclosed within a pair of braces) in
+which i has been defined. It means the scope of i is local to the
+block in which it is defined. The moment the control comes out of
+the block in which the variable is defined, the variable and its
+value is irretrievably lost. To catch my point, go through the
+following program.
+
+main()
+
+{
+auto int i= 1;
+{
+

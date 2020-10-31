@@ -1,0 +1,58 @@
+ 
+
+Section 27.2. What Exactly Are We Trying to Do? 845
+
+ 
+
+27.2__ WHAT EXACTLY ARE WE TRYING to Do?
+
+Even before the beginning ofartificial intelligence, philosophers, control theorists, and economists
+sought a satisfactory definition of rational action. This is needed to underpin theories of ethics,
+inductive learning, reasoning, optimal control, decision making, and economic modelling. It has
+also been our goal in this book to show how to design agents that act rationally. Initially, we
+presented no formal definition of rational action. Later chapters presented logical and decision-
+theoretic definitions together with specific designs for achieving them. The role of such definitions
+in AI is clear: if we define some desirable property P, then we ought in principle to be able to
+design a system that provably possesses property P. Theory meets practice when our systems
+exhibit P in reality. Furthermore, that they exhibit P in reality should be something that we
+actually care about. In a sense, the choice of what P to study determines the nature of the field.
+Therefore, we need to look carefully at what exactly we are trying to do.
+There are a number of possible choices for P. Here are three:
+
+ 
+
+PERFECT ny ® Perfect rationality: the classical notion of rationality in decision theory. A perfectly
+rational agent acts at every instant in such a way as to maximize its expected utility, given
+the information it has acquired from the environment. In Chapter 1, we warned that
+
+achieving perfect rationality—always doing the right thing—is just not possible in com-
+plicated environments. The computational demands arejust too high. However, for most
+of the book, we will adopt the working hypothesis that understanding perfect decision
+making is a good place to start.
+
+Because perfect rational agents do not exist for nontrivial environments, perfect rationality
+is not a suitable candidate for P.
+
+QALCULATME 0 Calculative rationality: the notion ofrationality that we have used implicitly in designing
+logical and decision-theoretic agents. A calculatively rational agent eventually returns
+what would have been the rational choice at the beginning of its deliberation. This is an
+interesting property for a system to exhibit because it constitutes an “in-principle” capacity
+to do the right thing. Calculative rationality is sometimes of limited value, because
+the actual behavior exhibited by such systems can be rather irrational. For example, a
+calculatively rational chess program may choose the right move, but may take 10°° times
+too long to do so. In practice, AI system designers are forced to compromise on decision
+quality to obtain reasonable overall performance, yet the theoretical basis of calculative
+rationality does not provide for such compromises.
+
+BRNITY < Bounded optimality (BO): a bounded optimal agent behaves as well as possible given its
+computational resources. That is, the expected utility of the agent program for a bounded
+optimal agent is at least as high as the expected utility of any other agent program running
+on the same machine.
+
+Of these three possibilities, choosing P to be "bounded optimality" seems to offer the best hope
+for a strong theoretical foundation for AI. Clearly, a BO agent is of real, practical interest because
+its behavior is the best that can be obtained. Equally clearly, BO programs exist for any given
+task, machine, and environment. Obviously, finding the BO program is the trick; AI as the study
+
+ 
+

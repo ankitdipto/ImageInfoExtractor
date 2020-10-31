@@ -1,0 +1,64 @@
+6.3 Scheduling Algorithms 159
+
+Using SJF scheduling, we would schedule these processes according to the
+following Gantt chart:
+
+ 
+
+P4 Py P3 Pa
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+0 3 9 16 24
+
+The waiting time is 3 milliseconds for process P;, 16 milliseconds for process
+P2, 9 milliseconds for process P3, and 0 milliseconds for process P4. Thus, the
+average waiting time is (3 + 16 + 9 + 0)/4 = 7 milliseconds. If we were using
+the FCFS scheduling scheme, then the average waiting time would be 10.25
+milliseconds.
+
+The SJF scheduling algorithm is provably optimal, in that it gives the min-
+imum average waiting time for a given set of processes. By moving a short
+process before a long one, the waiting time of the short process decreases more
+than it increases the waiting time of the long process. Consequently, the average
+waiting time decreases.
+
+The real difficulty with the SJF algorithm is knowing the length of the next
+CPU request. For long-term (or job) scheduling in a batch system, we can use as
+the length the process time limit that a user specifies when he submits the job.
+Thus, users are motivated to estimate the process time limit accurately, since a
+lower value may mean faster response. (Too low a value will cause a time-limit-
+exceeded error and require resubmission.) SJF scheduling is used frequently in
+long-term scheduling.
+
+Although the SJF algorithm is optimal, it cannot be implemented at the level
+of short-term CPU scheduling. There is no way to know the length of the next
+CPU burst. One approach is to try to approximate SJF scheduling. We may not
+know the length of the next CPU burst, but we may be able to predict its value.
+We expect that the next CPU burst will be similar in length to the previous ones.
+Thus, by computing an approximation of the length of the next CPU burst, we
+can pick the process with the shortest predicted CPU burst.
+
+The next CPU burst is generally predicted as an exponential average of the
+measured lengths of previous CPU bursts. Let ft, be the length of the nth CPU
+burst, and let 7,.; be our predicted value for the next CPU burst. Then, for a,
+0<a<1, define
+
+Tati = @ fy + (1 — @)TH.
+
+This formula defines an exponential average. The value of ¢, contains our
+most recent information; 7 stores the past history. The parameter a controls
+the relative weight of recent and past history in our prediction. If a = 0, then
+Ti#1 = Tn, and recent history has no effect (current conditions are assumed to be
+transient); if w = 1, then 7,41 = f», and only the most recent CPU burst matters
+

@@ -1,0 +1,202 @@
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Section 21.2. Explanation-Based Learning 631
+Simplifv(1x(0+X),w)
+Rewrite(1x(0+X),v) Simplify(O+X,w)
+Yes, {v/0+X]
+Rewrite(0+X,v") Simplifv(X, w)
+Yes, [v'/X} fw/X)
+
+ 
+
+Primitive(X)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ArithmeticUnknown(X)
+Simplify(xx(y+2)0) Yes, (7
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rewrite(xx(y+z),v) Simplify(v+z.w)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Yes, {x/1,v/y+z}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rewrite(y+s.v") ‘Simplifwi
+Yes, {y/0, v'/z] fw/z}
+Primitive(z)
+
+ 
+
+zw}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ArithmeticUnknown(z)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Yes, Ij
+
+ 
+
+ 
+
+Figure 21.2 Proof trees for the simplification problem. The first tree shows the proof for the
+original problem instance. The second shows the proof for a problem instance with all constants
+replaced by variables.
+
+ 
+
+ 
+
+ 
+
+2. In parallel, construct a generalized proof tree for the variabilized goal using the same
+inference steps as in the original proof.
+
+3. Construct a new rule whose left-hand side consists of the leaves of the proof tree, and
+whose right-hand side is the variabilized goal (after applying the necessary bindings from
+the generalized proof).
+
+4. Drop any conditions that are true regardless of the values of the variables in the goal.
+
+Improving efficiency
+
+Examining the generalized proof tree in Figure 21.2, we see that there is more than one generalized
+tule that can be extracted from the tree. For example, if we terminate, or prune, the growth of
+the right-hand branch in the prooftree when it reaches the Primitive step, we get the rule
+
+Primitive(z) = Simplify(1x (0 + 2)
+
+ 
+
+This rule is equally valid, but also more general than the rule using ArithmeticUnknown, because
+it covers cases where z is a number. We can extract a still more general rule by pruning after the
+

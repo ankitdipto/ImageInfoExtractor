@@ -1,0 +1,57 @@
+314 © cuarTen nine Pipeline and Vector Processing
+
+hardware interlocks
+
+operand forwarding
+
+delayed load
+
+an instruction cannot proceed because previous instructions did not complete
+certain operations. A data dependency occurs when an instruction needs data
+that are not yet available. For example, an instruction in the FO segment may
+need to fetch an operand that is being generated at the same time by the
+previous instruction in segment EX. Therefore, the second instruction must
+wait for data to become available by the first instruction. Similarly, an address
+dependency may occur when an operand address cannot becalculated because
+the information needed by the addressing mode is not available. For example,
+an instruction with register indirect mode cannot proceed to fetch the operand
+if the previousinstruction is loading the address into the register. Therefore,
+the operand access to memory must be delayed until the required address is
+available. Pipelined computers deal with such conflicts between data depen-
+dencies in a variety of ways.
+
+The most straightforward method is to insert hardware interlocks. An
+interlock is a circuit that detects instructions whose source operands are des-
+tinations of instructions farther up in the pipeline. Detection of this situation
+causes the instruction whose source is not available to be delayed by enough
+clock cycles to resolve the conflict. This approach maintains the program
+sequence by using hardware to insert the required delays.
+
+‘Another technique called operand forwarding uses special hardware to
+detect a conflict and then avoid it by routing the data through special paths
+between pipeline segments. For example, instead of transferring an ALU result
+into a destination register, the hardware checks the destination operand, and
+if'it is needed as a source in the next instruction, it passes the result directly
+intothe ALU input, bypassing the register file. This method requires additional
+hardware paths through multiplexers as well as the circuit that detects the
+conflict.
+
+‘A procedure employed in some computers is to give the responsibility for
+solving data conflicts problems to the compiler that translates the high-level
+programming language into a machine language program. The compiler for
+such computers is designed to detect a data conflict and reorder the instruc-
+tions as necessary to delay the loading of the conflicting data by inserting
+no-operation instructions. This method is referred to asdelayed load. An exam-
+ple of delayed load is presented in the next section.
+
+Handling of Branch Instructions
+
+One of the major problems in operating an instruction pipeline is the occur-
+rence of branch instructions. A branch instruction can be conditional or uncon-
+ditional, An unconditional branch always alters the sequential program flow
+by loading the program counter with the target address. In a conditional
+branch, the control selects the target instruction if the condition is satisfied or
+the next sequential instruction if the condition is not satisfied. As mentioned
+previously, the branch instruction breaks the normal sequence of the instruc-
+tion stream, causing difficulties in the operation of the instruction pipeline.
+

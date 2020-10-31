@@ -1,0 +1,42 @@
+22.2 Breadth-first search 597
+
+adjacency list, it blackens u in line 18. The loop invariant is maintained because
+whenever a vertex is painted gray (in line 14) it is also enqueued (in line 17), and
+whenever a vertex is dequeued (in line 11) it is also painted black (in line 18).
+
+The results of breadth-first search may depend upon the order in which the neigh-
+bors of a given vertex are visited in line 12: the breadth-first tree may vary, but the
+distances d computed by the algorithm will not. (See Exercise 22.2-5.)
+
+Analysis
+
+Before proving the various properties of breadth-first search, we take on the some-
+what easier job of analyzing its running time on an input graph G = (V, E). We
+use aggregate analysis, as we saw in Section 17.1. After initialization, breadth-first
+search never whitens a vertex, and thus the test in line 13 ensures that each vertex
+is enqueued at most once, and hence dequeued at most once. The operations of
+enqueuing and dequeuing take O(1) time, and so the total time devoted to queue
+operations is O(V). Because the procedure scans the adjacency list of each vertex
+only when the vertex is dequeued, it scans each adjacency list at most once. Since
+the sum of the lengths of all the adjacency lists is ©(£), the total time spent in
+scanning adjacency lists is O(E). The overhead for initialization is O(V), and
+thus the total running time of the BFS procedure is O(V + E). Thus, breadth-first
+search runs in time linear in the size of the adjacency-list representation of G.
+
+Shortest paths
+
+At the beginning of this section, we claimed that breadth-first search finds the dis-
+tance to each reachable vertex in a graph G = (V, E) from a given source vertex
+s €V. Define the shortest-path distance 5(s, v) from s to v as the minimum num-
+ber of edges in any path from vertex s to vertex v; if there is no path from s to v,
+then 5(s,v) = 00. We call a path of length 5(s,v) from s to v a shortest path”
+from s to v. Before showing that breadth-first search correctly computes shortest-
+path distances, we investigate an important property of shortest-path distances.
+
+ 
+
+2In Chapters 24 and 25, we shall generalize our study of shortest paths to weighted graphs, in which
+every edge has a real-valued weight and the weight of a path is the sum of the weights of its con-
+stituent edges. The graphs considered in the present chapter are unweighted or, equivalently, all
+edges have unit weight.
+

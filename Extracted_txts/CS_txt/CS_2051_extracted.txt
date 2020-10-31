@@ -1,0 +1,62 @@
+486
+
+application code
+kernel code
+device-driver code
+[eee ed
+davice-controllar code (hardware)
+device code (hardware)
+
+ 
+
+Chapter 13. 1/O Systems
+
+to cause system crashes. Furthermore, by developing code at the applica-
+tion level, we avoid the need to reboot or reload device drivers after every
+change to the code. An application-level implementation can be inefficient,
+however, because of the overhead of context switches, and because the
+application cannot take advantage of internal kernel data structures and
+kernel functionality (such as efficient in-kernel messaging, threading, and
+locking).
+
+When an application-level algorithm has demonstrated its worth, we may
+reimplement it in the kernel. This can improve the performance, but the
+development effort is more challenging, because an operating-system ker-
+nel is a large, complex software system. Moreover, an in-kernel implemen-
+tation must be thoroughly debugged to avoid data corruption and system
+crashes.
+
+The highest performance may be obtained by a specialized implementation
+in hardware, either in the device or in the controller. The disadvantages of
+a hardware implementation include the difficulty and expense of making
+further improvements or of fixing bugs, the increased development time
+(months rather than days), and the decreased flexibility. For instance, a
+hardware RAID controller may not provide any means for the kernel to
+influence the order or location of individual block reads and writes, even
+if the kernel has special information about the workload that would enable
+the kernel to improve the I/O performance.
+
+ 
+
+new algorithm
+
+@
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 13.13 Device-functionality progression.
+

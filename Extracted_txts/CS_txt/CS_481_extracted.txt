@@ -1,0 +1,53 @@
+1030
+
+Chapter 33 Computational Geometry
+
+point in Q. Both algorithms exploit this property, deciding which vertices in 0 to
+keep as vertices of the convex hull and which vertices in Q to reject.
+
+We can compute convex hulls in O(n lgn) time by any one of several methods.
+Both Graham’s scan and Jarvis’s march use a technique called “rotational sweep,”
+processing vertices in the order of the polar angles they form with a reference
+vertex. Other methods include the following:
+
+* In the incremental method, we first sort the points from left to right, yielding a
+sequence (p1, P2..... Pn). At the ith stage, we update the convex hull of the
+i — 1 leftmost points, CH({p;. p2..... Pi-1}), according to the ith point from
+the left, thus forming CH({p. p2..... p;}). Exercise 33.3-6 asks you how to
+implement this method to take a total of O(n lg) time.
+
+ 
+
+ 
+
+* In the divide-and-conquer method, we divide the set of n points in @(7) time
+into two subsets, one containing the leftmost [7/2] points and one containing
+the rightmost |n/2] points, recursively compute the convex hulls of the subsets,
+and then, by means of a clever method, combine the hulls in O(7) time. The
+running time is described by the familiar recurrence T(n) = 2T(n/2) + O(n),
+and so the divide-and-conquer method runs in O(n 1g) time.
+
+* The prune-and-search method is similar to the worst-case linear-time median
+algorithm of Section 9.3. With this method, we find the upper portion (or “upper
+chain’) of the convex hull by repeatedly throwing out a constant fraction of the
+remaining points until only the upper chain of the convex hull remains. We then
+do the same for the lower chain. This method is asymptotically the fastest: if
+the convex hull contains / vertices, it runs in only O(n lg /) time.
+
+Computing the convex hull of a set of points is an interesting problem in its own
+right. Moreover, algorithms for some other computational-geometry problems start
+by computing a convex hull. Consider, for example, the two-dimensional farthest-
+pair problem: we are given a set of n points in the plane and wish to find the
+two points whose distance from each other is maximum. As Exercise 33.3-3 asks
+you to prove, these two points must be vertices of the convex hull. Although we
+won’t prove it here, we can find the farthest pair of vertices of an n-vertex convex
+polygon in O(7) time. Thus, by computing the convex hull of the n input points
+in O(n Ign) time and then finding the farthest pair of the resulting convex-polygon
+vertices, we can find the farthest pair of points in any set of n points in O(n lgn)
+time.
+
+Graham’s scan
+
+Graham’s scan solves the convex-hull problem by maintaining a stack S of can-
+didate points. It pushes each point of the input set Q onto the stack one time,
+

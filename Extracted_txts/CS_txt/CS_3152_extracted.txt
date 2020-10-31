@@ -1,0 +1,47 @@
+ 
+
+SOLVING PROBLEMS BY
+
+SEARCHING
+
+ 
+
+ 
+
+ 
+
+PROBLEM-SOLVING
+AGENT
+
+In which we look at how an agent can decide what to do by systematically considering
+the outcomes ofvarious sequences ofactions that it might take.
+
+In Chapter 2, we saw that simple reflex agents are unable to plan ahead. They are limited in what
+they can do because their actions are determined only by the current percept. Furthermore, they
+have no knowledge of what their actions do nor of what they are trying to achieve.
+
+In this chapter, we describe one kind of goal-based agent called a problem-solving agent.
+Problem-solving agents decide what to do by finding sequences of actions that lead to desirable
+states. We discuss informally how the agent can formulate an appropriate view of the problem it
+faces. The problem type that results from the formulation process will depend on the knowledge
+available to the agent: principally, whether it knows the current state and the outcomes of actions.
+We then define more precisely the elements that constitute a "problem" and its "solution," and
+give several examples to illustrate these definitions. Given precise definitions of problems, it
+is relatively straightforward to construct a search process for finding solutions. We cover six
+different search strategies and show how they can be applied to a variety ofproblems. Chapter 4
+will then cover search strategies that make use of more information about the problem to improve
+the efficiency of the search process.
+
+This chapter uses concepts from the analysis of algorithms. Readers unfamiliar with the
+concepts of asymptotic complexity and NP-completeness should consult Appendix A.
+
+3.1 PROBLEM-SOLVING AGENTS
+
+Intelligent agents are supposed to act in such a way that the environment goes through a sequence
+of states that maximizes the performance measure. In its full generality, this specification is
+difficult to translate into a successful agent design. As we mentioned in Chapter 2, the task is
+somewhat simplified if the agent can adopt a goal and aim to satisfy it. Let us first look at how
+and why an agent might do this
+
+55
+

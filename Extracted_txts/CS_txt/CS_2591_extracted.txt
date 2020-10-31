@@ -1,0 +1,131 @@
+340
+
+ 
+
+ 
+
+Chapter 11. Planning
+
+ 
+
+ 
+
+Talk to Parrot
+
+Go To Pet Store / BuyaDog
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+“| ee
+y | .
+[ Go To School Go To Class.
+Yo te
+Sat Go To Supermarket Buy Tuna Fish
+| aes
+Go To Sleep \\\ Buy Arugula
+nr
+Read A Book Buy Milk r
+- \ | moe Finish
+Sit in Chair Sit Some More
+aE ee
+Read A Book
+—a—ees
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 112 Solving a shopping problem with forward search through the space of situations
+inthe world.
+
+ 
+
+ 
+
+ 
+
+make direct connections between states and actions. For example, if the agent knows that the
+goal is a conjunction that includes the conjunct Have(Milk), and that Buy(x) achieves Have(x),
+then the agent knows that it is worthwhile to consider a plan that includes Buy(Milk).It need not
+consider irrelevant actions such as Buy(WhippingCream)or GoToSleep.
+
+The second key idea behind planning is that the planner is free to add actions to the plan
+wherever they are needed, rather than in an incremental sequence starting at the initial state. For
+example, the agent may decide that it is going to have to Buy(Milk),even before it has decided
+where to buy it, how to get there, or what to do afterwards. There is no necessary connection
+between the order of planning and the order of execution. By making "obvious" or "important"
+decisions first, the planner can reduce the branching factor for future choices and reduce the need
+to backtrack over arbitrary decisions. Notice that the representation of states as sets of logical
+sentences plays a crucial role in making this freedom possible. For example, when adding the
+action Buy(Milk)to the plan, the agent can represent the state in which the action is executed as,
+say, At(Supermarket). This actually represents an entire class of states—states with and without
+bananas, with and without a drill, and so on. Search algorithms that require complete state
+descriptions do not have this option.
+
+The third and final key idea behind planning is that most parts ofthe world are independent
+ofmost other parts. This makes it feasible to take a conjunctive goal like "get a quart of milk and
+a bunch of bananas and a variable-speed cordless drill" and solve it with a divide-and-conquer
+strategy. A subplan involving going to the supermarket can be used to achieve the first two
+
+ 
+

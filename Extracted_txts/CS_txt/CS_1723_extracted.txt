@@ -1,0 +1,49 @@
+7.6 Critical Regions 213
+
+that governs the access to the critical region. When a process tries to enter the
+critical-section region, the Boolean expression B is evaluated. If the expression
+is true, statement S is executed. If it is false, the process relinquishes the
+mutual exclusion and is delayed until B becomes true and no other process is
+in the region associated with v. Thus, if the two statements,
+
+region v when (true) S1;
+region v when (true) S2;
+
+are executed concurrently in distinct sequential processes, the result will be
+equivalent to the sequential execution “S1 followed by S2” or “S2 followed by
+si.”
+
+The critical-region construct guards against certain simple errors associated
+with the semaphore solution to the critical-section problem that may be made
+by a programmer. Note that it does not necessarily eliminate all synchroniza-
+tion errors; rather, it reduces their number. If errors occur in the logic of the
+program, reproducing a particular sequence of events may not be simple.
+
+The critical-region construct can be effectively used to solve certain general
+synchronization problems. To illustrate, let us code the bounded-buffer scheme.
+The buffer space and its pointers are encapsulated in
+
+struct buffer {
+item pool [n];
+int count, in, out;
+
+b
+
+The producer process inserts a new item nextp into the shared buffer by
+executing
+
+region buffer when (count < n) {
+pool[in] = nextp;
+in = (inti) %n;
+count++;
+
+}
+
+The consumer process removes an item from the shared buffer and puts it
+in nextc by executing
+
+region buffer when (count > 0) {
+nextc = pool[out];
+out = (outt+1) % n;
+count~~;
+

@@ -1,0 +1,58 @@
+346 charter TEN Computer Arithmetic
+
+bit Q,.1 are initially cleared to and the sequence counter SC is set toa number
+equal to the number of bits in the multiplier. The two bits of the multiplier
+in Q, and Q,., are inspected. If the two bits are equal to 10, it means that the
+first 1 in a string of I's has been encountered, This requires a subtraction of
+the multiplicand from the partial product in AC. If the two bits are equal to 01,
+it means that the first On a string of 0’s has been encountered. This requires
+the addition of the multiplicand to the partial product in AC. When the two
+bits are equal, the partial product does not change. An overflow cannot occur
+because the addition and subtraction of the multiplicand follow each other. As
+a consequence, the two numbers that are added always have opposite signs,
+a condition that excludes an overflow. The next step is to shift right the partial
+product and the multiplier (including bit Q. ). This is an arithmetic shift right
+(ashr) operation which shifts AC and QR to the right and leaves the sign bit
+in AC unchanged (see Sec. 4-6). The sequence counter is decremented and the
+computational loop is repeated n times.
+
+‘Anumerical example of Booth algorithm is shownin Table 10-3 forn = 5.
+Itshows the step-by-stepmultiplicationof(-9) x (~13) = +117. Note that the
+multiplier in QR is negative and that the multiplicand in BR is also negative.
+The 10-bit product appears in AC and QRandis positive. The final value of Q..1
+is the original sign bit of the multiplier and should not be taken as part of the
+product.
+
+ 
+
+Array Multiplier
+
+Checking the bits of the multiplier one at a time and forming partial products
+is a sequential operation that requires a sequence of add and shift microoper-
+ations. The multiplication of two binary numbers can be done with one micro-
+operation by means of a combinational circuit that forms the product bits all
+
+TABLE 103 Example of Multiplication with Booth Algorithm
+
+     
+
+AC OR sc
+
+Initial 00000 «100110
+10 Subtract BR 1001
+‘100r
+
+ashr 0100 11001100
+
+ia ashr ooo «60100
+o1 Add BR ron
+T1001
+
+ashr 1100 1010 «010
+
+00 ashr nnd 010110
+10 Subtract BR 01001
+dori
+
+ashr oll «10101-2100
+

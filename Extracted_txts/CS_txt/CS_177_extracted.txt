@@ -1,0 +1,49 @@
+27.1 The basics of dynamic multithreading 785
+
+value for n suffices to achieve near perfect linear speedup for P-FIB(m), because
+this procedure exhibits considerable parallel slackness.
+
+Parallel loops
+
+Many algorithms contain loops all of whose iterations can operate in parallel. As
+we shall see, we can parallelize such loops using the spawn and syne keywords,
+but it is much more convenient to specify directly that the iterations of such loops
+can run concurrently. Our pseudocode provides this functionality via the parallel
+concurrency keyword, which precedes the for keyword in a for loop statement.
+As an example, consider the problem of multiplying an n x n matrix A = (aj;)
+by an n-vector x = (x;). The resulting n-vector y = (y;) is given by the equation
+
+n
+i= Saiz; >
+1
+
+fori = 1,2,..., n. We can perform matrix-vector multiplication by computing all
+the entries of y in parallel as follows:
+
+MatT-VEC(A, x)
+1 n= A.rows
+2 let y be a new vector of length n
+parallel for i = 1 ton
+
+yi=0
+parallel for i = 1 ton
+
+for j = 1ton
+
+Vi = Vi + GijXj
+
+return y
+
+w
+
+ 
+
+CIDADE
+
+In this code, the parallel for keywords in lines 3 and 5 indicate that the itera-
+tions of the respective loops may be run concurrently. A compiler can implement
+each parallel for loop as a divide-and-conquer subroutine using nested parallelism.
+For example, the parallel for loop in lines 5—7 can be implemented with the call
+Mat-VEC-MAIN-Loop (A, x, y,”, 1,7), where the compiler produces the auxil-
+iary subroutine MAT-VEC-MAIN-Loop as follows:
+

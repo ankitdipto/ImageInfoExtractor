@@ -1,0 +1,54 @@
+ 
+
+522 Chapter 14 Mass-Storage Structure
+
+systems such as TOPS-20, which ran on minicomputers from Digital Equipment
+Corporation in the late 1970s. Today, HSM is usually found in supercomputing
+centers and other large installations that have enormous volumes of data.
+
+14.8.3 Performance Issues
+
+As with any component of the operating system, the three most important
+aspects of tertiary-storage performance are speed, reliability, and cost.
+
+14.8.3.1 Speed
+
+The speed of tertiary storage has two aspects: bandwidth and latency. We
+measure the bandwidth in bytes per second. The sustained bandwidth is the
+average data rate during a large transfer, that is, the number of bytes divided
+by the transfer time. The effective bandwidth calculates the average over the
+entire I/O time, including the time for seek or locate and any cartridge-
+switching time in a jukebox. In essence, the sustained bandwidth is the data
+rate when the data stream is actually flowing, and the effective bandwidth is
+the overall data rate provided by the drive. The bandwidth of a drive is generally
+understood to mean the sustained bandwidth.
+
+For removable disks, the bandwidth ranges from less than 0.25 MB per
+second for the slowest, to several megabytes per second for the fastest. Tapes
+have an even wider range of bandwidths, from less than 0.25 MB per second
+to over 30 MB per second. The fastest tape drives have significantly higher
+bandwidth than do removable disk drives.
+
+The second aspect of speed is the access latency. By this performance
+measure, disks are much faster than tapes: Disk storage is essentially two-
+dimensional—all the bits are out in the open. A disk access simply moves the
+arm to the selected cylinder and waits for the rotational latency, which may take
+less than 5 milliseconds. By contrast, tape storage is three-dimensional. At any
+time, a small portion of the tape is accessible to the head, whereas most of the
+bits are buried below hundreds or thousands of layers of tape wound on the
+reel. A random access on tape requires winding the tape reels until the selected
+block reaches the tape head, which can take tens or hundreds of seconds. So
+we can generally say that random access within a tape cartridge is more than a
+thousand times slower than random access on disk.
+
+If a jukebox is involved, the access latency can be significantly higher. For
+a removable disk to be changed, the drive must stop spinning, then the robotic
+arm must switch the disk cartridges, and the drive must spin up the new
+cartridge. This operation takes several seconds—about a hundred times larger
+than the random-access time within one disk. So switching disks in a jukebox
+incurs a relatively high performance penalty.
+
+For tapes, the robotic-arm time is about the same as for disk. But for tapes
+to be switched, the old tape generally must rewind before it can be ejected, and
+that operation can take as long as 4 minutes. And, after a new tape is loaded
+

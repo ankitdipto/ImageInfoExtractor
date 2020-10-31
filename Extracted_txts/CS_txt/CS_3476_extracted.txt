@@ -1,0 +1,56 @@
+Section 25.7. Summary 809
+
+ 
+
+25.7 _ SUMMARY
+
+Robotics is a challenging field for two reasons. First, it requires hardware (sensors and effectors)
+that actually work, areal challenge for mechanical engineering. Second, robots have to work in
+the physical world, which is more complex than most of the simulated software worlds that we
+have used for our examples in other chapters. Some robots finesse this problem by operating in a
+restricted environment. But modern autonomous robots with sophisticated sensors and effectors
+provide a challenging testbed for determining what it takes to build an intelligent agent.
+
++ In general, the physical world is inaccessible, nondeterministic, nonepisodic, and dynamic.
+Robots have made an economic impact in many industries, and show promise for exploring
+hazardous and remote environments.
+
+Robots consist ofa body with rigid links connected to each other by joints. The movement
+of the links is characterized by the degrees of freedom of the joints.
+
+Robots can have sensors of various types, including vision, force sensing, tactile (touch)
+sensing, sonar, and a sense of where their own body parts are.
+
+In a dynamic world, it is important to be able to take action quickly. Robots are designed
+with this in mind.
+
+The problem of moving a complex-shaped object (i.e., the robot and anything it is carrying)
+through a space with complex-shaped obstacles is a difficult one. The mathematical notion
+of a configuration space provides a framework for analysis.
+
+Cell decomposition and skeletonization methods can be used to navigate through the
+configuration space. Both reduce a high-dimensional, continuous space to a discrete
+graph-search problem.
+
+Some aspects of the world, such as the exact location of a bolt in the robot's hand, will
+always be unknown. Fine-motion planning deals with this uncertainty by creating a
+sensor-based plan that will work regardless of the exact initial conditions.
+
+Uncertainty applies to sensors at the large scale as well. In the landmark model, a robot
+uses certain well-known landmarks in the environment to determine where it is, even in
+the face of uncertainty.
+
+Ifa map of the environment is not available, then the robot will have to plan its navigation
+as it goes. Online algorithms do this. They do not always choose the shortest route, but
+we can analyze how far offthey will be.
+
+ 
+
+BIBLIOGRAPHICAL AND HISTORICAL NOTES
+
+The word robot was popularized by Czech playwright Karel Capek in his 1921 play R.U.R.
+(Rossum's Universal Robots). The theme of the play—the dehumanization of mankind in a
+technological society—appealed to audiences in war-torn Europe and the United States. The
+
+ 
+

@@ -1,0 +1,56 @@
+472 cuarren Tweive Memory Organization
+
+pages and blocks
+
+page frame
+
+takes space from main memory and two accesses to memory are required with
+the program running at half speed. A third alternative is to use an associative
+memory as explained below.
+
+Address Mapping Using Pages
+
+The tableimplementation of the address mapping is simplified if the informa-
+tion in the address space and the memory space are each divided into groups
+of fixed size. The physical memory is broken down into groups of equal size
+called blocks, which may range from 64 to 40% words each. The term page refers
+to groups of address space of the same size. For example, if a page or block
+consists of 1K words, then, using the previous example, address space is
+divided into 1024 pages and main memory is divided into 32 blocks. Although
+both a page and a block are split into groups of 1K words, a page refers to the
+organization of address space, while a block refers to the organization of
+memory space. The programs are also considered to be split into pages.
+Portions of programs are moved from auxiliary memory to main memory in
+records equal to the size of a page. The term “page frame” is sometimes used
+to denote a block.
+
+Consider a computer with an address space of 8K and a memory space
+of 4K. If we split each into groups of 1K words we obtain eight pages and four
+blocks as shown in Fig. 12-18. At any given time, up to four pages of address
+space may reside in main memory in any one of the four blocks.
+
+‘The mapping from address space to memory space is facilitated if each
+virtual address is considered to be represented by two numbers: a page number
+address and a line within the page. In a computer with 2 words per page, p
+bits are used to specify a line address and the remaining high-order bits of the
+virtual address specify the page number. In the example of Fig. 12-18, a virtual
+address has 13 bits. Since each page consists of 2" = 1024 words, the high-
+order three bits of a virtual address will specify one of the eight pages and the
+low-order 10 bits give the line address within the page. Note that the line
+address in address space and memory space is the same; the only mapping
+required is from a page number to a block number.
+
+The organization of the memory mapping table in a paged system is
+shown in Fig. 12-19. The memory-page table consists of eight words, one for
+each page. The address in the page table denotes the page number and the
+content of the word gives the block number where that page is stored in main
+memory. The table shows that pages 1, 2, 5, and 6 are now available in main
+memory in blocks 3, 0, 1, and 2, respectively. A presence bit in each location
+indicates whether the page has been transferred from auxiliary memory into
+main memory. A 0 in the presence bit indicates that this page is not available
+inmain memory. The CPU references a word in memory witha virtual address
+of 13 bits. The three high-order bits of the virtual address specify a page
+number and also an address for the memory-page table. The content of the
+
+ 
+

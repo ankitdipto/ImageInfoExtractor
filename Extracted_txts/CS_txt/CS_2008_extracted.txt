@@ -1,0 +1,51 @@
+pipelining
+
+SECTION 88 Reduced Instruction Set Computer (RISC) 285
+
+memory takes more time than register operations. Efficient pipelining, as well
+asa few other characteristics, are sometimes attributed to RISC, although they
+may exist innon-RISC architectures as well. Other characteristicsattributed to
+RISC architecture are:
+
+1. A relatively large number of registers in the processor unit
+
+2. Use of overlapped register windows to speed-up procedure call and
+return
+
+3. Efficient instruction pipeline
+
+4. Compiler support for efficient translation of high-level language pro-
+grams into machine language programs
+
+A large number of registers is useful for storing intermediate results and
+for optimizing operand references. The advantage of register storage as op-
+posed to memory storage is that registers can transfer information to other
+registers much faster than the transfer of information to and from memory.
+‘Thus register-to-memory operations can be minimized by keeping the most
+frequent accessed operands in registers. Studies that showimproved perform-
+ance for RISC architecture do not differentiate between the effects of the
+reduced instruction set and the effects of a large register file. For this reason
+a large number of registers in the processing unit are sometimes associated
+with RISC processors. The use of overlapped register windows when trans-
+ferring program control after a procedure call is explained below. Instruction
+pipeline in RISC is presented in Sec. 9-5 after we explain the concept of
+pipelining,
+
+Overlapped Register Windows
+Procedure call and return occurs quite often in high-level programming lan-
+guages. When translatedinto machine language, a procedure call produces a
+sequence of instructions that save register values, pass parameters needed for
+the procedure, and then calls a subroutine to execute the body of the proce-
+dure. After a procedure return, the program restores the old register values,
+passes results to the calling program, and returnsfrom the subroutine. Saving
+and restoring registers and passing of parameters and results involve time-
+consuming operations. Some computers provide multiple-register banks, and
+each procedure is allocated its own bank of registers. This eliminates the need
+forsavingandrestoring register values. Some computers use thememory stack
+to store the parameters that are needed by the procedure, but this requires a
+memory access every time the stack is accessed.
+
+A characteristic of some RISC processors is their use of overlapped register
+windows to provide the passing of parameters and avoid the need for saving
+and restoring register values. Each procedure call results in the allocation of
+

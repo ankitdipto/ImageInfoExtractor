@@ -1,0 +1,51 @@
+ 
+
+ 
+
+INFORMED SEARCH
+METHODS
+
+ 
+
+ 
+
+ 
+
+In which we see how information about the state space can prevent algorithms from
+blundering about in the dark.
+
+Chapter 3 showed that uninformed search strategies can find solutions to problems by systemati-
+cally generating new states and testing them against the goal. Unfortunately, these strategies are
+incredibly inefficient in most cases. This chapter shows how an informed search strategy—one
+that uses problem-specific knowledge—can find solutions more efficiently. It also shows how
+optimization problems can be solved.
+
+41 BEST-FIRST SEARCH
+
+EVALUATION
+FUNCTION
+
+BEST-FIRST SEARCH
+
+In Chapter 3, we found several ways to apply knowledge to the process of formulating a problem
+in terms of states and operators. Once we are given a well-defined problem, however, our options
+are more limited. If we plan to use the GENERAL-SEARCH algorithm from Chapter 3, then
+the only place where knowledge can be applied is in the queuing function, which determines
+the node to expand next. Usually, the knowledge to make this determination is provided by an
+evaluation function that returns a number purporting to describe the desirability (or lack thereof)
+of expanding the node. When the nodes are ordered so that the one with the best evaluation is
+expanded first, the resulting strategy is called best-first search. It can be implemented directly
+with GENERAL-SEARCH, as showninFigure4.1.
+
+The name "best-first search" is a venerable but inaccurate one. After all, ifwe could really
+expand the best node first, it would not be a search at all; it would be a straight march to the goal.
+All we can do is choose the node that appears to be best according to the evaluation function.
+If the evaluation function is omniscient, then this will indeed be the best node; in reality, the
+evaluation function will sometimes be off, and can lead the search astray. Nevertheless, we will
+stick with the name "best-first search," because “seemingly-best-firstsearch" is a little awkward.
+
+Just as there is a whole family of GENERAL-SEARCH algorithms with different ordering
+functions, there is also awhole family of BEST-FIRST-SEARCH algorithms with different evaluation
+
+92
+

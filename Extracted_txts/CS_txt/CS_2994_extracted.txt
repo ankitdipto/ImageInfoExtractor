@@ -1,0 +1,48 @@
+19.1 Structure of Fibonacci heaps 507
+
+From a practical point of view, however, the constant factors and program-
+ming complexity of Fibonacci heaps make them less desirable than ordinary binary
+(or k-ary) heaps for most applications, except for certain applications that manage
+large amounts of data. Thus, Fibonacci heaps are predominantly of theoretical in-
+terest. If a much simpler data structure with the same amortized time bounds as
+Fibonacci heaps were developed, it would be of practical use as well.
+
+Both binary heaps and Fibonacci heaps are inefficient in how they support the
+operation SEARCH; it can take a while to find an element with a given key. For this
+reason, operations such as DECREASE-KEy and DELETE that refer to a given ele-
+ment require a pointer to that element as part of their input. As in our discussion of
+priority queues in Section 6.5, when we use a mergeable heap in an application, we
+often store a handle to the corresponding application object in each mergeable-heap
+element, as well as a handle to the corresponding mergeable-heap element in each
+application object. The exact nature of these handles depends on the application
+and its implementation.
+
+Like several other data structures that we have seen, Fibonacci heaps are based
+on rooted trees. We represent each element by a node within a tree, and each
+node has a key attribute. For the remainder of this chapter, we shall use the term
+“node” instead of “element.” We shall also ignore issues of allocating nodes prior
+to insertion and freeing nodes following deletion, assuming instead that the code
+calling the heap procedures deals with these details.
+
+Section 19.1 defines Fibonacci heaps, discusses how we represent them, and
+presents the potential function used for their amortized analysis. Section 19.2
+shows how to implement the mergeable-heap operations and achieve the amortized
+time bounds shown in Figure 19.1. The remaining two operations, DECREASE-
+Key and DELETE, form the focus of Section 19.3. Finally, Section 19.4 finishes a
+key part of the analysis and also explains the curious name of the data structure.
+
+ 
+
+19.1 Structure of Fibonacci heaps
+
+A Fibonacci heap is a collection of rooted trees that are min-heap ordered. That
+is, each tree obeys the min-heap property: the key of a node is greater than or equal
+to the key of its parent. Figure 19.2(a) shows an example of a Fibonacci heap.
+
+As Figure 19.2(b) shows, each node x contains a pointer x.p to its parent and
+a pointer x.child to any one of its children. The children of x are linked together
+in a circular, doubly linked list, which we call the child list of x. Each child y in
+a child list has pointers y./eft and y.right that point to y’s left and right siblings,
+respectively. If node y is an only child, then y.left = y.right = y. Siblings may
+appear in a child list in any order.
+

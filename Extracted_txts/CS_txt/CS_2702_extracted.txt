@@ -1,0 +1,62 @@
+350
+
+Chapter 11. Planning
+
+ 
+
+The goal state is defined by a Finish step describing the objects to be acquired and the final
+destination to be reached:
+Op(ACTION: Finish,
+PRECOND:Have(Drill)A Have(Milk)A Have(Banana) A At(Home))
+The actions themselves are defined as follows:
+Op(ACTION:Go(there), PRECOND:At(here),
+EFFECT:At(there) A —At(here))
+Op(ACTION:Buy(x), PRECOND:Ar(store)A  Sells(store, x),
+ErFEct: Have(x))
+
+Figure 11.6 shows a diagram of the initial plan for this problem. We will develop a solution to
+the problem step by step, showing at each point a figure illustrating the partial plan at that point
+in the development. As we go along, we will note some of the properties we require for the
+planning algorithm. After we finish the example, we will present the algorithm in detail.
+
+ 
+
+ 
+
+At(Home) Sells(SM,Banana) | Sells(SM, Milk) Sells(HWS, Drill)
+
+Have Drill) Have Milk) | Have(Banana) At(Home)
+
+Figure 11.6 The initial plan for the shopping problem.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The first thing to notice about Figure 11.6 is that there are many possible ways in which
+the initial plan can be elaborated. Some choices will work, and some will not. As we work out
+the solution to the problem, we will show some correct choices and some incorrect choices. For
+simplicity, we will start with some correct choices. In Figure 11.7 (top), we have selected three
+Buy actions to achieve three of the preconditions of the Finish action. In each case there is only
+one possible choice because the operator library offers no other way to achieve these conditions.
+
+The bold arrows in the figure are causal links. For example, the leftmost causal link in the
+figure means that the step Buy(Drill)was added in order to achieve the Finish step's Have(Drill)
+precondition. The planner will make sure that this condition is maintained by protecting it: ifa
+step might delete the Have(Drill)condition, then it will not be inserted between the Buy(Drill)
+step and the Finish step. Light arrows in the figure show ordering constraints. By definition, all
+actions are constrained to come after the Start action. Also, all causes are constrained to come
+before their effects, so you can think of each bold arrow as having a light arrow underneath it.
+
+The second stage in Figure 11.7 shows the situation after the planner has chosen to achieve }
+the Sells preconditions by linking them to the initial state. Again, the planner has no choice here
+because there is no other operator that achieves Sells.
+
+ 
+

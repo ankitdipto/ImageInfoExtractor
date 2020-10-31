@@ -1,0 +1,50 @@
+Exercises 127
+
+application. RMI is the Java version of an RPC. RMI allows a thread to invoke a
+method on a remote object just as it would invoke a method on a local object.
+The primary distinction between RPCs and RMIs is that the data being passed
+to a remote procedure are in the form of an ordinary data structure. RMI allows
+objects to be passed in remote method calls.
+
+= Exercises
+4.1 MS-DOS provided no means of concurrent processing. Discuss three major
+
+complications that concurrent processing adds to an operating system.
+
+4.2 Describe the differences among short-term, medium-term, and long-term
+scheduling.
+
+4.3 A DECSYSTEM-20 computer has multiple register sets. Describe the actions
+of a context switch if the new context is already loaded into one of the
+register sets. What else must happen if the new context is in memory
+rather than in a register set, and all the register sets are in use?
+
+4.4 Describe the actions taken by a kernel to switch context between processes.
+
+4.5 What are the benefits and the detriments of each of the following? Con-
+sider both the systems and the programmers’ levels.
+
+a. Direct and indirect communication
+
+b. Symmetric and asymmetric communication
+c. Automatic and explicit buffering
+
+d. Send by copy and send by reference
+
+e. Fixed-sized and variable-sized messages
+
+4.6 The correct producer—consumer algorithm in Section 4.4 allows only n —1
+buffers to be full at any one time. Modify the algorithm to allow all buffers
+to be utilized fully.
+
+4.7 Consider the interprocess-communication scheme where mailboxes are
+used.
+
+a. Suppose a process P wants to wait for two messages, one from
+mailbox A and one from mailbox B. What sequence of send and
+receive should it execute?
+
+b. What sequence of send and receive should P execute if P wants
+to wait for one message from mailbox A or from mailbox B (or from
+both)?
+

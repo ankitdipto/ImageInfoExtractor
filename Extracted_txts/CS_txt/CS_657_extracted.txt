@@ -1,0 +1,74 @@
+164
+
+Chapter 6. Agents that Reason Logically
+
+ 
+
+‘SATISFIABLE
+
+UNSATISFIABLE
+
+is valid, because it is true whether or not "there is a stench in [1.1]” is true, and it is true regardless
+ofthe interpretation of "there is a stench in [ 1,1].” In contrast,
+
+"There is an open area in the square in front of me or there is a wall in the square in
+
+front of me."
+is not valid by itself. It is only valid under the assumption that every square has either a wall or
+an open area in it. So the sentence
+
+“Ifevery square has either a wall or an open area in it, then there is an open area in
+
+the square in front of me, or there is a wall in the square in front of me."
+
+  
+ 
+
+is valid.® There are several synonyms for valid sentences. Some authors use the terms analyti
+sentences or tautologies for valid sentences.
+
+A sentence is satisfiable if and only if there is some interpretation in some world for
+which it is true. The sentence "there is a wumpus at [1,2]"* is satisfiable because there might
+well be a wumpus in that square, even though there does not happen to be one in Figure 6.2. A
+sentence that is not satisfiable is unsatisfiable. Self-contradictory sentences are unsatisfiable, if
+the contradictoriness does not depend on the meuiitgs ofthe symbols. For example, the sentence
+
+"There is a wall in front of me and there is no wall in front of me"
+
+ 
+
+ss
+
+is unsatisfiable.
+
+Inference in computers
+
+It might seem that valid and unsatisfiable sentences are useless, because they can only express
+things that are obviously true or false. In fact, we will see that validity and unsatisfiability are
+crucial to the ability ofa computer to reason.
+
+The computer suffers from two handicaps: it does not necessarily know the interpretation
+you are using for the sentences in the knowledge base, and it knows nothing at all about the world
+except what appears in the knowledge base. Suppose we ask the computer ifit is OK to move to
+square [2,2]. The computer does not know what OK means, nor does it know what a wumpus or
+apit is. So it cannot reason informally as we did on page 155, All itcan do is see ifits knowledge
+base entails the sentence “{2,2] is OK." In other words, the inference procedure has to show that
+the sentence "If KB is true then [2,2] is OK" is a valid sentence. If it is valid, then it does not
+matter that the computer does not know the interpretation you are using or that it does not know
+much about the world—the conclusion is guaranteed to be correct under all interpretations in all
+worlds in which the original KB is true. In Section 6.4, we will give an example of a formal
+procedure for deciding if a sentence is valid.
+
+What makes formal inference powerful is that there is no limit to the complexity of the
+sentences it can handle. When we think of valid sentences, we usually think of simple examples
+like "The wumpus is dead or the wumpus is not dead." But the formal inference mechanism can
+just as well deal with valid sentences of the form "If KB then P.” where KB is a conjunction of
+thousands of sentences describing the laws of gravity and the current state of the solar system,
+and P is a long description of the eventual departure of Pluto from the system.
+
+M4
+
+© In these examples, we are assuming that words like "if" "then," "every," "or" and "not" are part ofthe standard syntax
+
+of the language. and thus are not open to varying intespretation
+

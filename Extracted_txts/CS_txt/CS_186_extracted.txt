@@ -1,0 +1,45 @@
+792 Chapter 27 Multithreaded Algorithms
+
+27.1-6
+Give a multithreaded algorithm to multiply an n x n matrix by an n-vector that
+achieves @(n?/ 1g n) parallelism while maintaining @(n?) work.
+
+27.1-7
+Consider the following multithreaded pseudocode for transposing ann xn matrix A
+in place:
+
+P-TRANSPOSE(A)
+
+1 n= A.rows
+
+2. parallel for j = 2 ton
+
+3 parallel for i = 1 to j —1
+4 exchange aj; with aj;
+
+Analyze the work, span, and parallelism of this algorithm.
+
+27.18
+
+Suppose that we replace the parallel for loop in line 3 of P-TRANSPOSE (see Ex-
+ercise 27.1-7) with an ordinary for loop. Analyze the work, span, and parallelism
+of the resulting algorithm.
+
+27.19
+For how many processors do the two versions of the chess programs run equally
+fast, assuming that Tp = T,/P + T..?
+
+ 
+
+27.2 Multithreaded matrix multiplication
+
+In this section, we examine how to multithread matrix multiplication, a problem
+whose serial running time we studied in Section 4.2. We'll look at multithreaded
+algorithms based on the standard triply nested loop, as well as divide-and-conquer
+algorithms.
+
+Multithreaded matrix multiplication
+
+The first algorithm we study is the straighforward algorithm based on parallelizing
+the loops in the procedure SQUARE-MATRIX-MULTIPLY on page 75:
+

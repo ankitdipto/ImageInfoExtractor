@@ -1,0 +1,53 @@
+23.2. The algorithms of Kruskal and Prim 637
+
+Exercises
+
+23.2-1
+
+Kruskal’s algorithm can return different spanning trees for the same input graph G,
+depending on how it breaks ties when the edges are sorted into order. Show that
+for each minimum spanning tree T of G, there is a way to sort the edges of G in
+Kruskal’s algorithm so that the algorithm returns 7.
+
+23.2-2
+Suppose that we represent the graph G = (V, E) as an adjacency matrix. Give a
+simple implementation of Prim’s algorithm for this case that runs in O(V7) time.
+
+23.2-3
+
+For a sparse graph G = (V,E), where |E| = ©(V), is the implementation of
+Prim’s algorithm with a Fibonacci heap asymptotically faster than the binary-heap
+implementation? What about for a dense graph, where |E| = ©(V?)? How
+must the sizes |E| and |V| be related for the Fibonacci-heap implementation to
+be asymptotically faster than the binary-heap implementation?
+
+23.2-4
+
+Suppose that all edge weights in a graph are integers in the range from | to |V|.
+How fast can you make Kruskal’s algorithm run? What if the edge weights are
+integers in the range from | to W for some constant W?
+
+23.2-5
+
+Suppose that all edge weights in a graph are integers in the range from | to |V |.
+How fast can you make Prim’s algorithm run? What if the edge weights are integers
+in the range from 1 to W for some constant W?
+
+23.2-6 *
+
+Suppose that the edge weights in a graph are uniformly distributed over the half-
+open interval [0,1). Which algorithm, Kruskal’s or Prim’s, can you make run
+faster?
+
+23.2-7 *
+
+Suppose that a graph G has a minimum spanning tree already computed. How
+quickly can we update the minimum spanning tree if we add a new vertex and
+incident edges to G?
+
+23.2-8
+
+Professor Borden proposes a new divide-and-conquer algorithm for computing
+minimum spanning trees, which goes as follows. Given a graph G = (V,E),
+partition the set V of vertices into two sets V; and V2 such that |V;| and | V| differ
+

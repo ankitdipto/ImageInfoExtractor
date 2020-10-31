@@ -1,0 +1,50 @@
+28.3 Symmetric positive-definite matrices and least-squares approximation 835
+
+Corollary 28.6
+LU decomposition of a symmetric positive-definite matrix never causes a division
+by 0.
+
+Proof Let A be a symmetric positive-definite matrix. We shall prove something
+stronger than the statement of the corollary: every pivot is strictly positive. The first
+pivot is aj;. Let e; be the first unit vector, from which we obtain a,, = e7 Ae; > 0.
+Since the first step of LU decomposition produces the Schur complement of A
+with respect to A; = (di), Lemma 28.5 implies by induction that all pivots are
+positive. .
+
+Least-squares approximation
+
+One important application of symmetric positive-definite matrices arises in fitting
+curves to given sets of data points. Suppose that we are given a set of m data points
+
+(%1, V1). (2, 2). +6 ms Ym) »
+
+ 
+
+where we know that the y; are subject to measurement errors. We would like to
+determine a function F(x) such that the approximation errors
+
+ni = F(x;)— Yi (28.17)
+
+are small fori = 1,2,...,m. The form of the function F depends on the problem
+at hand. Here, we assume that it has the form of a linearly weighted sum,
+
+F(x) = ro fia).
+j=l
+
+where the number of summands n and the specific basis functions f; are chosen
+based on knowledge of the problem at hand. A common choice is fj(x) = x/~!,
+which means that
+
+F(X) = cy + Cox + 63x? foe + enx"
+
+is a polynomial of degree n — | in x. Thus, given m data points (x1, 1). (¥2, Y2),
+- ++. (Xm. Ym), We Wish to calculate n coefficients ¢1,¢2,...,Cn that minimize the
+approximation errors 771, 2...-."%m-
+
+By choosing n = m, we can calculate each y; exactly in equation (28.17). Such
+a high-degree F “fits the noise” as well as the data, however, and generally gives
+poor results when used to predict y for previously unseen values of x. It is usu-
+ally better to choose 7 significantly smaller than m and hope that by choosing the
+coefficients c; well, we can obtain a function F that finds the significant patterns
+in the data points without paying undue attention to the noise. Some theoretical
+

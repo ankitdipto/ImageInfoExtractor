@@ -1,0 +1,45 @@
+16.2 Elements of the greedy strategy 425
+
+suming that we had already sorted the activities in monotonically increasing order
+of finish times, we needed to examine each activity just once. By preprocessing the
+input or by using an appropriate data structure (often a priority queue), we often
+can make greedy choices quickly, thus yielding an efficient algorithm.
+
+Optimal substructure
+
+A problem exhibits optimal substructure if an optimal solution to the problem
+contains within it optimal solutions to subproblems. This property is a key in-
+gredient of assessing the applicability of dynamic programming as well as greedy
+algorithms. As an example of optimal substructure, recall how we demonstrated in
+Section 16.1 that if an optimal solution to subproblem Sj; includes an activity ag,
+then it must also contain optimal solutions to the subproblems S;x and S,;. Given
+this optimal substructure, we argued that if we knew which activity to use as a,, we
+could construct an optimal solution to Sj; by selecting az along with all activities
+in optimal solutions to the subproblems Sj, and S;;. Based on this observation of
+optimal substructure, we were able to devise the recurrence (16.2) that described
+the value of an optimal solution.
+
+We usually use a more direct approach regarding optimal substructure when
+applying it to greedy algorithms. As mentioned above, we have the luxury of
+assuming that we arrived at a subproblem by having made the greedy choice in
+the original problem. All we really need to do is argue that an optimal solution to
+the subproblem, combined with the greedy choice already made, yields an optimal
+solution to the original problem. This scheme implicitly uses induction on the
+subproblems to prove that making the greedy choice at every step produces an
+optimal solution.
+
+Greedy versus dynamic programming
+
+Because both the greedy and dynamic-programming strategies exploit optimal sub-
+structure, you might be tempted to generate a dynamic-programming solution to a
+problem when a greedy solution suffices or, conversely, you might mistakenly think
+that a greedy solution works when in fact a dynamic-programming solution is re-
+quired. To illustrate the subtleties between the two techniques, let us investigate
+two variants of a classical optimization problem.
+
+The 0-1 knapsack problem is the following. A thief robbing a store finds n
+items. The ith item is worth v; dollars and weighs w; pounds, where v; and w; are
+integers. The thief wants to take as valuable a load as possible, but he can carry at
+most W pounds in his knapsack, for some integer W. Which items should he take?
+(We call this the 0-1 knapsack problem because for each item, the thief must either
+

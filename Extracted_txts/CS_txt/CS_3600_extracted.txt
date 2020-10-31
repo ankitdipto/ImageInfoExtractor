@@ -1,0 +1,218 @@
+(a)
+
+S,
+1
+
+(b)
+
+S1
+
+21.2 Linked-list representation of disjoint sets 565
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+y
+y
+>\ [a
+
+ 
+
+ 
+
+So
+
+ 
+
+ 
+
+tail
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 21.2 (a) Linked-list representations of two sets. Set S1 contains members d, f, and g, with
+representative f, and set Sz contains members b, c, e, and h, with representative c. Each object in
+the list contains a set member, a pointer to the next object in the list, and a pointer back to the set
+object. Each set object has pointers head and tail to the first and last objects, respectively. (b) The
+result of UNION(g, €), Which appends the linked list containing e to the linked list containing g. The
+representative of the resulting set is f. The set object for e’s list, Sp, is destroyed.
+
+A simple implementation of union
+
+The simplest implementation of the UNION operation using the linked-list set rep-
+resentation takes significantly more time than MAKE-SET or FIND-SET. As Fig-
+ure 21.2(b) shows, we perform UNION(x, y) by appending y’s list onto the end
+of x’s list. The representative of x’s list becomes the representative of the resulting
+set. We use the fail pointer for x’s list to quickly find where to append y’s list. Be-
+cause all members of y’s list join x’s list, we can destroy the set object for y’s list.
+Unfortunately, we must update the pointer to the set object for each object origi-
+nally on y’s list, which takes time linear in the length of y’s list. In Figure 21.2, for
+example, the operation UNION(g, e) causes pointers to be updated in the objects
+for b,c, e, and h.
+
+In fact, we can easily construct a sequence of m operations on 1 objects that
+requires @(n”) time. Suppose that we have objects x1,x2,...,Xn. We execute
+the sequence of » MAKE-SET operations followed by n — | UNION operations
+shown in Figure 21.3, so that m = 2n — 1. We spend ©(1) time performing the 1
+MAKE-SET operations. Because the ith UNION operation updates 7 objects, the
+total number of objects updated by all n — 1 UNION operations is
+

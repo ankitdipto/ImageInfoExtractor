@@ -1,0 +1,47 @@
+74 Semaphores 201
+
+7.4 = Semaphores
+
+The solutions to the critical-section problem presented in Section 7.3 are not
+easy to generalize to more complex problems. To overcome this difficulty, we
+can use a synchronization tool called a semaphore. A semaphore S is an integer
+variable that, apart from initialization, is accessed only through two standard
+atomic operations: wait and signal. These operations were originally termed
+P (for wait; from the Dutch proberen, to test) and V (for signal; from verhogen, to
+increment). The classical definition of wait in pseudocode is
+
+wait(S) {
+while (S < 0)
+
+ 
+
+The classical definitions of signal in pseudocode is
+
+signal(s) {
+S++;
+}
+
+Modifications to the integer value of the semaphore in the wait and sig-
+nal operations must be executed indivisibly. That is, when one process mod-
+ifies the semaphore value, no other process can simultaneously modify that
+same semaphore value. In addition, in the case of the wait (S), the testing of
+the integer value of S (S < 0), and its possible modification (S--), must also
+be executed without interruption. We shall see how these operations can be
+implemented in Section 7.4.2; first, let us see how semaphores can be used.
+
+7.4.1 Usage
+
+We can use semaphores to deal with the n-process critical-section problem.
+The n processes share a semaphore, mutex (standing for mutual exclusion),
+initialized to 1. Each process P; is organized as shown in Figure 7.11.
+
+We can also use semaphores to solve various synchronization problems.
+For example, consider two concurrently running processes: P; with a statement
+5, and P) with a statement $2. Suppose that we require that S2 be executed
+only after S; has completed. We can implement this scheme readily by letting
+P, and P2 share a common semaphore synch, initialized to 0, and by inserting
+the statements
+
+Si
+signal (synch) ;
+

@@ -1,0 +1,31 @@
+26.2. The Ford-Fulkerson method 717
+
+ 
+
+Figure 26.4 (a) The flow network G and flow f of Figure 26.1(b). (b) The residual network Gy
+with augmenting path p shaded; its residual capacity is cf(p) = cy¢(v2.v3) = 4. Edges with
+residual capacity equal to 0, such as (v1, 13), are not shown, a convention we follow in the remainder
+of this section. (c) The flow in G that results from augmenting along path p by its residual capacity 4.
+Edges carrying no flow, such as (v3, v2), are labeled only by their capacity, another convention we
+follow throughout. (d) The residual network induced by the flow in (c).
+
+The intuition behind this definition follows the definition of the residual network.
+We increase the flow on (u,v) by f’(u,v) but decrease it by f’(v,u) because
+pushing flow on the reverse edge in the residual network signifies decreasing the
+flow in the original network. Pushing flow on the reverse edge in the residual
+network is also known as cancellation. For example, if we send 5 crates of hockey
+pucks from u to v and send 2 crates from v to u, we could equivalently (from the
+perspective of the final result) just send 3 creates from u to v and none from v to u.
+Cancellation of this type is crucial for any maximum-flow algorithm.
+
+Lemma 26.1
+
+Let G = (V, E) be a flow network with source s and sink t, and let f be a flow
+in G. Let Gy be the residual network of G induced by /, and let f’ be a flow
+in Gr. Then the function f ¢ f’ defined in equation (26.4) is a flow in G with
+
+value |f tf") =|f|+1f'1-
+
+Proof We first verify that f ¢ f’ obeys the capacity constraint for each edge in E
+and flow conservation at each vertex in V — {s, f}.
+

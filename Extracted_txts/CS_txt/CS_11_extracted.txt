@@ -1,0 +1,40 @@
+Chapter 24 Single-Source Shortest Paths 649
+
+  
+
+Figure 24.3 Relaxing an edge (wv, v) with weight w(u, v) = 2. The shortest-path estimate of each
+vertex appears within the vertex. (a) Because v.d > u.d + w(u,v) prior to relaxation, the value
+of v.d decreases. (b) Here, v.d < u.d + w(u, v) before relaxing the edge, and so the relaxation step
+leaves v.d unchanged.
+
+estimate v.d and update v’s predecessor attribute v.2. The following code per-
+forms a relaxation step on edge (u,v) in O(1) time:
+
+RELAX(u, v, w)
+
+1 ifv.d>u.d+w(u,v)
+2 v.d = u.d+w(u,v)
+3 va =U
+
+Figure 24.3 shows two examples of relaxing an edge, one in which a shortest-path
+estimate decreases and one in which no estimate changes.
+
+Each algorithm in this chapter calls INITIALIZE-SINGLE-SOURCE and then re-
+peatedly relaxes edges. Moreover, relaxation is the only means by which shortest-
+path estimates and predecessors change. The algorithms in this chapter differ in
+how many times they relax each edge and the order in which they relax edges. Dijk-
+stra’s algorithm and the shortest-paths algorithm for directed acyclic graphs relax
+each edge exactly once. The Bellman-Ford algorithm relaxes each edge |V| — 1
+times.
+
+Properties of shortest paths and relaxation
+
+To prove the algorithms in this chapter correct, we shall appeal to several prop-
+erties of shortest paths and relaxation. We state these properties here, and Sec-
+tion 24.5 proves them formally. For your reference, each property stated here in-
+cludes the appropriate lemma or corollary number from Section 24.5. The latter
+five of these properties, which refer to shortest-path estimates or the predecessor
+subgraph, implicitly assume that the graph is initialized with a call to INITIALIZE-
+SINGLE-SOURCE(G, s) and that the only way that shortest-path estimates and the
+predecessor subgraph change are by some sequence of relaxation steps.
+

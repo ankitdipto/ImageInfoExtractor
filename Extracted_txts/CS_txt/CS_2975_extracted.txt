@@ -1,0 +1,45 @@
+18.2 Basic operations on B-trees 491
+
+18.1-3
+Show all legal B-trees of minimum degree 2 that represent {1, 2,3, 4,5}.
+
+18.1-4
+As a function of the minimum degree f, what is the maximum number of keys that
+can be stored in a B-tree of height /?
+
+18.1-5
+Describe the data structure that would result if each black node in a red-black tree
+were to absorb its red children, incorporating their children with its own.
+
+ 
+
+18.2. Basic operations on B-trees
+
+In this section, we present the details of the operations B-TREE-SEARCH, B-
+TREE-CREATE, and B-TREE-INSERT. In these procedures, we adopt two con-
+ventions:
+
+* The root of the B-tree is always in main memory, so that we never need to
+perform a DISK-READ on the root; we do have to perform a DISK-WRITE of
+the root, however, whenever the root node is changed.
+
++ Any nodes that are passed as parameters must already have had a DISK-READ
+operation performed on them.
+
+The procedures we present are all “one-pass” algorithms that proceed downward
+from the root of the tree, without having to back up.
+
+Searching a B-tree
+
+Searching a B-tree is much like searching a binary search tree, except that instead
+of making a binary, or “two-way,” branching decision at each node, we make a
+multiway branching decision according to the number of the node’s children. More
+precisely, at each internal node x, we make an (x. + 1)-way branching decision.
+
+B-TREE-SEARCH is a straightforward generalization of the TREE-SEARCH pro-
+cedure defined for binary search trees. B-TREE-SEARCH takes as input a pointer
+to the root node x of a subtree and a key k to be searched for in that subtree. The
+top-level call is thus of the form B-TREE-SEARCH(T. root, k). If k is in the B-tree,
+B-TREE-SEARCH returns the ordered pair (y,i) consisting of a node y and an
+index i such that y.key, = k. Otherwise, the procedure returns NIL.
+

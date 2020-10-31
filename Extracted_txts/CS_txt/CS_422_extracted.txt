@@ -1,0 +1,26 @@
+984
+
+Chapter 31 Number-Theoretic Algorithms
+
+Goldwasser, Micali, and Rivest [143] present a digital-signature scheme for which
+every conceivable type of forgery is provably as difficult as factoring. Menezes,
+van Oorschot, and Vanstone [254] provide an overview of applied cryptography.
+
+The rho heuristic for integer factorization was invented by Pollard [277]. The
+version presented here is a variant proposed by Brent [56].
+
+The best algorithms for factoring large numbers have a running time that grows
+roughly exponentially with the cube root of the length of the number 7 to be fac-
+tored. The general number-field sieve factoring algorithm (as developed by Buh-
+ler, Lenstra, and Pomerance [57] as an extension of the ideas in the number-field
+sieve factoring algorithm by Pollard [278] and Lenstra et al. [232] and refined by
+Coppersmith [77] and others) is perhaps the most efficient such algorithm in gen-
+eral for large inputs. Although it is difficult to give a rigorous analysis of this
+algorithm, under reasonable assumptions we can derive a running-time estimate of
+L(1/3,n) #92420), where L(a,n) = e(inn)*(In inn)!
+
+The elliptic-curve method due to Lenstra [233] may be more effective for some
+inputs than the number-field sieve method, since, like Pollard’s rho method, it can
+find a small prime factor p quite quickly. With this method, the time to find p is
+estimated to be L(1/2, p)¥2+2.
+

@@ -1,0 +1,52 @@
+Chapter 34 NP-Completeness 1049
+
+we can find the edges of the Euler tour in O(E£) time. A hamiltonian cycle of
+a directed graph G = (V, E) is a simple cycle that contains each vertex in V.
+Determining whether a directed graph has a hamiltonian cycle is NP-complete.
+(Later in this chapter, we shall prove that determining whether an undirected
+graph has a hamiltonian cycle is NP-complete.)
+
+2-CNF satisfiability vs. 3-CNF satisfiability: A boolean formula contains vari-
+ables whose values are 0 or 1; boolean connectives such as A (AND), Vv (OR),
+and — (NOT); and parentheses. A boolean formula is satisfiable if there exists
+some assignment of the values 0 and | to its variables that causes it to evaluate
+to 1. We shall define terms more formally later in this chapter, but informally, a
+boolean formula is in k-conjunctive normal form, or k-CNF, if it is the AND
+of clauses of ORs of exactly k variables or their negations. For example, the
+boolean formula (x; V 7x2) A (=x1 V x3) A (x2 V 7X3) is in 2-CNF. (It has
+the satisfying assignment x; = 1,x2 = 0,x3 = 1.) Although we can deter-
+mine in polynomial time whether a 2-CNF formula is satisfiable, we shall see
+later in this chapter that determining whether a 3-CNF formula is satisfiable is
+NP-complete.
+
+NP-completeness and the classes P and NP
+
+Throughout this chapter, we shall refer to three classes of problems: P, NP, and
+NPC, the latter class being the NP-complete problems. We describe them infor-
+mally here, and we shall define them more formally later on.
+
+The class P consists of those problems that are solvable in polynomial time.
+More specifically, they are problems that can be solved in time O(n*) for some
+constant k, where 1 is the size of the input to the problem. Most of the problems
+examined in previous chapters are in P.
+
+The class NP consists of those problems that are “verifiable” in polynomial time.
+What do we mean by a problem being verifiable? If we were somehow given a
+“certificate” of a solution, then we could verify that the certificate is correct in time
+polynomial in the size of the input to the problem. For example, in the hamiltonian-
+cycle problem, given a directed graph G = (V, E), a certificate would be a se-
+quence (V1, V2,V3..... v\y|) of |V | vertices. We could easily check in polynomial
+time that (vj, ¥;41) € E fori = 1,2,3. |V|—1 and that (vjyj, v1) € E as well.
+As another example, for 3-CNF satisfiability, a certificate would be an assignment
+of values to variables. We could check in polynomial time that this assignment
+satisfies the boolean formula.
+
+Any problem in P is also in NP, since if a problem is in P then we can solve it
+in polynomial time without even being supplied a certificate. We shall formalize
+this notion later in this chapter, but for now we can believe that P C NP. The open
+question is whether or not P is a proper subset of NP.
+
+ 
+
+ 
+

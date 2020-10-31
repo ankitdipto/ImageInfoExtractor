@@ -1,0 +1,64 @@
+174
+
+Chapter 6. Agents that Reason Logically
+
+ 
+
+LOCAL
+
+HORN SENTENCES
+
+It is fairly easy to show that propositional and first-order logic are monotonic in this sense;
+one can also show that probability theory is not monotonic (see Chapter 14). An inference rule”
+such as Modus Ponens is local because its premise need only be compared with a small portion
+of the KB (two sentences, in fact). Were it not for monotonicity, we could not have any local
+inference rules because the rest of the KB might affect the soundness of the inference. This
+would potentially cripple any inference procedure.
+
+There is also a useful class of sentences for which a polynomial-time inference procedure
+exists. This is the class called Horn sentences.* A Horn sentence has the form:
+
+P, AP» A...AP, >
+
+where the P; and O are nonnegated atoms. There are two important special cases: -First, when
+Qis the constant False, we get a sentence that is equivalent to—P; V ... V =P, Second, when ~
+n= 1 and P, = True, we get True > Q, which is equivalent to the atomic sentence Q. Not every
+knowledge base can be written as a collection ofHorn sentences, but for those that can, we can use
+
+a simple inference procedure: apply Modus Ponens wherever possible until no new inferences
+remain to be made. We discuss Horn sentences and their associated inference procedures in more
+detail in the context of first-order logic (Section 9.4).
+
+ 
+
+6.5 AN AGENT FOR THE WUMPUS WORLD
+
+ 
+
+ 
+
+ 
+
+In this section, we show a snapshot of a propositional logic agent reasoning about the wumpus
+world. We assume that the agent has reached the point shown in Figure 6.4(a), repeated here as
+Figure 6.15, and show how the agent can conclude that the wumpus is in {1,3}.
+
+The knowledge base
+
+On each turn, the agent's percepts are converted into sentences and entered into the knowledge
+base, along with some valid sentences that are entailed by the percept sentences. Let us assume
+that the symbol? S;2, for example, means "There is a stench in [1,2].” Similarly, 8) means
+"There is a breeze in [2,1].” At this point, then, the knowledge base contains, among others, the
+percept sentences
+
+S11 Bi,
+7S2,1 Bry
+Siz Bi 2
+
+In addition, the agent must start out with some knowledge of the environment. For example, the
+agent knows that ifa square has no smell, then neither the square nor any ofits adjacent squares
+
+8 Also known as Hom clauses. The name honors the logician Alfred Horn,
+9 The subscripts make these symbols look like they have some kind of intemal structure, but do not let that mislead you
+We could have used Q or StenchOneTwoinstead of $2, but we wanted symbols that are both mnemonic and succinct.
+

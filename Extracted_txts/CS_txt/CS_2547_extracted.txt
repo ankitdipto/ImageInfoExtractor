@@ -1,0 +1,50 @@
+Problems for Chapter 5 143
+
+ 
+
+Problems
+
+5-1 Probabilistic counting
+
+With a b-bit counter, we can ordinarily only count up to 2’ — 1. With R. Morris’s
+probabilistic counting, we can count up to a much larger value at the expense of
+some loss of precision.
+
+We let a counter value of / represent a count of n; fori = 0,1,... 29-1 , where
+the n; form an increasing sequence of nonnegative values. We assume that the ini-
+tial value of the counter is 0, representing a count of mo = 0. The INCREMENT
+operation works on a counter containing the value i in a probabilistic manner. If
+i= 1, then the operation reports an overflow error. Otherwise, the INCRE-
+MENT operation increases the counter by | with probability 1/(n;+1 —n;), and it
+leaves the counter unchanged with probability 1 — 1/(nj+1 —1;).
+
+If we select nj = i for alli > 0, then the counter is an ordinary one. More
+interesting situations arise if we select, say, nj = 2’! fori > Oorn; = F; (the
+ith Fibonacci number—see Section 3.2).
+
+For this problem, assume that »_; is large enough that the probability of an
+overflow error is negligible.
+
+a. Show that the expected value represented by the counter after 1 INCREMENT
+operations have been performed is exactly n.
+
+b. The analysis of the variance of the count represented by the counter depends
+on the sequence of the n;. Let us consider a simple case: n; = 100i for
+all i > 0. Estimate the variance in the value represented by the register after n
+INCREMENT operations have been performed.
+
+5-2 Searching an unsorted array
+This problem examines three algorithms for searching for a value x in an unsorted
+array A consisting of n elements.
+
+Consider the following randomized strategy: pick a random index i into A. If
+A{i] = x, then we terminate; otherwise, we continue the search by picking a new
+random index into A. We continue picking random indices into A until we find an
+index j such that A[j] = x or until we have checked every element of A. Note
+that we pick from the whole set of indices each time, so that we may examine a
+given element more than once.
+
+a. Write pseudocode for a procedure RANDOM-SEARCH to implement the strat-
+egy above. Be sure that your algorithm terminates when all indices into A have
+been picked.
+

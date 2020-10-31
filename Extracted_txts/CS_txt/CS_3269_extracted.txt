@@ -1,0 +1,41 @@
+Chapter 20. Reinforcement Learning
+
+ 
+
+ 
+
+20.4 The environments used in the chapter all assume that training sequences are finite. In
+environments with no clear termination point, the unlimited accumulation of rewards can lead
+to problems with infinite utilities. To avoid this, a discount factor 7 is often used, where 7 < 1.
+A reward k steps in the future is discounted by a factor of ;*. For each constraint and update
+equation in the chapter, explain how to incorporate the discount factor.
+
+20.5 The description of reinforcement learning agents in Section 20.1 uses distinguished ter-
+minal states to indicate the end ofa training sequence. Explain how this additional complication
+could be eliminated by modelling the "reset" as a transition like any other. How will this affect
+the definition of utility?
+
+20.6 Prove formally that Equations (20.1) and (20.3) are consistent with the definition of utility
+as the expected reward-to-go ofa state.
+
+20.7 How can the value determination algorithm be used to calculate the expected loss experi-
+enced by an agent using a given set of utility estimates U and an estimated model M, compared
+to an agent using correct values?
+
+20.8 Adapt the vacuum world (Chapter 2) for reinforcement learning by including rewards for
+picking up each piece of dirt and for getting home and switching off. Make the world accessible
+by providing suitable percepts. Now experiment with different reinforcement learning agents. Is
+input generalization necessary for success?
+
+20.9 Write down the update equation for Q-learning with a parameterized implicit representa-
+tion. That is, write the counterpart to Equation (20.8).
+
+20.10 Extend the standard game-playing environment (Chapter 5) to incorporate a reward
+signal. Put two reinforcement learning agents into the environment (they may of course share
+the agent program) and have them play against each other. Apply the generalized TD update rule
+(Equation (20.8)) to update the evaluation function. You may wish to start with a simple linear
+weighted evaluation function, and a simple game such as tic-tac-toe.
+
+20.11 (Discussion topic.) Is reinforcement learning an appropriate abstract model for human
+learning? For evolution?
+

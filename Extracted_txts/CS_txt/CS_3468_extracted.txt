@@ -1,0 +1,68 @@
+Section 25.6.
+
+Navigation and Motion Planning 803
+
+ 
+
+sensing, control, and environment shape. A fine-motion planner does most of its work offline,
+generating a strategy that should work in all situations consistent with its models.
+
+A fine-motion plan consists ofa series of guarded motions. Each guarded motion consists
+of (1) a motion command and (2) a termination condition, which is a predicate on the robot's
+sensor values, and returns true to indicate the end of the guarded move. The motion commands
+are typically compliant motions that allow the robot to slide if the motion command would
+cause collision with an obstacle. Compliant motion requires a dynamic model such as a spring
+or damper. The spring model is the simplest to understand. Rather than moving the robot itself,
+imagine moving one end of a spring with the other end attached to the robot. The damper model
+is similar but instead ofa spring, a device called a damper is attached to the robot. Whereas the
+spring gives a reaction force proportional to relative displacement of its endpoints, the damper
+gives a reaction force proportional to relative velocity. Both allow the robot to slide on a surface
+so long as the commanded velocity is not directly into the surface. (In reality, there will be some
+friction between robot and obstacle, and the robot will not move even if the commanded velocity
+is close to right angles with the surface.)
+
+As an example, Figure 25.19 shows a 2-D configuration space with a narrow vertical
+hole. It could be the configuration space for insertion of a rectangular peg into a hole that is
+slightly larger. The motion commands are constant velocities. The termination conditions are
+contact with a surface. To model uncertainty in control, we assume that instead of moving at the
+commanded velocity, the robot's actual motion lies in the cone C, about it. The figure shows
+what would happen if we commanded a velocity straight down from the start region s. Because
+of the uncertainty in velocity, the robot could move anywhere in the conical envelope, possibly
+going into the hole, but more likely landing to one side of it. Because the robot would not then
+know which side of the hole it was on, it would not know which way to move.
+
+A more sensible strategy is shown in Figures 25.20 and 25.21. In Figure 25.20, the robot
+deliberately moves to one side of the hole. The motion command is shown in the figure, and the
+termination test is contact with any surface. In Figure 25.21, a motion command is given that
+causes the robot to slide along the surface and into the hole. This assumes we use a compliant
+motion command. Because all possible velocities in the motion envelope are to the right, the
+robot will slide to the right whenever it is in contact with a horizontal surface. It will slide down
+the right-hand vertical edge of the hole when it touches it, because all possible velocities are down
+relative to a vertical surface. It will keep moving until it reaches the bottom of the hole, because
+that is its termination condition. In spite of the control uncertainty, all possible trajectories of the
+robot terminate in contact with the bottom of the hole. (That is, unless friction or irregularities
+in the surface causes the robot to stick in one place.)
+
+As one might imagine, the problem of constructing fine-motion plans is not trivial; in fact,
+it is a good deal harder than planning with exact motions. One can either choose a fixed number
+of discrete values for each motion or use the environment geometry to choose directions that give
+qualitatively different behavior. A fine-motion planner takes as input the configuration-space
+description, the angle of the velocity uncertainty cone, and a specification of what sensing is
+possible for termination (surface contact in this case). It should produce a multistep conditional
+plan or policy that is guaranteed to succeed, if such a plan exists.
+
+We did not include uncertainty in the environment in our example, but there is one elegant
+way to do it. Ifthe variation can be described in terms of parameters, those parameters can
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

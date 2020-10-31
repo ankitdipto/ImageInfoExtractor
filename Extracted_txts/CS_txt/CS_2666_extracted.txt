@@ -1,0 +1,49 @@
+240
+
+Chapter 10 Elementary Data Structures
+
+List-INSERT (L, x)
+
+1 x.next = L.nil.next
+2) L.nil.next.prev = x
+3 L.nil.next = x
+4 x.prev = L.nil
+
+Figure 10.4 shows the effects of List-INSERT’ and LIsT-DELETE’ on a sample list.
+
+Sentinels rarely reduce the asymptotic time bounds of data structure operations,
+but they can reduce constant factors. The gain from using sentinels within loops
+is usually a matter of clarity of code rather than speed; the linked list code, for
+example, becomes simpler when we use sentinels, but we save only O(1) time in
+the List-INSERT’ and L1st-DELETE’ procedures. In other situations, however, the
+use of sentinels helps to tighten the code in a loop, thus reducing the coefficient of,
+say, 7 or n? in the running time.
+
+We should use sentinels judiciously. When there are many small lists, the extra
+storage used by their sentinels can represent significant wasted memory. In this
+book, we use sentinels only when they truly simplify the code.
+
+Exercises
+
+10.2-1
+Can you implement the dynamic-set operation INSERT on a singly linked list
+in O(1) time? How about DELETE?
+
+10.2-2
+Implement a stack using a singly linked list L. The operations PuUsH and Pop
+should still take O(1) time.
+
+10.2-3
+Implement a queue by a singly linked list L. The operations ENQUEUE and DE-
+QUEUE should still take O(1) time.
+
+102-4
+
+As written, each loop iteration in the List-SEARCH’ procedure requires two tests:
+one for x ¢ L.nil and one for x.key # k. Show how to eliminate the test for
+x # L.nil in each iteration.
+
+102-5
+Implement the dictionary operations INSERT, DELETE, and SEARCH using singly
+linked, circular lists. What are the running times of your procedures?
+

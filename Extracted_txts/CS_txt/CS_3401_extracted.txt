@@ -1,0 +1,46 @@
+742
+
+Chapter 24. Perception
+
+ 
+
+TEXTURE
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 24.16 Results from processing the Qtips stereo pair. (a) Image of depth. (b) Image
+of smoothed slope. (c) Object boundaries (white) and surface creases (gray). (d) Wire frame of
+depth. (Images courtesy of Peter Belhumeur.)
+
+ 
+
+ 
+
+ 
+
+so the brightness ofa point in the scene is a function of viewpoint; (2) there is a differing amount
+of foreshortening in the two views, because the patch makes different angles to the optical axes
+in the two views.
+
+Another family of approaches is based on first finding edges and then looking for matches.
+Edges are deemed compatible if they are near enough in orientation and have the same sign of
+contrast across the edge. Corresponding edges are usually assumed to obey the same left-to-right
+ordering in each image, which allows one to restrict the number of possible matches and lends
+itself to efficient algorithms based on dynamic programming. With any edge-based approach,
+however, the resulting depth information is sparse, because it is available only at edge locations.
+Thus, a further step is needed to interpolate depth across surfaces in the scene.
+
+Texture gradients
+
+Texture in everyday language is a property of surfaces associated with the tactile quality they
+suggest (texture has the same root as textile). In computational vision, itrefers to a closely related
+concept, that of a spatially repeating pattern on a surface that can be sensed visually. Examples
+
+ee ea
+

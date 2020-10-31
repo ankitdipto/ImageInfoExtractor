@@ -1,0 +1,57 @@
+Section 18.3.
+
+Learning Decision Trees
+
+537
+
+ 
+
+ 
+
+function DECISION-TREE-LEARNING(examples, attributes, default) returns a decision tree
+inputs: examples, set ofexamples
+attributes, set of attributes
+default, default value for the goal predicate
+
+if examples is empty then return default
+else if all examples have the same classification then return the classification
+else if attributes is empty then return MAJORITY- VALUE(examples)
+else
+best — CHOOSE-ATTRIBUTE(attributes, examples)
+tree — a new decision tree with root test best
+for each value v; of best do
+examplesi— {elements of examples with best = vi}
+subtree — DECISION-TREE-LEARNING(examples;,attributes — best,
+MAJORITY- VALUE(examples))
+add a branch to tree with label v; and subtree subtree
+end
+return free
+
+ 
+
+ 
+
+Figure 187 The decision tree learning algorithm.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 188 — The decision tree induced from the 12-example training set.
+
+ 
+
+ 
+

@@ -1,0 +1,49 @@
+SECTION 87 Program Control 279
+
+subroutine instruction causes the stack to pop and the contents of the top of
+the stack are transferred to the program counter. In this way, the return is
+always to the program that last called a subroutine. A subroutine call is
+implemented with the following microoperations:
+
+SP—SP -1 Decrement stack pointer
+M[SP]—PC Push content of PC onto the stack
+PC effective address Transfer control to the subroutine
+
+If another subroutine is called by the current subroutine, the new return
+address is pushed into the stack, and so on. The instruction that returns from
+the last subroutine is implemented by the microoperations:
+
+PC<M{SP] Pop stack and transfer to PC
+SP —SP +1 — Increment stack pointer
+
+By usinga subroutine stack, all return addresses are automatically stored
+by the hardware in one unit. The programmer does not have to be concerned
+or remember where the return address was stored.
+
+A recursive subroutine is a subroutine that calls itself. If only one register
+or memory location is used to store the return address, and the recursive
+subroutine calls itself, it destroys the previous return address. This is undesir-
+ble because vital information is destroyed. This problem can be solved if
+different storage locations are employed for each use of the subroutine while
+another lighter-level use is still active. When a stack is used, each return
+address can be pushed into the stack without destroying any previous values.
+This solves the problem of recursive subroutines because the next subroutine
+to exit is always the last subroutine that was called.
+
+ 
+
+Program Interrupt
+
+‘The concept of program interrupt is used to handle a variety of problems that
+arise out of normal program sequence. Program interrupt refers to the transfer
+of program control from a currently running program to another service pro-
+gram as a result of an external or internal generated request. Control returns
+to the original program after the service program is executed.
+
+The interrupt procedure is, in principle, quite similar to a subroutine call
+except for three variations: (1) The interrupt is usually initiated by an internal
+or external signal rather than from the execution of an instruction (except for
+software interrupt as explained later); (2) the address of the interrupt service
+program is determined by the hardware rather than from the address field of
+an instruction; and (3) an interrupt procedure usually storesall the information
+

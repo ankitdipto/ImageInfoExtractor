@@ -1,0 +1,70 @@
+Section 3.2.
+
+CONTINGENCY
+PROBLEM
+
+INTERLEAVING
+
+7)
+ase
+
+PLOF
+
+BL
+
+Formulating Problems 59
+
+ 
+
+ATION
+
+Although it might seem different, the case of ignorance about the effects of actions can be
+treated similarly. Suppose, for example, that the environment appears to be nondeterministic in
+that it obeys Murphy's Law: the so-called Suck action sometimes deposits dirt on the carpet but
+only if there is no dirt there already. For example, if the agent knows it is in state 4, then it
+knows that if it sucks, it will reach one of the states {2,4}. For any known initial state, however,
+there is an action sequence that is guaranteed to reach a goal state (see Exercise 3.2).
+
+Sometimes ignorance prevents the agent from finding a guaranteed solution sequence.
+Suppose, for example, that the agent is in the Murphy's Law world, and that it has a position
+sensor and a local dirt sensor, but no sensor capable of detecting dirt in other squares. Suppose
+further that the sensors tell it that it is in one of the states {1,3}. The agent might formulate the
+action sequence [Suck,Right,Suck]. Sucking would change the state to one of {5.7}, and moving
+right would then change the state to one of {6,8}. If itis in fact state 6, then the action sequence
+will succeed, but if it is state 8, the plan will fail. If the agent had chosen the simpler action
+sequence /Suck], it would also succeed some of the time, but not always. It turns out there is no
+fixed action sequence that guarantees a solution to this problem.
+
+Obviously, the agent does have a way to solve the problem starting from one of {1,3}: first
+suck, then move right, then suck only ifthere is dirt there. Thus, solving this problem requires
+sensing during the execution phase. Notice that the agent must now calculate a whole tree of
+actions, rather than a single action sequence. In general, each branch of the tree deals with a
+possible contingency that might arise. For this reason, we call this a contingency problem.
+Many problems in the real. physical world are contingency problems, because exact prediction is
+impossible. For this reason, many people keep their eyes open while walking around or driving
+
+Single-state and multiple-state problems can be handled by similar search techniques,
+which are covered in this chapter and the next. Contingency problems, on the other hand,
+require more complex algorithms, which we cover in Chapter 13. They also lend themselves to a
+somewhat different agent design, in which the agent can act before it has found a guaranteed plan.
+This is useful because rather than considering in advance every possible contingency that might
+arise during execution, it is often better to actually start executing and see which contingencies
+do arise. The agent can then continue to solve the problem given the additional information. This
+type of interleaving of search and execution is also covered in Chapter 13, and for the limited
+case of two-player games, in Chapter 5. For the remainder of this chapter, we will only consider
+cases where guaranteed solutions consist of a single sequence of actions.
+
+Finally, consider the plight of an agent that has no information about the effects of its
+actions. This is somewhat equivalent to being lost in a strange country with no map at all, and is
+the hardest task faced by an intelligent agent.* The agent must experiment, gradually discovering
+what its actions do and what sorts of states exist. This is a kind of search, but a search in the
+real world rather than in a model thereof. Taking a step in the real world, rather than in a model,
+may involve significant danger for an ignorant agent. Ifit survives, the agent learns a "map" of
+the environment, which it can then use to solve subsequent problems. We discuss this kind of
+exploration problem in Chapter 20.
+
+3° We assume that most readers face similar problems, and can imagine themselves as frustrated as our agent. We
+apologize to owners of modern, efficient home appliances who cannot take advantage of this pedagogical device
+
+4 It is also the task faced by newborn babies.
+

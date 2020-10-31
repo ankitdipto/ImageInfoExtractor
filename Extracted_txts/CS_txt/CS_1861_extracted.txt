@@ -1,0 +1,50 @@
+326 Chapter10 Virtual Memory
+
+To compute the effective access time, we must know how much time is
+needed to service a page fault. A page fault causes the following sequence to
+occur:
+
+1. Trap to the operating system.
+
+2. Save the user registers and process state.
+
+3. Determine that the interrupt was a page fault.
+4.
+
+. Check that the page reference was legal and determine the location of the
+page on the disk.
+
+5. Issue a read from the disk to a free frame:
+a. Wait in a queue for this device until the read request is serviced.
+b. Wait for the device seek and/or latency time.
+c. Begin the transfer of the page to a free frame.
+
+6. While waiting, allocate the CPU to some other user (CPU scheduling;
+optional).
+
+7. Interrupt from the disk (I/O completed).
+8. Save the registers and process state for the other user (if step 6 is executed).
+9. Determine that the interrupt was from the disk.
+
+10. Correct the page table and other tables to show that the desired page is now
+in memory.
+
+11. Wait for the CPU to be allocated to this process again.
+
+12. Restore the user registers, process state, and new page table, then resume
+the interrupted instruction.
+
+Notall of these steps are necessary in every case. For example, we are assuming,
+that, in step 6, the CPU is allocated to another process while the I/O occurs.
+This arrangement allows multiprogramming to maintain CPU utilization, but
+requires additional time to resume the page-fault service routine when the I/O
+transfer is complete.
+
+In any case, we are faced with three major components of the page-fault
+service time:
+
+1. Service the page-fault interrupt.
+2. Read in the page.
+
+3. Restart the process.
+

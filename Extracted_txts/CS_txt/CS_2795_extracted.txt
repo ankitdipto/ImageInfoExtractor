@@ -1,0 +1,40 @@
+344
+
+Chapter 14 Augmenting Data Structures
+
+ 
+
+Figure 14.2 Updating subtree sizes during rotations, The link around which we rotate is incident
+on the two nodes whose size attributes need to be updated. The updates are local, requiring only the
+size information stored in x, y, and the roots of the subtrees shown as triangles.
+
+attribute of each node on the path. Since this path has length O(lg 7) in an n-
+node red-black tree, the additional time spent maintaining size attributes in the first
+phase is O(lg). We handle the O(1) rotations in the second phase of deletion
+in the same manner as for insertion. Thus, both insertion and deletion, including
+maintaining the size attributes, take O(Ign) time for an n-node order-statistic tree.
+
+Exercises
+
+141-1
+Show how OS-SELECT(T.root, 10) operates on the red-black tree T of Fig-
+ure 14.1.
+
+14.1-2
+Show how OS-RANK(T, x) operates on the red-black tree T of Figure 14.1 and
+the node x with x.key = 35.
+
+141-3
+Write a nonrecursive version of OS-SELECT.
+
+14.14
+
+Write a recursive procedure OS-KEY-RANK(T,k) that takes as input an order-
+statistic tree T and a key k and returns the rank of k in the dynamic set represented
+by T. Assume that the keys of T are distinct.
+
+141-5
+Given an element x in an n-node order-statistic tree and a natural number i, how
+can we determine the ith successor of x in the linear order of the tree in O(lgn)
+time?
+

@@ -1,0 +1,67 @@
+Section 25.3.
+
+Parts: What Are Robots Made Of? 785
+
+ 
+
+DOMAIN
+CONSTRANTS
+
+‘STRUCTURED LIGHT
+‘SENSORS.
+
+LASER RANGE
+FINDERS
+
+(GROSS-BEAM
+‘SENSOR
+PARALLELBEAM
+SENSOR
+
+relative to this wavelength look shiny or "specular" to the sensor. Such objects reflect sound like
+a perfect mirror. Sound will only be received back from patches of surface that are at right angles
+to the beam. Objects with flat surfaces and sharp edges reflect very little sound in most directions.
+(The same observation is used to design radar-eluding stealth aircraft and ships.) After being
+reflected from the surface, the sound may yet strike a rough surface and be reflected back to the
+sensor. The time delay will correspond not to a physical object, but to a "ghost," which may
+mysteriously disappear when the robot moves.
+
+As discussed in Chapter 17, noisy sensors canbe handled by first constructing a probabilistic
+model of the sensor, and then using Bayesian updating to integrate the information obtained over
+time as the robot moves around. Eventually, reasonably accurate maps can be built up, and ghost
+images can be eliminated.
+
+Camera data
+
+Human and animal vision systems remain the envy of all machine-vision researchers. Chapter 24
+provides an introduction to the state of the art in machine vision, which is still some way from
+handling complex outdoor scenes and general object recognition. Fortunately, for a robot's
+purposes, something simpler than a general vision system will usually suffice. Ifthe set of tasks
+the robot needs to perform is limited, then vision need only supply the information relevant to
+those tasks. Special-purpose robots can also take advantage of so-called domain constraints
+that can be assumed to apply in restricted environments. For example, in a building (as opposed
+to a forest), flat surfaces can be assumed to be vertical or horizontal, and objects are supported
+on a flat ground plane.
+
+In some cases, one can also modify the environment itself to make the robot's task easier.
+One simple way of doing this, widely used in warehousing tasks, is to put bar-code stickers in
+various locations that the robot can read and use to get an exact position fix. Slightly more
+drastic is the use of structured light sensors, which project their own light source onto objects
+to simplify the problem of shape determination. Imagine a vertical light stripe cast as shown in
+Figure 25.7. When this stripe cuts an object, it produces a contour whose 3-D shape is easily
+inferred by triangulation from any vantage point not in the plane of the stripe. A camera placed
+in the same horizontal plane as the source needs only to locate the stripe within each horizontal
+scan line. This is a simple image-processing task and easily done in hardware.
+
+By moving the stripe, or by using several rasters of stripes at different spacings, it is
+possible to produce a very dense three-dimensional map of the object in a short space of time.
+A number of devices are available now that include a laser source, stripe control, camera, and
+all the image processing needed to compute a map of distances to points in the image. From the
+user's point of view, these laser range finders really are depth sensors, providing a depth image
+that updates rapidly, perhaps several times a second.
+
+For model-based recognition, some very simple light-beam sensors have been used recently.
+These sensors provide a small number of very accurate measurements of object geometry. When
+models are known, these measurements suffice to compute the object's identity and position. In
+Figure 25.8, two examples are shown, a cross-beam sensor and a parallel-beam sensor.
+

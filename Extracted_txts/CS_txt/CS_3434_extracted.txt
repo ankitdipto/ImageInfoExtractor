@@ -1,0 +1,45 @@
+Chapter 24. Perception
+
+ 
+
+24.6 A stereo system is being contemplated for terrain mapping. It will consist of two CCD
+cameras, each having 512 x 512 pixels on a 10cm x |0cm square sensor. The lenses to be used
+have focal length 16cm, and focus is fixed at infinity. For corresponding points (;, v,) in the left
+image and (u2, v)in the right image, v, = V2 as the x-axes in the two image planes are parallel
+to the epipolar lines. The optical,axes of the two cameras are parallel. The baseline between the
+cameras is 1 meter.
+
+a. Ifthe nearest range to be measured is 16meters, what is the largest disparity that will occur
+(in pixels}?
+
+b. What is the range resolution, due to the pixel spacing, at 16 meters?
+
+c. What range corresponds to a disparity of one pixel?
+
+24.7 In Figure 24.30, physically measure the cross ratio of the points ABCD as well as of the
+points A’B’C’D’, Are they equal?
+
+24.8 We wish to use the alignment algorithm in an industrial situation where flat parts are
+moving along a conveyor belt and being photographed by a camera vertically above the conveyor
+belt. The pose of the part is specified by three variables, one for the rotation and two for the 2-D
+position. This simplifies the problem and the function FIND-TRANSFORM needs only two pairs
+of corresponding image and model features to determine the pose. Determine the worst-case
+complexity ofthe alignment procedure in this context.
+
+24.9 Read this chapter from the beginning until you find ten examples of homophones. Does
+the status of a word as a homophone depend on the accent of the speaker?
+
+24.10 Calculate the most probable path through the HMM in Figure 24.36 for the output
+sequence [C1,C2,C3,C4,C4,C6,C7]. Also give its probability.
+
+24.11 Some sports announcers have been known to celebrate a score with the drawn out
+pronunciation [g ow ow ow ow ow ow el]. Draw a word HMM for "goal" such that the most
+probable path has a sequence of four [ow]s, but any number greater than 1 is possible.
+
+24.12 The Viterbi algorithm finds the most probable sequence of phones corresponding to
+the speech signal. Under the assumption that some words can be pronounced with more than
+one sequence of phones, explain why the Viterbi algorithm only computes an approximation to
+P(words|signal).
+
+ 
+

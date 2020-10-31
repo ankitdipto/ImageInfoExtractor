@@ -1,0 +1,77 @@
+ 
+
+620
+
+Chapter 20. Reinforcement Learning
+
+ 
+
+EVOLUTIONARY
+PROGRAMMING
+
+CROSS-OVER
+
+MUTATION
+
+ 
+
+function GENETIC-ALGORITHMQopulation, FrtNess-FN) returns an individual
+inputs: population, a set of individuals
+FiTNEss-FN, a function that measures the fitness of an individual
+
+repeat
+parents — SELECTIONQopulation, FTNESS-FN)
+population — REPRODUCTION( parents)
+until some individual is fitenough
+return the best individual in population, according to FITNESS-FN
+
+ 
+
+ 
+
+Figure 20.15 The genetic algorithm finds a fit individual using simulated evolution.
+
+ 
+
+ 
+
+ 
+
+is a bit string, and use the term evolutionary programming when the representation is more
+complicated. Other authors make no distinction, or make a slightly different one.
+
+The selection strategy is usually randomized, with the probability of selection proportional
+to fitness. That is, ifindividual X scores twice as high as Y on the fitness function, then Yis twice
+as likely to be selected for reproduction than is Y. Usually, selection is done with replacement,
+so that a very fit individual will get to reproduce several times.
+
+Reproduction is accomplished by cross-over and mutation. First, all the individuals that
+have been selected for reproduction are randomly paired. Then for each pair, a cross-over point
+is randomly chosen. Think of the genes of each parent as being numbered from 1 to MN. The
+cross-over point is a number in that range; let us say it is 10. That means that one offspring
+will get genes 1 through 10 from the first parent, and the rest from the second parent. The
+second offspring will get genes 1 through 10 from the second parent, and the rest from the
+first. However, each gene can be altered by random mutation to a different value, with small
+independent probability. Figure 20.16 diagrams the process.
+
+For example, suppose we are trying to learn a decision list representation for the restaurant
+waiting problem (see page 556). The fitness function in this case is simply the number of
+examples that an individual is consistent with. The representation is the tricky part. There are
+ten attributes in the problem, but not all of them are binary. It tums out that we need 5 bits to
+represent each distinct attribute/value pair:
+
+00000 : Alternate(x)
+00001 : =Alternate(x)
+
+1OLLL : WaitEstimate(x,0—10)
+
+11000: WaitEstimate(x,10—30)
+
+11001 : WaitEstimate(x,30-60)
+
+11010: WaitEstimate(x, >60)
+We also need one bit for each test to say ifthe outcome is Yes or No. Thus, if we want to represent
+a k-DL with a length of up to f tests, we need a representation with 15k + 1) bits. We can use
+the standard selection and reproduction approaches. Mutation can flip an outcome or change an
+attribute. Cross-over combines the head of one decision list with the tail of another.
+

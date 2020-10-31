@@ -1,0 +1,48 @@
+6.2 Scheduling Criteria 155
+
+by the kernel, the sections of code affected by interrupts must be guarded from
+simultaneous use. The operating system needs to accept interrupts at almost
+all times, otherwise input might be lost or output overwritten. So that these
+code sections are not accessed concurrently by several processes, they disable
+interrupts at entry and reenable interrupts at exit. Unfortunately, disabling and
+enabling interrupts is time consuming, especially on multiprocessor systems.
+For systems to scale efficiently beyond a few CPUs, interrupt state changes
+must be minimized and fine-grained locking maximized. For instance, this is a
+challenge to the scalability of Linux.
+
+6.1.4 Dispatcher
+
+Another component involved in the CPU scheduling function is the dispatcher.
+The dispatcher is the module that gives control of the CPU to the process
+selected by the short-term scheduler. This function involves:
+
+© Switching context
+¢ Switching to user mode
+
+« Jumping to the proper location in the user program to restart that program
+
+The dispatcher should be as fast as possible, given that it is invoked during
+every process switch. The time it takes for the dispatcher to stop one process
+and start another running is known as the dispatch latency.
+
+6.2 m Scheduling Criteria
+
+Different CPU-scheduling algorithms have different properties and may favor
+one class of processes over another. In choosing which algorithm to use in a
+particular situation, we must consider the properties of the various algorithms.
+
+Many criteria have been suggested for comparing CPU-scheduling algo-
+rithms. The characteristics used for comparison can make a substantial dif-
+ference in the determination of the best algorithm. The criteria include the
+following:
+
+¢ CPU utilization: We want to keep the CPU as busy as possible. CPU
+utilization may range from 0 to 100 percent. Ina real system, it should range
+from 40 percent (for a lightly loaded system) to 90 percent (for a heavily
+used system).
+
+e Throughput: If the CPU is busy executing processes, then work is being
+done. One measure of work is the number of processes completed per time
+unit, called throughput. For long processes, this rate may be 1 process per
+hour; for short transactions, throughput might be 10 processes per second.
+

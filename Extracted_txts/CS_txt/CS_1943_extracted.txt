@@ -1,0 +1,44 @@
+11.5 FileSharing 395
+
+users
+sue jane
+_
+>_>
+prog
+
+doc
+
+Figure 11.12 Mount point.
+
+system may allow the same file system to be mounted repeatedly, at different
+mount points, or it may only allow one mount per file system.
+
+Consider the actions of the Macintosh operating system. Whenever the
+system encounters a disk for the first time (hard disks are found at boot time,
+floppy disks are seen when they are inserted into the drive), the Macintosh
+operating system searches for a file system on the device. If it finds one, it
+automatically mounts the file system at the root level, adding a folder icon on
+the screen labeled with the name of the file system (as stored in the device
+directory). The user then is able to click on the icon and thus to display the
+newly mounted file system.
+
+The Microsoft Windows family of operating systems (95, 98, NT, and 2000)
+maintains an extended two-level directory structure, with devices and parti-
+tions assigned a drive letter. Partitions have a general graph directory structure
+associated with the drive letter. The path to a specific file is then in the form
+of drive- letter:\path\to\file. These operating systems automatically discover all
+devices and mount all located file systems at boot time. In some systems, like
+UNIX, the mount commands are explicit. A system configuration file contains a
+list of devices and mount points for automatic mounting at boot time, but other
+mounts may be executed manually.
+
+File system mounting is further discussed in Sections 12.2.2 and A.7.5.
+
+11.5 = File Sharing
+
+In the previous sections, we explored the motivation for file sharing and some of
+the difficulties involved in allowing users to share files. Such file sharing is very
+desirable for users who want to collaborate and to reduce the effort required to
+achieve a computing goal. Therefore, user-oriented operating systems must
+accommodate the need to share files in spite of the inherent difficulties.
+

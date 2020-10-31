@@ -1,0 +1,50 @@
+5.1 The hiring problem Ws
+
+HIRE-ASSISTANT (1)
+
+1 best = 0 // candidate 0 is a least-qualified dummy candidate
+2 fori = lton
+3 interview candidate i
+if candidate 7 is better than candidate best
+best =i
+hire candidate i
+
+Ans
+
+The cost model for this problem differs from the model described in Chapter 2.
+We focus not on the running time of HIRE-ASSISTANT, but instead on the costs
+incurred by interviewing and hiring. On the surface, analyzing the cost of this algo-
+rithm may seem very different from analyzing the running time of, say, merge sort.
+The analytical techniques used, however, are identical whether we are analyzing
+cost or running time. In either case, we are counting the number of times certain
+basic operations are executed.
+
+Interviewing has a low cost, say c;, whereas hiring is expensive, costing cy. Let-
+ting m be the number of people hired, the total cost associated with this algorithm
+is O(cjn + cpm). No matter how many people we hire, we always interview n
+candidates and thus always incur the cost cjn associated with interviewing. We
+therefore concentrate on analyzing c,m, the hiring cost. This quantity varies with
+each run of the algorithm.
+
+This scenario serves as a model for a common computational paradigm. We of-
+ten need to find the maximum or minimum value in a sequence by examining each
+element of the sequence and maintaining a current “winner.” The hiring problem
+models how often we update our notion of which element is currently winning.
+
+Worst-case analysis
+
+In the worst case, we actually hire every candidate that we interview. This situation
+occurs if the candidates come in strictly increasing order of quality, in which case
+we hire n times, for a total hiring cost of O(can).
+
+Of course, the candidates do not always come in increasing order of quality. In
+fact, we have no idea about the order in which they arrive, nor do we have any
+control over this order. Therefore, it is natural to ask what we expect to happen in
+a typical or average case.
+
+Probabilistic analysis
+
+Probabilistic analysis is the use of probability in the analysis of problems. Most
+commonly, we use probabilistic analysis to analyze the running time of an algo-
+rithm. Sometimes we use it to analyze other quantities, such as the hiring cost
+

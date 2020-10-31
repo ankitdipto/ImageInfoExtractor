@@ -1,0 +1,58 @@
+Chapter 23. Practical Natural Language Processing
+
+ 
+
+Geman. But by 1966, it became clear that translation requires an understanding of the meaning
+of the message (and hence detailed knowledge about the world), whereas code breaking depends
+only on the syntactic properties of the messages.
+
+Although there has been no fundamental breakthrough in machine translation, there has
+been real progress, to the point that there are now dozens of machine translation systems in
+everyday use that save money over fully manual techniques. One of the most successfill is the
+TAUM-METEO system, developed by the University of Montreal, which translates weather reports
+from English to French. It works because the language used in these government weather reports
+is highly stylized and regular.
+
+In more open domains, the results are less impressive. A representative system is SPANAM
+(Vasconcellos and Leén, 1985), which can translate a Spanish passage into English ofthis quality:
+
+The extension ofthe coverage of the health services to the underserved or not served population
+of the countries of the region was the central goal of the Ten-Year Plan and probably that of
+greater scope and transcendence. Almostall the countries formulated the purpose of extending
+the coverage although could be appreciated a diversity of approaches for its attack, which is
+understandable in view of the different national policies that had acted in the configuration of
+the health systems of each one of the countries.
+
+This is mostly understandable, but not always grammatical and rarely fluent. Standing on its
+own, unrestricted machine translation is still inadequate. But when a human translator is given a
+text like this as an initial guideline, the human is able to work two to four times faster. Sometimes
+a monolingual human can post-edit the output without having to read the original. This saves
+money because such editors can be paid less than bilingual translators.
+
+Another possibility is to invest the human effort on pre-editing the original document. If
+the original document can be made to conform to a restricted subset of English (or whatever the
+original language is), then it can sometimes be translated without the need for post-editing. This
+approach is particularly cost-effective when there is a need to translate one document into many
+languages, as is the case for legal documents in the European Community, or for companies that
+sell the same product internationally. Restricted languages are sometimes called "Caterpillar
+English," because Caterpillar was the first firm to try writing their manuals in this form. The
+first really successful use of this approach was made by Xerox. They defined a language for
+their maintenance manuals that was simple enough that it could be translated by the SYSTRAN
+system into all the languages Xerox deals with. As an added benefit, the original English manuals
+became clearer as well.
+
+There is a substantial start-up cost to any machine translation effort. To achieve broad
+coverage, translation systems have lexicons of 20,000 to 100,000 words and grammars of 100 to
+10,000rules, the numbers varying greatly depending on the choice of formalism.
+
+Translation is difficult because, in the general case, it requires in-depth understanding of
+the text, and that requires in-depth understanding of the situation that is being communicated.
+This is true even for very simple texts—even "texts" of one word. Consider the word "Open"
+on the door of a store! It communicates the idea that the store is accepting customers at the
+moment. Now consider the same word "Open" on a large banner outside a newly constructed
+store. It means that the store is now in daily operation, but readers of this sign would not feel
+
+1 This example is due to Martin Kay.
+
+ 
+

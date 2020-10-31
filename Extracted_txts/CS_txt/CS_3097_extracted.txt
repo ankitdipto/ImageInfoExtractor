@@ -1,0 +1,73 @@
+468 Chapter 15. Probabilistic Reasoning Systems
+
+ 
+
+c. How many independent values are contained in the joint probability distribution for eight
+Boolean nodes, assuming no conditional independence relations hold among them?
+
+d. How many independent probability values do your network tables contain?
+
+e. The conditional probability table for Starts is a canonical one. Describe, in English, what
+its structure will be in general, as more possible causes for not starting are added.
+
+15.2. In your local nuclear power station, there is an alarm that senses when a temperature
+gauge exceeds a given threshold. The gauge measures the core temperature. Consider the
+Boolean variables 4 (alarm sounds), FA (alarm is faulty), and FC (gauge is faulty), and the
+multivalued nodes G (gauge reading) and T (actual core temperature).
+
+a. Draw a belief net for this domain, given that the gauge is more likely to fail when the core
+temperature gets too high.
+
+b. Is your network a polytree?
+
+Suppose there are just two possible actual and measured temperatures, Normal and High:
+
+and that the gauge gives the incorrect temperature x% of the time when it is working, but
+
+y% of the time when it is faulty. Give the conditional probability table associated with G.
+
+d. Suppose the alarm works unless it is faulty, in which case it never goes off. Give the
+
+conditional probability table associated with A.
+
+Suppose the alarm and gauge are working, and the alarm sounds. Calculate the probability
+
+that the core temperature is too high.
+
+Ina given time period, the probability that the temperature exceeds threshold isp. The cost
+
+of shutting down the reactor is c,; the cost of not shutting it down when the temperature is
+
+in fact too high is ¢,, (m is for meltdown). Assuming the gauge and alarm to be working
+
+normally, calculate the maximum value for x for which the gauge is of any use (Le., ifx is
+
+any higher than this, we have to shut down the reactor all the time).
+
+g. Suppose we add a second temperature gauge H, connected so that the alarm goes off when
+either gauge reads High. Where do H and F;, (the event of H failing) go in the network?
+
+h. Are there circumstances under which adding a second gauge would mean that we would
+need more accurate (i.e., more likely to give the correct temperature) gauges? Why (not)?
+
+°
+
+2
+
+re
+
+15.3. Two astronomers, in different parts of the world, make measurements M, and M2 of the
+number of stars N in some small region of the sky, using their telescopes. Normally, there is
+a small possibility of error by up to one star. Each telescope can also (with a slightly smaller
+probability) be badly out of focus (events F\ and ), in which case the scientist will undercount
+by three or more stars. Consider the three networks shown in Figure 15.12.
+a. Which of these belief networks correctly (but not necessarily efficiently) represent the
+above information?
+b. Which is the best network?
+Give a reasonable conditional probability table for the values of P(M,|N). (For simplicity,
+consider only the possible values 1, 2, and 3 in this part.)
+d. Suppose M,= 1 and M;=3. What are the possible numbers of stars?
+e. Of these, which is the most likely number?
+
+ 
+

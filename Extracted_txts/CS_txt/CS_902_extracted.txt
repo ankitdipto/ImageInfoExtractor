@@ -1,0 +1,71 @@
+186
+
+Chapter 7. First-Order Logic
+
+ 
+
+ 
+
++ “Evil King John ruled England in 1200."
+Objects: John, England, 1200; Relation: ruled; Properties: evil, king.
+
+First-order logic has been so important to mathematics, philosophy, and artificial intelligence
+precisely because those fields—and indeed, much of everyday human existence—can be usefully
+thought of as dealing with objects and the relations between them. We are: not claiming that the
+world really is made up of objects and relations, just that dividing up the world that way helps us
+reason about it. First-order logic can also express facts about all of the objects in thd universe
+This, together with the implication connective from propositional logic, enables one to represéi
+general laws or rules, such as the statement "Squares neighboring the wumpus are smelly."
+
+Although first-order logic commits to the existence of objects and relations, it does not
+make an ontological commitment to such things as categories, time, and events, which also seem
+to show up in most facts about the world. Strangely enough, this reluctance to tackle categories,
+time, and events has not hurt the popularity of first-order logic; in fact it has Contributed Yo its
+success. Important as these things are, there are just too many different ways to deal with them,
+and a logic that committed to a single treatment would only have limited appeal. By remaining
+neutral, first-order logic gives its users the freedom to describe these things in a way that is
+appropriate for the domain. This freedom of choice is a general characteristic of first-order logic.
+In the previous example we listed King as a property of people, but we could just as well have
+made King a relation between people and countries, or a function from countries to people (in a
+world in which each country has only one king),
+
+There are many different representation schemes in use in AI, some of which we will
+discuss in later chapters. Some are theoretically equivalent to first-order logic and some are not.
+But first-order logic is universal in the sense that it can express anything that can be programmed.
+We choose to study knowledge representation and reasoning using first-order logic because it
+is by far the most studied and best understood scheme yet devised. Generally speaking, other
+proposals involving additional capabilities are still hotly debated and only partially understood.
+Other proposals that are a subset of first-order logic are useful only in limited domains. Despite
+its limitations, first-order logic will be around for a long time.
+
+ 
+
+ 
+
+ 
+
+7.1 SYNTAX AND SEMANTICS
+
+TERMS
+
+CONSTANT SYMBOLS
+
+In propositional logic every expression is a sentence, which represents a fact. First-order logic
+
+has sentences, but it also has terms, which represent objects. Constant symbols, variables,-and
+
+function symbols are used to build terms, and quantifiers and predicate symbols are used to build
+
+sentences. Figure 7.1 gives a complete grammar of first-order logic, using Backus-Naur form
+
+(see page 854 if you are not familiar with this notation). A more detailed explanation of each
+element, describing both syntax and semantics, follows:
+
+~ Constant symbols: 4, B, C, John ...
+
+An interpretation must specify which object in the world is referred to by each constant
+
+symbol. Each constant symbol names exactly one object, but not all objects need to
+
+have names, and some can have several names. Thus, the symbol John, in one particular
+

@@ -1,0 +1,79 @@
+108 curren roun Register Transfer and Microoperations
+
+addition
+
+subtraction
+
+increment
+
+decrement
+
+TABLE 4-4 Arithmetic Circuit Function Table
+
+ 
+
+ 
+
+ 
+
+Input Output
+SiS Ca = ¥Y = D=A+Y+Cq —_—_ Microoperation
+
+0 0 0 8B D=A+B Add
+
+0 0 1 B  D=A+B+1 Add with carry
+
+0 1 0 B D=A+B Subtract with borrow
+o 1 1 B  D=A+B+1 Subtract
+
+1 0 0 O D=A Transfer A
+
+1 0 1 0 D=A+1 Increment A
+
+1 or 0 1 D=An1 Decrement A
+
+1 oto. 1. D=A Transfer A
+
+ 
+
+When 5S) = 00, the value of B is applied to the Y inputs of the adder.
+IfC, = 0, theoutputD = A + B.IfC, = 1,outputD = A + B + 1, Both cases,
+perform the add microoperation with or without adding the input carry.
+
+When $5, = 01, the complement of B is applied to the Y inputs of the
+adder. If C, = 1, then D = A +B + 1 This produces A plus the 2’s comple-
+ment of B, which is equivalent to a subtraction of A — B. When C;, = 0, then
+D =A +6. This is equivalent to a subtract with borrow, that is, A — B ~ 1.
+
+When 5,5» = 10, the inputs from Bare neglected, and instead, all's are
+inserted into the Y inputs. The output becomes D = A + 0 + Cy, This gives
+D =A when C, = and D = A +1 when C, = 1 In the first case we have
+a direct transfer from input A to output D. In the second case, the value of A
+is incremented by 1.
+
+When $;S5 = 11, all 1’s are inserted into the Y inputs of the adder to
+produce the decrement operation D = A — 1 when C,, = 0. This is because a
+number with all 1's is equal to the 2’s complement of 1 (the 2’s complement
+of binary 0001 is 1111). Adding a number A to the2’s complementof 1 produces
+F = A +2’s complement of 1 = A - 1. When, = 1, thenD = A-141=
+A, which causes a direct transfer from input A to output D. Note that the
+microoperation D = A is generated twice, so there are only seven distinct
+microoperations in the arithmetic circuit.
+
+ 
+
+ 
+
+45
+
+Logic microoperations specify binary operations for strings of bits stored in
+registers. These operations consider each bit of the register separately and treat
+them as binary variables. For example, the exclusive-OR microoperation with
+the contents of two registers R1 and R2 is symbolized by the statement
+
+Microoperations
+
+ 
+
+P: RL@ R1@ R2
+

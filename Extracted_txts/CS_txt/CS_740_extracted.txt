@@ -1,0 +1,40 @@
+Chapter 3: The Loop Control Structure 103
+
+This is an indefinite loop, since i remains equal to 1 forever.
+The correct form would be as under:
+
+main()
+
+{
+int i=1;
+while (i <= 10)
+
+printf ( "%d\n", i) ;
+i=i+1;
+}
+}
+— Instead of incrementing a loop counter, we can even decrement
+it and still manage to get the body of the loop executed
+repeatedly. This is shown below:
+
+main()
+
+int i=5;
+while (i>=1)
+{
+printf ( "\nMake the computer literate!” ) ;
+i=i-1;
+}
+}
+— It is not necessary that a loop counter must only be an int. It
+can even be a float.
+
+main()
+
+float a= 10.0;
+while (a <= 10.5)
+
+printf ("\nRaindrops on roses..." ) ;
+printf ("...and whiskers on kittens" ) ;
+a=a+0.1;
+

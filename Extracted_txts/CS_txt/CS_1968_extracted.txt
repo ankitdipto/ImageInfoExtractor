@@ -1,0 +1,72 @@
+282
+
+Chapter 9. Inference in First-Order Logic
+
+ 
+
+sKoLeM FUNCTION
+
+where F is a function name that does not appear elsewhere in the KB. F is called a
+Skolem function. In general, the existentially quantified variable is replaced by a term
+that consists of a Skolem function applied to all the variables universally quantified outside
+the existential quantifier in question. Skolemization eliminates all existentially quantified
+variables, so we are now free to drop the universal quantifiers, because any variable must
+be universally quantified. *
+
+< Distribute A over V: (a A b) Vc becomes (a Vc) A(bV co).
+
+~ Flatten nested conjunctions and disjunctions: (a V b) Vc becomes (a V b Vc), and
+(aAb) Ac becomes (aA b Ac).
+
+At this point, the sentence is in conjunctive normal form (CNF): it is a conjunction where
+every conjunct is a disjunction of literals. This form is sufficient for resolution, but it may
+be difficult for us humans to understand.
+
+0 Convert disjunctions to implications: Optionally, you can take one more step to convert
+to implicative normal form. For each conjunct, gather up the negative literals into one list,
+the positive literals into another, and build an implication from them:
+
+(-aV ab Vc V d)becomes (a Ab = c Vd)
+
+Example proof
+
+We will now show how to apply the conversion procedure and the resolution refutation procedure j
+ona more complicated example, which is stated in English as:
+
+Jack owns a dog.
+
+Every dog owner is an animal lover.
+
+No animal lover kills an animal.
+
+Either Jack or Curiosity killed the cat, who is named Tuna
+Did Curiosity kill the cat?
+
+First, we express the original sentences (and some background knowledge) in first-order logic:
+
+A. Ax Dog(x)A Owns(Jack,x)
+
+B. Vx Gy Dogly)A Owns(x,y))=> AnimalLover(x) j
+
+C. Wx AnimalLover(x) => Vy Animallyy = ~Kills(x,y)
+
+D. Kills(Jack, Tuna) V Kills(Curiosity, Tuna)
+
+E. Cat(Tuna)
+
+FE. Vx Cat(t) > Animal(x)
+Now we have to apply the conversion procedure to convert each sentence to implicative normal
+form. We will use the shortcut of writing P instead of True > P:
+
+Al. Dog(Dy
+A2. Owns(Jack, Dy
+
+B. Dog(y) A Owns(x,y) => AnimalLover(x)
+
+C. AnimalLover(x)A Animal(y)A Kills(x,y) => False
+D. Kills(Jack, Tuna) V Kills(Curiosity, Tuna)
+
+E. Cat(Tuna)
+
+F. Cat(x) => Animal(x)
+

@@ -1,0 +1,63 @@
+register address
+
+SECTION 84 Instruction Formats 255,
+
+conversion for the user. Most compilers, irrespective of their CPU organiza-
+tion, convert all arithmetic expressions into Polish notation anyway because
+this is the most efficient method for translating arithmetic expressions into
+machine language instructions. So in essence, a stack-organized CPU may be
+more efficient in some applications than a CPU without a stack.
+
+8-4 Instruction Formats
+
+The physical and logical structure of computers is normally described in refer-
+ence manuals provided with the system. Such manuals explain the internal
+construction of the CPU, including the processor registers available and their
+logical capabilities. They list all hardware implemented instructions, specify
+their binary code format, and provide a precise definition of each instruction.
+A computer will usually have a variety of instruction code formats. It is the
+function of the control unit within the CPU to interpret each instruction code
+and provide the necessary control functions needed to process the instruction.
+
+The format of an instruction is usually depicted in a rectangular box
+symbolizing the bits of the instruction as they appear in memory words or in
+a control register. The bits of the instruction are divided into groups called
+fields. The most common fields found in instruction formats are:
+
+ 
+
+1. An operation code field that specifies the operation to be performed.
+
+2. An address field that designates a memory address or a processor
+register.
+
+3. Amodefield that specifies the way the operand or the effective address
+is determined.
+
+Other special fields are sometimes employed under certain circumstances, as
+for example a field that gives the number of shiftsin a shift-type instruction.
+
+The operation code field of an instruction is a group of bits that define
+various processor operations, such as add, subtract, complement, and shift.
+The most common operations available in computer instructions are enumer-
+ated and discussed in Sec. 8-6. The bits that define the mode field of an
+instruction code specify a variety of alternatives for choosing the operands
+from the given address. The various addressing modes that have been formu-
+lated for digital computers are presented in Sec. 8-5. In this section we are
+concerned with the address field of an instruction format and consider the
+effect of including multiple address fields in an instruction
+
+Operations specified by computer instructionsare executed on some data
+stored in memory or processor registers. Operands residing in memory are
+specified by their memory address. Operands residing in processor registers
+are specified with a register address. A register address is a binary number of
+kits that defines one of 2* registers in the CPU. Thus a CPU with 16 processor
+
+ 
+
+ 
+
+ 
+
+ 
+

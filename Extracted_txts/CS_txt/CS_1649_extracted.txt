@@ -1,0 +1,33 @@
+6.1 Basic Concepts 153
+
+frequency
+
+ 
+
+burst duration (milliseconds)
+
+Figure 6.2. Histogram of CPU-burst times.
+
+CPU bursts. This distribution can help us select an appropriate CPU-scheduling
+algorithm.
+
+6.1.2 CPU Scheduler
+
+Whenever the CPU becomes idle, the operating system must select one of the
+processes in the ready queue to be executed. The selection process is carried
+out by the short-term scheduler (or CPU scheduler). The scheduler selects from
+among the processes in memory that are ready to execute, and allocates the CPU
+to one of them.
+
+The ready queue is not necessarily a first-in, first-out (FIFO) queue. As we
+shall see when we consider the various scheduling algorithms, a ready queue
+may be implemented as a FIFO queue, a priority queue, a tree, or simply an
+unordered linked list. Conceptually, however, all the processes in the ready
+queue are lined up waiting for a chance to run on the CPU. The records in the
+queues are generally process control blocks (PCBs) of the processes.
+
+6.1.3 Preemptive Scheduling
+
+CPU scheduling decisions may take place under the following four circum-
+stances:
+

@@ -1,0 +1,51 @@
+920
+
+Chapter 30 Polynomials and the FFT
+
+ITERATIVE-FFT corresponds to a stage of butterflies shown in Figure 30.5. For
+s=1,2,..., lg n, stage s consists of n/2° groups of butterflies (corresponding to
+each value of k in ITERATIVE-FFT), with 2°! butterflies per group (corresponding
+to each value of j in ITERATIVE-FFT). The butterflies shown in Figure 30.5 corre-
+spond to the butterfly operations of the innermost loop (lines 9-12 of ITERATIVE-
+FFT). Note also that the twiddle factors used in the butterflies correspond to those
+used in ITERATIVE-FFT: in stage s, we use ©, ,@},..., o”/2-! where m = 2°.
+
+m
+
+Exercises
+
+30.3-1
+Show how ITERATIVE-FFT computes the DFT of the input vector (0,2, 3,—1.4,
+5,7, 9).
+
+30.3-2
+
+Show how to implement an FFT algorithm with the bit-reversal permutation occur-
+ring at the end, rather than at the beginning, of the computation. (Hint: Consider
+the inverse DFT.)
+
+30.3-3
+How many times does ITERATIVE-FFT compute twiddle factors in each stage?
+Rewrite ITERATIVE-FFT to compute twiddle factors only 2°“! times in stage s.
+
+303-4 x
+
+Suppose that the adders within the butterfly operations of the FFT circuit some-
+times fail in such a manner that they always produce a zero output, independent
+of their inputs. Suppose that exactly one adder has failed, but that you don’t know
+which one. Describe how you can identify the failed adder by supplying inputs to
+the overall FFT circuit and observing the outputs. How efficient is your method?
+
+ 
+
+Problems
+
+30-1 Divide-and-conquer multiplication
+a. Show how to multiply two linear polynomials ax + b and cx + d using only
+three multiplications. (Hint: One of the multiplications is (a + b)- (c + d).)
+
+b. Give two divide-and-conquer algorithms for multiplying two polynomials of
+degree-bound n in @(n'84) time. The first algorithm should divide the input
+polynomial coefficients into a high half and a low half, and the second algorithm
+should divide them according to whether their index is odd or even.
+

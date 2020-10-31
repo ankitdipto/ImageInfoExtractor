@@ -1,0 +1,60 @@
+Section 8.3.
+
+The Electronic Circuits Domain 223
+
++ Encode a description of the specific problem instance. If the ontology is well thought
+out, this step will be easy. It will mostly involve writing simple atomic sentences about
+instances of concepts that are already part of the ontology.
+
+* Pose queries to the inference procedure and get answers. This is where the reward is: we
+can let the inference procedure operate on the axioms and problem-specific facts to derive
+the facts we are interested in knowing.
+
+To understand this five-step process better, we turn to some examples of its use. We first consider
+the domain of Boolean electronic circuits.
+
+8.3 THE ELECTRONIC CIRCUITS DOMAIN
+
+Within the domain of discrete digital electronic circuits, we would like to analyze the circuit
+shown in Figure 8.1. The circuit purports to be a one-bit full adder, where the first two inputs
+are the two bits to be added, and the third input is a carry bit. The first output is the sum, and the
+second output is a carry bit for the next adder. The goal is to provide an analysis that determines
+ifthe circuit is in fact an adder, and that can answer questions about the value of current flow at
+various points in the circuit.) We follow the five-step process for knowledge engineering.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 81 A digital circuit C1, with three inputs and two outputs, containing two XOR gates,
+two AND gates and one OR gate. The inputs are bit values to be added, and the outputs are the
+sum bit and the carry bit.
+
+ 
+
+ 
+
+ 
+
+Decide what to talk about
+
+Digital circuits are composed of wires and gates. Signals flow along wires to the input terminals
+of gates, and each gate produces a signal on the output terminal that flows along another wire.
+
+3 Ifyouare intimidated by the electronics, try to get a feel for how the knowledge base was constructed without worrying
+about the details
+
+ 
+

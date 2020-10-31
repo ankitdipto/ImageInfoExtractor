@@ -1,0 +1,56 @@
+178 Chapter 6. Agents that Reason Logically
+
+ 
+
+6.6 __ SUMMARY
+
+We have introduced the idea of a knowledge-based agent, and showed how we can define a logic
+with which the agent can reason.about the world and be guaranteed to draw correct conclusions,
+given correct premises. We have also showed how an agent can turn this knowledge into action.
+The main points are as follows:
+
+Intelligent agents need knowledge about the world in order to reach good decisions.
+
+Knowledge is contained in agents in the form of sentences in a knowledge representation
+language that are stored in a knowledge base.
+
+A knowledge-based agent is composed of a knowledge base and an inference mechanism.
+It operates by storing sentences about the world in its knowledge base, using the inference
+mechanism to infer new sentences, and using them to decide what action to take.
+
+A representation language is defined by its syntax and semantics, which specify the
+structure of sentences and how they relate to facts in the world.
+
+The interpretation of a sentence is the fact to which it refers. If it refers to a fact that is
+part of the actual world, then it is true.
+
+Inference is the process of deriving new sentences from old ones. We try to design sound
+inference processes that derive true conclusions given true premises. An inference process
+is complete ifit can derive all true conclusions from a set of premises.
+
+A sentence that is true in all worlds under all interpretations is called valid. Ifan implication
+sentence can be shown to be valid, then we can derive its consequent if we know its premise.
+The ability to show validity independent of meaning is essential.
+
+Different logics make different commitments about what the world is made of and what
+kinds of beliefs we can have regarding facts.
+
+Logics are useful for the commitments they do not make, because the lack of commitment
+gives the knowledge base writer more freedom.
+
+Propositional logic commits only to the existence of facts that may or may not be the case in
+the world being represented. It has a simple syntax and semantics, but suffices to illustrate
+the process of inference.
+
+Propositional logic can accommodate certain inferences needed by a logical agent, but
+quickly becomes impractical for even very small worlds.
+
+ 
+
+BIBLIOGRAPHICAL AND HISTORICAL NOTES
+
+Logic had its origins in ancient Greek philosophy and mathematics. Logical principles—
+principles connecting the syntactic structure of sentences with their truth and falsity, their
+meaning, or the validity of arguments in which they figure—can be found in scattered loca-
+tions in the works of Plato (428-348 B.C.). The first known systematic study of logic was carried
+

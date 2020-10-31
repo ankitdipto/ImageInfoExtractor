@@ -1,0 +1,43 @@
+612 Let UsC
+
+ 
+
+that time its handler does the job that we want to get executed
+periodically. At other times the application is free to handle other
+messages that come to its queue.
+
+All that we have done in the OnTimer( ) handler is erase the ball
+from previous position and draw it at a new position. We have also
+checked if the ball has hit the boundaries of the window. If so we
+have played a sound file using the PlaySound() API function and
+then changed the direction of the ball.
+
+A Few More Points...
+
+A few more points worth noting before we close our discussion on
+animation...
+
+(a) One application can set up multiple timers to do different jobs
+at different intervals. Hence we need to pass the id of the
+timer that we want to set up to the SetTimer( ) function. In
+our case we have specified the id as 1.
+
+(b) For multiple timers Windows would post multiple
+WM_TIMER messages. Each time it would pass the timer id
+as additional information about the message.
+
+(c) For drawing as well as erasing the ball we have used the same
+function—BitBIt( ). While erasing we have used the raster
+operation code WHITENESS. When we use this code the
+color values of the source pixels get ignored. Thus red colored
+pixels of ball would get ignored leading to erasure of the ball
+in the window.
+
+(d) The size of client area of the window can be obtained using
+the GetClientRect() API function.
+
+(e) We want that every time we run the application the initial
+position of the ball should be different. To ensure this we
+have generated its initial x, y coordinates using the standard
+library function rand( ). However, this function doesn’t
+

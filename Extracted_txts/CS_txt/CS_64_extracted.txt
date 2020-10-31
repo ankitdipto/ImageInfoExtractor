@@ -1,0 +1,50 @@
+25.2. The Floyd-Warshall algorithm 693
+
+25.1-10
+Give an efficient algorithm to find the length (number of edges) of a minimum-
+length negative-weight cycle in a graph.
+
+ 
+
+25.2. The Floyd-Warshall algorithm
+
+In this section, we shall use a different dynamic-programming formulation to solve
+the all-pairs shortest-paths problem on a directed graph G = (V, E). The result-
+ing algorithm, known as the Floyd-Warshall algorithm, runs in ©(V*) time. As
+before, negative-weight edges may be present, but we assume that there are no
+negative-weight cycles. As in Section 25.1, we follow the dynamic-programming
+process to develop the algorithm. After studying the resulting algorithm, we
+present a similar method for finding the transitive closure of a directed graph.
+
+The structure of a shortest path
+
+In the Floyd-Warshall algorithm, we characterize the structure of a shortest path
+differently from how we characterized it in Section 25.1. The Floyd-Warshall algo-
+rithm considers the intermediate vertices of a shortest path, where an intermediate
+vertex of a simple path p = (v;.V,..., Vy) is any vertex of p other than v or v;,
+that is, any vertex in the set {V2.3 + Vj-1}-
+
+The Floyd-Warshall algorithm relies on the following observation. Under our
+assumption that the vertices of G are V = {1,2,..., n}, let us consider a subset
+{1,2,...,} of vertices for some k. For any pair of vertices i, j € V, consider all
+paths from i to j whose intermediate vertices are all drawn from {1,2,..., k}, and
+let p be a minimum-weight path from among them. (Path p is simple.) The Floyd-
+Warshall algorithm exploits a relationship between path p and shortest paths from i
+to j with all intermediate vertices in the set {1,2,..., k —1}. The relationship
+depends on whether or not k is an intermediate vertex of path p.
+
+ 
+
+ 
+
++ If k is not an intermediate vertex of path p, then all intermediate vertices of
+path p are in the set {1,2,..., k —1}. Thus, a shortest path from vertex i
+to vertex j with all intermediate vertices in the set {1,2,..., k —l} is alsoa
+shortest path from i to j with all intermediate vertices in the set {1,2,..., kh.
+
+* Ifk is an intermediate vertex of path p, then we decompose p into i Ry ie BB is
+as Figure 25.3 illustrates. By Lemma 24.1, p; is a shortest path from i to k
+with all intermediate vertices in the set {1,2,...,k}. In fact, we can make a
+slightly stronger statement. Because vertex k is not an intermediate vertex of
+path py, all intermediate vertices of p, are in the set {1,2,..., k — 1}. There-
+

@@ -1,0 +1,48 @@
+828
+
+Chapter 28 Matrix Operations
+
+Computing a matrix inverse from an LUP decomposition
+
+Suppose that we have an LUP decomposition of a matrix A in the form of three
+matrices L, U, and P such that PA = LU. Using LUP-SOLVE, we can solve
+an equation of the form Ax = b in time @(n?). Since the LUP decomposition
+depends on A but not b, we can run LUP-SOLVE on a second set of equations of
+the form Ax = J’ in additional time @(n7). In general, once we have the LUP
+decomposition of A, we can solve, in time @(kn?), k versions of the equation
+Ax = b that differ only in b.
+We can think of the equation
+
+AX =I, (28.10)
+
+which defines the matrix X, the inverse of A, as a set of n distinct equations of the
+form Ax = b. To be precise, let X; denote the ith column of X, and recall that the
+unit vector e; is the ith column of /,,. We can then solve equation (28.10) for X by
+using the LUP decomposition for A to solve each equation
+
+AX; = @;
+
+separately for X;. Once we have the LUP decomposition, we can compute each of
+the n columns X; in time ©(n7), and so we can compute X from the LUP decom-
+position of A in time @(3). Since we can determine the LUP decomposition of A
+in time @(n3), we can compute the inverse A~! of a matrix A in time @(n?).
+
+Matrix multiplication and matrix inversion
+
+We now show that the theoretical speedups obtained for matrix multiplication
+translate to speedups for matrix inversion. In fact, we prove something stronger:
+matrix inversion is equivalent to matrix multiplication, in the following sense.
+If M(n) denotes the time to multiply two n x n matrices, then we can invert a
+nonsingular 7 x n matrix in time O(M(n)). Moreover, if J(n) denotes the time
+to invert a nonsingular n x n matrix, then we can multiply two n x n matrices in
+time O(/(n)). We prove these results as two separate theorems.
+
+Theorem 28.1 (Multiplication is no harder than inversion)
+
+If we can invert an n xn matrix in time /(7), where J(n) = Q(n?) and I(n)
+satisfies the regularity condition (3n) = O(J(n)), then we can multiply two n xn
+matrices in time O(/(n)).
+
+Proof Let A and B ben x n matrices whose matrix product C we wish to com-
+pute. We define the 3 x 3n matrix D by
+

@@ -1,0 +1,50 @@
+346
+
+Chapter 14 Augmenting Data Structures
+
+We followed these steps in Section 14.1 to design our order-statistic trees. For
+step 1, we chose red-black trees as the underlying data structure. A clue to the
+suitability of red-black trees comes from their efficient support of other dynamic-
+set operations on a total order, such as MINIMUM, MAXIMUM, SUCCESSOR, and
+PREDECESSOR.
+
+For step 2, we added the size attribute, in which each node x stores the size of the
+subtree rooted at x. Generally, the additional information makes operations more
+efficient. For example, we could have implemented OS-SELECT and OS-RANK
+using just the keys stored in the tree, but they would not have run in O(lg77) time.
+Sometimes, the additional information is pointer information rather than data, as
+in Exercise 14.2-1.
+
+For step 3, we ensured that insertion and deletion could maintain the size at-
+tributes while still running in O(1g7) time. Ideally, we should need to update only
+a few elements of the data structure in order to maintain the additional information.
+For example, if we simply stored in each node its rank in the tree, the OS-SELECT
+and OS-RANK procedures would run quickly, but inserting a new minimum ele-
+ment would cause a change to this information in every node of the tree. When we
+store subtree sizes instead, inserting a new element causes information to change
+in only O(lg 7) nodes.
+
+For step 4, we developed the operations OS-SELECT and OS-RANK. After all,
+the need for new operations is why we bother to augment a data structure in the first
+place. Occasionally, rather than developing new operations, we use the additional
+information to expedite existing ones, as in Exercise 14.2-1.
+
+Augmenting red-black trees
+
+When red-black trees underlie an augmented data structure, we can prove that in-
+sertion and deletion can always efficiently maintain certain kinds of additional in-
+formation, thereby making step 3 very easy. The proof of the following theorem is
+similar to the argument from Section 14.1 that we can maintain the size attribute
+for order-statistic trees.
+
+Theorem 14.1 (Augmenting a red-black tree)
+
+Let f be an attribute that augments a red-black tree T of n nodes, and suppose that
+the value of f for each node x depends on only the information in nodes x, x.left,
+and x.right, possibly including x. /eft.f and x.right.f. Then, we can maintain the
+values of f in all nodes of T during insertion and deletion without asymptotically
+affecting the O(lg n) performance of these operations.
+
+Proof The main idea of the proof is that a change to an / attribute in a node x
+propagates only to ancestors of x in the tree. That is, changing x.f may re-
+

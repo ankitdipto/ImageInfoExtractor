@@ -1,0 +1,48 @@
+392
+
+Chapter 15 Dynamic Programming
+
+Step 1: Characterizing a longest common subsequence
+
+In a brute-force approach to solving the LCS problem, we would enumerate all
+subsequences of X and check each subsequence to see whether it is also a subse-
+quence of Y, keeping track of the longest subsequence we find. Each subsequence
+of X corresponds to a subset of the indices {1,2,..., m} of X. Because X has 2”
+subsequences, this approach requires exponential time, making it impractical for
+long sequences.
+
+The LCS problem has an optimal-substructure property, however, as the follow-
+ing theorem shows. As we shall see, the natural classes of subproblems corre-
+spond to pairs of “prefixes” of the two input sequences. To be precise, given a
+sequence XY = (X1,X2,....X;m), We define the ith prefix of X, fori = 0.1..... m,
+as Xj; = (X1,X2..... x;). For example, if ¥ = (A, B, C, B, D, A, B), then
+X4 = (A, B.C, B) and Xp is the empty sequence.
+
+Theorem 15.1 (Optimal substructure of an LCS)
+Let X = (X1,%2,..., Xm) and Y = (yi, y2,..-, Yn) be sequences, and let Z =
+(Z1.Za.ees Zk) be any LCS of X and Y.
+
+1. If Xm = Yn, then Z% =X» = VY, and Zz_; isan LCS of X,,-; and Y,—1.
+2. If Xm A Yn, then Z% A Xm implies that Z is an LCS of X,,—-; and Y.
+3. If Xm A Yn, then Zz, A y, implies that Z is an LCS of X and Y,_).
+
+Proof (1) If zx # Xm, then we could append x,, = y, to Z to obtain a common
+subsequence of X and Y of length k + 1, contradicting the supposition that Z is
+a longest common subsequence of X and Y. Thus, we must have Z% = Xm = Yn.
+Now, the prefix Z;—1 is a length-(k — 1) common subsequence of X;,—1 and Y,—1.
+We wish to show that it is an LCS. Suppose for the purpose of contradiction
+that there exists a common subsequence W of X,,—; and Y,—1 with length greater
+than k — 1. Then, appending x, = y, to W produces a common subsequence of
+X and Y whose length is greater than k, which is a contradiction.
+
+(2) If zx # Xm, then Z isa common subsequence of X;,—; and Y. If there were a
+common subsequence W of X,,—1 and Y with length greater than k, then W would
+also be a common subsequence of X,,, and Y, contradicting the assumption that Z
+is an LCS of X and Y.
+
+(3) The proof is symmetric to (2). .
+
+The way that Theorem 15.1 characterizes longest common subsequences tells
+us that an LCS of two sequences contains within it an LCS of prefixes of the two
+sequences. Thus, the LCS problem has an optimal-substructure property. A recur-
+

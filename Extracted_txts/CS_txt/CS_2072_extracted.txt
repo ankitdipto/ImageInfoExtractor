@@ -1,0 +1,53 @@
+ 
+
+14.4 Swap-Space Management 503
+
+seeks during reading or writing of a process image. We can improve perfor-
+mance by caching the block location information in physical memory, and by
+using special tools to allocate physically contiguous blocks for the swap file, but
+the cost of traversing the file-system data structures still remains.
+
+Alternatively, swap space can be created in a separate disk partition. No
+file system or directory structure is placed on this space. Rather, a separate
+swap-space storage manager is used to allocate and deallocate the blocks. This
+manager uses algorithms optimized for speed, rather than for storage efficiency.
+Internal fragmentation may increase, but this tradeoff is acceptable because
+data in the swap space generally live for much shorter amounts of time than
+do files in the file system, and the swap area may be accessed much more
+frequently. This approach creates a fixed amount of swap space during disk
+partitioning. Adding more swap space can be done only via repartitioning
+of the disk (which involves moving or destroying and restoring the other file-
+system partitions from backup), or via adding another swap space elsewhere.
+
+Some operating systems are flexible and can swap both in raw partitions
+and in file-system space. Solaris 2 is an example. The policy and implementa-
+tion are separate, allowing the machine’s administrator to decide which type to
+use. The tradeoff is between the convenience of allocation and management in
+the file system, and the performance of swapping in raw partitions.
+
+14.4.3 Swap-Space Management: An Example
+
+To illustrate the methods used to manage swap space, we now follow the
+evolution of swapping and paging in UNIX. As discussed fully in Appendix A,
+UNIX started with an implementation of swapping that copied entire processes
+between contiguous disk regions and memory. UNIX evolved to a combination
+of swapping and paging, as paging hardware became available.
+
+In 4.3 BSD, swap space is allocated to a process when the process is started.
+Enough space is set aside to hold the program, known as the text pages or the
+text segment, and the data segment of the process. Preallocating all the needed
+space in this way generally prevents a process from running out of swap space
+while it executes. When a process starts, its text is paged in from the file system.
+These pages are written out to swap when necessary, and are read back in from
+there, so the file system is consulted only once for each text page. Pages from
+the data segment are read in from the file system, or are created (if they are
+uninitialized), and are written to swap space and paged back in as needed.
+One optimization (for instance, when two users run the same editor) is that
+processes with identical text pages share these pages, both in physical memory
+and in swap space.
+
+Two per-process swap maps are used by the kernel to track swap-space
+use. The text segment is a fixed size, so its swap space is allocated in 512 KB
+chunks, except for the final chunk, which holds the remainder of the pages, in
+1 KB increments (Figure 14.7).
+

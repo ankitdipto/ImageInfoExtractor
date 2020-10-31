@@ -1,0 +1,52 @@
+19.2 Mergeable-heap operations 513
+
+FrB-HEAP-EXTRACT-MIN(H)
+1 z = H.min
+
+2 ifz ANIL
+
+3 for each child x of z
+
+4 add x to the root list of H
+
+5 X.p = NIL
+
+6 remove Z from the root list of H
+7 if z == Z.right
+
+8 H.min = NIL
+
+9 else H.min = z.right
+10 CONSOLIDATE(H)
+1 H.n= H.n-1
+12. return z
+
+As Figure 19.4 illustrates, FIB-HEAP-EXTRACT-MIN works by first making a root
+out of each of the minimum node’s children and removing the minimum node from
+the root list. It then consolidates the root list by linking roots of equal degree until
+at most one root remains of each degree.
+
+We start in line 1 by saving a pointer z to the minimum node; the procedure
+returns this pointer at the end. If z is NIL, then Fibonacci heap H is already empty
+and we are done. Otherwise, we delete node z from H by making all of z’s chil-
+dren roots of H in lines 3-5 (putting them into the root list) and removing z from
+the root list in line 6. If z is its own right sibling after line 6, then z was the
+only node on the root list and it had no children, so all that remains is to make
+the Fibonacci heap empty in line 8 before returning z. Otherwise, we set the
+pointer H.min into the root list to point to a root other than z (in this case, z’s
+right sibling), which is not necessarily going to be the new minimum node when
+FiB-HEAP-EXTRACT-MIN is done. Figure 19.4(b) shows the Fibonacci heap of
+Figure 19.4(a) after executing line 9.
+
+The next step, in which we reduce the number of trees in the Fibonacci heap, is
+consolidating the root list of H , which the call CONSOLIDATE (H ) accomplishes.
+Consolidating the root list consists of repeatedly executing the following steps until
+every root in the root list has a distinct degree value:
+
+1. Find two roots x and y in the root list with the same degree. Without loss of
+generality, let x.key < y.key.
+
+2. Link y to x: remove y from the root list, and make y a child of x by calling the
+FiB-HEAP-LINK procedure. This procedure increments the attribute x.degree
+and clears the mark on y.
+

@@ -1,0 +1,54 @@
+ 
+
+14.8 Tertiary-Storage Structure 519
+
+14.8.2 Operating-System Jobs
+
+Two major jobs of an operating system are to manage physical devices and to
+present a virtual-machine abstraction to applications. In this chapter, we saw
+that, for hard disks, the operating system provides two abstractions. One is the
+raw device, which is just an array of data blocks. The other is a file system. For
+a file system on a magnetic disk, the operating system queues and schedules
+the interleaved requests from several applications. Now, we shall see how the
+operating system does its job when the storage media are removable.
+
+14.8.2.1 Application Interface
+
+Most operating systems can handle removable disks almost exactly as they do
+fixed disks. When a blank cartridge is inserted into the drive (or mounted), the
+cartridge must be formatted, and then an empty file system is generated on the
+disk. This file system is used just like a file system ona hard disk.
+
+Tapes are often handled differently. The operating system usually presents
+a tape as a raw storage medium. An application does not open a file on the
+tape; it opens the whole tape drive as a raw device. Usually, the tape drive
+then is reserved for the exclusive use of that application until the application
+exits or closes the tape device. This exclusivity makes sense, because random
+access on a tape can take tens of seconds, or even a few minutes, so interleaving
+random accesses to tapes from more than one application would be likely to
+cause thrashing.
+
+When the tape drive is presented as a raw device, the operating system
+does not provide file-system services. The application must decide how to use
+the array of blocks. For instance, a program that backs up a hard disk to tape
+might store a list of file names and sizes at the beginning of the tape, and then
+copy the data of the files to the tape in that order.
+
+It is easy to see the problems that can arise from this way of using tape.
+Since every application makes up its own rules for how to organize a tape, a
+tape full of data can generally be used by only the program that created it. For
+instance, even if we know that a backup tape contains a list of file names and
+file sizes followed by the file data in that order, we still would find it difficult to
+use the tape. How exactly are the file names stored? Are the file sizes in binary
+or in ASCII? Are the files written one per block, or are they all concatenated
+together in one tremendously long string of bytes? We do not even know the
+block size on the tape, because this variable is generally one that can be chosen
+separately for each block written.
+
+For a disk drive, the basic operations are read, write, and seek. Tape
+drives, on the other hand, have a different set of basic operations. Instead of
+seek, a tape drive uses the locate operation. The tape locate operation is
+more precise than the disk seek operation, because it positions the tape to a
+specific logical block, rather than an entire track. Locating to block 0 is the same
+as rewinding the tape.
+

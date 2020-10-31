@@ -1,0 +1,56 @@
+Section 13.5.
+
+Summary 411
+
+ 
+
+SS
+BIBLIOGRAPHICAL AND HISTORICAL NOTES
+
+REACTIVE PLANNING
+
+Early planners, which lacked conditionals and loops, sometimes resorted to a coercive style in
+response to environmental uncertainty. Sacerdoti's NOAH used coercion in its solution to the
+"keys and boxes" problem, a planning challenge problem in which the planner knows little about
+the initial state. Mason (1993) argued that sensing often can and should be dispensed with in
+robotic planning, and describes a sensorless plan that can move a tool into a specific position on
+a table by a sequence of tilting actions regardless of the initial position
+
+WARPLAN-C (Warren, 1976), a variant of WARPLAN, was one of the earliest planners to use
+conditional actions. Olawski and Gini (1990) lay out the major issues involved in conditional
+planning. Recent systems for partial-order conditional planning include UWL (Etzioni et al.,
+1992) and CNLP (Peot and Smith, 1992), on which CPOP is based). C-BuRIDAN (Draper ef al.,
+1994) handles conditional planning for actions with probabilistic outcomes, thereby connecting
+to the work on Markov decision problems described in Chapter 17.
+
+There is a close relation between conditional planning and automated program synthesis,
+for which there are a number of references in Chapter 10. The two fields have usually been
+pursued separately because of the enormous difference in typical cost between execution of
+machine instructions and execution of actions by robot vehicles or manipulators. Linden (1991)
+attempts explicit cross-fertilization between the two fields.
+
+The earliest major treatment of execution monitoring was PLANEX (Fikes ef al., 1972),
+which worked with the STRIPS planner to control the robot Shakey. PLANEX used triangle tables
+to allow recovery from partial execution failure without complete replanning. Shakey’s model of
+execution is discussed further in Chapter 25. The NASL planner (McDermott, 1978a) treated a
+planning problem simply as a specification for carrying out a complex action, so that execution
+and planning were completely unified. It used theorem proving to reason about these complex
+actions. IPEM (Integrated Planning, Execution, and Monitoring) (Ambros-Ingerson and Steel,
+1988), which was the first system to smoothly integrate partial-order planning and planning
+execution, forms the basis for the discussion in this chapter.
+
+A system that contains an explicitly represented agent function, whether implemented as
+a table or a set of condition-action rules, need not worry about unexpected developments in the
+environment. All it has to do is to execute whatever action its function recommends for the
+state in which it finds itself (or in the case of inaccessible environments, the percept sequence to
+date). The field of reactive planning aims to take advantage of this fact, thereby avoiding the
+complexities ofplanning in dynamic, inaccessible environments. "Universal plans" (Schoppers,
+1987) were developed as a scheme for reactive planning, but turned out to be a rediscovery of
+the idea of policies in Markov decision processes. Brooks's (1986) subsumption architecture
+(also discussed in Chapter 25) uses a layered finite state machine to represent the agent function,
+and stresses the use of minimal internal state. Another important manifestation of the reactive
+planning paradigm is Pengi (Agre and Chapman, 1987), designed as a response to the criticism
+of classical AI planning in Chapman (1987). Ginsberg (1989) made a spirited attack on reactive
+planning, including intractability results for some formulations of the reactive planning problem.
+For an equally spirited response, see Schoppers (1989).
+

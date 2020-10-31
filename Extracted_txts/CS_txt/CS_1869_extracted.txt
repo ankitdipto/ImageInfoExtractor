@@ -1,0 +1,85 @@
+10.4 Page Replacement 333
+
+b. If there is no free frame, use a page-replacement algorithm to select a
+victim frame.
+
+c. Write the victim page to the disk; change the page and frame tables
+accordingly.
+
+3. Read the desired page into the (newly) free frame; change the page and
+frame tables.
+
+4. Restart the user process.
+
+Notice that, if no frames are free, f7vo page transfers (one out and one in) are
+required. This situation effectively doubles the page-fault service time and
+increases the effective access time accordingly.
+
+We can reduce this overhead by using a modify bit (or dirty bit). Each page
+or frame may have a modify bit associated with it in the hardware. The modify
+bit for a page is set by the hardware whenever any word or byte in the page is
+written into, indicating that the page has been modified. When we select a page
+for replacement, we examine its modify bit. If the bit is set, we know that the
+page has been modified since it was read in from the disk. In this case, we must
+write that page to the disk. If the modify bit is not set, however, the page has
+not been modified since it was read into memory. Therefore, if the copy of the
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+frame, ) Valid—invalid bit
+2
+swap out f
+change victim
+oli to invalid @ page
+f_fv
+@ f | victim
+reset page
+page table table for
+new page evap
+desired
+page in .
+physical
+memory
+
+Figure 10.7 Page replacement.
+

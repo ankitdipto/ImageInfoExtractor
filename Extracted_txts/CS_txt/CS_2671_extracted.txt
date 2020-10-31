@@ -1,0 +1,62 @@
+10.3 Implementing pointers and objects 243
+
+ 
+
+12 3 4 5 6 7 8 9 10 Il 12 13 14 15 16 17 18 19 20 21 22 23 24
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+key | prev
+next
+
+Figure 10.6 The linked list of Figures 10.3(a) and 10.5 represented in a single array A. Each list
+element is an object that occupies a contiguous subarray of length 3 within the array. The three
+attributes key, next, and prev correspond to the offsets 0, 1, and 2, respectively, within each object.
+A pointer to an object is the index of the first element of the object. Objects containing list elements
+are lightly shaded, and arrows show the list ordering.
+
+Allocating and freeing objects
+
+To insert a key into a dynamic set represented by a doubly linked list, we must al-
+locate a pointer to a currently unused object in the linked-list representation. Thus,
+it is useful to manage the storage of objects not currently used in the linked-list
+representation so that one can be allocated. In some systems, a garbage collec-
+tor is responsible for determining which objects are unused. Many applications,
+however, are simple enough that they can bear responsibility for returning an un-
+used object to a storage manager. We shall now explore the problem of allocating
+and freeing (or deallocating) homogeneous objects using the example of a doubly
+linked list represented by multiple arrays.
+
+Suppose that the arrays in the multiple-array representation have length m and
+that at some moment the dynamic set contains n < m elements. Then 1 objects
+represent elements currently in the dynamic set, and the remaining m—n objects are
+free; the free objects are available to represent elements inserted into the dynamic
+set in the future.
+
+We keep the free objects in a singly linked list, which we call the free list. The
+free list uses only the next array, which stores the next pointers within the list.
+The head of the free list is held in the global variable free. When the dynamic
+set represented by linked list L is nonempty, the free list may be intertwined with
+list L, as shown in Figure 10.7. Note that each object in the representation is either
+in list L or in the free list, but not in both.
+
+The free list acts like a stack: the next object allocated is the last one freed. We
+can use a list implementation of the stack operations PUSH and PoP to implement
+the procedures for allocating and freeing objects, respectively. We assume that the
+global variable free used in the following procedures points to the first element of
+the free list.
+

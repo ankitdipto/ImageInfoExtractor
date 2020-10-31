@@ -1,0 +1,68 @@
+84
+
+Chapter 3. Solving Problems by Searching
+
+ 
+
+ 
+
+BACKTRACKING
+‘SEARCH
+
+FORWARD
+CHECKING
+
+ARCCONSISTENCY
+
+CONSTRANT
+PROPAGATION
+
+at n, the number of variables, and that all solutions are at depth n. We are therefore safe in using
+depth-first search, as there is no danger of going too deep and no arbitrary depth limit is needed.
+
+In the most naive implementation, any unassigned variable in a given state can be assigned
+a value by an operator, in which case the branching factor would be as high as }>; |Dj|, or
+64 in the 8-queens problem. A better approach is to take advantage of the fact that the order
+of variable assignments makes no difference to the final solution. Almost all CSP algorithms
+therefore generate successors by choosing values for only a single variable at each node. For
+example, in the 8-queens problem, one can assign a square for the first queen at level 0, for the
+second queen at level 1, and so on. This results in a search space of size [],|D;|, or 8° in the
+8-queens problem. A straightforward depth-first search will examine all of these possibilities
+Because CSPs include as special cases some well-known NP-complete problems such as 3SAT
+(see Exercise 6.15 on page 182), we cannot expect to do better than exponential complexity in
+the worst case. In most real problems, however, we can take advantage of the problem structure
+to eliminate a large fraction of the search space. The principal source of structure in the problem
+space is that, in CSPs, the goal test is decomposed into a set of constraints on variables rather
+than being a "black box."
+
+Depth-first search on a CSP wastes time searching when constraints have already been
+violated. Because of the way that the operators have been defined, an operator can never redeem
+a constraint that has already been violated. For example, suppose that we put the first two
+queens in the top row. Depth-first search will examine all 8° possible positions for the remaining
+six queens before discovering that no solution exists in that subtree. Our first improvement is
+therefore to insert a test before the successor generation step to check whether any constraint has
+been violated by the variable assignments made up to this point. The resulting algorithm, called
+backtracking search, then backtracks to try something else.
+
+Backtracking also has some obvious failings. Suppose that the squares chosen for the first
+six queens make it impossible to place the eighth queen, because they attack all eight squares in
+the last column. Backtracking will try all possible placings for the seventh queen, even though
+the problem is already rendered unsolvable, given the first six choices. Forward checking|
+avoids this problem by looking ahead to detect unsolvability. Each time a variable is instantiated,
+forward checking deletes from the domains of the as-yet-uninstantiated variables all of those
+values that conflict with the variables assigned so far. If any of the domains becomes empty, then:
+the search backtracks immediately. Forward checking often runs far faster than backtracking and.
+is very simple to implement (see Exercise 3.21).
+
+Forward checking is a special case of arc consistency checking. A state is arc-consistent]
+if every variable has a value in its domain that is consistent with each of the constraints on that]
+variable. Arc consistency can be achieved by successive deletion of values that are inconsistent:
+with some constraint. As values are deleted, other values may become inconsistent because they
+relied on the deleted values. Arc consistency therefore exhibits a form of constraint propagation,
+as choices are gradually narrowed down. In some cases, achieving are consistency is enough to
+solve the problem completely because the domains of all variables are reduced to singletons. Arc
+consistency is often used as a preprocessing step, but can also be used during the search.
+
+Much better results can often be obtained by careful choice of which variable to instantiate ]
+and which value to try. We examine such methods in the next chapter.
+

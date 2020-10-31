@@ -1,0 +1,45 @@
+Chapter 12: File Input/Output 423
+
+ 
+
+/" Count chars, spaces, tabs and newlines in a file */
+# include "stdio.h"
+main()
+{
+FILE “fp;
+char ch;
+int nol = 0, not = 0, nob = 0, noc = 0;
+
+fp = fopen ("PR1.C", "t") ;
+while (1)
+
+{
+ch = fgetc (fp) ;
+
+if (ch == EOF)
+break ;
+
+NOC++ ;
+
+if(ch=="')
+nob++ ;
+
+if (ch =='\n')
+nol++ ;
+
+if (ch=='t)
+not++ ;
+
+}
+
+ 
+
+fclose (fp) ;
+
+printf ( "\nNumber of characters = %d", noc ) ;
+printf ( "\nNumber of blanks = %q"", nob ) ;
+printf ( "\nNumber of tabs = %d", not) ;
+printf ( "\nNumber of lines = %d, nol) ;
+
+ 
+

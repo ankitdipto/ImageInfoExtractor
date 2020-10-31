@@ -1,0 +1,42 @@
+Chapter 16: C Under Windows 539
+
+ 
+
+RECT r;
+PRECT pr;
+
+What have we achieved out of this? It makes user-defined
+data types like structures look, act and behave similar to
+standard data types like integers, floats, etc. You would agree
+that the following declarations
+
+RECT r;
+inti;
+
+are more logical than
+
+struct RECT r ;
+inti;
+
+Imagine a situation where each programmer typedefs the integer
+to represent a color in different ways. Some of these could be as
+follows:
+
+typedef int COL ;
+
+typedef int COLOR ;
+typedef int COLOUR ;
+typedef int COLORREF ;
+
+To avoid this chaos Microsoft has done several typedefs for
+commonly required entities in Windows programming. All these
+have been stored in header files. These header files are provided as
+part of 32-bit compiler like Visual C++.
+
+Pointers in the 32-bit World
+
+In a 16-bit world (like MS-DOS) we could run only one
+application at a time. If we were to run another program we were
+required to terminate the first one before launching the second. As
+only one program (task) could run at a time this environment was
+

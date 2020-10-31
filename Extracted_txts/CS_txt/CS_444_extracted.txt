@@ -1,0 +1,49 @@
+1002
+
+Chapter 32 String Matching
+
+to m characters. Much faster procedures exist; by utilizing some cleverly com-
+puted information about the pattern P (see Exercise 32.4-8), we can improve the
+time required to compute 5 from P to O(m |X|). With this improved procedure for
+computing 5, we can find all occurrences of a length-m pattem in a length-n text
+over an alphabet © with O(m |&]) preprocessing time and ©(7) matching time.
+
+Exercises
+
+32.3-1
+Construct the string-matching automaton for the pattern P = aabab and illustrate
+its operation on the text string T = aaababaabaababaab.
+
+32.3-2
+Draw a state-transition diagram for a string-matching automaton for the pattern
+ababbabbababbababbabb over the alphabet © = {a, b}.
+
+323-3
+
+We call a pattern P nonoverlappable if Px 4 Pq implies k = 0 ork = q. De-
+scribe the state-transition diagram of the string-matching automaton for a nonover-
+lappable pattern.
+
+3234 x
+
+Given two patterns P and P’, describe how to construct a finite automaton that
+determines all occurrences of either pattern. Try to minimize the number of states
+in your automaton.
+
+323-5
+
+Given a pattern P containing gap characters (see Exercise 32.1-4), show how to
+build a finite automaton that can find an occurrence of P in a text T in O(n)
+matching time, where n = |T|.
+
+ 
+
+* 32.4 The Knuth-Morris-Pratt algorithm
+
+We now present a linear-time string-matching algorithm due to Knuth, Morris, and
+Pratt. This algorithm avoids computing the transition function 6 altogether, and its
+matching time is @(7) using just an auxiliary function 7, which we precompute
+from the pattern in time ©(m) and store in an array 2[1..m]. The array z allows
+us to compute the transition function 6 efficiently (in an amortized sense) “on the
+fly” as needed. Loosely speaking, for any state g = 0,1,...,m and any character
+

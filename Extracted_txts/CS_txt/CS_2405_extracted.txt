@@ -1,0 +1,46 @@
+Chapter 2. Getting Started
+
+* The “average case” is often roughly as bad as the worst case. Suppose that we
+randomly choose 1 numbers and apply insertion sort. How long does it take to
+determine where in subarray A[1.. j — 1] to insert element A[j]? On average,
+half the elements in A[l.. j — 1] are less than A[/], and half the elements are
+greater. On average, therefore, we check half of the subarray A[1.. j — 1], and
+so t; is about j/2. The resulting average-case running time turns out to be a
+quadratic function of the input size, just like the worst-case running time.
+
+In some particular cases, we shall be interested in the average-case running time
+of an algorithm; we shall see the technique of probabilistic analysis applied to
+various algorithms throughout this book. The scope of average-case analysis is
+limited, because it may not be apparent what constitutes an “average” input for
+a particular problem. Often, we shall assume that all inputs of a given size are
+equally likely. In practice, this assumption may be violated, but we can sometimes
+use a randomized algorithm, which makes random choices, to allow a probabilistic
+analysis and yield an expected running time. We explore randomized algorithms
+more in Chapter 5 and in several other subsequent chapters.
+
+Order of growth
+
+We used some simplifying abstractions to ease our analysis of the INSERTION-
+SortT procedure. First, we ignored the actual cost of each statement, using the
+constants c; to represent these costs. Then, we observed that even these constants
+give us more detail than we really need: we expressed the worst-case running time
+as an? + bn +c for some constants a, b, and c that depend on the statement
+costs cj. We thus ignored not only the actual statement costs, but also the abstract
+costs C;.
+
+We shall now make one more simplifying abstraction: it is the rate of growth,
+or order of growth, of the running time that really interests us. We therefore con-
+sider only the leading term of a formula (e.g., an”), since the lower-order terms are
+relatively insignificant for large values of n. We also ignore the leading term’s con-
+stant coefficient, since constant factors are less significant than the rate of growth
+in determining computational efficiency for large inputs. For insertion sort, when
+we ignore the lower-order terms and the leading term’s constant coefficient, we are
+left with the factor of n? from the leading term. We write that insertion sort has a
+worst-case running time of @(n7) (pronounced “theta of n-squared”). We shall use
+@Q-notation informally in this chapter, and we will define it precisely in Chapter 3.
+
+We usually consider one algorithm to be more efficient than another if its worst-
+case running time has a lower order of growth. Due to constant factors and lower-
+order terms, an algorithm whose running time has a higher order of growth might
+take less time for small inputs than an algorithm whose running time has a lower
+

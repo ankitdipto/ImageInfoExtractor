@@ -1,0 +1,106 @@
+428 CHAPTER ELEVEN Input-Output Organization
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+0x6
+oF
+3) =| 2/8 Bus System
+5] 2] as contalee [pen] Memory unit
+2] 4) é]2
+8089 Local bus
+10P ;
+Interace reface
+| |
+Input deve] fouipur deve
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11-23 Intel 8086/8089 microcomputer system block diagram.
+
+Control block Parameter block ‘Task block
+
+Busy | cow ao TBaddress — L-——>|
+PB address Memory address
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+8089
+Byte count 10P
+rogram
+
+ 
+
+ 
+
+Device address
+
+ 
+
+“Track and sector
+
+ 
+
+ 
+
+ 
+
+‘Status
+
+ 
+
+ 
+
+ 
+
+Figure 11-24 Location of information in memory for LO operations in the
+Intel 8086/8089 microcomputer system.
+
+a new UO operation. The CCW (channel command word) is specified by the
+CPU to indicate the type of operation required from the IOP. The CCW in the
+8089 does not have the same meaning as the command word in the IBM
+channel. The CCW here is more like an V/O instruction that specifies an
+operation for the IOP, such as start operation, suspend operation, resume
+operation, and halt /O program. The parameter block contains variable data
+

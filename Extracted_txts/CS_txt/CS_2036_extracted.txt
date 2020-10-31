@@ -1,0 +1,52 @@
+13.4 Kernel /O Subsystem 473
+
+device access fairly among processes, and can reduce the average waiting time
+for I/O to complete. Here is a simple example to illustrate the opportunity. Sup-
+pose that a disk arm is near the beginning of a disk, and that three applications
+issue blocking read calls to that disk. Application 1 requests a block near the
+end of the disk, application 2 requests one near the beginning, and application
+3 requests one in the middle of the disk. The operating system can reduce the
+distance that the disk arm travels by serving the applications in order 2, 3, 1.
+Rearranging the order of service in this way is the essence of I/O scheduling.
+
+Operating-system developers implement scheduling by maintaining a
+queue of requests for each device. When an application issues a blocking
+1/O system call, the request is placed on the queue for that device. The I/O
+scheduler rearranges the order of the queue to improve the overall system
+efficiency and the average response time experienced by applications. The
+operating system may also try to be fair, so that no one application receives
+especially poor service, or it may give priority service for delay-sensitive
+requests. For instance, requests from the virtual-memory subsystem may take
+priority over application requests. Several scheduling algorithms for disk 1/0
+are detailed in Section 14.2.
+
+One way that the I/O subsystem improves the efficiency of the computer is
+by scheduling I/O operations. Another way is by using storage space in main
+memory or on disk, via techniques called buffering, caching, and spooling.
+
+13.4.2 Buffering
+
+A buffer is a memory area that stores data while they are transferred between
+two devices or between a device and an application. Buffering is done for
+three reasons. One reason is to cope with a speed mismatch between the
+producer and consumer of a data stream. Suppose, for example, that a file is
+being received via modem for storage on the hard disk. The modem is about
+a thousand times slower than the hard disk. So a buffer is created in main
+memory to accumulate the bytes received from the modem. When an entire
+buffer of data has arrived, the buffer can be written to disk in a single operation.
+Since the disk write is not instantaneous and the modem still needs a place to
+store additional incoming data, two buffers are used. After the modem fills the
+first buffer, the disk write is requested. The modem then starts to fill the second
+buffer while the first buffer is written to disk. By the time the modem has filled
+the second buffer, the disk write from the first one should have completed,
+so the modem can switch back to the first buffer while the disk writes the
+second one. This double buffering decouples the producer of data from the
+consumer, thus relaxing timing requirements between them. The need for this
+decoupling is illustrated in Figure 13.8, which lists the enormous differences in
+device speeds for typical computer hardware.
+
+A second use of buffering is to adapt between devices that have differ-
+ent data-transfer sizes. Such disparities are especially common in computer
+
+ 
+

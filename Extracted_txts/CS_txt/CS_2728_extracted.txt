@@ -1,0 +1,43 @@
+290
+
+Chapter 12 Binary Search Trees
+
+ 
+
+Figure 12.2 Queries on a binary search tree. To search for the key 13 in the tree, we follow the path
+15 6 + 7— 13 from the root. The minimum key in the tree is 2, which is found by following
+left pointers from the root. The maximum key 20 is found by following right pointers from the root.
+The successor of the node with key 15 is the node with key 17, since it is the minimum key in the
+right subtree of 15. The node with key 13 has no right subtree, and thus its successor is its lowest
+ancestor whose left child is also an ancestor. In this case, the node with key 15 is its successor.
+
+TREE-SEARCH(x,k)
+if NIL or k
+return x
+
+1
+2
+3 ifk <x. key
+4
+5
+
+   
+
+xX. key
+
+return TREE-SEARCH (x. left, k)
+else return TREE-SEARCH(x. right, k)
+
+The procedure begins its search at the root and traces a simple path downward in
+the tree, as shown in Figure 12.2. For each node x it encounters, it compares the
+key k with x.key. If the two keys are equal, the search terminates. If k is smaller
+than x.key, the search continues in the left subtree of x, since the binary-search-
+tree property implies that k could not be stored in the right subtree. Symmetrically,
+if k is larger than x.key, the search continues in the right subtree. The nodes
+encountered during the recursion form a simple path downward from the root of
+the tree, and thus the running time of TREE-SEARCH is O(h), where hi is the height
+of the tree.
+
+We can rewrite this procedure in an iterative fashion by “unrolling” the recursion
+into a while loop. On most computers, the iterative version is more efficient.
+

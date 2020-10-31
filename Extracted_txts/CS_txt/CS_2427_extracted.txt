@@ -1,0 +1,51 @@
+46
+
+Chapter 3 Growth of Functions
+
+In Chapter 2, we introduced an informal notion of @-notation that amounted
+to throwing away lower-order terms and ignoring the leading coefficient of the
+highest-order term. Let us briefly justify this intuition by using the formal defi-
+nition to show that $n? —3n = O(n’). To do so, we must determine positive
+constants C1, C2, and Mo such that
+
+1
+cn? < oe —3n < con?
+
+for all n > no. Dividing by n? yields
+
+1
+AS57777 Se:
+
+We can make the right-hand inequality hold for any value of n > 1 by choosing any
+constant C2 > 1/2. Likewise, we can make the left-hand inequality hold for any
+value of n > 7 by choosing any constant c; < 1/14. Thus, by choosing c, = 1/14,
+cy = 1/2, and no = 7, we can verify that 3n? —3n = O(n’). Certainly, other
+choices for the constants exist, but the important thing is that some choice exists.
+Note that these constants depend on the function 3n? — 3n; a different function
+belonging to ©(n?) would usually require different constants.
+
+We can also use the formal definition to verify that 6n3? 4 ©(n?). Suppose
+for the purpose of contradiction that cy and 1o exist such that 6n? < cn? for
+all n > no. But then dividing by n? yields n < c2/6, which cannot possibly hold
+for arbitrarily large n, since cz is constant.
+
+Intuitively, the lower-order terms of an asymptotically positive function can be
+ignored in determining asymptotically tight bounds because they are insignificant
+for large n. When n is large, even a tiny fraction of the highest-order term suf-
+fices to dominate the lower-order terms. Thus, setting c, to a value that is slightly
+smaller than the coefficient of the highest-order term and setting cz to a value that
+is slightly larger permits the inequalities in the definition of ©-notation to be sat-
+isfied. The coefficient of the highest-order term can likewise be ignored, since it
+only changes c; and c2 by a constant factor equal to the coefficient.
+
+As an example, consider any quadratic function f(n) = an? + bn +c, where
+a, b, and c are constants and a > 0. Throwing away the lower-order terms and
+ignoring the constant yields f(n) = ©(n?). Formally, to show the same thing, we
+take the constants c; = a/4, co = 7a/4, and np = 2+ max(|b| /a, /|c| /a). You
+may verify that 0 < cin? < an? + bn +c < con? forall n > no. In general,
+for any polynomial p(n) = yi gain, where the q; are constants and ag > 0, we
+have p(n) = O(n“) (see Problem 3-1).
+
+Since any constant is a degree-0 polynomial, we can express any constant func-
+tion as @(n°), or @(1). This latter notation is a minor abuse, however, because the
+

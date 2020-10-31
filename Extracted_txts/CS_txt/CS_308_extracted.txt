@@ -1,0 +1,41 @@
+29.5 The initial basic feasible solution 891
+
+that after this pivot, all entries of b are nonnegative, and hence the basic solution
+to Laux is feasible. Letting ¥ be the basic solution after the call to PrvoT, and
+letting b and B be values returned by PrvoT, Lemma 29.1 implies that
+
+gy oP Miebe iki e BKe}, (29.113)
+bi /dte ifi=e.
+
+The call to PrvorT in line 8 has e = 0. If we rewrite inequalities (29.107), to
+include coefficients ajo,
+
+Yaijxj <b; fori =1,2,....m, (29.114)
+j=0
+then
+din = Gie = —1 foreachie B. (29.115)
+
+(Note that ajo is the coefficient of xo as it appears in inequalities (29.114), not
+the negation of the coefficient, because Lyx is in standard rather than slack form.)
+Since / € B, we also have that aje = —1. Thus, bj/aje > 0, and so Xe > 0. For
+the remaining basic variables, we have
+
+X = b- iebe (by equation (29.113))
+= bj; —die(bi/dje) (by line 3 of Pivot)
+= b-h (by equation (29.115) and aje = —1)
+> 0 (by inequality (29.112)) ,
+
+which implies that each basic variable is now nonnegative. Hence the basic solu-
+tion after the call to PIvoT in line 8 is feasible. We next execute line 10, which
+solves Lyx. Since we have assumed that L has a feasible solution, Lemma 29.11
+implies that L,,, has an optimal solution with objective value 0. Since all the slack
+forms are equivalent, the final basic solution to L,, must have X9 = 0, and after
+removing Xp from the linear program, we obtain a slack form that is feasible for L.
+Line 15 then returns this slack form. .
+
+Fundamental theorem of linear programming
+
+We conclude this chapter by showing that the SIMPLEX procedure works. In par-
+ticular, any linear program either is infeasible, is unbounded, or has an optimal
+solution with a finite objective value. In each case, SIMPLEX acts appropriately.
+

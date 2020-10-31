@@ -1,0 +1,50 @@
+3.1 Asymptotic notation 49
+
+When we say that the running time (no modifier) of an algorithm is Q(g(n)),
+we mean that no matter what particular input of size n is chosen for each value
+ofn, the running time on that input is at least a constant times g(r), for sufficiently
+large n. Equivalently, we are giving a lower bound on the best-case running time
+of an algorithm. For example, the best-case running time of insertion sort is Q(n),
+which implies that the running time of insertion sort is Q(n).
+
+The running time of insertion sort therefore belongs to both Q(7) and O(n’),
+since it falls anywhere between a linear function of n and a quadratic function of n.
+Moreover, these bounds are asymptotically as tight as possible: for instance, the
+running time of insertion sort is not Q(n7), since there exists an input for which
+insertion sort runs in @() time (e.g., when the input is already sorted). It is not
+contradictory, however, to say that the worst-case running time of insertion sort
+is Q(n”), since there exists an input that causes the algorithm to take Q(n”) time.
+
+Asymptotic notation in equations and inequalities
+
+We have already seen how asymptotic notation can be used within mathematical
+formulas. For example, in introducing O-notation, we wrote “n = O(n?).” We
+might also write 2n? + 3n + 1 = 2n? + @(n). How do we interpret such formulas?
+
+When the asymptotic notation stands alone (that is, not within a larger formula)
+on the right-hand side of an equation (or inequality), as inn = O(n?), we have
+already defined the equal sign to mean set membership: n € O(n?). In general,
+however, when asymptotic notation appears in a formula, we interpret it as stand-
+ing for some anonymous function that we do not care to name. For example, the
+formula 2n? + 3n + 1 = 2n? + O(n) means that 2n? + 3n +1 = 2n? + f(n),
+where /(m) is some function in the set ©(7). In this case, we let f(m) = 3n + 1,
+which indeed is in O(n).
+
+Using asymptotic notation in this manner can help eliminate inessential detail
+and clutter in an equation. For example, in Chapter 2 we expressed the worst-case
+running time of merge sort as the recurrence
+
+T(n) = 2T(n/2) + O(n).
+
+If we are interested only in the asymptotic behavior of T(), there is no point in
+specifying all the lower-order terms exactly; they are all understood to be included
+in the anonymous function denoted by the term @(v).
+
+The number of anonymous functions in an expression is understood to be equal
+to the number of times the asymptotic notation appears. For example, in the ex-
+pression
+
+ow.
+
+i=1
+

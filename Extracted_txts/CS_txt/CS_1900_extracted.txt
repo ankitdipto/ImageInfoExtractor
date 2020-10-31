@@ -1,0 +1,49 @@
+358 Chapter 10 Virtual Memory
+
+On the other hand, did you notice that with a page size of 1 byte, we would
+have a page fault for each byte? A process of 200 KB, using only one-half of
+that memory, would generate only one page fault with a page size of 200 KB,
+but 102,400 page faults for a page size of 1 byte. Each page fault generates the
+large amount of overhead needed for processing the interrupt, saving registers,
+replacing a page, queueing for the paging device, and updating tables. To
+minimize the number of page faults, we need to have a large page size.
+
+There are other factors to consider (such as the relationship between page
+size and sector size on the paging device). The problem has no best answer.
+Some factors (internal fragmentation, locality) argue for a small page size,
+whereas others (table size, I/O time) argue for a large page size. However,
+the historical trend is toward larger page sizes. Indeed, the first edition of
+Operating Systems Concepts (1983) used 4,096 bytes as the upper bound on
+page sizes, and this value was the most common page size in 1990. However,
+modern systems may now use page sizes that are much larger than this. We
+explore this in the following section.
+
+10.8.3 TLB Reach
+
+In Chapter 9, we introduced the hit ratio of the TLB. Recall the hit ratio for the
+TLB refers to the percentage of virtual address translations that are resolved in
+the TLB rather than the page table. Clearly, the hit ratio is related to the number
+of entries in the TLB and the way to increase the hit ratio is by increasing the
+number of entries in the TLB. This, however, does not come cheaply, as the
+associative memory used to construct the TLB is both expensive and power-
+hungry.
+
+Related to the hit ratio is a similar metric: the TLB reach. The TLB reach
+refers to the amount of memory accessible from the TLB and is simply the
+number of entries multiplied by the page size. Ideally, the working set fora
+process is stored in the TLB. If not, the process will spend a considerable amount
+of time resolving memory references in the page table rather than TLB. If we
+double the number of entries in the TLB, we double the TLB reach. However, for
+some memory-intensive applications this may still prove insufficient for storing
+the working set.
+
+Another approach for increasing the TLB reach is by either increasing the
+size of the page or providing multiple page sizes. If we increase the page size
+—say from 8 KB to 32 KB—we quadruple the TLB reach. However, this may
+lead to an increase in fragmentation for some applications that do not require
+such a large page size as 32 KB. Alternatively, an operating system may provide
+several different page sizes. For example, the UltraSpare II supports 8 KB, 64
+KB, 512 KB, and 4 MB page sizes. Of these available pages sizes, Solaris 2 uses
+both 8 KB and 4 MB page sizes. And with a 64-entry TLB, the TLB reach for
+Solaris 2 ranges from 512 KB with 8 KB pages to 256 MB with 4 MB pages. For
+

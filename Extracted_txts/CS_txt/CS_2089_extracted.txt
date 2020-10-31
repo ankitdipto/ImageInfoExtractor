@@ -1,0 +1,54 @@
+ 
+
+518  Chapter14 Mass-Storage Structure
+
+require fast random access. Tapes are commonly used to hold backup copies
+of disk data. They are also used in large supercomputer centers to hold the
+enormous volumes of data used in scientific research and by large commercial
+enterprises.
+
+Some tapes can hold much more data than can a disk drive; the surface area
+of a tape is much larger than the surface area of a disk. The storage capacity of
+tapes could improve even further, because at present the areal density (or bits
+per square inch) of tape technology is much less than that for magnetic disks.
+
+Large tape installations typically use robotic tape changers that move tapes
+between tape drives and storage slots in a tape library. These mechanisms give
+the computer automated access to a large number of tape cartridges.
+
+A robotic tape library can lower the overall cost of data storage. A disk-
+resident file that will not be needed for a while can be archived to tape,
+where the cost per gigabyte can be lower; if the file is needed in the future,
+the computer can stage it back into disk storage for active use. A robotic
+tape library is sometimes called near-line storage, since it is between the high
+performance of on-line magnetic disks and the low cost of off-line tapes sitting
+on shelves in a storage room.
+
+14.8.1.3 Future Technology
+
+In the future, other storage technologies may become important. One promis-
+ing storage technology, holographic storage, uses laser light to record holo-
+graphic photographs on special media. We can think of a black-and-white
+photograph as a two-dimensional array of pixels. Each pixel represents one
+bit: 0 for black, or 1 for white. A sharp photograph can hold millions of bits of
+data. And all the pixels in a hologram are transferred in one flash of laser light,
+so the data rate is extremely high. With continued development, holographic
+storage may become commercially viable.
+
+Another storage technology under active research is based on micro-
+electronic mechanical systems (MEMS). The idea is to apply the fabrication
+technologies that produce electronic chips in order to manufacture small data
+storage machines. One proposal calls for the fabrication of an array of 10,000
+tiny disk heads, with a square centimeter of magnetic storage material sus-
+pended above the array. When the storage material is moved lengthwise over
+the heads, each head accesses its own linear track of data on the material. The
+storage material can be shifted sideways slightly to enable all the heads to
+access their next track. Although it remains to be seen whether this technology
+can be successful, it may provide a nonvolatile data storage technology that is
+faster than magnetic disk and cheaper than semiconductor DRAM.
+
+Whether the storage medium is a removable magnetic disk, a DVD, or a
+magnetic tape, the operating system needs to provide several capabilities to use
+removable media for data storage. These capabilities are discussed in Section
+14.8.2.
+

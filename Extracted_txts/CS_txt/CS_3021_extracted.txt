@@ -1,0 +1,75 @@
+Section 13.1
+
+Conditional Planning
+
+399
+
+ 
+
+ 
+
+function CPOP(initial, goals, operators) returns plan
+
+plan — Make-PLAN(initial, goals)
+loop do
+
+Termination:
+if there are no unsatisfied preconditions
+and the contexts of the finish steps are exhaustive
+then return plan
+
+Alternative context generation:
+if the plans for existing finish steps are complete and have contexts C, ... C, then
+add a new finish step with a context 7(C, V ... V Cu)
+this becomes the current context
+
+Subgoal selection and addition:
+find a plan step Sieeq with an open precondition c
+
+Action selection:
+choose a step Sadd from operators or STEPS( plan) that adds c or
+knowledge of ¢ and has a context compatible with the current context
+
+if there is no such step
+
+then fail
+add Suda © + Sneeato LINKS(plan)
+add Sadi < Sneed to ORDERINGS( plan)
+if S,y is a newly added step then
+
+add Sadd to STEPS( plan)
+
+add Start < Sadi < Finish to ORDERINGS( plan)
+
+Threat resolution:
+for each step Syireq that potentially threatens any causal link S; ° , 5}
+with a compatible context do
+choose one of
+Promotion: Add Sthreq < Si to ORDERINGS( plan)
+Demotion: Add S} < Srirea: to ORDERINGS( plan)
+Conditioning:
+find a conditional step Sona possibly before both Syirea and 5, where
+
+1. the context of Sion is compatible with the contexts of Syirer and Sj;
+
+2. the step has outcomes consistent with Syinur and S), respectively
+add conditioning links for the outcomes from Sronz tO Sirrear and S}
+augment and propagate the contexts of Sirrea and S}
+
+ifno choice is consistent
+then fail
+end
+end
+
+ 
+
+ 
+
+ 
+
+Figure 138 — The CPOP algorithm for constructing conditional plans.
+
+ 
+
+ 
+

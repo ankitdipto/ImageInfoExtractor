@@ -1,0 +1,53 @@
+SIMD
+
+MIMD
+
+SECTION 911 Parallel Processing 301
+
+tion associated with the operands, The operation performed in each functional
+unitis indicated in each block of the diagram. The adder and integer multiplier
+perform the arithmetic operations with integer numbers. The floating-point
+operations are separated into three circuits operating in parallel. The logic,
+shift, and increment operations can be performed concurrently on different
+data. All units are independent of each other, so one number can be shifted
+while another number is being incremented. A multifunctional organization
+is usually associated with a complex control unit to coordinate all the activities
+among the various components.
+
+There are a variety of ways that parallel processing can be classified. It
+can be considered from the internal organization of the processors, from the
+interconnection structure between processors, or from the flow of information
+through the system. One classification introduced by M. J. Flynn considers the
+organization of a computer system by the number of instructions and data
+items that are manipulated simultaneously. The normal operation of a com-
+puter is to fetch instructions from memory and execute them in the processor.
+The sequence of instructions read from memory constitutes an instruction
+stream. The operations performed on the data inthe processor constitutes data
+stream. Parallel processing may occur in the instruction stream, in the data
+stream, or in both. Flynn's classification divides computers into four major
+groups as follows:
+
+Single instruction stream, single data stream (SISD)
+Single instruction stream, multiple data stream (SIMD)
+Multiple instruction stream, single data stream (MISD)
+Multiple instruction stream, multiple data stream (MIMD)
+
+SISD represents the organization of a single computer containing a con-
+trol unit, a processor unit, and a memory unit. Instructions are executed
+sequentially and the system may or may not have internal parallel processing
+capabilities. Parallel processing in this case may be achieved by means of
+multiple functional units or by pipeline processing.
+
+SIMD represents an organization that includes many processing units
+under the supervision of a common control unit. All processors receive
+the same instruction from the control unit but operate on different items of
+data. The shared memory unit must contain multiple modules so that it can
+communicate with all the processors simultaneously. MISD structure is only
+of theoretical interest since no practical system has been constructed using this
+organization MIMD organization refers to a computer system capable of
+processing several programsat the same time. Most multiprocessor and multi-
+computer systems can be classified in this category.
+
+Flynn’s classification depends on the distinction between the perform-
+ance of the control unit and the data-processing unit. It emphasizes the be-
+

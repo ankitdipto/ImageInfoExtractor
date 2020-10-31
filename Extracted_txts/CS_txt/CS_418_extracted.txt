@@ -1,0 +1,49 @@
+980
+
+Chapter 31 Number-Theoretic Algorithms
+
+time, the trivial factor pg = n is revealed, which is useless. Again, this problem
+seems to be insignificant in practice. If necessary, we can restart the heuristic with
+a different recurrence of the form x;41 = (x? —c) mod n. (We should avoid the
+values c = 0 and c = 2 for reasons we will not go into here, but other values are
+fine.)
+
+Of course, this analysis is heuristic and not rigorous, since the recurrence is
+not really “random.” Nonetheless, the procedure performs well in practice, and
+it seems to be as efficient as this heuristic analysis indicates. It is the method of
+choice for finding small prime factors of a large number. To factor a 6-bit compos-
+ite number n completely, we only need to find all prime factors less than [n'/? J,
+and so we expect POLLARD-RHO to require at most n!/4 = 24/4 arithmetic opera-
+tions and at most n!/4B? = 24/48? bit operations. POLLARD-RHO’s ability to find
+a small factor p of n with an expected number ©(,/P) of arithmetic operations is
+often its most appealing feature.
+
+Exercises
+
+31.9-1
+Referring to the execution history shown in Figure 31.7(a), when does POLLARD-
+RHO print the factor 73 of 1387?
+
+31.9-2
+
+Suppose that we are given a function f : Z, + Z, and an initial value x9 € Zn.
+Define x; = f(x;-1) fori = 1,2,.... Lett and u > 0 be the smallest values such
+that X,4; = X;444; fori =0,1,.... In the terminology of Pollard’s rho algorithm,
+t is the length of the tail and w is the length of the cycle of the rho. Give an efficient
+algorithm to determine ¢ and u exactly, and analyze its running time.
+
+ 
+
+31.9-3
+How many steps would you expect POLLARD-RHO to require to discover a factor
+of the form p*, where p is prime and e > 1?
+
+3194 x
+
+One disadvantage of POLLARD-RHO as written is that it requires one ged compu-
+tation for each step of the recurrence. Instead, we could batch the ged computa-
+tions by accumulating the product of several x; values in a row and then using this
+product instead of x; in the ged computation. Describe carefully how you would
+implement this idea, why it works, and what batch size you would pick as the most
+effective when working on a B-bit number 1.
+

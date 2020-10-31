@@ -1,0 +1,50 @@
+SECTION 106 Decimal Arithmetic Unit 365
+
+output data. When the application calls for alarge amount of input-output and
+a relatively smaller number of arithmetic calculations, it becomes convenient
+to do the internal arithmetic directly with the decimal numbers. Computers
+capable of performing decimal arithmeticmust store the decimal data in binary-
+coded form. The decimal numbers are then applied toa decimalarithmeticunit
+capable of executing decimal arithmetic microoperations.
+
+Electronic calculators invariably use an internal decimal arithmetic unit
+since inputs and outputs are frequent. There does not seem to be a reason for
+converting the keyboard input numbers to binary and again converting the
+displayed results to decimal, since this process requires special circuits and also
+takes a longer time to execute. Many computers have hardware for arithmetic
+calculations with both binary and decimal data Users can specify by pro-
+grammed instructions whether they want the computerto perform calculations
+with binary or decimal data.
+
+A decimal arithmetic unit is a digital function that performs decimal
+microoperations. It can add or subtract decimal numbers, usually by forming
+the ¥s or 10’s complement of the subtrahend, The unit accepts coded decimal
+numbers and generates results in the same adopted binary code. A single-stage
+decimal arithmeticunit consists of nine binary input variables and five binary
+output variables, since a minimum of four bits is required to represent each
+coded decimal digit. Each stage must have four inputs for the augend digit,
+fourinputs for the addend digit, and an input-carry. The outputs include four
+terminals for the sum digit and one for the output-carry. Of course, there is
+a wide variety of possible circuit configurations dependent on the code used
+to represent the decimal digits.
+
+BCD Adder
+
+Consider the arithmetic addition of two decimal digits in BCD, together with
+a possible carry froma previous stage. Since each input digit does not exceed
+9, the output sum cannotbe greaterthan9 +9 + 1 = 19, the 1inthesum being
+an input-carry. Suppose that we apply two BCD digits to a4-bit binary adder.
+The adder will form the sum in binary and produce a result that may range from
+0 to 19. These binary numbers are listed in Table 10-4 and are labeled by
+symbols K, Z,, 24, Z2, and Z;. Kis the carry and the subscripts under the letter
+Z represent the weights 8, 4, 2, and 1 that can be assigned to the four bits in
+the BCD code. The first column in the table lists the binary sums as they appear
+in the outputs of a4-bit binary adder. The output sum of two decimal numbers
+must be represented in BCD and should appear in the form listed in the second
+column of the table The problem is to find a simple rule by which the binary
+number in the first column can be converted to the correct BCD digit represen
+tation of the number in the second column.
+
+Inexamining the contents of the table, its apparent that when the binary
+sum is equal to or less than 1001, the corresponding BCD number is identical
+

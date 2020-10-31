@@ -1,0 +1,51 @@
+832
+
+Chapter 28 Matrix Operations
+
+28.2-2
+
+Let M(n) be the time to multiply two n x n matrices, and let L(1) be the time to
+compute the LUP decomposition of an n x n matrix. Show that multiplying matri-
+ces and computing LUP decompositions of matrices have essentially the same dif-
+ficulty: an M(n)-time matrix-multiplication algorithm implies an O(M(n))-time
+LUP-decomposition algorithm, and an L(7)-time LUP-decomposition algorithm
+implies an O(L(n))-time matrix-multiplication algorithm.
+
+28.2-3
+
+Let M(n) be the time to multiply two n x n matrices, and let D(n) denote the
+time required to find the determinant of an n x n matrix. Show that multiply-
+ing matrices and computing the determinant have essentially the same difficulty:
+an M(n)-time matrix-multiplication algorithm implies an O(M(n))-time determi-
+nant algorithm, and a D(7)-time determinant algorithm implies an O(D(n))-time
+matrix-multiplication algorithm.
+
+28.2-4
+
+Let M(n) be the time to multiply two n x n boolean matrices, and let T(7) be the
+time to find the transitive closure of ann x n boolean matrix. (See Section 25.2.)
+Show that an M(n)-time boolean matrix-multiplication algorithm implies an
+O(M(n) lg n)-time transitive-closure algorithm, and a T (1)-time transitive-closure
+algorithm implies an O(T (n))-time boolean matrix-multiplication algorithm.
+
+28.2-5
+Does the matrix-inversion algorithm based on Theorem 28.2 work when matrix
+elements are drawn from the field of integers modulo 2? Explain.
+
+28.2-6 *
+
+Generalize the matrix-inversion algorithm of Theorem 28.2 to handle matrices of
+complex numbers, and prove that your generalization works correctly. (Hint: In-
+stead of the transpose of A, use the conjugate transpose A*, which you obtain from
+the transpose of A by replacing every entry with its complex conjugate. Instead of
+symmetric matrices, consider Hermitian matrices, which are matrices A such that
+A=A*)
+
+ 
+
+28.3 Symmetric positive-definite matrices and least-squares approximation
+
+Symmetric positive-definite matrices have many interesting and desirable proper-
+ties. For example, they are nonsingular, and we can perform LU decomposition
+on them without having to worry about dividing by 0. In this section, we shall
+

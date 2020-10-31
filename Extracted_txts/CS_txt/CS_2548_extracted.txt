@@ -1,0 +1,55 @@
+144
+
+Chapter 5 Probabilistic Analy
+
+ 
+
+'s and Randomized Algorithms
+
+ 
+
+Suppose that there is exactly one index i such that A[i] = x. What is the
+expected number of indices into A that we must pick before we find x and
+RANDOM-SEARCH terminates?
+
+Generalizing your solution to part (b), suppose that there are k > 1 indices i
+such that A[i] = x. What is the expected number of indices into A that we
+must pick before we find x and RANDOM-SEARCH terminates? Your answer
+should be a function of n and k.
+
+Suppose that there are no indices i such that A[i] = x. What is the expected
+number of indices into A that we must pick before we have checked all elements
+of A and RANDOM-SEARCH terminates?
+
+Now consider a deterministic linear search algorithm, which we refer to as
+DETERMINISTIC-SEARCH. Specifically, the algorithm searches A for x in order,
+considering A[1], A[2], A[3],..., A[m] until either it finds A[i] = x or it reaches
+the end of the array. Assume that all possible permutations of the input array are
+equally likely.
+
+e.
+
+Suppose that there is exactly one index i such that A[i] = x. What is the
+average-case running time of DETERMINISTIC-SEARCH? What is the worst-
+case running time of DETERMINISTIC-SEARCH?
+
+Generalizing your solution to part (e), suppose that there are k > 1 indices i
+such that A[i] = x. What is the average-case running time of DETERMINISTIC-
+SEARCH? What is the worst-case running time of DETERMINISTIC-SEARCH?
+Your answer should be a function of 1 and k.
+
+Suppose that there are no indices i such that A[i] = x. What is the average-case
+running time of DETERMINISTIC-SEARCH? What is the worst-case running
+time of DETERMINISTIC-SEARCH?
+
+Finally, consider a randomized algorithm SCRAMBLE-SEARCH that works by
+first randomly permuting the input array and then running the deterministic lin-
+ear search given above on the resulting permuted array.
+
+h. Letting k be the number of indices i such that A[i] = x, give the worst-case and
+
+expected running times of SCRAMBLE-SEARCH for the cases in which k = 0
+and k = 1. Generalize your solution to handle the case in which k > 1.
+
+Which of the three searching algorithms would you use? Explain your answer.
+

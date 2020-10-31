@@ -1,0 +1,43 @@
+786 Chapter 27 Multithreaded Algorithms
+
+ 
+
+ 
+
+ 
+
+Figure 27.4 A dag representing the computation of MAT-VEC-MAIN-Loop(A, x, y, 8, 1, 8). The
+two numbers within each rounded rectangle give the values of the last two parameters (i and i’ in
+the procedure header) in the invocation (spawn or call) of the procedure. The black circles repre-
+sent strands corresponding to either the base case or the part of the procedure up to the spawn of
+Mat-VEC-MAIN-LOopP in line 5; the shaded circles represent strands corresponding to the part of
+the procedure that calls MAT-VEC-MAIN-LOoP in line 6 up to the syne in line 7, where it suspends
+until the spawned subroutine in line 5 returns; and the white circles represent strands corresponding
+to the (negligible) part of the procedure after the sync up to the point where it returns.
+
+Mat-VEc-MaIN-Loop(A, x, y.n,i,i’)
+
+if i ==i'
+for j = 1ton
+
+Vit 4X;
+
+else mid = [(i + i’)/2|
+spawn MAT-VEC-MAIN-Loop (A, x, y,1,i, mid)
+Mat-VEC-MAIN-Loop(A, x, y,n,mid + 1, i’)
+syne
+
+  
+
+NYAWRWNE
+
+This code recursively spawns the first half of the iterations of the loop to execute
+in parallel with the second half of the iterations and then executes a syne, thereby
+creating a binary tree of execution where the leaves are individual loop iterations,
+as shown in Figure 27.4.
+
+To calculate the work 7;(”) of MAT-VEC on an xn matrix, we simply compute
+the running time of its serialization, which we obtain by replacing the parallel for
+loops with ordinary for loops. Thus, we have T;(n) = ©(n?), because the qua-
+dratic running time of the doubly nested loops in lines 5S—7 dominates. This analysis
+

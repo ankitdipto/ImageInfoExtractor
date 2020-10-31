@@ -1,0 +1,46 @@
+104 Let Us C
+
+ 
+
+}
+}
+
+Even floating point loop counters can be decremented. Once
+again the increment and decrement could be by any value, not
+necessarily 1.
+
+What do you think would be the output of the following
+program?
+
+main()
+
+{
+int i=1;
+while (i <= 32767 )
+{
+
+printf (“%d\n", i) ;
+i=i+1;
+}
+}
+
+No, it doesn’t print numbers from 1 to 32767. It’s an
+indefinite loop. To begin with, it prints out numbers from 1 to
+32767. After that value of i is incremented by 1, therefore it
+tries to become 32768, which falls outside the valid integer
+range, so it goes to other side and becomes -32768 which
+would certainly satisfy the condition in the while. This
+process goes on indefinitely.
+
+What will be the output of the following program?
+
+main()
+
+{
+int i=1;
+while (i<= 10);
+{
+
+printf ("“%d\n", i) ;
+i=i+1;
+

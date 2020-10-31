@@ -1,0 +1,62 @@
+206
+
+FRAME AXIOMS
+
+‘SUCCESSOR-STATE
+AXIOM
+
+     
+     
+
+Chapter 7. First-Order Logic
+
+and does not release it, it will be holding it in the next state. Similarly, ifthe agent is not holding
+something and does not or cannot grab it, it will not be holding it in the next state:
+
+Va,x,s Holding(x,s) A (a#Release) > Holding(x, Result(a, s))
+Va,x,s —Holding(x,s) A (a#GrabV 7(Present(x,s) A Portable(x))
+=> >Holding(x, Result(a, s))
+
+Axioms like these that describe how the world stays the same (as opposed to how it changes) are
+called frame axioms.'° Togethers effectaxioms and frame axiomsprovide a complete description
+ofhow the world evolves in response to the agent's actions.
+
+We can obtain a more elegant representation by combining the effect axioms and fia
+axioms into a single axiom that describes how to compute the Holding predicate for the next time
+step, given its value for the current time step. The axiom has the following structure:
+
+true afterwards <= [an action made it true
+V__ true already and no action made it false]
+
+Notice the use of * < ™ here. It says that the predicate will be true after the action ifit is made
+true or if it stays true; and that it will be false afterwards in other cases. In the case of Holding,
+
+the axiom is the following:
+
+Va,x,s Holding(x, Result(a,s)) <<  [(a= Grab A Present(x,5) A Portable(x))
+V_— (Holding(x, s) A a#Release)}
+
+This axiom is called a successor-state axiom. One such axiom is needed for each predicate that
+may change its value over time. A successor-state axiom must list all.the ways in | Which the
+
+predicate can become true, and all the ways in which it can become false. a
+
+Keeping track of location
+
+In the wumpus world, location is probably the most important thing to worry about; it cannot be
+perceived directly, but the agent needs to remember where it has been and what it saw there in
+order to deduce where pits and wumpuses are and to make sure it does a complete exploration.
+for the gold. We have already seen that the initial location can be described by the sentence
+At(Agent, [1, 1],So). The agent also needs to know the following:
+
++ What direction it is facing (an angle in degrees, where 0 degrees is out along the X-axis,
+90 degrees is up along the Y-axis, and so on):
+
+Orientation(Agent, So) =0
+
+* How locations are arranged (a simple “map”). The map consists of values of the function
+LocationToward, Which takes a location and a direction and gives the location that is one
+
+10 The name derives from film animation, where the background image usually remains constant as the characters move
+around from frame to frame.
+

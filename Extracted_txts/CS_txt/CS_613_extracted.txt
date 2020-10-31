@@ -1,0 +1,67 @@
+160
+
+Chapter 6. Agents that Reason Logically
+
+ 
+
+PROOF
+
+‘COMPLETE
+
+ 
+
+ 
+
+PROOF THEORY
+
+which is pronounced "Alpha is derived from KB by 7” or “ derives alpha from KB.” Sometimes
+the inference procedure is implicit and the i is omitted. The record of operation of a sound
+inference procedure is called a proof.
+
+In understanding entailment and proof, it may help to think of the set of all consequences
+of KB as a haystack and a as a needle. Entailment is like the needle being in the haystack; proof
+is like finding it. For real haystacks, which are finite in extent, it seems obvious that a systematic
+examination can always decide whether the needle is in the haystack. This is the question
+of completeness: an inference procedure is complete if it can find a proof for any sentence
+that is entailed. But for many knowledge bases, the haystack of consequences is infinite, and
+completeness becomes an important issue.>
+
+We have said that sound inference is desirable. How is it achieved? The key to sound
+inference is to have the inference steps respect the semantics of the sentences they operate upon.
+That is, given a knowledge base, KB, the inference steps should only derive new sentences that
+represent facts that follow from the facts represented by KB. By examining the semantics of
+logical languages, we can extract what is called the proof theory of the language, which specifies
+the reasoning steps that are sound. Consider the following familiar example from mathematics,
+which illustrates syntax, semantics, and proof theory. Suppose we have the following sentence:
+
+E=me
+The syntax of the "equation language" allows two expressions to be connected by an “=” sign.
+An expression can be a simple symbol or number, a concatenation of two expressions, two
+expressions joined by a “+” sign, and so on. The semantics of the language says that the
+two expressions on each side of “=” refer to the same quantity; that the concatenation of two
+expressions refers to the quantity that is the product of the quantities referred to by each of the
+expressions; and so on. From the semantics, we can show that a new sentence can be generated
+by, for example, concatenating the same expression to both sides of the equation:
+
+ET = me*T
+Most readers will have plenty of experience with inference of this sort. Logical languages are like
+this simple equation language, but rather than dealing with algebraic properties and numerical
+
+quantities, they must deal with more or less everything we might want to represent and about
+which we might want to reason.
+
+Representation
+
+We will now look a little more deeply into the nature of knowledge representation languages,
+with the aim of designing an appropriate syntax and semantics. We will begin with two familiar |
+classes of languages, programming languages and natural languages, to see what they are good
+at representing and where they have problems. ”
+Programming languages (such as C or Pascal or Lisp) are good for describing algorithms
+and concrete data structures. We could certainly imagine using an 4 x 4 array to represent
+the contents of the wumpus world, for example. Thus, the programming language statement
+World{2,2|\— Pit is a fairly natural way to say that there is a pit in square [2,2]. However, most
+
+3 Compare with the case of infinite search spaces in Chapter 3, where depth-first search is not complete
+
+ 
+

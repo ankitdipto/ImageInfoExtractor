@@ -1,0 +1,41 @@
+642 Let UsC
+
+ 
+
+opposite to their order of installation. This means the last hook
+procedure installed is the first one to get called.
+
+If the nCode parameter contains a value HC_ACTION it means
+that the message that was just removed form the system message
+queue was a keyboard message. If it is so, then we have checked
+the previous state of the key before the message was sent. If the
+state of the key was ‘depressed’ (30" bit of IParam is 1) then we
+have obtained the state of the CapsLock key by calling the
+GetKeyState( ) API function. If it is off (0 bit of state variable is
+0) then we have turned on the CapsLock by simulating a keypress.
+For this simulation we have called the function keybd_event( )
+twice—first call is for pressing the CapsLock and second is for
+releasing it. Note that keybd_event( ) creates a keyboard message
+from the parameters that we pass to it and posts it into the system
+message queue. The parameter VK_CAPITAL represents the code
+for the CapsLock key.
+
+A word of caution! When we use keybd_event() to post keyboard
+message for a simulated CapsLock keypress, once again our hook
+procedure would be called when these messages are retrieved from
+the system message queue. But this time the CapsLock would be
+on so we would end up passing control to the next hook procedure
+through a call to CallNextHookEx().
+
+When we close the application window as usual the OnDestroy( )
+would be called. In this handler we have obtained the address of
+the removehook( ) exported function and called it. In the
+removehook( ) function we have unregistered our hook procedure
+by calling the UnhookWindowsHookEx( ) API function. Note
+that to this function we have passed the handle to our hook. As a
+result our hook procedure is now removed from the hook chain.
+Hereafter the CapsLock would behave normally. Having unhooked
+our hook procedure the control would return to OnDestroy( )
+handler where we have promptly unload the DLL from memory by
+calling the FreeLibrary() API function.
+

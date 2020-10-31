@@ -1,0 +1,51 @@
+266  Chapter8 Deadlocks
+
+8.8 = Summary
+
+A deadlock state occurs when two or more processes are waiting indefinitely for
+an event that can be caused only by one of the waiting processes. Principally,
+there are three methods for dealing with deadlocks:
+
+Use some protocol to prevent or avoid deadlocks, ensuring that the system
+will never enter a deadlock state.
+
+Allow the system to enter deadlock state, detect it, and then recover.
+
+Ignore the problem all together, and pretend that deadlocks never occur
+in the system. This solution is the one used by most operating systems,
+including UNIX.
+
+A deadlock situation may occur if and only if four necessary conditions
+hold simultaneously in the system: mutual exclusion, hold and wait, no pre-
+emption, and circular wait. To prevent deadlocks, we ensure that at least one of
+the necessary conditions never holds.
+
+Another method for avoiding deadlocks that is less stringent than the
+prevention algorithms is to have a priori information on how each process will
+be utilizing the resources. The banker's algorithm, for example, needs to know
+the maximum number of each resource class that may be requested by each
+process. Using this information, we can define a deadlock-avoidance algorithm.
+
+If a system does not employ a protocol to ensure that deadlocks will never
+occur, then a detection-and-recovery scheme must be employed. A deadlock-
+detection algorithm must be invoked to determine whether a deadlock has
+occurred. If a deadlock is detected, the system must recover either by terminat-
+ing some of the deadlocked processes, or by preempting resources from some
+of the deadlocked processes.
+
+Ina system that selects victims for rollback primarily on the basis of cost
+factors, starvation may occur. As a result, the selected process never completes
+its designated task.
+
+= Exercises
+
+8.1 List three examples of deadlocks that are not related to a computer-system
+environment.
+
+8.2 Is it possible to have a deadlock involving only one process? Explain your
+answer.
+
+8.3 People have said that proper spooling would eliminate deadlocks. Cer-
+tainly, it eliminates from contention card readers, plotters, printers, and so
+on. It is even possible to spool tapes (called staging them), which would
+

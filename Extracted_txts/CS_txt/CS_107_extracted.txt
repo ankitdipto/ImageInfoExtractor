@@ -1,0 +1,48 @@
+728
+
+Chapter 26 Maximum Flow
+
+ 
+
+(a) (b) (©)
+
+Figure 26.7 (a) A flow network for which FORD-FULKERSON can take @(E | f*|) time,
+where f* is a maximum flow, shown here with |/*] = 2,000,000. The shaded path is an aug-
+menting path with residual capacity 1. (b) The resulting residual network, with another augmenting
+path whose residual capacity is 1. (c) The resulting residual network.
+
+Proof We will suppose that for some vertex v € V — {s.r}, there is a flow aug-
+mentation that causes the shortest-path distance from s to v to decrease, and then
+we will derive a contradiction. Let f be the flow just before the first augmentation
+that decreases some shortest-path distance, and let f’ be the flow just afterward.
+Let v be the vertex with the minimum 4;/(s, v) whose distance was decreased by
+the augmentation, so that 6f/(s,v) < 5¢(s,v). Let p = s ~ u > v bea shortest
+path from s to v in Gy, so that (u,v) € Ey and
+
+bp(s.u) = d¢(s,v)—1. (26.12)
+Because of how we chose v, we know that the distance of vertex u from the source 5
+did not decrease, i.e.,
+
+5p(8,u) = bf (s,u). (26.13)
+We claim that (u,v) ¢ Ey. Why? If we had (u,v) € Ey, then we would also have
+5(s.v) < 8¢(s,u) +1 (by Lemma 24.10, the triangle inequality)
+
+5¢-(s,u) +1 (by inequality (26.13))
+
+5p (8. v) (by equation (26.12)) ,
+
+IA
+
+which contradicts our assumption that 5¢/(s,v) < 5¢(s,v).
+
+How can we have (u,v) ¢ Ey and (u,v) € Ey? The augmentation must
+have increased the flow from v to u. The Edmonds-Karp algorithm always aug-
+ments flow along shortest paths, and therefore the shortest path from s to u in Gy
+has (v, u) as its last edge. Therefore,
+
+5p(s.v) = d¢(s.u)—1
+5(s,u) — 1 (by inequality (26.13))
+5¢-(s,v) —2 (by equation (26.12)) ,
+
+A
+

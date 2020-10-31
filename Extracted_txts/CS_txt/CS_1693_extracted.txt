@@ -1,0 +1,51 @@
+Bibliographical Notes 187
+
+feedback queues require parameters to define the number of queues, the
+scheduling algorithms for each queue, the criteria used to move processes
+between queues, and so on.
+
+These algorithms are thus really sets of algorithms (for example, the
+set of RR algorithms for all time slices, and so on). One set of algorithms
+may include another (for example, the FCFS algorithm is the RR algorithm
+with an infinite time quantum). What (if any) relation holds between the
+following pairs of sets of algorithms?
+
+a. Priority and SJF
+
+b. Multilevel feedback queues and FCFS
+¢. Priority and FCFS
+
+d. RRand SJF
+
+6.9 Suppose that a scheduling algorithm (at the level of short-term CPU
+scheduling) favors those processes that have used the least processor time
+in the recent past. Why will this algorithm favor I/O-bound programs and
+yet not permanently starve CPU-bound programs?
+
+6.10 Explain the differences in the degree to which the following scheduling
+algorithms discriminate in favor of short processes:
+
+a. FCFS
+b. RR
+
+c. Multilevel feedback queues
+
+Bibliographical Notes
+
+Lampson [1968] provided general discussions concerning scheduling. More
+formal treatments of scheduling theory were contained in Kleinrock [1975],
+Sauer and Chandy [1981], and Lazowska et al. [1984]. A unifying approach
+to scheduling was presented by Ruschizka and Fabry [1977]. Haldar and
+Subramanian [1991] discuss fairness in processor scheduling in time-sharing
+systems.
+
+Feedback queues were originally implemented on the CTSS system
+described in Corbato et al. [1962]. This feedback queueing system was
+analyzed by Schrage [1967]; variations on multilevel feedback queues were
+studied by Coffman and Kleinrock [1968]. Additional studies were presented
+by Coffman and Denning [1973] and Svobodova [1976]. A data structure for
+manipulating priority queues was presented by Vuillemin [1978].
+
+Anderson et al. [1989] discussed thread scheduling. Discussions concerning
+multiprocessor scheduling were presented by Jones and Schwarz [1980], Tucker
+

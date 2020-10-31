@@ -1,0 +1,49 @@
+12.2 File-System Implementation 413
+
+to take. The details of device drivers and the I/O infrastructure are covered in
+Chapter 13.
+
+The basic file system needs only to issue generic commands to the appro-
+priate device driver to read and write physical blocks on the disk. Each physical
+block is identified by its numeric disk address (for example, drive 1, cylinder
+73, track 2, sector 10).
+
+The file-organization module knows about files and their logical blocks,
+as well as physical blocks. By knowing the type of file allocation used and
+the location of the file, the file-organization module can translate logical block
+addresses to physical block addresses for the basic file system to transfer. Each
+file’s logical blocks are numbered from 0 (or 1) through N, whereas the physical
+blocks containing the data usually do not match the logical numbers, so a
+translation is needed to locate each block. The file-organization module also
+includes the free-space manager, which tracks unallocated blocks and provides
+these blocks to the file-organization module when requested.
+
+Finally, the logical file system manages metadata information. Metadata
+includes all of the file-system structure, excluding the actual data (or contents of
+the files). The logical file system manages the directory structure to provide
+the file-organization module with the information the latter needs, given a
+symbolic file name. It maintains file structure via file control blocks. A file
+control block (FCB) contains information about the file, including ownership,
+permissions, and location of the file contents. The logical file system is also
+responsible for protection and security, as was discussed in Chapter 11 and will
+be further discussed in Chapter 18.
+
+Many implemented file systems currently exist. Most operating systems
+support more than one file system. For example, most CD-ROMs are written
+in the High Sierra format, which is a standard format agreed upon by CD-ROM
+manufacturers. Without such a standard, there would be little or no interoper-
+ability between systems trying to use CD-ROMs. Aside from removable media
+file systems, each operating system has one (or more) disk-based file system.
+UNIX uses the UNIX file system (UFS) as a base. Windows NT supports disk
+file-system formats of FAT, FAT32 and NTFS (or Windows NT File System), as
+well as CD-ROM, DVD, and floppy-disk file-system formats. By using a layered
+structure for file-system implementation, duplication of code is minimized. The
+1/0 control and sometimes the basic file system code can be used by multiple
+file systems. Each file system may then have its own logical file system and
+file-organization modules.
+
+12.2 = File-System Implementation
+
+As was described in Section 11.1.2, operating systems implement open and
+close systems calls for processes to request access to file contents. In this
+

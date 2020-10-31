@@ -1,0 +1,49 @@
+1012
+
+Chapter 32 String Matching
+
+32.44
+Use an aggregate analysis to show that the running time of KMP-MATCHER
+is O(n).
+
+32.4-5
+Use a potential function to show that the running time of KMP-MATCHER is ©(7).
+
+324-6
+
+Show how to improve KMP-MATCHER by replacing the occurrence of z in line 7
+(but not line 12) by z’, where z’ is defined recursively for g = 1,2,..., m—l1by
+the equation
+
+0 if z[g]=0.
+w[q\ = ) x'[xlq]]_ if x[g] A Oand P[x[q] + 1] = Plg +1].
+xq] if x[q] A Oand P[x[q] + 1] 4 Pla +1).
+
+Explain why the modified algorithm is correct, and explain in what sense this
+change constitutes an improvement.
+
+32.4-7
+Give a linear-time algorithm to determine whether a text T is a cyclic rotation of
+another string T’. For example, arc and car are cyclic rotations of each other.
+
+324-8 x
+
+Give an O(m |Z])-time algorithm for computing the transition function 6 for the
+string-matching automaton corresponding to a given pattern P. (Hint: Prove that
+5(q,a) = 8(a[q].a) if g = mor P[g+ 1] 4a.)
+
+ 
+
+Problems
+
+32-1 String matching based on repetition factors
+
+Let y' denote the concatenation of string y with itself 7 times. For example,
+(ab)? = ababab. We say that a string x € D* has repetition factor r if x = y"
+for some string y € &* and some r > 0. Let p(x) denote the largest r such that x
+has repetition factor r.
+
+a. Give an efficient algorithm that takes as input a pattem P[1..m] and computes
+the value p(P;) fori = 1,2,...,m. What is the running time of your algo-
+rithm?
+

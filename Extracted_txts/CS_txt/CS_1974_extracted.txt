@@ -1,0 +1,52 @@
+12.4 Allocation Methods 421
+
+instance, by using the remainder of a division by 64. If we later try to create
+a 65th file, we must enlarge the directory hash table—say, to 128 entries. As
+a result, we need a new hash function that must map file names to the range
+0 to 127, and we must reorganize the existing directory entries to reflect their
+new hash-function values. Alternately, a chained-overflow hash table can be
+used. Each hash entry can be a linked list instead of an individual value, and
+we can resolve collisions by adding the new entry to the linked list. Lookups
+may be somewhat slowed, because searching for a name might require stepping
+through a linked list of colliding table entries, but this is likely to be much faster
+than a linear search through the entire directory.
+
+12.4 = Allocation Methods
+
+The direct-access nature of disks allows us flexibility in the implementation of
+files. In almost every case, many files will be stored on the same disk. The
+main problem is how to allocate space to these files so that disk space is utilized
+effectively and files can be accessed quickly. Three major methods of allocating
+disk space are in wide use: contiguous, linked, and indexed. Each method has
+advantages and disadvantages. Some systems (such as Data General’s RDOS
+for its Nova line of computers) support all three. More commonly, a system
+will use one particular method for all files.
+
+12.4.1 Contiguous Allocation
+
+The contiguous-allocation method requires each file to occupy a set of contigu-
+ous blocks on the disk. Disk addresses define a linear ordering on the disk.
+With this ordering, assuming that only one job is accessing the disk, accessing
+block b + 1 after block 6 normally requires no head movement. When head
+movement is needed (from the last sector of one cylinder to the first sector of the
+next cylinder), it is only one track. Thus, the number of disk seeks required for
+accessing contiguously allocated files is minimal, as is seek time when a seek is
+finally needed. The IBM VM/CMS operating system uses contiguous allocation
+because it provides such good performance.
+
+Contiguous allocation of a file is defined by the disk address and length (in
+block units) of the first block. If the file is n blocks long and starts at location
+b, then it occupies blocks b, b + 1, b + 2, ...,b +n — 1. The directory entry for
+each file indicates the address of the starting block and the length of the area
+allocated for this file (Figure 12.5).
+
+Accessing a file that has been allocated contiguously is easy. For sequential
+access, the file system remembers the disk address of the last block referenced
+and, when necessary, reads the next block. For direct access to block i of a
+file that starts at block b, we can immediately access block b + i. Thus, both
+sequential and direct access can be supported by contiguous allocation.
+
+   
+
+ 
+

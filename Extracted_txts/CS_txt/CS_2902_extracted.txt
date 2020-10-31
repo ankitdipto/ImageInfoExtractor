@@ -1,0 +1,57 @@
+368
+
+Chapter 12. Practical Planning
+
+ 
+
+treated as objects that take up time and have ordering constraints; their effects are ignored.
+This avoids the need for knowledge engineering, and for one-shot problems it may be the
+most appropriate solution. For most practical applications, however, there will be many related
+problems to solve, so it is worth the effort to describe the domain and then have the plans
+automatically generated. This is especially important during the execution of plans. Ifa step of
+a plan fails, it is often necessary to replan quickly to get the project back on track. PERT charts
+do not contain the causal links and other information needed to see how to fix a plan, and human
+replanning is often too slow.
+
+The success of real-world AI systems requires integration into the environment in which
+they operate. It is vital that a planner be able to access existing databases of project information
+in whatever format they might have, and that the planner's input and output representations be in
+a form that is both expressive and easily understood by users. The STRIPS language is insufficient
+for the AIV domain because it cannot express four key concepts:
+
+1. Hierarchical plans: Obviously, launching a spacecraft is more complicated than shopping
+for groceries. One way to handle the increased complexity is to specify plans at varying
+levels of detail. The top-level plan might be: prepare booster rocket, prepare capsule,
+load cargo, and launch. There might be a dozen intermediate levels before we finally get
+down to the level of executable actions: insert nut 4 into hole B and fasten with bolt C.
+Adding the ability to represent hierarchical plans can make the difference between feasible
+and infeasible computation, and it can make the resulting plan easier to understand. It
+also allows the user to provide guidance to the planner in the form of a partially specified,
+abstract plan for which the planner can fill in the details.
+
+2. Complex conditions: STRIPS operators are essentially propositional. True, they do allow
+variables, but the variables are used in a very limited way. For example, there is no universal
+quantification, and without it we cannot describe the fact that the Launch operator causes
+all the objects that are in the spacecraft to go into orbit. Similarly, STRIPS operators are
+unconditional: we cannot express the fact that ifall systems are go, then the Launch will
+put the spacecraft into orbit, otherwise it will put it into the ocean.
+
+3. Time: Because the STRIPS language is based on situation calculus it assumes that all actions
+occur instantaneously, and that one action follows another with no break in between. Real-
+world projects need a better model of time. They must represent the fact that projects have
+deadlines (the spacecraft must be launched on June 17), actions have durations (it takes 6
+hours to test the XYZ assembly), and steps of plans may have time windows (the machine +
+that tests the XYZ assembly is available from May 1 to June 1 (except weekends), but it
+must be reserved one week ahead of time). Indeed, the major contribution of traditional
+OR techniques is to satisfy time constraints for a complete partial-order plan.
+
+4. Resources: A project normally has a budget that cannot be exceeded, so the plan must
+be constrained to spend no more money than is available. Similarly, there are limits on
+the number of workers that are available, and on the number of assembly and test stations.
+Resource limitations may be placed on the number of things that may be used at at one time
+(e.g., people) or on the total amount that may be used (e.g., money). Action descriptions
+must incorporate resource consumption and generation, and planning algorithms must be
+able to handle constraints on resources efficiently.
+
+ 
+

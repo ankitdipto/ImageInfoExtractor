@@ -1,0 +1,63 @@
+Chapter 18. Leaming from Observations
+
+ 
+
+decision tree,* In setting this up as a learning problem, we first have to decide what properties or
+attributes are available to describe examples in the domain.® Suppose we decide on the following
+list of attributes:
+
+. Alternate: whether there is a suitable altemative restaurant nearby.
+
+2. Bar. whether the restaurant has a comfortable bar area to wait in.
+
+3. Fri/Sat: true on Fridays and Saturdays.
+
+4. Hungry: whether we are hungry.
+
+5. Patrons: how many people are in the restaurant (values are None, Some, and Full).
+6. Price: the restaurant's price range (S, $$, $$$).
+
+7. Raining: whether it is raining outside.
+
+8. Reservation: whether we made a reservation.
+
+9. Type: the kind of restaurant (French, Italian, Thai, or Burger).
+
+0. WaitEstimate: the wait estimated by the host (0-10 minutes, 10-30, 30-60, >60).
+
+The decision tree usually used by the first author for this domain is shown in Figure 18.4. Notice
+that the tree does not use the Price and Type attributes, considering these to be irrelevant given the
+data it has seen. Logically, the tree can be expressed as a conjunction of individual implications
+corresponding to the paths through the tree ending in Yes nodes. For example, the path for a
+restaurant full of patrons, with an estimated wait of 10-30 minutes when the agent is not hungry
+is expressed by the logical sentence
+
+Vr Patrons(r, Full) \ WaitEstimate(r,0-10)A Hungry(r,N)=> WillWait(r)
+
+Expressiveness of decision trees
+
+If decision trees correspond to sets of implication sentences, a natural question is whether they
+can represent any set. The answer is no, because decision trees are implicitly limited to talking
+about a single object. That is, the decision tree language is essentially propositional, with each
+attribute test being a proposition. We cannot use decision trees to represent tests that refer to two
+or more different objects, for example,
+
+Ar Nearby(r2, r) A Price(r,p) A Price(rz,p2) A Cheaper(p2, p)
+
+(is there a cheaper restaurant nearby). Obviously, we could add another Boolean attribute with
+the name CheaperRestaurantNearby,but it is intractable to add all such attributes.
+
+Decision trees are fully expressive within the class of propositional languages, that is, any
+Boolean function can be written as a decision tree. This can be done trivially by having each row
+in the truth table for the function correspond to a path in the tree. This would not necessarily be
+a good way to represent the function, because the truth table is exponentially large in the number
+ofattributes. Clearly, decision trees can represent many functions with much smaller trees.
+
+5 Meanwhile, the automated taxi is leaming whether to wait for the passengers in case they give up waiting for a table
+and want to go on to another restaurant
+
+* One might ask why this isn't the job of the leaming program. In fact, it is, but we will not be able to explain how itis
+done until Chapter 21.
+
+ 
+

@@ -1,0 +1,50 @@
+1114
+
+Chapter 35 Approximation Algorithms
+
+By Exercise 23.2-2, even with a simple implementation of MST-PRIM, the run-
+ning time of APPROX-TSP-Tour is @(V7). We now show that if the cost function
+for an instance of the traveling-salesman problem satisfies the triangle inequality,
+then APPROX-TSP-TOUR returns a tour whose cost is not more than twice the cost
+of an optimal tour.
+
+Theorem 35.2
+APPROX-TSP-TouR is a polynomial-time 2-approximation algorithm for the
+traveling-salesman problem with the triangle inequality.
+
+Proof We have already seen that APPROX-TSP-TOUR runs in polynomial time.
+
+Let H* denote an optimal tour for the given set of vertices. We obtain a spanning
+tree by deleting any edge from a tour, and each edge cost is nonnegative. Therefore,
+the weight of the minimum spanning tree T computed in line 2 of APPROX-TSP-
+TOUR provides a lower bound on the cost of an optimal tour:
+
+c(T) <c(H*). (35.4)
+A full walk of T lists the vertices when they are first visited and also whenever
+
+they are returned to after a visit to a subtree. Let us call this full walk W. The full
+walk of our example gives the order
+
+a,b,c, b,h,b,a,d,e, fie,g.e.d.a.
+
+Since the full walk traverses every edge of T exactly twice, we have (extending
+our definition of the cost c in the natural manner to handle multisets of edges)
+
+c(W) = 2c(T). (35.5)
+Inequality (35.4) and equation (35.5) imply that
+c(W) < 2c(H*), (35.6)
+
+and so the cost of W is within a factor of 2 of the cost of an optimal tour.
+
+Unfortunately, the full walk W is generally not a tour, since it visits some ver-
+tices more than once. By the triangle inequality, however, we can delete a visit to
+any vertex from W and the cost does not increase. (If we delete a vertex v from W
+between visits to u and w, the resulting ordering specifies going directly from u
+to w.) By repeatedly applying this operation, we can remove from W all but the
+first visit to each vertex. In our example, this leaves the ordering
+
+a,b.c,h,d,e, fig.
+
+This ordering is the same as that obtained by a preorder walk of the tree T. Let H
+be the cycle corresponding to this preorder walk. It is a hamiltonian cycle, since ev-
+

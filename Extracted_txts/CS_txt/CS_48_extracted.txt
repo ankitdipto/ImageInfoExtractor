@@ -1,0 +1,50 @@
+Problems for Chapter 24 679
+
+24-3 Arbitrage
+Arbitrage is the use of discrepancies in currency exchange rates to transform one
+unit of a currency into more than one unit of the same currency. For example,
+suppose that 1 U.S. dollar buys 49 Indian rupees, | Indian rupee buys 2 Japanese
+yen, and | Japanese yen buys 0.0107 U.S. dollars. Then, by converting currencies,
+a trader can start with 1 U.S. dollar and buy 49 x 2 x 0.0107 = 1.0486 U.S. dollars,
+thus turning a profit of 4.86 percent.
+
+Suppose that we are given n currencies C1,C2,..., Cy and ann x n table R of
+exchange rates, such that one unit of currency c; buys R[i, j] units of currency c;.
+
+a. Give an efficient algorithm to determine whether or not there exists a sequence
+of currencies (¢;,,Cj,..--. c;,) Such that
+
+Riis, iz] - Rliz.is]-+- Rlixa.i¢]: Rik.) > 1.
+Analyze the running time of your algorithm.
+
+b. Give an efficient algorithm to print out such a sequence if one exists. Analyze
+the running time of your algorithm.
+
+24-4 Gabow’s scaling algorithm for single-source shortest paths
+
+A scaling algorithm solves a problem by initially considering only the highest-
+order bit of each relevant input value (such as an edge weight). It then refines the
+initial solution by looking at the two highest-order bits. It progressively looks at
+more and more high-order bits, refining the solution each time, until it has exam-
+ined all bits and computed the correct solution.
+
+In this problem, we examine an algorithm for computing the shortest paths from
+asingle source by scaling edge weights. We are given a directed graph G = (V, E)
+with nonnegative integer edge weights w. Let W = maxqw vex {w(u,v)}. Our
+goal is to develop an algorithm that runs in O(E lg W) time. We assume that all
+vertices are reachable from the source.
+
+The algorithm uncovers the bits in the binary representation of the edge weights
+one at a time, from the most significant bit to the least significant bit. Specifically,
+let k = [lg(W + 1)] be the number of bits in the binary representation of W,
+and fori = 1,2,...,k, let wi(u,v) = [w(u, v)/2** |. That is, w; (u,v) is the
+“scaled-down” version of w(u,v) given by the i most significant bits of w(u, v).
+(Thus, wxe(u,v) = w(u,v) for all (u,v) € E.) For example, if k = 5 and
+w(u,v) = 25, which has the binary representation (11001), then w3(u,v) =
+(110) = 6. As another example with k = 5, if w(u.v) = (00100) = 4, then
+w3(u,v) = (001) = 1. Let us define 5;(u,v) as the shortest-path weight from
+vertex u to vertex v using weight function w;. Thus, 5¢(u,v) = 6(u,v) for all
+u,v € V. For a given source vertex s, the scaling algorithm first computes the
+
+ 
+

@@ -1,0 +1,44 @@
+SECTION 13 Boolean Algebra 9
+
+to the function x’y’. Similarly, a NAND function can be expressed by either
+(xyy' or (x + y’). For this reason the NOR and NAND gates have two distinct
+graphic symbols, as shown in Figs. 1-4 and 1-5. Instead of representing aNOR
+gate with an OR graphic symbol followed by a circle, we can represent it by
+an AND graphic symbol preceded by circles in all inputs. The invert-AND
+symbol for the NOR gate follows from DeMorgan’s theorem and from the
+convention that small circles denote complementation. Similarly, the NAND
+gate has two distinct symbols, as shown in Fig. 1-5.
+
+To see how Boolean algebra manipulation is used to simplify digital
+circuits, consider the logic diagram of Fig. 1-6 (a). The output of the circuit can
+be expressed algebraically as follows:
+
+ 
+
+F = ABC + ABC’ + A'C
+
+Each term corresponds to one AND gate, and the OR gate forms the logical
+sum of the three terms. Two inverters are needed to complement A’ and C’.
+The expression can be simplified using Boolean algebra
+
+F = ABC + ABC’ + A'C = ABC + C’) + A'C
+=AB+A'C
+Note that (C + C)’ = 1 by identity 7 and AB -1 = ABby identity 4 in Table 1-1.
+The logic diagram of the simplified expression is drawn in Fig. 1-6 (b). It
+requires only four gates rather than the six gates used in the circuit of Fig.
+
+1-6 (a) The two circuits are equivalent and produce the same truth table rela-
+tionship between inputs 4, B, C and output F.
+
+Figure 1-4 Two graphic symbols for NOR gate.
+
+er eve-enen
+
+(2) ORinvert (b) invert AND.
+
+Figure 1-5 Two graphic symbols for NAND gate.
+
+= Sr rr cen
+
+(2) ANDénvert (b) invert OR
+

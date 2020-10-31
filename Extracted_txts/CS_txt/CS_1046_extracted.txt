@@ -1,0 +1,58 @@
+Section 7.3.
+
+Using First-Order Logic 199
+
+ 
+
+with three sides and as a polygon with three angles. Many predicates will have no complete
+definition of this kind, because we do not know enough to fully characterize them. For example,
+how would you complete the sentence:
+
+Vx Person(x)
+
+Fortunately, first-order logic allows us to make use of the Person predicate without completely
+defining it. Instead we can write partial specifications of properties that every person has and
+properties that make something a person:
+
+Vx Person(x) =>
+Vx... => Person(x)
+
+The domain of sets
+
+The domain of mathematical sets is somewhat more abstract than cats or kings, but nevertheless
+forms a coherent body of knowledge that we would like to be able to represent. We want to be
+able to represent individual sets, including the empty set. We need a way to build up sets by
+adding an element to a set or taking the union or intersection of two sets. We will want to know
+ifan element is a member of a set, and to be able to distinguish sets from objects that are not sets
+
+We will use the normal vocabulary of set theory: EmprySert is a constant; Member and
+Subset are predicates; and Intersection, Union, and Adjoin are functions. (Adjoin is the function
+that adds one element to a set.) Set is a predicate that is true only of sets. The following eight
+axioms provide this:
+
+1. The only sets are the empty set and those made by adjoining something to a set.
+Vs Set(s) <$ (s =EmptySet) V (Ax,s2 Set(sz) A s = Adjoin(x, s2))
+
+2. The empty set has no elements adjoined into it. (In other words, there is no way to
+decompose EmptySet into a smaller set and an element.)
+
+s]x,5 Adjoin(x,s) - EmptySet
+3. Adjoining an element already in the set has no effect:
+Vx,5 Member(x,s)  s=Adjoin(x,s)
+
+4. The only members of a set are the elements that were adjoined into it. We express this
+recursively, saying that is a member of if and only if 5 is equal to some set 52 adjoined
+with some element y, where either y is the same as x or x is a member of.
+
+Vx,s Member(x,s) @
+3y, 82 (8 =Adjoin(y.s2) A (x =y V Member(x,52)))
+
+5. A set is a subset of another if and only if all of the first set's members are members of the
+second set.
+
+Vs1,s2 Subset(s\,s2) <> (Wx Member(x,s,) = Member(x,s2))
+6. Two sets are equal if and only if each is a subset of the other.
+Vsi.82 (81 =52) <> (Subset(s),82)\ Subset(s2.81))
+
+ 
+

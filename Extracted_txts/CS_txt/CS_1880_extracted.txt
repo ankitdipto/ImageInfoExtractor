@@ -1,0 +1,143 @@
+342 Chapter10 Virtual Memory
+
+chance will not be replaced until all other pages are replaced (or given second
+chances). In addition, if a page is used often enough to keep its reference bit set,
+it will never be replaced.
+
+One way to implement the second-chance (sometimes referred to as the
+clock) algorithm is as a circular queue. A pointer indicates which page is to be
+replaced next. When a frame is needed, the pointer advances until it finds a
+page with a 0 reference bit. As it advances, it clears the reference bits (Figure
+40.14). Once a victim page is found, the page is replaced, and the new page
+is inserted in the circular queue in that position. Notice that, in the worst
+case, when all bits are set, the pointer cycles through the whole queue, giving
+each page a second chance. It clears all the reference bits before selecting the
+next page for replacement. Second-chance replacement degenerates to FIFO
+replacement if all bits are set.
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+reference pages reference pages
+bits bits
+0 0
+=
+0 0
+2 2
+1 0
+3 comp [|
+i
+1 1
+circular queue of pages circular queue of pages
+
+(a) (b)
+
+Figure 10.14 Second-chance (clock) page-replacement algorithm.
+

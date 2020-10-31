@@ -1,0 +1,55 @@
+31.8  Primality testing 969
+
+compute a”! mod n by first computing a" mod n and then squaring the result f
+times successively.
+
+WITNESS (a, 1)
+
+1 let t and u be such that t > 1, u is odd, and n — 1 = 2'u
+2 x9 = MODULAR-EXPONENTIATION (a, u, 1)
+
+3 fori = ltor
+
+4 X; = x?_, modn
+
+5 if x; == | and x;_, # 1 and x;_; An—-1
+
+6 return TRUE
+
+7 ifx,A1
+
+8 return TRUE
+
+9 return FALSE
+
+This pseudocode for WITNESS computes a”! mod n by first computing the
+value X) = a" mod 7 in line 2 and then squaring the result ¢ times in a row in the
+for loop of lines 3-6. By induction on i, the sequence Xo, X;,..., X, of values
+computed satisfies the equation x; = a?” (mod n) fori = 0,1,...,f, so that in
+particular x, = a"! (mod). After line 4 performs a squaring step, however,
+the loop may terminate early if lines 5-6 detect that a nontrivial square root of 1
+has just been discovered. (We shall explain these tests shortly.) If so, the algo-
+rithm stops and returns TRUE. Lines 7-8 return TRUE if the value computed for
+x, =a"! (mod n) is not equal to 1, just as the PSEUDOPRIME procedure returns
+COMPOSITE in this case. Line 9 returns FALSE if we haven’t returned TRUE in
+lines 6 or 8.
+
+We now argue that if WITNESS(a,) retums TRUE, then we can construct a
+proof that n is composite using a as a witness.
+
+If WITNESS returns TRUE from line 8, then it has discovered that x, =
+a"! modn # 1. Ifn is prime, however, we have by Fermat’s theorem (Theo-
+rem 31.31) that a”~! = 1 (mod n) for all a € Z;*. Therefore, n cannot be prime,
+and the equation a”~! mod n # 1 proves this fact.
+
+If WITNESS returns TRUE from line 6, then it has discovered that x;_; is a non-
+trivial square root of 1, modulo n, since we have that x;_; # +1 (mod n) yet
+X; = x7, = 1 (mod n). Corollary 31.35 states that only if n is composite can
+there exist a nontrivial square root of 1 modulo n, so that demonstrating that x;_;
+is a nontrivial square root of 1 modulo n proves that n is composite.
+
+This completes our proof of the correctness of WITNESS. If we find that the call
+WITNESS (a, 1) returns TRUE, then 7 is surely composite, and the witness a, along
+with the reason that the procedure returns TRUE (did it return from line 6 or from
+line 8?), provides a proof that 1 is composite.
+

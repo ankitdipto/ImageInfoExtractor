@@ -1,0 +1,68 @@
+490
+
+Chapter 16. Making Simple Decisions
+
+ 
+
+yori
+
+value. Thus, VPI is not additive. That is,
+VPIe(EjEx) # VPIe(Ej)+ VPle(Ex) (in general)
+
+It is, however, order-independent, which should be intuitively obvious. That is,
+VPIe(Ej, E= VPIn(Ej)+ VPlee,(Exy= VPT(Ex)+ VPlep,(Ej)
+
+Order independence distinguishes sensing actions from ordinary actions, and simplifies the
+problem of calculating the value of a sequence of sensing actions.
+
+Implementing an information-gathering agent
+
+As we mentioned earlier, a sensible agent should ask questions of the user in a reasonable order,
+should avoid asking questions that are irrelevant, should take into account the importance ofeach
+piece of information in relation to its cost, and should stop asking questions when appropriate.
+All of these capabilities can be achieved by using the value of information as a guide.
+
+Figure 16.7 shows the overall design of an agent that can gather information intelligently
+before acting. For now, we will assume that with each observable evidence variable £;, there
+is an associated cost, Cost(E});which reflects the cost of obtaining the evidence through tests,
+consultants, questions, or whatever. The agent requests what appears to be the most valuable
+piece of information, compared to its cost. We assume that the result of the action Request(E))is
+that the next percept provides the value of E). Ifno observation is worth its cost, the agent selects
+a non-information-gathering action.
+
+ 
+
+function INFORMATION-GATHERING-AGENT(percept) returns an action
+static: D, a decision network
+
+integrate percept into D
+j the value that maximizes VPI(Ej) — Cost(E;)
+if VPIE;)> — Cost(E})
+
+then return REQUEST(E;)
+else return the best action from D
+
+ 
+
+ 
+
+Figure 16.7 Design of a simple information-gathering agent. The agent works by repeatedly
+selecting the observation with the highest information value, until the costs of observing are
+greater than the benefits.
+
+ 
+
+ 
+
+ 
+
+The agent algorithm we have described implements a form of information gathering that
+is called myopic. This is because it uses the VPI formula short-sightedly, calculating the value
+of information assuming that only a single evidence variable will be acquired. If there is no
+single evidence variable that will help a lot, a myopic agent may hastily take an action when
+it would have been better to request two or more variables first, and then take action. Myopic
+control is based on the same heuristic idea as greedy search, and often works well in practice.
+(For example, it has been shown to outperform expert physicians in selecting diagnostic tests.)
+
+ 
+

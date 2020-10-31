@@ -1,0 +1,41 @@
+ 
+
+14.2 Disk Scheduling 495
+
+the queue, for cylinders 14 and 186, and while servicing the request from 14, a
+new request near 14 arrives. This new request will be serviced next, making the
+request at 186 wait. While this request is being serviced, another request close to
+14could arrive. In theory, a continual stream of requests near one another could
+arrive, causing the request for cylinder 186 to wait indefinitely. This scenario
+becomes increasingly likely if the pending-request queue grows long.
+
+Although the SSTF algorithm is a substantial improvement over the FCFS
+algorithm, it is not optimal. In the example, we can do better by moving the
+head from 53 to 37, even though the latter is not closest, and then to 14, before
+turning around to service 65, 67, 98, 122, 124, and 183. This strategy reduces the
+total head movement to 208 cylinders.
+
+14.2.3 SCAN Scheduling
+
+In the SCAN algorithm, the disk arm starts at one end of the disk, and moves
+toward the other end, servicing requests as it reaches each cylinder, until it gets
+to the other end of the disk. At the other end, the direction of head movement is
+reversed, and servicing continues. The head continuously scans back and forth
+across the disk. We again use our example.
+
+Before applying SCAN to schedule the requests on cylinders 98, 183, 37,
+122, 14, 124, 65, and 67, we need to know the direction of head movement, in
+addition to the head’s current position (53). If the disk arm is moving toward
+0, the head will service 37 and then 14. At cylinder 0, the arm will reverse and
+will move toward the other end of the disk, servicing the requests at 65, 67, 98,
+122, 124, and 183 (Figure 14.3). If a request arrives in the queue just in front of
+the head, it will be serviced almost immediately; a request arriving just behind
+
+queue = 98, 183, 37, 122, 14, 124, 65, 67
+
+head starts at 53
+0 14 37 536567 98 122124 183 199
+foc
+
+Figure 14.3. SCAN disk scheduling.
+

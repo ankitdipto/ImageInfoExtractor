@@ -1,0 +1,132 @@
+306 Chapter9 Memory Management
+
+physical address where the segment resides in memory, whereas the segment
+limit specifies the length of the segment.
+
+The use of a segment table is illustrated in Figure 9.18. A logical address
+consists of two parts: a segment number, s, and an offset into that segment, d.
+The segment number is used as an index into the segment table. The offset d of
+the logical address must be between 0 and the segment limit. If it is not, we trap
+to the operating system (logical addressing attempt beyond end of segment). If
+this offset is legal, it is added to the segment base to produce the address in
+physical memory of the desired byte. The segment table is thus essentially an
+array of base—limit register pairs.
+
+‘As an example, consider the situation shown in Figure 9.19. We have five
+segments numbered from 0 through 4. The segments are stored in physical
+memory as shown. The segment table has a separate entry for each segment,
+giving the beginning address of the segment in physical memory (or base) and
+the length of that segment (or limit). For example, segment 2 is 400 bytes long
+
+      
+   
+  
+
+ 
+
+subroutine stack
+
+    
+
+1400
+
+ 
+
+ 
+
+ 
+
+segment 0
+2400 F
+
+segment 3
+
+ 
+
+ 
+
+symbol
+segment 0 table
+
+      
+  
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+        
+  
+ 
+  
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+limit | base
+Sart segment 4 0] 1000 | 1400
+4] 400 | 6300 | 9200
+main 2{| 400 | 4300
+program 3] 1100 | 3200 segment 3
+4| 1000 | 4700
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+segment table 4300
+
+segment 2 segment 2
+
+ 
+
+4700
+
+logical address space segment 4
+
+ 
+
+ 
+
+ 
+
+segment 1
+
+ 
+
+ 
+
+ 
+
+6700
+physical memory
+
+Figure 9.19 Example of segmentation.
+

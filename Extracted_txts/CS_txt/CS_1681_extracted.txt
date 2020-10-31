@@ -1,0 +1,50 @@
+178  Chapter6 CPU Scheduling
+
+tinguished between user-level and kernel-level threads. User-level threads are
+managed by a thread library, and the kernel is unaware of them. To run on
+a CPU, user-level threads are ultimately mapped to an associated kernel-level
+thread, although this mapping may be indirect and use a lightweight process
+(LWP). One distinction between user-level and kernel-level threads lies in how
+they are scheduled. The thread library schedules user-level threads to run on an
+available LWP, a scheme known as process local scheduling, in which thread
+scheduling is done local to the application. Conversely, the kernel uses system
+global scheduling to decide which kernel thread to schedule. We do not cover
+in detail how different thread libraries locally schedule threads; thread schedul-
+ing is a software-library concern rather than an operating-system concern. We
+cover global scheduling because it is performed by the operating system.
+
+6.7.1 An Example: Solaris 2
+
+Solaris 2 uses priority-based process scheduling. It has four classes of schedul-
+ing, which are, in order of priority, real time, system, time sharing, and
+interactive. Each class includes different priorities and scheduling algorithms,
+although time sharing and interactive use the same scheduling policies. Solaris
+2 scheduling is illustrated in Figure 6.10.
+
+A process starts with one LWP and is able to create new LWPs as needed.
+Each LWP inherits the scheduling class and priority of the parent process.
+The default scheduling class for a process is time sharing. The scheduling
+policy for time sharing dynamically alters priorities and assigns time slices
+of different lengths using a multilevel feedback queue. By default, there is
+an inverse relationship between priorities and time slices: The higher the
+priority, the smaller the time slice, and the lower the priority, the larger the
+time slice. Interactive processes typically have a higher priority, CPuU-bound
+processes a lower priority. This scheduling policy gives good response time for
+interactive processes and good throughput for CPU-bound processes. Solaris 2.4
+introduced the interactive class to process scheduling. The interactive class uses
+the same scheduling policy as the time-sharing class, but it gives windowing
+applications a higher priority for better performance.
+
+Solaris 2 uses the system class to run kernel processes, such as the scheduler
+and paging daemon. Once established, the priority of a system process does not
+change. The system class is reserved for kernel use (user processes running in
+kernel mode are not in the system class). The scheduling policy for the system
+class does not time-slice. Rather, a thread belonging to the system class runs
+until it either blocks or is preempted by a higher priority thread.
+
+Threads in the real-time class are given the highest priority to run among
+all classes. This assignment allows a real-time process to have a guaranteed
+response from the system within a bounded period of time. A real-time process
+will run before a process in any other class. In general, few processes belong to
+the real-time class.
+

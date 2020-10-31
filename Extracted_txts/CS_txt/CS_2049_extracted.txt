@@ -1,0 +1,119 @@
+a,
+
+484  Chapter13 I/O Systems
+
+an interrupt. The interrupt is passed back up through the kernel to cause the
+network I/O system call to complete.
+
+Now, the remote system’s network hardware receives the packet, and an
+interrupt is generated. The character is unpacked from the network proto-
+cols and is given to the appropriate network daemon. The network daemon
+identifies which remote login session is involved, and passes the packet to the
+appropriate subdaemon for that session. Throughout this flow there are con-
+text switches and state switches (Figure 13.12). Usually, the receiver echoes the
+character back to the sender; that approach doubles the work.
+
+The Solaris developers reimplemented the telnet daemon using in-kernel
+threads to eliminate the context switches involved in moving each charac-
+ter between daemons and the kernel. Sun estimates that this improvement
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(canoe veer
+character
+typed system call packet
+‘completes received
+ble Behe
+i} iii
+interrupt interrupt network
+generated handled adapter
+interrupt interrupt interrupt s
+handled generated generated
+A____h z
+J { network £15
+device network device
+driver adapter driver
+device network
+meine! driver a subdaemon
+HE HE ats
+HE t ie it
+user context. network |_ context.
+process [gain] ‘ome! daemon [auaare) “eme!
+‘sending system receiving system
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 13.12 Intercomputer communications.
+

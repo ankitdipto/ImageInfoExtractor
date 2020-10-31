@@ -1,0 +1,67 @@
+Section 22.4.
+
+Syntactic Analysis (Parsing) 665
+
+ 
+
+ 
+
+Noun — stench \ breeze \ glitter \ nothing
+| wumpus | pit | pits | gold\ east\...
+Verb — is \ see \ smell \ shoot \ feel\ stinks
+\ go| grab | carry \ kill\ turn\...
+Adjective — right \ left \ east \ south \ back \ smelly| ...
+Adverb — here \ there \ nearby \ ahead
+| right | left \ east \ south \ back \ ...
+Pronoun — me \ you\ I\ it\ ...
+Name — John \ Mary \ Boston \ Aristotle
+Article — the\ a\ an\ ...
+Preposition — to \ in \ on \ near\ ...
+Conjunction — and \ or \ but \ ...
+Digit 0| 1] 2] 3] 4] 5] 6| 7| 81 9
+
+ 
+
+ 
+
+Figure 22.5 The lexicon for &.
+
+ 
+
+ 
+
+S — NP VP 1 + feel a breeze
+|S Conjunction S I feel a breeze + and +I smell a wumpus
+
+NP — Pronoun t
+| Noun pits
+| Article Noun the + wumpus
+| Digit Digit 34
+| NP PP the wumpus + to the east
+|
+
+NP RelClause the wumpus + that is smelly
+
+vP — Verb stinks
+| VP NP feel + a breeze
+| VP Adjective is + smelly
+| VP PP tun + to the east
+| VP Adverb go + ahead
+
+PP — Preposition NP to + the east
+RelClause — that VP that + is smelly
+
+ 
+
+ 
+
+ 
+
+Figure 22.6 The grammar for &, with example phrases for each rule.
+
+ 
+
+ 
+
+ 
+

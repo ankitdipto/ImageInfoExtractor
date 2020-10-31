@@ -1,0 +1,54 @@
+FEATURE
+DETECTORS
+
+Chapter 19. Learning in Neural and Belief Networks
+
+suggests that this was not because it was a particularly successful program, but rather because it
+provided a good showpiece for the philosophy of neural networks. Its authors also had a flair for
+the dramatic: they recorded a tape of NETtalk starting out with poor, babbling speech, and then
+gradually improving to the point where the output is understandable. Unlike conventional speech
+generators, which use a midrange tenor voice to generate the phonemes, they used a high-pitched
+generator. The tape gives the unmistakable impression of a child learning to speak.
+
+Handwritten character recognition
+
+In one of the largest applications of neural networks to date, Le Cun et al, (1989) have imple-
+mented a network designed to read zip codes on hand-addressed envelopes. The system uses a
+preprocessor that locates and segments the individual digits in the zipcode; the network has to
+identify the digits themselves. Ituses a 16x 16array ofpixels as input, three hidden layers, anda
+distributed output encoding with 10 output units for digits 0-9. The hidden layers contained 768,
+192, and 30 units, respectively. A fully connected network of this size would contain 200,000
+weights, and would be impossible to train. Instead, the network was designed with connections
+intended to act as feature detectors. For example, each unit in the first hidden layer was con-
+nected by 25 links to a5 x 5 region in the input. Furthermore, the hidden layer was divided into
+12 groups of 64 units; within each group of 64 units, each unit used the same set of 25 weights.
+Hence the hidden layer can detect up to 12 distinct features, each of which can occur anywhere
+in the input image. Overall, the complete network used only 9760 weights
+
+The network was trained on 7300 examples, and tested on 2000. One interesting property
+of a network with distributed output encoding is that it can display confusion over the correct
+answer by setting two or more output units to a high value. After rejecting about 12% of the test
+set as marginal, using a confusion threshold, the performance on the remaining cases reached
+99%, which was deemed adequate for an automated mail-sorting system. The final network has
+been implemented in custom VLSI, enabling letters to be sorted at high speed.
+
+Driving
+
+ALVINN (Autonomous Land Vehicle In a Neural Network) (Pomerleau, 1993)is a neural network
+that has performed quite well in a domain where some other approaches have failed. It learns to
+steer a vehicle along a single lane on a highway by observing the performance of a human driver.
+We described the system briefly on page 26, but here we take a look under the hood.
+
+ALVINN is used to control the NavLab vehicles at Camegie Mellon University. NavLab 1
+is a Chevy van, and NavLab 2 is a U.S. Army HMMWV personnel carrier. Both vehicles are
+specially outfitted with computer-controlled steering, acceleration, and braking. Sensors include
+color stereo video, scanning laser range finders, radar, and inertial navigation. Researchers ride
+along in the vehicle and monitor the progress of the computer and the vehicle itself, (Being inside
+the vehicle is a big incentive to making sure the program does not “crash.”)
+
+The signal from the vehicle's video camera is preprocessed to yield an array of pixel values
+that are connected to a 30 x 32 grid of input units in a neural network. The output is a layer of
+30 units, each corresponding to a steering direction. The output unit with the highest activation
+
+ 
+

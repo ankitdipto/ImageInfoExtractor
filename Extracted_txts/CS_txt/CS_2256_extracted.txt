@@ -1,0 +1,66 @@
+SECTION 1
+
+Priority Interrupt 409
+
+ 
+
+ 
+
+ 
+
+ 
+
+VAD) vap2 vaD3
+Devel Device? Devices :
+a ea nr To next
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+    
+   
+
+Interrupt request
+
+Interrupt acknowledge
+* = INTACK
+
+ 
+
+Figure 11-12 Daisy-chain priority interrupt.
+
+by placing a 1 in its PO output. Thus the device with PI = 1 and PO = is the
+one with the highest priority that is requesting an interrupt, and this device
+places its VAD on the data bus. The daisy chain arrangement gives the highest,
+Priority to the device that receives the interrupt acknowledge signal from the
+CPU. The farther the device is from the first position, the lower is its priority.
+
+Figure 11-13 shows the internal logic that must be included within each
+device when connected in the daisy-chaining scheme. The device sets its RF
+{flip-flop whenit wants to interrupt the CPU. The output of the RF flip-flop goes
+through an open-collector inverter, a circuit that provides the wired logic for
+the common interrupt line. If PI = 0, both PO and the enable line to VAD are
+equal to 0, irrespective of the value of RF. If PI = 1 and RF = 0, then PO = 1
+and the vector address is disabled. This condition passes the acknowledge
+signal to the next device through PO. The device is active when PI = 1 and
+RF = 1. This condition places a 0 in PO and enables the vector address for the
+data bus. It is assumed that each device has its own distinct vector address.
+The RF flip-flop is reset after a sufficient delay to ensure that the CPU has
+received the vector address.
+
+Parallel Priority Interrupt
+The parallel priority interrupt method uses a register whose bits are set sepa-
+rately by the interrupt signal from each device. Priority is established aceording
+to the position of the bits in the register. In addition to the interrupt register,
+the circuit may include a mask register whose purpose is to control the status
+of each interrupt request. The mask register can be programmed to disable
+

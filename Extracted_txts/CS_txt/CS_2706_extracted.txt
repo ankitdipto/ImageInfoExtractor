@@ -1,0 +1,49 @@
+272
+
+Chapter 11 Hash Tables
+
+Linear probing
+
+Given an ordinary hash function h’ : U — {0,1,...,m—1}, which we refer to as
+an auxiliary hash function, the method of linear probing uses the hash function
+
+h(k,i) = (h'(k) +i) mod m
+
+fori = 0,1,..., m — 1. Given key k, we first probe T[h'(k)], ie., the slot given
+by the auxiliary hash function. We next probe slot T[h’(k) + 1], and so on up to
+slot T[m — 1]. Then we wrap around to slots T[0], 7 [1]. ... until we finally probe
+slot T[h'(k) — 1]. Because the initial probe determines the entire probe sequence,
+there are only m distinct probe sequences.
+
+Linear probing is easy to implement, but it suffers from a problem known as
+primary clustering. Long runs of occupied slots build up, increasing the average
+search time. Clusters arise because an empty slot preceded by / full slots gets filled
+next with probability (i + 1)/m. Long runs of occupied slots tend to get longer,
+and the average search time increases.
+
+Quadratic probing
+Quadratic probing uses a hash function of the form
+h(k,i) = (h'(k) + ci + coi?) mod m , (11.5)
+
+where hi’ is an auxiliary hash function, c; and c2 are positive auxiliary constants,
+andi = 0,1,..., m —1. The initial position probed is T[h’(k)]; later positions
+probed are offset by amounts that depend in a quadratic manner on the probe num-
+ber i. This method works much better than linear probing, but to make full use of
+the hash table, the values of c;, C2, and m are constrained. Problem 11-3 shows
+one way to select these parameters. Also, if two keys have the same initial probe
+position, then their probe sequences are the same, since h(k,,0) = h(k2,0) im-
+plies h(k,,i) = h(k2,i). This property leads to a milder form of clustering, called
+secondary clustering. As in linear probing, the initial probe determines the entire
+sequence, and so only m distinct probe sequences are used.
+
+Double hashing
+
+Double hashing offers one of the best methods available for open addressing be-
+cause the permutations produced have many of the characteristics of randomly
+chosen permutations. Double hashing uses a hash function of the form
+
+h(k,i) = (i(k) + iha(k)) mod m ,
+
+where both /1; and /2 are auxiliary hash functions. The initial probe goes to posi-
+tion T [h; (k)]; successive probe positions are offset from previous positions by the
+

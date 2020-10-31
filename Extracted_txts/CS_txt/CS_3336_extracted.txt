@@ -1,0 +1,68 @@
+686
+
+Chapter 22. Agents that Communicate
+
+ 
+
+‘TRANSFORMATIONAL
+GRAMMAR
+DEEP STRUCTURE
+
+SURFACE
+‘STRUCTURE.
+
+AUGMENTED
+‘TRANSITION
+NETWORK
+
+The idea of an intermediate or quasi-logical form to handle problems such as quantifier
+scoping goes back to Woods (1978), and is present in many recent systems (Alshawi, 1992;
+Hwang and Schubert, 1993). Van Lehn (1978) gives a survey of human preferences for quantifier
+scope disambiguation.
+
+Linguists have dozens of different formalisms; hundreds if you count all the minor modi-
+fications and notational variants. We have stuck to a single approach—definite clause grammar
+with BNF-style notation—but the history of the others is interesting. Sells (1985) offers a good
+comparison of some current formalisms, but Gerald Gazdar's (1989) analysis is more succinct:
+
+Here is the history oflinguistics in one sentence: once upon atime linguists (i.e., syntacticians)
+used augmented phrase structure grammars, then they went overto transformational grammars,
+and then some of them started using augmented phrase structure grammars again, <space
+for moral>. Whilst we are in this careful scholarly mode, let us do the same service for
+computational linguistics: once upona time computational linguistics (i.e., builders ofparsers)
+used augmented phrase structure grammars, then they went over to augmented transition
+networks, and then many of them started using augmented phrase structure grammars again,
+<space for moral>.
+
+We can characterize the different formalisms according to four dichotomies: transformational
+versus monostratal, unification versus assignment, lexical versus grammatical, and syntactic
+categories versus semantic categories.
+
+The dominant formalism for the quarter century starting in 1956 was transformational
+grammar (Chomsky, 1957; Chomsky, 1965). In this approach, the commonality in meaning
+between sentences like "Man bites dog" and "Dog is bitten by man" is captured by a context-
+free grammar that generates proto-sentences in a canonical form called the deep structure.
+"Man bites dog" and "Dog is bitten by man" would have the same deep structure, but different
+surface structure. A separate set of rules called transformations map between deep and
+surface structure. The fact that there are two distinct levels of analysis and two sets of mules
+makes transformational grammar a multistratal theory. Computational linguists have turned
+away from transformational grammar, because it is difficult to write parsers that can invert the
+transformations to recover the deep structure.
+
+The augmented transition network (ATN) grammars mentioned in the Gazdar quote were
+invented as a way to go beyond context-free grammar while maintaining a monostratal approach
+that is computationally tractable. They were invented by Thorne (1968) but are mostly associated
+with the work of Woods (1970). The rules in an ATN grammar are represented as a directed
+graph, but one can easily transliterate between transition networks and context-free grammars,
+so choosing one over the other is mostly a matter of taste. The other big difference is that DCGs
+are augmented with unification assertions, whereas ATNs are augmented with assignment
+statements. This makes DCGs closer to standard first-order logic, but more importantly, it allows
+a DCG grammar to be processed by a variety of algorithms. Any order of application of the rules
+will arrive at the same answer, because unification is commutative. Assignment, of course, is not
+commutative. GPSG or Generalized Phrase Structure Grammar (Gazdar et al., 1985)and HPSG
+or Head-driven Phrase Structure Grammar (Pollard and Sag, 1994) are two important examples
+ofunification-based grammars. Shieber (1986) surveys them and others.
+
+Since the mid-1980s, there has also been a trend toward pyfting more information in the
+lexicon and less in the grammar. For example, rather than having a grammar rule to transform
+

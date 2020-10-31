@@ -1,0 +1,138 @@
+156
+
+Chapter 6. Agents that Reason Logically
+
+ 
+
+ 
+ 
+
+sreeze
+Glitter, Gold
+OK = Safe square
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+OK
+
+ 
+
+ 
+
+(a) (b)
+
+ 
+
+ 
+
+Figure 63 The first step taken by the agent in the wumpus world. (a) The initial sit-
+uation, after percept {None,None,None,None, None]. (b) After one move, with percept
+[None, Breeze, None, None,None].
+
+       
+ 
+
+ 
+
+ 
+
+ 
+
+a4
+
+ 
+
+ 
+
+43
+
+  
+
+Visited
+Wumpus
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+22 32 42
+Vv v
+OK OK
+21, (lp [4l
+v v
+OK OK
+(o)
+
+ 
+
+ 
+
+Figure 64 Two later stages in the progress of the agent. (a) After the third move,
+with percept {Stench,None,None,None,None]. (b) After the fifth move, with percept
+[Stench, Breeze, Glitter, None, None].
+
+ 
+
+ 
+
+ 
+
+agent was already there and did not fall in. At this point, there is only one known square that is
+OK and has not been visited yet. So the prudent agent will turn around, go back to [1,1], and
+then proceed to [1,2], giving the state of knowledge in Figure 6.4(a)
+
+The agent detects a stench in [1,2], which means that there must be a wumpus nearby. But
+the wumpus cannot be in [1,1] (or it would have eaten the agent at the start), and it cannot be in
+

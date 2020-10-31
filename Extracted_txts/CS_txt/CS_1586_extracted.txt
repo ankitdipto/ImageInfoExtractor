@@ -1,0 +1,103 @@
+100 Chapter4 Processes
+queue header PCB. PCB,
+_—+| +3
+
+registers
+
+ 
+
+ 
+   
+
+ready |
+queue
+
+ 
+
+ 
+
+registers
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+mag f
+tape F
+unit 0
+
+mag
+tape
+
+PCB
+unit 1 —
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+disk fo
+unit 0 tail
+PCB,
+terminal | +3
+unit 0 tail
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 4.4 The ready queue and various I/O device queues.
+
+may be busy with the I/O request of some other process. The process therefore
+may have to wait for the disk. The list of processes waiting for a particular
+1/O device is called a device queue. Each device has its own device queue
+(Figure 4.4).
+
+A common representation of process scheduling is a queueing diagram,
+such as that in Figure 4.5. Each rectangular box represents a queue. Two types
+of queues are present: the ready queue and a set of device queues. The circles
+represent the resources that serve the queues, and the arrows indicate the flow
+of processes in the system.
+
+Anew process is initially put in the ready queue. It waits in the ready queue
+until it is selected for execution (or dispatched). Once the process is assigned to
+the CPU and is executing, one of several events could occur:
+
+« The process could issue an I/O request, and then be placed in an 1/O queue.
+The process could create a new subprocess and wait for its termination.
+
+© The process could be removed forcibly from the CPU, as a result of an
+interrupt, and be put back in the ready queue.
+

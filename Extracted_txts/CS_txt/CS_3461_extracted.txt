@@ -1,0 +1,62 @@
+Section 25.6.
+
+Navigation and Motion Planning 797
+
+ 
+
+1. Divide ¥ into simple, connected regions called "cells." This is the cell decomposition.
+
+2. Determine which cells are adjacent to which others, and construct an "adjacency graph."
+The vertices of this graph are cells, and edges join cells that abut each other.
+
+3. Determine which cells the start and goal configurations lie in, and search for a path in the
+adjacency graph between these cells.
+
+4. From the sequence of cells found at the last step, compute a path within each cell from a
+point of the boundary with the previous cell to a boundary point meeting the next cell.
+
+The last step presupposes an easy method for navigating within cells. The cells are usually
+geometrically "simple," so that this step is easy. For example, one could use rectangular cells,
+and then it is possible tojoin any two points in the cell with a straight-line path (this property is
+shared by all convex cells). The difficulty is that the cells must be constructed in configuration
+space, and F typically has complex, curved boundaries (see Figure 25.12),
+
+Because of the difficulty ofthe F-boundary, the first approaches to cell decomposition did
+not represent it exactly. Approximate subdivisions were used, using either boxes or rectangular
+strips. A strip approximation to the configuration space of the 2-link robot is shown in Fig-
+ure 25.13. The start and goal configurations are visible as points, and the cells joining them from
+step 3 above are shaded. Finally, an explicit path from start to goal is constructed by joining the
+midpoint (centroid) of each strip with the midpoints of the boundaries with neighboring cells.
+
+This approach must be conservative if it is to produce a collision-free path. The strips
+must be entirely in free space or a path found inside them might cross a (-boundary and cause
+acollision. So there will be some "wasted" wedges of free space at the ends of the strips. This
+is not usually a problem, but in very tight situations, there might be no path except through
+those wedges. To find this path, thinner strips would have to be used. This raises a general
+issue for approximate cell decomposition: choosing the resolution of the decomposition. This
+is sometimes done adaptively by the algorithm, by choosing smaller cells in "tight" parts of free
+space. Or there might be a natural "safety clearance" below which it is inadvisable to move. To
+be concrete about this, suppose that we are able to control our robot's motion to within 1 cm. If
+we cannot find a safe path with cells at 1 cm resolution, a path through cells at a finer resolution
+would take the robot closer than 1 cm to the obstacles. Because that conflicts with our desire for
+a sensible path, there is no point in performing that more expensive search.
+
+The approach just described is sound but not complete. It produces a safe path, but may
+
+“not always find one if one exists. With some small changes, we could instead have produced a
+
+planner that is complete but not sound. If we were reckless rather than conservative, we could
+have declared all partially free cells as being free. Ifthere were any safe path, it would then pass
+entirely through free cells, and our planner would be guaranteed to find it. As you can imagine
+though, given the unforgiving nature of steel and aluminum during collisions, incorrect plans are
+not very useful
+
+An alternative to approximate algorithms is exact cell decomposition. An exact cell de-
+composition divides free space into cells that exactly fill it. These cells necessarily have complex
+shapes, because some of their boundaries are also boundaries ofF. Such a decomposition is
+shown in Figure 25.14. This decomposition looks rather like a coarse strip decomposition, but
+there are two important differences. The first is that the cells have curved top and bottom ends,
+so there are no gaps of free space outside the decomposition. We call these cells cylinders. The
+
+ 
+

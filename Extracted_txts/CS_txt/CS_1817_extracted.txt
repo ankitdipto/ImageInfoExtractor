@@ -1,0 +1,85 @@
+290 Chapter9 Memory Management
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+oa 0
+1 ob
+2 ¢
+3d
+4 e 4 i
+5 f j
+6 g ols k
+7h 116 1
+8 i 2|1 a | m
+9 j n
+10 k 32 °
+11 page table Pp
+12 m 12
+13 0
+14,0
+15 p
+logical memory 16
+20 a
+b
+c
+d
+2a | e
+f
+g
+h
+28
+
+ 
+
+ 
+
+ 
+
+physical memory
+Figure 9.8 Paging example for a 32-byte memory with 4-byte pages.
+
+memory requirements of a process do not happen to fall on page boundaries,
+the last frame allocated may not be completely full. For example, if pages are
+2,048 bytes, a process of 72,766 bytes would need 35 pages plus 1,086 bytes. It
+would be allocated 36 frames, resulting in an internal fragmentation of 2048 —
+1086 = 962 bytes. In the worst case, a process would need n pages plus one
+byte. It would be allocated n + 1 frames, resulting in an internal fragmentation
+of almost an entire frame.
+
+If process size is independent of page size, we expect internal fragmentation
+to average one-half page per process. This consideration suggests that small
+page sizes are desirable. However, overhead is involved in each page-table
+entry, and this overhead is reduced as the size of the pages increases. Also,
+disk I/O is more efficient when the number of data being transferred is larger
+(Chapter 14). Generally, page sizes have grown over time as processes, data
+

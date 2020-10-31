@@ -1,0 +1,67 @@
+286
+
+Chapter 9. Inference in First-Order Logic
+
+ 
+
+-SUBSUMPTION
+
+Subsumption
+
+The subsumption method eliminates all sentences that are subsumed by (ie., more specific than)
+an existing sentence in the KB. For example, if P(x)is in the KB, then there is no sense in adding
+P(A), and even less sense in adding P(A) V Q(B). Subsumption helps keep the KB small, which
+helps keep the search space small:
+
+9.7__COMPLETENESS OF RESOLUTION
+
+ 
+
+REFUTATION.
+‘COMPLETE,
+
+ 
+
+HERBRAND
+UNIVERSE
+
+This section proves that resolution is complete. It can be safely skipped by those who are willing
+to take it on faith.
+
+Before we show that resolution is complete, we need to be more precise about the particular
+flavor of completeness that we will establish. Resolution is refutation-complete, which means
+that ifa set of sentences is unsatisfiable, then resolution will derive a contradiction. Resolution
+cannot be used to generate all logical consequences of a set of sentences, but it can be used to
+establish that a given sentence is entailed by the set. Hence, it can be used to find all answers to
+a given question, using the negated-goal method described before.
+
+We will take it as given that any sentence in first-order logic (without equality) can be
+rewritten in normal form. This can be proved by induction on the form of the sentence, using
+atomic sentences as the base case (Davis and Putnam, 1960). Our goal therefore is to prove the
+following: if Sis an unsatisfiable set ofsentences in clausalform, then the application ofafinite
+number ofresolution steps to S will yield a contradiction.
+
+Our proof sketch follows the original proof due to Robinson, with some simplifications
+from Genesereth and Nilsson (1987). The basic structure ofthe proofis shown in Figure 9.8, and
+is as follows:
+
+1. We begin by observing that if S is unsatisfiable, then there exists a particular set of ground
+instances of the sentences of S, such that this set is also unsatisfiable (Herbrand's theorem).
+
+2. We then show that resolution is complete for ground sentences (i.e., propositional logic).
+This is easy because the set of consequences of a propositional theory is always finite
+
+3. We then use a lifting lemma to show that, for any resolution proof using the set of ground
+sentences, there is a comesponding proof using the first-order sentences from which the
+ground sentences were obtained.
+
+To carry out the first step, we will need three new concepts:
+
+0 Herbrand universe: If 5 is a set ofclauses, then Hs, the Herbrand universe of S, is the set
+of all ground terms constructible from the following:
+a. The function symbols in S, if any.
+b. The constant symbols in S, if any; ifnone, then the constant symbol A.
+For example, ifS contains just the clause P(x, F(x, A)) A Q(x.4) = R(x, B), then Hsis the
+following infinite set of ground sentences:
+{A,B, F(A, A), F(A, B), F(B, A), F(B, B), F(A, F(A, A)).F(A, F(A.B)),...}
+

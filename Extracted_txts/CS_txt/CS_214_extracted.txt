@@ -1,0 +1,46 @@
+814
+
+Chapter 28 Matrix Operations
+
+auX1 + A2X2 + + dinkn = Di,
+Ga1Xy + AxX2 + ++ + dnX%, = do,
+(28.1)
+AmX1 + dyrX2 + + + GunXn = Dy -
+A solution to the equations (28.1) is a set of values for x,,X2,..., X, that satisfy
+
+all of the equations simultaneously. In this section, we treat only the case in which
+there are exactly 7 equations in n unknowns.
+We can conveniently rewrite equations (28.1) as the matrix-vector equation
+
+41 42 ++ Gin x bd
+421 422 +++ Gan x2 by
+Gn Anz" Ann Xn Dn
+
+or, equivalently, letting A = (a;;), x = (x;), and b = (b;), as
+
+Ax=b. (28.2)
+If A is nonsingular, it possesses an inverse A~!, and
+
+x=Alb (28.3)
+
+is the solution vector. We can prove that x is the unique solution to equation (28.2)
+as follows. If there are two solutions, x and x’, then Ax = Ax’ = b and, letting J
+denote an identity matrix,
+
+x = Ix
+= (41A)x
+= A '(Ax)
+= A!(Ax’)
+= (AIA)x’
+= x.
+
+In this section, we shall be concerned predominantly with the case in which A
+is nonsingular or, equivalently (by Theorem D.1), the rank of A is equal to the
+number 1 of unknowns. There are other possibilities, however, which merit a brief
+discussion. If the number of equations is less than the number 7 of unknowns—or,
+more generally, if the rank of A is less than n—then the system is underdeter-
+mined. An underdetermined system typically has infinitely many solutions, al-
+though it may have no solutions at all if the equations are inconsistent. If the
+number of equations exceeds the number 71 of unknowns, the system is overdeter-
+mined, and there may not exist any solutions. Section 28.3 addresses the important
+

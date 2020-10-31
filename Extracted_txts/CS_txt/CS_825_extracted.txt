@@ -1,0 +1,44 @@
+Chapter 5: Functions & Pointers 171
+
+ 
+
+printf ( "\n%d", b) ;
+}
+
+The output of the above program would be:
+
+60
+30
+
+Thus, even though the value of b is changed in fun(), the
+value of a in main() remains unchanged. This means that
+when values are passed to a called function the values present
+in actual arguments are not physically moved to the formal
+arguments; just a photocopy of values in actual argument is
+made into formal arguments.
+
+Scope Rule of Functions
+
+Look at the following program
+
+main()
+
+{
+int i= 20;
+display (i) ;
+
+display (int j )
+{
+
+int k= 35;
+
+printf ( "\n%q", j) ;
+
+printf (“\n%d", k) ;
+}
+
+In this program is it necessary to pass the value of the variable i to
+the function display()? Will it not become automatically available
+to the function display()? No. Because by default the scope of a
+variable is local to the function in which it is defined. The presence
+

@@ -1,0 +1,79 @@
+  
+
+Section 12.4.
+
+More Expressive Operator Descriptions 383
+
+ 
+
+    
+      
+
+NOTE
+DREONOITIONS
+
+ee
+
+UNIVERSALLY
+RENTED
+-CONDITICNS:
+
+UNIVERSALLY
+(QUANTIFED
+EFFECTS
+
+the goal. We do have to make sure that our unification function allows p to match sp. We also
+have to treat the initial state specially: we do not want to specify all the conditions that are false
+in the initial state, so we say thata goal ofthe form ~pcan be matched either by an explicit effect
+that unifies with —p or by the initial state, ifit does not contain p.
+
+While we are at it, it is easy to add disjunctive preconditions. In SELECT-SUB-GOAL, if
+we choose a step with a precondition of the form p V q, then we nondeterministically choose to
+return eitherp or g and reserve the other one as a backtrack point. Ofcourse, any operator with
+the precondition p V q could be replaced with two operators, one with p as a precondition and one
+with g, but then the planner would have to commit to one or the other. Keeping the conditions in
+a single operator allows us to delay making the commitment.
+
+Whereas disjunctive preconditions are easy to handle, disjunctive effects are very diffi-
+cult to incorporate. They change the environment from deterministic to nondeterministic. A
+disjunctive effect is used to model random effects, or effects that are not determined by the
+preconditions of the operator. For example, the operator Flip(coin) would have the disjunctive
+effect Heads(coin)V Tails(coin). In some cases, a single plan can guarantee goal achievement
+even in the face of disjunctive effects. For example, an operator such as TurnHeadsSideUp(coin)
+will coerce the world into a known state even after a flip. In most cases, however, the agent needs
+to develop a different plan to handle each possible outcome. We develop algorithms for this kind
+of planning in Chapter 13.
+
+ 
+
+  
+
+Universal quantification
+
+In defining the blocks world, we had to introduce the condition Clear(b). In this section, we
+extend the language to allow universally quantified preconditions. Instead of writing Clear(b)
+as a precondition, we can use Vx Block(x) = —On(x,b)instead. Not only does this relieve
+us of the burden of making each operator maintain the Clear predicate, but it also allows us to
+handle more complex domains, such as a blocks world with different size blocks.
+
+We also allow for universally quantified effects. For example, in the shopping domain
+we could define the operator Carry(bag,x.y)so that it has the effect that all objects that are in
+the bag are aty and are no longer at x. There is no way to define this operator without universal
+quantification. Here is the syntax we will use:
+
+Op(ACTION:Carry(bag,x, y),
+PRECOND:Bag(bag) A At(bag,x),
+Erect: At(bag.y), ~At(bag,x) A
+Vii Item(i) = (At(iy) A SAt(i,x)) when In(i, bag)
+
+Although this Jooks like full first-order logic with quantifiers and implications, it is not. The
+syntax—and the corresponding semantics—is strictly limited. We will only allow worlds with a
+finite, static, typed universe of objects, so that the universally quantified condition can be satisfied
+by enumeration. The description of the initial state must mention all the objects and give each
+one a type, specified as a unary predicate. For example, Bag(B) A Item(,) A Item(n) A Item(B).
+Notice that is possible for an object to have more than one type: B is both a bag and an item. The
+static universe requirement means that the objects mentioned in the initial state cannot change
+type or be destroyed, and no new objects can be created. That is, no operator except Start can
+
+ 
+

@@ -1,0 +1,45 @@
+Notes for Chapter 12 307
+
+(the nth Catalan number) by using the Taylor expansion of 1 — 4x around
+x = 0. (If you wish, instead of using the Taylor expansion, you may use
+the generalization of the binomial expansion (C.4) to nonintegral exponents 1,
+where for any real number 7 and for any integer k, we interpret () to be
+n(n —1)-+-(n—k +1)/k!if k = 0, and 0 otherwise.)
+
+ 
+
+d. Show that
+qr
+bn = Jann |! +O(1/n)) .
+Chapter notes
+
+Knuth [211] contains a good discussion of simple binary search trees as well as
+many variations. Binary search trees seem to have been independently discovered
+by anumber of people in the late 1950s. Radix trees are often called “tries,” which
+comes from the middle letters in the word retrieval. Knuth [211] also discusses
+them.
+
+Many texts, including the first two editions of this book, have a somewhat sim-
+pler method of deleting a node from a binary search tree when both of its children
+are present. Instead of replacing node z by its successor y, we delete node y but
+copy its key and satellite data into node z. The downside of this approach is that
+the node actually deleted might not be the node passed to the delete procedure. If
+other components of a program maintain pointers to nodes in the tree, they could
+mistakenly end up with “stale” pointers to nodes that have been deleted. Although
+the deletion method presented in this edition of this book is a bit more complicated,
+it guarantees that a call to delete node z deletes node z and only node z.
+
+Section 15.5 will show how to construct an optimal binary search tree when
+we know the search frequencies before constructing the tree. That is, given the
+frequencies of searching for each key and the frequencies of searching for values
+that fall between keys in the tree, we construct a binary search tree for which a
+set of searches that follows these frequencies examines the minimum number of
+nodes.
+
+The proof in Section 12.4 that bounds the expected height of a randomly built
+binary search tree is due to Aslam [24]. Martinez and Roura [243] give randomized
+algorithms for insertion into and deletion from binary search trees in which the
+result of either operation is a random binary search tree. Their definition of a
+random binary search tree differs—only slightly—from that of a randomly built
+binary search tree in this chapter, however.
+

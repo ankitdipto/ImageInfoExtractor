@@ -1,0 +1,58 @@
+Section 5.4
+
+‘QUEESCENT
+
+QUIESCENCE
+‘SEARCH
+
+HORIZON PROBLEM
+
+Alpha-Beta Pruning 129
+
+Cutting off search
+
+The most straightforward approach to controlling the amount of search is to set a fixed depth
+limit, so that the cutoff test succeeds for all nodes at or below depth d. The depth is chosen so
+that the amount of time used will not exceed what the rules of the game allow. A slightly more
+robust approach is to apply iterative deepening, as defined in Chapter 3. When time runs out, the
+program returns the move selected by the deepest completed search.
+
+These approaches can have some disastrous consequences because of the approximate
+nature of the evaluation function. Consider again the simple evaluation function for chess based
+on material advantage. Suppose the program searches to the depth limit, reaching the position
+shown in Figure 5.4(d). According to the material function, white is ahead by a knight and
+therefore almost certain to win. However, because it is black's move, white's queen is lost
+because the black knight can capture it without any recompense for white. Thus, in reality the
+position is won for black, but this can only be seen by looking ahead one more ply.
+
+Obviously, a more sophisticated cutofftest is needed. The evaluation function should only
+be applied to positions that are quiescent, that is, unlikely to exhibit wild swings in value in the
+near future. In chess, for example, positions in which favorable captures can be made are not
+quiescent for an evaluation function that just counts material. Nonquiescent positions can be
+expanded further until quiescent positions are reached. This extra search is called a quiescence
+search; sometimes it is restricted to consider only certain types of moves, such as capture moves,
+that will quickly resolve the uncertainties in the position.
+
+The horizon problem is more difficult to eliminate. It arises when the program is facing
+a move by the opponent that causes serious damage and is ultimately unavoidable. Consider the
+chess game in Figure 5.5. Black is slightly ahead in material, but if white can advance its pawn
+from the seventh row to the eighth, it will become a queen and be an easy win for white. Black can
+forestall this for a dozen or so ply by checking white with the rook, but inevitably the pawn will
+become a queen. The problem with fixed-depth search is that it believes that these stalling moves
+have avoided the queening move—we say that the stalling moves push the inevitable queening
+move "over the horizon" to a place where it cannot be detected. At present, no general solution
+has been found for the horizon problem.
+
+5.4 _ALPHA-BETAPRUNING
+
+Let us assume we have implemented a minimax search with a reasonable evaluation function for
+chess, and a reasonable cutoff test with a quiescence search. With a well-written program on an
+ordinary computer, one can probably search about 1000 positions a second. How well will our
+program play? In tournament chess, one gets about 150 seconds per move, so we can look at
+150,000 positions. In chess, the branching factor is about 35, so our program will be able to look
+ahead only three or four ply, and will play at the level of a complete novice! Even average human
+players can make plans six or eight ply ahead, so our program will be easily fooled.
+
+Fortunately, it is possible to compute the correct minimax decision without looking at every
+node in the search tree. The process of eliminating a branch of the search tree from consideration
+

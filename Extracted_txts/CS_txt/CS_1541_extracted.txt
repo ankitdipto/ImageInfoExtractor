@@ -1,0 +1,50 @@
+3.3. System Calls 63
+
+These routines may also allocate plotters, modems, and other peripheral
+devices.
+
+Accounting: We want to keep track of which users use how many and
+which kinds of computer resources. This record keeping may be used for
+accounting (so that users can be billed) or simply for accumulating usage
+statistics. Usage statistics may be a valuable tool for researchers who wish
+to reconfigure the system to improve computing services.
+
+Protection: The owners of information stored in a multiuser computer sys-
+tem may want to control use of that information. When several disjointed
+Processes execute concurrently, it should not be possible for one process
+to interfere with the others, or with the operating system itself. Protection
+involves ensuring that all access to system resources is controlled. Security
+of the system from outsiders is also important. Such security starts with
+each user having to authenticate himself to the system, usually by means
+of a password, to be allowed access to the resources. It extends to defend-
+ing external I/O devices, including modems and network adapters, from
+invalid access attempts, and to recording all such connections for detection
+of break-ins. If a system is to be protected and secure, precautions must be
+instituted throughout it. A chain is only as strong as its weakest link.
+
+3.3. = System Calls
+
+System calls provide the interface between a process and the operating sys-
+tem. These calls are generally available as assembly-language instructions, and
+they are usually listed in the various manuals used by the assembly-language
+programmers.
+
+Certain systems allow system calls to be made directly from a higher-
+level language program, in which case the calls normally resemble predefined
+function or subroutine calls. They may generate a call to a special run-time
+routine that makes the system call, or the system call may be generated directly
+in-line.
+
+Several languages—such as C, C++, and Perl—have been defined to replace
+assembly language for systems programming. These languages allow system
+calls to be made directly. For example, UNIX system calls may be invoked
+directly from a C or C++ program. System calls for modern Microsoft Windows
+platforms are part of the Win32 application programmer interface (API), which
+is available for use by all the compilers written for Microsoft Windows.
+
+As an example of how system calls are used, consider writing a simple
+program to read data from one file and to copy them to another file. The first
+input that the program will need is the names of the two files: the input file
+and the output file. These names can be specified in many ways, depending
+on the operating-system design. One approach is for the program to ask the
+

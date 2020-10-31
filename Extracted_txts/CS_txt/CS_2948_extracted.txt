@@ -1,0 +1,60 @@
+binary adder
+
+SECTION 44 Arithmetic Micooperations 103
+R3<— R1+R2+1
+RZis the symbol for the 1’s complement of R2. Adding 1 to the 1's complement
+
+produces the2’s complement. Adding the contents of 1 to the2’s complement
+of R2 is equivalent to R1 — R2.
+
+TABLE 4-3 Arithmetic Microoperations
+
+ 
+
+‘Symbolic
+designation Description
+
+R3© RL +R2 Contents of R1 plus R2 transferred to R3
+
+R3 = R1- R2 Contents of R1 minus R2 transferred to R3
+
+R2 RZ ‘Complement the contents of R2 (I's complement)
+
+R2< RD+1 Zs complement the contents of R2 (negate)
+
+R3.<— RL+RZ+1_— Ri plus the 2's complement of R2 (subtraction)
+
+ReoR+1 Increment the contents of R1 by one
+
+Rie Ri-1 Decrement the contents of R1 by one
+
+ 
+
+The increment and decrement microoperations are symbolized by plus-
+oneand minus-one operations, respectively. These microoperations are imple-
+mented with a combinational circuit or with a binary up-down counter.
+
+Thearithmeticoperations of multiply and divide are not listed in Table 4-
+3. These two operations are valid arithmetic operations but are not included
+in the basic set of microoperations. The only place where these operations can
+be considered as microoperations is in a digital system, where they are imple-
+mented by means of a combinational circuit. In such a case, the signals that
+perform these operations propagate through gates, and the result of the oper-
+ation can be transferred into a destination register by a clock pulse as soon as
+the output signal propagates through the combinational circuit. In most com-
+puters, the multiplication operation is implemented with a sequence of add
+and shiftmicrooperations. Division is implemented witha sequence of subtract
+and shift microoperations. To specify the hardware in such a case requires a
+list of statements that use the basic microoperations of add, subtract, and shift
+(see Chapter 10).
+
+ 
+
+Binary Adder
+To implement the add microoperation with hardware, we need the registers,
+that hold the data and the digital component that performs the arithmetic
+addition. The digital circuit that forms the arithmetic sum of two bits and a
+previous carry is called a full-adder (see Fig. 1-17). The digital circuit that
+generates the arithmetic sum of two binary numbers of any length is called a
+binary adder. The binary adder is constructed with full-adder circuits con-
+

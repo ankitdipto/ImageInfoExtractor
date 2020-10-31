@@ -1,0 +1,65 @@
+654
+
+Chapter 22. Agents that Communicate
+
+ 
+
+ 
+
+UNDERSTANDING
+
+PLAN RECOGNITION
+
+FORMAL LANGUAGES
+
+NATURAL
+LANGUAGES
+
+The hard part for an agent is to decide when a speech act of some kind is called for,
+and to decide which speech act, out of all the possibilities, is the right one. At one level,
+this is just the familiar planning problem—an agent has a set of possible actions to choose
+from, and must somehow try to choose actions that achieve the goal of communicating some
+
+information to another agent. All the difficulties that make planning hard (see Chapter 12)
+apply to planning speech acts. It would be impossibly complex to plan English conversations
+at the level of individual movements of the mouth and tongue, so we need to plan with several
+levels of hierarchical abstraction—words, phrases and sentences, at least. Another problem is
+nondeterminism. Whereas most actions in the wumpus world are deterministic, speech acts are
+not. Consider the action Speak("TurnRight!"). If another agent perceives the words, and if the
+agent interprets it as a command to turn right, then that agent may do so. Or then again, the agent
+may ignore the command and choose another action. The nondeterminism means that we will
+need conditional plans. Instead of planning a conversation from beginning to end, the best we
+can do is construct a general plan or policy for the conversation, generate the first sentence, stop
+to perceive the reply, and react to it.
+
+The problem of understanding speech acts is much like other understanding problems,
+such as image understanding or medical diagnosis. We are given a set of ambiguous inputs,
+and from them we have to work backwards to decide what state of the world could have created
+the inputs. Part of the speech act understanding problem is specific to language. We need
+to know something about the syntax and semantics of a language to determine why another
+agent performed a given speech act. The understanding problem also includes the more general
+problem of plan recognition. If we observe an agent turning and moving toward the gold, we
+can understand the actions by forming a model of the agent's beliefs that says the agent has the
+goal of getting the gold. A similar kind of mental model building is required to understand the
+agent who turns toward the gold and says, “I’m going to grab it." Even though there may be other
+objects nearby, it is fairly clear that "it" refers to the gold.
+
+Part of the understanding problem can be handled by logical reasoning. We will see that
+logical implications are a good way of describing the ways that words and phrases combine to
+form larger phrases. Another part of the understanding problem can only be handled by uncertain
+reasoning techniques. Usually, there will be several states of the world that could all lead to the
+same speech act, so the understander has to decide which one is more probable.
+
+Now that we have seen how communication fits into our general agent design, we can turn |
+our attention to language itself. As we focus more and more on the way language acuually is,
+rather than on the general properties of communication methods, we will find ourselves moving
+into the realm of natural science—that is, science that works by finding out things about the real
+world rather than about programs or other artifacts. Natural language understanding is one of the
+few areas of AI that has this property.
+
+Fundamentals of language
+
+We distinguish between formal Janguages—the ones like Lisp and first-order logic that are
+invented and rigidly defined—and natural languages—the ones like Chinese, Danish, and
+English that humans use to talk to one another. Although we are primarily interested in natural
+

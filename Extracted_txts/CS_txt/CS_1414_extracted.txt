@@ -1,0 +1,43 @@
+662 Let UsC
+
+ 
+
+entry happens. However, as a good programming practice our
+program should get the exit code of the terminated process and
+thereby ensure a proper cleanup. Note that here cleanup is
+important (it happens anyway). Why is it important to get the exit
+code of the terminated process. It is because, it is the exit code that
+would give indication about whether the job assigned to the
+process was completed successfully or not. The following program
+shows how this can be done.
+
+# include <unistd.h>
+# include <sys/types.h>
+int main()
+{
+unsigned inti = 0;
+int pid, status ;
+pid = fork() ;
+if (pid =- 0)
+{
+
+while (i < 4294967295U )
+i++;
+printf ("The child is now terminating\n" ) ;
+
+else
+{
+waitpid (pid, &status, 0) ;
+if (WIFEXITED (status ) )
+printf ( "Parent: Child terminated normally\n" ) ;
+else
+printf ( "Parent: Child terminated abnormally\n" ) ;
+}
+return 0;
+}
+
+In this program we have applied a big loop in the child process.
+This loop ensures that the child does not terminate immediately.
+From within the parent process we have made a call to the
+waitpid( ) function. This function makes the parent process wait
+

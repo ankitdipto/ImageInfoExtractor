@@ -1,0 +1,49 @@
+730
+
+Chapter 26 Maximum Flow
+
+the entire execution of the Edmonds-Karp algorithm is O(VE). Each augmenting
+path has at least one critical edge, and hence the theorem follows. .
+
+Because we can implement each iteration of FORD-FULKERSON in O(£) time
+when we find the augmenting path by breadth-first search, the total running time of
+the Edmonds-Karp algorithm is O(VE7). We shall see that push-relabel algorithms
+can yield even better bounds. The algorithm of Section 26.4 gives a method for
+achieving an O(VE) running time, which forms the basis for the O(V4)-time
+algorithm of Section 26.5.
+
+Exercises
+
+26.2-1
+Prove that the summations in equation (26.6) equal the summations in equa-
+tion (26.7).
+
+26.2-2
+In Figure 26.1(b), what is the flow across the cut ({s, v2, v4}. {V1, V3, 0})? What is
+the capacity of this cut?
+
+26.2-3
+Show the execution of the Edmonds-Karp algorithm on the flow network of Fig-
+ure 26.1(a).
+
+26.2-4
+
+In the example of Figure 26.6, what is the minimum cut corresponding to the max-
+imum flow shown? Of the augmenting paths appearing in the example, which one
+cancels flow?
+
+26.2-5
+
+Recall that the construction in Section 26.1 that converts a flow network with mul-
+tiple sources and sinks into a single-source, single-sink network adds edges with
+infinite capacity. Prove that any flow in the resulting network has a finite value
+if the edges of the original network with multiple sources and sinks have finite
+capacity.
+
+26.2-6
+
+Suppose that each source s; in a flow network with multiple sources and sinks
+produces exactly p; units of flow, so that cy f(sj.v) = pi. Suppose also
+that each sink t; consumes exactly q; units, so that cy f(v.t)) = qj, where
+Yi Pi = 2; 47. Show how to convert the problem of finding a flow f that obeys
+

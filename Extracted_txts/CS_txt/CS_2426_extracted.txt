@@ -1,0 +1,50 @@
+3.1 Asymptotic notation 45
+
+  
+
+ 
+
+ 
+
+og(n) eg(n)
+Fon) a
+J,
+f(r)
+agin) ca)
+n : n : n
+no No
+f(r) = O(g(n)) f(r) = O(g(n)) f(n) = Ain)
+(a) (b) (©)
+
+Figure 3.1 Graphic examples of the ©, O, and Q notations. In each part, the value of mg shown
+is the minimum possible value; any greater value would also work. (a) -notation bounds a func-
+tion to within constant factors. We write f() = ©(g(n)) if there exist positive constants 19, ¢1,
+and c2 such that at and to the right of 9, the value of (7) always lies between c1 g(m) and c2g(n)
+inclusive. (b) O-notation gives an upper bound for a function to within a constant factor. We write
+f(n) = O(g(n)) if there are positive constants no and c such that at and to the right of mo, the value
+of f(n) always lies on or below cg(n). (c) Q-notation gives a lower bound for a function to within
+aconstant factor. We write f(n) = Q(g(n)) if there are positive constants ng and c such that at and
+to the right of mo, the value of f(n) always lies on or above cg(n).
+
+A function f() belongs to the set ©(g(n)) if there exist positive constants c;
+and c such that it can be “sandwiched” between cig(n) and c2g(n), for suffi-
+ciently large n. Because O(g(n)) is a set, we could write “f(n) € O(g(n))”
+to indicate that f(n) is a member of ©(g(n)). Instead, we will usually write
+“f(n) = O(g(n))” to express the same notion. You might be confused because
+we abuse equality in this way, but we shall see later in this section that doing so
+has its advantages.
+
+Figure 3.1(a) gives an intuitive picture of functions f(n) and g(n), where
+Ff (n) = O(g(n)). For all values of n at and to the right of mo, the value of f(n)
+lies at or above c; g(m) and at or below c2g(n). In other words, for all n > no, the
+function f(/) is equal to g() to within a constant factor. We say that g(7) is an
+asymptotically tight bound for f (n).
+
+The definition of @(g(n)) requires that every member f(n) € O(g(n)) be
+asymptotically nonnegative, that is, that f(n) be nonnegative whenever n is suf-
+ficiently large. (An asymptotically positive function is one that is positive for all
+sufficiently large n.) Consequently, the function g(v) itself must be asymptotically
+nonnegative, or else the set @(g(n)) is empty. We shall therefore assume that every
+function used within ©-notation is asymptotically nonnegative. This assumption
+holds for the other asymptotic notations defined in this chapter as well.
+

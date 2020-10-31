@@ -1,0 +1,64 @@
+Section 24.2.
+
+MANIPULATION
+
+NAVIGATION
+
+OBJECT
+RECOGNITION
+
+Image Formation 725
+
+Unfortunately, f does not have a proper inverse. For one thing, we cannot see around comers,
+so We cannot recover all aspects of the current world state from the stimulus. Moreover, even
+the part we can see is enormously ambiguous. A key aspect of the study of perception is to
+understand what additional information can be brought to bear to resolve ambiguity.
+
+A second, and perhaps more important, drawback of the straightforward approach is that
+it is trying to solve too difficult a problem. In many cases, the agent does not need to know
+everything about the world. Sometimes, just one or two predicates are needed—such as "Is there
+any obstacle in front of me?" or "Is that an electrical outlet over there?"
+
+In order to understand what sorts of processing we will need to do, let us look at some of
+the possible uses for vision:
+
+< Manipulation: grasping, insertion, and so on, need local shape information and feedback
+("getting closer, too far to the right, ...) for motor control.
+
+< Navigation: finding clear paths, avoiding obstacles, and calculating one's current velocity
+and orientation.
+
+0 Object recognition: a useful skill for distinguishing between tasty mice and dangerous
+carnivores; edible and inedible objects; close relations and strangers; ordinary vehicles,
+Volvos. and police cars.
+
+None of these applications requires the extraction of complete descriptions of the environment.
+
+This chapter is organized as follows. In Section 24.2, we study the process of image
+formation. We cover both the geometry of the process, which dictates where a given point
+will be imaged, and the photometry of the process, which dictates how bright the point will
+appear. Section 24.3 treats the basic image-processing operations commonly used in early
+vision. They set the stage for later analysis that extracts the information needed for tasks such as
+manipulation, navigation, and recognition. In Section 24.4, we study various cues in the image
+that can be hamessed to this end, including motion, stereopsis, texture, shading, and contour.
+Section 24.5 discusses the information needed for visually guided manipulation and navigation,
+and Section 24.6 covers various approaches to object recognition. Finally, Section 24.7 addresses
+the problem of perception in the context of speech recognition, thereby helping to pinpoint the
+issues that arise in perception in general.
+
+24.2 __ IMAGE FORMATION
+
+‘SCENE
+MAGE
+
+PINHOLE CAMERA
+
+Vision works by gathering light scattered from objects in the scene and creating a 2-D image. In
+order to use this image to obtain information about the scene, we have to understand the geometry
+of the process.
+
+Pinhole camera
+
+The simplest way to form an image is to use a pinhole camera (Figure 24.1). Let P be a point
+in the scene, with coordinates (X, Y, Z), and P’ be its image on the image plane, with coordinates
+

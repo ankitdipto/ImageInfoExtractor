@@ -1,0 +1,54 @@
+bidirectional bus
+
+SECTION 122 Main Memory 449
+
+first address of the bootstrap loader. The bootstrap program loads a portion
+of the operating system from disk to main memory and control is then trans-
+ferred to the operating system, which prepares the computer for general use.
+
+RAM and ROM chips are available in a variety of sizes. If the memory
+needed for the computer is larger than the capacity of one chip, its necessary
+to combine a number of chips to form the required memory size. To demon-
+strate the chip interconnection, we will show an example of a1024 x 8memory
+constructed with 128 x 8 RAM chips and 512 x 8 ROM chips.
+
+RAM and ROM Chips
+ARAM chip is better suited for communication with the CPU if it has one or
+more control inputs that select the chip only when needed. Another common
+feature is a bidirectional data bus that allows the transfer of data either from
+memory to CPU during a read operation, or from CPU to memory during a
+write operation. A bidirectional bus can be constructed with three-state
+buffers A three-state buffer output can be placed in one of three possible
+states: a signal equivalent to logic 1, a signal equivalent to logic 0, or a high-
+impedance state. The logic 1 and 0 are normal digital signals. The high-
+impedance state behaves like an open circuit, which means that the output
+does not carry a signal and has no logic significance.
+
+The block diagram of a RAM chip is shown in Fig. 12-2. The capacity of
+thememory is 128 words of eightbits (one byte) per word. Thisrequiresa 7-bit
+
+Figure 12-2 Typical RAM chip.
+
+Chip setect 1 —
+
+ 
+
+ 
+
+hip select 2
+Read ‘bit data bus
+write
+
+‘Deit address
+Si TSE_RD WR |Memoryfunction| State of data bus
+00 x x | whi Fighimpedance
+o 1 x x Inhibit Highimpedance
+10 0 0 Inhibit High-impedance
+oot Write Input data to RAM
+hou .x Read Output data from RAM
+ma x Inhabit High-impedance
+
+ 
+
+(b) Function table
+

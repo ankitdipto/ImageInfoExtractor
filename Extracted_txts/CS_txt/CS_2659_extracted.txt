@@ -1,0 +1,80 @@
+234
+
+Chapter 10 Elementary Data Structures
+
+8 9 10 11 12
+
+123 4 5 6 7
+© 0 BEES sbi
+1 '
+
+Q.head=7 — Q.tail =12
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+123 4 5 6 7 8 9 10 Ib 12
+» 0[3[5 Ns 6 [9 [8 [4 [7
+
+Q.tail =3  Q.head =7
+
+12 3 4 5 6 7 8 9 10 Ib 12
+© of] IRIEL DTs[sT7
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Q.tail = 3 Q.head =8
+
+Figure 10.2 A queue implemented using an array Q[1 .. 12]. Queue elements appear only in the
+lightly shaded positions. (a) The queue has 5 elements, in locations Q[7 .. 11]. (b) The configuration
+of the queue after the calls ENQUEUE(Q, 17), ENQUEUE(Q, 3), and ENQUEUE(Q, 5). (¢) The
+configuration of the queue after the call DEQUEUE(Q) returns the key value 15 formerly at the
+head of the queue. The new head has key 6.
+
+Queues
+
+We call the INSERT operation on a queue ENQUEUE, and we call the DELETE
+operation DEQUEUE; like the stack operation POP, DEQUEUE takes no element ar-
+gument. The FIFO property of a queue causes it to operate like a line of customers
+waiting to pay a cashier. The queue has a head and a tail. When an element is en-
+queued, it takes its place at the tail of the queue, just as a newly arriving customer
+takes a place at the end of the line. The element dequeued is always the one at
+the head of the queue, like the customer at the head of the line who has waited the
+longest.
+
+Figure 10.2 shows one way to implement a queue of at most 1 — | elements
+using an array Q[1..n]. The queue has an attribute Q. head that indexes, or points
+to, its head. The attribute Q. tail indexes the next location at which a newly arriv-
+ing element will be inserted into the queue. The elements in the queue reside in
+locations Q. head, Q.head + 1,...,Q.tail — 1, where we “wrap around” in the
+sense that location 1 immediately follows location n in a circular order. When
+Q.head = Q.tail, the queue is empty. Initially, we have Q.head = Q.tail = 1.
+If we attempt to dequeue an element from an empty queue, the queue underflows.
+

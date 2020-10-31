@@ -1,0 +1,55 @@
+ 
+
+506 Chapter 14 Mass-Storage Structure
+
+You should be aware that the assumption of independence of disk failures
+is not valid. Power failures and natural disasters, such as earthquakes, fires,
+and floods, may result in damage to both disks at the same time. Also,
+manufacturing defects in a batch of disks can cause correlated failures. As disks
+age, the probability of failure increases, increasing the chance that a second disk
+will fail while the first is being repaired. In spite of all these considerations,
+however, mirrored-disk systems offer much higher reliability than do single-
+disk systems.
+
+Power failures are a particular source of concern, since they occur far more
+frequently than do natural disasters. However, even with mirroring of disks, if
+writes are in progress to the same block in both disks, and power fails before
+both blocks are fully written, the two blocks can be in an inconsistent state. The
+solution to this problem is to write one copy first, then the next, so that one of
+the two copies is always consistent. Some extra actions are required when we
+restart after a power failure, to recover from incomplete writes.
+
+14.5.2 Improvement in Performance via Parallelism
+
+Now let us consider the benefit of parallel access to multiple disks. With disk
+mirroring, the rate at which read requests can be handled is doubled, since read
+requests can be sent to either disk (as long as both disks in a pair are functional,
+as is almost always the case). The transfer rate of each read is the same as ina
+single-disk system, but the number of reads per unit time has doubled.
+
+With multiple disks, we can improve the transfer rate as well (or instead) by
+striping data across multiple disks. In its simplest form, data striping consists
+of splitting the bits of each byte across multiple disks; such striping is called
+bit-level striping. For example, if we have an array of eight disks, we write bit
+i of each byte to disk i, The array of eight disks can be treated as a single disk
+with sectors that are eight times the normal size, and, more important, that have
+eight times the access rate. In such an organization, every disk participates in
+every access (read or write), so the number of accesses that can be processed
+per second is about the same as on a single disk, but each access can read eight
+times as many data in the same time as ona single disk.
+
+Bit-level striping can be generalized to a number of disks that either is a
+multiple of 8 or divides 8. For example, if we use an array of four disks, bits i
+and 4+i of each byte go to disk i. Further, striping does not need to be at the level
+of bits of a byte: For example, in block-level striping, blocks of a file are striped
+across multiple disks; with n disks, block i of a file goes to disk (i mod n) + 1.
+Other levels of striping, such as bytes of a sector or sectors of a block, also are
+possible.
+
+In summary, there are two main goals of parallelism ina disk system:
+
+1. Increase the throughput of multiple small accesses (that is, page accesses)
+by load balancing.
+
+2. Reduce the response time of large accesses.
+

@@ -1,0 +1,47 @@
+132 Chapter5 Threads
+
+User threads are supported above the kernel and are implemented by a
+thread library at the user level. The library provides support for thread
+creation, scheduling, and management with no support from the kernel.
+Because the kernel is unaware of user-level threads, all thread creation and
+scheduling are done in user space without the need for kernel intervention.
+Therefore, user-level threads are generally fast to create and manage; they
+have drawbacks, however. For instance, if the kernel is single-threaded,
+then any user-level thread performing a blocking system call will cause the
+entire process to block, even if other threads are available to run within the
+application. User-thread libraries include POSIX Pthreads, Mach C-threads,
+and Solaris 2 UI-threads.
+
+Kernel threads are supported directly by the operating system: The kernel
+performs thread creation, scheduling, and management in kernel space.
+Because thread management is done by the operating system, kernel
+threads are generally slower to create and manage than are user threads.
+However, since the kernel is managing the threads, if a thread performs a
+blocking system call, the kernel can schedule another thread in the appli-
+cation for execution. Also, in a multiprocessor environment, the kernel
+can schedule threads on different processors. Most contemporary operat-
+ing systems— including Windows NT, Windows 2000, Solaris 2, BeOS, and
+Tru64 UNIX (formerly Digital UNIX) —support kernel threads.
+
+We will cover Pthreads in Section 5.4 as an example of a user-level thread
+library. We will also cover Windows 2000 (Section 5.6) and Solaris 2 (Section 5.5)
+as examples of operating systems with kernel-thread support. We will discuss
+how Linux provides support for threads in Section 5.7 (although Linux does not
+quite refer to them as threads).
+
+Java provides support for threads as well. However, as Java threads are
+created and managed by the Java virtual machine (JVM), they do not easily fall
+under the realm of either user or kernel threads. We will cover Java threads in
+Section 5.8.
+
+5.2 = Multithreading Models
+
+Many systems provide support for both user and kernel threads, resulting in
+different multithreading models. We look at three common types of threading
+implementation.
+
+5.2.1 Many-to-One Model
+
+The many-to-one model (Figure 5.2) maps many user-level threads to one
+kernel thread. Thread management is done in user space, so it is efficient, but
+

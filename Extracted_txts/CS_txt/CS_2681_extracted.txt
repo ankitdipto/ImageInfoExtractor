@@ -1,0 +1,56 @@
+Problems for Chapter 10 251
+
+turn. The search terminates once the index i “falls off” the end of the list or once
+key[i] = k. In the latter case, if key[i] = k, clearly we have found a key with the
+value k. If, however, key[i] > k, then we will never find a key with the value k,
+and so terminating the search was the right thing to do.
+
+Lines 3~7 attempt to skip ahead to a randomly chosen position j. Such a skip
+benefits us if key[j] is larger than key[i] and no larger than k; in such a case, j
+marks a position in the list that 7 would have to reach during an ordinary list search.
+Because the list is compact, we know that any choice of j between | andn indexes
+some object in the list rather than a slot on the free list.
+
+Instead of analyzing the performance of COMPACT-LIST-SEARCH directly, we
+shall analyze a related algorithm, COMPACT-LIST-SEARCH’, which executes two
+separate loops. This algorithm takes an additional parameter ¢ which determines
+an upper bound on the number of iterations of the first loop.
+
+ComPACT-LIST-SEARCH’(L,n,k,t)
+
+1i=L
+
+2 ras = |ltor
+
+3 = RANDOM(I,7”)
+
+4 itkovi] < key[j] and key[j] <
+5 i= j
+
+6 if key[i] == k
+
+7 return i
+
+8 whilei A NIL and key[i] <k
+9 i = next{i]
+
+10. if i == NIL or key[i] > k
+
+a return NIL
+
+12 else return i
+
+To compare the execution of the algorithms COMPACT-LIST-SEARCH(L,n,k)
+and CoMPACT-LIsT-SEARCH (L,n,k,t), assume that the sequence of integers re-
+turned by the calls of RANDOM(1, 7) is the same for both algorithms.
+
+a. Suppose that COMPACT-LIST-SEARCH(L,n,k) takes ¢ iterations of the while
+loop of lines 2-8. Argue that COMPACT-LIST-SEARCH (L,n,k,t) returns the
+same answer and that the total number of iterations of both the for and while
+loops within COMPACT-LIST-SEARCH' is at least f.
+
+In the call COMPACT-LIST-SEARCH (L,n,k,t), let X; be the random variable that
+describes the distance in the linked list (that is, through the chain of next pointers)
+from position i to the desired key k after ¢ iterations of the for loop of lines 2—7
+have occurred.
+

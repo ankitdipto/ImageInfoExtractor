@@ -1,0 +1,69 @@
+594 Let UsC
+
+ 
+
+On execution of this program the window shown in Figure 18.4
+appears.
+
+| sig tri iiay (or
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 18.4
+
+ 
+
+In the OnPaint( ) handler we have drawn three rectangles—first
+using a solid brush, second using a hatched brush and third using a
+pattern brush. Creating and using a solid brush and hatched brush
+is simple. We simply have to make calls to CreateSolidBrush( )
+and CreateHatchBrush( ) respectively. For the hatch brush we
+have used the style HS_CROSS. There are several other styles
+defined in ‘windows.h’ that you can experiment with.
+
+ 
+
+For creating a pattern brush we need to first create a bitmap
+(pattern). Instead of creating this pattern, we have used a
+readymade bitmap file. You can use any other bitmap file present
+on your hard disk.
+
+Bitmaps, menus, icons, cursors that a Windows program may use
+are its resources. When the compile such a program we usually
+want these resources to become a part of our EXE file. If so done
+we do not have to ship these resources separately. To be able to
+use a resource (bitmap file in our case) it is not enough to just copy
+it in the project directory. Instead we need to carry out the steps
+mentioned below to add a bitmap file to the project.
+
+(a) From the ‘Insert’ menu option of VC++ 6.0 select the
+‘Resource’ option.
+

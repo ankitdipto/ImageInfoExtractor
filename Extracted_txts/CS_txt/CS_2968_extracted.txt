@@ -1,0 +1,70 @@
+374
+
+ 
+
+Chapter 12 Practical Planning .
+
+Modifying the planner
+
+We can derive a hierarchical decomposition planner, which we call HD-POP, from the POP
+planner of Figure 11.13. The new algorithm in shown in Figure 12.2. There are two principal
+changes. First, as well as finding ways to achieve unachieved conditions in the plan, the algorithm
+must find a way to decompose nonprimitive operators. Because both kinds ofrefinements must
+be cartied out to generate a complete, primitive plan, there is no need to introduce a backtracking
+choice of one or the other. HD-POP simply does one ofeach on each iteration; more sophisticated
+strategies can be used to reduce the branching factor. Second, the algorithm takes a plan as input,
+rather than just a goal. We have already seen that a goal can be represented as a Start-Finish
+plan, so this is compatible with the POP approach. However, it will often be the case that the
+user has some idea of what general kinds of activities are needed, and allowing more extensive
+plans as inputs means that this kind of guidance can be provided.
+
+ 
+
+function HD-POP( plan, operators, methods) returns plan
+inputs: plan, an abstract plan with start and goal steps (and possibly other steps)
+
+loop do
+if SOLUTION plan) then return plan
+Sneed, C — SELECT-SUB-GOAL( plan)
+‘CHOOSE-OPERATOR( plan, operators, Sneed, ©)
+Snonprim — SELECT-NONPRIMITIVE( plan)
+‘CHOOSE-DECOMPOSITION plan, methods, Synprin)
+RESOLVE-THREATS( plan)
+
+end
+
+ 
+
+ 
+
+ 
+
+Figure 12.2. A hierarchical decomposition partial-order planning algorithm, HD-POP. On
+each iteration of the loop we first achieve an unachieved condition (CHOOSE-OPERATOR), then
+decomposeanonprimitive operator(CHOOSE-DECOMPOS TION), thenresolve threats.
+
+ 
+
+ 
+
+To make HD-POP work, we have to change SOLUTION? to check that every step of the
+plan is primitive. The other functions from Figure 11.J3 remain unchanged. There are two new
+procedures: SELECT-NONPRIMITIVE arbitrarily selects a nonprimitive step from the plan. The
+function CHOOSE-DECOMPOSITION picks a decomposition method for the plan and applies it. If"
+method is chosen as the decomposition for the step Syonprim, then the fields of the plan are altered
+as follows:
+
+  
+    
+ 
+
+* Steps: Add all the steps of method to the plan, but remove Sjonprim.
+
++ BINDINGS: Add all the variable binding constraints of method to the plan. Fail if this
+introduces a contradiction. j
+
+* ORDERINGS: Following the principle of least commitment, we replace each ordering
+constraint of the form S,, < Sponprim With constraint(s) that order 5, before the Jatest step(s)
+of method. That is, if S,, is a step of method, and there is no other S; in method such that
+Sm < Sj, then add the constraint S,~<S,,. Similarly, replace each constraint of the form }
+

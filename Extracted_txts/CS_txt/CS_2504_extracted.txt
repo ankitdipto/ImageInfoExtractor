@@ -1,0 +1,92 @@
+8 carrer one Digital Logic Circuits
+
+Boolean expression
+
+DeMorgan’s theorem
+
+2. Express in algebraic form the input-output relationship of logic
+diagrams.
+3. Find simpler circuits for the same function.
+A Boolean function specified by a truth table can be expressed algebraically in
+many different ways. By manipulating a Boolean expression according to
+Boolean algebra rules, one may obtain a simpler expression that will require
+fewer gates. To see how this is done, we must first study the manipulative
+capabilities of Boolean algebra.
+
+Table 1-1 lists the most basic identities of Boolean algebra. All the iden-
+tities in the table can be proven by means of truth tables. The first eight
+identities show the basic relationship between a single variable and itself, or
+in conjunction with the binary constants 1 and 0. The next five identities (9
+through 13) are similar to ordinary algebra. Identity 14 does not apply in
+ordinary algebra but is very useful in manipulating Boolean expressions.
+Identities 15 and 16 are called DeMorgan’s theorems and are discussed below.
+The last identity states that if a variable is complemented twice, one obtains
+the original value of the variable.
+
+   
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+TABLE 1
+
+      
+ 
+
+Basic Identities of Boolean Algebra
+
+   
+    
+  
+
+   
+
+@)x+0
+@)x+1
+()x+x
+
+x
+(4) x
+(6) x-
+
+  
+  
+ 
+
+ 
+
+x+x @ x-x'=0
+Oxty (10) ay = yx
+
+(x+y F2)= (+ +z 12) x(y2) = (yz
+
+(3) xty #2) (19) x + yx = (+ yx +2)
+(5) (e+ yy" (16) (ayy =x! +y"
+
+  
+
+(a7) (@y"
+
+ 
+
+The identities listed in the table apply to single variables or to Boolean
+functions expressed in terms of binary variables. For example, consider the
+following Boolean algebra expression:
+
+ABI +C'D + AB’ +C’D
+Bylettingx = AB’ + C’Dthe expression can be written asx + x. Fromidentity
+5 in Table 1-1 we find that x + x = x. Thus the expression can be reduced to
+only two terms:
+
+ABi+C'D + A'B + C'D = AB’ +CD
+
+DeMorgan’s theorem is very important in dealing with NOR and NAND
+gates. Itstates that a NOR gate that performs the (x + y)’ functionis equivalent
+

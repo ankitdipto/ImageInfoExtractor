@@ -1,0 +1,51 @@
+10  Chapter1 Introduction
+
+system, including process scheduling, disk storage, and memory management.
+These considerations are discussed throughout the text.
+
+1.2.3 Time-Sharing Systems
+
+Multiprogrammed, batched systems provided an environment where the var-
+ious system resources (for example, CPU, memory, peripheral devices) were
+utilized effectively, but it did not provide for user interaction with the computer
+system. Time sharing (or multitasking) is a logical extension of multipro-
+gramming. The CPU executes multiple jobs by switching among them, but the
+switches occur so frequently that the users can interact with each program while
+it is running.
+
+An interactive (or hands-on) computer system provides direct communi-
+cation between the user and the system. The user gives instructions to the
+operating system or to a program directly, using a keyboard or a mouse, and
+waits for immediate results. Accordingly, the response time should be short—
+typically within 1 second or so.
+
+A time-shared operating system allows many users to share the computer
+simultaneously. Since each action or command in a time-shared system tends to
+be short, only a little CPU time is needed for each user. As the system switches
+rapidly from one user to the next, each user is given the impression that the
+entire computer system is dedicated to her use, even though it is being shared
+among many users.
+
+A time-shared operating system uses CPU scheduling and multiprogram-
+ming to provide each user with a small portion of a time-shared computer.
+Each user has at least one separate program in memory. A program loaded into
+memory and executing is commonly referred to as a process. When a process
+executes, it typically executes for only a short time before it either finishes or
+needs to perform I/O. I/O may be interactive; that is, output is to a display
+for the user and input is from a user keyboard, mouse, or other device. Since
+interactive I/O typically runs at “people speeds,” it may take a long time to
+complete. Input, for example, may be bounded by the user’s typing speed;
+seven characters per second is fast for people, but incredibly slow for comput-
+ers. Rather than let the CPU sit idle when this interactive input takes place,
+the operating system will rapidly switch the CPU to the program of some other
+‘user.
+
+Time-sharing operating systems are even more complex than multipro-
+grammed operating systems. In both, several jobs must be kept simultaneously
+in memory, so the system must have memory management and protection
+(Chapter 9). To obtain a reasonable response time, jobs may have to be swapped
+in and out of main memory to the disk that now serves as a backing store for
+main memory. A common method for achieving this goal is virtual memory,
+which is a technique that allows the execution of a job that may not be com-
+pletely in memory (Chapter 10). The main advantage of the virtual-memory
+

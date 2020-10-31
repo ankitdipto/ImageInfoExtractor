@@ -1,0 +1,53 @@
+Chapter 13: More Issues In Input/Output 479
+
+ 
+
+(b)
+
+(c)
+
+[B]
+(a)
+
+— Display the contents of an existing file.
+
+#include "stdio.h"
+main()
+
+char ch, str[10] ;
+while ( (ch = getc (stdin) ) !=-1)
+pute (ch, stdout ) ;
+
+}
+
+State True or False:
+
+1. We can send arguments at command line even if we
+define main() function without parameters.
+
+2. To use standard file pointers we don’t need to open the
+file using fopen().
+
+3. Using stdaux we can send output to the printer if printer is
+attached to the serial port.
+
+4. The zeroth element of the argv array is always the name
+of the exe file.
+
+Point out the errors, if any, in the following program
+main (int ac, char (*) av[])
+printf ( "\n%d", ac) ;
+
+printf ("\Wn%s", av[0] ) ;
+}
+
+Attempt the following:
+Write a program to carry out the following:
+(a) Read a text file provided at command prompt
+
+(b) Print each word in reverse order
+
+For example if the file contains
+INDIA IS MY COUNTRY
+Output should be
+

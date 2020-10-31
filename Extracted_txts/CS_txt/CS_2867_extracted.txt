@@ -1,0 +1,57 @@
+404
+
+Chapter 15 Dynamic Programming
+
+k> is the root
+
+ky is the left child of ky
+do is the left child of ky
+d, is the right child of k,
+ks is the right child of ky
+kg is the left child of ks
+kg is the left child of k4
+dy is the left child of k3
+dg is the right child of k3
+dg is the right child of k4
+ds is the right child of ks
+
+corresponding to the optimal binary search tree shown in Figure 15.9(b).
+
+15.5-2
+Determine the cost and structure of an optimal binary search tree for a set of n = 7
+keys with the following probabilities:
+
+ 
+  
+
+  
+    
+
+0.04 0.06 0.08
+0.06 0.06 0.06 0.06
+
+15.5-3
+
+Suppose that instead of maintaining the table w[i, j], we computed the value
+of w(i, j) directly from equation (15.12) in line 9 of OPTIMAL-BST and used this
+computed value in line 11. How would this change affect the asymptotic running
+time of OPTIMAL-BST?
+
+ISS54 x
+
+Knuth [212] has shown that there are always roots of optimal subtrees such that
+rootli, j — 1] < root{i, j] < root{i +1, j] for all 1 <i < j <n. Use this fact to
+modify the OPTIMAL-BST procedure to run in @(n?) time.
+
+ 
+
+Problems
+
+15-1 Longest simple path in a directed acyclic graph
+
+Suppose that we are given a directed acyclic graph G = (V,E) with real-
+valued edge weights and two distinguished vertices s and ft. Describe a dynamic-
+programming approach for finding a longest weighted simple path from s to f.
+What does the subproblem graph look like’? What is the efficiency of your algo-
+rithm?
+

@@ -1,0 +1,74 @@
+Section 8.4.
+
+General Ontology 231
+
+ 
+
+\SIOINT
+
+VE
+BEB IFOSiion
+
+PARTITION
+
+MEAsuAES.
+
+‘ums FUNCTION,
+
+Notice that because Tomatoes is a category, and is a member of DomesticatedSpecies, then
+DomesticatedSpeciesmust be a category of categories. One can even have categories of categories
+of categories, but they are not much use.
+
+Although subclass and instance relations are the most important ones for categories, we
+also want to be able to state relations between categories that are not subclasses of each other.
+For example, if we just say that Males and Females are subclasses of'Animals, then we have not
+said that a male cannot be a female. We say that two or more categories are disjoint if they have
+no members in common. And even if we know that males and females are disjoint, we will not
+know that an animal that is not a male must be a female unless we say that males and females
+constitute an exhaustive decomposition of the animals. A disjoint exhaustive decomposition is
+known as a partition. The following examples illustrate these three concepts:
+
+Disjoint({Animals, Vegetables})
+ExhaustiveDecomposition({Americans, Canadians, Mexicans}, NorthAmericans)
+Partition({Males, Females}, Animals)
+
+(Note that the ExhaustiveDecomposition of Northdmericans is not a Partition because some
+people have dual citizenship.) The definitions of these three predicates are as follows:
+
+Vs Disjoint(s) =
+
+Wei.c clEsACIESAc\#e2 => Intersection(c\ , ¢2) = EmptySet)
+Vs, ¢ ExhaustiveDecomposition(s,c)
+
+Wiie€e & 3a MesAiEn)
+Vs,¢ Partition(s, ¢) <= Disjoint(s)A ExhaustiveDecomposition(s,c)
+
+  
+
+Categories can also be defined by providing necessary and sufficient conditions for mem-
+bership. For example, a bachelor is an unmarried, adult male:
+
+Vw Bachelor(x) <= Male(x)A Adult(x) A Unmarried(x)
+
+As we discuss in the sidebar on natural kinds, strict logical definitions for categories are not
+always possible, nor always necessary.
+
+Measures
+
+In both scientific and commonsense theories of the world, objects have height, mass, cost, and
+so on. The values that we assign for these properties are called measures. Ordinary, quantitative
+measures are quite easy to represent. We imagine that the universe includes abstract "measure
+objects," such as the /ength that is the length of this line segment: R--———————_—_——.
+We can call this length 1.5inches, or 3.81 centimeters. Thus, the same length has different names
+in our language. Logically, this can be done by combining a units function with a number. IfL;
+is the name of the line segment, then we can write
+
+Length(L;) = Inches(1.5)= Centimeters(3.81)
+
+Conversion between units is done with sentences such as
+
+V/. Centimeters(2.54 x. 1) =Inches(l)
+Vit Centigrade(t) = Fahrenheit(32 +1.8 x ))
+
+ 
+

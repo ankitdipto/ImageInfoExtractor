@@ -1,0 +1,40 @@
+176 Let Us C
+
+ 
+
+The first of these answers is correct. But square of 1.5 is definitely
+not 2. Neither is 6 a square of 2.5. This happened because any C
+function, by default, always returns an integer value. Therefore,
+even though the function square() calculates the square of 1.5 as
+2.25, the problem crops up when this 2.25 is to be returned to
+main(). square() is not capable of returning a float value. How
+do we overcome this? The following program segment illustrates
+how to make square() capable of returning a float value.
+
+main()
+
+{
+float square (float) ;
+float a,b;
+
+printf ( "\nEnter any number ") ;
+scanf ("%f", &a) ;
+
+b = square (a);
+printf ( "\nSquare of %f is %f", a, b) ;
+
+}
+float square (float x )
+{
+float y ;
+yaX"X;
+return (y) ;
+}
+
+And here is the output...
+
+Enter any number 1.5
+Square of 1.5 is 2.250000
+Enter any number 2.5
+Square of 2.5 is 6.250000
+

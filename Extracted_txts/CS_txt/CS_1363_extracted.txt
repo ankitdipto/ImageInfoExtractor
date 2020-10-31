@@ -1,0 +1,95 @@
+620 Let UsC
+
+ 
+
+ 
+
+ 
+
+Key hit / Mouse click
+generates an interrupt
+
+ 
+
+ 
+
+Microprocessor
+
+ 
+
+ 
+
+Microprocessor
+looks up IVT
+
+ 
+
+Suitable ISR1
+ISR is
+
+Address Address called,
+
+of ISR1 of ISR2
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ISR2
+
+ 
+
+ 
+
+ 
+
+ 
+
+IvT
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+BIOS Routines
+
+ 
+
+ 
+
+ 
+
+Figure 19.1
+
+If we want that instead of the default ISR our routine should get
+called then it is necessary to store the address of this routine in
+IVT. Once this is done whenever a hardware interrupt occurs our
+routine’s address from IVT is picked up and the control is
+transferred to our routine. For example, we may register our ISR in
+IVT to gain finer control over the way key-hits from the keyboard
+are tackled. This finer control may involve changing codes of keys
+or handling hitting of multiple keys simultaneously.
+
+Explicit communication with the hardware can be done in four
+different ways. These are shown in Figure 19.2.
+

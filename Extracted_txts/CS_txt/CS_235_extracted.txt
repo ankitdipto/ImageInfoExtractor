@@ -1,0 +1,49 @@
+28.2. Inverting matrices 831
+
+The second line holds because the second regularity condition in the statement
+of the theorem implies that 4M(n/2) < 2M(n) and because we assume that
+M(n) = Q(n’). The third line follows because the second regularity condition
+allows us to apply case 3 of the master theorem (Theorem 4.1).
+
+It remains to prove that we can obtain the same asymptotic running time for ma-
+trix multiplication as for matrix inversion when A is invertible but not symmetric
+and positive-definite. The basic idea is that for any nonsingular matrix A, the ma-
+trix ATA is symmetric (by Exercise D.1-2) and positive-definite (by Theorem D.6).
+The trick, then, is to reduce the problem of inverting A to the problem of invert-
+ing ATA.
+
+The reduction is based on the observation that when A is ann x n nonsingular
+matrix, we have
+
+A? = (ATA) AT,
+
+ 
+
+since ((ATA)'AT)A = (ATA)1(ATA) = I, and a matrix inverse is unique.
+Therefore, we can compute A™! by first multiplying AT by A to obtain A7A, then
+inverting the symmetric positive-definite matrix A™A using the above divide-and-
+conquer algorithm, and finally multiplying the result by AT. Each of these three
+steps takes O(M(n)) time, and thus we can invert any nonsingular matrix with real
+entries in O(M(n)) time. .
+
+The proof of Theorem 28.2 suggests a means of solving the equation Ax = b
+by using LU decomposition without pivoting, so long as A is nonsingular. We
+multiply both sides of the equation by A7, yielding (ATA)x = AT. This trans-
+formation doesn’t affect the solution x, since A’ is invertible, and so we can fac-
+tor the symmetric positive-definite matrix AA by computing an LU decomposi-
+tion. We then use forward and back substitution to solve for x with the right-hand
+side AT). Although this method is theoretically correct, in practice the procedure
+LUP-DECOMPOSITION works much better. LUP decomposition requires fewer
+arithmetic operations by a constant factor, and it has somewhat better numerical
+properties.
+
+Exercises
+
+28.2-1
+
+Let M(n) be the time to multiply two n x n matrices, and let S(m) denote the time
+required to square ann x n matrix. Show that multiplying and squaring matri-
+ces have essentially the same difficulty: an M(n)-time matrix-multiplication al-
+gorithm implies an O(M(n))-time squaring algorithm, and an S(n)-time squaring
+algorithm implies an O(S(1))-time matrix-multiplication algorithm.
+

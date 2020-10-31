@@ -1,0 +1,50 @@
+section 3.8. Summary 4
+aaa
+
+3.8 SUMMARY
+
+This chapter has introduced methods that an agent can use when it is not clear which immediate
+action is best. In such cases, the agent can consider possible sequences of actions; this process is
+called search.
+
+Before an agent can start searching for solutions, it must formulate a goal and then use the
+goal to formulate a problem.
+
+A problem consists of four parts: the initial state, a set of operators, a goal test function,
+and a path cost function. The environment of the problem is represented by a state space.
+A path through the state space from the initial state to a goal state is a solution.
+
+In real life most problems are ill-defined; but with some analysis, many problems can fit
+into the state space model.
+
+A single general search algorithm can be used to solve any problem; specific variants of
+the algorithm embody different strategies.
+
+Search algorithms are judged on the basis of completeness, optimality, time complexity,
+and space complexity. Complexity depends on b, the branching factor in the state space,
+and d, the depth of the shallowest solution.
+
+Breadth-first search expands the shallowest node in the search tree first. It is complete,
+optimal for unit-cost operators, and has time and space complexity of O(b"). The space
+complexity makes it impractical in most cases
+
+Uniform-cost search expands the least-cost leaf node first. It is complete, and unlike
+breadth-first search is optimal even when operators have differing costs. Its space and time
+complexity are the same as for breadth-first search.
+
+Depth-first search expands the deepest node in the search tree first. It is neither complete
+nor optimal, and has time complexity of O(b")and space complexity of O(bm), where m is
+the maximum depth. In search trees of large or infinite depth, the time complexity makes
+this impractical.
+
+Depth-limited search places a limit on how deep a depth-first search can go. Ifthe limit
+happens to be equal to the depth of shallowest goal state, then time and space complexity
+are minimized.
+
+Iterative deepening search calls depth-limited search with increasing limits until a goal is
+found. It is complete and optimal, and has time complexity of O(b“)and space complexity
+of O(bd).
+
+Bidirectional search can enormously reduce time complexity, but is not always applicable.
+Its memory requirements may be impractical.
+

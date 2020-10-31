@@ -1,0 +1,45 @@
+266 Let Us C
+
+ 
+
+[B]
+
+What would be the output of the following program:
+
+main()
+{
+int i=2;
+#ifdef DEF
+i*=i;
+#else
+printf ( “\n%d", i) ;
+#endif
+}
+
+#define PRODUCT(x) (x* x)
+main()
+{
+int i=3,j;
+j= PRODUCT(i+1);
+printf ( "\n%q", j) ;
+
+#define PRODUCT(x) (x* x)
+main()
+{
+
+int i=3,j,k;
+
+j= PRODUCT(i++) ;
+
+k = PRODUCT (++i) ;
+
+printf (“\n%d %d", j,k) ;
+}
+
+# define SEMI ;
+main()
+{
+int p = 3 SEMI;
+printf ("%6d", p) SEMI
+}
+

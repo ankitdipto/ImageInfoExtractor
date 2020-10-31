@@ -1,0 +1,51 @@
+750
+
+Chapter 24. Perception
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 24.24 The information needed for visual control ofa vehicle on a freeway.
+
+ 
+
+ 
+
+ 
+
+of the projection of the lane in the image, one knows where to look for the lane markers in the
+image—in the figure, this is indicated by showing the search windows.
+
+For longitudinal control, one needs to know distances to the vehicles in front. This can be
+accomplished using binocular stereopsis or optical flow. Both these approaches can be simplified
+by exploiting the domain constraints derived from the fact that one is driving on a planar surface.
+Using these techniques, Dickmanns and Zapp (1987) have demonstrated visually controlled car
+driving on freeways at high speeds. Pomerleau (1993) achieved similar performance using a
+neural network approach (see discussion on page 586).
+
+The driving example makes one point very clear: for a specific task, one does not need
+to recover all the information that in principle can be recovered from an image. One does
+not need to recover the exact shape of every vehicle, solve for shape-from-texture on the grass
+surface adjacent to the freeway, and so on. The needs of the task require only certain kinds of
+information and one can gain considerable computational speed and robustness by recovering
+only that information and fully exploiting the domain constraints. Our purpose in discussing the
+general approaches in the previous section was that they form the basic theory, which one can
+specialize for the needs of particular tasks.
+
+!
+i
+1
+i
+|
+
+ 
+

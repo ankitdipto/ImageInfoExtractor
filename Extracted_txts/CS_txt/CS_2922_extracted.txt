@@ -1,0 +1,56 @@
+448
+
+Chapter 16 Greedy Algorithms
+
+16-3 Acyclic subgraphs
+
+a.
+
+The incidence matrix for an undirected graph G = (V, E) is a|V| x |E| ma-
+trix M such that Mye = | if edge e is incident on vertex v, and Mye = 0 other-
+wise. Argue that a set of columns of M is linearly independent over the field
+of integers modulo 2 if and only if the corresponding set of edges is acyclic.
+Then, use the result of Exercise 16.4-2 to provide an alternate proof that (EZ, I)
+of part (a) is a matroid.
+
+Suppose that we associate a nonnegative weight w(e) with each edge in an
+undirected graph G = (V, £). Give an efficient algorithm to find an acyclic
+subset of E of maximum total weight.
+
+Let G(V, E) be an arbitrary directed graph, and let (E, I) be defined so that
+A € J if and only if A does not contain any directed cycles. Give an example
+of a directed graph G such that the associated system (£, I) is not a matroid.
+Specify which defining condition for a matroid fails to hold.
+
+. The incidence matrix for a directed graph G = (V, E) with no self-loops is a
+
+|V| x |E| matrix M such that Mye = —1 if edge e leaves vertex v, Mye = Lif
+edge e enters vertex v, and Mye = 0 otherwise. Argue that if a set of columns
+of M is linearly independent, then the corresponding set of edges does not
+contain a directed cycle.
+
+Exercise 16.4-2 tells us that the set of linearly independent sets of columns of
+any matrix M forms a matroid. Explain carefully why the results of parts (d)
+and (e) are not contradictory. How can there fail to be a perfect correspon-
+dence between the notion of a set of edges being acyclic and the notion of the
+associated set of columns of the incidence matrix being linearly independent?
+
+16-4 Scheduling variations
+
+Consider the following algorithm for the problem from Section 16.5 of scheduling
+unit-time tasks with deadlines and penalties. Let all 1 time slots be initially empty,
+where time slot i is the unit-length slot of time that finishes at time 7. We consider
+the tasks in order of monotonically decreasing penalty. When considering task aj,
+if there exists a time slot at or before a;’s deadline d; that is still empty, assign a;
+to the latest such slot, filling it. If there is no such slot, assign task a; to the latest
+of the as yet unfilled slots.
+
+a.
+
+b
+
+Argue that this algorithm always gives an optimal answer.
+
+Use the fast disjoint-set forest presented in Section 21.3 to implement the algo-
+rithm efficiently. Assume that the set of input tasks has already been sorted into
+

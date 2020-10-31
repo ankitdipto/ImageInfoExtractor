@@ -1,0 +1,76 @@
+memory read
+
+memory write
+
+SECTION 43 Bus and Memory Transfers 101
+
+Bus line for bit 0
+
+ 
+
+Ao
+
+Be
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+—s,
+
+ 
+
+ 
+
+{
+
+Seeet) Is
+decoder >
+
+Enable —]
+
+ 
+
+ 
+
+ 
+
+Figure 4-5 Bus line with three state-bufers.
+
+state buffers, we need n circuits with four buffers in each as shown in Fig. 4-5.
+Each group of four buffers receives one significant bit from the four registers.
+Each common output produces one of the lines for the common bus for a total
+of n lines. Only one decoder is necessary to select between the four registers.
+
+Memory Transfer
+
+The operation of a memory unit was described in Sec. 2-7. The transfer of
+information from a memory word to the outside environment is called a read
+operation. The transfer of new information to be stored into the memory is
+called a write operation. A memory word will be symbolized by the letter M.
+The particular memory word among the many available is selected by the
+memory address during the transfer. It is necessary to specify the address of
+‘M when writing memory transfer operations. This will be done by enclosing
+the address in square brackets following the letter M.
+
+Consider a memory unit that receives the address from a register, called
+the address register, symbolized by AR. The data are transferred to another
+register, called the data register, symbolized by DR. The read operation can
+be stated as follows:
+
+Read: DR < MIAR]
+
+This causes a transfer of information into DR from the memory word M
+selected by the address in AR.
+
+The write operation transfers the content of a data register to a memory
+word M selected by the address. Assume that the input data are in register R1
+

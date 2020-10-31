@@ -1,0 +1,65 @@
+570
+
+Chapter 19 Learning in Neural and Belief Networks
+
+ 
+
+FEED-FORWARD
+RECURRENT
+
+We can get a feel for the operation of individual units by comparing them with logic gates.
+One of the original motivations for the design of individual units (McCulloch and Pitts, 1943) was
+their ability to represent basic Boolean functions. Figure 19.6 shows how the Boolean functions
+AND, OR, and NOT can be represented by units with suitable weights and thresholds. This is
+important because it means we can use these units to build a network to compute any Boolean
+function of the inputs. .
+
+2D 2EO> FES
+
+AND OR NOT
+
+ 
+
+ 
+
+ 
+
+Figure 19.6 Units with a step function for the activation function can act as logic gates, given
+appropriate thresholds and weights.
+
+ 
+
+ 
+
+ 
+
+Network structures
+
+There are a variety of kinds of network structure, each of which results in very different com-
+putational properties. The main distinction to be made is between feed-forward and recurrent
+networks. In a feed-forward network, links are unidirectional, and there are no cycles. In a
+recurrent network, the links can form arbitrary topologies. Technically speaking, a feed-forward
+network is a directed acyclic graph (DAG). We will usually be dealing with networks that are
+arranged in layers. In a layered feed-forward network, each unit is linked only to units in the next
+layer; there are no links between units in the same layer, no links backward to a previous layer,
+and no links that skip a layer. Figure 19.7 shows a very simple example ofa layered feed-forward
+network. This network has two layers; because the input units (square nodes) simply serve to
+pass activation to the next layer, they are not counted (although some authors would describe this
+as a three-layer network).
+
+The significance ofthe lack of cycles is that computation can proceed uniformly from input
+units to output units. The activation from the previous time step plays no part in the computation,
+because it is not fed back to an earlier unit. Hence, a feed-forward network simply computes a
+function of the input values that depends on the weight settings—it has no internal state other
+than the weights themselves. Such networks can implement adaptive versions of simple reflex
+agents or they can function as components of more complex agents. In this chapter, we will focus
+on feed-forward networks because they are relatively well-understood.
+
+Obviously, the brain cannot be a feed-forward network, else we would have no short-term
+memory. Some regions of the brain are largely feed-forward and somewhat layered, but there
+are rampant back-connections. In our terminology, the brain is a recurrent network. Because
+activation is fed back to the units that caused it, recurrent networks have internal state stored in
+the activation levels of the units. This also means that computation can be much less orderly
+
+ 
+

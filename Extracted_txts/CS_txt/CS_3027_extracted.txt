@@ -1,0 +1,101 @@
+Section 13.3.
+
+Fully Integrated Planning and Execution 405
+
+ 
+
+EXTENDING
+
+REDUNDANT STEP
+
+ 
+
+Sexe) [ Move(C,b)
+ri) | Move
+onibieva) Clear)
+aa
+x8) [_Finish_|
+ons, 4
+Clear) On{D.B)
+Clear(D) On(D.G)
+Geare) ——e Geer} | Move(D.B)
+
+Figure 13.11 The initial plan constructed by the situated planning agent. The plan is indistin-
+guishable, so far, from that produced by a normal partial-order planner.
+
+Bees | Move(C.D)
+1G) Move(C,
+Ontabie(A) Glear(0)
+ner,
+: S168} [_ Fish]
+Ono's
+[oe ae
+2)
+Clear(D) Ondy
+‘Clear(D)
+Geana) Gear’ [ Move(0.8)
+
+Figure 1312 After someone else moves D onto B, the unsupported links protecting Clear(B)
+and On(D,G) are dropped, producing this plan.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+are now open, and the precondition On(D, y)is now uninstantiated because there is no reason to
+assume the move will be from G any more.
+
+Now the agent can take advantage of the "helpful" interference by noticing that the causal
+link protecting On(D,B) and supplied by Move(D,B) can be replaced by a direct link from START.
+This process is called extending a causal link, and is done whenever a condition can be supplied
+by an earlier step instead ofa later one without causing a new threat.
+
+Once the old link from Move(D,B) is removed, the step no longer supplies any causal links
+at all. It is now a redundant step. All redundant steps are dropped from the plan, along with
+any links supplying them. This gives us the plan shown in Figure 13.13.
+
+ 
+
+ 
+
+Onic.0}
+On(0,8)
+
+ 
+
+CleaG)
+
+ 
+
+ 
+
+Figure 13.13 The link supplied by MoveCD, B)has been replaced by one from START, and the
+now-redundant step Move(D,B) has been dropped.
+
+ 
+
+ 
+
+ 
+
+Now the step Move(C,D) is ready to be executed, because all of its preconditions are
+satisfied by the START step, no other steps are necessarily before it, and it does not threaten any
+other link in the plan. The step is removed from the plan and executed. Unfortunately, the agent
+is clumsy and drops C onto 4 instead of D, giving the state shown in Figure 13.10(c). The new
+

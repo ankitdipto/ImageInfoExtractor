@@ -1,0 +1,55 @@
+278
+
+CHAPTER GHT Central Processing Unit
+
+It should be noted that the instruction BNE and BNZ (branch if not zero)
+are identical Similarly, the two instructions BE (branch if equal) and BZ
+(branch if zero) are also identical. Each is repeated three times in Table 8-11 for
+the purpose of clarity and completeness.
+
+It should be obvious from the example that the relative magnitude of
+two unsigned numbers can be determined (after a compare instruction) from
+the values of status bits C and Z (see Prob. 8-26). The relative magnitude of two
+signed numbers can be determined from the values of S, V, and Z (see
+Prob. 8-27).
+
+‘Some computers consider the C bit to be a borrow bit aftera subtraction
+operation A — B. A borrow doesnot occurif A > B, buta bit mustbe borrowed
+from the next most significant position if A < B. The condition for a borrow
+is the complement of the carry obtained when the subtraction is done by taking
+the 2's complement of B. For this reason, a processor that considers the C bit
+to be a borrow after a subtraction will complement the C bit after adding the
+2's complement of the subtrahend and denote this bit a borrow.
+
+Subroutine Call and Return
+
+A subroutine is a self-contained sequence of instructions that performs a given
+computational task. During the execution of a program, a subroutine may be
+called to perform its function many times at various points in the main pro-
+gram. Each time a subroutine is called, a branch is executed to the beginning
+of the subroutine to start executing its set of instructions. After the subroutine
+has been executed, a branch is made back to the main program.
+
+The instruction that transfers program control to a subroutine is known.
+by different names. The most common names used are call subroutine, jump to
+subroutine, branch to subroutine, or branch and save address. A call subroutine
+instruction consists of an operation code together withan address that specifies
+the beginning of the subroutine. The instruction is executed by performing two
+operations: (1) the address of the next instruction available in the program
+counter (the return address) is stored in a temporary location so the subroutine
+knows where to return, and (2) control is transferred to the beginning of the
+subroutine The last instruction of every subroutine, commonly called return
+from subroutine, transfers the return address from the temporary location into
+the program counter. This results in a transfer of program control to the
+instruction whose address was originally stored in the temporary location.
+
+Different computers use a different temporary location for storing the
+return address. Some store the return address in the first memory location of
+the subroutine, some store it in a fixed location in memory, some store it in
+a processor register, and some store it in a memory stack. The most efficient
+way is to store the return address in a memory stack. The advantage of using
+astack for the return address is that when a succession of subroutines is called,
+the sequential return addresses can be pushed into the stack. The return from
+
+ 
+

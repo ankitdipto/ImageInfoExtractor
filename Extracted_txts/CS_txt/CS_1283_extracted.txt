@@ -1,0 +1,46 @@
+Chapter 16: C Under Windows 555
+
+ 
+
+(e) A ‘New Project Information’ dialog will appear. Close it by
+clicking on OK.
+
+(f) Again select ‘File | New | C++ Source File’. Give the file
+name as ‘sample1.c’. Click on OK.
+
+(g) Type the program in the ‘samplel.c’ file that gets opened in
+the VC++ IDE.
+
+(a) Save this file using ‘Save’ option from the File menu.
+
+To execute the program follow the steps mentioned below:
+
+(a) From the Build menu, select ‘Build samplel.exe’.
+(b) Assuming that no errors were reported in the program, select
+‘Execute samplel.exe’ from the Build menu.
+
+Let us now try to understand the program. The way every C under
+DOS program begins its execution with main( ), every C under
+Windows program begins its execution with WinMain(). Thus
+WinMain( ) becomes the entry point for a Windows program. A
+typical WinMain( ) looks like this:
+
+int __stdcall WinMain ( HINSTANCE hinstance, HINSTANCE hPrevinstance,
+LPSTR IpszCmdLine, int nCmdShow )
+
+Note the __stdcall before WinMain( ). It indicates the calling
+convention used by the WinMain( ) function. Calling Conventions
+indicate two things:
+
+(a) The order (left to right or right to left) in which the arguments
+are pushed onto the stack when a function call is made.
+
+(b) Whether the caller function or called function removes the
+arguments from the stack at the end of the call.
+
+Out of the different calling conventions available most commonly
+used conventions are __cdecl and __stdcall . Both these calling
+conventions pass arguments to functions from right to left. In
+__cdecl the stack is cleaned up by the calling function, whereas in
+case of __stdcall the stack is cleaned up by the called function. All
+

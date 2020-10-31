@@ -1,0 +1,52 @@
+30.1 Representing polynomials 901
+
+Similarly, adding two polynomials represented by the coefficient vectors a =
+
+(do.d1,..., a,—-1) and b = (bo,b1,..., by-1) takes @(n) time: we just produce
+the coefficient vector c = (Co,C1,..., Cn-1), Where cy = aj +5; for j =
+OL... n—-1.
+
+Now, consider multiplying two degree-bound n polynomials A(x) and B(x) rep-
+resented in coefficient form. If we use the method described by equations (30.1)
+and (30.2), multiplying polynomials takes time ©(n”), since we must multiply
+each coefficient in the vector a by each coefficient in the vector b. The operation
+of multiplying polynomials in coefficient form seems to be considerably more diffi-
+cult than that of evaluating a polynomial or adding two polynomials. The resulting
+coefficient vector c, given by equation (30.2), is also called the convolution of the
+input vectors a and b, denoted c = a ® b. Since multiplying polynomials and
+computing convolutions are fundamental computational problems of considerable
+practical importance, this chapter concentrates on efficient algorithms for them.
+
+Point-value representation
+
+A point-value representation of a polynomial A(x) of degree-bound n is a set of
+n point-value pairs
+
+£¥0, Yo). (1. Vives Ona Yn)
+
+such that all of the x, are distinct and
+
+Ve = A(xe) (30.3)
+fork =0,1,..., n—1. A polynomial has many different point-value representa-
+tions, since we can use any set of n distinct points X,.x),.... Xp—1 as a basis for
+
+the representation.
+
+Computing a point-value representation for a polynomial given in coefficient
+form is in principle straightforward, since all we have to do is select n distinct
+points X9,.X1,..., Xn—1 and then evaluate A(x,) fork = 0,1,..., n—1. With
+Horner’s method, evaluating a polynomial at 7 points takes time @(n?). We shall
+see later that if we choose the points x; cleverly, we can accelerate this computation
+to run in time O(n lgn).
+
+The inverse of evaluation—determining the coefficient form of a polynomial
+from a point-value representation— is interpolation. The following theorem shows
+that interpolation is well defined when the desired interpolating polynomial must
+have a degree-bound equal to the given number of point-value pairs.
+
+Theorem 30.1 (Uniqueness of an interpolating polynomial)
+
+For any set {(X0, Yo). (41. Y1).-- +5 (Xn-1. Yn—1)} Of n point-value pairs such that
+all the x% values are distinct, there is a unique polynomial A(x) of degree-bound n
+such that yx = A(xx) fork =0,1,...,2 —1.
+

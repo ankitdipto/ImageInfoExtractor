@@ -1,0 +1,47 @@
+Notes for Chapter 25 707
+
+weights and obtains an algorithm that runs in O(V3(Ig 1g V/ 1g V)"/?) time, which
+is slightly better than the running time of the Floyd-Warshall algorithm. Han [159]
+reduced the running time to O(V3(Iglg V/lg V)°/*). Another line of research
+demonstrates that we can apply algorithms for fast matrix multiplication (see the
+chapter notes for Chapter 4) to the all-pairs shortest paths problem. Let O(n®) be
+the running time of the fastest algorithm for multiplying x n matrices; currently
+@ < 2.376 [78]. Galil and Margalit [123, 124] and Seidel [308] designed algo-
+rithms that solve the all-pairs shortest paths problem in undirected, unweighted
+graphs in (V®p(V)) time, where p(n) denotes a particular function that is poly-
+logarithmically bounded in n. In dense graphs, these algorithms are faster than
+the O(VE) time needed to perform |V| breadth-first searches. Several researchers
+have extended these results to give algorithms for solving the all-pairs shortest
+paths problem in undirected graphs in which the edge weights are integers in the
+range {1,2,..., W}. The asymptotically fastest such algorithm, by Shoshan and
+Zwick [316], runs in time O(WV® p(VW)).
+
+Karger, Koller, and Phillips [196] and independently McGeoch [247] have given
+a time bound that depends on E*, the set of edges in E that participate in some
+shortest path. Given a graph with nonnegative edge weights, their algorithms run in
+O(VE* + V? IgV) time and improve upon running Dijkstra’s algorithm |V | times
+when |E*| = 0(E).
+
+Baswana, Hariharan, and Sen [33] examined decremental algorithms for main-
+taining all-pairs shortest paths and transitive-closure information. Decremen-
+tal algorithms allow a sequence of intermixed edge deletions and queries; by
+comparison, Problem 25-1, in which edges are inserted, asks for an incremen-
+tal algorithm. The algorithms by Baswana, Hariharan, and Sen are randomized
+and, when a path exists, their transitive-closure algorithm can fail to report it
+with probability 1/n° for an arbitrary c > 0. The query times are O(1) with
+high probability. For transitive closure, the amortized time for each update is
+O43 1g'/3 V). For all-pairs shortest paths, the update times depend on the
+queries. For queries just giving the shortest-path weights, the amortized time per
+update is O(V3/Elg?V). To report the actual shortest path, the amortized up-
+date time is min(O(V?/?/igV), O(V3/E lg? V)). Demetrescu and Italiano [84]
+showed how to handle update and query operations when edges are both inserted
+and deleted, as long as each given edge has a bounded range of possible values
+drawn from the real numbers.
+
+Aho, Hopcroft, and Ullman [5] defined an algebraic structure known as a “closed
+semiring,” which serves as a general framework for solving path problems in di-
+rected graphs. Both the Floyd-Warshall algorithm and the transitive-closure algo-
+rithm from Section 25.2 are instantiations of an all-pairs algorithm based on closed
+semirings. Maggs and Plotkin [240] showed how to find minimum spanning trees
+using a closed semiring.
+

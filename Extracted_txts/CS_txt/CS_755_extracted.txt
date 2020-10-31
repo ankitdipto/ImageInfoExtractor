@@ -1,0 +1,47 @@
+116 Let Us C
+
+ 
+
+The Odd Loop
+
+The loops that we have used so far executed the statements within
+them a finite number of times. However, in real life programming
+one comes across a situation when it is not known beforehand how
+many times the statements in the loop are to be executed. This
+situation can be programmed as shown below:
+
+/" Execution of a loop an unknown number of times */
+main()
+
+char another ;
+int num ;
+do
+{
+printf
+scanf
+
+"Enter a number") ;
+
+"%d", &num) ;
+printf ( "square of %d is %d", num, num * num) ;
+printf ( "\nWant to enter another number y/n ") ;
+scanf (" %c", &another ) ;
+
+}while (another =='y') ;
+
+}
+And here is the sample output...
+
+Enter a number 5
+square of 5 is 25
+Want to enter another number y/n y
+Enter a number 7
+square of 7 is 49
+Want to enter another number y/n n
+
+In this program the do-while loop would keep getting executed till
+the user continues to answer y. The moment he answers n, the loop
+terminates, since the condition ( another == 'y' ) fails. Note that
+this loop ensures that statements within it are executed at least
+once even if n is supplied first time itself.
+

@@ -1,0 +1,76 @@
+load (LD)
+
+SECTION 52 Computer Registers. 129
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+n o
+PC
+u o
+AR
+Memory
+4096 words
+15 o 16 bits per word
+i
+15 o 15 o
+TR DR
+7 o7 o 15 o
+OUTR INPR AC
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 5-3 Basic computer registers and memory.
+
+Common Bus System
+
+The basic computer has eight registers, a memory unit, and a control unit (to
+be presented in Sec. 5-4). Paths must be provided to transfer information from
+one register to another and between memory and registers. The number of
+wires will be excessive if connections are made between the outputs of each
+register and the inputs of the other registers. A more efficient scheme for
+transferring information in a system with many registers is to use a common
+bus. We have shown in Sec. 4-3how toconstructa bus system using multiplex-
+ers or three-state buffer gates. The connection of the registers and memory of
+the basic computer to a common bus system is shown in Fig. 5-4.
+
+The outputs of seven registers and memory are connected to the common.
+bus. The specific output that is selected for the bus lines at any given time is,
+determined from the binary value of the selection variables S2, S, and So. The
+number along each output shows the decimal equivalent of the required binary
+selection. For example, the number along the output of DR is 3. The 16-bit
+outputs of DR are placed on the bus lines when $,5;S, = 011 since this is the
+binary value of decimal 3. The lines from the common bus are connected to the
+inputs of each register and the data inputs of the memory. The particular
+register whose LD (load) input is enabled receivesthe data from the bus during
+the next clock pulse transition. The memory receives the contents of the bus
+when its write input is activated. The memory places its 16-bit output onto the
+bus when the read input is activated and $,5;5y = 111.
+
+Four registers, DR, AC, IR, and TR, have 16 bits each. Two registers, AR
+

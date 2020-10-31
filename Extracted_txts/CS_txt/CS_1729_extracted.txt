@@ -1,0 +1,36 @@
+7.7. Monitors 217
+
+construct. A programmer who needs to write her own tailor-made synchro-
+nization scheme can define one or more variables of type condition:
+
+condition x, y;
+
+The only operations that can be invoked on a condition variable are wait
+and signal. The operation
+
+x.wait(;
+
+means that the process invoking this operation is suspended until another
+process invokes
+
+x.signal();
+
+The x. signal () operation resumes exactly one suspended process. If no
+process is suspended, then the signal operation has no effect; that is, the state
+of x is as though the operation were never executed (Figure 7.21). Contrast
+this operation with the signal operation associated with semaphores, which
+always affects the state of the semaphore.
+
+Now suppose that, when the x. signal () operation is invoked by a pro-
+cess P, there is a suspended process Q associated with condition x. Clearly, if the
+
+  
+   
+
+entry queue
+
+queues associated with
+x, y conditions
+
+Figure 7.21 Monitor with condition variables.
+

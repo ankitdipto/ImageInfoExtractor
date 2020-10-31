@@ -1,0 +1,49 @@
+942
+
+Chapter 31 Number-Theoretic Algorithms
+
+where the group operation is multiplication modulo 15. (Here we denote an el-
+ement [a]is as a; for example, we denote [7]1s as 7.) Figure 31.2(b) shows the
+group (Z}5.-15). For example, 8-11 = 13 (mod 15), working in Z};. The iden-
+tity for this group is 1.
+
+Theorem 31.13
+The system (Z*,-,) is a finite abelian group.
+
+Proof Theorem 31.6 implies that (Z;.-,) is closed. Associativity and commu-
+tativity can be proved for -, as they were for +,, in the proof of Theorem 31.12.
+The identity element is [1],,. To show the existence of inverses, let a be an element
+of Zy and let (d,x, y) be returned by EXTENDED-EUCLID(a,n). Then, d = 1,
+since a € Z*, and
+
+ax+ny=1 (31.19)
+or, equivalently,
+ax =1 (modn).
+
+Thus, [x], is a multiplicative inverse of [a],,, modulo n. Furthermore, we claim
+that [x], € Z*. To see why, equation (31.19) demonstrates that the smallest pos-
+itive linear combination of x and n must be 1. Therefore, Theorem 31.2 implies
+that ged(x,) = 1. We defer the proof that inverses are uniquely defined until
+Corollary 31.26. .
+
+As an example of computing multiplicative inverses, suppose that a = 5 and
+n = 11. Then EXTENDED-EUCLID(a,n) returns (d,x,y) = (1,—2, 1), so that
+1 =5-(—2)+11-1. Thus, [—2]11 (ie., [9]11) is the multiplicative inverse of [5]11.
+
+When working with the groups (Z,.+n) and (Z*,-n) in the remainder of this
+chapter, we follow the convenient practice of denoting equivalence classes by their
+representative elements and denoting the operations +, and -, by the usual arith-
+metic notations + and - (or juxtaposition, so that ab = a - b) respectively. Also,
+equivalences modulo 7 may also be interpreted as equations in Z,. For example,
+the following two statements are equivalent:
+
+ax = b (modn),
+[a]nen Xn = [bln -
+
+As a further convenience, we sometimes refer to a group (S,@) merely as S
+when the operation @ is understood from context. We may thus refer to the groups
+(Zn. +n) and (Z*,-,) as Z,, and Z*, respectively.
+
+We denote the (multiplicative) inverse of an element a by (a~! mod 1). Division
+in Z* is defined by the equation a/b = ab~' (mod n). For example, in Z7;
+

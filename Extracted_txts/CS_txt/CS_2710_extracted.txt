@@ -1,0 +1,64 @@
+276
+
+Chapter 11 Hash Tables
+
+Proof An element is inserted only if there is room in the table, and thus a < 1.
+Inserting a key requires an unsuccessful search followed by placing the key into the
+first empty slot found. Thus, the expected number of probes is at most 1/(1—a@). =
+
+We have to do a little more work to compute the expected number of probes for
+a successful search.
+
+Theorem 11.8
+
+Given an open-address hash table with load factor a < 1, the expected number of
+probes in a successful search is at most
+
+1 1
+
+=i :
+al a
+
+ 
+
+assuming uniform hashing and assuming that each key in the table is equally likely
+to be searched for.
+
+Proof A search for a key k reproduces the same probe sequence as when the
+element with key k was inserted. By Corollary 11.7, if k was the (i + I)st key
+inserted into the hash table, the expected number of probes made in a search for k
+is at most 1/(1 —i/m) = m/(m —i). Averaging over all n keys in the hash table
+gives us the expected number of probes in a successful search:
+
+1 1
+
+ye >
+j=o "—! j=o "—!
+> |
+a+
+
+< =/ (1/x) dx (by inequality (A.12))
+
+Sle
+=/5
+
+al
+
+1
+ae
+
+ 
+
+ 
+
+1 m
+= —In
+a m—n
+1 1
+= —In : .
+a l-a@
+
+If the hash table is half full, the expected number of probes in a successful search
+is less than 1.387. If the hash table is 90 percent full, the expected number of probes
+is less than 2.559.
+

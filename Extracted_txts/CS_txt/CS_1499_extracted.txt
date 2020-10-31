@@ -1,0 +1,64 @@
+ 
+
+ 
+
+2.1 Computer-System Operation 29
+
+from a user program that an operating-system service be performed. The
+interrupt-driven nature of an operating system defines that system’s general
+structure. For each type of interrupt, separate segments of code in the operating
+system determine what action should be taken. An interrupt service routine is
+provided that is responsible for dealing with the interrupt.
+
+When the CPU is interrupted, it stops what it is doing and immediately
+transfers execution to a fixed location. The fixed location usually contains
+the starting address where the service routine for the interrupt is located.
+The interrupt service routine executes; on completion, the CPU resumes the
+interrupted computation. A time line of this operation is shown in Figure 2.2.
+
+Interrupts are an important part of a computer architecture. Each computer
+design has its own interrupt mechanism, but several functions are common.
+The interrupt must transfer control to the appropriate interrupt service routine.
+The straightforward method for handling this transfer would be to invoke
+a generic routine to examine the interrupt information; the routine, in turn,
+would call the interrupt-specific handler. However, interrupts must be handled
+quickly, and, given that only a predefined number of interrupts is possible,
+a table of pointers to interrupt routines can be used instead. The interrupt
+routine is then called indirectly through the table, with no intermediate routine
+needed. Generally, the table of pointers is stored in low memory (the first 100
+or so locations). These locations hold the addresses of the interrupt service
+routines for the various devices. This array, or interrupt vector, of addresses is
+then indexed by a unique device number, given with the interrupt request, to
+provide the address of the interrupt service routine for the interrupting device.
+Operating systems as different as MS-DOS and UNIX dispatch interrupts in this
+manner.
+
+The interrupt architecture must also save the address of the interrupted
+instruction. Many old designs simply stored the interrupt address in a fixed
+location or in a location indexed by the device number. More recent architec-
+
+ 
+ 
+ 
+ 
+ 
+  
+ 
+   
+ 
+
+CPU user
+process
+executing
+
+VO interrupt
+processing
+
+vo idle
+device transferring
+
+vO transfer vo transfer
+request done request done
+
+Figure 2.2 Interrupt time line for a single process doing output.
+

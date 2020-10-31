@@ -1,0 +1,66 @@
+324
+
+CHAPTER NINE. Pipeline and Vector Processing
+
+When there are no more product terms to be added, the system inserts four
+zeros into the multiplier pipeline. The adder pipeline will then have one partial
+product in each of its four segments, corresponding to the four sums listed in
+the four rows in the above equation. The four partial sums are then added to
+form the final sum.
+
+Memory Interleaving
+
+Pipeline and vector processors often require simultaneous access to memory
+from two or more sources. An instruction pipeline may require the fetching of
+an instruction and an operand at thesame time from two different segments.
+Similarly, an arithmetic pipeline usually requires two or more operands to
+enter the pipeline at the same time. Instead of using two memory buses for
+simultaneous access, the memory can be partitioned intoa number of modules
+connected to a common memory address and data buses. A memory module
+is amemory array togetherwith its own address and data registers. Figure 9-13
+shows a memory unit with four modules. Each memory array has its own
+address register AR and data register DR. The address registers receive infor-
+mation from a common address bus and the data registers communicate with
+bidirectional data bus. The two least significant bts of the address can be used
+to distinguish between the four modules. The modular system permits one
+module to initiate a memory access while other modules are in the process of
+reading or writing a word and each module can honor a memory request
+independent of the state of the other modules.
+
+Figure 9-13 Multiple module memory organization.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ltt
+oo
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+—f of of of
+
+Data bus
+

@@ -1,0 +1,54 @@
+396 © cHArTERELEVEN Input-Output Organization
+
+timeout
+
+‘synchronous
+
+‘asynchronous
+
+sequence of events in both cases would be identical if we consider the ready for
+data signal as the complement of data accepted. In fact, the only difference
+between the source-initiated and the destination-initiated transfer is in their
+choice of initial state.
+
+The handshaking scheme provides ahighdegreeof flexibility and reliabil-
+ity because the successful completion of a data transfer relies on active partic-
+ipation by both units. If one unit is faulty, the data transfer will not be
+completed. Such an error can be detected by means of a timeout mechanism,
+which produces an alarm if the data transfer is not completed within a prede-
+termined time. The timeout is implemented by means of an internal clock that
+starts counting time when the unit enables one of its handshaking control
+signals If the return handshake signal does not respond within a given time
+period, the unit assumes that an error has occurred. The timeout signal can be
+used to interrupt the processor and hence execute a service routine that takes
+appropriate error recovery action.
+
+Asynchronous Serial Transfer
+
+The transfer of data between two units may be done in parallel or serial. In
+parallel data transmission, each bit of the message has its own path and the
+total message is transmitted at the same time. This means that an n-bit message
+must be transmitted through 7 separate conductor paths. In serial data trans-
+mission, each bit in the message is sent in sequence oneata time. This method
+requires the use of one pair of conductors or one conductor and a common
+ground. Parallel transmission is faster but requires many wires. It is used for
+short distances and where speed is important Serial transmission is slower but
+is less expensive since it requires only one pair of conductors.
+
+Serial transmission can be synchronous or asynchronous. In synchron-
+ous transmission, the two units share a common clock frequency and bits are
+transmitted continuously at the rate dictated by the clock pulses. In long-
+distant serial transmission, each unit is driven by a separate clock of the same
+frequency. Synchronization signals are transmitted periodically between the
+two units to keep their clocks in step with each other. In asynchronous trans-
+mission, binary information is sent only when it is available and the line
+remains idle when there is no information to be transmitted. This is in contrast
+to synchronous transmission, where bits must be transmitted continuously to
+keep the clock frequency in both units synchronized with each other. Syn-
+chronous serial transmission is discussed further in Sec. 11-8.
+
+A serial asynchronous data transmission technique used in many interac-
+tive terminals employs special bits that are inserted at both ends of the char-
+acter code. With this technique, each character consists of three parts: a start
+bit, the character bits, and stop bits. The convention is that the transmitter rests
+

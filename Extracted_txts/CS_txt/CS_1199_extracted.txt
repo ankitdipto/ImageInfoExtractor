@@ -1,0 +1,49 @@
+Chapter 13: More Issues In Input/Output 475
+
+ 
+
+shown in the following sample run. The Ctrl-Z character is often
+called end of file character.
+
+C>UTIL.EXE
+
+perhaps | had a wicked childhood,
+
+perhaps | had a miserable youth,
+
+but somewhere in my wicked miserable past,
+there must have been a moment of truth “Z
+C>
+
+Now let’s see what happens when we invoke this program from in
+a different way, using redirection:
+
+C>UTIL.EXE > POEM.TXT
+C>
+
+Here we are causing the output to be redirected to the file
+POEM.TXT. Can we prove that this the output has indeed gone to
+the file POEM.TXT? Yes, by using the TYPE command as
+follows:
+
+C>TYPE POEM.TXT
+
+perhaps | had a wicked childhood,
+
+perhaps | had a miserable youth,
+
+but somewhere in my wicked miserable past,
+there must have been a moment of truth
+
+C>
+
+There’s the result of our typing sitting in the file. The redirection
+operator, ‘>’, causes any output intended for the screen to be
+written to the file whose name follows the operator.
+
+Note that the data to be redirected to a file doesn’t need to be typed
+by a user at the keyboard; the program itself can generate it. Any
+output normally sent to the screen can be redirected to a disk file.
+As an example consider the following program for generating the
+ASCII table on screen:
+

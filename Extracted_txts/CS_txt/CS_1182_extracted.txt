@@ -1,0 +1,55 @@
+special bits
+
+branch logic
+
+SECTION 42 Address Sequencing 217
+
+tions will depend on values of certain status bits in processor registers.
+Microprograms that employ subroutines will require an external register for
+storing thereturn address, Return addresses cannot be stored in ROM because
+the unit has no writing capability.
+
+When the execution of the instruction is completed, control must return
+tothe etch routine. Thisis accomplished by executing an unconditional branch
+microinstruction to the first address of the fetch routine. In summary, the
+address sequencing capabilities required in a control memory are:
+
+1. Incrementing of the control address register.
+
+2. Unconditional branch or conditional branch, depending on status bit
+conditions.
+
+3. A mapping process from the bits of the instruction to an address for
+control memory.
+
+4. A facility for subroutine call and return
+
+Figure 7-2 shows a block diagram of a control memory and the associated
+hardware needed for selecting the next microinstruction address. The microin-
+struction in control memory contains a set of bits to initiate microoperations
+in computer registers and other bits to specify the method by which the next
+address is obtained. The diagram shows four different paths from which the
+control address register (CAR) receives the address. The incrementer incre-
+ments the content of the control address register by one, to select the next
+microinstruction in sequence. Branching is achieved by specif ying the branch
+address in one of the fields of the microinstruction. Conditional branching is
+obtained by using part of the microinstruction to select a specific status bit in
+order to determine its condition. An external address is transferred into control
+memory via a mapping logic circuit. The return address for a subroutine is
+stored in a special register whose value is then used when the microprogram
+wishes to return from the subroutine.
+
+Conditional Branching
+The branch logic of Fig. 7-2 provides decision-making capabilities in the control
+unit. The status conditions are special bits in the system that provide parameter
+information such as the carry-out of an adder, the sign bit of a number, the
+mode bits of an instruction, and input or output status conditions. Information
+in these bits can be tested and actions initiated based on their condition:
+whether their value is 1 or 0. The status bits, together with the field in the
+microinstruction that specifies branchaddress, control the conditionalbranch
+decisions generated in the branch logic.
+
+Thebranch logic hardware may beimplemented in a variety of ways. The
+simplest way is to test the specified condition and branch to the indicated
+address if the condition is met; otherwise, the address register is incremented.
+

@@ -1,0 +1,18 @@
+682 Let UsC
+
+ 
+
+p = gtk_window_new (GTK_WINDOW_TOPLEVEL ) ;
+gtk_window_set_title ( p, "Sample Window" ) ;
+g_signal_connect (p, “destroy”, gtk_main_quit, NULL ) ;
+g_signal_connect ( p , "expose_event’, expose_event, NULL) ;
+gtk_widget_set_size_request (p, 500, 500) ;
+gtk_widget_show (p);
+
+gtk_main() ;
+
+return 0;
+}
+
+Given below is the output of the program.
+

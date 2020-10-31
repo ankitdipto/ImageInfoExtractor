@@ -1,0 +1,47 @@
+Chapter 5: Functions & Pointers 195
+
+ 
+
+A stack is a Last In First Out (LIFO) data structure. This means
+that the last item to get stored on the stack (often called Push
+operation) is the first one to get out of it (often called as Pop
+operation). You can compare this to the stack of plates in a
+cafeteria—the last plate that goes on the stack is the first one to get
+out of it. Now let us see how the stack works in case of the
+following program.
+
+main()
+
+{
+inta=5,b=2,c;
+c=add (a,b);
+
+printf ("sum = %d", c) ;
+}
+add ( inti, int j)
+{
+
+int sum ;
+
+sum =i +j;
+
+return sum ;
+}
+
+In this program before transferring the execution control to the
+function fun( ) the values of parameters a and b are pushed onto
+the stack. Following this the address of the statement printf( ) is
+pushed on the stack and the control is transferred to fun( ). It is
+necessary to push this address on the stack. In fun( ) the values of
+a and b that were pushed on the stack are referred as i and j. In
+fun( ) the local variable sum gets pushed on the stack. When
+value of sum is returned sum is popped up from the stack. Next
+the address of the statement where the control should be returned
+is popped up from the stack. Using this address the control returns
+to the printf( ) statement in main( ). Before execution of printf()
+begins the two integers that were earlier pushed on the stack are
+now popped off.
+
+How the values are being pushed and popped even though we
+didn’t write any code to do so? Simple—the compiler on
+

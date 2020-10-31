@@ -1,0 +1,65 @@
+9.5 Segmentation 305
+
+Normally, the user program is compiled, and the compiler automatically con-
+structs segments reflecting the input program. A Pascal compiler might create
+separate segments for the following:
+
+1. the global variables;
+
+2. the procedure call stack, to store parameters and return addresses;
+3. the code portion of each procedure or function;
+
+4. the local variables of each procedure and function.
+
+A Fortran compiler might create a separate segment for each common block.
+Arrays might be assigned separate segments. The loader would take all these
+segments and assign them segment numbers.
+
+9.5.2 Hardware
+
+Although the user can now refer to objects in the program by a two-dimensional
+address, the actual physical memory is still, of course, a one-dimensional
+sequence of bytes. Thus, we must define an implementation to map two-
+dimensional user-defined addresses into one-dimensional physical addresses.
+This mapping is affected by a segment table. Each entry of the segment table
+has a segment base and a segment limit. The segment base contains the starting
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+segment
+table
+
+    
+
+CPU
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+trap; addressing error physical memory
+
+Figure 9.18 Segmentation hardware.
+

@@ -1,0 +1,52 @@
+22.3 Depth-first search 609
+
+is contained entirely within the interval [v.d,u.f]. By Corollary 22.8, v must after
+all be a descendant of w. /
+
+Classification of edges
+
+Another interesting property of depth-first search is that the search can be used
+to classify the edges of the input graph G = (V, E). The type of each edge can
+provide important information about a graph. For example, in the next section, we
+shall see that a directed graph is acyclic if and only if a depth-first search yields no
+“back” edges (Lemma 22.11).
+
+We can define four edge types in terms of the depth-first forest G, produced by
+a depth-first search on G:
+
+1. Tree edges are edges in the depth-first forest G,. Edge (u,v) is a tree edge if v
+was first discovered by exploring edge (u,v).
+
+2. Back edges are those edges (u,v) connecting a vertex u to an ancestor v in a
+depth-first tree. We consider self-loops, which may occur in directed graphs, to
+be back edges.
+
+3. Forward edges are those nontree edges (u,v) connecting a vertex u to a de-
+scendant v in a depth-first tree.
+
+4. Cross edges are all other edges. They can go between vertices in the same
+depth-first tree, as long as one vertex is not an ancestor of the other, or they can
+go between vertices in different depth-first trees.
+
+In Figures 22.4 and 22.5, edge labels indicate edge types. Figure 22.5(c) also shows
+how to redraw the graph of Figure 22.5(a) so that all tree and forward edges head
+downward in a depth-first tree and all back edges go up. We can redraw any graph
+in this fashion.
+
+The DFS algorithm has enough information to classify some edges as it encoun-
+ters them. The key idea is that when we first explore an edge (u,v), the color of
+vertex v tells us something about the edge:
+
+1. WHITE indicates a tree edge,
+
+2. GRAY indicates a back edge, and
+
+3. BLACK indicates a forward or cross edge.
+
+The first case is immediate from the specification of the algorithm. For the sec-
+ond case, observe that the gray vertices always form a linear chain of descendants
+corresponding to the stack of active DFS-VIsIT invocations; the number of gray
+
+vertices is one more than the depth in the depth-first forest of the vertex most re-
+cently discovered. Exploration always proceeds from the deepest gray vertex, so
+

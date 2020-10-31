@@ -1,0 +1,35 @@
+Heapsort
+
+In this chapter, we introduce another sorting algorithm: heapsort. Like merge sort,
+but unlike insertion sort, heapsort’s running time is O(n lgn). Like insertion sort,
+but unlike merge sort, heapsort sorts in place: only a constant number of array
+elements are stored outside the input array at any time. Thus, heapsort combines
+the better attributes of the two sorting algorithms we have already discussed.
+
+Heapsort also introduces another algorithm design technique: using a data struc-
+ture, in this case one we call a “heap,” to manage information. Not only is the heap
+data structure useful for heapsort, but it also makes an efficient priority queue. The
+heap data structure will reappear in algorithms in later chapters.
+
+The term “heap” was originally coined in the context of heapsort, but it has since
+come to refer to “garbage-collected storage,” such as the programming languages
+Java and Lisp provide. Our heap data structure is not garbage-collected storage,
+and whenever we refer to heaps in this book, we shall mean a data structure rather
+than an aspect of garbage collection.
+
+ 
+
+6.1 Heaps
+
+The (binary) heap data structure is an array object that we can view as a
+nearly complete binary tree (see Section B.5.3), as shown in Figure 6.1. Each
+node of the tree corresponds to an element of the array. The tree is com-
+pletely filled on all levels except possibly the lowest, which is filled from the
+left up to a point. An array A that represents a heap is an object with two at-
+tributes: A./ength, which (as usual) gives the number of elements in the array, and
+A.heap-size, which represents how many elements in the heap are stored within
+array A. That is, although A[l..A.length] may contain numbers, only the ele-
+ments in A[]..A.heap-size], where 0 < A.heap-size < A.length, are valid ele-
+ments of the heap. The root of the tree is A[1], and given the index i of a node, we
+can easily compute the indices of its parent, left child, and right child:
+

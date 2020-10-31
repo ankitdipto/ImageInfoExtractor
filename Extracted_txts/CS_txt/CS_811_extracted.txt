@@ -1,0 +1,44 @@
+Chapter 5: Functions & Pointers 161
+
+ 
+
+— After each function has done its thing, control returns to
+main( ).When main() runs out of function calls, the program
+ends.
+
+As we have noted earlier the program execution always begins
+with main( ). Except for this fact all C functions enjoy a state of
+perfect equality. No precedence, no priorities, nobody is nobody’s
+boss. One function can call another function it has already called
+but has in the meantime left temporarily in order to call a third
+function which will sometime later call the function that has called
+it, if you understand what I mean. No? Well, let’s illustrate with an
+example.
+
+ 
+
+main()
+{
+printf ("\nl am in main” ) ;
+italy() ;
+printf (“\nl am finally back in main” ) ;
+}
+italy()
+{
+printf ( “\nl am in italy" ) ;
+brazil() ;
+printf ( “\nl am back in italy" ) ;
+}
+brazil()
+{
+printf ( "\nl am in brazil" ) ;
+argentina() ;
+}
+argentina( )
+{
+printf (“\nl am in argentina” ) ;
+}
+And the output would look like...
+
+ 
+

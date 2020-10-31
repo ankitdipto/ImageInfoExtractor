@@ -1,0 +1,46 @@
+72 Let Us C
+
+ 
+
+else if (g == 'm’ && yos < 10 && qual == 0)
+
+sal = 7000 ;
+
+else if (g == f && yos >= 10 && qual == 1)
+sal = 12000 ;
+
+else if (g == f && yos >= 10 && qual == 0)
+sal = 9000 ;
+
+else if (g == f && yos < 10 && qual == 1)
+sal = 10000 ;
+
+else if (g == f && yos < 10 && qual == 0)
+sal = 6000 ;
+
+printf ( "\nSalary of Employee = %d", sal ) ;
+}
+
+The ! Operator
+
+So far we have used only the logical operators && and ||. The
+third logical operator is the NOT operator, written as !. This
+operator reverses the result of the expression it operates on. For
+example, if the expression evaluates to a non-zero value, then
+applying ! operator to it results into a 0. Vice versa, if the
+expression evaluates to zero then on applying ! operator to it
+makes it 1, a non-zero value. The final result (after applying !) 0 or
+1 is considered to be false or true respectively. Here is an example
+of the NOT operator applied to a relational expression.
+
+'(y<10)
+This means “not y less than 10”. In other words, if y is less than
+10, the expression will be false, since ( y < 10 ) is true. We can
+
+express the same condition as ( y >= 10).
+
+The NOT operator is often used to reverse the logical value of a
+single variable, as in the expression
+
+if (1 flag)
+

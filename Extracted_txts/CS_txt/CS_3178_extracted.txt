@@ -1,0 +1,81 @@
+  
+
+Chapter 18. Learning from Observations
+
+ 
+
+“OVERFITTING
+
+DECISION TREE
+PRUNING
+
+NULL HYPOTHESIS.
+
+Noise and overfitting
+
+  
+ 
+   
+  
+ 
+   
+   
+ 
+    
+    
+    
+ 
+   
+    
+   
+
+We saw earlier that if there are two or more examples with the same descriptions (in terms of
+the attributes) but different classifications, then the DECISION-TREE-LEARNING algorithm must
+fail to find a decision tree consistent with all the examples. The solution we mentioned before is
+to have each leaf node report either the majority classification for its set of examples or report
+the estimated probabilities of each classification using the relative frequencies. The former is
+appropriate for an agent that requires the decision tree to represent a strict logical function,
+whereas the latter can be used by a decision-theoretic agent.
+
+Unfortunately, this is far from the whole story. It is quite possible, and in fact likely, that
+even when vital information is missing, the decision tree learning algorithm will find a decision
+tree that is consistent with all the examples. This is because the algorithm can use the irrelevant
+attributes, if any, to make spurious distinctions among the examples
+
+Consider the problem of trying to predict the roll of a die. Suppose that experiments are
+carried out during an extended period of time with various dice, and that the attributes describing
+each training example are as follows:
+
+1. Day: the day on which the die was rolled (Mon, Tue, Wed, Thu).
+2. Month: the month in which the die was rolled (Jan or Feb).
+3. Color: the color of the die (Red or Blue).
+
+As longas there are no two examples withidentical descriptions, DECISION-TREE-LEARNING will
+find an exact hypothesis. This will, however, be totally spurious. What we would like is that
+DECISION-TREE-LEARNING return a single leafnode with probabilities close to 1/6 foreach roll,
+once it has seen enough examples
+
+Whenever there is a large set of possible hypotheses, one has to be careful not to use the
+resulting freedom to find meaningless "regularity" in the data. This problem is called overfitting.
+Itis a very general phenomenon, and occurs even when the target function is not at all random.
+It afflicts every kind of learning algorithm, notjust decision trees.
+
+A complete mathematical treatment of overfitting is beyond the scope ofthis book. Here we
+present a simple technique called decision tree pruning. Pruning works by preventing recursive |
+splitting on attributes that are not clearly relevant, even when the data at that node in the tree is
+not uniformly classified. The question is, how do we detect an irrelevant attribute?
+
+Suppose we split a set of examples using an irrelevant attribute. Generally speaking, we
+would expect the resulting subsets to have roughly the same proportions of each class as the
+original set. In this case, the information gain will be close to zero.” Thus, the information gain “
+is a good clue to irrelevance. Now the question is, how large a gain should we require in order to
+split on a particular attribute? 3
+
+This is exactly the sort of question addressed by classical tests for statistical significance.
+A significance test begins by assuming that there is no underlying pattern (the so-called null
+hypothesis). Then the actual data are analyzed to calculate the extent to which it deviates from |
+a perfect absence of pattern. If the degree of deviation is statistically unlikely (usually taken to]
+mean a 5% probability or less), then that is considered to be good evidence for the presence of a
+
+9 In fact, the gain be will be greaterthan zero unless the proportions are all exactly the same (see Exercise 18.9)
+

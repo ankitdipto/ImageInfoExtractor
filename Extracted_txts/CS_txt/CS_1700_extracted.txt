@@ -1,0 +1,54 @@
+260 cuarrer excHT Central Processing Unit
+
+to the use of load and store instructions when communicating between mem-
+ory and CPU. All other instructions are executed within the registers of the
+CPU without referring to memory. A program for a RISC-type CPU consists
+of LOAD and STORE instructions that have one memory and one register
+address, and computational-type instructions that have three addresses with
+all three specifying processor registers. The following is a program to evaluate
+X= (A+B)*(C + D).
+
+LOAD = RL, A RL MA]
+LOAD = Re, B R2—M(B]
+LOAD = R3, C RI M[C]
+LOAD = R4, D RG M[D]
+ADD RL, R1,R2 RL-RL+R2
+ADD R3,R3,R2  RICRI+RS
+MOL RL, RL,R3 RV R1+ RF
+STORE xX, Rh M[X] —RL
+
+The load instructions transfer the operands from memory to CPU registers.
+The add and multiply operations are executed with data in the registers
+without accessing memory. The result of the computations is then stored in
+memory with a store instruction.
+
+  
+
+8-5 Addressing Modes
+
+The operation field of an instruction specifies the operation to be performed.
+This operation must be executed on some data stored in computer registers or
+memory words. The way the operands are chosen during program execution
+isdependent on the addressing mode of the instruction. The addressing mode
+specifies arule for interpreting or modifying the address field of the instruction
+before the operand is actually referenced. Computers use addressing mode
+techniques for the purpose of accommodating one or both of the following
+provisions:
+
+ 
+
+ 
+
+1. Togive programming versatility to the user by providing such facilities
+as pointers to memory, counters for loop control, indexing of data, and
+program relocation.
+
+2. To reduce the number of bits in the addressing field of the instruction.
+
+The availability of the addressing modes gives the experienced assembly
+language programmer flexibility for writing programs that are more efficient
+with respect to the number of instructions and execution time.
+
+To understand the various addressing modes to be presented in this
+section, it is imperative that we understand the basic operation cycle of the
+

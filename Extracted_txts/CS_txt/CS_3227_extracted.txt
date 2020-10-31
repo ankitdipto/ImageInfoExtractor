@@ -1,0 +1,56 @@
+Section 19.5.
+
+Applications of Neural Networks 587
+
+ 
+
+is the direction that the vehicle will steer. The network also has a layer of five hidden units that
+are fully connected to the input and output layers.
+
+ALVINN'S job is to compute a function that maps from a single video image of the road
+in front of it to a steering direction. To leam this function, we need some training data—some
+image/direction pairs with the correct direction. Fortunately, it is easy to collect this data just
+by having a human drive the vehicle and recording the image/direction pairs. After collecting
+about five minutes of training data (and applying the back-propagation algorithm for about ten
+minutes), ALVINN is ready to drive on its own.
+
+One fine point is worth mentioning. There is a potential problem with the methodology of
+training based on a human driver: the human is too good. If the human never strays from the
+proper course then there will be no training examples that show how to recover when you are off
+course. ALVINN corrects this problem by rotating each video image to create additional views of
+what the road would look like from a position a little to the right or left.
+
+The results of the training are impressive. ALVINN has driven at speeds up to 70 mph for
+distances up to 90 miles on public highways near Pittsburgh. It has also driven at nomal speeds
+on single lane dirt roads, paved bike paths, and two lane suburban streets.
+
+ALVINN is unable to drive on a road type for which it has not been trained, and is also not
+very robust with respect to changes in lighting conditions or the presence of other vehicles. A
+more gerteral capability is exhibited by the MANIAC system (Jochem et al., 1993). MANIAC is a
+neural network that has as subnets two or more ALVINN models that have each been trained for
+a particular type of road. MANIAC takes the output from each subnet and combines them in a
+second hidden layer. With suitable training, MANIAC can perform well on any of the road types
+for which the component subnets have been trained.
+
+Some previous autonomous vehicles employed traditional vision algorithms that used
+various image-processing techniques on the entire scene in order to find the road and then follow
+it. Such systems achieved top speeds of 3 or 4 mph.’ Why has ALVINN proven to be successful?
+There are two reasons. First and foremost, a neural network of this size makes an efficient
+performance element. Once it has been trained, ALVINN is able to compute a new steering
+direction from a video image 10 times a second. This is important because it allows for some
+slack in the system. Individual steering directions can be off by 10% from the ideal as long
+as the system is able to make a correction in a few tenths of a second. Second, the use of a
+learning algorithm is more appropriate for this domain than knowledge engineering or straight
+programming. There is no good existing theory of driving, but it is easy to collect sample
+input/output pairs of the desired functional mapping. This argues for a learning algorithm, but
+not necessarily for neural nets. But driving is a continuous, noisy domain in which almost all
+of the input features contribute some useful information; this means that neural nets are a better
+choice than, say, decision trees. Of course, ALVINN and MANIAC are pure reflex agents, and
+cannot execute maneuvers that are much more complex than lane-following, especially in the
+presence of other traffic. Current research by Pomerleau and other members of the group is
+aimed at combining ALVINN'S low-level expertise with higher-level symbolic knowledge. Hybrid
+systems of this kind are becoming more common as AI moves into the real (physical) world.
+
+5 A notable exception is the work by Dickmanns and Zapp (1987), whose autonomous vehicle drove several hundred
+miles at 75 mph using traditional image processing and Kalman filtering to track the lane boundaries
+

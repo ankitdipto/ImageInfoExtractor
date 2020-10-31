@@ -1,0 +1,49 @@
+922
+
+Chapter 30 Polynomials and the FFT
+
+c. Show that if we compute each 1-dimensional DFT by computing the fast Four-
+ier transform, the total time to compute a d-dimensional DFT is O(n lgn),
+independent of d.
+
+30-4 Evaluating all derivatives of a polynomial at a point
+
+Given a polynomial A(x) of degree-bound n, we define its tth derivative by
+A(x) iff=0,
+
+AM(x) = 1 FAM) ifl <t<n-1,
+
+0 ift>n.
+From the coefficient representation (ao,d1,.... d,-1) of A(x) and a given point xo,
+we wish to determine A (xo) for f = 0,1,...,2 —1.
+a. Given coefficients bo,b;,..., b,—1 such that
+
+n-l
+A(x) = D2 bi (x= 0),
+j=0
+
+show how to compute A (xo), for ¢ = 0,1,...,n — 1, in O(n) time.
+
+b. Explain how to find bo,)1,..., b,-1 in O(nlgn) time, given A(xXo + ok) for
+k=0,1,....2-1.
+
+c. Prove that
+
+n-1 kr mol
+Alto +o) = > (2 DY fst - ») .
+J
+
+r=0 j=0
+
+ 
+
+where f(j) = aj-j! and
+
+xs /(-D! if-(n—1) <1 <0,
+pn=l* sts
+Bi {5 ifl<l<n-1.
+
+d. Explain how to evaluate A(x) + wf) fork = 0,1,..., n—1 in O(nlgn)
+time. Conclude that we can evaluate all nontrivial derivatives of A(x) at x9 in
+O(nlgn) time.
+

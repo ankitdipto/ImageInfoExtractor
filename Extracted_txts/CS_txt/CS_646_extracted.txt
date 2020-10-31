@@ -1,0 +1,65 @@
+Section 6.3.
+
+Representation, Reasoning, and Logic 163
+
+ 
+
+COMPOSITIONAL
+
+ 
+
+LOGICAL INFERENCE
+DEDUCTION
+
+VAUD
+
+it corresponds to. A sentence does not mean something by itself This is a difficult concept to
+accept, because we are used to languages like English where the interpretation of most things
+was fixed a long time ago.
+
+The idea of interpretation is easier to see in made-up languages. Imagine that one spy
+wants to pass a message to another, but worries that the message may be intercepted. The two
+spies could agree in advance on a nonstandard interpretation in which, say, the interpretation of
+"Pope" is a particular piece of microfilm and the interpretation of "Denver" is the pumpkin left
+on the porch, and so forth. Then, when the first spy sends a newspaper clipping with the headline
+"The Pope is in Denver," the second spy will know that the microfilm is in the pumpkin.
+
+It is possible, in principle, to define a language in which every sentence has a completely
+arbitrary interpretation. But in practice, all representation languages impose a systematic relation-
+ship between sentences and facts. The languages we will deal with are all compositional—the
+meaning of a sentence is a function of the meaning of its parts. Just as the meaning of the math-
+ematical expression x? +’ is related to the meanings of x? andy, we would like the meaning
+of the sentence “S;4and S},2” to be related to the meanings of “S,4” and “S;2.” It would be
+very strange if"514" meant there is a stench in square [1,4] and “S; 2” meant there is a stench in
+square [1,2], but “S,,4 and S; 2” meant that France and Poland drew 1-1 in last week's ice-hockey
+qualifying match. In Section 6.4, we describe the semantics ofa simple language, the language
+of propositional logic, that obeys constraints like these. Such constraints make it easy to specify
+a proof theory that respects the semantics.
+
+Once a sentence is given an interpretation by the semantics, the sentence says that the
+world is this way and not that way. Hence, it can be true or false. A sentence is true under a
+particular interpretation if the state of affairs it represents is the case. Note that truth depends
+both on the interpretation of the sentence and on the actual state of the world. For example, the
+sentence “S) »” would be true under the interpretation in which it means that there is a stench in
+[1,2], in the world described in Figure 6.2. But it would be false in worlds that do not have a
+stench in [1,2], and it would be false in Figure 6.2 under the interpretation in which it means that
+there is a breeze in {1,2].
+
+Inference
+
+The terms "reasoning" and "inference" are generally used to cover any process by which con-
+clusions are reached. In this chapter, we are mainly concerned with sound reasoning, which
+we will call logical inference or deduction. Logical inference is a process that implements the
+entailment relation between sentences. There are a number of ways to approach the design of
+logical inference systems. We will begin with the idea of a necessarily true sentence.
+
+Validity and satisfiability
+
+A sentence is valid or necessarily true if and only ifit is true under all possible interpretations in
+all possible worlds, that is, regardless of what it is supposed to mean and regardless of the state
+of affairs in the universe being described. For example, the sentence
+
+“There is a stench at [1,1] or there is not a stench at [1,1].”
+
+See
+

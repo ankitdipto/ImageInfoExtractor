@@ -1,0 +1,49 @@
+1098
+
+Chapter 34 NP-Completeness
+
+three distinct literals, the reduction algorithm constructs an instance (S, t) of the
+subset-sum problem such that ¢ is satisfiable if and only if there exists a subset
+of S whose sum is exactly ¢. Without loss of generality, we make two simplifying
+assumptions about the formula @. First, no clause contains both a variable and its
+negation, for such a clause is automatically satisfied by any assignment of values
+to the variables. Second, each variable appears in at least one clause, because it
+does not matter what value is assigned to a variable that appears in no clauses.
+
+The reduction creates two numbers in set S for each variable x; and two numbers
+in S for each clause C;. We shall create numbers in base 10, where each number
+contains n +k digits and each digit corresponds to either one variable or one clause.
+Base 10 (and other bases, as we shall see) has the property we need of preventing
+carries from lower digits to higher digits.
+
+As Figure 34.19 shows, we construct set S and target t as follows. We label
+each digit position by either a variable or a clause. The least significant k digits are
+labeled by the clauses, and the most significant n digits are labeled by variables.
+
+* The target ¢ has a 1 in each digit labeled by a variable and a 4 in each digit
+labeled by a clause.
+
+* For each variable x;, set S contains two integers v; and v/. Each of vj and vj
+has a | in the digit labeled by x; and 0s in the other variable digits. If literal x;
+appears in clause Cj, then the digit labeled by C; in v; contains a 1. If lit-
+eral +x; appears in clause C;, then the digit labeled by C; in v; contains a 1.
+All other digits labeled by clauses in v; and v/ are 0.
+
+All v; and v; values in set S are unique. Why? For / ¥ i, no v; or v; values can
+equal v; and v; in the most significant n digits. Furthermore, by our simplifying
+assumptions above, no v; and v; can be equal in all k least significant digits.
+If vj and v; were equal, then x; and x; would have to appear in exactly the
+same set of clauses. But we assume that no clause contains both x; and 7x;
+and that either x; or x; appears in some clause, and so there must be some
+clause C; for which v; and v; differ.
+
+* For each clause C;, set S contains two integers s; and Sj. Each of s; and Sj has
+Os in all digits other than the one labeled by Cj. For s;, there is a 1 in the C;
+digit, and s; has a 2 in this digit. These integers are “slack variables,” which we
+use to get each clause-labeled digit position to add to the target value of 4.
+Simple inspection of Figure 34.19 demonstrates that all s; and s; values in S
+are unique in set S.
+
+Note that the greatest sum of digits in any one digit position is 6, which occurs in
+the digits labeled by clauses (three 1s from the v; and v; values, plus 1 and 2 from
+

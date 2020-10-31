@@ -1,0 +1,75 @@
+Section 15,6.
+
+Other Approaches to Uncertain Reasoning 461
+
+ 
+
+CERTAINTY FACTORS
+
+The bad news for truth-functional systems is that the properties of Jocality, detachment,
+and truth-finctionality are simply not appropriatefor uncertain reasoning. Let us look at truth-
+functionality first. Let H; be the event of a coin coming up heads on a fair flip, let 7\ be the
+event of the coin coming up tails on that same flip, and let H2 be the event of the coin coming
+up heads on a second flip. Clearly, all three events have the same probability, 0.5, and so a
+truth-functional system must assign the same belief to the conjunction of any two of them. But
+we can see that the probability of the conjunction depends on the events themselves, and notjust
+on their probabilities:
+
+ 
+
+P(AY P(B) P(A V By
+
+P(H,)=0.5|| PC, V H1) = 0.50
+P(Hy} = 0.5] P(T;) = 0.5 || PH; VT) = 1.00
+P(H2)= 0.5 || PCH V Hz) = 0.75
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+It gets worse when we chain evidence together. Truth-functional systems have rules of the form
+A +B, which allow us to compute the belief in B as a function of the belief in the rule and the
+belief in 4. Both forward- and backward-chaining systems can be devised. The belief in the
+tule is assumed to be constant, and is usually specified by the knowledge engineer, for example,
+A oy B.
+
+Consider the wet-grass situation from Section 15.4. If we wanted to be able to do both
+causal and diagnostic reasoning, we would need the two rules:
+
+Rain ~ WetGrass and WetGrass ~ Rain
+
+Ifwe are not careful, these two rules will act ina feedback loop so that evidence for Rain increases
+the beliefin WetGrass, which in turn increases the belief in Rain even more. Clearly, uncertain
+reasoning systems need to keep track of the paths along which evidence is propagated.
+
+Intercausal reasoning (or explaining away) is also tricky. Consider what happens when we
+have the two rules:
+
+Sprinkler — WetGrass and WetGrass + Rain
+
+Suppose we see that the sprinkler is on. Chaining forward through our rules, this increases the
+belief that the grass will be wet, which in turn increases the belief that it is raining. But this
+is ridiculous: the fact that the sprinkler is on explains away the wet grass, and should reduce
+the belief in rain. In a truth-functional system, the transitively derived rule Sprinkler + Rain is
+unavoidable
+
+Given these difficulties, how is it possible that truth-functional systems were ever consid-
+ered useful? The answer lies in restricting the tasks required ofthem, and in carefully engineering
+the rule base so that undesirable interactions do not occur. The most famous example ofa truth-
+functional system for uncertain reasoning is the certainty factors model, which was developed
+for the MYCIN medical diagnosis program and widely used in expert systems of the late 1970s and
+1980s. Almost all uses of certainty factors involved rule sets that were either purely diagnostic
+(as in MYCIN) or purely causal. Furthermore, evidence was only entered at the "roots" of the rule
+set, and most rule sets were singly connected. Heckerman (1986) has shown that under these
+circumstances, a minor variation on certainty-factor inference was exactly equivalent to Bayesian
+

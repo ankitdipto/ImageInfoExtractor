@@ -1,0 +1,56 @@
+472 Let Us C
+
+ 
+
+Standard I/O Devices
+
+To perform reading or writing operations on a file we need to use
+the function fopen(), which sets up a file pointer to refer to this
+file. Most OSs also predefine pointers for three standard files. To
+access these pointers we need not use fopen(). These standard file
+pointers are shown in Figure 13.1
+
+ 
+
+ 
+
+Standard File pointer | Description
+
+ 
+
+ 
+
+ 
+
+stdin standard input device (Keyboard)
+stdout standard output device (VDU)
+stderr standard error device (VDU)
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 13.1
+
+Thus the statement ch = fgetc ( stdin ) would read a character
+from the keyboard rather than from a file. We can use this
+statement without any need to use fopen() or fclose() function
+calls.
+
+Note that under MS-DOS two more standard file pointers are
+available—stdprn and stdaux. They stand for standard printing
+device and standard auxiliary device (serial port). The following
+program shows how to use the standard file pointers. It reads a file
+from the disk and prints it on the printer.
+
+/* Prints file contents on printer */
+#include "stdio.h"
+main()
+
+FILE “fp;
+char ch;
+

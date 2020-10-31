@@ -1,0 +1,52 @@
+3.4 System Programs 73
+
+File modification: Several text editors may be available to create and
+modify the content of files stored on disk or tape.
+
+ Programming-language support: Compilers, assemblers, and interpreters
+for common programming languages (such as C, C++, Java, Visual Basic,
+and PERL) are often provided to the user with the operating system. Some
+of these programs are now priced and provided separately.
+
+Program loading and execution: Once a program is assembled or com-
+piled, it must be loaded into memory to be executed. The system may
+provide absolute loaders, relocatable loaders, linkage editors, and overlay
+loaders. Debugging systems for either higher-level languages or machine
+language are needed also.
+
+¢ Communications: These programs provide the mechanism for creating vir-
+tual connections among processes, users, and different computer systems.
+They allow users to send messages to one another’s screens, to browse web
+pages, to send electronic-mail messages, to log in remotely, or to transfer
+files from one machine to another.
+
+Most operating systems are supplied with programs that solve com-
+mon problems, or perform common operations. Such programs include web
+browsers, word processors and text formatters, spreadsheets, database systems,
+compiler compilers, plotting and statistical-analysis packages, and games.
+These programs are known as system utilities or application programs.
+
+Perhaps the most important system program for an operating system is the
+command interpreter, the main function of which is to get and execute the next
+user-specified command.
+
+Many of the commands given at this level manipulate files: create, delete,
+list, print, copy, execute, and so on. These commands can be implemented in
+two general ways. In one approach, the command interpreter itself contains the
+code to execute the command. For example, a command to delete a file may
+cause the command interpreter to jump to a section of its code that sets up the
+parameters and makes the appropriate system call. In this case, the number of
+commands that can be given determines the size of the command interpreter,
+since each command requires its own implementing code.
+
+An alternative approach—used by UNIX, among other operating systems
+—implements most commands by system programs. In this case, the command
+interpreter does not understand the command in any way; it merely uses the
+command to identify a file to be loaded into memory and executed. Thus, the
+UNIX command to delete a file
+
+mG
+
+would search for a file called rm, load the file into memory, and execute it
+with the parameter G. The function associated with the rm command would
+

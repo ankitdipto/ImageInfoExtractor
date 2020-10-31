@@ -1,0 +1,56 @@
+31.8  Primality testing 973
+
+Acceptable pairs certainly exist since u is odd; we can choose v = n — | and
+j = 0,so that (n—1, 0) is an acceptable pair. Now pick the largest possible j such
+that there exists an acceptable pair (v, j), and fix v so that (v, j) is an acceptable
+pair. Let
+Ba={xeZ*:x?™"=+1 (modn)}.
+Since B is closed under multiplication modulo n, it is a subgroup of Z*. By Theo-
+rem 31.15, therefore, |B| divides |Z*|. Every nonwitness must be a member of B,
+since the sequence X produced by a nonwitness must either be all 1s or else contain
+a—I1 no later than the j th position, by the maximality of j. (If (a, j’) is acceptable,
+where a is a nonwitness, we must have j’ < j by how we chose j.)
+
+We now use the existence of v to demonstrate that there exists aw € Z* — B,
+and hence that B is a proper subgroup of Z*. Since v?’“ = —1 (mod ), we have
+
+7
+
+v?/" = —] (mod 1) by Corollary 31.29 to the Chinese remainder theorem. By
+Corollary 31.28, there exists a w simultaneously satisfying the equations
+
+w = v (mod),
+
+w = 1 (modn).
+
+Therefore,
+
+w?" = —1 (mod).
+
+ww?" = 1 (mod ny).
+
+By Corollary 31.29, w?” # 1 (mod) implies w?’“ #4 1 (mod n), and
+w?’" # —1 (mod n>) implies w?”" # —1 (mod). Hence, we conclude that
+w?’" £+1 (mod 7), and sow ¢ B.
+
+It remains to show that w € Z*, which we do by first working separately mod-
+ulo 7; and modulo nz. Working modulo n,, we observe that since v € Z*, we
+have that gced(v,n) = 1, and so also ged(v,m1) = 1; if v does not have any com-
+mon divisors with 71, then it certainly does not have any common divisors with 71.
+Since w =v (mod 7), we see that ged(w,m1) = 1. Working modulo m2, we
+observe that w = 1 (mod m2) implies gcd(w,n2) = 1. To combine these results,
+we use Theorem 31.6, which implies that gcd(w,min2) = gcd(w,n) = 1. That is,
+we Zr.
+
+Therefore w € Z* — B, and we finish case 2 with the conclusion that B is a
+proper subgroup of Z>.
+
+In either case, we see that the number of witnesses to the compositeness of 11 is
+at least (n — 1)/2. .
+
+ 
+
+Theorem 31.39
+For any odd integer n > 2 and positive integer s, the probability that MILLER-
+RABIN(, 5) errs is at most 2%.
+

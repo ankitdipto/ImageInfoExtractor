@@ -1,0 +1,70 @@
+62
+
+Chapter 3. Solving Problems by Searching
+
+ 
+
+ABSTRACTION
+
+ 
+
+Arad [7]
+
+   
+   
+
+Fagaras,
+
+[] Hirsova
+
+    
+ 
+ 
+
+[] Mehadia Urziceni
+
+Dobreta [J
+
+ 
+  
+
+OO craiova Eforie
+
+HI Giurgiu
+
+ 
+
+ 
+
+Figure 3.3 A simplified road map of Romania.
+
+ 
+
+ 
+
+ 
+
+rest stop, the condition of the road, the weather, and so on. All these considerations are left out
+of state descriptions because they are irrelevant to the problem of finding a route to Bucharest.
+The process of removing detail from a representation is called abstraction.
+
+As well as abstracting the state description, we must abstract the actions themselves. An
+action—let us say a car trip from Arad to Zerind—has many effects. Besides changing the
+location of the vehicle and its occupants, it takes up time, consumes fuel, generates pollution, and
+changes the agent (as they say, travel is broadening). In our formulation, we take into account
+only the change in location. Also, there are many actions that we will omit altogether: turning j
+on the radio, looking out of the window, slowing down for law enforcement officers, and so on.
+
+Can we be more precise about defining the appropriate level of abstraction? Think of the
+states and actions we have chosen as corresponding to sets of detailed world states and sets of j
+detailed action sequences. Now consider a solution to the abstract problem: for example, the
+path Arad to Sibiu to Rimnicu Vilcea to Pitesti to Bucharest. This solution corresponds to a large
+number of more detailed paths. For example, we could drive with the radio on between Sibiu
+and Rimnicu Vilcea, and then switch it off for the rest of the trip. Each of these more detailed
+paths is still a solution to the goal, so the abstraction is valid. The abstraction is also useful,
+because carrying out each of the actions in the solution, such as driving from Pitesti to Bucharest,
+is somewhat easier than the original problem. The choice ofa good abstraction thus involves
+removing as much detail as possible while retaining validity and ensuring that the abstract actions
+are easy to carry out. Were it not for the ability to construct useful abstractions, intelligent agents
+would be completely swamped by the real world.
+

@@ -1,0 +1,48 @@
+386 cHarTeR steven Inpuc-Cutpuc Organizarion
+
+In addition, each device may have its own controller that supervises the
+operations of the particular mechanism in the peripheral.
+
+VO Bus and Interface Modules
+
+A typical communication link between the procewor and several peripherals
+is shown in Fig, 11-1. The UO bus consists of data lines, address lines, and
+control lines. The magnetic disk, ptinter, and terminal are employed in prac-
+tically any general-purpose computer. The magnetic tape is used in some
+computers for backup storage. Each peripheral device has asvociated with it
+an interface unit. Eachinterfare decedes the address and control ceceived from
+the UO bus, interprets them for the peripheral, and provides signals for the
+peripheral controller. It also synchronizes the data How and supervises the
+transfer between peripheral and peonessor. Each peripheral has its own con-
+troller that operates the partiailar efectromechanical device. For example. the
+printer controller eantrok the paper motion, the print timing, and the selection
+of printing characters. A controller may be housed separately or may be
+physically integrated with the peripheral.
+
+The Obus from the processor is attached 10 all peripheral interfaces. To
+comununicate with a particular device, the processor places a device address
+on the address lines. Each interface attached to the /O bus containsanaddress
+decoder that monitors the addiess lines. When the interface detects its own
+address, it activates the path between the bus lines and the device that it
+controls, All peripherals whose address does not correspond to the address in
+the bus are disabled by their interface.
+
+At the same time that the address is made available in the address lines,
+the processor provides a function code in the control lines. The interface
+
+  
+
+Figure 11-1 Connection of UO bus to input-ourput devices.
+
+ 
+
+ 
+
+‘Conerot
+
+ 
+
+ 
+
+ 
+

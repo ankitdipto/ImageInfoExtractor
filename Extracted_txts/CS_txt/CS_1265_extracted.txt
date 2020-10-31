@@ -1,0 +1,43 @@
+Chapter 16: C Under Windows 541
+
+ 
+
+However, if we decide to install 4 GB memory it would cost a lot.
+Hence Windows uses a memory model which makes use of as
+much of physical memory (say 128 MB) as has been installed and
+simulates the balance amount of memory (4 GB — 128 MB) on the
+hard disk. Be aware that this balance memory is simulated as and
+when the need to do so arises. Thus memory management is
+demand based.
+
+Note that programs cannot execute straight-away from hard disk.
+They have to be first brought into physical memory before they
+can get executed. Suppose there are multiple programs already in
+memory and a new program starts executing. If this new program
+needs more memory than what is available right now, then some of
+the existing programs (or their parts) would be transferred to the
+disk in order to free the physical memory to accommodate the new
+program. This operation is often called page-out operation. Here
+page stands for a block of memory (usually of size 4096 bytes).
+When that part of the program that was paged out is needed it is
+brought back into memory (called page-in operation) and some
+other programs (or their parts) are paged out. This keeps on
+happening without a common user’s knowledge all the time while
+working with Windows. A few more facts that you must note
+about paging are as follows:
+
+(a) Part of the program that is currently executing might also be
+paged out to the disk.
+
+(b) When the program is paged in (from disk to memory) there is
+no guarantee that it would be brought back to the same
+physical location where it was before it was paged out.
+
+Now imagine how the paging operations would affect our
+programming. Suppose we have a pointer pointing to some data
+present in a page. If this page gets paged out and is later paged in
+to a different physical location then the pointer would obviously
+have a wrong address. Hence under Windows the pointer never
+holds the physical address of any memory location. It always holds
+a virtual address of that location. What is this virtual address? At
+

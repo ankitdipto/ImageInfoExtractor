@@ -1,0 +1,72 @@
+Section 21.3.
+
+Leaming Using Relevance Information 635
+
+ 
+
+learning in Chapter 18. A determination d will be represented by the set of attributes on the
+left-hand side, because the target predicate is assumed fixed. The basic algorithm is outlined in
+Figure 21.3.
+
+ 
+
+function MinimaL-ConsIsTENT:DET(E, A) returns a determination
+inputs: £, a set of examples
+‘A, aset of attributes, of size 7
+
+fori—0, ..., ndo
+for each subset A; of A of size /' do
+if CONSISTENT-DET(A;, E) then return A;
+end
+end
+function CONSISTENT-DET?(A, £) returns atruth-value
+inputs: A, a set of attributes
+E, aset of examples
+local variables: H, a hash table
+
+for each example e in Edo
+if some example in H has the same values as ¢ for the attributes A
+but a different classification then return False
+store the class ofe in H, indexed by the values for attributes A of the example e
+end
+return True
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 21.3 An algorithm for finding a minimal consistent determination.
+
+ 
+
+The time complexity of this algorithm depends on the size of the smallest consistent
+determination. Suppose this determination has p attributes out ofthe n total attributes. Then the
+algorithm will not find it until searching the subsets of A of size p. There are (") = O(n”)such
+subsets, hence the algorithm is exponential in the size of the minimal determination. It turns
+out that the problem is NP-complete, so we cannot expect to do better in the general case. In
+most domains, however, there will be sufficient local structure (see Chapter 15 for a definition of
+locally structured domains) such that p will be small
+
+Given an algorithm for learning determinations, a learning agent has a way to con-
+struct a minimal hypothesis within which to learn the target predicate. We can combine
+MINIMAL-CONSISTENT-DET with the DECISION-TREE-LEARNING algorithm, for example, in order
+to create a relevance-based decision-tree learning algorithm RBDTL:
+
+ 
+
+function RBDTL(E£.A,v) returns a decision tree
+
+return DECISION-TREE-LEARNING(E,MINIMAL-CONSISTENT-DET(E,A),v)
+
+ 
+
+ 
+
+ 
+
+ 
+

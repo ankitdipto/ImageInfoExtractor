@@ -1,0 +1,51 @@
+198
+
+Chapter 8 Sorting in Linear Time
+
+   
+
+329 720 720 329
+457 355 329 355
+657 436 436 436
+839 « » 839 457
+436 355 657
+720 329 457 720
+355 839 657 839
+
+Figure 8.3 The operation of radix sort on a list of seven 3-digit numbers. The leftmost column is
+the input. The remaining columns show the list after successive sorts on increasingly significant digit
+positions. Shading indicates the digit position sorted on to produce each list from the previous one.
+
+In a typical computer, which is a sequential random-access machine, we some-
+times use radix sort to sort records of information that are keyed by multiple fields.
+For example, we might wish to sort dates by three keys: year, month, and day. We
+could run a sorting algorithm with a comparison function that, given two dates,
+compares years, and if there is a tie, compares months, and if another tie occurs,
+compares days. Alternatively, we could sort the information three times with a
+stable sort: first on day, next on month, and finally on year.
+
+The code for radix sort is straightforward. The following procedure assumes that
+each element in the n-element array A has d digits, where digit 1 is the lowest-order
+digit and digit d is the highest-order digit.
+
+RADIX-SorT(A, d)
+
+1 fori = 1ltod
+2 use a stable sort to sort array A on digit 7
+
+Lemma 8.3
+
+Given n d -digit numbers in which each digit can take on up to k possible values,
+RADIX-Sort correctly sorts these numbers in ©(d(n + k)) time if the stable sort
+it uses takes O(n + k) time.
+
+Proof The correctness of radix sort follows by induction on the column being
+sorted (see Exercise 8.3-3). The analysis of the running time depends on the stable
+sort used as the intermediate sorting algorithm. When each digit is in the range 0
+to k—1 (so that it can take on k possible values), and k is not too large, counting sort
+is the obvious choice. Each pass over n d-digit numbers then takes time ©(n + k).
+There are d passes, and so the total time for radix sort is O(d(n + k)). .
+
+When d is constant and k = O(n), we can make radix sort run in linear time.
+More generally, we have some flexibility in how to break each key into digits.
+

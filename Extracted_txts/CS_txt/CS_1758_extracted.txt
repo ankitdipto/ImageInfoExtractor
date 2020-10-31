@@ -1,0 +1,40 @@
+Bibliographical Notes 241
+
+The semaphore concept was suggested by Dijkstra [1965a]. Patil [1971]
+examined the question of whether semaphores can solve all possible synchro-
+nization problems. Parnas [1975] discussed some of the flaws in Patil’s argu-
+ments. Kosaraju [1973] followed up on Patil’s work to produce a problem that
+cannot be solved by wait and signal operations. Lipton [1974] discussed the
+limitations of various synchronization primitives.
+
+The classic process-coordination problems that we have described are
+paradigms for a large class of concurrency-control problems. The bounded-
+buffer problem, the dining-philosophers problem, and the sleeping-barber
+problem (Exercise 6.7) were suggested by Dijkstra [1965a] and Dijkstra [1971].
+The cigarette-smokers problem (Exercise 6.8) was developed by Patil [1971].
+The readers—writers problem was suggested by Courtois et al. [1971]. The issue
+of concurrent reading and writing was discussed by Lamport [1977]. The prob-
+lem of synchronization of independent processes was discussed by Lamport
+[1976].
+
+The critical-region concept was suggested by Hoare [1972] and by Brinch-
+Hansen [1972]. The monitor concept was developed by Brinch-Hansen [1973].
+A complete description of the monitor was given by Hoare [1974]. Kessels
+[1977] proposed an extension to the monitor to allow automatic signaling.
+General discussions concerning concurrent programming were offered by Ben-
+Ari [1990].
+
+Some details of the locking mechanisms used in Solaris 2 are presented in
+Mauro and McDougall [2001]. Note that the locking mechanisms used by the
+kernel are implemented for user-level threads as well, so the same types of locks
+are available inside and outside of the kernel. Details of the Windows 2000
+synchronization can be found in Solomon and Russinovich [2000].
+
+The write-ahead log scheme was first introduced in System R by Gray et al.
+[1981]. The concept of serializability was formulated by Eswaran et al. [1976] in
+connection with their work on concurrency control for System R. The two-phase
+locking protocol was introduced by Eswaran et al. [1976]. The timestamp-
+based concurrency-control scheme was provided by Reed [1983]. An exposition
+of various timestamp-based concurrency-control algorithms was presented by
+Bernstein and Goodman [1980].
+

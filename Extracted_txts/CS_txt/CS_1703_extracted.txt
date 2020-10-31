@@ -1,0 +1,63 @@
+7.2 The Critical-Section Problem 195
+
+Initially flag [0] = flag[1] = false, and the value of turn is immaterial (but
+is either 0 or 1). The structure of process P; is shown in Figure 7.4.
+
+To enter the critical section, process P; first sets flag [i] to be true and
+then sets turn to the value j, thereby asserting that if the other process wishes
+to enter the critical section it can do so. If both processes try to enter at the
+same time, turn will be set to both i and j at roughly the same time. Only
+one of these assignments will last; the other will occur, but will be overwritten
+immediately. The eventual value of turn decides which of the two processes is
+allowed to enter its critical section first.
+
+We now prove that this solution is correct. We need to show that:
+
+1. Mutual exclusion is preserved,
+2. The progress requirement is satisfied,
+
+3. The bounded-waiting requirement is met.
+
+To prove property 1, we note that each P; enters its critical section only
+if either flag[j] == false or turn == i. Also note that, if both processes
+can be executing in their critical sections at the same time, then flag[0] ==
+flag(1] == true. These two observations imply that Po and P; could not
+have successfully executed their while statements at about the same time, since
+the value of turn can be either 0 or 1, but cannot be both. Hence, one of
+the processes—say P;—must have successfully executed the while statement,
+whereas P; had to execute at least one additional statement (“turn == j”).
+However, since, at that time, flag[j] true, and turn == j, and this
+condition will persist as long as P; is in its critical section, the result follows:
+Mutual exclusion is preserved.
+
+ 
+
+do {
+
+ 
+
+flag[i] = true;
+turn = j;
+while (flag[j] #& turn == j);
+
+ 
+
+ 
+
+critical section
+
+ 
+
+ 
+
+flagli] = false;
+
+ 
+
+ 
+
+remainder section
+} while (1);
+
+Figure 7.4 The structure of process P; in algorithm 3.
+

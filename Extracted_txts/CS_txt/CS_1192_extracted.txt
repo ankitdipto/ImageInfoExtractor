@@ -1,0 +1,47 @@
+470 Let Us C
+
+ 
+
+value, ! makes it 0 and since now the condition evaluates to false
+the while loop gets terminated.
+
+Note that in each one of them the following three methods for
+opening a file are same, since in each one of them, essentially a
+base address of the string (pointer to a string) is being passed to
+fopen().
+
+fs = fopen ("PR1.C", "t") ;
+fs = fopen (filename,
+fs = fopen (argy[1], "t") ;
+
+   
+
+Detecting Errors in Reading/Writing
+
+Not at all times when we perform a read or write operation on a
+file are we successful in doing so. Naturally there must be a
+provision to test whether our attempt to read/write was successful
+or not.
+
+The standard library function ferror( ) reports any error that might
+have occurred during a read/write operation on a file. It returns a
+zero if the read/write is successful and a non-zero value in case of
+a failure. The following program illustrates the usage of ferror().
+
+#include "stdio.h"
+
+main()
+
+{
+FILE “fp;
+char ch;
+
+fp = fopen ( "TRIAL", "w') ;
+while ( !feof ( fp ) )
+{
+
+ch = fgetc (fp) ;
+
+if ( ferror() )
+{
+

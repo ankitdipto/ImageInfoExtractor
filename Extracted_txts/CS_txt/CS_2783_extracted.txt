@@ -1,0 +1,43 @@
+334
+
+Chapter 13 Red-Black Trees
+
+CER
+E> £€&
+a> ES
+ED
+
+Figure 13.9 A treap. Each node x is labeled with x. key: x. priority. For example, the root has
+key G and priority 4.
+
+We will examine a data structure that answers this question in the affirmative. A
+treap is abinary search tree with a modified way of ordering the nodes. Figure 13.9
+shows an example. As usual, each node x in the tree has a key value x.key. In
+addition, we assign x.priority, which is a random number chosen independently
+for each node. We assume that all priorities are distinct and also that all keys are
+distinct. The nodes of the treap are ordered so that the keys obey the binary-search-
+tree property and the priorities obey the min-heap order property:
+
+* Ifv isa left child of u, then v.key < u. key.
+* Ifv is aright child of u, then v.key > u.key.
+* Ifvisachild of u, then v.priority > u.priority.
+
+(This combination of properties is why the tree is called a “treap”: it has features
+of both a binary search tree and a heap.)
+
+It helps to think of treaps in the following way. Suppose that we insert nodes
+X1,X2,...,X,, With associated keys, into a treap. Then the resulting treap is the
+tree that would have been formed if the nodes had been inserted into a normal
+binary search tree in the order given by their (randomly chosen) priorities, i.e.,
+X;.priority < x;.priority means that we had inserted x; before x;.
+
+a. Show that given a set of nodes x1,.X2,...,Xn, With associated keys and priori-
+ties, all distinct, the treap associated with these nodes is unique.
+
+b. Show that the expected height of a treap is @(1g), and hence the expected time
+to search for a value in the treap is O(Ig 7).
+
+Let us see how to insert a new node into an existing treap. The first thing we do
+is assign to the new node a random priority. Then we call the insertion algorithm,
+which we call TREAP-INSERT, whose operation is illustrated in Figure 13.10.
+

@@ -1,0 +1,47 @@
+622 Let UsC
+
+ 
+
+(c)
+
+@
+
+DOS functions can carry out jobs like console I/O, file I/O,
+printing, etc. For other operations like generating graphics,
+carrying out serial communication, etc. the program has to
+call another set of functions called ROM-BIOS functions.
+Note that there are some functions in ROM-BIOS that do
+same jobs as equivalent DOS functions. BIOS functions suffer
+from the same difficulty as DOS functions—they do not have
+names. Hence they have to be called using interrupts and
+involve heavy usage of registers.
+
+Calling Library Functions
+
+We can call library functions which in tum can call
+DOS/BIOS functions to carry out the interaction with
+hardware. Good examples of these functions are printf( ) /
+scanf( ) / getch( ) for interaction with console, absread() /
+abswrite( ) for interaction with disk, bioscom( ) for
+interaction with serial port, etc. But the library doesn’t have a
+parallel function for every DOS/BIOS function. Hence at
+some point of time one has to learn how to call DOS/BIOS
+functions.
+
+Directly interacting with the hardware
+
+At times the programs are needed to directly interact with the
+hardware. This has to be done because either there are no
+library functions or DOS/BIOS functions to do this, or if they
+are there their reach is limited. For example, while writing
+good video games one is required to watch the status of
+multiple keys simultaneously. The library functions as well as
+the DOS/BIOS functions are unable to do this. At such times
+we have to interact with the keyboard controller chip directly.
+
+However, direct interaction with the hardware is difficult
+because one has to have good knowledge of technical details
+of the chip to be able to do so. Moreover, not every technical
+detail about how the hardware from a particular manufacturer
+works is well documented.
+

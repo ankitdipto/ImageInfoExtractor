@@ -1,0 +1,55 @@
+Section 17.4.
+
+Decision-Theoretic Agent Design 513
+
+ 
+
+ 
+
+ 
+
+    
+
+Temperature ¢
+
+ 
+
+ 
+
+Figure 17.11 Measuring temperature using two separate gauges.
+
+ 
+
+ 
+
+ 
+
+was detected within the sonar's range. This could be because the robot has wandered outside
+or it could be because the sonar’s detector is broken. In the latter case, the robot could start
+crashing into walls. Jn order for the system to handle sensor failure, the sensor model must
+include the possibility of failure. For example, in the case of sonar, a sensor model that says
+that the sensor is accurate to within 10 cm explicitly disallows the possibility of failure, and
+therefore forces the robot to take the sonar reading literally. For any given actual distance, the
+sonar model should allow the possibility that the observed distance will be "infinity." Then the
+robot can handle sensor failure more appropriately. For example, if the robot is in a corridor,
+its prediction will be that the closest object remains about 60 cm away. If the sonar suddenly
+reports "infinity," then the most likely conclusion is that the sensor has failed, not that the corridor
+has disappeared. Furthermore, if the robot has more than one distance sensor, the sensor fusion
+process will automatically discount the readings of the failed sensor.
+
+It is also possible to use more detailed models of sensor failure by incorporating additional
+state variables representing the condition of the sensor. Figure 17.12 shows a model ofa vision-
+based lane-position sensor. Such sensors are used in autonomous vehicles to keep them in the
+center of their lane. They also could be used to sound a warning in a human-driven car when
+it starts to stray off the road. The sensor's accuracy is directly affected by rain and an uneven
+road surface. Furthermore, rain might also cause the sensor to fail by damaging the electronics,
+as might a bumpy road. Sensor failure in turn affects the sensor's accuracy. This kind of model
+is capable of some quite subtle reasoning. For example, if the system believes (perhaps from
+another sensor's input) that it is raining, then that will alter the sensor accuracy variable, raising
+the likelihood of larger error in the lane-position sensor. When an unexpected reading occurs, the
+system will be less likely to assume that the car is out of position. Conversely, a large discrepancy
+between expected and observed position can increase the system's belief that it is raining! A
+really serious discrepancy would raise the posterior probability of sensor failure; hence this kind
+of network can perform "diagnosis" of the sensors. In the next section, we will see how this
+capability can be extended by reasoning over time
+

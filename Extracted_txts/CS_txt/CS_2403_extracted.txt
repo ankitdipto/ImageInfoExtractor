@@ -1,0 +1,56 @@
+26
+
+Chapter 2. Getting Started
+
+INSERTION-SORT(A) cost times
+1 for j = 2to A.length C1 n
+2 key = A[j] C2 n—1
+3 // Insert A[j] into the sorted
+sequence A[l.. j — 1]. 0
+4  j=j-1 4
+5 while i > 0 and A[i] > key cs
+6 Ali + 1] = Afi] 6
+7 i=i-l C7
+8 Afi + 1] = key cs
+
+ 
+
+The running time of the algorithm is the sum of running times for each state-
+ment executed; a statement that takes c; steps to execute and executes 7 times will
+contribute c;n to the total running time.® To compute T(), the running time of
+INSERTION-SORT on an input of 7 values, we sum the products of the cost and
+times columns, obtaining
+
+ 
+
+Tn) = cn +e2(n=1) +ea(n = 1) $5 0 +06) Gj —D
+é 7
+
+ter -I + ean 1).
+
+j=
+
+Even for inputs of a given size, an algorithm’s running time may depend on
+which input of that size is given. For example, in INSERTION-SoRT, the best
+case occurs if the array is already sorted. For each j = 2,3,...,”, we then find
+that A[i] < key in line 5 when i has its initial value of j — 1. Thus t; = 1 for
+j =2,3,...,n, and the best-case running time is
+
+ 
+
+Tin) = en +e,(n—1) +e4(n —1) +e5(n — 1) + eg(n — 1)
+= (Cr +02 +04 +5 + Cg)N — (Co +04 + C5 + C8) -
+
+We can express this running time as an + b for constants a and b that depend on
+the statement costs c;; it is thus a linear function of n.
+
+If the array is in reverse sorted order—that is, in decreasing order—the worst
+case results. We must compare each element A[j] with each element in the entire
+sorted subarray A[1.. j — 1], and sot; = j for j = 2,3,...,n. Noting that
+
+ 
+
+This characteristic does not necessarily hold for a resource such as memory. A statement that
+references m words of memory and is executed times does not necessarily reference mn distinct
+words of memory.
+

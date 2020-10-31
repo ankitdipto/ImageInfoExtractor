@@ -1,0 +1,50 @@
+11.4 File-System Mounting 393
+
+The primary advantage of an acyclic graph is the relative simplicity of the
+algorithms to traverse the graph and to determine when there are no more
+references to a file. We want to avoid traversing shared sections of an acyclic
+graph twice, mainly for performance reasons. If we have just searched a major
+shared subdirectory for a particular file, without finding it, we want to avoid
+searching that subdirectory again; the second search would be a waste of time.
+
+If cycles are allowed to exist in the directory, we likewise want to avoid
+searching any component twice, for reasons of correctness as well as perfor-
+mance. A poorly designed algorithm might result in an infinite loop continually
+searching through the cycle and never terminating. One solution is arbitrarily
+to limit the number of directories that will be accessed during a search.
+
+A similar problem exists when we are trying to determine when a file can
+be deleted. As with acyclic-graph directory structures, a value zero in the
+reference count means that there are no more references to the file or directory,
+and the file can be deleted. However, when cycles exist, the reference count
+may be nonzero, even when it is no longer possible to refer to a directory or
+file. This anomaly results from the possibility of self-referencing (or a cycle)
+in the directory structure. In this case, we generally need to use a garbage-
+collection scheme to determine when the last reference has been deleted and
+the disk space can be reallocated. Garbage collection involves traversing the
+entire file system, marking everything that can be accessed. Then, a second
+pass collects everything that is not marked onto a list of free space. (A similar
+marking procedure can be used to ensure that a traversal or search will cover
+everything in the file system once and only once.) Garbage collection for a disk-
+based file system, however, is extremely time-consuming and is thus seldom
+attempted.
+
+Garbage collection is necessary only because of possible cycles in the graph.
+Thus, an acyclic-graph structure is much easier to work with. The difficulty is to
+avoid cycles as new links are added to the structure. How do we know whena
+new link will complete a cycle? There are algorithms to detect cycles in graphs;
+however, they are computationally expensive, especially when the graph is on
+disk storage. A simpler algorithm in the special case of directories and links
+is to bypass links during directory traversal. Cycles are avoided and no extra
+overhead is incurred.
+
+114 # File-System Mounting
+
+Just as a file must be opened before it is used, a file system must be mounted
+before it can be available to processes on the system. More specifically, the
+directory structure can be built out of multiple partitions, which must be
+mounted to make them available within the file system name space.
+
+The mount procedure is straightforward. The operating system is given the
+name of the device, and the location within the file structure at which to attach
+

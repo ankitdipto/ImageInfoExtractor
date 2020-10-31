@@ -1,0 +1,75 @@
+Section 17.5, Dynamic Belief Networks 515
+
+ 
+
+stave EVOLUTION MODEL,
+
+IIIS in ip Sa
+
+reeptt-2,
+
+ 
+   
+
+a Percept) ) Percept.t+2
+
+ 
+
+SENSOR MODEL
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 17.13 The generic structure of a dynamic belief network. The shaded nodes show the
+evidence that has been accumulated so far.
+
+ 
+
+ 
+
+ 
+
+SLICES keep enough network structure to represent two time steps (otherwise known as two slices ofthe
+network). Figure 17.14 shows the prediction-estimation process in operation, a truly beautiful
+thing. Each cycle of the process works as follows:
+
+© Prediction: we begin with atwo-slice network; let us call the slices t— { and /. We assume
+that we have already calculated Be/(X,_,), incorporating all evidence up to and including
+E,_. Notice that slice z—1 has no connections to previous slices. The state variables in
+t—\ have prior probabilities associated with them (see the next step). We then calculate
+the belief vector Bel(X,),according to Equation (17.8). This is actually the standard belief
+network updating process applied to evidence E,_;.
+
+ROLLUP & Rollup: now we remove slice t— 1. This requires adding a prior probability table for the
+
+state variables at time ¢. This prior is just Bel(X,).
+
+> Estimation: now we add the new percept E,, applying standard beliefnetwork updating to
+calculate Bel(X,),the probability distribution over the current state. We then add the slice
+fort + 1. The network is now ready for the next cycle.
+
+This process implements the formal algorithm specified in Figure 17.9, using the beliefnetwork
+inference machinery for all the calculations. Notice that, as in the formal algorithm, the percept
+history is summarized in the belief vector for the current state—a summarization justified by
+Equation (17.5).
+
+Probabilistic projection is also straightforward. We can take the network after step (c), add
+slices for future times, and apply a belief network inference algorithm to calculate the posterior
+probability distributions for the future states, given the current percept. Unlike the update cycle,
+this might be expensive because it involves inference in a temporally extended network. However,
+this network has a special property: none of the future nodes has any evidence associated with it
+This means that a simple stochastic simulation technique such as logic sampling (see page 455)
+will work well, because every run can be consistent with the evidence. Given a desired accuracy
+level for the sampling process, the time complexity will usually be O(n).
+
+As an example of the application of dynamic belief networks, consider again the sensor-
+failure model shown in Figure 17,12, We can extend this into a DBN (Figure 17.15)by adding
+state evolution models for state variables Weather, Terrain and SensorFailure, as well as for the
+
+ 
+

@@ -1,0 +1,48 @@
+878
+
+Chapter 29 Linear Programming
+
+Lemma 29.7
+
+Assuming that INITIALIZE-SIMPLEX returns a slack form for which the basic so-
+lution is feasible, SIMPLEX either reports that a linear program is unbounded, or it
+terminates with a feasible solution in at most ce") iterations.
+
+Proof Lemmas 29.2 and 29.6 show that if INITIALIZE-SIMPLEX returns a slack
+form for which the basic solution is feasible, SIMPLEX either reports that a linear
+program is unbounded, or it terminates with a feasible solution. By the contra-
+positive of Lemma 29.5, if SIMPLEX terminates with a feasible solution, then it
+terminates in at most ("*””) iterations. .
+
+m
+
+Exercises
+
+29.3-1
+Complete the proof of Lemma 29.4 by showing that it must be the case that c = c’
+and v = v’.
+
+293-2
+Show that the call to PIvor in line 12 of SIMPLEX never decreases the value of v.
+
+293-3
+Prove that the slack form given to the PIvoT procedure and the slack form that the
+procedure returns are equivalent.
+
+29.3-4
+
+Suppose we convert a linear program (A,b,c) in standard form to slack form.
+Show that the basic solution is feasible if and only if b; = 0 fori = 1,2,..., m.
+29.3-5
+
+Solve the following linear program using SIMPLEX:
+
+maximize 18x, + 12.5x2
+subject to
+
+M+ X2 < 20
+xy < 12
+
+xX,» < 16
+X1.X2 => 0.
+

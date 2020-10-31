@@ -1,0 +1,48 @@
+518
+
+Chapter 19 Fibonacci Heaps
+
+most D(n) children of the minimum node and from the work in lines 2-3 and
+16-23 of CONSOLIDATE. It remains to analyze the contribution from the for loop
+of lines 4-14 in CONSOLIDATE, for which we use an aggregate analysis. The size
+of the root list upon calling CONSOLIDATE is at most D(n) + t(H) — 1, since it
+consists of the original f() root-list nodes, minus the extracted root node, plus
+the children of the extracted node, which number at most D(7). Within a given
+iteration of the for loop of lines 4-14, the number of iterations of the while loop of
+lines 7-13 depends on the root list. But we know that every time through the while
+loop, one of the roots is linked to another, and thus the total number of iterations
+of the while loop over all iterations of the for loop is at most the number of roots
+in the root list. Hence, the total amount of work performed in the for loop is at
+most proportional to D(n) + t(H). Thus, the total actual work in extracting the
+minimum node is O(D(n) + t(H)).
+
+The potential before extracting the minimum node is t(H) + 2m(H), and the
+potential afterward is at most (D(n) + 1) +2m(#), since at most D(n) + 1 roots
+remain and no nodes become marked during the operation. The amortized cost is
+thus at most
+
+O(D(n) + t(H)) + (Din) + 1) + 2m(A)) — (t(H) + 2m(H))
+
+= O(D(n)) + O(t(H)) —t(H)
+
+= OD).
+since we can scale up the units of potential to dominate the constant hidden
+in O(t(H)). Intuitively, the cost of performing each link is paid for by the re-
+duction in potential due to the link’s reducing the number of roots by one. We shall
+see in Section 19.4 that D(n) = O(lgn), so that the amortized cost of extracting
+the minimum node is O(Ig7).
+
+Exercises
+
+192-1
+Show the Fibonacci heap that results from calling FiB-HEAP-EXTRACT-MIN on
+the Fibonacci heap shown in Figure 19.4(m).
+
+ 
+
+19.3. Decreasing a key and deleting a node
+
+In this section, we show how to decrease the key of a node in a Fibonacci heap
+in O(1) amortized time and how to delete any node from an n-node Fibonacci
+heap in O(D(n)) amortized time. In Section 19.4, we will show that the maxi-
+

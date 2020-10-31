@@ -1,0 +1,40 @@
+Chapter 7: The C Preprocessor 245
+
+ 
+
+UPPER and PI in the above programs are often called ‘macro
+templates’, whereas, 25 and 3.1415 are called their corresponding
+‘macro expansions’.
+
+When we compile the program, before the source code passes to
+the compiler it is examined by the C preprocessor for any macro
+definitions. When it sees the #define directive, it goes through the
+entire program in search of the macro templates; wherever it finds
+one, it replaces the macro template with the appropriate macro
+expansion. Only after this procedure has been completed is the
+program handed over to the compiler.
+
+In C programming it is customary to use capital letters for macro
+template. This makes it easy for programmers to pick out all the
+macro templates when reading through the program.
+
+Note that a macro template and its macro expansion are separated
+by blanks or tabs. A space between # and define is optional.
+Remember that a macro definition is never to be terminated by a
+semicolon.
+
+And now a million dollar question... why use #define in the above
+programs? What have we gained by substituting PI for 3.1415 in
+our program? Probably, we have made the program easier to read.
+Even though 3.1415 is such a common constant that it is easily
+recognizable, there are many instances where a constant doesn’t
+reveal its purpose so readily. For example, if the phrase “\x1B[2J”
+causes the screen to clear. But which would you find easier to
+understand in the middle of your program “\x1B[2J” or
+“CLEARSCREEN”? Thus, we would use the macro definition
+
+#define CLEARSCREEN "\x1B[2J"
+
+Then wherever CLEARSCREEN appears in the program it would
+automatically be replaced by “\x1B[2J” before compilation begins.
+

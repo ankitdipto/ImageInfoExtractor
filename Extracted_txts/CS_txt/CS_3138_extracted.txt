@@ -1,0 +1,69 @@
+506
+
+Chapter 17. Making Complex Decisions
+
+ 
+
+ 
+
+function PoLicy-ITERATION(M, R) returns a policy
+inputs: M,a transition model
+R, a reward function on states
+local variables: U,a utility function, initially identical to R
+P, a policy, initially optimal with respect to U
+
+repeat
+U — VALUE-DETERMINATION(P, U, MR)
+unchanged? —true
+for each state 1 do
+ifmax, > MjUUl > S> Mj!) Uf then
+7 7
+
+Pli|—argmax, £ Mj U[j]
+
+i
+unchanged? — false
+end
+until unchanged?
+return P
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 177 The policy iteration algorithm for calculating an optimal policy.
+
+ 
+
+The VALUE-DETERMINATION algorithm can be implemented in one of two ways. The first
+is a simplification ofthe VALUE-ITERATION algorithm, replacing Equation (17.4) with
+
+Ur) — RO + YM" UG
+7
+
+and using the current utility estimates from policy iteration as the initial values. (Here Policy(i)is
+the action suggested by the policy in state i.) While this can work well in some environments, it
+will often take a very long time to converge in the early stages of policy iteration. This is because
+the policy will be more or less random, so that many steps can be required to reach terminal
+states.
+
+The second approach is to solve for the utilities directly. Given a fixed policy P, the utilities
+of states obey a set of equations of the form
+
+UW = RO + SO MFOUL)
+i
+For example, suppose P is the policy shown in Figure 17.2(a). Then using the transition model
+M, we can construct the following set of equations:
+Way = 0.8uq,2) + O-1uc,» + O.LMe,r
+W121 = O81 3) + 0.2u¢ 25
+
+and so on. This gives a set of | 1 linear equations in 1 | unknowns, which can be solved by linear
+algebra methods such as Gaussian elimination. For small state spaces, value determination using
+exact solution methods is often the most efficient approach.
+
+ 
+

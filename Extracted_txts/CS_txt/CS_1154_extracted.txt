@@ -1,0 +1,39 @@
+Chapter 12: File Input/Output 439
+
+ 
+
+fflush (stdin ) ;
+another = getche() ;
+}
+fclose (fp) ;
+
+}
+And here is the output...
+
+Enter name, age and basic salary: Suresh 24 1250.50
+Add another record (Y/N) Y
+Enter name, age and basic salary: Ranjan 21 1300.60
+Add another record (Y/N) Y
+Enter name, age and basic salary: Harish 28 1400.70
+Add another record (Y/N) N
+
+Most of this program is similar to the one that we wrote earlier,
+which used fprintf( ) instead of fwrite( ). Note, however, that the
+file “EMP.DAT” has now been opened in binary mode.
+
+The information obtained from the keyboard about the employee is
+placed in the structure variable e. Then, the following statement
+writes the structure to the file:
+
+fwrite ( &e, sizeof (e ), 1, fp) ;
+
+Here, the first argument is the address of the structure to be written
+to the disk.
+
+The second argument is the size of the structure in bytes. Instead
+of counting the bytes occupied by the structure ourselves, we let
+the program do it for us by using the sizeof() operator. The
+sizeof( ) operator gives the size of the variable in bytes. This keeps
+the program unchanged in event of change in the elements of the
+structure.
+

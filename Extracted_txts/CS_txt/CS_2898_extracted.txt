@@ -1,0 +1,53 @@
+428
+
+Chapter 16 Greedy Algorithms
+
+The professor can carry two liters of water, and he can skate m miles before running
+out of water. (Because North Dakota is relatively flat, the professor does not have
+to worry about drinking water at a greater rate on uphill sections than on flat or
+downhill sections.) The professor will start in Grand Forks with two full liters of
+water. His official North Dakota state map shows all the places along U.S. 2 at
+which he can refill his water and the distances between these locations.
+
+The professor’s goal is to minimize the number of water stops along his route
+across the state. Give an efficient method by which he can determine which water
+stops he should make. Prove that your strategy yields an optimal solution, and give
+its running time.
+
+16.2-5
+
+Describe an efficient algorithm that, given a set {x,,X2.....X,} of points on the
+real line, determines the smallest set of unit-length closed intervals that contains
+all of the given points. Argue that your algorithm is correct.
+
+ 
+
+162-6 x
+Show how to solve the fractional knapsack problem in O() time.
+
+162-7
+
+Suppose you are given two sets A and B, each containing 7 positive integers. You
+can choose to reorder each set however you like. After reordering, let a; be the ith
+element of set A, and let b; be the ith element of set B. You then receive a payoff
+of [T}-1 a;°'. Give an algorithm that will maximize your payoff. Prove that your
+algorithm maximizes the payoff, and state its running time.
+
+ 
+
+16.3 Huffman codes
+
+Huffman codes compress data very effectively: savings of 20% to 90% are typical,
+depending on the characteristics of the data being compressed. We consider the
+data to be a sequence of characters. Huffman’s greedy algorithm uses a table giving
+how often each character occurs (i.e., its frequency) to build up an optimal way of
+representing each character as a binary string.
+
+Suppose we have a 100,000-character data file that we wish to store compactly.
+We observe that the characters in the file occur with the frequencies given by Fig-
+ure 16.3. That is, only 6 different characters appear, and the character a occurs
+45,000 times.
+
+We have many options for how to represent such a file of information. Here,
+we consider the problem of designing a binary character code (or code for short)
+

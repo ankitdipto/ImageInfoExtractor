@@ -1,0 +1,25 @@
+Chapter 19: Interaction With Hardware 619
+
+ 
+
+Let us now see how this interaction is done under different
+platforms.
+
+Hardware Interaction, DOS Perspective
+
+Under DOS whenever an external event (like pressing a key or
+ticking of timer) occurs a signal called hardware interrupt gets
+generated. For different events there are different interrupts. As a
+reaction to the occurrence of an interrupt a table called Interrupt
+Vector Table (IVT) is looked up. IVT is present in memory. It is
+populated with addresses of different BIOS routines during
+booting. Depending upon which interrupt has occurred the
+Microprocessor picks the address of the appropriate BIOS routine
+from IVT and transfers execution control to it. Once the control
+reaches the BIOS routine, the code in the BIOS routine interacts
+with the hardware. Naturally, for different interrupts different
+BIOS routines are called. Since these routines serve the interrupts
+they are often called ‘Interrupt Service Routines’ or simply ISRs.
+
+Refer Figure 19.1 to understand this mechanism.
+

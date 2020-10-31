@@ -1,0 +1,54 @@
+Section 12.6.
+
+Summary 391
+
+ 
+
+12.3. Give an example in the house-building domain of two abstract subplans that cannot be
+merged into a consistent plan without sharing steps. (Hint: Places where two physical parts of
+the house come together are also places where two subplans tend to interact.)
+
+124 Construct an example of the violation of the downward solution property. That is, find an
+abstract solution such that, when one of the steps is decomposed, the plan becomes inconsistent
+in that one of its threats cannot be resolved.
+
+12.5 Prove that the upward solution property always holds for approximation hierarchy planning
+(see page 380). You may use Tenenberg (1988) for hints.
+
+12.6 Add existential quantifiers (3) to the plan language, using whatever syntax restrictions you
+find reasonable, and extend the planner to accommodate them.
+
+12.7 Write operators for the shopping domain that will enable the planner to achieve the goal of
+having three oranges by grabbing a bag, going to the store, grabbing the oranges, paying for them,
+and returning home. Model money as a resource. Use universal quantification in the operators,
+and show that the original contents of the bag will still be there at the end of the plan.
+
+12.8 We said in Section 11.6 that the SELECT-SUB-GOAL part of the POP algorithm was not a
+backtrack point—that we can work on subgoals in any order without affecting completeness (al-
+though the choice certainly has an effect on efficiency). When we change the SELECT-SUB-GOAL
+part to handle hierarchical decomposition, do we need to make it a backtrack point?
+
+129 Some domains have resources that are monotonically decreasing or increasing. For
+example, time is monotonically increasing, and if there is a Buy operator, but no Earn, Beg,
+Borrow, or Steal, then money is monotonically decreasing. Knowing this can cut the search
+space: if you have a partial plan whose steps require more money than is available, then you can
+avoid considering any of the possible completions of the plan.
+
+a. Explain how to determine ifa measure is monotonic, given a set of operator descriptions.
+
+b. Design an experiment to analyze the efficiency gains resulting from the use of monotonic
+resources in planning.
+
+12.10 Some of the operations in standard programming languages can be modelled as actions
+that change the state of the world. For example, the assignment operation changes the contents
+of a memory location; the print operation changes the state of the output stream. A program
+consisting of these operations can also be considered as a plan, whose goal is given by the
+specification of the program. Therefore, planning algorithms can be used to construct programs
+that achieve a given specification.
+
+a. Write an operator schema for the assignment operator (assigning the value of one variable
+to another),
+
+b. Show how object creation can be used by a planner to produce a plan for exchanging the
+values of two variables using a temporary variable.
+

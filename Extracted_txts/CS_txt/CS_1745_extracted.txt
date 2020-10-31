@@ -1,0 +1,52 @@
+7.9 Atomic Transactions 231
+
+     
+
+To Ty
+read(A)
+write(A)
+read(A)
+write(A)
+read(B)
+write(B)
+
+read(B)
+write(B)
+
+Figure 7.25 Schedule 2: A concurrent serializable schedule.
+
+Oj conflict if they access the same data item and at least one of these operations
+is a write operation. To illustrate the concept of conflicting operations, we
+consider the nonserial schedule 2 of Figure 7.25. The write(A) operation of
+Tp conflicts with the read(A) operation of T;. However, the write(A) opera-
+tion of T, does not conflict with the read(B) operation of Ty, because the two
+operations access different data items.
+
+Let O; and O; be consecutive operations of a schedule S. If O; and Oj are
+operations of different transactions and O; and O; do not conflict, then we can
+swap the order of O; and O; to produce a new schedule S’. We expect S to be
+equivalent to S’, as all operations appear in the same order in both schedules,
+except for O; and Oj, whose order does not matter.
+
+Let us illustrate the swapping idea by considering again schedule 2 of Fig-
+ure 7.25. As the write(A) operation of T; does not conflict with the read(B)
+operation of To, we can swap these operations to generate an equivalent sched-
+ule. Regardless of the initial system state, both schedules produce the same
+final system state. Continuing with this procedure of swapping nonconflicting
+operations, we get:
+
+© Swap the read(B) operation of Ty with the read(A) operation of T}.
+¢ Swap the write(B) operation of Ty with the write(A) operation of T;.
+
+© Swap the write(B) operation of Ty with the read(A) operation of T;.
+
+The final result of these swaps is schedule 1 in Figure 7.24, which is a
+serial schedule. Thus, we have shown that schedule 2 is equivalent to a serial
+schedule. This result implies that, regardless of the initial system state, schedule
+2 will produce the same final state as will some serial schedule.
+
+If a schedule S can be transformed into a serial schedule S’ by a series of
+swaps of nonconflicting operations, we say that a schedule S is conflict serial-
+izable. Thus, schedule 2 is conflict serializable, because it can be transformed
+into the serial schedule 1.
+

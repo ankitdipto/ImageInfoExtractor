@@ -1,0 +1,71 @@
+Section 18.6.
+
+Why Leaming Works: Computational Learning Theory 553
+
+ 
+
+COMPUTATIONAL
+LEARNING THEORY
+
+PROBABLY
+APPROXIMATELY
+‘CORRECT
+PAC-LEARNING
+
+'STATIONARITY
+
+ERROR
+
+BAL
+
+answers have begun to emerge. We will focus on the answers provided by computational
+learning theory, a field at the intersection of Al and theoretical computer science.
+
+The underlying principle is the following: any hypothesis that is seriously wrong will
+almost certainly be "found out" with high probability after a small number of examples, because
+it will make an incorrect prediction. Thus, any hypothesis that is consistent with a sufficiently
+large set of training examples is unlikely to be seriously wrong—that is, it must be Probably
+Approximately Correct. PAC-learning is the subfield of computational learning theory that is
+devoted to this idea.
+
+There are some subtleties in the preceding argument. The main question is the connection
+between the training and the test examples—afterall, we want the hypothesis to be approximately
+correct on the test set, not just on the training set. The key assumption, introduced by Valiant, is
+that the training and test sets are drawn randomly from the same population of examples using
+the same probability distribution. This is called the stationarity assumption. It is much more
+precise than the usual proposals for justifying induction, which mutter something about "the
+future being like the past." Without the stationarity assumption, the theory can make no claims
+at all about the future because there would be no necessary connection between future and past.
+The stationarity assumption amounts to supposing that the process that selects examples is not
+malevolent. Obviously, ifthe training set consisted only of weird examples—two-headed dogs,
+for instance—then the learning algorithm cannot help but make unsuccessful generalizations
+about how to recognize dogs.
+
+How many examples are needed?
+In order to put these insights into practice, we will need some notation:
+
++ Let X be the set ofall possible examples
+
++ Let D be the distribution from which examples are drawn.
++ Let H be the set of possible hypotheses.
+
++ Let m be the number of examples in the training set.
+
+Initially, we will assume that the true function fis a member of H. Now we can define the error
+of a hypothesis h with respect to the true function f given a distribution D over the examples as
+the probability that / is different from f on an example:
+
+error(h) = P(h(x) #f(Q)|xdrawn from D)
+
+This is the same quantity being measured experimentally by the learning curves shown earlier.
+
+A hypothesis h is called approximately correct iferror(h) < ¢, where ¢ is a small constant.
+The plan of attack is to show that after seeing m examples, with high probability, all consistent
+hypotheses will be approximately correct. One can think of an approximately correct hypothesis
+as being "close" to the true function in hypothesis space—it lies inside what is called the «-ball
+around the true function f. Figure 18.15 shows the set of all hypotheses H, divided into the <-ball.
+around f and the remainder, which we call Hosa.
+
+We can calculate the probability that a "seriously wrong" hypothesis 4; € Hyaais consistent
+with the first m examples as follows. We know that error(h,) > ¢. Thus, the probability that it
+

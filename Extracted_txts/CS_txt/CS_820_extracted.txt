@@ -1,0 +1,45 @@
+Chapter 5: Functions & Pointers 169
+
+ 
+
+()
+
+@®
+
+(g)
+
+There is no restriction on the number of return statements
+that may be present in a function. Also, the return statement
+need not always be present at the end of the called function.
+The following program illustrates these facts.
+
+fun()
+
+{
+char ch;
+
+printf ( "\nEnter any alphabet " ) ;
+scanf ("%c", &ch) ;
+
+if (ch >= 65 && ch <= 90)
+return (ch) ;
+
+else
+return (ch+ 32);
+
+In this function different return statements will be executed
+depending on whether ch is capital or not.
+
+Whenever the control returns from a function some value is
+definitely returned. If a meaningful value is returned then it
+should be accepted in the calling program by equating the
+called function to some variable. For example,
+
+sum = calsum (a,b, C);
+
+All the following are valid return statements.
+return (a);
+return (23);
+return (12.34) ;
+return ;
+

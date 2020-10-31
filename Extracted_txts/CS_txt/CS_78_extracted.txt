@@ -1,0 +1,50 @@
+Problems for Chapter 25 705
+
+25.3-2
+What is the purpose of adding the new vertex s to V, yielding V’?
+
+25.3-3
+Suppose that w(u,v) > 0 for all edges (u,v) € E. What is the relationship
+between the weight functions w and #?
+
+25.3-4
+
+Professor Greenstreet claims that there is a simpler way to reweight edges than
+the method used in Johnson’s algorithm. Letting w* = ming,y)eg {w(u, v)}, just
+define (u,v) = w(u, v) — w* for all edges (u,v) € E. What is wrong with the
+professor’s method of reweighting?
+
+25.3-5
+
+Suppose that we run Johnson’s algorithm on a directed graph G with weight func-
+tion w. Show that if G contains a 0-weight cycle c, then (u,v) = 0 for every
+edge (u,v) inc.
+
+25.3-6
+
+Professor Michener claims that there is no need to create a new source vertex in
+line 1 of JOHNSON. He claims that instead we can just use G’ = G and let s be any
+vertex. Give an example of a weighted, directed graph G for which incorporating
+the professor’s idea into JOHNSON causes incorrect answers. Then show that if G
+is strongly connected (every vertex is reachable from every other vertex), the results
+returned by JOHNSON with the professor’s modification are correct.
+
+ 
+
+Problems
+
+25-1 Transitive closure of a dynamic graph
+
+Suppose that we wish to maintain the transitive closure of a directed graph G =
+(V, E) as we insert edges into E. That is, after each edge has been inserted, we
+want to update the transitive closure of the edges inserted so far. Assume that the
+graph G has no edges initially and that we represent the transitive closure as a
+boolean matrix.
+
+a. Show how to update the transitive closure G* = (V, E*) of a graph G = (V, E)
+in O(V?) time when a new edge is added to G.
+
+b. Give an example of a graph G and an edge e such that Q(V) time is required
+to update the transitive closure after the insertion of e into G, no matter what
+algorithm is used.
+

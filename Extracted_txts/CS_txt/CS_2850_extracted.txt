@@ -1,0 +1,47 @@
+15.3. Elements of dynamic programming 389
+
+There are @(n7) calls of the first type, one per table entry. All calls of the sec-
+ond type are made as recursive calls by calls of the first type. Whenever a given
+call of Lookup-CHAIN makes recursive calls, it makes O(7) of them. There-
+fore, there are O(n) calls of the second type in all. Each call of the second type
+takes O(1) time, and each call of the first type takes O(r) time plus the time spent
+in its recursive calls. The total time, therefore, is O(n7). Memoization thus turns
+an Q(2”)-time algorithm into an O(3)-time algorithm.
+
+In summary, we can solve the matrix-chain multiplication problem by either a
+top-down, memoized dynamic-programming algorithm or a bottom-up dynamic-
+programming algorithm in O(n) time. Both methods take advantage of the
+overlapping-subproblems property. There are only @(77) distinct subproblems in
+total, and either of these methods computes the solution to each subproblem only
+once. Without memoization, the natural recursive algorithm runs in exponential
+time, since solved subproblems are repeatedly solved.
+
+In general practice, if all subproblems must be solved at least once, a bottom-up
+dynamic-programming algorithm usually outperforms the corresponding top-down
+memoized algorithm by a constant factor, because the bottom-up algorithm has no
+overhead for recursion and less overhead for maintaining the table. Moreover, for
+some problems we can exploit the regular pattern of table accesses in the dynamic-
+programming algorithm to reduce time or space requirements even further. Alter-
+natively, if some subproblems in the subproblem space need not be solved at all,
+the memoized solution has the advantage of solving only those subproblems that
+are definitely required.
+
+Exercises
+
+15.3-1
+
+Which is a more efficient way to determine the optimal number of multiplications
+in a matrix-chain multiplication problem: enumerating all the ways of parenthesiz-
+ing the product and computing the number of multiplications for each, or running
+RECURSIVE-MATRIX-CHAIN? Justify your answer.
+
+15.3-2
+
+Draw the recursion tree for the MERGE-SorT procedure from Section 2.3.1 on an
+array of 16 elements. Explain why memoization fails to speed up a good divide-
+and-conquer algorithm such as MERGE-SorRT.
+
+15.3-3
+Consider a variant of the matrix-chain multiplication problem in which the goal is
+to parenthesize the sequence of matrices so as to maximize, rather than minimize,
+

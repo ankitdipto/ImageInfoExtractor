@@ -1,0 +1,112 @@
+13.2 WOHardware 457
+
+ 
+
+ 
+
+bbo6
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+monitor processor
+cache
+graphics controller bridge/memory memory SCSI controller
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+IDE disk controller expansion bus interface. keyboard
+
+e e reo |
+
+Figure 13.1 A typical PC bus structure.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+serial and parallel ports. In the upper-right portion of the figure, four disks are
+connected together on a SCSI bus plugged into a SCSI controller.
+
+A controller is a collection of electronics that can operate a port, a bus, or
+a device. A serial-port controller is a simple device controller. It is a single
+chip (or portion of a chip) in the computer that controls the signals on the
+wires of a serial port. By contrast, a SCSI bus controller is not simple. Because
+the SCSI protocol is complex, the SCSI bus controller is often implemented as
+a separate circuit board (or a host adapter) that plugs into the computer. It
+typically contains a processor, microcode, and some private memory to enable
+it to process the SCSI protocol messages. Some devices have their own built-in
+controllers. If you look at a disk drive, you will see a circuit board attached to
+one side. This board is the disk controller. It implements the disk side of the
+protocol for some kind of connection, SCSI or IDE, for instance. It has microcode
+and a processor to do many tasks, such as bad-sector mapping, prefetching,
+buffering, and caching.
+
+How can the processor give commands and data to a controller to accom-
+plish an I/O transfer? The short answer is that the controller has one or more
+registers for data and control signals. The processor communicates with the
+controller by reading and writing bit patterns in these registers. One way that
+

@@ -1,0 +1,50 @@
+606
+
+Chapter 22. Elementary Graph Algorithms
+
+to cause problems in practice, as we can usually use any depth-first search result
+effectively, with essentially equivalent results.
+
+What is the running time of DFS? The loops on lines 1-3 and lines 5-7 of DFS
+take time @(V), exclusive of the time to execute the calls to DFS-VIsIT. As we did
+for breadth-first search, we use aggregate analysis. The procedure DFS-VISIT is
+called exactly once for each vertex v € V, since the vertex u on which DFS-VIsIT
+is invoked must be white and the first thing DFS-VIsIT does is paint vertex u gray.
+During an execution of DFS-VisiT(G, v), the loop on lines 4~7 executes |Adj[v]|
+times. Since
+Dd] = OB).
+veVv
+the total cost of executing lines 4-7 of DFS-VisiT is ©(£). The running time of
+DFS is therefore O(V + E).
+
+Properties of depth-first search
+
+Depth-first search yields valuable information about the structure of a graph. Per-
+haps the most basic property of depth-first search is that the predecessor sub-
+graph G, does indeed form a forest of trees, since the structure of the depth-
+first trees exactly mirrors the structure of recursive calls of DFS-VISIT. That is,
+u = v.x if and only if DFS-VisiT(G, v) was called during a search of u’s ad-
+jacency list. Additionally, vertex v is a descendant of vertex u in the depth-first
+forest if and only if v is discovered during the time in which u is gray.
+
+Another important property of depth-first search is that discovery and finishing
+times have parenthesis structure. If we represent the discovery of vertex u with
+a left parenthesis “(u” and represent its finishing by a right parenthesis “1)”, then
+the history of discoveries and finishings makes a well-formed expression in the
+sense that the parentheses are properly nested. For example, the depth-first search
+of Figure 22.5(a) corresponds to the parenthesization shown in Figure 22.5(b). The
+following theorem provides another way to characterize the parenthesis structure.
+
+Theorem 22.7 (Parenthesis theorem)
+In any depth-first search of a (directed or undirected) graph G = (V, £), for any
+two vertices u and v, exactly one of the following three conditions holds:
+
+* the intervals [u.d,u.f] and [v.d, v.f] are entirely disjoint, and neither uw nor v
+is a descendant of the other in the depth-first forest,
+
++ the interval [w.d, w.f] is contained entirely within the interval [v.d, v.f], and u
+is a descendant of v in a depth-first tree, or
+
+* the interval [v.d, v.f] is contained entirely within the interval [u.d,u.f], and v
+is a descendant of u in a depth-first tree.
+

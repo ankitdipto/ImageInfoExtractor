@@ -1,0 +1,131 @@
+1004
+
+Chapter 32 String Matching
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(©)
+
+Figure 32.10 The prefix function x. (a) The pattern P = ababaca aligns with a text T so that
+the first ¢ = 5 characters match. Matching characters, shown shaded, are connected by vertical lines.
+(b) Using only our knowledge of the 5 matched characters, we can deduce that a shift of s + 1 is
+invalid, but that a shift of s’ = s+2is consistent with everything we know about the text and therefore
+is potentially valid. (c) We can precompute useful information for such deductions by comparing the
+pattern with itself. Here, we see that the longest prefix of P that is also a proper suffix of Ps is P3.
+We represent this precomputed information in the array zr, so that [5] = 3. Given that q characters
+have matched successfully at shift s, the next potentially valid shift is at s’ = s + (q—z[q]) as shown
+in part (b).
+
+known portion of the text, it is a suffix of the string P;. Therefore, we can interpret
+equation (32.6) as asking for the greatest k < g such that Py O P,. Then, the new
+shift s’ = s +(q—k) is the next potentially valid shift. We will find it convenient to
+store, for each value of q, the number k of matching characters at the new shift s’,
+rather than storing, say, s’ — Ss.
+
+We formalize the information that we precompute as follows. Given a pattern
+P[1..m), the prefix function for the pattern P is the function z : {1,2,...,m}—>
+{0,1,...,m— 1} such that
+
+[gq] = max {k :k <q and Py 3 Py} .
+
+That is, z[q] is the length of the longest prefix of P that is a proper suffix of Py.
+Figure 32.11(a) gives the complete prefix function z for the patter ababaca.
+

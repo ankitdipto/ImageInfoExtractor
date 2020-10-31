@@ -1,0 +1,46 @@
+Chapter 18: Graphics Under Windows 585
+
+ 
+
+Drawing to a window involves handling the WM_PAINT
+message. This message is generated whenever the client area of the
+window needs to be redrawn. This redrawing would be required in
+the following situations:
+
+(a) When the Window is displayed for the first time.
+
+(b) When the window is minimized and then maximized.
+
+(c) When some portion of the window is overlapped by another
+window and the overlapped window is dismissed.
+
+(d) When the size of the window changes on stretching its
+boundaries.
+
+(e) When the window is dragged out of the screen and then
+brought back into the screen.
+
+Would a WM_PAINT message be generated when the cursor is
+dragged in the window? No. In this case the window saves the area
+overlapped by the cursor and restores it when the cursor moves to
+another position.
+
+When the switch-case structure inside WndProc( ) finds that the
+message ID passed to WndProc( ) is WM_PAINT, it calls the
+function OnPaint( ). Within OnPaint( ) we have called the API
+function BeginPaint( ). This function obtains a handle to the
+device context. Additionally it also fills the PAINTSTRUCT
+structure with information about the area of the window which
+needs to be repainted. Lastly it removes WM_PAINT from the
+message queue. After obtaining the device context handle, the
+control enters a loop.
+
+Inside the loop we have displayed “Hello Windows” in three
+different fonts. Each time through the loop we have setup a
+LOGFONT structure f. This structure is used to indicate the font
+properties like font name, font height, italic or normal, etc. Note
+that in addition to these there are other font properties that may be
+setup. The properties that we have not setup in the loop are all
+initialized to 0. Once the font properties have been setup we have
+called the CreateFontIndirect( ) API function to create the font.
+

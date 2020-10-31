@@ -1,0 +1,64 @@
+Section 24.4.
+
+Extracting 3-D Information Using Vision 739
+
+ 
+
+FATE
+
+BASELINE
+
+Perceived object
+
+      
+ 
+
+Left image Right image
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 24.12 The idea of stereopsis: different camera positions result in slightly different 2-D
+views of the same 3-D scene.
+
+ 
+
+ 
+
+parallel. The relationship of the right camera to the left camera is then just translation along the
+x-axis by an amount b, the baseline. We can use the optical flow equations from the previous
+section to compute the horizontal and vertical disparity as H = v, At. V = v, At, given that
+T, = b/At and T, = T- = 0. The rotational parameters w,, w,, and w- are zero. One obtains
+H = b/Z, V = 0. In words, the horizontal disparity is equal to the ratio of the baseline to the
+depth, and the vertical disparity is zero
+
+This is, of course, the simplest viewing geometry (relationship between the two cameras)
+that we could consider. Under normal viewing conditions, humans fixate; that is, there is some
+point in the scene at which the optical axes of the two eyes intersect. Figure 24.13 shows two eyes
+fixated. at a point PO, which is at a distance Z from the midpoint of the eyes. For convenience, we
+will compute the angular disparity, measured in radians. The disparity at the point of fixation PO
+is zero. For some other point P in the scene that is 6Z further away, we can compute the angular
+displacements of the left and right images of P, which we will call PL and PR. Ifeach of these is
+displaced by an angle 60/2 relative to PO, then the displacement between PL and PR, which is the
+disparity of P, isjust 60. From simple geometry, we have
+
+___-b
+
+eZ
+In humans, 5 (the baseline) is about 6 cm. Suppose that Z is about 100 cm. The smallest
+detectable 69 (corresponding to the pixel size) is about 5 seconds of arc, or 2.42 x 107‘ radians,
+givinga 6Z ofabout0.4 mm. ForZ = 30cm (1 ft), we get the impressively small value 6Z = 0.036
+mm. Stating this in words, at a distance of 30 cm, humans can discriminate depths that differ by
+as little as 0.036 mm, enabling us to thread needles and the like
+
+ 
+

@@ -1,0 +1,75 @@
+Section 21.4,
+
+Inductive Logic Programming 641
+
+ 
+
+Figure 21.7 shows an example in which the new predicate P is generated in the process
+of learning a definition for Ancestor. Once generated, P can be used in later inverse resolution
+steps. For example, a later step might hypothesize that Morher(x,y) = P(x,y). Thus, the new
+predicate P has its meaning constrained by the generation of hypotheses that involve it. Another
+example might lead to the constraint Father(x,y) = P(x,y). In other words, the predicate P is
+what we usually think of as the Parent relationship. As we mentioned earlier, the invention of
+new predicates can significantly reduce the size of the definition of the goal predicate. Hence, by
+including the ability to invent new predicates, inverse resolution systems can often solve learning
+problems that are infeasible with other techniques
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Father(Georgey) > Ancestor(George,y)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 21.7 An inverse resolution step that generates a new predicate P.
+
+ 
+
+Some of the deepest revolutions in science come from the invention of new predicates
+and functions—forexample, Galileo's invention of acceleration or Joule's invention of thermal
+energy. Once these terms are available, the discovery ofnew laws becomes (relatively) easy. The
+difficult part lies in realizing that some new entity, with a specific relationship to existing entities,
+will allow an entire body of observations to be explained with a much simpler and more elegant
+theory than previously existed.
+
+As yet, ILP systems have not been applied to such difficult tasks. It does appear, however,
+that the ability to use background knowledge provides significant advantages. In several appli-
+cations, ILP techniques have outperformed knowledge-free methods. For example, in molecular
+biology, it is useful to have background knowledge about typical molecular bonding pattems,
+valences of atoms, bond strengths, and so on. Using such knowledge, Stephen Muggleton's
+GOLEM system has been able to generate high-quality predictions of both protein structure from
+sequence information (Muggleton et a/., 1992) and the therapeutic efficacy of various drugs
+based on their molecular structures (King et al., 1992). These results, like Meta-DENDRAL's,
+were considered sufficiently interesting in their own right to be published in leading scientific
+journals. The differences between GOLEM'S and Meta-DENDRAL's performance are that (1) the
+new domains are much more difficult, and (2) GOLEM is a completely general-purpose program
+that is able to make use of background knowledge about any domain whatsoever.
+
+Top-down learning methods
+
+The second approach to ILP is essentially a generalization of the techniques of decision-tree
+leaming to the first-order case. Rather than starting from the observations and working backwards,
+we start with a very general rule and gradually specialize it so that it fits the data. This is
+essentially what happens in decision-tree learning, where a decision tree is gradually grown until
+

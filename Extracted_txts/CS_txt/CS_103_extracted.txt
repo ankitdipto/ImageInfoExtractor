@@ -1,0 +1,55 @@
+724
+
+Chapter 26 Maximum Flow
+
+u € Sandv € T. If (u,v) € E, we must have f(u,v) = c(u,v), since
+otherwise (u,v) € Ey, which would place v in set S. If (v,u) € E, we must
+have f(v,u) = 0, because otherwise c¢(u,v) = f(v,u) would be positive and
+we would have (u,v) € Ey, which would place v in S. Of course, if neither (uv, v)
+nor (v,w) is in E, then f(u,v) = f(v,u) = 0. We thus have
+
+MST) = YOY fy VV Fo.w
+ueS veT veT ueS
+= Ye. v)- yo
+ueS veT veT ueS
+= c(S,T).
+
+By Lemma 26.4, therefore, | f| = f(S,T) = c(S,T).
+(3) = (1): By Corollary 26.5, | f| < c(S,T) for all cuts (S, 7). The condition
+| f | = c(S, T) thus implies that f is a maximum flow. /
+
+The basic Ford-Fulkerson algorithm
+
+In each iteration of the Ford-Fulkerson method, we find some augmenting path p
+and use p to modify the flow f. As Lemma 26.2 and Corollary 26.3 suggest, we
+replace f by f + fp, obtaining a new flow whose value is | f| + | fp|. The follow-
+ing implementation of the method computes the maximum flow in a flow network
+G = (V,E) by updating the flow attribute (v,v).f for each edge (u,v) € E.'
+If (u,v) ¢ E, we assume implicitly that (u,v).f = 0. We also assume that we
+are given the capacities c(u,v) along with the flow network, and c(u,v) = 0
+if («,v) ¢ E. We compute the residual capacity cf(w. v) in accordance with the
+formula (26.2). The expression cf(p) in the code is just a temporary variable that
+stores the residual capacity of the path p.
+
+FORD-FULKERSON(G, 5, f)
+
+1 for each edge (u,v) € G.E
+
+2 (u,v).f = 0
+
+3 while there exists a path p from s tof in the residual network Gr
+4 ce(p) = min {er (u, v) : (u,v) is in p}
+
+5 for each edge (u,v) in p
+
+6 if(u,v)eE
+
+7 (U.v).f = Ov). +er(P)
+
+8 else (v.u).f = (v,u).f —cf(p)
+
+ 
+
+1Recall from Section 22.1 that we represent an attribute f for edge (wv, v) with the same style of
+notation—(w, v).f—that we use for an attribute of any other object.
+

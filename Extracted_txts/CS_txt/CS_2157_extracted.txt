@@ -1,0 +1,64 @@
+Section 10.2.
+
+Indexing, Retrieval, and Unification 299
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+10.2 INDEXING, RETRIEVAL, AND UNIFICATION
+
+The functions TELL and ASK can in general do complicated reasoning using forward and backward
+chaining or resolution. In this section, we consider two simpler functions that implement the part
+of TELL and ASK that deals directly with the physical implementation of the knowledge base.
+We call these functions STORE and FETCH. We also describe the implementation of a unification
+algorithm, another basic component of knowledge-based systems.
+
+Implementing sentences and terms
+
+The first step in building a reasoning system is to define the data types for sentences and terms.
+This involves defining both the syntax of sentences—the format for interacting with the user at
+the logic level—and the internal representation in which the system will store and manipulate
+sentences at the implementation level. There may be several internal representations for different
+aspects of sentences. For example, there may be one form that allows the system to print sentences
+and another to represent sentences that have been converted to clausal form.
+
+Our basic data type will represent the application of an operator (which could be a predicate,
+a function symbol or a logical connective) to a list of arguments (which could be terms or
+sentences). We will call this general data type a COMPOUND. It has fields for the operator (OP)
+and arguments (ARGS). For example, let c be the compound P(x) A Q(x): then Op[c] = A and
+ArRGS[c] = [ P(x), O(x)].
+
+Store and fetch
+
+Now that we have a data type for sentences and terms, we need to be able to maintain a set
+of sentences in a knowledge base, which means storing them in such a way that they can be
+fetched efficiently. Typically, FETCH is responsible for finding sentences in the knowledge base
+that unify with the query, or at least have the same syntactic structure. ASK is responsible for
+the inference strategy, which results in a series of calls to FETCH. The computational cost of
+inference is dominated by two aspects: the search strategy used by ASK and the data structures
+used to implement FETCH.
+
+The call STorE(KB,S)adds each conjunct of the sentence S to the knowledge base KB. The
+simplest approach is to implement the knowledge base as an array or linked list of conjuncts. For
+example, after
+
+TELL(KB,A A —B)
+TrLL(KB.=C A D)
+
+the KB will contain a list with the elements
+[A, B,C, D}
+
+The call FercH(KB,Q)must then go through the elements of the knowledge base one at a time
+until it either finds a conjunct that matches Q or reaches the end. With this approach FETCH takes
+
+ 
+

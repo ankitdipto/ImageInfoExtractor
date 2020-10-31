@@ -1,0 +1,56 @@
+Section 7.9. Toward a Goal-Based Agent 211
+
+ 
+
+7.9 TOWARD A GOAL-BASED AGENT,
+
+The preceding set of action value statements is sufficient to prescribe a reasonably intelligent
+exploration policy. It can be shown (Exercise 7,15) that the agent using these axioms will always
+succeed in finding the gold safely whenever there is a safe sequence of actions that does so. This
+is about as much as we can ask from a logical agent.
+
+Once the gold is found, the policies need to change radically. The aim now is to return to
+the start square as quickly as possible. What we would like to do is infer that the agent now has
+the goal of being at location [1.1]:
+
+V.5 Holding(Gold,s) > GoalLocation((1, 1],s)
+
+The presence of an explicit goal allows the agent to work out a sequence of actions that will
+achieve the goal. There are at least three ways to find such a sequence:
+
+0 Inference: It is not hard to write axioms that will allow us to ASK the KB for a sequence
+of actions that is guaranteed to achieve the goal safely. For the 4 x 4 wumpus world, this
+is feasible, but for larger worlds, the computational demands are too high. In any case, we
+have the problem of distinguishing good solutions from wasteful solutions (e.g., ones that
+make a long series of wandering moves before getting on the right track).
+
+0 Search: We can use a best-first search procedure (see Chapter 4) to find a path to the goal.
+This requires the agent to translate its knowledge into a set of operators, and accompanying
+state representation, so that the search algorithm can be applied.
+
+0 Planning: This involves the use of special-purpose reasoning systems designed to reason
+about actions. Chapter 11 describes these systems in detail, explaining their advantages
+over search algorithms.
+
+7.10 _ SUMMARY
+
+This chapter has shown how first-order logic can be used as the representation language for a
+knowledge-based agent. The important points are as follows:
+
++ First-order logic is a general-purpose representation language that is based on an onto-
+
+logical commitment to the existence of objects and relations in the world.
+
+Constant symbols and predicate symbols name objects and relations, respectively. Com-
+
+plex terms name objects using function symbols. The interpretation specifies what the
+
+symbols refer to.
+
++ An atomic sentence consists of a predicate applied to one or more terms; it is true just
+when the relation named by the predicate holds between the objects named by the terms.
+Complex sentences use connectivesjust like propositional logic, and quantified sentences
+allow the expression of general rules.
+
+* It is possible to define an agent that reasons using first-order logic. Such an agent needs to
+

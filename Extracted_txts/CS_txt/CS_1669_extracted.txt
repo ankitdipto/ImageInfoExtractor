@@ -1,0 +1,59 @@
+Section 8.5.
+
+The Grocery Shopping World 255
+
+ 
+
+Paying
+
+The shopping agent also has to know enough so that it will not overpay for an item. First, it needs
+to know typical fair prices for items, for example:
+
+Vg g€Typical(GroundBeef) Weight(g) = Pounds(1) = $(1) < FairPrice(g) < $(2)
+
+The agent should know that total price is roughly proportional to quantity, but that often discounts
+are given for buying larger sizes. The following rule says that this discount can be up to 50%:
+
+Vq.c.w.p qGcA Weight(q)—w A Price(q)=p >
+Vm, q@ m>1Aqeéca Weight(q7y=m x w =>
+(1+ 45+) xp < FairPrice(qz) < m x p
+Most importantly, the agent should know that it is a bad deal to pay more than the fair price for
+an item, and that buying anything that is a bad deal is a bad action:
+
+Vi Price(i) > FairPrice(iy > BadDeal(i)
+
+Vi BadDeal(i) = Va Bad(Buy(a,i))
+Buying events belong to the category Buy(b, x, s,p)—buyerb buying object x from seller s for
+price p. The complete description of buying is quite complex, but follows the general pattern
+laid down earlier in the chapter for marriage. The preconditions include the fact that p is the
+price of the object x, that b has at least that much money in the form of one or more monetary
+instruments; and that s owns x. The event includes a monetary exchange that results in a net gain
+ofp fors, and finally b owns x. Exercise 8.10 asks you to complete this description.
+
+One final thing an agent needs to know about shopping: it is bad form to exit a shop while
+carrying something that the shop owns.
+
+Va,x,s, i s€ Shops A T(Carrying(ax) A At(x, s) A Owns(s,x)) >
+T(Bad(Exit(a)),)
+
+An agent with the goal of exiting will use this goal to set up the subgoal of owning all the objects
+it is carrying. So all we need now is a description of the parts ofa buying event, so that the agent
+can execute the buying. In a supemnarket, a buying event consists of going to a checkout stand,
+placing all the items on the stand, waiting for the cashier to ring them up, placing a sum ofmoney
+equal to the total price on the stand, and picking up the items again. Note that ifthe total is $4, it
+will not do to place the same dollar bill onto the checkout stand four times.
+
+Vb,m,s,p,e e€ SupermarketBuy(b, m, s, p) >
+31, €,€3,¢4,e5 e| =Go(b,c) A CheckoutStand(c)A
+> =Put(b,m, ¢) A es = TotalUpPrice(sm) A
+e4=Put(b,p, ©) A es= Grab(b,m) A
+Before(e).e2) A Before(e2.e3)A Before(e3,e4)A Before(es,e5) A
+PartOf(ei,e) A PartOf(e2,e) A PartOf(e3,e) A PartOf(es,e) A PartOf(es.e)
+
+Now we have touched on all the major areas of knowledge necessary for an agent to cope
+with the grocery shopping world. A complete specification would make this chapter too long,
+but we have outlined the approach one would take to complete this specification. Although it is
+hard work, building actual knowledge bases of this kind is an invaluable experience.
+
+ 
+

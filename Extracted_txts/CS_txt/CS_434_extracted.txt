@@ -1,0 +1,48 @@
+994
+
+Chapter 32 String Matching
+
+and T = a”, then verifying takes time @((n—m + 1)m), since each of the n—m+1
+possible shifts is valid.
+
+In many applications, we expect few valid shifts—perhaps some constant c of
+them. In such applications, the expected matching time of the algorithm is only
+O((n —m +1) +cm) = O(n +m), plus the time required to process spurious
+hits. We can base a heuristic analysis on the assumption that reducing values mod-
+ulo q acts like a random mapping from ©* to Zq. (See the discussion on the use of
+division for hashing in Section 11.3.1. It is difficult to formalize and prove such an
+assumption, although one viable approach is to assume that ¢ is chosen randomly
+from integers of the appropriate size. We shall not pursue this formalization here.)
+We can then expect that the number of spurious hits is O(n/q), since we can es-
+timate the chance that an arbitrary /; will be equivalent to p, modulo qg, as 1/q.
+Since there are O(n) positions at which the test of line 10 fails and we spend O(m)
+time for each hit, the expected matching time taken by the Rabin-Karp algorithm
+1S
+
+O(n) + O(m(v +n/q)) .
+
+where v is the number of valid shifts. This running time is O(n) if v = O(1) and
+we choose g > m. That is, if the expected number of valid shifts is small (O(1))
+and we choose the prime g to be larger than the length of the pattern, then we
+can expect the Rabin-Karp procedure to use only O(n + m) matching time. Since
+m <n, this expected matching time is O(n).
+
+Exercises
+
+32.2-1
+Working modulo g = 11, how many spurious hits does the Rabin-Karp matcher en-
+counter in the text T = 3141592653589793 when looking for the pattern P = 26?
+
+32.2-2
+
+How would you extend the Rabin-Karp method to the problem of searching a text
+string for an occurrence of any one of a given set of k patterns? Start by assuming
+that all & patterns have the same length. Then generalize your solution to allow the
+patterns to have different lengths.
+
+32.2-3
+
+Show how to extend the Rabin-Karp method to handle the problem of looking for
+a given m x m pattern in an” x 7 array of characters. (The pattern may be shifted
+vertically and horizontally, but it may not be rotated.)
+

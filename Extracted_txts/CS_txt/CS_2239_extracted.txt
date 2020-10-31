@@ -1,0 +1,75 @@
+394
+
+CHAPTER ELEVEN Input-Output Organization
+
+ 
+
+Data bus
+Source Data valid Destination
+wit $i
+
+Data accepted
+
+ 
+
+ 
+
+ 
+
+ 
+
+(2) Block diagram
+
+ 
+
+(©) Timing dagram
+
+Source urit Destination unit
+
+ 
+
+Place data on bus
+Enable data valid.
+|_ fab dite vt [aa ron
+
+ZA Enable dara accepted,
+Disable dara valid.
+
+Invalidate data on bus |__|
+
+    
+  
+
+i
+
+ 
+
+ 
+
+ 
+
+Disable dara accepred.
+Ready to accept data
+(initial stat).
+
+ 
+
+ 
+
+(€) Sequence of events
+
+Figure 11-5 Source-initated transfer using handshaking.
+
+be at any given time The source unit initiates the transfer by placing the data
+on the bus and enabling its data valid signal. The data accepted signal is activated
+by the destination unit after it accepts the data from the bus. The source unit
+then disables its data valid signal, which invalidates the data on the bus. The
+destination unit then disables its data accepted signal and the system goes into
+its initial state. The source does not send the next data item until after the
+destination unit shows its readiness to accept new data by disabling its data
+accepted signal. This scheme allows arbitrary delays from one state to the next
+
+ 
+
+ 
+

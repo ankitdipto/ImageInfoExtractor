@@ -1,0 +1,57 @@
+Section 6.2. The Wumpus World Environment 155
+
+ 
+
+Finally, the action Climb is used to leave the cave; it is effective only when the agent is in
+the start square
+
+The agent dies a miserable death ifit enters a square containing a pit or a live wumpus. It
+is safe (but smelly) to enter a square with a dead wumpus
+
+The agent's goal is to find the gold and bring it back to the start as quickly as possible,
+without getting killed. To be precise, 1000 points are awarded for climbing out of the
+cave while carrying the gold, but there is a 1-point penalty for each action taken, and a
+10,000-pointpenalty for getting killed.
+
+As we emphasized in Chapter 2, an agent can do well in a single environment merely by
+memorizing the sequence of actions that happens to work in that environment. To provide a real
+test, we need to specify a complete class of environments, and insist that the agent do well, on
+average, over the whole class. We will assume a4 x 4 grid surrounded by walls. The agent
+always starts in the square labeled (1,1), facing toward the right. The locations of the gold and
+the wumpus are chosen randomly, with a uniform distribution, from the squares other than the
+start square. In addition, each square other than the start can be a pit, with probability 0.2
+
+In most of the environments in this class, there is a way for the agent to safely retrieve the
+gold. In some environments, the agent must choose between going home empty-handed or taking
+a chance that could lead either to death or to the gold. And in about 21% of the environments
+(the ones where the gold is in a pit or surrounded by pits), there is no way the agent can get a
+positive score. Sometimes life is just unfair.
+
+After gaining experience with this class of environments, we can experiment with other
+classes. In Chapter 22 we consider worlds where two agents explore together and can commu-
+nicate with each other. We could also consider worlds where the wumpus can move, or where
+there are multiple troves of gold, or multiple wumpuses.”
+
+Acting and reasoning in the wumpus world
+
+We now know the rules of the wumpus world, but we do not yet have an idea of how a wumpus
+world agent should act. An example will clear this up and will show why a successful agent
+will need to have some kind of logical reasoning ability. Figure 6.3(a) shows an agent's state of
+knowledge at the start of an exploration of the cave in Figure 6.2, after it has received its initial
+percept. To emphasize that this is only a representation, we use letters such as 4 and OK to
+represent sentences, in contrast to Figure 6.2, which used (admittedly primitive) pictures of the
+wumpus and pits.
+
+From the fact that there was no stench or breeze in [1,1], the agent can infer that [1,2] and
+[2,1] are free of dangers. They are marked with an OK to indicate this. From the fact that the
+agent is still alive, it can infer that [1,1] is also OK. A cautious agent will only move into a square
+that it knows is OK. Let us suppose the agent decides to move forward to [2,1], giving the scene
+in Figure 6.3(b).
+
+The agent detects a breeze in [2,1], so there must be a pit in a neighboring square, either
+[2.2] or [3,1]. The notation P? indicates a possible pit. The pit cannot be in [1,1], because the
+
+2 Oris it wumpi?
+
+ 
+

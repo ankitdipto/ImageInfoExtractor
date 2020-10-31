@@ -1,0 +1,95 @@
+  
+
+Section 11.5. A Partial-Order Planning Example 353
+
+ 
+
+achieves the At(Home) precondition.) On the other hand, if the agent goes to the supermarket
+first, then it cannot go from home to the hardware store
+
+At this point, we have reached a dead end in the search for a solution, and must back up
+and try another choice. The interesting part is seeing how a planner could notice that this partial
+
+I: plan is a dead end without wasting a lot of time on it. The key is that the the causal links in
+PROTECTED LINKS © a partial plan are protected links. A causal link is protected by ensuring that threats—that is,
+THREATS steps that might delete (or clobber) the protected condition—are ordered to come before or after
+
+the protected link. Figure 11.10(a) shows a threat: The causal link S\ “ > is threatened by
+
+the new step 53 because one effect of 53 is to delete c. The way to resolve the threat is to add
+
+ordering constraints to make sure that $3 does not intervene between S, and $2. If $3 is placed
+DEMOTION before 5, this is called demotion (see Figure 11.10(b)), and if it is placed after S, it is called
+PROMOTION promotion (see Figure 11.10(c)).
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+s, \ $1
+Toot |
+c ne e c
+| Sz / Sz So
+N/ Ny
+a¢
+@ ) ©
+
+ 
+
+ 
+
+Figure 11.10 Protecting causal links. In (a), the step 5s threatens a condition c that is established
+by 5; and protected by the causal link from S; to 52. In (b), Sshas been demoted to come before
+S), and in (c) it has been promoted to come after $2.
+
+ 
+
+ 
+
+ 
+
+In Figure 11.9, there is no way to resolve the threat that each Go step poses to the other.
+Whichever Go step comes first will delete the 4t(Home) condition on the other step. Whenever
+the planner is unable to resolve a threat by promotion or demotion, it gives up on the partial plan
+and backs up to a try a different choice at some earlier point in the planning process.
+
+Suppose the next choice is to try a different way to achieve the Ar(x) precondition of the
+Go(SM) step, this time by adding a causal link from Go(HWS) to Go(SM). In other words, the
+plan is to go from home to the hardware store and then to the supermarket. This introduces
+another threat. Unless the plan is further refined, it will allow the agent to go from the hardware
+store to the supermarket without first buying the drill (which was why it went to the hardware
+store in the first place). However much this might resemble human behavior, we would prefer our
+planning agent to avoid such forgetfulness. Technically, the Go(SM) step threatens the Ar(/HWS)
+precondition of the Buy {Drill)step, which is protected by a causal link. The threat is resolved by
+constraining Go(SM)to come after Buy(Drill). Figure 11.11 shows this.
+

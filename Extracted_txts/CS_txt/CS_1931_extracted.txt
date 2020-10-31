@@ -1,0 +1,52 @@
+384 Chapter11 File-System Interface
+
+itself can be organized in many ways. We want to be able to insert entries,
+to delete entries, to search for a named entry, and to list all the entries in
+the directory. In Chapter 12, we discuss the appropriate data structures that
+can be used in the implementation of the directory structure. In this section,
+we examine several schemes for defining the logical structure of the directory
+system. When considering a particular directory structure, we need to keep in
+mind the operations that are to be performed on a directory:
+
+Search for a file: We need to be able to search a directory structure to find
+the entry for a particular file. Since files have symbolic names and similar
+names may indicate a relationship between files, we may want to be able to
+find all files whose names match a particular pattern.
+
+Create a file: New files need to be created and added to the directory.
+
+© Delete a file: When a file is no longer needed, we want to remove it from
+the directory.
+
+© List a directory: We need to be able to list the files in a directory, and the
+contents of the directory entry for each file in the list.
+
+¢ Rename a file: Because the name of a file represents its contents to its users,
+the name must be changeable when the contents or use of the file changes.
+Renaming a file may also allow its position within the directory structure
+to be changed.
+
+Traverse the file system: We may wish to access every directory, and every
+file within a directory structure. For reliability, it is a good idea to save the
+contents and structure of the entire file system at regular intervals. This
+saving often consists of copying all files to magnetic tape. This technique
+provides a backup copy in case of system failure or if the file is simply no
+longer in use. In this case, the file can be copied to tape, and the disk space
+of that file released for reuse by another file.
+
+.
+
+In Sections 11.3.1 through 11.3.5, we describe the most common schemes for
+defining the logical structure of a directory.
+
+11.3.1 Single-Level Directory
+
+The simplest directory structure is the single-level directory. All files are
+contained in the same directory, which is easy to support and understand
+(Figure 11.6).
+
+A single-level directory has significant limitations, however, when the
+number of files increases or when the system has more than one user. Since
+all files are in the same directory, they must have unique names. If two users
+call their data file test, then the unique-name rule is violated. For example,
+

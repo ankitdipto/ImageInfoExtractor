@@ -1,0 +1,40 @@
+Chapter 3: The Loop Control Structure 115
+
+ 
+
+terminates when the value of ¢ exceeds 2, and the outer loop
+terminates when the value of r exceeds 3.
+
+As you can see, the body of the outer for loop is indented, and the
+body of the inner for loop is further indented. These multiple
+indentations make the program easier to understand.
+
+Instead of using two statements, one to calculate sum and another
+to print it out, we can compact this into one single statement by
+saying:
+
+printf ( "r = %d c = %d sum = %d\n", 1, c,r+C);
+
+The way for loops have been nested here, similarly, two while
+loops can also be nested. Not only this, a for loop can occur within
+a while loop, or a while within a for.
+
+Multiple Initialisations in the for Loop
+
+The initialisation expression of the for loop can contain more than
+one statement separated by a comma. For example,
+
+for (i= 1,j =2;j<= 10; j++)
+
+Multiple statements can also be used in the incrementation
+expression of for loop; i.e., you can increment (or decrement) two
+or more variables at the same time. However, only one expression
+is allowed in the test expression. This expression may contain
+several conditions linked together using logical operators.
+
+Use of multiple statements in the initialisation expression also
+demonstrates why semicolons are used to separate the three
+expressions in the for loop. If commas had been used, they could
+not also have been used to separate multiple statements in the
+initialisation expression, without confusing the compiler.
+

@@ -1,0 +1,49 @@
+146 Chapter5 Threads
+
+class Summation extends Thread
+
+public Summation(int n) {
+upper = n;
+
+public void run() {
+int sum = 0;
+
+if (upper > 0) {
+for (int i = 1; i <= upper; i++)
+sum += i;
+}
+
+System.out.println("The sum of "tupper+" is “+sum) 5
+
+}
+
+private int upper;
+
+}
+
+public class ThreadTester
+{
+public static void main(String[] args) {
+if (args.length > 0) {
+if (Integer.parseInt(args[0]) < 0)
+System.err.printin(args[0] + " must be >= 0.");
+else {
+Summation thrd = new Summation(Integer.parseInt (args[0]));
+thrd.start();
+}
+}
+
+else
+System.err.print1n("Usage: Summation <integer value>");
+}
+3
+
+Figure 5.8 Java program for the summation of a non-negative integer.
+
+When the summation program runs, two threads are created by the JVM.
+The first is the thread associated with the application—the thread that starts
+execution at the main method. The second thread is the Summation thread that
+is created explicitly with the start method. The Summation thread begins
+execution in its run method. The thread terminates when it exits from its run
+method.
+

@@ -1,0 +1,55 @@
+12.9 NFS 445
+
+The omission of open and close operations is intentional. A prominent
+feature of NFS servers is that they are stateless. Servers do not maintain infor-
+mation about their clients from one access to another. No parallels to UNIX’s
+open-files table or file structures exist on the server side. Consequently, each
+request has to provide a full set of arguments, including a unique file identifier
+and an absolute offset inside the file for the appropriate operations. The result-
+ing design is robust; no special measures need to be taken to recover a server
+after a crash. File operations need to be idempotent for this purpose. Every NFS
+request has a sequence number, allowing the server to determine if a request is
+duplicated or if any are missing.
+
+Maintaining the list of clients that we mentioned seems to violate the
+statelessness of the server. However, this list is not essential for the correct
+operation of the client or the server, and hence it does not need to be restored
+after a server crash. Consequently, it might include inconsistent data and is
+treated as only a hint.
+
+A further implication of the stateless-server philosophy and a result of the
+synchrony of an RPC is that modified data (including indirection and status
+blocks) must be committed to the server’s disk before results are returned to
+the client. That is, a client can cache write blocks, but when it flushes them
+to the server, it assumes that they have reached the server's disks. The server
+must write all NFS data synchronously. Thus, a server crash and recovery will
+be invisible to a client; all blocks that the server is managing for the client
+will be intact. The consequent performance penalty can be large, because
+the advantages of caching are lost. Performance can be increased by using
+storage with its own nonvolatile cache (usually battery-backed-up memory).
+The disk controller acknowledges the disk write when the write is stored in the
+nonvolatile cache. In essence the host sees a very fast synchronous write. These
+blocks remain intact even after system crash, and are written from this stable
+storage to disk periodically.
+
+A single NFS write procedure call is guaranteed to be atomic, and also is not
+intermixed with other write calls to the same file. The NFS protocol, however,
+does not provide concurrency-control mechanisms. A write system call may
+be broken down into several RPC writes, because each NFS write or read call
+can contain up to 8 KB of data and UDP packets are limited to 1,500 bytes. As a
+result, two users writing to the same remote file may get their data intermixed.
+The claim is that, because lock management is inherently stateful, a service
+outside the NFS should provide locking (and Solaris does). Users are advised to
+coordinate access to shared files using mechanisms outside the scope of NFS.
+
+NFS is integrated into the operating system via a VFS. As an illustration of
+the architecture, let us trace how an operation on an already open remote file is
+handled (follow the example in Figure 12.16). The client initiates the operation
+by a regular system call. The operating-system layer maps this call to a VFS
+operation on the appropriate vnode. The VFS layer identifies the file as a remote
+one and invokes the appropriate NFS procedure. An RPC call is made to the
+
+ 
+
+ 
+

@@ -1,0 +1,52 @@
+SECTION 8-4 Instruction Formats 257
+
+their instruction format. Each address field may specify a processor register or
+amemory word. An instruction symbolized by
+
+ADD R1,X
+
+would specify the operation Rl —R1 + M[X], It has two address fields, one
+for register R1 and the other for the memory address X.
+
+The stack-organized CPU was presented in Fig. 8-4. Computers with
+stack organization would have PUSH and POP instructions which require an
+address field. Thus the instruction
+
+PUSH X
+
+will push the word at address X to the top of the stack. The stack pointer is,
+updated automatically. Operation-type instructions do not need an address
+field in stack-organized computers. This is because the operation is performed
+on the two items that are on top of the stack. The instruction
+
+ADD
+
+ina stack computer consists of an operation code only with no address field.
+This operation has the effect of popping the two top numbers from the stack,
+adding the numbers, and pushing the sum into the stack. There is no need to
+specify operands with an address field since all operands are implied to be in
+the stack.
+
+‘Most computers fall into one of the three types of organizations that have
+just been described. Some computers combine features from more than one
+organizational structure. For example, the Intel 8080 microprocessor has seven
+CPU registers, one of which is an accumulator register. As a consequence, the
+processor has some of the characteristics of a general register type and some
+Of the characteristics of an accumulator type. All arithmetic and logic instruc-
+tions, as well as the load and store instructions, use the accumulator register,
+so these instructions have only one address field. On the other hand, instruc-
+tions that transfer data among the seven processor registers have a format that
+contains two register address fields. Moreover, the Intel 8080 processor has a
+stack pointer and instructions to push and pop from a memory stack. The
+Processor, however, does not have the zero-address-type instructions which
+are characteristic of a stack-organized CPU.
+
+To illustrate the influence of the number of addresses on computer pro-
+grams, we will evaluate the arithmetic statement
+
+X=(A+B)*(C+D)
+using zero, one, two, or three address instructions. We will use the symbols
+
+ADD, SUB, MUL, and DIV for the four arithmetic operations; MOV for
+the transfer-type operation; and LOAD and STORE for transfers to and
+

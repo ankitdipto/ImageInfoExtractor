@@ -1,0 +1,95 @@
+input register
+
+SECTION $7 Input-Output and Interrupt 1511
+
+input and output devices. To demonstrate the most basic requirements for
+input and output communication, we will use as an illustration a terminal unit
+with a keyboard and printer. Input-output organization is dicsussed further in
+Chap. 11.
+
+Input—Output Configuration
+The terminal sends and receives serial information. Each quantity of informa-
+tion has eight bits of an alphanumeric code. The serial information from the
+keyboardis shifted into the input register INPR. The serial information for the
+printer isstored in the output register OUITR. These two registers communicate
+with a communication interface serially and with the AC in parallel. The
+input-output configuration is shown in Fig. 5-12. The transmitter interface re-
+ceives serial information from the keyboard and transmits it to INPR. The re-
+ceiver interface receives information from OUTR and sends it to the printer
+serially. The operation of the serial communication interface is explained in
+Sec. 11-3,
+
+The input register INPR consists of eightbits and holds an alphanumeric
+input information. The 1-bit input flag FGI is a control flip-flop. The flag bit is,
+
+Figure 5-12 Input-ourput configuration.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Input oupt seria Computer
+‘cin commarteaion vegas and
+merce ip ops
+760
+' Recever
+piner be Receive Care
+| AC LU
+Trans
+Keybourd hair ~[Tinee
+Far
+
+ 
+
+ 
+
+ 
+

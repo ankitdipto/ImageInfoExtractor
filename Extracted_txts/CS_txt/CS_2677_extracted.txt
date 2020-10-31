@@ -1,0 +1,59 @@
+2's complement
+addition
+
+SECTION 33 Fixed-Point Representation 79
+
+has two representations of 0 (+0 and -0). It is seldom used for arithmetic
+operations except in some older computers. The ’s complement is useful as
+a logical operation since thechangeof 1 to 0 or 0 to 1 is equivalent to a logical
+complement operation. The following discussion of signed binary arithmetic
+deals exclusively with the signed-2’s complement representation of negative
+numbers.
+
+Arithmetic Addition
+
+The addition of two numbers in the signed-magnitude system follows the rules
+of ordinary arithmetic. If the signs are the same, we add the two magnitudes
+and give the sum the common sign. Ifthe signs are different, we subtract the
+smaller magnitude from the larger and give the result the sign of the larger
+magnitude. For example, (+25) + (~37) = -(37 - 25) = 12 and is done by
+subtracting the smaller magnitude 25 from the larger magnitude 37 and using
+the sign of 37 for the sign of the result. This is a process that requires the
+comparison of the signs and the magnitudes and then performing either
+addition or subtraction. (The procedure for adding binary numbers in signed-
+magnitude representation is described in Sec. 10-2.) By contrast, the rule for
+adding numbers in the signed-2’s complement system does not require a
+comparison or subtraction, only addition and complementation. The proce-
+dure is very simple and can be stated as follows: Add the two numbers,
+including their sign bits, and discard any carry out of the sign (leftmost) bit
+position. Numerical examples for addition are shown below. Note that nega-
+tive numbers must initially be in 2’s complement and that if the sum obtained
+after the addition is negative, it is in 2’s complement form.
+
+  
+
+ 
+
+ 
+
+ 
+
++6 00000110 -6 11111010
++13 00001101 +13 oooom101
++19 00010011 +7 00000111
++6 00000110 -6 1111010
+-13 10011 13 110011
+7 Tm1001 -19 T10n01
+
+Ineach ofthe four cases, the operation performed is always addition, including
+the sign bits. Any carry out of the sign bit position is discarded, and negative
+results are automatically in 2's complement form
+
+The complement form of representing negative numbers is unfamiliar to
+people used to the signed-magnitude system To determine the value of a
+negative number when in signed-2’s complement, it is necessary to convert it
+toa positive number to place it in a more familiar form For example, the signed
+binary number 11111001 is negative because the leftmost bit is 1. Its 2's com-
+plement is 00000111, which is the binary equivalent of +7. We therefore
+recognize the original negative number to be equal to ~7.
+

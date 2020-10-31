@@ -1,0 +1,53 @@
+414 = cuarter Leven Input-Output Organization
+
+service program
+
+interrupt system. Each device has its own service program that can be reached
+through a jump (MP) instruction stored at the assigned vector address. The
+symbolic name of each routine represents the starting address of the service
+program. The stack shown in the diagram is used for storing the return address
+after each interrupt.
+
+To illustrate with a specific example assume that the keyboard sets its
+interrupt bit while the CPU is executing the instruction in location 749 of the
+main program. At the end of the instruction cycle, the computer goes to an
+interrupt cycle. It stores the return address 750 in the stack and then accepts
+the vector address 00000011 from the bus and transfersit to PC. The instruction
+inlocation 3 is executed next, resulting in transfer of control to the KBD routine.
+Now suppose that the disk sets its interrupt bit when the CPU is executing the
+instruction at address 255 in the KBD program. Address 256is pushed into the
+stack and control is transferred to the DISK service program. The last instru
+tion in each routine is a return from interrupt instruction. When the disk
+service program is completed, the return instruction pops the stack and places
+256 into PC. This returns control to the KBD routine to continue servicing the
+keyboard. At the end of the KBD program, the last instruction pops the stack
+and returns control to the main program at address 750. Thus, ahigher-priority
+device can interrupt a lower-priority device. It is assumed that the time spent
+in servicing the high-priority interrupt is short compared to the transfer rate
+of the low-priority device so that no loss of information takes place.
+
+ 
+
+Initial and Final Operations
+
+Each interrupt service routine must have an initial and final set of operations
+for controlling the registers in the hardware interrupt system. Remember that
+the interrupt enable /EN is cleared at the end of an interrupt cycle. This flip-flop
+must be set again to enable higher-priority interrupt requests, but not before
+lower-priority interrupts are disabled. The initial sequence of each interrupt
+service routine must have instructions to control the interrupt hardware in the
+following manner:
+
+1. Clear lower-level mask register bits
+2. Clear interrupt status bit IST.
+
+3. Save contents of processor registers.
+4, Set interrupt enable bit IEN.
+
+5. Proceed with service routine.
+
+The lower-level mask register bits (including the bit of the source that
+interrupted) are cleared to prevent these conditions from enabling the inter-
+rupt. Although lower-priority interrupt sources are assigned to higher-num-
+bered bits in the mask register, priority can be changed if desired since the
+

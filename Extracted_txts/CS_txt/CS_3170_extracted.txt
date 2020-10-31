@@ -1,0 +1,64 @@
+Section 18.3.
+
+Learning Decision Trees 535
+
+ 
+
+NOSE
+
+hypotheses than complex ones, so that there is only a small chance that any simple hypothesis
+that is wildly incorrect will be consistent with all observations. Hence, other things being equal,
+a simple hypothesis that is consistent with the observations is more likely to be correct than a
+complex one. We discuss hypothesis quality further in Section 18.6.
+
+Unfortunately, finding the smallest decision tree is an intractable problem, but with some
+simple heuristics, we can do a good job of finding a smallish one. The basic idea behind the
+DECISION-TREE-LEARNING algorithm is to test the most important attribute first. By "most
+important," we mean the one that makes the most difference to the classification of an example.
+This way, we hope to get to the correct classification with a small number of tests, meaning that
+all paths in the tree will be short and the tree as a whole will be small.
+
+Figure 18.6 shows how the algorithm gets started. We are given 12 training examples,
+which we classify into positive and negative sets. We then decide which attribute to use as the
+first test in the tree. Figure 18.6(a) shows that Patrons is a fairly important attribute, because ifthe
+value is None or Some, then we are left with example sets for which we can answer definitively
+(No and Yes, respectively). (If the value is Full, we will need additional tests.) In Figure 18.6(b)
+we see that Type is a poor attribute, because it leaves us with four possible outcomes, each of
+which has the same number of positive and negative answers. We consider all possible attributes
+in this way, and choose the most important one as the root test. We leave the details of how
+importance is measured for Section 18.4, because it does not affect the basic algorithm. For now,
+assume the most important attribute is Patrons.
+
+After the first attribute test splits up the examples, each outcome is a new decision tree
+learning problem in itself, with fewer examples and one fewer attribute. There are four cases to
+consider for these recursive problems:
+
+1, If there are some positive and some negative examples, then choose the best attribute to
+split them. Figure 18.6(c) shows Hungry being used to split the remaining examples.
+
+2. If all the remaining examples are positive (or all negative), then we are done: we can
+answer Yes or No. Figure 18.6(c) shows examples of this in the None and Some cases.
+
+3. If there are no examples left, it means that no such example has been observed, and we
+return a default value calculated from the majority classification at the node's parent.
+
+4. Ifthere are no attributes left, but both positive and negative examples, we have aproblem. It
+means that these examples have exactly the same description, but different classifications.
+
+This happens when some ofthe data are incorrect; we say there is noise in the data. It also
+
+happens when the attributes do not give enough information to fully describe the situation,
+
+or when the domain is truly nondeterministic. One simple way out of the problem is to use
+
+a majority vote
+Wecontinue to apply the DECISION-TREE-LEARNING algorithm (Figure 18.7)until we get the tree
+shown in Figure 18,8. The tree is distinctly different from the original tree shown in Figure 18.4,
+despite the fact that the data were actually generated from an agent using the original tree.
+
+One might conclude that the learning algorithm is not doing a very good job of learning
+the correct function. This would be the wrong conclusion to draw. The learning algorithm looks
+at the examples, not at the correct function, and in fact, its hypothesis (see Figure 18.8) not only
+agrees with all the examples, but is considerably simpler than the original tree. The learning
+algorithm has no reason to include tests for Raining and Reservation, because it can classify all
+

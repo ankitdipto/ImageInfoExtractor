@@ -1,0 +1,63 @@
+Section 20.7.
+
+Generalization in Reinforcement Learning 615
+
+ 
+
+agent function? This is an issue at the foundations of artificial intelligence. As we stated in
+Chapter 1. one of the key historical characteristics of much of AI research is its (often unstated)
+adherence to the knowledge-based approach. This amounts to an assumption that the best way
+to represent the agent function is to construct an explicit representation of at least some aspects
+of the environment in which the agent is situated.
+
+Some researchers, both inside and outside AI, have claimed that the availability of model-
+free methods such as Q-learning means that the knowledge-based approach is unnecessary. There
+is, however, little to go onbut intuition. Our intuition, forwhat it's worth, is that asthe environment
+becomes more complex, the advantages of a knowledge-based approach become more apparent.
+This is borne out even in games such as chess, checkers (draughts), and backgammon (see next
+section), where efforts to learn an evaluation function using a model have met with more success
+than Q-learning methods. Perhaps one day there will be a deeper theoretical understanding of
+the advantages of explicit knowledge; but as yet we do not even have a formal definition of
+the difference between model-based and model-free systems. All we have are some purported
+examples of each.
+
+20.7__ GENERALIZATION IN REINFORCEMENT LEARNING
+
+EXPLICIT,
+REPRESENTATION
+
+MPLICTT
+REPRESENTATION
+
+Put
+GENERALZATION
+
+So far we have assumed that all the functions leamed by the agents (U, M, R, Q) are represented in
+tabular form —that is, an explicit representation of one output value for each input tuple. Such
+an approach works reasonably well for small state spaces, but the time to convergence and (for
+ADP) the time per iteration increase rapidly as the space gets larger. With carefully controlled,
+approximate ADP methods, it may be possible to handle 10,000 states or more. This suffices
+for two-dimensional, maze-like environments, but more realistic worlds are out of the question.
+Chess and backgammon are tiny subsets of the real world, yet their state spaces contain on the
+order of 10°°to 10! states. It would be absurd to suppose that one must visit all these states in
+order to learn how to play the game!
+
+The only way to handle such problems is to use an implicit representation ofthe function—
+a form that allows one to calculate the output for any input, but that is usually much more
+compact than the tabular form. For example, an estimated utility function for game playing can
+be represented as a weighted linear function ofa set of board features/\
+
+u@ - Wifi) + wri) + 0 + wifald
+Thus, instead of, say, 10!° values, the utility function is characterized by the n weights. A
+
+  
+
+typical chess evaluation function might only have about 10 weights, so this is an enormous
+compression. The compression achieved by an implicit representation allows the learning agent
+to generalize from states it has visited to states it has not visited. That is, the most important
+aspect of an implicitrepresentation is not that it takes up less space, but that it allows for inductive
+generalization over input states. For this reason, methods that leam such representations are said
+to perform input generalization. To give you some idea of the power of input generalization:
+by examining only one in 10“ of the possible backgammon states, it is possible to learn a utility
+function that allows a program to play as well as any human (Tesauro, 1992).
+

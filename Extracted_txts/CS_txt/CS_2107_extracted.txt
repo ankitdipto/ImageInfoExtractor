@@ -1,0 +1,50 @@
+—
+
+532 Chapter14 Mass-Storage Structure
+
+d. Calculate the random-access I/Os per second and transfer rate for
+I/O sizes of 4 KB, 8 KB, and 64 KB.
+
+e. Ifmultiple requests are in the queue, a scheduling algorithm such as
+SCAN should be able to reduce the average seek distance. Suppose
+that a random-access workload is reading 8 KB pages, the average
+queue length is 10, and the scheduling algorithm reduces the aver-
+age seek time to 3 milliseconds. Calculate the I/Os per second and
+the effective transfer rate of the drive.
+
+14.18 More than one disk drive can be attached to a SCSI bus. In particular,
+a fast wide SCSI-II bus (Exercise 14.17) can be connected to at most
+15 disk drives. Recall that this bus has a bandwidth of 20 MB per
+second. At any time, only one packet can be transferred on the bus
+between some disk’s internal cache and the host. However, a disk can
+be moving its disk arm while some other disk is transferring a packet
+on the bus. Also, a disk can be transferring data between its magnetic
+platters and its internal cache while some other disk is transferring a
+packet on the bus. Considering the transfer rates that you calculated for
+the various workloads in Exercise 14.17, discuss how many disks can be
+used effectively by one fast wide SCSI-II bus.
+
+14.19 Remapping of bad blocks by sector sparing or sector slipping could
+influence performance. Suppose that the drive in Exercise 14.17 has a
+total of 100 bad sectors at random locations, and that each bad sector
+is mapped to a spare that is located on a different track, but within the
+same cylinder. Estimate the number of I/Os per second and the effective
+transfer rate for a random-access workload consisting of 8 KB reads, with
+a queue length of 1 (that is, the choice of scheduling algorithm is not a
+factor). What is the effect of a bad sector on performance?
+
+14.20 Discuss the relative advantages and disadvantages of sector sparing and
+sector slipping.
+
+14.21 The operating system generally treats removable disks as shared file
+systems, but assigns a tape drive to only one application at a time. Give
+three reasons that could explain this difference in treatment of disks and
+tapes. Describe the additional features that an operating system would
+need to support shared file-system access to a tape jukebox. Would the
+applications sharing the tape jukebox need any special properties, or
+could they use the files as though the files were disk-resident? Explain
+your answer.
+
+14.22 Ina disk jukebox, what would be the effect if the number of open files
+was greater than the number of drives in the jukebox?
+

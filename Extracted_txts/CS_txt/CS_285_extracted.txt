@@ -1,0 +1,51 @@
+872
+
+Chapter 29 Linear Programming
+
+ity constraints; the basic variable associated with this constraint is x;. Again, we
+are free to choose one of several variables as the leaving variable, but we assume
+that we use some prespecified deterministic rule. If none of the constraints lim-
+its the amount by which the entering variable can increase, the algorithm returns
+“unbounded” in line 11. Otherwise, line 12 exchanges the roles of the entering
+and leaving variables by calling PrvoT(N, B, A,b,c,v,1,e), as described above.
+Lines 13-16 compute a solution ¥;, ¥2,...,X, for the original linear-programming
+variables by setting all the nonbasic variables to 0 and each basic variable X; to b;,
+and line 17 returns these values.
+
+To show that SIMPLEX is correct, we first show that if SIMPLEX has an initial
+feasible solution and eventually terminates, then it either returns a feasible solution
+or determines that the linear program is unbounded. Then, we show that SIMPLEX
+terminates. Finally, in Section 29.4 (Theorem 29.10) we show that the solution
+returned is optimal.
+
+  
+
+Lemma 29.2
+
+Given a linear program (A, b,c), suppose that the call to INITIALIZE-SIMPLEX in
+line 1 of SIMPLEX returns a slack form for which the basic solution is feasible.
+Then if SIMPLEX returns a solution in line 17, that solution is a feasible solution to
+the linear program. If SIMPLEX returns “unbounded” in line 11, the linear program
+is unbounded.
+
+Proof We use the following three-part loop invariant:
+At the start of each iteration of the while loop of lines 3-12,
+
+1. the slack form is equivalent to the slack form returned by the call of
+INITIALIZE-SIMPLEX,
+
+2. for each i € B, we have b; > 0, and
+3. the basic solution associated with the slack form is feasible.
+
+Initialization: The equivalence of the slack forms is trivial for the first itera-
+tion. We assume, in the statement of the lemma, that the call to INITIALIZE-
+SIMPLEX in line 1 of SIMPLEX returns a slack form for which the basic solution
+is feasible. Thus, the third part of the invariant is true. Because the basic so-
+lution is feasible, each basic variable x; is nonnegative. Furthermore, since the
+basic solution sets each basic variable x; to b;, we have that b; > 0 for all
+i € B. Thus, the second part of the invariant holds.
+
+Maintenance: We shall show that each iteration of the while loop maintains the
+loop invariant, assuming that the return statement in line 11 does not execute.
+We shall handle the case in which line 11 executes when we discuss termination.
+

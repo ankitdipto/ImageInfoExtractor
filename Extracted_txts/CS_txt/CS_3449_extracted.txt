@@ -1,0 +1,71 @@
+786
+
+254
+
+ 
+
+Chapter 25. Robotics
+
+ 
+
+Image
+me >
+Object
+. Beam —_—_
+Stripe Range
+
+ 
+
+ 
+
+Figure 25.7 Sensing the shape of an object using a vertical light-stripe system.
+
+ 
+
+ 
+
+ 
+
+| Emitter
+BS , 1] Receiver
+
+   
+
+* Object being
+FRONT VIEW Mirror
+
+scanned
+
+   
+
+== Emitter
+= Receiver J
+TOP VIEW Gz Path ofObject Table
+
+@) (b)
+
+ 
+
+ 
+
+Figure 25.8 (a) A cross-beam sensot. (b) A parallel-beam sensor.
+
+ 
+
+ 
+
+ 
+
+ARCHITECTURES
+
+In this section, we step back from the nuts and bolts of robots and look at the overall control
+mechanism. The architecture of a robot defines how the job of generating actions from per-
+cepts is organized. We will largely be concemed with autonomous mobile robots in dynamic
+environments, for which the need for a sophisticated control architecture is clear.
+
+The design of robot architectures is essentially the same agent design problem that we
+discussed in Chapter 2. We saw in the introduction to the current chapter that the environment for
+mobile robots is toward the difficult end as environments go. Furthermore, the perceptual input
+available to a robot is often voluminous; nevertheless, the robot needs to react quickly in some
+situations. In the following subsections, we briefly describe a variety of architectures, ranging
+

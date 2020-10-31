@@ -1,0 +1,56 @@
+16 cuarrer one Digital Logic Circuits
+
+AND
+implementation
+
+NOR
+implementation
+
+don’t-care conditions
+
+The logic diagrams of the two simplified expressions are shown in Fig. 1-12.
+The sum-of-products expression is implemented in Fig. 1-12(a) with a group
+of AND gates, one for each AND term. The outputs of the AND gates are
+connected to the inputs of asingle OR gate. The same function is implemented
+in Fig. 1-12(b) in product-of-sums form with a group of OR gates, one for each
+OR term. The outputs of the OR gates are connected to the inputs of a single
+AND gate. In each case it is assumed that the input variables are directly
+available in their complement, so inverters are not included. The pattern
+established in Fig. 1-12 is the general form by which any Boolean function is
+implemented when expressed in one of the standard forms. AND gates are
+connected to a single OR gate when in sum-of-products form. OR gates are
+connected to a single AND gate when in product-of-sums form.
+
+‘A sum-of-products expression can be implemented with NAND gates as
+shown in Fig. 1-13(a). Note that the second NAND gate is drawn with the
+graphic symbol of Fig. 1-5(b). There are three lines in the diagram with small
+Circles at both ends. Two circles in the same line designate double complemen-
+tation, and since (x")’ = x, the two circles can be removed and the resulting
+diagram is equivalent to the one shown in Fig. 1-12(a). Similarly, a product-of-
+sums expression can be implemented with NOR gates as shown in Fig. 1-13(b).
+The second NOR gate is drawn with the graphic symbol of Fig. 1-4(b). Again
+the two circles on both sides of each line may be removed, and the diagram
+so obtained is equivalent to the one shown in Fig. 1-12(b).
+
+Don't-Care Conditions
+
+The Y'sand(sin the map represent the minterms that make the function equal
+to or 0, There are occasions when it does not matter if the function produces
+or 1 for a given minterm. Since the function may be either 0 or 1, we say that
+we don’t care what the function output is to be for this minterm. Minterms that
+may produce either or 1 for the function are said to be don’t-care conditions
+and are marked with an x in the map. These don't-care conditions can be used
+to provide further simplification of the algebraic expression.
+
+Figure 1-12 Logic diagrams with AND and OR gates
+
+” a
+D’ s
+c. py F
+°
+> >
+
+(9 Sum of producte (©) Produc of sums
+
+FED BC +a'CD F=(A' +B) (C'+D')(B" +D)
+

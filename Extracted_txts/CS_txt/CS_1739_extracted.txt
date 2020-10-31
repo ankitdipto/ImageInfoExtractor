@@ -1,0 +1,50 @@
+7.9 Atomic Transactions 225
+
+variables; that is, they may notify a waiting thread when a desired condition
+occurs.
+
+Dispatcher objects may be in either a signaled or nonsignaled state. A
+signaled state indicates that an object is available and a thread will not block
+when acquiring the object. A nonsignaled state indicates that an object is not
+available and that a thread will block when attempting to acquire the object.
+There is a relationship between the state of a dispatcher object and the state of
+a thread. When a thread blocks on a nonsignaled dispatcher object, its state
+changes from ready to waiting and the thread is placed in a waiting queue for
+that object. When the state for the dispatcher object moves to signaled, the
+kernel checks if there are any threads waiting on the object. If so, the kernel
+moves one—or possibly more—threads from the waiting state to the ready
+state where they can resume executing. The number of threads the kernel
+selects from the waiting queue depends upon the type of dispatcher object they
+are waiting upon. The kernel will select only one thread from the waiting queue
+for a mutex, since a mutex object may be “owned” by only a single thread. For
+an event object, the kernel will select all threads that are waiting for the event.
+
+Let us use a mutex lock as an illustrating example of dispatcher objects and
+thread states. If a thread tries to acquire a mutex dispatcher object that is ina
+nonsignaled state, that thread will be suspended and placed in a waiting queue
+for the mutex object. When the mutex moves to the signaled state (the result
+of another thread releasing the lock on the mutex), the thread waiting on the
+mutex will:
+
+1. Be moved from the wait to the ready state,
+
+2. Acquire the mutex lock.
+
+7.9 @ Atomic Transactions
+
+The mutual exclusion of critical sections ensures that the critical sections are
+executed atomically. That is, if two critical sections are executed concurrently,
+the result is equivalent to their sequential execution in some unknown order.
+Although this property is useful in many application domains, in many cases
+we would like to make sure that a critical section forms a single logical unit
+of work that either is performed in its entirety or is not performed at all.
+An example is funds transfer, in which one account is debited and another is
+credited. Clearly, it is essential for data consistency that either both the credit
+and debit occur, or that neither occur.
+
+The remainder of this section is related to the field of database systems.
+Databases are concerned with the storage and retrieval of data, and with the
+consistency of the data. Recently, there has been an upsurge of interest in using
+database-systems techniques in operating systems. Operating systems can be
+viewed as manipulators of data; as such, they can benefit from the advanced
+

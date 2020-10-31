@@ -1,0 +1,45 @@
+15.3. Elements of dynamic programming 383
+
+This example shows that for longest simple paths, not only does the problem
+lack optimal substructure, but we cannot necessarily assemble a “legal” solution
+to the problem from solutions to subproblems. If we combine the longest simple
+paths g > s >t >randr >q +s +1, we get the pathg >s >t >r—>
+q — Ss — t, which is not simple. Indeed, the problem of finding an unweighted
+longest simple path does not appear to have any sort of optimal substructure. No
+efficient dynamic-programming algorithm for this problem has ever been found. In
+fact, this problem is NP-complete, which—as we shall see in Chapter 34—means
+that we are unlikely to find a way to solve it in polynomial time.
+
+Why is the substructure of a longest simple path so different from that of a short-
+est path? Although a solution to a problem for both longest and shortest paths uses
+two subproblems, the subproblems in finding the longest simple path are not inde-
+pendent, whereas for shortest paths they are. What do we mean by subproblems
+being independent? We mean that the solution to one subproblem does not affect
+the solution to another subproblem of the same problem. For the example of Fig-
+ure 15.6, we have the problem of finding a longest simple path from q to ¢ with two
+subproblems: finding longest simple paths from q to r and from r to f. For the first
+of these subproblems, we choose the path gq > s > t —> r, and so we have also
+used the vertices s and ¢. We can no longer use these vertices in the second sub-
+problem, since the combination of the two solutions to subproblems would yield a
+path that is not simple. If we cannot use vertex f in the second problem, then we
+cannot solve it at all, since ¢ is required to be on the path that we find, and it is
+not the vertex at which we are “splicing” together the subproblem solutions (that
+vertex being 1"). Because we use vertices s and ¢ in one subproblem solution, we
+cannot use them in the other subproblem solution. We must use at least one of them
+to solve the other subproblem, however, and we must use both of them to solve it
+optimally. Thus, we say that these subproblems are not independent. Looked at
+another way, using resources in solving one subproblem (those resources being
+vertices) renders them unavailable for the other subproblem.
+
+Why, then, are the subproblems independent for finding a shortest path? The
+answer is that by nature, the subproblems do not share resources. We claim that
+if a vertex w is on a shortest path p from u to v, then we can splice together any
+shortest path u 2S wand any shortest path w Bvto produce a shortest path from u
+to v. We are assured that, other than w, no vertex can appear in both paths p;
+and p2. Why? Suppose that some vertex x # w appears in both p; and pz, so that
+we can decompose p; as u Pus x xs wand P2 as wW~> x RY py, By the optimal
+substructure of this problem, path p has as many edges as p; and p2 together; let’s
+say that p has e edges. Now let us construct a path p! = u ®3 x 2 v from u to v.
+Because we have excised the paths from x to w and from w to x, each of which
+contains at least one edge, path p’ contains at most e — 2 edges, which contradicts
+

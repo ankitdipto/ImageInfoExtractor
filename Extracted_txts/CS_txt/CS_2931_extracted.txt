@@ -1,0 +1,50 @@
+17.1 Aggregate anal 455
+
+ 
+
+Counter ‘otal
+valle CHES GHOOSS cost
+0 00000000 0
+1 00000007 1
+2 00000010 3
+3 00000011 4
+4 00000100 7
+5 00000107 8
+6 00000110 10
+7 o0000TTI 11
+8 00001000 15
+9 00001007 16
+10 00001010 18
+11 00001011 19
+12 00001100 22
+13 00001107 23
+14 00001110 25
+15 00001TTII 26
+16 00010000 31
+
+Figure 17.2. An 8-bit binary counter as its value goes from 0 to 16 by a sequence of 16 INCREMENT
+operations. Bits that flip to achieve the next value are shaded. The running cost for flipping bits is
+shown at the right. Notice that the total cost is always less than twice the total number of INCREMENT
+operations.
+
+operations on an initially zero counter causes A[I] to flip [n/2| times. Similarly,
+bit A[2] flips only every fourth time, or |7/4| times in a sequence of n INCREMENT
+operations. In general, fori = 0,1,...,4 — 1, bit Afi] flips [n/2'| times in a
+sequence of m INCREMENT operations on an initially zero counter. For i > k,
+bit A[i] does not exist, and so it cannot flip. The total number of flips in the
+sequence is thus
+
+k-1 n
+Llp) <"
+= 2n,
+
+Me
+je
+
+1
+°
+
+by equation (A.6). The worst-case time for a sequence of n INCREMENT operations
+on an initially zero counter is therefore O(n). The average cost of each operation,
+and therefore the amortized cost per operation, is O(n)/n = O(1).
+

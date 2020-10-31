@@ -1,0 +1,49 @@
+144 Chapter5 Threads
+
+The register set, stacks, and private storage area are known as the context of
+the thread and are architecture-specific to the hardware on which the operating
+system is running. The primary data structures of a thread include:
+
+« ETHREAD (executive thread block).
+e KTHREAD (kernel thread block).
+e TEB (thread environment block).
+
+The key components of the ETHREAD include a pointer to the process to
+which the thread belongs and the address of the routine in which the thread
+starts control. The ETHREAD also contains a pointer to the corresponding
+KTHREAD.
+
+The KTHREAD includes scheduling and synchronization information for
+the thread. In addition, the KTHREAD includes the kernel stack (used when
+the thread is running in kernel mode) and a pointer to the TEB.
+
+The ETHREAD and the KTHREAD exist entirely in kernel space; this means
+only the kernel can access them. The TEB is a user-space data structure that is
+accessed when the thread is running in user mode. Among other fields, the
+TEB contains a user mode stack and an array for thread-specific data (which
+Windows terms thread-local storage).
+
+5.7 @ Linux Threads
+
+The Linux kernel introduced threads in version 2.2. Linux provides a fork
+system call with the traditional functionality of duplicating a process. Linux
+also provides the clone system call that is analogous to creating a thread.
+clone behaves much like fork, except that instead of creating a copy of the
+calling process, it creates a separate process that shares the address space of the
+calling process. It is through this sharing of the address space of the parent
+process that a cloned task behaves much like a separate thread.
+
+The sharing of the address space is allowed because of the representation
+of a process in the Linux kernel. A unique kernel data structure exists for each
+process in the system. However, rather than storing the data for each process in
+this data structure, it contains pointers to other data structures where this data
+is stored. For example, this per-process data structure contains pointers to other
+data structures that represent the list of open files, signal-handling information,
+and virtual memory. When fork is invoked, a new process is created along
+with a copy of all the associated data structures of the parent process. When
+the clone system call is made, a new process is created. However, rather than
+copying all data structures, the new process points to the data structures of the
+parent process, thereby allowing the child process to share the memory and
+other process resources of the parent. A set of flags is passed as a parameter
+to the clone system call. This set of flags is used to indicate how much of
+

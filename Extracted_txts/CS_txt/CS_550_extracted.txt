@@ -1,0 +1,40 @@
+1088
+
+Cc:
+
+Chapter 34 NP-Completeness
+
+SX VD VAG C3 =X V2 VX3
+
+ 
+
+Figure 34.14 The graph G derived from the 3-CNF formula ¢ = Cy A C2 A C3, where C) =
+(x1 V 4x2 V7N3), C2 = (x1 V x2 V x3), and C3 = («1 V x2 Vx3), in reducing 3-CNF-SAT to
+CLIQUE. A satisfying assignment of the formula has x2 = 0, x3 = 1, and x1 either 0 or 1. This
+assignment satisfies Cy with 4x2, and it satisfies Cp and C3 with x3, corresponding to the clique
+with lightly shaded vertices.
+
+1,2,...,k, each clause C, has exactly three distinct literals /7, 13, and 13. We shall
+construct a graph G such that ¢ is satisfiable if and only if G has a clique of size k.
+
+We construct the graph G = (V,E) as follows. For each clause C, =
+(I v L, v L) in @, we place a triple of vertices vj, v3, and v3 into V. We put
+an edge between two vertices vj and v; if both of the following hold:
+
+* vf and Wi are in different triples, that is, r 4 s, and
+* their corresponding literals are consistent, that is, /7 is not the negation of /7.
+
+We can easily build this graph from ¢ in polynomial time. As an example of this
+construction, if we have
+
+@ = (M1 V 2 V 7x3) A (401 V X2 V-X3) A (M1 V X2 V3),
+
+then G is the graph shown in Figure 34.14.
+
+We must show that this transformation of ¢ into G is a reduction. First, suppose
+that ¢ has a satisfying assignment. Then each clause C, contains at least one
+literal / that is assigned 1, and each such literal corresponds to a vertex v7. Picking
+one such “true” literal from each clause yields a set V’ of k vertices. We claim that
+V’ is a clique. For any two vertices v7, v; € V’, where r 4 5, both corresponding
+literals 7 and /} map to | by the given satisfying assignment, and thus the literals
+

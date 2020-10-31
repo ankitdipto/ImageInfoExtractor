@@ -1,0 +1,52 @@
+36 Chapter 2 Computer-System Structures
+
+set aside, and are mapped to the device registers. Reads and writes to these
+memory addresses cause the data to be transferred to and from the device
+registers. This method is appropriate for devices that have fast response times,
+such as video controllers. In the IBM PC, each location on the screen is mapped
+to a memory location. Displaying text on the screen is almost as easy as writing
+the text into the appropriate memory-mapped locations.
+
+Memory-mapped 1/0 is also convenient for other devices, such as the serial
+and parallel ports used to connect modems and printers to a computer. The
+CPU transfers data through these kinds of devices by reading and writing a few
+device registers, called an I/O port. To send out a long string of bytes through a
+memory-mapped serial port, the CPU writes one data byte to the data register,
+then sets a bit in the control register to signal that the byte is available. The
+device takes the data byte, and then clears the bit in the control register to signal
+that it is ready for the next byte. Then, the CPU can transfer the next byte. If
+the CPU uses polling to watch the control bit, constantly looping to see whether
+the device is ready, this method of operation is called programmed I/O (PIO). If
+the CPU does not poll the control bit, but instead receives an interrupt when the
+device is ready for the next byte, the data transfer is said to be interrupt driven.
+
+Registers that are built into the CPU are generally accessible within one
+cycle of the CPU clock. Most CPUs can decode instructions and perform
+simple operations on register contents at the rate of one or more operations
+per clock tick. The same cannot be said of main memory, which is accessed
+via a transaction on the memory bus. Memory access may take many cycles
+of the CPU clock to complete, in which case the processor normally needs
+to stall, since it does not have the data required to complete the instruction
+that it is executing. This situation is intolerable because of the frequency of
+memory accesses. The remedy is to add fast memory between the CPU and
+main memory. A memory buffer used to accommodate a speed differential,
+called a cache, is described in Section 2.4.1.
+
+2.3.2 Magnetic Disks
+
+Magnetic disks provide the bulk of secondary storage for modern computer
+systems. Conceptually, disks are relatively simple (Figure 2.5). Each disk platter
+has a flat circular shape, like a CD. Common platter diameters range from 1.8 to
+5.25 inches. The two surfaces of a platter are covered with a magnetic material.
+We store information by recording it magnetically on the platters.
+
+A read-write head “flies” just above each surface of every platter. The
+heads are attached to a disk arm, which moves all the heads as a unit. The sur-
+face of a platter is logically divided into circular tracks, which are subdivided
+into sectors. The set of tracks that are at one arm position forms a cylinder.
+There may be thousands of concentric cylinders in a disk drive, and each track
+may contain hundreds of sectors. The storage capacity of common disk drives
+is measured in gigabytes.
+
+ 
+

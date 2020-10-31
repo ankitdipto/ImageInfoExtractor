@@ -1,0 +1,55 @@
+25.2. The Floyd-Warshall algorithm 699
+
+than the Floyd-Warshall algorithm’s by a factor corresponding to the size of a word
+of computer storage.
+
+Exercises
+
+25.2-1
+Run the Floyd-Warshall algorithm on the weighted, directed graph of Figure 25.2.
+Show the matrix D“ that results for each iteration of the outer loop.
+
+25.2-2
+Show how to compute the transitive closure using the technique of Section 25.1.
+
+25.2-3
+
+Modify the FLoYD- WARSHALL procedure to compute the IT) matrices according
+to equations (25.6) and (25.7). Prove rigorously that for all i € V, the predecessor
+subgraph G,,; is a shortest-paths tree with root i. (Hint: To show that Gj is
+acyclic, first show that x? = / implies di? > a + wy), according to the
+
+definition of i”, Then, adapt the proof of Lemma 24.16.)
+
+25.2-4
+
+As it appears above, the Floyd-Warshall algorithm requires @(n3) space, since we
+compute a? for i, j,k = 1,2,..., n. Show that the following procedure, which
+simply drops all the superscripts, is correct, and thus only @(n7) space is required.
+
+FLOYD-WARSHALL’(W)
+1 n= Wrows
+
+2 D=W
+
+3 fork = lton
+
+4 fori = lton
+5 for j = lton
+
+6 dij = min (dj. dix + dgj)
+7 return D
+
+25.2-5
+Suppose that we modify the way in which equation (25.7) handles equality:
+
+kA) ae (k= (kk ik
+©. nh) itd! Y < ak Da gk 1)
+
+j =) ik k (Kk thy”
+ij xi) itd’ Ds ae + a
+
+Tr
+
+Is this alternative definition of the predecessor matrix IT correct?
+

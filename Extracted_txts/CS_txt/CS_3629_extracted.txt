@@ -1,0 +1,75 @@
+98
+
+Chapter 4. Informed Search Methods
+
+ 
+
+PATHMAX
+
+CONTOURS
+
+ 
+
+     
+   
+
+F=146+380
+$526
+
+  
+
+122204193
+413
+
+Zerind
+
+       
+
+Pitesti
+f317498 13004253
+=415 =593
+
+ 
+
+ 
+
+Figure 4.4 Stages in an A* search for Bucharest. Nodes are labelled with/= g+h. The h
+values are the straight-line distances to Bucharest taken from Figure 4.1.
+
+ 
+
+ 
+
+ 
+
+check, each time we generate a new node, to see if its/-cost is less than its parent’s f-cost; ifit
+is, we use the parent’s f-cost instead:
+
+f(r’) = max(f(n)gin’) + hin’)).
+
+In this way, we ignore the misleading values that may occur with a nonmonotonic heuristic. This
+equation is called the pathmax equation. Ifwe use it, then f will always be nondecreasing along
+any path from the root, provided h is admissible.
+
+The purpose of making this observation is to legitimize a certain picture of what A* does.
+Aff never decreases along any path out from the root, we can conceptually draw contours in the
+state space. Figure 4.5 shows an example. Inside the contour labelled 400, all nodes have f(n)
+less than or equal to 400, and so on. Then, because A* expands the leafnode of lowest /, we can
+see that an A* search fans out from the start node, adding nodes in concentric bands of increasing
+f-cost.
+
+With uniform-cost search (A* search using / = 0), the bands will be "circular" around the
+start state. With more accurate heuristics, the bands will stretch toward the goal state and become
+more narrowly focused around the optimal path. If we define f* to be the cost of the optimal
+solution path, then we can say the following:
+
+ 
+
++ A* expands all nodes with f(n) < f*.
++ A* may then expand some of the nodes right on the "goal contour," for which f(n) =/*,
+before selecting a goal node.
+
+Intuitively, it is obvious that the first solution found must be the optimal one, because nodes in
+all subsequent contours will have higher f-cost, and thus higher g-cost (because all goal states
+have h(n) = 0). Intuitively, it is also obvious that A* search is complete. As we add bands of
+

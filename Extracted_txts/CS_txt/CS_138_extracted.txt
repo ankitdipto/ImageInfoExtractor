@@ -1,0 +1,50 @@
+752
+
+Chapter 26 Maximum Flow
+
+  
+
+ 
+
+ 
+
+ 
+
+6
+5 1 3
+4 G
+(a) 3 x x x x
+2 Zz Zz =
+1
+0
+6
+5 5 6 7
+4 s s
+(b) 3 x &
+2 z z z
+1
+0
+6
+5 8
+4
+() 3 x x
+2 Zz Zz
+1
+0
+
+ 
+
+Figure 26.9 Discharging a vertex y. It takes 15 iterations of the while loop of DISCHARGE to push
+all the excess flow from y. Only the neighbors of y and edges of the flow network that enter or leave y
+are shown. In each part of the figure, the number inside each vertex is its excess at the beginning of
+the first iteration shown in the part, and each vertex is shown at its height throughout the part. The
+neighbor list y.N at the beginning of each iteration appears on the right, with the iteration number
+‘on top. The shaded neighbor is y.current. (a) Initially, there are 19 units of excess to push from y,
+and y.current = s. Iterations 1,2, and 3 just advance y. current, since there are no admissible edges
+leaving y. In iteration 4, y.current = NIL (shown by the shading being below the neighbor list),
+and so y is relabeled and y.current is reset to the head of the neighbor list. (b) After relabeling,
+vertex y has height 1. In iterations 5 and 6, edges (y,s) and (y, x) are found to be inadmissible, but
+iteration 7 pushes 8 units of excess flow from y to z. Because of the push, y..current does not advance
+in this iteration. (c) Because the push in iteration 7 saturated edge (), z), it is found inadmissible in
+iteration 8. In iteration 9, y. current = NIL, and so vertex y is again relabeled and y. current is reset.
+

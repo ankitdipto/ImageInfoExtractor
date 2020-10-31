@@ -1,0 +1,59 @@
+Section 3.8.
+
+Summary 87
+
+ 
+
+Warmuth (1986) showed that finding the shortest solution in the generalized n x n version belongs
+to the class of NP-complete problems.
+
+"Uninformed" search algorithms for finding shortest paths that rely on current path cost
+alone, rather than an estimate of the distance to the goal, are a central topic of classical computer
+science, applied mathematics, and a related field known as operations research. Uniform-cost
+search as a way of finding shortest paths was invented by Dijkstra (1959). A survey of early
+work in uninformed search methods for shortest paths can be found in Dreyfus (1969); Deo
+and Pang (1982) give a more recent survey. For the variant of the uninformed shortest-paths
+problem that asks for shortest paths between all pairs of nodes in a graph, the techniques of
+dynamic programming and memoization can be used. For a problem to be solved by these
+techniques, it must be capable of being divided repeatedly into subproblems in such a way
+that identical subproblems arise again and again. Then dynamic programming or memoization
+involves systematically recording the solutions to subproblems in a table so that they can be
+looked up when needed and do not have to be recomputed repeatedly during the process of
+solving the problem. An efficient dynamic programming algorithm for the all-pairs shortest-paths
+problem was found by Bob Floyd (1962a; 1962b), and improved upon by Karger et al. (1993).
+Bidirectional search was introduced by Pohl (1969; 1971); itis often used with heuristic guidance
+techniques of the kind discussed in Chapter 4. Iterative deepening was first used by Slate and
+Atkin (1977) in the CHESS 4.5 game-playing program.
+
+The textbooks by Nilsson (1971; 1980) are good general sources of information about
+classical search algorithms, although they are now somewhat dated. A comprehensive, and much
+more up-to-date, survey can be found in (Korf, 1988).
+
+ 
+
+EXERCISES
+
+3.1. Explain why problem formulation must follow goal formulation.
+
+3.2 Consider the accessible, two-location vacuum world under Murphy's Law. Show that for
+each initial state, there is a sequence of actions that is guaranteed to reach a goal state.
+
+33 Give the initial state, goal test, operators, and path cost function for each of the following.
+There are several possible formulations for each problem, with varying levels of detail. The
+main thing is that your formulations should be precise and "hang together" so that they could be
+implemented.
+
+a. You want to find the telephone number of Mr. Jimwill Zollicoffer, who lives in Alameda,
+given a stack of directories alphabetically ordered by city.
+
+b. As for part (a), but you have forgotten Jimwill's last name.
+
+°
+
+. You are lost in the Amazon jungle, and have to reach the sea. There is a stream nearby.
+
+d. You have to color a complex planar map using only four colors, with no two adjacent
+regions to have the same color.
+
+ 
+

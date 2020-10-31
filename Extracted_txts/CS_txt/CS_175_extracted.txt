@@ -1,0 +1,50 @@
+27.1 The basics of dynamic multithreading 783
+
+The following corollary to Theorem 27.1 shows that a greedy scheduler always
+performs well.
+
+Corollary 27.2
+
+The running time Tp of any multithreaded computation scheduled by a greedy
+scheduler on an ideal parallel computer with P processors is within a factor of 2
+of optimal.
+
+Proof Let Tp be the running time produced by an optimal scheduler on a machine
+with P processors, and let T; and T,, be the work and span of the computation,
+respectively. Since the work and span laws— inequalities (27.2) and (27.3)—give
+us Tp = max(T,/P,T,.), Theorem 27.1 implies that
+
+Tp T/P + Too
+
+2-max(T,/P.T..)
+
+2Tp . .
+
+IA IA IA
+
+The next corollary shows that, in fact, a greedy scheduler achieves near-perfect
+linear speedup on any multithreaded computation as the slackness grows.
+
+Corollary 27.3
+
+Let Tp be the running time of a multithreaded computation produced by a greedy
+scheduler on an ideal parallel computer with P processors, and let T, and T,, be
+the work and span of the computation, respectively. Then, if P « T1/Too. we
+have Tp ~ T,/P, or equivalently, a speedup of approximately P.
+
+Proof If we suppose that P < T;/T., then we also have T,, < T;/P, and
+hence Theorem 27.1 gives us Tp < T,/P +T., ~ T;/P. Since the work
+law (27.2) dictates that Tp > T,/P, we conclude that Tp ~ T,/P, or equiva-
+lently, that the speedup is 7; /Tp ~ P. 7
+
+The < symbol denotes “much less,” but how much is “much less”? As a rule
+of thumb, a slackness of at least 10—that is, 10 times more parallelism than pro-
+cessors—generally suffices to achieve good speedup. Then, the span term in the
+greedy bound, inequality (27.4), is less than 10% of the work-per-processor term,
+which is good enough for most engineering situations. For example, if a computa-
+tion runs on only 10 or 100 processors, it doesn’t make sense to value parallelism
+of, say 1,000,000 over parallelism of 10,000, even with the factor of 100 differ-
+ence. As Problem 27-2 shows, sometimes by reducing extreme parallelism, we
+can obtain algorithms that are better with respect to other concerns and which still
+scale up well on reasonable numbers of processors.
+

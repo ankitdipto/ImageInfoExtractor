@@ -1,0 +1,41 @@
+10.4 Page Replacement 335
+
+For example, if we trace a particular process, we might record the following
+address sequence:
+
+0100, 0432, 0101, 0612, 0102, 0103, 0104, 0101, 0611, 0102, 0103,
+0104, 0101, 0610, 0102, 0103, 0104, 0101, 0609, 0102, 0105,
+
+which, at 100 bytes per page, is reduced to the following reference string
+1,4,1,6,1,6,1,6,1,6,1.
+
+To determine the number of page faults for a particular reference string and
+page-replacement algorithm, we also need to know the number of page frames
+available. Obviously, as the number of frames available increases, the number
+of page faults decreases. For the reference string considered previously, for
+example, if we had three or more frames, we would have only three faults, one
+fault for the first reference to each page. On the other hand, with only one
+frame available, we would have a replacement with every reference, resulting
+in 11 faults. In general, we expect a curve such as that in Figure 10.8. As the
+number of frames increases, the number of page faults drops to some minimal
+level. Of course, adding physical memory increases the number of frames.
+
+To illustrate the page-replacement algorithms, we shall use the reference
+string
+
+7,0, 1, 2,0, 3,0, 4, 2, 3, 0, 3, 2, 1, 2,0, 1,7,0,1
+
+for a memory with three frames.
+
+ 
+
+ 
+
+number of page faults
+
+ 
+
+number of frames
+
+Figure 10.8 Graph of page faults versus the number of frames.
+

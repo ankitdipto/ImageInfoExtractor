@@ -1,0 +1,53 @@
+15.3. Elements of dynamic programming 385
+
+14
+
+ST
+
+4
+
+4.4
+23 GD GD @ G3 44 GD G32 Ga GB
+
+3.3 4.4 (2.2) (3.3 One Ue
+
+Figure 15.7 The recursion tree for the computation of RECURSIVE-MATRIX-CHAIN(p, 1, 4).
+Each node contains the parameters i and j. The computations performed in a shaded subtree are
+replaced by a single table lookup in MEMOIZED-MATRIX-CHAIN.
+
+m[3, 5], and m[3, 6]. If we were to recompute m[3, 4] each time, rather than just
+looking it up, the running time would increase dramatically. To see how, consider
+the following (inefficient) recursive procedure that determines m[i, j], the mini-
+mum number of scalar multiplications needed to compute the matrix-chain product
+Aj. = AjAi+1-++ Aj. The procedure is based directly on the recurrence (15.7).
+
+ 
+
+RECURSIVE-MATRIX-CHAIN(p, i, j)
+1 ifi==j7
+
+2 return 0
+
+3 mii, j] = 0%
+
+4 fork =itoj—1
+
+5 q = RECURSIVE-MATRIX-CHAIN (p, i,k)
++ RECURSIVE-MATRIX-CHAIN(p,k + 1, j)
++ Pi-1PkPj
+
+6 ifqg < mii, j]
+
+7 mii. j] =4
+
+8 return mii, j]
+
+Figure 15.7 shows the recursion tree produced by the call RECURSIVE-MATRIX-
+CHAIN(p, 1,4). Each node is labeled by the values of the parameters i and j.
+Observe that some pairs of values occur many times.
+
+In fact, we can show that the time to compute m[1,n] by this recursive proce-
+dure is at least exponential in n. Let T(n) denote the time taken by RECURSIVE-
+MATRIX-CHAIN to compute an optimal parenthesization of a chain of n matrices.
+Because the execution of lines 1—2 and of lines 6—7 each take at least unit time, as
+

@@ -1,0 +1,44 @@
+Chapter 17: Windows Programming 571
+
+ 
+
+mouse cursor and the status of mouse buttons. Since it is difficult
+to memorize the message ids they have been suitably #defined in
+‘windows.h’. The message id and the additional information are
+stored in a structure called MSG.
+
+In WinMain( ) this MSG structure is retrieved from the message
+queue by calling the API function GetMessage( ). The first
+parameter passed to this function is the address of the MSG
+structure variable. GetMessage( ) would pick the message info
+from the message queue and place it in the structure variable
+passed to it. Don’t bother about the other parameters right now.
+
+After picking up the message from the message queue we need to
+process it. This is done by calling the DispatchMessage( ) API
+function. This function does several activities. These are as
+follows:
+
+(a) From the MSG structure that we pass to it,
+DisplayMessage() extracts the handle of the window for
+which this message is meant for.
+
+(b) From the handle it figures out the window class based on
+which the window has been created.
+
+(c) From the window class structure it obtains the address of a
+function called WndProc( ) (short for window procedure).
+Well I didn’t tell you earlier that in InitInstance( ) while
+filling the WNDCLASSEX structure one of the elements has
+been set up with the address of a user-defined function called
+WndProc( ).
+
+(d) Using this address it calls the function WndProc( ).
+
+Since several messages get posted into the message queue picking
+of the message and processing it should be done repeatedly. Hence
+calls to GetMesage( ) and DispatchMessage() have been made in
+a while loop in WinMain( ). When GetMessage( ) encounters a
+message with id WM_QUIT it returns a 0. Now the control comes
+out of the loop and WinMain( ) comes to an end.
+

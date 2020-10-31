@@ -1,0 +1,50 @@
+396
+
+Chapter 15 Dynamic Programming
+
+Improving the code
+
+Once you have developed an algorithm, you will often find that you can improve
+on the time or space it uses. Some changes can simplify the code and improve
+constant factors but otherwise yield no asymptotic improvement in performance.
+Others can yield substantial asymptotic savings in time and space.
+
+In the LCS algorithm, for example, we can eliminate the b table altogether. Each
+c[i, j] entry depends on only three other c table entries: c[i — 1, j — 1], c[i—1. /],
+and c[i, j — 1]. Given the value of c[i, j], we can determine in O(1) time which of
+these three values was used to compute c[i, j], without inspecting table b. Thus, we
+can reconstruct an LCS in O(m +n) time using a procedure similar to PRINT-LCS.
+(Exercise 15.4-2 asks you to give the pseudocode.) Although we save @(mm) space
+by this method, the auxiliary space requirement for computing an LCS does not
+asymptotically decrease, since we need ©(mn) space for the c table anyway.
+
+We can, however, reduce the asymptotic space requirements for LCS-LENGTH,
+since it needs only two rows of table c at a time: the row being computed and the
+previous row. (In fact, as Exercise 15.4-4 asks you to show, we can use only slightly
+more than the space for one row of c to compute the length of an LCS.) This
+improvement works if we need only the length of an LCS; if we need to reconstruct
+the elements of an LCS, the smaller table does not keep enough information to
+retrace our steps in O(m + 1) time.
+
+Exercises
+
+15.4-1
+
+Determine an LCS of (1,0,0,1,0,1,0,1) and (0,1,0,1,1,0,1,1,0).
+
+15.4-2
+
+Give pseudocode to reconstruct an LCS from the completed c table and the original
+sequences XY = (X1,X2,..., Xm) and Y = (yy, yo...-, Yn) in O(m +n) time,
+
+without using the b table.
+
+15.4-3
+Give a memoized version of LCS-LENGTH that runs in O(mn) time.
+
+1544
+
+Show how to compute the length of an LCS using only 2-min(m, 7) entries in the c
+table plus O(1) additional space. Then show how to do the same thing, but using
+min(m,n) entries plus O(1) additional space.
+

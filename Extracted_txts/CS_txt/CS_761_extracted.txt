@@ -1,0 +1,48 @@
+‘address symbol table
+
+SECTION 64 The Assembler 183
+
+The hexadecimal equivalent of the binary number is placed in location 107. The
+END symbol signals the end of the symbolic program telling us that there are
+no more lines to translate.
+
+The translation process can be simplified if we scan the entire symbolic
+program twice. No translation is done during the first scan. We merely assign
+a memory location to each machine instruction and operand. The location
+assignment will define the address value of labels and facilitate the translation.
+process during the second scan. Thus in Table 6-9, we assign location 100 to
+the firstinstruction after ORG. We then assign sequential locations for each line
+ofcode that has a machine instruction or operand up to the end of the program.
+(ORG and END are not assigned a numerical location because they do not
+represent an instruction or an operand.) When the first scan is completed, we
+associate with each label its location number and form a table that defines the
+hexadecimal value of each symbolic address. For this program, the address
+symbol table is as follows:
+
+‘Address symbol__-Hexadecimal address
+
+MIN 106
+SUB 107
+DIF 108
+
+During the second scan of the symbolic program we referto the address
+symbol table to determine the address value of a memory-reference instruc-
+tion. For example, the line of code LDA SUB is translated during the second
+scan by getting the hexadecimal value of LDA from Table 6-1 and the hexadec-
+imal value of SUB from the address-symbol table listed above. We then assem-
+ble the two parts into a four-digit hexadecimal instruction. The hexadecimal
+code can be easily converted to binary if we wish to know exactly how this
+program resides in computer memory.
+
+When the translation from symbols to binary is done by an assembler
+program, the first scan is called the first pass, and the second is called the second
+pass.
+
+6-4__The Assembler
+
+‘An assembler is a program that accepts a symbolic language program and
+produces itsbinary machine language equivalent. The inputsymbolic program
+is called the source program and the resulting binary program is called the object
+program. The assembler is a program that operates on character strings and
+produces an equivalent binary interpretation.
+

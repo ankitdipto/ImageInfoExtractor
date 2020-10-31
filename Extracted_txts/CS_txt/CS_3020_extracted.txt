@@ -1,0 +1,87 @@
+398
+
+Chapter 13. Planning and Acting
+
+ 
+
+CONDITIONING
+
+PARAMETERIZED
+PLANS:
+
+context, because it has not yet been established that they can only be executed under certain
+circumstances. This means that we have to check how the steps interact with other steps in the
+plan. In particular, the Remove(Tire\) step threatens the causal link protecting On(Tire;) in the
+first finish step (the one with the context (/ntact(Tire,)). In a standard causal-link planner, the
+only solution would be to promote or demote the Remove(Tire\) step so that it cannot interfere.
+In the conditional planner, we can also resolve the threat by conditioning the step so that its
+context becomes incompatible with the context of the step whose precondition it is threatening
+(in this case, the first finish step). Conditioning is achieved by finding a conditional step that has
+a possible outcome that would make the threatening step's context incompatible with the causal
+link's context. In this case, the CheckTire step has a possible outcome —Jntact(Tire,). If we
+make a conditional link from the CheckTire step to the Remove(Tire;) step, then the remove step
+is no longer a threat. The new context is inherited by the PutOn(Spare)step, and the plan is now
+complete (Figure 13.7).
+
+ 
+
+    
+       
+
+ 
+
+ 
+
+ 
+
+ 
+
+On
+|__ Start ee Inflated Tier) L_Ftnish
+intastSpa) eaurtiens ‘intact(Tire1))
+
+\ Inflate(Tiret)—Y’
+
+1),
+4(tet)  inact(Tres)
+om all (intact(Tire1))
+
+“Check(Tiret)
+
+a )
+
+Remove(Tiet) He Puton(Spare) | Wricsigerey FSA | 1_Finish_|
+Aintact(Tre?))
+
+XN FintactiTires) Clntacicrie/)) 7
+
+Figure 13.7 The complete plan for fixing the tire, showing causal and conditional links and
+contexts (in parentheses)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The algorithms called CPOP (for Conditional Partial-Order Planner). It builds on the POP
+algorithm, and extends it by incorporating contexts, multiple finish steps and the conditioning
+process for resolving potential threats. It is shown in Figure 13.8.
+
+Extending the plan language
+
+The conditional steps we used in the previous section had only two possible outcomes. In some
+cases, however, a sensing action can have any number of outcomes. For example, checking the 4
+color of some object might result in a sentence of the form Color(x,c) being known for some
+value ofc. Sensing actions of this type can be used in parameterized plans, where the exact
+actions to be carried out will not be known until the plan is executed. For example, suppose we
+have a goal such as
+
+Color(Chair,c) A Color(Table,c)
+
+ 
+

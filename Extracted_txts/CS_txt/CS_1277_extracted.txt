@@ -1,0 +1,56 @@
+Chapter 16: C Under Windows 551
+
+ 
+
+ 
+
+    
+    
+  
+ 
+
+Application
+AP. Message
+
+Windows OS
+
+ 
+
+Device Driver
+
+Hardware |
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 16.4
+
+Suppose the keyboard and the mouse are now replaced with a new
+eyboard and mouse. Doing so would not affect the application at
+all. This is because at no time does the application carry out any
+direct communication with the devices. Any differences that may
+e there in the new set of mouse and keyboard would be handled
+the device driver and not by the application program. Similarly, if
+the screen or the graphics card is replaced no change would be
+required in the program. In short hardware independence at work!
+At times a change of device may necessitate a change in the device
+driver program, but never a change in the application.
+
+ 
+
+Event Driven Model
+
+When a user interacts with a Windows program a lot of events
+occur. For each event a message is sent to the program and the
+program reacts to it. Since the order in which the user would
+interact with the user-interface elements of the program cannot be
+predicted the order of occurrence of events, and hence the order of
+messages, also becomes unpredictable. As a result, the order of
+

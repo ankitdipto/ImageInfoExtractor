@@ -1,0 +1,47 @@
+700 Chapter 25 All-Pairs Shortest Paths
+
+25.2-6
+How can we use the output of the Floyd-Warshall algorithm to detect the presence
+of a negative-weight cycle?
+
+25.2-7
+
+Another way to reconstruct shortest paths in the Floyd-Warshall algorithm uses
+values a? fori, j,k = 1,2,...,n, where eo is the highest-numbered interme-
+diate vertex of a shortest path from i to j in which all intermediate vertices are
+in the set {1,2,..., k}. Give a recursive formulation for oY, modify the FLoyD-
+
+WARSHALL procedure to compute the a” values, and rewrite the PRINT-ALL-
+PAIRS-SHORTEST-PATH procedure to take the matrix ® = (6) as an input.
+How is the matrix ® like the s table in the matrix-chain multiplication problem of
+
+Section 15.2?
+
+25.2-8
+Give an O(VE)-time algorithm for computing the transitive closure of a directed
+graph G = (V, E).
+
+25.29
+
+Suppose that we can compute the transitive closure of a directed acyclic graph in
+F(\V|.|£|) time, where f is a monotonically increasing function of |V| and ||.
+Show that the time to compute the transitive closure G* = (V, E*) of a general
+directed graph G = (V, E) is then f(|V|.|E|) + O(V + E*).
+
+ 
+
+25.3 Johnson’s algorithm for sparse graphs
+
+Johnson’s algorithm finds shortest paths between all pairs in O(V71g V + VE)
+time. For sparse graphs, it is asymptotically faster than either repeated squaring of
+matrices or the Floyd-Warshall algorithm. The algorithm either returns a matrix of
+shortest-path weights for all pairs of vertices or reports that the input graph contains
+a negative-weight cycle. Johnson’s algorithm uses as subroutines both Dijkstra’s
+algorithm and the Bellman-Ford algorithm, which Chapter 24 describes.
+Johnson’s algorithm uses the technique of reweighting, which works as follows.
+If all edge weights w in a graph G = (V, E) are nonnegative, we can find short-
+est paths between all pairs of vertices by running Dijkstra’s algorithm once from
+each vertex; with the Fibonacci-heap min-priority queue, the running time of this
+all-pairs algorithm is O(V? lg V + VE). If G has negative-weight edges but no
+negative-weight cycles, we simply compute a new set of nonnegative edge weights
+

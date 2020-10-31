@@ -1,0 +1,41 @@
+Chapter 1: Getting Started 21
+
+ 
+
+Receiving Input
+
+In the program discussed above we assumed the values of p, n and
+r to be 1000, 3 and 8.5. Every time we run the program we would
+get the same value for simple interest. If we want to calculate
+simple interest for some other set of values then we are required to
+make the relevant change in the program, and again compile and
+execute it. Thus the program is not general enough to calculate
+simple interest for any set of values without being required to
+make a change in the program. Moreover, if you distribute the
+EXE file of this program to somebody he would not even be able
+to make changes in the program. Hence it is a good practice to
+create a program that is general enough to work for any set of
+values.
+
+To make the program general the program itself should ask the
+user to supply the values of p, n and r through the keyboard during
+execution. This can be achieved using a function called scanf( ).
+This function is a counter-part of the printf( ) function. printf( )
+outputs the values to the screen whereas scanf( ) receives them
+from the keyboard. This is illustrated in the program shown below.
+
+/ Calculation of simple interest */
+I Author gekay Date 25/05/2004 */
+
+main()
+
+{
+int p,n;
+float r, si;
+
+printf ("Enter values of p, n, r") ;
+scanf ("%d %d %f", &p, &n, &r) ;
+si=p*n*r/100;
+
+printf ("%f", si) ;
+

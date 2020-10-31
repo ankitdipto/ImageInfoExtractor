@@ -1,0 +1,41 @@
+586 Let UsC
+
+ 
+
+This function loads the relevant font file. Then using the
+information in the font file and the font properties setup in the
+LOGFONT structure it creates a font in memory.
+CreateFontIndirect( ) returns the handle to the font created in
+memory. This handle is then passed to the SelectObject( ) API
+function to get the font ito the DC. This function returns the
+handle to the existing font in the DC, which is preserved in
+holdfont variable. Next we have used the SetTextColor( ) API
+function to set the color of the text to be displayed through
+TextOut( ). The RGB( ) macro uses the red, green and blue
+component values to generate a 32-bit color value. Note that each
+color component can take a value from 0 to 255. To TextOut( )
+we have to pass the handle to the DC, position where the text is to
+be displayed, the text to be displayed and its length.
+
+With hfont only one font can be associated at a time. Hence before
+associating another font with it we have deleted the existing font
+using the DeleteObject( ) API function. Once outside the loop we
+have called the EndPaint( ) API function to release the DC
+handle. If not released we would be wasting precious memory,
+because the device context structure would remain in memory but
+we would not be able access it.
+
+In place of TextOut( ) we can also use the DrawText( ) API
+function. This function permits finer control over the way the text
+is displayed. You can explore this function on your own.
+
+Drawing Shapes
+
+If text is so near can graphics be far behind? Now that we know
+how to draw text in a window let us now create a simple program
+that displays different shapes in a window. Instead of showing the
+entire program given below is the listing of OnPaint( ). The rest of
+the program is same as in the previous section. Here onwards I
+would be showing only the OnPaint( ) handler unless otherwise
+required.
+

@@ -1,0 +1,48 @@
+Bibliographical Notes 409
+
+a. How would you specify this protection scheme in UNIX?
+
+b. Could you suggest another protection scheme that can be used more
+effectively for this purpose than the scheme provided by UNIX?
+
+11.13 Researchers have suggested that, instead of having an access list associ-
+ated with each file (specifying which users can access the file, and how),
+we should have a user control list associated with each user (specifying
+which files a user can access, and how). Discuss the relative merits of
+these two schemes.
+
+Bibliographical Notes
+
+General discussions concerning file systems were offered by Grosshans [1986].
+Golden and Pechura [1986] described the structure of microcomputer file sys-
+tems. Database systems and their file structures were described in full in
+Silberschatz et al. [2001].
+
+A multilevel directory structure was first implemented on the MULTICS
+system (Organick [1972]). Most operating systems now implement multilevel
+directory structures. These include UNIX (Ritchie and Thompson [1974]), the
+Apple Macintosh operating system (Apple [1991]), and MS-DOS (Microsoft
+[1991]).
+
+The MS-DOS file system was described in Norton and Wilton [1988]. That of
+VAX VMS was covered in Kenah et al. [1988] and DEC [1981]. The Network File
+System (NFS), designed by Sun Microsystems, allows directory structures to be
+spread across networked computer systems. Discussions concerning NES were
+presented in Sandberg et al. [1985], Sandberg [1987], and Sun [1990]. NFS is fully
+described in Chapter 16. The immutable-shared-files semantics was described
+by Schroeder et al. [1985].
+
+DNS was first proposed by Su [1982] and has gone through several revision
+since, with Mockapetris [1987] adding several major features. Most recently,
+Eastlake [1999] proposing security extensions to let DNS hold security keys.
+
+LDAP, also known as X.509, is a derivative subset of the X.500 distributed
+directory protocol. It was defined by Yeong et al. [1995] and has been imple-
+mented on many operating systems. Interesting research is ongoing in the area
+of file-system interfaces, in particular, on issues relating to file naming and
+attributes. For example, the Plan 9 operating system from Bell Laboratories
+(Lucent Technology) makes all objects look like file systems. Thus, to display
+a list of processes on a system, a user simply lists the contents of the /; (proc
+directory. Similarly, to display the time of day, a user needs only to type the file
+/dev/time.
+

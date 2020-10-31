@@ -1,0 +1,66 @@
+844
+
+Chapter 27. Al: Present and Future
+
+ 
+
+ANYTIME
+ALGORITHMS
+
+DECISION-
+THEORETIC
+METAREASONING
+
+we described alpha-beta pruning to eliminate irrelevant deliberations and depth limits to ensure
+timely play. Clearly, there is a pressing need for methods that work in more general decision-
+making situations. Two promising techniques have emerged in recent years. The first involves
+the use of anytime algorithms (Dean and Boddy, 1988). An anytime algorithm is an algorithm
+whose output quality improves gradually over time, so that it has a reasonable decision ready
+whenever it is interrupted. Such algorithms are controlled by a metalevel decision procedure that
+decides whether further computation is worthwhile. Iterative deepening search in game playing
+provides a simple example of an anytime algorithm. More complex systems, composed of many
+such algorithms working together, can also be constructed (Zilberstein, 1993).
+
+The second technique is decision-theoretic metareasoning (Russell and Wefald, 1991).
+This method applies the theory of information value (Chapter 16) to select computations. The
+value of a computation depends on both its cost (in tems of delaying action) and its benefits
+(in terms of improved decision quality). Metareasoning techniques can be used to design better
+search algorithms, and automatically guarantee that the algorithms have the anytime property.
+Metareasoning is expensive, of course, and compilation methods can be applied to generate more
+efficient implementations. The application of anytime and metareasoning methods to general
+decision-making architectures has not yet been investigated in any depth.
+
+The final architectural component for a general intelligent agent is the learning mechanism,
+or mechanisms. As the architecture becomes more complicated, the number of niches for
+learning increases. As we saw in Part VI, however, the same methods for inductive leaming,
+reinforcement learning, and compilation can be used for all of the learning tasks in an agent.
+The learning methods do depend on the representations chosen, ofcourse. Methods for attribute-
+based logical and neural representations are well understood, and methods for first-order logical
+representations and probabilistic representations are catching up fast. As new representations,
+such as first-order probabilistic logics, are developed, new learning algorithms will have to be
+developed to accompany them. We also will need to find a way to integrate inductive methods into
+the agent architecture in the same way that compilation methods are integrated into architectures
+such as SOAR and THEO.
+
+An agent architecture is an empty shell without knowledge to fill it. Some have proposed
+that the necessary knowledge can be acquired through a training process, starting virtually
+from scratch. To avoid recapitulating the entire intellectual history of the human race, the
+training process also might include direct instruction and knowledge acquisition from sources
+such as encyclopedias and television programs. Although such methods might avoid the need
+for knowledge representation and ontological engineering work, they currently seem impractical.
+For the foreseeable future, useful knowledge-based systems will require some work by human
+knowledge engineers. Robust natural language systems, for example, may require very broad
+knowledge bases. Further work on general-purpose ontologies, as sketched in Chapter 8, is
+clearly needed. The CYC project (Lenat and Guha, 1990) is a brave effort in this direction, but
+many open problems remain and we have little experience in using large knowledge bases.
+
+To sum up: by looking at current systems and how they would need to be extended, we
+can identify a variety ofresearch questions whose answers would take us further toward general-
+purpose intelligent systems. This incremental approach is useful, provided we are fairly confident
+that we have a reasonable starting point. In the next section, we look at the AI problem from first
+principles to see whether this is in fact the case.
+
+ 
+
+ 
+

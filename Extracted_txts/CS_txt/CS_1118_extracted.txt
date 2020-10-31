@@ -1,0 +1,47 @@
+Chapter 11: Console Input/Output 409
+
+ 
+
+Jonty Rhodes
+Happy footballing!
+Jonty Rhodes
+
+Why did we use two puts( ) functions to print “Happy
+footballing!” and “Jonty Rhodes”? Because, unlike printf( ),
+puts() can output only one string at a time. If we attempt to print
+two strings using puts( ), only the first one gets printed. Similarly,
+unlike scanf( ), gets( ) can be used to read only one string at a
+time.
+
+Summary
+
+(a) There is no keyword available in C for doing input/output.
+
+(b) AIL V/O in C is done using standard library functions.
+
+(c) There are several functions available for performing console
+input/output.
+
+(d) The formatted console I/O functions can force the user to
+receive the input in a fixed format and display the output in a
+fixed format.
+
+(e) There are several format specifiers and escape sequences
+available to format input and output.
+
+(f) Unformatted console I/O functions work faster since they do
+not have the overheads of formatting the input or output.
+
+Exercise
+
+[A] What would be the output of the following programs:
+(a) main()
+{
+
+char ch ;
+ch = getchar() ;
+if (islower (ch) )
+putchar ( toupper (ch) ) ;
+else
+putchar ( tolower (ch) ) ;
+

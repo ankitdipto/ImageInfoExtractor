@@ -1,0 +1,64 @@
+prefetch target
+instruction
+
+branch target buffer
+
+loop buffer
+
+branch prediction
+
+delayed branch
+
+SECTION 95 RISC Pipeline 315
+
+Pipelined computers employ various hardware techniques to minimize the
+performance degradation caused by instruction branching.
+
+Oneway ofhandlinga conditional branch is toprefetch the targetinstruc-
+tion in addition to the instruction following the branch. Both are saved until
+the branch is executed. If the branch condition is successful, the pipeline
+continues from the branch target instruction. An extension of this procedure
+isto continue fetching instructions from both places until the branch decision
+is made. At that time control chooses the instruction stream of the correct
+program flow.
+
+‘Another possibility is the use of a branch target buffer or BTB. The BTB is
+an associative memory (see Sec. 12-4) included in the fetch segment of the
+pipeline. Eachentry in theBTBconsists of the address of a previously executed
+branch instruction and the targetinstruction for that branch. It also stores the
+next few instructions after the branch target instruction. When the pipeline
+decodes a branch instruction, it searches the associative memory BTB for the
+address of theinstruction. [fit isin the BTB, theinstruction is available directly
+and prefetch continues from the new path. If the instruction is not in the BTB,
+the pipeline shifts toa new instruction stream and stores the target instruction
+in the BTB. The advantage of this scheme is that branch instructions that have
+occurred previously are readily available in the pipeline without interruption.
+
+‘A variation of the BTB is the loop buffer. This is a small very high speed
+register file maintained by the instruction fetch segment of the pipeline. When
+a program loop is detected in the program, it is stored in the loop buffer in its
+entirety, including all branches. The program loop can be executed directly
+without having to access memory until the loop mode is removed by the final
+branching out.
+
+Another procedure that some computers use is branch prediction. A
+pipeline with branch prediction uses some additional logic to guess the out-
+come of a conditional branch instruction before itis executed. The pipeline then
+begins prefetching the instruction stream from the predicted path. A correct
+prediction eliminates the wasted time caused by branch penalties.
+
+A procedure employed in most RISC processors is the delayed branch. In
+thisprocedure, thecompiler detects thebranchinstructions and rearrangesthe
+machinelanguage code sequence by inserting useful instructions that keep the
+pipelineoperatingwithout interruptions. An example of delayed branch isthe
+insertion of a no-operation instruction after a branch instruction. This causes
+the computer to fetch the target instruction during the execution of the no-
+operation instruction, allowing a continuous flow of the pipeline. An example
+of delayed branch is presented in the next section.
+
+9-5 RISC Pipeline
+
+The reduced instruction set computer (RISC) was introduced in Sec. 8-8.
+Among the characteristics attributed to RISC is its ability to use an efficient
+instruction pipeline. The simplicity of the instruction set can be utilized to
+

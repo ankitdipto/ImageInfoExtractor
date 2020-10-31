@@ -1,0 +1,48 @@
+Appendix C: Chasing The Bugs 705
+
+ 
+
+6]
+
+[6]
+
+[7]
+
+[8]
+
+letter. This example has been succinctly explained in Chapter
+4.
+
+Using continue in a switch.
+
+It is a common error to believe that the way the keyword
+break is used with loops and a switch; similarly the keyword
+continue can also be used with them. Remember that
+continue works only with loops, never with a switch.
+
+A mismatch in the number, type and order of actual and formal
+arguments.
+
+yr = romanise ( year, 1000, 'm’) ;
+
+Here, three arguments in the order int, int and char are being
+passed to romanise(). When romanise() receives these
+arguments into formal arguments they must be received in the
+same order. A careless mismatch might give strange results.
+
+Omitting provisions for returning a non-integer value from a
+function.
+
+If we make the following function call,
+
+area = area_circle (1.5) ;
+
+then while defining area_circle( ) function later in the
+program, care should be taken to make it capable of returning
+a floating point value. Note that unless otherwise mentioned
+the compiler would assume that this function returns a value
+
+of the type int.
+
+Inserting a semicolon at the end of a macro definition.
+

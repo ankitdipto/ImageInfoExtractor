@@ -1,0 +1,47 @@
+Chapter 10: Structures 371
+
+ 
+
+printf ( "\nAddress of price = %u", &b1.price ) ;
+printf ( "\nAddress of pages = %u", &b1.pages ) ;
+}
+
+Here is the output of the program...
+
+Address of name = 65518
+Address of price = 65519
+Address of pages = 65523
+
+Actually the structure elements are stored in memory as shown in
+the Figure 10.1.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+bl.name bl price bl.pages
+‘B 130.00 550
+65518 65519 65523
+Figure 10.1
+
+Array of Structures
+
+Our sample program showing usage of structure is rather simple
+minded. All it does is, it receives values into various structure
+elements and output these values. But that’s all we intended to do
+anyway... show how structure types are created, how structure
+variables are declared and how individual elements of a structure
+variable are referenced.
+
+In our sample program, to store data of 100 books we would be
+required to use 100 different structure variables from b1 to b100,
+which is definitely not very convenient. A better approach would
+be to use an array of structures. Following program shows how to
+use an array of structures.
+

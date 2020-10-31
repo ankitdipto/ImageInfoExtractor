@@ -1,0 +1,62 @@
+824 Chapter 28 Matrix Operations
+
+m= (Ba
+Noi CG A vut/ay, )
+
+(:
+
+~ (prlan P ry 4 "lau )
+(rien 10 )C
+
+(rsiou tes)
+
+dk wt
+P’ oN vw"/aia) )
+aka
+P'v/ai (4% uv’)
+a 7
+~ (pvtan "( 0 “)
+
+= LU,
+
+yielding the LUP decomposition. Because L’ is unit lower-triangular, so is L, and
+because U’ is upper-triangular, so is U.
+
+Notice that in this derivation, unlike the one for LU decomposition, we must
+multiply both the column vector v/ag; and the Schur complement A’ — vw" /aj
+by the permutation matrix P’. Here is the pseudocode for LUP decomposition:
+
+LUP-DEcoMPosITION(A)
+
+1 on = A.rows
+2 let z[1..n] be anew array
+3 fori = lton
+
+4 ni] =i
+
+5 fork = lton
+6
+
+7
+
+8
+
+ 
+
+P
+fori =k ton
+if |ain| > p
+
+9 DP = \dik|
+10 kisi
+ll if p ==0
+12 error “singular matrix”
+13 exchange z[k] with z[k’]
+14 fori = lton
+15 exchange dx; with dg;
+16 fori =k+l1ton
+17 Gik = dix /Agx
+18 for j =k+l1ton
+
+19 Gig = ig — Gig;
+

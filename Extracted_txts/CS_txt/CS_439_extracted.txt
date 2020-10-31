@@ -1,0 +1,50 @@
+998
+
+Chapter 32 String Matching
+
+* The state set OQ is {0,1,...,m}. The start state qo is state 0, and state m is the
+only accepting state.
+
+* The transition function 6 is defined by the following equation, for any state q
+and character a:
+
+5(q,a) =0(Pya). (32.4)
+
+We define 5(q,a) = o(P,a) because we want to keep track of the longest pre-
+fix of the pattern P that has matched the text string T so far. We consider the
+most recently read characters of T. In order for a substring of T—let’s say the
+substring ending at T[i]—to match some prefix P; of P, this prefix P; must be a
+suffix of T;. Suppose that ¢ = #(7;), so that after reading T;, the automaton is in
+state q. We design the transition function 6 so that this state number, q, tells us the
+length of the longest prefix of P that matches a suffix of T;. That is, in state ¢,
+P, 2 T; and g = o(T;). (Whenever gq = m, all m characters of P match a suffix
+of T;, and so we have found a match.) Thus, since ¢(T;) and o(T;) both equal q,
+we shall see (in Theorem 32.4, below) that the automaton maintains the following
+invariant:
+
+oT) =o(T). (32.5)
+
+If the automaton is in state q and reads the next character T[i + 1] = a, then we
+want the transition to lead to the state corresponding to the longest prefix of P that
+is a suffix of Tja, and that state is o(T;a). Because Py is the longest prefix of P
+that is a suffix of 7;, the longest prefix of P that is a suffix of T)a is not only o(T;a),
+but also o(P,a). (Lemma 32.3, on page 1000, proves that o(Tja) = o(P,a).)
+Thus, when the automaton is in state g, we want the transition function on charac-
+ter a to take the automaton to state o( P,a).
+
+There are two cases to consider. In the first case, a = P[g + 1], so that the
+character a continues to match the pattern; in this case, because 5(g,a) = g+1, the
+transition continues to go along the “spine” of the automaton (the heavy edges in
+Figure 32.7). In the second case,a # P [q+], so that a does not continue to match
+the pattern. Here, we must find a smaller prefix of P that is also a suffix of Tj.
+Because the preprocessing step matches the pattern against itself when creating the
+string-matching automaton, the transition function quickly identifies the longest
+such smaller prefix of P.
+
+Let’s look at an example. The string-matching automaton of Figure 32.7 has
+5(5,c) = 6, illustrating the first case, in which the match continues. To illus-
+trate the second case, observe that the automaton of Figure 32.7 has 6(5,b) = 4.
+We make this transition because if the automaton reads a b in state gq = 5, then
+Pb = ababab, and the longest prefix of P that is also a suffix of ababab is
+P4 = abab.
+

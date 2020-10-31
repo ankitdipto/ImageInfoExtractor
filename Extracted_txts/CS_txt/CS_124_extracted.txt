@@ -1,0 +1,57 @@
+26.4 Push-relabel algorithms 741
+
+INITIALIZE-PREFLOW creates an initial preflow f defined by
+
+c(u,v) ifu=s, (26.15)
+0 otherwise .
+
+wot |
+
+That is, we fill to capacity each edge leaving the source s, and all other edges carry
+no flow. For each vertex v adjacent to the source, we initially have v.e = c(s,v),
+and we initialize s.e to the negative of the sum of these capacities. The generic
+algorithm also begins with an initial height function h, given by
+
+\V| ifu=s,
+
+uh=
+0 otherwise .
+
+(26.16)
+
+ 
+
+Equation (26.16) defines a height function because the only edges (u,v) for which
+u.h > v.h + 1 are those for which uv = s, and those edges are saturated, which
+means that they are not in the residual network.
+
+Initialization, followed by a sequence of push and relabel operations, executed
+in no particular order, yields the GENERIC-PUSH-RELABEL algorithm:
+
+GENERIC-PUSH-RELABEL(G)
+
+1 INITIALIZE-PREFLOW(G, 5)
+2 while there exists an applicable push or relabel operation
+3 select an applicable push or relabel operation and perform it
+
+The following lemma tells us that as long as an overflowing vertex exists, at least
+one of the two basic operations applies.
+
+Lemma 26.14 (An overflowing vertex can be either pushed or relabeled)
+
+Let G = (V, E) be a flow network with source s and sink f, let f be a preflow,
+and let / be any height function for /. If uv is any overflowing vertex, then either a
+push or relabel operation applies to it.
+
+Proof For any residual edge (u,v), we have h(u) < h(v) + 1 because h is a
+height function. If a push operation does not apply to an overflowing vertex u,
+then for all residual edges (u,v), we must have h(u) < h(v) + 1, which implies
+h(u) < h(v). Thus, a relabel operation applies to u. .
+
+Correctness of the push-relabel method
+
+To show that the generic push-relabel algorithm solves the maximum-flow prob-
+lem, we shall first prove that if it terminates, the preflow f is a maximum flow.
+We shall later prove that it terminates. We start with some observations about the
+height function h.
+

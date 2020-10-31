@@ -1,0 +1,65 @@
+ 
+
+Section 10.6.
+
+Frame Systems and Semantic Networks 321
+
+ 
+
+property of monotonicity: if Pfollows from KB, then it still follows when KB is augmented by
+TELL(KB,S)In other words,
+
+ifKB} Pthen (KB AS)+ P
+
+Inheritance with exceptions is nonmonotonic: from the semantic network in Figure 10.7 it
+follows that Bill has 4 legs, but if we were to add the new statement Rel(Legs, Cats, 3), then it no
+longer follows that Bill has 4 legs. There are two ways to deal with this.
+
+First, we could switch from first-order logic to a nonmonotonic logic that explicitly deals
+with default values. Nonmonotonic logics allow you to say that a proposition P should be treated
+as true until additional evidence allows you to prove that P is false. There has been quite a lot
+of interesting theoretical work in this area, but so far its impact on practical systems has been
+smaller than other approaches, so we will not address it in this chapter.
+
+Second, we could treat the addition of the new statement as a RETRACT followed by a TELL.
+Given the way we have defined Rel, this makes perfect sense. We do not make statements of the
+form TELL(KB, Rel(R,A,B)). Instead, we make one big equivalence statement of the form
+
+TELL(KB, Vr,a,b Rel(r,a,b) = ...)
+
+where the indicate all the possible Rel’s. So to add Rel(Legs, Cats, 3), we would have to
+remove the old equivalence statement and replace it by a new one. Once we have altered the
+knowledge base by removing a sentence from it (and notjust adding a new one) we should not
+be surprised at the nonmonotonicity. Section 10.8 discusses implementations of RETRACT.
+
+Implementation of semantic networks
+
+Once we have decided on a meaning for our networks, we can start to implement the network. Of
+course, we could choose to implement the network with a theorem prover or logic programming
+language, and in some cases this would be the best choice. But for networks with simple
+semantics, a more straightforward implementation is possible. A node in anetwork is represented
+by a data structure with fields for the basic taxonomic connections: which categories it is a
+member of; what elements it has; what immediate subsets and supersets. It also has fields
+for other relations in which it participates. The RELS-IN and RELS-OuT fields handle ordinary
+(unboxed) links, and the ALL-RELS-IN and ALL-RELS-OUT fields handle boxed links. Here is the
+data type definition for nodes:
+
+ 
+
+datatype SEM-NET-NODE
+components: NAME, MEMBERSHIPS, ELEMENTS, SUPERS, SUBS,
+RELS-IN, RELS-OUT, ALL-RELS-IN, ALL-RELS-OUT
+
+ 
+
+ 
+
+ 
+
+Each of the four REL-fields is organized as a table indexed by the relation. We use the function
+Looxup(key, table) to find the value associated with a key in a table. So, if we have the two
+links Opus Frend Bill and Opus "renSteve, then LOOKUP(Friend,RELS-OUT(Opus)gives us the
+set {Bill, Steve}.
+
+ 
+

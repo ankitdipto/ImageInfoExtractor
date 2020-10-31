@@ -1,0 +1,49 @@
+630
+
+Chapter 23 Minimum Spanning Trees
+
+23.1-6
+
+Show that a graph has a unique minimum spanning tree if, for every cut of the
+graph, there is a unique light edge crossing the cut. Show that the converse is not
+true by giving a counterexample.
+
+23.1-7
+
+Argue that if all edge weights of a graph are positive, then any subset of edges that
+connects all vertices and has minimum total weight must be a tree. Give an example
+to show that the same conclusion does not follow if we allow some weights to be
+nonpositive.
+
+231-8
+
+Let T be a minimum spanning tree of a graph G, and let L be the sorted list of the
+edge weights of T. Show that for any other minimum spanning tree T’ of G, the
+list L is also the sorted list of edge weights of T’.
+
+231-9
+Let T be a minimum spanning tree of a graph G = (V, E), and let V’ be a subset
+of V. Let T’ be the subgraph of T induced by V’, and let G’ be the subgraph of G
+induced by V’. Show that if T’ is connected, then T’ is a minimum spanning tree
+of G’.
+
+23.1-10
+
+Given a graph G and a minimum spanning tree T, suppose that we decrease the
+weight of one of the edges in T. Show that T is still a minimum spanning tree
+for G. More formally, let T be a minimum spanning tree for G with edge weights
+given by weight function w. Choose one edge (x,y) € T anda positive number k,
+and define the weight function w’ by
+
+w(u.v) if(u.v) A (x.y).
+
+wiv) = w(x,y)—k if (u,v) = (x,y).
+
+Show that T is a minimum spanning tree for G with edge weights given by w’.
+
+231-11 x
+
+Given a graph G and a minimum spanning tree T, suppose that we decrease the
+weight of one of the edges not in T. Give an algorithm for finding the minimum
+spanning tree in the modified graph.
+

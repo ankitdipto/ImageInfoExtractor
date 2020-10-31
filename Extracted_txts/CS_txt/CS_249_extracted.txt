@@ -1,0 +1,42 @@
+842
+
+Chapter 28 Matrix Operations
+
+f. Show how to determine a natural cubic spline that interpolates a set of n + 1
+points (x;, y;) satisfying Xp < x; <--++ < X,, even when x; is not necessarily
+equal to 7. What matrix equation must your method solve, and how quickly
+does your algorithm run?
+
+ 
+
+Chapter notes
+
+Many excellent texts describe numerical and scientific computation in much greater
+detail than we have room for here. The following are especially readable: George
+and Liu [132], Golub and Van Loan [144], Press, Teukolsky, Vetterling, and Flan-
+nery [283, 284], and Strang [323, 324].
+
+Golub and Van Loan [144] discuss numerical stability. They show why det(A)
+is not necessarily a good indicator of the stability of a matrix A, proposing instead
+to use || Al], ||A7!||o. where ||A]],, = maxici<n Ya |aiz|. They also address
+the question of how to compute this value without actually computing A~.
+
+Gaussian elimination, upon which the LU and LUP decompositions are based,
+was the first systematic method for solving linear systems of equations. It was also
+one of the earliest numerical algorithms. Although it was known earlier, its dis-
+covery is commonly attributed to C. F. Gauss (1777-1855). In his famous paper
+[325], Strassen showed that an 7 x n matrix can be inverted in O(n'£7) time. Wino-
+grad [358] originally proved that matrix multiplication is no harder than matrix
+inversion, and the converse is due to Aho, Hopcroft, and Ullman [5].
+
+Another important matrix decomposition is the singular value decomposition,
+or SVD. The SVD factors an m x n matrix A into A = Q,2Q3, where © is an
+mn matrix with nonzero values only on the diagonal, Q; is m x m with mutually
+orthonormal columns, and Q, is n x 1, also with mutually orthonormal columns.
+Two vectors are orthonormal if their inner product is 0 and each vector has a norm
+of 1. The books by Strang [323, 324] and Golub and Van Loan [144] contain good
+treatments of the SVD.
+
+Strang [324] has an excellent presentation of symmetric positive-definite matri-
+ces and of linear algebra in general.
+

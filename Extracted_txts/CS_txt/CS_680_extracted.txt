@@ -1,0 +1,79 @@
+166
+
+FULLY Logic
+
+6.4 PROPOSITIONAL LOGIC: A VERY SIMPLE LOGIC
+
+‘CONJUNCTION
+(oaic)
+
+DISJUNCTION
+
+Chapter 6. Agents that Reason Logically 3
+
+wumpus-world agent might believe that the wumpus is in [1,3] with probability 0.75. Systems
+based on fuzzy logic can have degrees of belief in a sentence, and also allow degrees of truth:
+a fact need not be true or false in the world, but can be true to a certain degree. For example,
+"Vienna is a large city" might be true only to degree 0.6. The ontological and epistemological
+commitments of various logics are summarized in Figure 6.7. y
+
+  
+  
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Language Ontological Commitment Epistemological Commitment
+(What exists in the world) (What an agent believes about facts)
+
+Propositional logic | facts true/false/unknown
+
+First-order logic facts, objects, relations true/false/unknown
+
+Temporal logic facts, objects, relations, times | true/false/unknown
+
+Probability theory | facts degree of belief 0...1
+
+Fuzzy logic degree of truth degree of belief 0...1
+
+Figure 67 Formal languages and their ontological and epistemological commitments.
+
+ 
+
+ 
+
+ 
+
+Despite its limited expressiveness, propositional logic serves to illustrate many of the concepts
+of logic just as well as first-order logic. We will describe its syntax, semantics, and associated
+inference procedures.
+
+Syntax
+
+The syntax of propositional logic is simple. The symbols of propositional logic are the logical
+constants True and False, proposition symbols such as P and Q, the logical connectives A, V, +, |
+=, and -, and parentheses, (). All sentences are made by putting these symbols together using
+the following rules:
+
+* The logical constants True and False are sentences by themselves.
++ A propositional symbol such as P or Q is a sentence by itself.
++ Wrapping parentheses around a sentence yields a sentence, for example, (P A Q).
++ A sentence can be formed by combining simpler sentences with one of the five logical
+connectives: -
+A (and). A sentence whose main connective is A, such as PA (O V R), is called a
+conjunction (logic); its parts are the conjuncts. (The A looks like an "A" for “And.”)
+V (on). A sentence using V, such as A V (PA Q), is a disjunction of the disjuncts 4
+
+and (P A Q). (Historically, the V comes from the Latin “vel,” which means "or." For
+most people, it is easier to remember as an upside-down and.)
+

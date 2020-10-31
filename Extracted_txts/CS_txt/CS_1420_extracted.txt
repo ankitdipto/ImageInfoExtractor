@@ -1,0 +1,41 @@
+668 Let UsC
+
+ 
+
+real life as well as in programming. In today’s world a
+
+program that runs in isolation is of little use. A worthwhile
+program has to communicate with the outside world in general and
+with the OS in particular. In Chapters 16 and 17 we saw how a
+Windows based program communicates with Windows. In this
+chapter let us explore how this communication happens under
+Linux.
+
+C ommunication is the essence of all progress. This is true in
+
+Communication using Signals
+
+In the last chapter we used fork( ) and exec( ) library function to
+create a child process and to execute a new program respectively.
+These library functions got the job done by communication with
+the Linux OS. Thus the direction of communication was from the
+program to the OS. The reverse communication—from the OS to
+the program—is achieved using a mechanism called ‘Signal’. Let
+us now write a simple program that would help you experience the
+signal mechanism.
+
+int main()
+while (1)
+printf ("Pogram Running\n" ) ;
+return 0;
+}
+
+The program is fairly straightforward. All that we have done here
+is we have used an infinite while loop to print the message
+"Program Running" on the screen. When the program is running
+we can terminate it by pressing the Ctrl + C. When we press Ctrl +
+C the keyboard device driver informs the Linux kernel about
+pressing of this special key combination. The kemel reacts to this
+by sending a signal to our program. Since we have done nothing to
+handle this signal the default signal handler gets called. In this
+

@@ -1,0 +1,50 @@
+170 Chapter6 CPU Scheduling
+
+This asymmetric multiprocessing is far simpler than symmetric multiprocess-
+ing, because only one processor accesses the system data structures, alleviating
+the need for data sharing. However, it is also not as efficient. 1/O-bound pro-
+cesses may bottleneck on the one CPU that is performing all of the operations.
+Typically, asymmetric multiprocessing is implemented first within an operat-
+ing system, and is then upgraded to symmetric multiprocessing as the system
+evolves.
+
+6.5 = Real-Time Scheduling
+
+In Chapter 1, we gave an overview of real-time operating systems and dis-
+cussed their growing importance. Here, we continue the discussion by describ-
+ing the scheduling facility needed to support real-time computing within a
+general-purpose computer system.
+
+Real-time computing is divided into two types. Hard real-time systems
+are required to complete a critical task within a guaranteed amount of time.
+Generally, a process is submitted along with a statement of the amount of
+time in which it needs to complete or perform I/O. The scheduler then either
+admits the process, guaranteeing that the process will complete on time, or
+rejects the request as impossible. This is known as resource reservation. Such
+a guarantee requires that the scheduler know exactly how long each type
+of operating-system function takes to perform, and therefore each operation
+must be guaranteed to take a maximum amount of time. Such a guarantee is
+impossible in a system with secondary storage or virtual memory, as we shall
+show in the next few chapters, because these subsystems cause unavoidable
+and unforeseeable variation in the amount of time to execute a particular
+process. Therefore, hard real-time systems are composed of special-purpose
+software running on hardware dedicated to their critical process, and lack the
+full functionality of modern computers and operating systems.
+
+Soft real-time computing is less restrictive. It requires that critical processes
+receive priority over less fortunate ones. Although adding soft real-time func-
+tionality to a time-sharing system may cause an unfair allocation of resources
+and may result in longer delays, or even starvation, for some processes, it is at
+least possible to achieve. The result is a general-purpose system that can also
+support multimedia, high-speed interactive graphics, and a variety of tasks that
+would not function acceptably in an environment that does not support soft
+real-time computing.
+
+Implementing soft real-time functionality requires careful design of the
+scheduler and related aspects of the operating system. First, the system must
+have priority scheduling, and real-time processes must have the highest prior-
+ity. The priority of real-time processes must not degrade over time, even though
+the priority of non-real-time processes may. Second, the dispatch latency must
+be small. The smaller the latency, the faster a real-time process can start execut-
+ing once it is runable.
+

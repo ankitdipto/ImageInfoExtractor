@@ -1,0 +1,60 @@
+Problems 483
+
+entry in the page table may haveivs own protection field to desentbe the access
+rights of each page. The protection information isset into the descriptor by the
+master control program of the operating system. Some of the access cights of
+interest that are used for protecting the programs residing in memory are:
+
+. Ful read and write privileges
+.. Read only (write protection)
+
+. Execute only (program protection)
+
+. System only (operating system protection)
+
+Pere
+
+Full read and write privileges are given toa program when it is executing
+its own instructions. Write protection is useful for sharing system programs
+suchas utility programs and other library routines. These sstem programsare
+stored in an area of memory where they can be shared by many users. They
+canbe read by all programs, butnowritingis allowed. This protects themfrom
+being changed by other programs.
+
+“The execute-only condition protects progyams from being copied. It re-
+stricts thesegmentto be referenced only during the instruction fetch phase but
+not during the execute phase. Thus it allows the users to execute the segment
+program instructions but prevents them from reading the instructions as data
+for the purpose of copying their content.
+
+Portions of the operating system will reside in memory at any given time.
+These system programs must be protected by making them inassessible to
+unauthorized users. The operating system protection condition is placed in the
+descriptors of all operating system programs to prevent the occasional user
+from accessing operating system segments.
+
+ 
+
+ 
+
+ 
+
+PROBLEMS
+
+ 
+
+ 
+
+JRA. a, Howmany 128 x BRAM chips are needed to provides memory capacity
+cof 2048 bytes?
+bb. How many lines of theaddress bus must be used to ea-ess 2068 bytes of
+memory? How meny of these lines will be common to all chips?
+¢. How many lines must be decoded for chip select? Specify the size of the
+decoders.
+32.2. Acomputer uses RAM chips of 1024 x 1 capacity.
+a. How many chips are needed, and how should their eddeess lines be
+canneted to provide e memary ca pacity of 2024 bytes?
+'b. How many chips are needed to provide a memory capacity of 16K bytes?
+Explain in words how the chips are to be connected to the address bes.
+323. AROMchipof1024 x Bbits has four selectinputsand operates froma S-volt
+

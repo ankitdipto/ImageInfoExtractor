@@ -1,0 +1,58 @@
+Section 14.4. Bayes’ Rule and Its Use 427
+
+ 
+
+That is, we expect only one in 5000 patients with a stiffneck to have meningitis. Notice that
+even though a stiff neck is strongly indicated by meningitis (probability 0.5), the probability of
+meningitis in the patient remains small. This is because the prior on stiffnecks is much higher
+than that for meningitis.
+
+One obvious question to ask is why one might have available the conditional probability
+in one direction but not the other. In the meningitis case, perhaps the doctor knows that 1 out
+of 5000 patients with stiff necks has meningitis, and therefore has no need to use Bayes’ tule.
+
+e Unfortunately, diagnostic knowledge is often more tenuous than causal knowledge. If there is a
+I ae sudden epidemic of meningitis, the unconditional probability of meningitis, P(M), will go up.
+The doctor who derived P(M|S)from statistical observation of patients before the epidemic will
+have no idea how to update the value, but the doctor who computes P(M|S)from the other three
+values will see that P(M|S) should go up proportionately to P(M). Most importantly, the causal
+information P(S|M)is unaffected by the epidemic, because it simply reflects the way meningitis
+works. The use of this kind of direct causal or model-based knowledge provides the crucial
+robustness needed to make probabilistic systems feasible in the real world.
+
+Normalization
+
+Consider again the equation for calculating the probability of meningitis given a stiff neck:
+P(S|M)P(M)
+Pl =
+(MS) PS)
+Suppose we are also concerned with the possibility that the patient is suffering from whiplash W
+given a stiff neck:
+
+P(S|W)PCW)
+PWS) = —>——
+(Wis) PES)
+Bee Moon Comparing these two equations, we see that in order to compute the relative likelihood of
+
+meningitis and whiplash, given a stiffneck, we need not assess the prior probability P(S) of a stiff
+neck. To put numbers on the equations, suppose that P(S\W) = 0.8 and P(W)= 1/1000. Then
+
+P(M\S) _ P(S|M)P(M)_ 0.5 x 1/50000__ 1
+
+P(W|S) ~ P(S|W)P(W)~ 08 x 1/1000 ~ 80
+That is, whiplash is 80 times more likely than meningitis, given a stiffneck.
+
+In some cases, relative likelihood is sufficient for decision making, but when, as in this
+case, the two possibilities yield radically different utilities for various treatment actions, one needs
+exact values in order to make rational decisions. It is still possible to avoid direct assessment of
+the prior probability of the "symptoms," by considering an exhaustive set of cases. For example,
+‘we can write equations for M and for =M:
+
+ 
+
+Pulp = neuen
+P(-am|s) = PEIMPCM) san
+
+Adding these two equations, and using the fact that P(M|S)+ P(>M|S)= 1, we obtain
+P(S) = P(S|M)P(M)+ P(S|>M)P(>=M)
+

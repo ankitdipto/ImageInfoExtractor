@@ -1,0 +1,58 @@
+282 carrer scuT Central Processing Unit
+
+software interrupt
+
+csc
+
+RISC
+
+the program while external interrupts are asynchronous. If the program is
+rerun, the internal interrupts will occur in the same place each time. External
+interrupts depend on external conditions that are independent of the program
+being executed at the time.
+
+‘External and internal interrupts are initiated from signals that occur in the
+hardware of the CPU. A software interrupt is initiated by executing an instruc-
+tion. Software interrupt is a special call instruction that behaves like an inter-
+rupt rather than a subroutine call. It can be used by the programmer to initiate
+an interrupt procedure at any desired point in the program. The most common
+use of software interrupt is associated with a supervisor call instruction. This
+instruction provides means for switching froma CPU user mode to the super-
+visor mode. Certain operations in the computer may be assigned to the super-
+visor mode only, as for example, a complex input or output transfer procedure.
+A program written by a user must run in the user mode. When an input or
+output transfer is required, the supervisor mode is requested by means of a
+supervisor call instruction. This instruction causes a software interrupt that
+stores the old CPU state andbrings ina new PSW that belongsto the supervisor
+mode. The calling program must pass information to the operating system in
+order to specify the particular task requested.
+
+8-8 Reduced Instruction Set
+Computer (RISC)
+
+‘An important aspect of computer architecture is the design of the instruction
+set for the processor. The instruction set chosen for a particular computer
+determines the way that machine language programs are constructed. Early
+computers had small and simple instruction sets, forced mainly by the need
+to minimize the hardware used to implement them. As digital hardware
+became cheaper with the advent of integrated circuits, computer instructions
+tended to increase both in number and complexity. Many computers have
+instruction sets that include more than 100 and sometimes even more than 200
+instructions. These computers also employ a variety of data types and a large
+number of addressing modes. The trend into computer hardware complexity
+‘was influenced by various factors, such as upgrading existing models to
+provide more customer applications, adding instructions that facilitate the
+translation from high-level language into machine language programs, and
+striving to develop machines that move functions from software implement
+tion into hardware implementation. A computer with a large number of i
+structions is classified as a complex instruction set computer, abbreviated CISC.
+
+In the early 1980s, a number of computer designers recommended that
+computers use fewer instructions with simple constructs so they can be exe-
+cuted much faster within the CPU without having to use memory as often. This,
+type of computer is classified as a reduced instruction set computer or RISC. In
+
+ 
+
+ 
+

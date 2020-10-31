@@ -1,0 +1,52 @@
+SECTION 8-8 Reduced Instruction Set Computer (RISC) 283
+
+this section we introduce the major characteristics of CISC and RISC architec
+tures and then present the instruction set and instruction format of a RISC
+processor.
+
+CISC Characteristics
+
+The design of an instruction set for a computer must take into consideration
+not only machine language constructs, but also the requirements imposed on
+the use of high-level programminglanguages. The translation from high-level
+to machine language programs is done by means of a compiler program. One
+reason for the trend to providea complexinstructionset is the desire to simplify
+the compilation and improve the overall computer performance. The task of
+acompiler isto generate a sequence of machine instructions foreach high-level
+language statement. The task is simplified if there are machine instructions that,
+implement the statements directly. The essential goal of a CISC architecture
+is to attempt to provide a single machine instruction for each statement that
+is written in a high-level language. Examples of CISC architectures are the
+Digital Equipment Corporation VAX computer and the IBM 370 computer.
+
+‘Another characteristic of CISC architecture is the incorporation of vari-
+able-length instruction formats. Instructions that require register operands
+may be only two bytes in length, but instructions that need two memory
+addresses may need five bytes to include the entire instruction code. If the
+computer has 32-bit words (four bytes), the first instruction occupies half a
+word, while the second instruction needs one word in addition to one byte in
+the next word. Packing variable instruction formats in a fixed-length memory
+word requires special decoding circuits that count bytes within words and
+frame the instructions according to their byte length.
+
+The instructions in a typical CISC processor provide direct manipulation
+of operands residing in memory. For example, an ADDinstruction may specify
+one operand in memory through index addressing and a second operand in
+memory through a direct addressing. Another memory location may be i
+cluded in the instruction to store the sum. This requires three memory refer-
+ences during execution of the instruction. Although CISC processors have
+instructions that use only processor registers, the availability of other modes
+of operations tend to simplify high-level language compilation. However, as
+moreinstructions and addressing modesare incorporated into.a computer, the
+more hardware logic is needed to implement and support them, and this may
+cause the computations to slow down. In summary, the major characteristics
+of CISC architecture are:
+
+ 
+
+1. A large number of instructions—ty pically from 100 to 250 instructions
+2. Some instructions that perform specialized tasks and are used infre-
+quently
+
+ 
+

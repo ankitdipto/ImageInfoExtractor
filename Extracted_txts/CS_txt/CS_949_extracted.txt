@@ -1,0 +1,45 @@
+272 Let Us C
+
+ 
+
+any given array must be of the same type. i.e. we cannot have an
+array of 10 numbers, of which 5 are ints and 5 are floats.
+
+A Simple Program Using Array
+
+Let us try to write a program to find average marks obtained by a
+class of 30 students in a test.
+
+main()
+
+{
+int avg, sum = 0;
+int i;
+
+int marks[30] ; /* array declaration */
+
+for (i= 0 ;i <= 29; i++)
+{
+
+printf ( “\nEnter marks ") ;
+
+scanf ("%d", &marks[i]) ; /* store data in array */
+}
+
+for (i= 0; <= 29; i++)
+sum = sum + marks[i] ; /* read data from an array*/
+
+avg = sum/ 30;
+printf ( "\nAverage marks = %d", avg ) ;
+}
+
+There is a lot of new material in this program, so let us take it apart
+slowly.
+
+Array Declaration
+
+To begin with, like other variables an array needs to be declared so
+that the compiler will know what kind of an array and how large
+an array we want. In our program we have done this with the
+statement:
+

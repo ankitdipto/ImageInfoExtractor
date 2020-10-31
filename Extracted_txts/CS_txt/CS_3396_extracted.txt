@@ -1,0 +1,46 @@
+Section 3.5
+
+Search Strategies 77
+
+ 
+
+ear
+
+Depth-first search
+
+Depth-first search always expands one of the nodes at the deepest level of the tree. Only when
+the search hits a dead end (a nongoal node with no expansion) does the search go back and
+expand nodes at shallower levels. This strategy can be implemented by GENERAL-SEARCH with
+a queuing function that always puts the newly generated states at the front of the queue. Because
+the expanded node was the deepest, its successors will be even deeper and are therefore now the
+deepest. The progress of the search is illustrated in Figure 3.14.
+
+Depth-first search has very modest memory requirements. As the figure shows, it needs
+to store only a single path from the root to a leaf node, along with the remaining unexpanded
+sibling nodes for each node on the path. For a state space with branching factor b and maximum
+depth i, depth-first search requires storage of only bm nodes, in contrast to the b? that would be
+required by breadth-first search in the case where the shallowest goal is at depth d. Using the
+same assumptions as Figure 3.12, depth-first search would require 12 kilobytes instead of 111
+terabytes at depth d = 12, a factor of 10 billion times less space
+
+The time complexity for depth-first search is O(b’). For problems that have very many
+solutions, depth-first may actually be faster than breadth-first, because it has a good chance of
+
+he
+on
+
+ 
+
+ 
+
+ 
+
+Figure 3.14 Depth-first search trees for a binary search tree. Nodes at depth 3 are assumed to
+have no successors.
+
+ 
+
+ 
+
+ 
+

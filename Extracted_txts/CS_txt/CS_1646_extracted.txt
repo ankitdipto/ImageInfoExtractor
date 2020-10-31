@@ -1,0 +1,57 @@
+Section 8.5,
+
+The Grocery Shopping World 253
+
+ 
+
+aa
+
+Most of the navigation problem is the same as in the vacuum or wumpus world. The agent
+needs to remember where it started, and can compute its current location from the movements it
+has made where it is now. The supermarket is not as hostile as the wumpus world so it is safer
+to explore, but an agent can find better routes if it knows that supermarkets are generally laid
+out in aisles. Supermarkets also provide aisle numbers, unlike the wumpus world, so that the
+agent does not need to rely on dead reckoning. On the second trip to a store, it can save a lot of
+wandering by remembering where things are. It is not helpful, however, to remember the exact
+location of each individual item, because the tomato that is at location [x,y] today will probably
+be gone tomorrow. Because much of the logic is the same as for the wumpus world, it will not
+be repeated here.
+
+A typical navigation problem is to locate the tomatoes. The following strategy is usually
+believed to work:
+
+1. Ifthe agent knows the location of the tomatoes from a previous visit, calculate a path to
+that spot from the current location.
+
+2. Otherwise, ifthe location of the vegetable aisle is known, plan a path there
+
+3. Otherwise, move along the front of the store until a sign for the vegetable aisle is spotted.
+
+4. Ifnone ofthese work, wander about and find someone to ask where the tomatoes are. (This
+is covered in the "Communicating" section.)
+
+5. Once the vegetable aisle is found, move down the aisle with the camera zoomed out,
+looking for something red. When spotted, zoom in to see ifthey are in fact tomatoes. (This
+is covered in the "Gathering" section.)
+
+Gathering
+
+Once in the right aisle, the agent still needs to find the items on its list. This is done by matching
+the visual percepts against the expected percepts from each category of objects. In the wumpus
+world, this kind of perception is trivial—a breeze signals a pit and a stench signals a wumpus
+But in the grocery shopping world, there are thousands of different kinds of objects and many of
+them (such as tomatoes and apples) present similar percepts. The agent never can be sure that it
+has classified an object correctly based on its percepts, but it can know when it has made a good
+guess. The shopping agent can use the following classification rules:
+
+1. If only one known category matches a percept, assume the object is a member of that
+category. (This may lead to an error when an unknown object is sighted.)
+
+2. Ifa percept matches several categories, but there is a sign nearby that identifies one of
+them, assume the object is a member of that category.
+
+3. If there is an aisle sign that identifies one category (or one supercategory), assume the
+object is of that category. For example, we could categorize a round, red percept as a
+tomato rather than an apple ifwe were in an aisle marked "Vegetables" and not "Fruit." At
+a cricket match, it would be something else altogether.
+

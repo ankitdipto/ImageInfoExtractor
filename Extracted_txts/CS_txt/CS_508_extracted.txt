@@ -1,0 +1,49 @@
+34.1 Polynomial time 1053
+
+A first NP-complete problem
+
+Because the technique of reduction relies on having a problem already known to
+be NP-complete in order to prove a different problem NP-complete, we need a
+“first” NP-complete problem. The problem we shall use is the circuit-satisfiability
+problem, in which we are given a boolean combinational circuit composed of AND,
+OR, and NOT gates, and we wish to know whether there exists some set of boolean
+inputs to this circuit that causes its output to be 1. We shall prove that this first
+problem is NP-complete in Section 34.3.
+
+Chapter outline
+
+This chapter studies the aspects of NP-completeness that bear most directly on the
+analysis of algorithms. In Section 34.1, we formalize our notion of “problem” and
+define the complexity class P of polynomial-time solvable decision problems. We
+also see how these notions fit into the framework of formal-language theory. Sec-
+tion 34.2 defines the class NP of decision problems whose solutions are verifiable
+in polynomial time. It also formally poses the P # NP question.
+
+Section 34.3 shows we can relate problems via polynomial-time “reductions.”
+It defines NP-completeness and sketches a proof that one problem, called “circuit
+satisfiability,” is NP-complete. Having found one NP-complete problem, we show
+in Section 34.4 how to prove other problems to be NP-complete much more simply
+by the methodology of reductions. We illustrate this methodology by showing that
+two formula-satisfiability problems are NP-complete. With additional reductions,
+we show in Section 34.5 a variety of other problems to be NP-complete.
+
+ 
+
+34.1 Polynomial time
+
+We begin our study of NP-completeness by formalizing our notion of polynomial-
+time solvable problems. We generally regard these problems as tractable, but for
+philosophical, not mathematical, reasons. We can offer three supporting argu-
+ments.
+
+First, although we may reasonably regard a problem that requires time O(n
+to be intractable, very few practical problems require time on the order of such a
+high-degree polynomial. The polynomial-time computable problems encountered
+in practice typically require much less time. Experience has shown that once the
+first polynomial-time algorithm for a problem has been discovered, more efficient
+algorithms often follow. Even if the current best algorithm for a problem has a
+running time of @(n!°°), an algorithm with a much better running time will likely
+soon be discovered.
+
+100)
+

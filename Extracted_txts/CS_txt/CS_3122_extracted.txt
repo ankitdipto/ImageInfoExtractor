@@ -1,0 +1,63 @@
+Section 16.7.
+
+Decision-Theoretic Expert Systems 491
+
+ 
+
+However, a perfectly rational information-gathering agent should consider all possible sequences
+of information requests terminating in an external action. Because VPI is order-independent,
+this is somewhist simplified by the fact that any permutations of a given sequence of information
+requests has the same value. Thus, one need consider only subsets of the possible information
+requests, without worrying about ordering.
+
+ 
+
+16.7__DECISION-THEORETIC EXPERT SYSTEMS
+
+oecision ANALYSIS
+
+DECISION MAKER
+DECISION ANALYST
+
+ 
+
+ 
+
+ 
+
+The field of decision analysis, which evolved in the 1950s and 1960s, studies the application of
+decision theory to actual decision problems. It is used to help make rational decisions in important
+domains where the stakes are high, such as business, government, law, military strategy, medical
+diagnosis and public health, engineering design, and resource management. The process involves
+a careful study of the possible actions and outcomes as well as the preferences placed on each
+outcome. It is traditional in decision analysis to talk about two roles: the decision maker states
+preferences between outcomes, and the decision analyst enumerates the possible actions and
+outcomes and elicits preferences from the decision maker to determine the best course of action.
+Until the early 1980s, the use of computers in decision analysis was quite limited, and the main
+purpose of analysis was seen as helping humans to make decisions that actually reflect their own
+preferences.
+
+As we discussed in Chapter 15, early expert system research concentrated on answering
+questions, rather than making decisions. Those systems that did recommend actions rather
+than providing opinions on matters of fact generally did so using condition-action rules, rather
+than with explicit representations of outcomes and preferences. The eventual emergence of
+belief networks made it possible to build large-scale systems that generated sound probabilistic
+inferences from evidence. The addition of decision networks means that expert systems can be
+developed that recommend optimal decisions, reflecting the preferences of the user as well as the
+available evidence.
+
+There are many advantages that accrue from the inclusion of explicit utility models and
+calculations in the expert system framework. The expert benefits from the process of making
+his or her (or the client's) preferences explicit, and the system can automate the action selection
+process as well as the process of drawing conclusions from evidence. A system that incorporates
+utilities can avoid one of the most common pitfalls associated with the consultation process:
+confusing likelihood and importance. A common strategy in early medical expert systems,
+for example, was to rank possible diagnoses in order of likelihood, and report the most likely.
+Unfortunately, this can be disastrous, because it will miss cases of relatively rare, but treatable,
+conditions that are easily confused with more common diseases. The confusion of Hodgkin's
+disease (a form of cancer) with mononucleosis (a mild and very common viral infection) is a
+classic case in point. (For the majority of patients in general practice, moreover, the most likely
+diagnosis is “There’s nothing wrong with you.”) Obviously, a testing or treatment plan should
+depend both on probabilities and utilities. Finally, the availability of utility information helps in
+the knowledge engineering and consultation process, as we now explain.
+

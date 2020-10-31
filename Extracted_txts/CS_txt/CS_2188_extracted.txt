@@ -1,0 +1,49 @@
+354 = cHArTER TEN Computer Arithmetic
+
+integer declaration
+statement
+
+tracted and then added to restore A. The next time around the loop, this
+number is shifted left (or multiplied by 2) and B subtracted again. This gives
+2(A ~ B + B)~ B=2A ~B. This result is obtained in the nonrestoring
+method by leaving A — Bas is. The next time around the loop, the number is
+shiftedleft and B aided to give 2(A — B) + B = 2A ~ B, whichis the same as
+before Thus, in thenonrestoring method, B is subtracted ifthe previous value
+of Q, wasa 1, but Bis added if the previous value of Q, was a0 andno restoring
+of the partial remainder is required. This process saves the step of adding the
+divisor if A is less than B, but it requires special control logic to remember the
+previous result. The first time the dividend is shifted, B must be subtracted.
+‘Also, if the last bit of the quotient is 0, the partial remainder must be restored
+to obtain the correct final remainder.
+
+10-5 Floating-Point Arithmetic Operations
+
+Many high-level programming languages havea facility for specifying floating-
+point numbers. The most common way is to specify them by a real declaration
+statement as opposed to fixed-point numbers, which are specified by an integer
+declaration statement Any computer that has a compiler for such high-level
+programming language must have a provision for handling floating-point
+arithmetic operations. The operations are quite often included in the internal
+hardware. Ifno hardware is available for the operations, the compiler must be
+designed with a package of floating-point software subroutines. Although the
+hardware method is more expensive, it is so much more efficient than the
+software method that floating-point hardware is included in’most computers
+and is omitted only in very small ones.
+
+Basic Considerations
+
+Floating-point representation of data was introduced in Sec. 3-4. A floating-
+point number in computer registers consists of two parts: a mantissa m and an
+exponent e, The two parts represent a number obtained from multiplying m
+times a radix r raised to the value of e; thus
+
+mx
+
+The mantissa may be a fraction or an integer. The location of the radix point
+and the value of the radix r are assumed and are not included in the registers.
+For example, assume a fraction representation and a radix 10. The decimal
+number 537.25 is represented in a register with m = 53725 and e = 3 and is
+interpreted to represent the floating-point number
+
+53725 x 10°
+

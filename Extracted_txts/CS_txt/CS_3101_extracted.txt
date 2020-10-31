@@ -1,0 +1,68 @@
+472
+
+Chapter 16. Making Simple Decisions
+
+ 
+
+EXPECTED UTIUTY
+
+MAXIMUM EXPECTED
+umluTY
+
+ 
+
+‘ONE-SHOT
+DECISIONS:
+
+We will use the notation U(S) to denote the utility of state S according to the agent that
+is making the decisions. For now, we will consider states as complete snapshots of the world,
+similar to the situations of Chapter 7. This will simplify our initial discussions, but it can become
+rather cumbersome to specify the utility of each possible state separately. In Section 16.4, we
+will see how states can be decomposed under some circumstances for the purpose of utility
+assignment.
+
+An nondeterministic action A will have possible outcome states Resulti(A), where i
+ranges over the different outcomes. Prior to execution of 4, the agent assigns probability
+P(Result;(A)|Do(A), Eto each outcome, where E summarizes the agent's available evidence
+about the world, and Do(A) is the proposition that action A is executed in the current state.
+Then we can calculate the expected utility of the action given the evidence, FU/(A|F), using the
+following formula:
+
+EU(A\E) = > PeResult,(A)|E, DotA) U (Result(A)) (16.1)
+
+The principle of maximum expected utility (MEU) says that a rational agent should choose an
+action that maximizes the agent's expected utility.
+
+Ina sense, the MEU principle could be seen as defining all of AI.' All an intelligent agent
+has to do is calculate the various quantities, maximize over its actions, and away it goes. But this
+does not mean that the AI problem is solved by the definition!
+
+Although the MEU principle defines the right action to take in any decision problem,
+the computations involved can be prohibitive, and sometimes it is difficult even to formulate
+the problem completely. Knowing the initial state of the world requires perception, leaming,
+knowledge representation, and inference. Computing P(Result;(A)\Do(A), E) requires a complete
+causal model of the world and, as we saw in Chapter 15, NP-complete updating of belief nets.
+Computing the utility ofeach state, U(Resuly(A)), often requires search or planning, because an
+agent does not know how good a state is until it knows where it can get to from that state. So,
+decision theory is not a panacea that solves the AI problem. But it does provide a framework in
+which we can see where all the components ofan AI system fit in.
+
+The MEU principle has a clear relation to the idea of performance measures introduced in
+Chapter 2. The basic idea is very simple. Consider the possible environments that could lead to
+an agent having a given percept history, and consider the different possible agents that we could
+design. Jfan agent maximizes a utilityfinction that correctly reflects the performance measure
+by which its behavior is beingjudged, then it will achieve the highestpossible performance score,
+ifwe average over the possible environments in which the agent could be placed. This is the
+central justification for the MEU principle itself.
+
+In this chapter, we will only be concerned with single or one-shot decisions, whereas
+Chapter 2 defined performance measures over environment histories, which usually involve
+many decisions. In the next chapter, which covers the case of sequential decisions, we will show
+how these two views can be reconciled.
+
+1 Actually, itis not quite true that Al is, even in principle, a field that attempts to build agents that maximize their expected
+utility. We believe, however, that understanding such agents is a good place to start. This is a difficult methodological
+question, to which we retum in Chapter 27
+
+ 
+

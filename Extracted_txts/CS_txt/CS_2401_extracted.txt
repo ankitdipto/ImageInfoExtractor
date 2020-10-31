@@ -1,0 +1,45 @@
+2.2. Analyzing algorithms 25
+
+The best notion for input size depends on the problem being studied. For many
+problems, such as sorting or computing discrete Fourier transforms, the most nat-
+ural measure is the number of items in the input—for example, the array size n
+for sorting. For many other problems, such as multiplying two integers, the best
+measure of input size is the total number of bits needed to represent the input in
+ordinary binary notation. Sometimes, it is more appropriate to describe the size of
+the input with two numbers rather than one. For instance, if the input to an algo-
+rithm is a graph, the input size can be described by the numbers of vertices and
+edges in the graph. We shall indicate which input size measure is being used with
+each problem we study.
+
+The running time of an algorithm on a particular input is the number of primitive
+operations or “steps” executed. It is convenient to define the notion of step so
+that it is as machine-independent as possible. For the moment, let us adopt the
+following view. A constant amount of time is required to execute each line of our
+pseudocode. One line may take a different amount of time than another line, but
+we shall assume that each execution of the ith line takes time c;, where c; is a
+constant. This viewpoint is in keeping with the RAM model, and it also reflects
+how the pseudocode would be implemented on most actual computers.°
+
+In the following discussion, our expression for the running time of INSERTION-
+Sort will evolve from a messy formula that uses all the statement costs c; to a
+much simpler notation that is more concise and more easily manipulated. This
+simpler notation will also make it easy to determine whether one algorithm is more
+efficient than another.
+
+We start by presenting the INSERTION-SORT procedure with the time “cost”
+of each statement and the number of times each statement is executed. For each
+j = 2,3,...,n, where n = A.length, we let t; denote the number of times the
+while loop test in line 5 is executed for that value of j. When a for or while loop
+exits in the usual way (i-e., due to the test in the loop header), the test is executed
+one time more than the loop body. We assume that comments are not executable
+statements, and so they take no time.
+
+ 
+
+5There are some subtleties here. Computational steps that we specify in English are often variants
+of a procedure that requires more than just a constant amount of time. For example, later in this
+book we might say “sort the points by x-coordinate,” which, as we shall see, takes more than a
+constant amount of time. Also, note that a statement that calls a subroutine takes constant time,
+though the subroutine, once invoked, may take more. That is, we separate the process of calling the
+subroutine— passing parameters to it, etc. — from the process of executing the subroutine.
+

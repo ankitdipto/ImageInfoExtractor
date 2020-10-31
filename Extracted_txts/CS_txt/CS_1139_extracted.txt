@@ -1,0 +1,53 @@
+426
+
+Let Us C
+
+ 
+
+Note that our sample file-copy program is capable of copying only
+text files. To copy files with extension .EXE or .COM, we need to
+open the files in binary mode, a topic that would be dealt with in
+sufficient detail in a later section.
+
+File Opening Modes
+
+In our first program on disk I/O we have opened the file in read
+
+(“r”) mode. However, “1
+
+is but one of the several modes in which
+
+we can open a file. Following is a list of all possible modes in
+which a file can be opened. The tasks performed by fopen( ) when
+a file is opened in each of these modes are also mentioned.
+
+tr’
+
+"yy"
+
+meee
+
+Searches file. If the file is opened successfully fopen( )
+loads it into memory and sets up a pointer which points to
+the first character in it. If the file cannot be opened fopen()
+returns NULL.
+
+Operations possible — reading from the file.
+
+Searches file. If the file exists, its contents are overwritten.
+If the file doesn’t exist, a new file is created. Returns
+NULL, if unable to open file.
+
+Operations possible — writing to the file.
+
+Searches file. If the file is opened successfully fopen( )
+loads it into memory and sets up a pointer that points to the
+last character in it. If the file doesn’t exist, a new file is
+created. Returns NULL, if unable to open file.
+
+Operations possible - adding new contents at the end of file.
+Searches file. If is opened successfully fopen( ) loads it into
+
+memory and sets up a pointer which points to the first
+character in it. Returns NULL, if unable to open the file.
+

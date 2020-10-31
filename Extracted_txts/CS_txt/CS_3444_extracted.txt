@@ -1,0 +1,71 @@
+Section 25.3.
+
+Parts: What Are Robots Made Of? 781
+
+ 
+
+KINEMATICS
+
+ROTARY
+PRISMATIC
+
+materials, and that mimicked the geometry ofa human arm. Early robots as a rule followed this
+precedent, and have anthropomorphic kinematics. Broadly defined, kinematics is the study of
+the correspondence between the actuator motions in a mechanism, and the resulting motion of
+its various parts.
+
+Most manipulators allow for either rotary motion (rotation around a fixed hub) or prismatic
+motion (linear movement, as with a piston inside a cylinder). Figure 25.4 shows the Stanford
+Manipulator, used in several early experiments in robotics. A nearly anthropomorphic design is
+the Unimation PUMA shown in Figure 25.5. This design has six rotary joints arranged sequentially.
+The shorthand description of its kinematic configuration is “RRRRRR,” (“6R” for short) listing
+joint types from base to tip. A free body in space has six degrees of freedom (three for x-y->
+position, three for orientation), so six is the minimum number ofjoints a robot requires in order
+to be able to get the last link into an arbitrary position and orientation.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 25.4 — The Stanford Manipulator, an early robot arm with five rotary (R) and one prismatic
+(P) joints, for a total of six degrees of freedom.
+
+ 
+
+ 
+
+ 
+
+Incase this total of six degrees of freedom for a free body is not intuitively obvious, imagine
+the body is a tennis ball. The center of the ball can be described with three position coordinates
+Now suppose that the ball is resting on a table with its center fixed. You can still rotate the ball
+without moving its center. Paint a dot anywhere on the surface of the ball, you can rotate the ball
+so that the dot touches the table-top. This takes two degrees of freedom, because the dot can be
+specified with latitude and longitude. With the center fixed and the dot touching the table-top,
+you can still rotate the ball about a vertical axis. This is the third and last degree of rotational
+freedom. (In an airplane or boat, the three types of rotation are called pitch, yaw, and roll.)
+
+At the end of the manipulator is the robot's end effector, which interacts directly with
+objects in the world. It may be a screwdriver or other tool, a welding gun, paint sprayer, or
+a gripper. Grippers vary enormously in complexity. Two- and three-fingered grippers perform
+most tasks in manufacturing. The mechanical simplicity of these grippers makes them reliable
+and easy to control, both important attributes for manufacturing.
+
+At the other end of the complexity spectrum are anthropomorphic hands. The Utah-MIT
+hand shown in Figure 25.6 faithfully replicates most of the kinematics of a human hand, less one
+finger. A human hand has a very large number of degrees of freedom (see Exercise 25.4).
+
+ 
+
+|
+

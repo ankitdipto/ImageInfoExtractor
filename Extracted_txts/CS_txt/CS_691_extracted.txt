@@ -1,0 +1,63 @@
+ 
+
+Section 6.4. Propositional Logic: A Very Simple Logic 167
+
+INPLICATION => (implies). A sentence such as (PA Q) = Ris called an implication (or conditional).
+
+PREMISE Its premise or antecedent is P A Q, and its conclusion or consequent is R. Impli-
+
+‘CONCLUSION cations are also known as rules or if-then statements. The implication symbol is
+“sometimes written in other books as > or —.
+
+EQUIVALENCE = (equivalent). The sentence (PA Q) < (QAP) is an equivalence (also called a
+biconditional).
+
+NEGATION — (not). A sentence such as —P is called the negation of P. All the other connectives
+combine two sentences into one; — is the only connective that operates on a single
+sentence. -
+
+Figure 6.8 gives a formal grammar of propositional logic; see page 854 if you are not fa-
+sromic SENTENCES ~—miliar with the BNF notation. The grammar introduces atomic sentences, which in propositional
+SOUELEX logic consist ofa single symbol (e.g., P), and complex sentences, which contain connectives or
+TITERAL parentheses (e.g., PA Q). The term literal is also used, meaning either an atomic sentences or a
+
+  
+
+negated atomic sentence.
+
+ 
+
+Sentence — AtomicSentence  ComplexSentence
+AtomicSentence — True | False
+| POR
+ComplexSentence — (Sentence )
+
+| Sentence Connective Sentence
+| Sentence
+
+Connective — A| V|e|>
+
+ 
+
+Figure 6.8 A BNF (Backus-Naur Form) grammar of sentences in propositional logic.
+
+ 
+
+ 
+
+Strictly speaking, the grammar is ambiguous — a sentence such as P A O V R could be
+parsed as either (P A O) VR oras PA (OV R). This is similar to the ambiguity of arithmetic
+expressions such as P + Ox R, and the way to resolve the ambiguity is also similar: we pick an
+order of precedence for the operators, but use parentheses whenever there might be confusion.
+The order of precedence in propositional logic is (from highest to lowest): =, A, V, >, and ©.
+Hence, the sentence ~ -
+
+ 
+
+“PVOAR=>S
+is equivalent to the sentence
+
+{(7P)V (QAR) = S.
+
+ 
+

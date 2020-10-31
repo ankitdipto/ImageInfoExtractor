@@ -1,0 +1,44 @@
+376 Let Us C
+
+ 
+
+{
+char phone[15] ;
+char city[25] ;
+int pin;
+
+hi
+
+struct emp
+
+{
+
+char name[25] ;
+struct address a;
+hi
+struct emp e = {“jeru", "531046", "nagpur", 10 };
+
+printf ( "\nname = %s phone = %s", e.name, e.a.phone ) ;
+printf ( “\ncity = %s pin = %d", e.a.city, e.a.pin ) ;
+}
+
+And here is the output...
+
+name = jeru phone = 531046
+city = nagpur pin = 10
+
+Notice the method used to access the element of a structure
+that is part of another structure. For this the dot operator is
+used twice, as in the expression,
+
+e.a.pin or e.a.city
+
+Of course, the nesting process need not stop at this level. We
+can nest a structure within a structure, within another
+structure, which is in still another structure and so on... till the
+time we can comprehend the structure ourselves. Such
+construction however gives rise to variable names that can be
+surprisingly self descriptive, for example:
+
+maruti.engine. bolt.large.qty
+

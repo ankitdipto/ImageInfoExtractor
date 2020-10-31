@@ -1,0 +1,51 @@
+‘SECTION 6.7 Subroutines 199
+
+TABLE 6-16 Program to Demonstrate the Use of Subroutines
+
+ 
+
+Location
+ORG 100 Main program
+100 LDAX Load X
+101 BSASH4 —_/Branch to subroutine
+102 STAX ‘Store shifted number
+103 LDAY Load Y
+104 BSASH4 —_/Branch to subroutine again
+105 STAY ‘Store shifted number
+106 HLT
+107 x, HEX 1234
+ws OY, HEX 4321
+/Subroutine to shift left 4 times
+109 SH4, HEXO /Store return address here
+10 cL ‘(Circulate left once
+10B CIL
+10C CIL
+10D cIL ‘/Circulate left fourth time
+10E AND MSK Set AC(13-16) to zero
+10F BUNSH41 /Return to main program
+110 MSK, HEX FFFO.—/Mask operand
+END
+
+AC. The next instruction encountered is BSA SH4. The BSA instruction is in
+location 101. Subroutine SH4 must return to location 102 after it finishes its
+task. When the BSA instruction is executed, the control unit stores the return
+address 102 into the location defined by the symbolic address SH4 (which is
+109). It also transfers the value of SH4 + 1 into the program counter. After this
+instruction is executed, memory location 109 contains the binary equivalent of
+hexadecimal 102 and the program counter contains the binary equivalent of
+hexadecimal 10A. This action has saved the return address and the subroutine
+is now executed starting from location 10A (since this is the content of PC in
+the next fetch cycle).
+
+‘The computation in the subroutine circulates the content of AC four times
+to the left. In order to accomplish a logical shift operation, the four low-order
+bits must be set to zero. This is done by masking FFFO with the content of AC.
+‘Amask operation is a logic AND operation that clears the bits of the AC where
+the mask operand is zero and leaves the bits of the AC unchanged where the
+mask operand bits are 1's.
+
+The last instruction in the subroutine returns the computer to the main
+program. This is accomplished by the indirect branch instruction with an
+address symbol identical to the symbol used for the subroutine name. The
+address to which the computer branches is not SH4 but the value found in
+

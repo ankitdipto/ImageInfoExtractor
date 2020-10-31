@@ -1,0 +1,60 @@
+76
+
+Chapter 3. Solving Problems by Searching
+
+ 
+
+and the cost of each operator is marked. The strategy first expands the initial state, yielding paths
+toA, B, and C. Because the path to A is cheapest, it is expanded next, generating the path SAG,
+which is in fact a solution, though not the optimal one. However, the algorithm does not yet
+recognize this as a solution, because it has cost 11,and thus is buried in the queue below the path
+SB, which has cost 5. It seems a shame to generate a solutionjust to bury it deep in the queue,
+but it is necessary if we want to find the optimal solution rather than just any solution. The next
+step is to expand SB, generating SBG, which is now the cheapest path remaining in the queue, so
+it is goal-checked and retumed as the solution.
+
+Uniform cost search finds the cheapest solution provided a simple requirement is met: the
+cost of a path must never decrease as we go along the path. In other words, we insist that
+
+g(SUCCESSOR(n)) > g(n)
+
+for every node n.
+
+The restriction to nondecreasing path cost makes sense if the path cost of a node is taken to
+be the sum ofthe costs of the operators that make up the path. Ifevery operator has a nonnegative
+cost, then the cost of a path can never decrease as we go along the path, and uniform-cost search
+can find the cheapest path without exploring the whole search tree. But if some operator had a
+negative cost, then nothing but an exhaustive search of all nodes would find the optimal solution,
+because we would never know when a path, no matter how long and expensive, is about to run
+into a step with high negative cost and thus become the best path overall. (See Exercise 3.5.)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+se
+® s
+A B
+1 5
+A
+a
+1 10
+Si & mG
+15 5
+af
+Cc
+(a) (b)
+Figure 3.13 A route-finding problem. (a) The state space, showing the cost for each operator.
+(b) Progression of the search. Each node is labelled with gin). At the next step, the goal node
+with g = 10will be selected.
+
+ 
+

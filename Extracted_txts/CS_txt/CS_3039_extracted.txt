@@ -1,0 +1,65 @@
+416
+
+Chapter 14. Uncertainty
+
+ 
+
+ 
+
+LAZINESS
+
+THEORETICAL
+IGNORANCE
+
+agent therefore will not believe that plan Aoo will necessarily achieve the goal, and that makes it
+difficult for the logical agent to conclude that plan Ayo is the right thing to do.
+
+Nonetheless, let us suppose that Ago is in fact the right thing to do. What do we mean by
+saying this? As we discussed in Chapter 2, we mean that out ofall the possible plans that couldbe
+executed, Ago is expected to maximize the agent's performance measure, given the information it
+has about the environment. The performance measure includes getting to the airport in time for
+the flight, avoiding a long, unproductive wait at the airport, and avoiding speeding tickets along
+the way. The information the agent has cannot guarantee any of these outcomes for Ago, but it
+can provide some degree of belief that they will be achieved. Other plans, such as A129, might
+increase the agent's belief that it will get to the airport on time, but also increase the likelihood of
+a long wait. The right thing to do, the rational decision, therefore, depends on both the relative
+importance of various goals and the likelihood that, and degree to which, they will be achieved.
+The remainder of this section sharpens up these ideas, in preparation for the development of
+the general theories of uncertain reasoning and rational decisions that we present in this and
+subsequent chapters
+
+Handling uncertain knowledge
+
+In this section, we look more closely at the nature of uncertain knowledge. We will use a
+simple diagnosis example to illustrate the concepts involved. Diagnosis—whether for medicine,
+automobile repair, or whatever—is a task that almost always involves uncertainty. If we tried to
+build a dental diagnosis system using first-order logic, we might propose rules such as
+
+Vp Symptom(p,Toothache) => Disease(p, Cavity)
+
+The problem is that this rule is wrong. Not all patients with toothaches have cavities; some of
+them may have gum disease, or impacted wisdom teeth, or one of several other problems:
+
+Vp Symptom(p,Toothache) =>
+Disease(p, Cavity) V Disease(p, GumDisease) V Disease(p, ImpactedWisdom) ...
+
+Unfortunately, in order to make the rule true, we have to add an almost unlimited list of possible
+causes. We could try turning the rule into a causal rule:
+
+Vp Disease(p, Cavity) => Symptom(p,Toothache)
+
+But this rule is not right either; not all cavities cause pain. The only way to fix the rule is to
+make it logically exhaustive: to extend the left-hand side to cover all possible reasons why a
+cavity might or might not cause a toothache. Even then, for the purposes of diagnosis, one must
+also take into account the possibility that the patient may have a toothache and a cavity that are 3
+unconnected. 4
+Trying to use first-order logic to cope with a domain like medical diagnosis thus fails for
+three main reasons:
+
+~ Laziness: It is too much work to list the complete set ofantecedents or consequents needed
+to ensure an exceptionless rule, and too hard to use the enormous rules that result.
+
+0 Theoretical ignorance: Medical science has no complete theory for the domain.
+
+ 
+

@@ -1,0 +1,59 @@
+time slice
+
+polling
+
+FIFO
+
+rotating daisy-chain
+
+SECTION 1-3 Interprocessor Arbitration 505,
+
+corresponding to the request and acknowledge signals in Fig. 13-11. The bus
+clock BCLK is used to synchronize all bus transactions.
+
+Dynamic Arbitration Algorithms
+
+The two bus arbitration procedures just described use a static priority al-
+gorithm since the priority of each device is fixed by the way it is connected
+to the bus. In contrast, a dynamic priority algorithm gives the system the
+capability for changing the priority of the devices while the system is in
+operation. We now discuss a few arbitration procedures that use dynamic
+priority algorithms.
+
+The time slice algorithm allocates a fixed-lengthtime slice of bus time that
+is offered sequentially to each processor, in round-robin fashion. The service
+given to each system component with this scheme is independent of its loca-
+tion along the bus. No preference is given to any particular device since each
+is allotted the same amount of time to communicate with the bus.
+
+Inabus system that uses polling, the bus grant signal is replaced by a set
+of lines called poll lines which are connected to all units. These lines are used
+by the bus controller to define an address for each device connected to the bus.
+The bus controller sequences through the addresses in a prescribed manner.
+When a processor that requires access recognizes its address, it activates the
+bus busy line and then accesses the bus. After a number of bus cycles, the
+polling process continues by choosing a different processor. The polling se-
+quence is normally programmable, and as a result, the selection priority can
+be altered under program control.
+
+The least recently used (LRU) algorithm gives the highest priority to the
+requesting device that has not used the bus for the longest interval. The
+priorities are adjusted after a number of bus cycles according to the LRU
+algorithm. With this procedure, no processor is favored over any other since
+the priorities are dynamically changed to give every device an opportunity to
+access the bus.
+
+In the first-come, first-serve scheme, requests are served in the order
+received. To implement this algorithm, the bus controller establishes a queue
+arranged according to the time that the bus requests arrive Each processor
+must wait for its turn to use the bus on a first-in, first-out (FIFO) basis.
+
+The rotating daisy-chain procedure is a dynamic extension of the daisy-
+chain algorithm. In this scheme there is no central bus controller, and the
+priority line is connected from the priority-out of the last device back to the
+priority-in of the first device in a closed loop. This is similar to the connections
+shown in Fig. 13-10 except that the PO output of arbiter 4 is connected to the
+Pl input of arbiter 1. Whichever device has access to the bus serves as a bus
+controller for the following arbitration. Each arbiter priority for a given bus
+cycle is determined by its position along the bus priority line from the arbiter
+

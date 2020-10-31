@@ -1,0 +1,87 @@
+Chapter 11. Planning
+
+ 
+
+ACTION
+DESCRIPTION.
+PRECONDITION
+
+EFFECT
+
+OPERATOR SCHEMA,
+
+APPLICABLE
+
+Representations for actions
+Our STRIPS operators consist of three components:
+
+* The action description is what an agent actually returns to the environment in order to do
+something. Within the planner it serves only as a name for a possible action.
+
+* The precondition is a conjunction of atoms (positive literals) that says what must be true
+before the operator can be applied.
+
+* The effect of an operator is a conjunction of literals (positive or negative) that describes
+how the situation changes when the operator is applied.>
+
+Here is an example of the syntax we will use for forming a STRIPS operator for going from one
+place to another:
+
+Op(ACTION:Go(there), PRECOND:At(here)A Path(here, there),
+EFFECT: At(there) A 7At(here))
+
+(We will also use a graphical notation to describe operators, as shown in Figure 11.3.) Notice
+that there are no explicit situation variables. Everything in the precondition implicitly refers to
+the situation immediately before the action, and everything in the effect implicitly refers to the
+situation that is the result of the action.
+
+ 
+
+At(here), Path(here, there)
+
+ 
+
+Go(there)
+
+ 
+
+ 
+
+ 
+
+At(there), —At(here)
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11.3 Diagrammatic notation for the operator Go(there). The preconditions appear
+above the action, and the effects below.
+
+ 
+
+ 
+
+ 
+
+An operator with variables is known as an operator schema, because it does not correspond
+toa single executable action but rather to a family of actions, one foreach different instantiation of
+the variables. Usually, only fully instantiated operators can be executed; our planning algorithms
+will ensure that each variable has a value by the time the planner is done. As with state
+descriptions, the language ofpreconditions and effects is quite restricted. The precondition must
+be a conjunction of positive literals, and the effect must be a conjunction of positive and/or
+negative literals. All variables are assumed universally quantified, and there can be no additional
+quantifiers. In Chapter 12, we will relax these restrictions.
+
+We say that an operator ¢ is applicable in a state s if there is some way to instantiate the
+variables in o so that every one of the preconditions of o is true in s, that is, if Precond(o) C s.
+In the resulting state, all the positive literals in Effect(ohold, as do all the literals that held in s,
+
+3. The original version of STRIPS divided the effects into an add list and a delete list.
+
+ 
+

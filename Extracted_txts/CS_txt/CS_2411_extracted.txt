@@ -1,0 +1,168 @@
+2.3 Designing algorithms
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+8 9 10 tt 12:13 14 15 16 17
+A 1]2]2]3
+k
+J o2 03 4 5 12 3) 4
+LEE] * GBIBT:
+i Jd
+©
+8 9 10 11 12 13 14 15 16 17
+A ..J1]2]2]3]4]5
+k
+Jd 3) 4 5 12 3g
+i d
+(g)
+8 9 10 11 12 13 14 15 16 17
+
+ 
+
+ 
+
+A ..J1]2]2]3]4]5]6]7)...
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+@
+
+ 
+
+33
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+8 9 10 It 12 13 14 15 16 17
+
+A ..[1]2]2]3 [4 UBIGT..--
+1203 4) 5 1203 4 5
+‘EET T) «GBBT
+i Jj
+
+(@
+
+8 9 10 It 12 13 14 15 16 17
+
+4 .J1]2]2]3[4]5[¢ [ey
+
+k
+1203) 45S 203 4° 5
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 2.3, continued (i) The arrays and indices at termination. At this point, the subarray in
+A[9 .. 16] is sorted, and the two sentinels in L and R are the only two elements in these arrays that
+
+have not been copied into A.
+
+Maintenance: To see that each iteration maintains the loop invariant, let us first
+suppose that L[i] < R[j]. Then L[i] is the smallest element not yet copied
+back into A. Because A[p..k — 1] contains the k — p smallest elements, after
+line 14 copies L[i] into A[k], the subarray A[p ..k] will contain the k — p +1
+smallest elements. Incrementing k (in the for loop update) and i (in line 15)
+reestablishes the loop invariant for the next iteration. If instead L[i] > R[j],
+then lines 16-17 perform the appropriate action to maintain the loop invariant.
+
+Termination: At termination, k = r + 1. By the loop invariant, the subarray
+A[p..k — 1], which is A[p..r], contains the k — p = r — p + 1 smallest
+elements of L[1..m; + 1] and R[1..2 + 1], in sorted order. The arrays L
+and R together contain n; + nz + 2 = r — p +3 elements. All but the two
+largest have been copied back into A, and these two largest elements are the
+
+sentinels.
+

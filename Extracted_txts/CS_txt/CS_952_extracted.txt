@@ -1,0 +1,43 @@
+Chapter 8: Arrays 275
+
+ 
+
+More on Arrays
+
+Array is a very popular data type with C programmers. This is
+because of the convenience with which arrays lend themselves to
+programming. The features which make arrays so convenient to
+program would be discussed below, along with the possible pitfalls
+in using them.
+
+Array Initialisation
+
+So far we have used arrays that did not have any values in them to
+begin with. We managed to store values in them during program
+execution. Let us now see how to initialize an array while
+declaring it. Following are a few examples that demonstrate this.
+
+int num[6] = { 2, 4, 12, 5, 45, 5};
+
+int n[] ={2, 4, 12, 5, 45, 5};
+
+float press[] = { 12.3, 34.2 -23.4, -11.3};
+Note the following points carefully:
+
+(a) Till the array elements are not given any specific values, they
+are supposed to contain garbage values.
+
+(b) Ifthe array is initialised where it is declared, mentioning the
+dimension of the array is optional as in the 2" example above.
+
+Array Elements in Memory
+
+Consider the following array declaration:
+
+int arr[8] ;
+
+What happens in memory when we make this declaration? 16
+
+bytes get immediately reserved in memory, 2 bytes each for the 8
+integers (under Windows/Linux the array would occupy 32 bytes
+

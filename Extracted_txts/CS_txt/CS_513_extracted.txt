@@ -1,0 +1,48 @@
+ 
+
+AGENTS THAT REASON
+
+LOGICALLY
+
+ 
+
+ 
+
+ 
+
+In which we design agents that can form representations ofthe world, use a process
+of inference to derive new representations about the world, and use these new
+representations to deduce what to do.
+
+In this chapter, we introduce the basic design for a knowledge-based agent. As we discussed
+in Part I (see, for example, the statement by Craik on page 13), the knowledge-based approach
+is a particularly powerful way of constructing an agent program. It aims to implement a view
+
+“of agents in which they can be seen as knowing about their world, and reasoning about their
+possible courses of action. Knowledge-based agents are able to accept new tasks in the form of
+explicitly described goals; they can achieve competence quickly by being told or learning new
+knowledge about the environment; and they can adapt to changes in the environment by updating
+the relevant knowledge. A knowledge-based agent needs to know many things: the current state
+of the world; how to infer unseen properties of the world from percepts; how the world evolves
+over time; what it wants to achieve; and what its own actions do in various circumstances.
+
+We begin in Section 6.1 with the overall agent design. Section 6.2 introduces a simple new
+environment, the wumpus world, where a knowledge-based agent can easily attain a competence
+that would be extremely difficult to obtain by other means. Section 6.3 discusses the basic
+elements of the agent design: a formal language in which knowledge can be expressed, and a
+means of carrying out reasoning in such a language. These two elements constitute what we
+
+Locic call a logic. Section 6.4 gives an example of how these basic elements work in a logic called
+propositional logic, and Section 6.5 illustrates the use of propositional logic to build a logical
+agent for the wumpus world.
+
+6.1 A KNOWLEDGE-BASED AGENT
+
+KNOWLEDGEBASE © The central component of a knowledge-based agent is its knowledge base, or KB. Informally, a
+knowledge base is a set ofrepresentations of facts about the world. Each individual representation
+SENTENCE ~ is called a sentence. (Here "sentence" is used as a technical term. It is related to the sentences
+
+ 
+
+151
+

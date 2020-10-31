@@ -1,0 +1,44 @@
+558 Let UsC
+
+ 
+
+Hungarian Notation
+
+Hungarian Notation is a variable-naming convention so called in
+the honor of the legendary Microsoft programmer Charles
+Simonyi. According to this convention the variable name begins
+with a lower case letter or letters that denotes the data type of the
+variable. For example, the sz prefix in szCmdLine stands for
+‘string terminated by zero’; the prefix h in hInstance stands for
+‘handle’; the prefix n in nCmdShow stands for int. Prefixes are
+often combined to form other prefixes, as Ipsz in IpszCmdLine
+stands for ‘long pointer to a zero terminated string’. Though
+basically this notation is a good idea nowadays its usage is
+discouraged. This is because when a transition happens from say a
+16-bit code to 32-bit code then a whole lot of variable names have
+to be changed. For example, suppose the 16-bit code used 2-byte
+and 4-byte integer variables called wParam and lParam, where w
+indicated a 16-bit integer (word) and a 32-bit integer (long)
+respectively. When this code is ported to a 32-bit environment
+wParam had to be changed to [Param since in this environment
+every integer is 4 bytes long. You would agree that if we follow
+the Hungarian notation then we would have to make a whole lot of
+changes in the variable names when we port the code to a 32-bit or
+a 64-bit environment. Hence the usage of this convention is
+nowadays discouraged.
+
+Summary
+
+(a) Under Windows an integer is four bytes long. To use a two-
+byte integer pre-qualify it with short.
+
+(b) Under Windows a pointer is four bytes long.
+
+(c) Windows programming involves a heavy usage of typedefs.
+
+(d) DOS uses a Sequential Programming Model, whereas,
+Windows uses an Event Driven Programming Model.
+
+(e) Entry point of every Windows program is a function called
+WinMain( ).
+

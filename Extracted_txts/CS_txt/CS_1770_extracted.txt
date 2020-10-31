@@ -1,0 +1,51 @@
+252 Chapter 8 Deadlocks
+
+While it is waiting, some of its resources may be preempted, but only if another
+process requests them. A process can be restarted only when it is allocated the
+new resources it is requesting and recovers any resources that were preempted
+while it was waiting.
+
+This protocol is often applied to resources whose state can be easily saved
+and restored later, such as CPU registers and memory space. It cannot generally
+be applied to such resources as printers and tape drives.
+
+8.4.4 Circular Wait
+
+The fourth and final condition for deadlocks is the circular-wait condition. One
+way to ensure that this condition never holds is to impose a total ordering of
+all resource types, and to require that each process requests resources in an
+increasing order of enumeration.
+
+Let R = {Ri, Ro, ..., Rm} be the set of resource types. We assign to each
+resource type a unique integer number, which allows us to compare two
+resources and to determine whether one precedes another in our ordering. For-
+mally, we define a one-to-one function F: R — N, where N is the set of natural
+numbers. For example, if the set of resource types R includes tape drives, disk
+drives, and printers, then the function F might be defined as follows:
+
+F(tape drive) = 1,
+F(disk drive) = 5,
+F(printer) = 12.
+
+We can now consider the following protocol to prevent deadlocks: Each
+process can request resources only in an increasing order of enumeration. That
+is, a process can initially request any number of instances of a resource type,
+say R;. After that, the process can request instances of resource type R; if and
+only if F(R) > F(Ri). If several instances of the same resource type are needed,
+a single request for all of them must be issued. For example, using the function
+defined previously, a process that wants to use the tape drive and printer at the
+same time must first request the tape drive and then request the printer.
+
+Alternatively, we can require that, whenever a process requests an instance
+of resource type Rj, it has released any resources R; such that F(R;) > F(R)).
+
+If these two protocols are used, then the circular-wait condition cannot
+hold. We can demonstrate this fact by assuming that a circular wait exists (proof
+by contradiction). Let the set of processes involved in the circular wait be {Po,
+Pi, ..., Pn}, where P; is waiting for a resource Rj, which is held by process Pis1.
+(Modulo arithmetic is used on the indexes, so that P,, is waiting for a resource
+Ry held by Po.) Then, since process Pj,1 is holding resource Rj while requesting
+resource R;,1, we must have F(R;) < F(Ris1), for all i. But this condition means
+that F(Ro) < F(R:) < ... < F(R») < F(Ro). By transitivity, F(Ro) < F(Ro), which is
+impossible. Therefore, there can be no circular wait.
+

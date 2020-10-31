@@ -1,0 +1,41 @@
+Chapter 19: Interaction With Hardware 631
+
+ 
+
+Once the contents of the boot sector have been read into the
+structure variable b we have displayed the first few of them on the
+screen using printf( ). If you wish you can print the rest of the
+contents as well.
+
+The ReadSector() Function
+
+With the preliminaries over let us now concentrate on the real stuff
+in this program, i.e. the ReadSector( ) function. This function
+begins by making a call to the CreateFile( ) API function as
+shown below:
+
+h=CreateFile (src, GENERIC_READ,
+FILE_SHARE_READ, 0, OPEN_EXISTING, 0, 0) ;
+
+The CreateFile( ) API function is very versatile. Anytime we are
+to communicate with a device we have to firstly call this API
+function. The CreateFile( ) function opens the specified device as
+a file. Windows treats all devices just like files on disk. Reading
+from this file means reading from the device.
+
+The CreateFile( ) API function takes several parameters. The first
+parameter is the string specifying the device to be opened. The
+second parameter is a set of flags that are used to specify the
+desired access to the file (representing the device) about to be
+opened. By specifying the GENERIC_READ flag we have
+indicated that we just wish to read from the file (device). The third
+parameter specifies the sharing access for the file (device). Since
+floppy drive is a shared resource across all the running
+applications we have specified the FILE_LSHARE_READ flag. In
+general while interacting with any hardware the sharing flag for
+the file (device) must always be set to this value since every piece
+of hardware is shared amongst all the running applications. The
+fourth parameter indicates security access for the file (device).
+Since we are not concemed with security here we have specified
+the value as 0. The fifth parameter specifies what action to take if
+

@@ -1,0 +1,64 @@
+Section 17.2
+
+Value Iteration 503
+
+ 
+
+REWARD FUNCTION
+
+DYNAMIC.
+PROGRAMMING
+
+where R is called a reward function.' Consider again the utility function defined for Figure 17.1:
+an environment history of length n terminating in a state of value v has a utility of v - (1/25)n.
+This utility function is separable and additive, and the reward function R is -1/25 for nonterminal
+states, +1 for state (4,3) and -1 for state (4,2). As we discuss in what follows, utility functions
+over histories are almost always additive in practice. Notice that additivity was implicit in our
+use of path cost functions in heuristic search algorithms (Chapter 4).
+
+Given an additive utility function U,, we can recover the standard Maximum Expected
+Utility principle that an optimal action is one with maximal expected utility of outcome states:
+
+policy* (i) = arg max ys M;UG) (17.2)
+i
+where My is the probability of reaching state if action a is taken in state i, and arg max, f(a)
+returns the value of a with the highest value for f(a). Similarly, the utility of a state can be
+expressed in terms of the utility ofits successors:
+
+U@= RU) + max Siu) (17.3)
+j
+
+Equation (17.3) is the basis for dynamic programming, an approach to solving sequential
+decision problems developed in the late 1950s by Richard Bellman (1957).
+
+The simplest dynamic programming context involves an n-step decision problem, where
+the states reached after n steps are considered terminal states and have known utilities. If there
+are \d\ possible actions at each step, then the total complexity of a naive approach—exhaustive
+enumeration—would be O({A|"). The dynamic programming approach starts by calculating the
+utilities of all states at step  — 1 in terms of the utilities ofthe terminal states. One then calculate
+the utilities of states at step n - 2, and so on. Because calculating the utility of one state,
+using Equation (17.3), costs O(|A|), the total cost of solving the decision problem is no more
+than O(njA|S|), where |S| is the number of possible states. In small state spaces, this can be a
+huge saving.? Dynamic programming has since become a field of its own, with a huge array of
+applications and a large library of techniques for different types of separable utility functions.
+
+In most of the decision problems that AI is interested in (including the world ofFigure 17.1),
+the environment histories are potentially of unbounded length because of loops. This means that
+there is no n for which to start the n-step dynamic programming algorithm. Fortunately, there
+is a simple algorithm for approximating the utilities of states to any degree of accuracy using an
+iterative procedure. We apply Equation (17.3) repeatedly, on each step updating the utility of
+each state based on the old utility estimates ofthe neighboring states:
+
+Uni) — R@)* max) 7 MIU) (17.4)
+7
+
+where U,(i) is the utility estimate for state i after ¢ iterations. As tf — oo, the utility values will
+converge to stable values given certain conditions on the environment. The algorithm, called
+VALUE-ITERATION, is shownin Figure 17.4.
+
+1 Thus, the utility function is additive, in the sense defined in Chapter 16, given attributes corresponding to the rewards
+received in each state in the sequence. There are some problems in applying this equation to infinite histories, which will
+be discussed later
+
+2 The saving is of the same sort as that achieved by checking repeated states during search (Section 3.6)
+

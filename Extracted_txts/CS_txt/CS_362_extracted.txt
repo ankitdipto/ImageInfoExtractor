@@ -1,0 +1,48 @@
+934
+
+Chapter 31 Number-Theoretic Algorithms
+
+In principle, we can compute gcd(a,b) for positive integers a and b from the
+prime factorizations of a and b. Indeed, if
+
+a = PPE Pe GLA)
+b = pi'pf-- ph. (31.12)
+with zero exponents being used to make the set of primes p1, P2..... Py the same
+for both a and b, then, as Exercise 31.2-1 asks you to show,
+
+ged(a,b) = prnerT) pprnF)... pminler. fe), (1.13)
+
+As we shall show in Section 31.9, however, the best algorithms to date for factoring
+do not run in polynomial time. Thus, this approach to computing greatest common
+divisors seems unlikely to yield an efficient algorithm.
+
+Euclid’s algorithm for computing greatest common divisors relies on the follow-
+ing theorem.
+
+Theorem 31.9 (GCD recursion theorem)
+For any nonnegative integer a and any positive integer b,
+
+ged(a,b) = ged(b,a mod b) .
+
+Proof We shall show that gced(a,b) and gced(b,a mod b) divide each other, so
+that by equation (31.5) they must be equal (since they are both nonnegative).
+
+We first show that ged(a,b) | gcd(b,a mod b). If we let d = ged(a,b), then
+d | aandd | b. By equation (3.8), a mod b = a — qb, where q = [a/b].
+Since a mod b is thus a linear combination of a and b, equation (31.4) implies that
+d | (a mod b). Therefore, since d | b and d | (a mod b), Corollary 31.3 implies
+that d | ged(b,a mod b) or, equivalently, that
+
+ged(a,b) | ged(b,a mod b). (31.14)
+
+Showing that gcd(b,a mod b) | gcd(a,b) is almost the same. If we now let
+d = gcd(b,a mod b), then d | b and d | (a mod b). Since a = gb + (a mod b),
+where q = [a/b], we have that a is a linear combination of b and (a mod b). By
+equation (31.4), we conclude that d | a. Since d | b andd | a, we have that
+d | ged(a, b) by Corollary 31.3 or, equivalently, that
+
+ged(b,a mod b) | ged(a, b). (31.15)
+
+Using equation (31.5) to combine equations (31.14) and (31.15) completes the
+proof. .
+

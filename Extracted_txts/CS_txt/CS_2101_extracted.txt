@@ -1,0 +1,50 @@
+294 Chapter 9. Inference in First-Order Logic
+
+Textbooks geared toward automated deduction include (in addition to those mentioned in
+Chapter 7) the classic Symbolic Logic and Mechanical Theorem Proving (Chang and Lee, 1973)
+and, more recently, Automated Reasoning: Introduction and Applications (Wos et al., 1992).
+The two-volume anthology Automation of Reasoning (Siekmann and Wrightson, 1983) includes
+many important papers on automated deduction from 1957 to 1970. The historical summaries
+prefacing each volume provide a concise yet thorough overview of the history of the field. Further
+important historical information is available from Loveland's "Automated Theorem Proving: A
+Quarter-Century Review" (1984) and from the bibliography of (Wos et al., 1992).
+
+The principal journal for the field of theorem proving is the Journal of Automated Reason-
+ing; important results are also frequently reported in the proceedings of the annual Conferences
+on Automated Deduction (CADE). Research in theorem proving is also strongly related to the use
+of logic in analyzing programs and programming languages, for which the principal conference
+is Logic in Computer Science.
+
+ 
+
+EXERCISES
+
+9.1 For each of the following pairs ofatomic sentences, give the most general unifier, ifit exists.
+a. P(A, B,B), Pix.y.2).
+b. Oly. G(A, B)), O(G(x,x),y).
+c. Older(Father(y), y), Older(Father(x), John).
+d. Knows(Father(y), y).Knows(x, x).
+
+9.2. One might suppose that we can avoid the problem of variable conflict in unification by
+standardizing apart all of the sentences in the knowledge base once and for all. Show that for
+some sentences, this approach cannot work. (Hint: Consider a sentence, one part of which unifies
+with another.)
+
+9.3 Show that the final state of the knowledge base after a series of calls to FORWARD-CHAIN is
+independent of the order of the calls. Does the number of inference steps required depend on the
+order in which sentences are added? Suggest a useful heuristic for choosing an order.
+
+9.4 Write down logical representations for the following sentences, suitable for use with Gen-
+eralized Modus Ponens:
+
+a. Horses, cows, and pigs are mammals.
+
+b. An offspring ofa horse is a horse
+
+c. Bluebeard is a horse.
+
+d. Bluebeard is Charlie's parent.
+
+e. Offspring and parent are inverse relations.
+f. Every mammal has a parent
+

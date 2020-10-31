@@ -1,0 +1,50 @@
+564
+
+Chapter 21 Data Structures for Disjoint Sets
+
+nected component. Figure 21.1(b) illustrates how CONNECTED-COMPONENTS
+computes the disjoint sets.
+
+In an actual implementation of this connected-components algorithm, the repre-
+sentations of the graph and the disjoint-set data structure would need to reference
+each other. That is, an object representing a vertex would contain a pointer to
+the corresponding disjoint-set object, and vice versa. These programming details
+depend on the implementation language, and we do not address them further here.
+
+Exercises
+
+211-1
+
+Suppose that CONNECTED-COMPONENTS is run on the undirected graph G =
+(V,E), where V = {a,b,c,d,e, f.g.h.i, j,k} and the edges of E are pro-
+cessed in the order (d,i), (fk). (g.i), (b, g), (a.h), Gj). (dk), (b,j). (df),
+(g. j). (a, e). List the vertices in each connected component after each iteration of
+lines 3-5.
+
+21.1-2
+Show that after all edges are processed by CONNECTED-COMPONENTS, two ver-
+tices are in the same connected component if and only if they are in the same set.
+
+21.1-3
+
+During the execution of CONNECTED-COMPONENTS on an undirected graph G =
+(V, E) with k connected components, how many times is FIND-SET called? How
+many times is UNION called? Express your answers in terms of |V|, |E|, and k.
+
+ 
+
+21.2 Linked-list representation of disjoint sets
+
+Figure 21.2(a) shows a simple way to implement a disjoint-set data structure: each
+set is represented by its own linked list. The object for each set has attributes head,
+pointing to the first object in the list, and sail, pointing to the last object. Each
+object in the list contains a set member, a pointer to the next object in the list, and
+a pointer back to the set object. Within each linked list, the objects may appear in
+any order. The representative is the set member in the first object in the list.
+
+With this linked-list representation, both MAKE-SET and FIND-SET are easy,
+requiring O(1) time. To carry out MAKE-SET(x), we create a new linked list
+whose only object is x. For FIND-SET(x), we just follow the pointer from x back
+to its set object and then return the member in the object that head points to. For
+example, in Figure 21.2(a), the call FIND-SET(g) would return f.
+

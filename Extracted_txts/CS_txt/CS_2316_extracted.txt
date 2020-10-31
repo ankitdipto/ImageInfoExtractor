@@ -1,0 +1,57 @@
+hit ratio
+
+mapping
+
+SECTION 125 Cache Memory 463,
+
+age memory access time will approach the accesstime of the cache. Although
+the cache is only a small fraction of the size of main memory, a large fraction
+of memory requests will be found in the fast cache memory because of the
+locality of reference property of programs.
+
+The basic operation of the cache is as follows. When the CPU needs to
+access memory, the cache is examined. If the word is found in the cache, itis
+read from the fast memory. If the word addressed by the CPU is not found in
+the cache, the main memory is accessed to read the word. A block of words
+containing the one just accessed is then transferred from main memory to
+cache memory. The block size may vary from one word (the one just accessed)
+toabout 16 words adjacent to the one just accessed. In this manner, some data
+are transferred to cache so that future references to memory find the required
+words in the fast cache memory.
+
+The performance of cache memory is frequently measured in terms of a
+quantity called hit ratio. When the CPU refers to memory and finds the word
+in cache, it is said to produce a hit. If the word is not found in cache, it
+main memory and it counts as a miss. The ratio of the number of hits divided
+by the total CPU references to memory (hits plus misses) is the hit ratio. The
+hit ratio is best measured experimentally by running representative programs
+in the computer and measuring the number of hits and misses during a given
+interval of time. Hit ratios of 0.9 and higher have been reported. This high ratio
+verifies the validity of the locality of reference property.
+
+The average memory access time of a computer system can be improved
+considerably by use of a cache. If the hit ratio is high enough so that most of
+the time the CPU accesses the cache instead of main memory, the average
+access time is closer to the access time of the fast cache memory. For example,
+‘a computer with cache access time of 100 ns, a main memory access time of
+1000 ns, and a hit ratio of 09 produces an average access time of 200 ns. This
+isa considerable improvement over a similar computer without a cache mem-
+‘ory, whose access time is 1000 ns.
+
+Thebasic characteristic of cache memory is its fast access time. Therefore,
+very little or no time must be wasted when searching for words in the cache.
+‘The transformation of data frommain memory to cache memory isreferred to
+as a mapping process. Three types of mapping procedures are of practical
+interest when considering the organization of cache memory:
+
+ 
+
+1. Associative mapping
+2. Direct mapping
+3. Set-associative mapping
+
+To help in the discussion of these three mapping procedures we will use a
+specific example of a memory organization as shown in Fig. 12-10. The main
+memory can store 32K words of 12 bits each. The cache is capable of storing
+512 of these words at any given time. For every word stored in cache, there is
+

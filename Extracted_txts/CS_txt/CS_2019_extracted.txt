@@ -1,0 +1,51 @@
+460  Chapter13_ I/O Systems
+
+6. The controller clears the command-ready bit, clears the error bit in the status
+register to indicate that the device I/O succeeded, and clears the busy bit to
+indicate that it is finished.
+
+This loop is repeated for each byte.
+
+In step 1, the host is busy-waiting or polling; It is in a loop, reading the
+status register over and over until the busy bit becomes clear. If the controller
+and device are fast, this method is a reasonable one. But if the wait may be long,
+the host should probably switch to another task. How then does the host know
+when the controller has become idle? For some devices, the host must service
+the device quickly, or data will be lost. For instance, when data are streaming
+in ona serial port or from a keyboard, the small buffer on the controller will
+overflow and data will be lost if the host waits too long before returning to read
+the bytes.
+
+In many computer architectures, three CPU-instruction cycles are sufficient
+to poll a device: read a device register, logical—and to extract a status bit, and
+branch if not zero. Clearly, the basic polling operation is efficient. But polling
+becomes inefficient when it is attempted repeatedly, yet rarely finds a device
+to be ready for service, while other useful CPU processing remains undone. In
+such instances, it may be more efficient to arrange for the hardware controller to
+notify the CPU when the device becomes ready for service, rather than to require
+the CPU to poll repeatedly for an I/O completion. The hardware mechanism
+that enables a device to notify the CPU is called an interrupt.
+
+13.2.2 Interrupts
+
+The basic interrupt mechanism works as follows. The CPU hardware has a
+wire called the interrupt-request line that the CPU senses after executing every
+instruction. When the CPU detects that a controller has asserted a signal on the
+interrupt request line, the CPU saves a small amount of state, such as the current
+value of the instruction pointer, and jumps to the interrupt-handler routine
+at a fixed address in memory. The interrupt handler determines the cause of
+the interrupt, performs the necessary processing, and executes a return from
+interrupt instruction to return the CPU to the execution state prior to the
+interrupt. We say that the device controller raises an interrupt by asserting a
+signal on the interrupt request line, the CPU catches the interrupt and dispatches
+to the interrupt handler, and the handler clears the interrupt by servicing the
+device. Figure 13.3 summarizes the interrupt-driven I/O cycle.
+
+This basic interrupt mechanism enables the CPU to respond to an asyn-
+chronous event, such as a device controller becoming ready for service. In
+a modern operating system, we need more sophisticated interrupt-handling
+features. First, we need the ability to defer interrupt handling during critical
+processing. Second, we need an efficient way to dispatch to the proper interrupt
+handler for a device, without first polling all the devices to see which one raised
+the interrupt. Third, we need multilevel interrupts, so that the operating system
+

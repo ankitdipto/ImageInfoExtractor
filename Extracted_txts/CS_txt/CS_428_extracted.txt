@@ -1,0 +1,65 @@
+SECTION 5-7 Input-Output and Interrupt, = 155.
+
+register, a memory stack, or a specific memory location. Here we choose the
+memory location at address 0 as the place for storing the return address.
+Control then inserts address 1 into PC and clears JEN and R so that no more
+interruptions can occur until the interrupt request from the flag has been
+serviced.
+
+‘An example that shows what happens during the interrupt cycleis shown
+in Fig. 5-14. Suppose that an interrupt occurs and R is set to 1 while the control
+is executing the instruction at address 255. At this time, the return address 256
+is in PC. The programmer has previously placed an input-output service
+program in memory starting from address 1120 and a BUN 1120 instruction at
+address 1. This is shown in Fig. 5-14(a).
+
+‘When control reaches timing signal T, and finds that R = 1, it proceeds
+with the interrupt cycle. The content of PC (256) is stored in memory location
+0, PCiis set to 1, and R is cleared to 0. At the beginning of the next instruction
+cycle, the instruction that is read from memory is in address 1 since this is the
+content of PC. The branch instruction at address 1 causes the program to
+transfer to the input-output service program at address 1120. This program
+checks the flags, determines which flagis set, and then transfersthe required input
+or output information. Once this is done, the instruction ION is executed to set
+JEN to 1 (to enable further interrupts), and the program returns to the location
+where it was interrupted. This is shown in Fig. 5-14(b).
+
+The instruction that returns the computer to the original place in the main
+programis abranch indirect instruction with an address part of 0. Thisinstruc-
+tion is placed at the end of the VO service program. After this instruction is
+
+Figure 5-14 Demonstration of the interrupt eyele.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Menory Menory
+° of 2
+1 [o_auN ro=i[opun 120
+ass 2s
+PC=256 Mite 256 Lane
+regan progam
+ino hi
+vo vo
+rowan rowan
+TaN 7 ao]
+
+ 
+
+ 
+
+ 
+
+ 
+
+(@) Before interrupt (b) After imerrupt eyele
+

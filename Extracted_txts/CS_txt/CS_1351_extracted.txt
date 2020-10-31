@@ -1,0 +1,57 @@
+610 Let UsC
+
+ 
+
+x=0;
+
+dx = 10;
+
+PlaySound (“chord.wav", NULL, SND_FILENAME | SND_ASYNC ) ;
+}
+else if (x > (rright - wd ) )
+{
+X =rright - wd ;
+
+dx = -10;
+
+PlaySound (“chord.wav", NULL, SND_FILENAME | SND_ASYNC ) ;
+}
+
+yt
+if(y<
+{
+
+os
+
+)
+
+y=0;
+
+dy = 10;
+
+PlaySound (“chord.wav", NULL, SND_FILENAME | SND_ASYNC ) ;
+}
+else if (y > (bottom - ht) )
+{
+y = r-bottom - ht;
+
+dy =-10;
+
+PlaySound ( “chord.wav", NULL, SND_FILENAME | SND_ASYNC );
+}
+
+BitBlt (hdc, x, y, wd, ht, hmemdc, 0, 0, SRCCOPY ) ;
+ReleaseDC (hWnd, hdc) ;
+
+ 
+
+}
+
+From the WndProc( ) function you can observe that we have
+handled two new messages here—WM_CREATE and
+WM_TIMER. For these messages we have called the handlers
+OnCreate( ) and OnTimer() respectively. Let us now understand
+these handlers one by one
+
+WM_CREATE and OnCreate()
+

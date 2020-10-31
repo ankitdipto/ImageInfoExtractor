@@ -1,0 +1,43 @@
+Chapter 7: The C Preprocessor 249
+
+ 
+
+In this program wherever the preprocessor finds the phrase
+AREA(x) it expands it into the statement ( 3.14 * x * x ).
+However, that’s not all that it does. The x in the macro template
+AREA(x) is an argument that matches the x in the macro
+expansion ( 3.14 * x * x ). The statement AREA(r1) in the
+program causes the variable r1 to be substituted for x. Thus the
+statement AREA(r1) is equivalent to:
+
+(3.14 *11*11)
+
+After the above source code has passed through the preprocessor,
+what the compiler gets to work on will be this:
+
+main()
+{
+float r1 = 6.25, 12 = 2.5,a;
+
+a=3.14° 11;
+printf ("Area of circle = fin", a) ;
+a= 3.14 "12 "12;
+printf ( "Area of circle = %f", a) ;
+}
+
+Here is another example of macros with arguments:
+
+#define ISDIGIT(y) (y >= 48 && y <= 57)
+main()
+{
+
+char ch;
+
+printf ( “Enter any digit") ;
+scanf ("%c", &ch ) ;
+
+if (ISDIGIT (ch) )
+printf ( "\nYou entered a digit" ) ;
+else
+printf ( “\nlllegal input” ) ;
+

@@ -1,0 +1,47 @@
+702
+
+Chapter 25 All-Pairs Shortest Paths
+
+Therefore, any path p from vo to vg has W(p) = w(p) + h(vo) — h(vg). Be-
+cause (vp) and h(vg) do not depend on the path, if one path from vo to vg is
+shorter than another using weight function w, then it is also shorter using ©. Thus,
+w(p) = 8(vo, vg) if and only if O(p) = (vo. Vy).
+
+Finally, we show that G has a negative-weight cycle using weight function w if
+and only if G has a negative-weight cycle using weight function #. Consider any
+
+cycle ¢ = (V9. Vy....5 Ve), Where V9 = vz. By equation (25.10),
+Wc) = wc) +h(vo) — A(z)
+= wc),
+
+and thus ¢ has negative weight using w if and only if it has negative weight us-
+ing 0. /
+
+Producing nonnegative weights by reweighting
+
+Our next goal is to ensure that the second property holds: we want W(u,v) to be
+nonnegative for all edges (u,v) € E. Given a weighted, directed graph G =
+(V, E) with weight function w : E — R, we make a new graph G! = (V’, E’),
+where V’ = V U {s} for some new vertex s ¢ V and E’ = E U{(s,v): ve V}.
+We extend the weight function w so that w(s,v) = 0 for all v € V. Note that
+because s has no edges that enter it, no shortest paths in G’, other than those with
+source 5, contain s. Moreover, G’ has no negative-weight cycles if and only if G
+has no negative-weight cycles. Figure 25.6(a) shows the graph G’ corresponding
+to the graph G of Figure 25.1.
+
+Now suppose that G and G’ have no negative-weight cycles. Let us define
+h(v) = 4(s,v) for all v € V’. By the triangle inequality (Lemma 24.10),
+we have h(v) < h(u) + w(u,v) for all edges (u,v) € E’. Thus, if we de-
+fine the new weights W by reweighting according to equation (25.9), we have
+W(u,v) = wu, v) + h(w) —h(v) = 0, and we have satisfied the second property.
+Figure 25.6(b) shows the graph G’ from Figure 25.6(a) with reweighted edges.
+
+Computing all-pairs shortest paths
+
+Johnson’s algorithm to compute all-pairs shortest paths uses the Bellman-Ford al-
+gorithm (Section 24.1) and Dijkstra’s algorithm (Section 24.3) as subroutines. It
+assumes implicitly that the edges are stored in adjacency lists. The algorithm re-
+turns the usual |V| x |V| matrix D = dj, where dj; = 6(i, j), or it reports that
+the input graph contains a negative-weight cycle. As is typical for an all-pairs
+shortest-paths algorithm, we assume that the vertices are numbered from | to |V|.
+

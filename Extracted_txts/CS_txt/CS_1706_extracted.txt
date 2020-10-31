@@ -1,0 +1,63 @@
+198  Chapter7 Process Synchronization
+
+boolean TestAndSet (boolean &target) {
+boolean rv = target;
+target = true;
+return rv;
+
+}
+
+Figure 7.6 The definition of the Test AndSet instruction.
+
+The critical-section problem could be solved simply in a uniprocessor envi-
+ronment if we could forbid interrupts to occur while a shared variable is being
+modified. In this manner, we could be sure that the current sequence of instruc-
+tions would be allowed to execute in order without preemption. No other
+instructions would be run, so no unexpected modifications could be made to
+the shared variable.
+
+Unfortunately, this solution is not feasible in a multiprocessor environment.
+Disabling interrupts on a multiprocessor can be time-consuming, as the mes-
+sage is passed to all the processors. This message passing delays entry into
+each critical section, and system efficiency decreases. Also, consider the effect
+ona system’s clock, if the clock is kept updated by interrupts.
+
+Many machines therefore provide special hardware instructions that allow
+us either to test and modify the content of a word, or to swap the contents
+of two words, atomically—that is, as one uninterruptible unit. We can use
+these special instructions to solve the critical-section problem in a relatively
+simple manner. Rather than discussing one specific instruction for one specific
+machine, let us abstract the main concepts behind these types of instructions.
+
+The TestAndSet instruction can be defined as shown in Figure 7.6. The
+important characteristic is that this instruction is executed atomically. Thus, if
+two Test AndSet instructions are executed simultaneously (each on a different
+CPU), they will be executed sequentially in some arbitrary order.
+
+do {
+
+ 
+
+while (TestAndSet (lock) );
+
+ 
+
+ 
+
+critical section
+
+ 
+
+lock = false;
+
+ 
+
+ 
+
+ 
+
+remainder section
+} while (1);
+
+Figure 7.7. Mutual-exclusion implementation with TestAndSet.
+

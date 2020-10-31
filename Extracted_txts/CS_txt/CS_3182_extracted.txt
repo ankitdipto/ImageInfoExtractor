@@ -1,0 +1,65 @@
+546
+
+FALSE POSITIVE
+
+CURRENT-BEST.
+
+HYPOTHESIS
+
+(GENERALZATION
+
+SPECIALIZATION
+
+Chapter 18. Leaming from Observations
+
+would be a false negative for the hypothesis H, given earlier. From H, and the example
+description, we can deduce both Wil/Wait(X;3),which is what the example says, and
+=WillWait(X\3),which is what the hypothesis predicts. The hypothesis and the example
+are therefore logically inconsistent
+
++ An example can be a false positive for the hypothesis, if the hypothesis says it should be
+positive but in fact it is negative.!°
+
+If an example is a false positive or false negative for a hypothesis, then the example and the
+hypothesis are logically inconsistent with each other. Assuming that the example is a correct
+observation of fact, then the hypothesis can be muled out. Logically, this is exactly analogous to
+the resolution rule of inference (see Chapter 9), where the disjunction ofhypotheses corresponds
+toa clause and the example corresponds to a literal that resolves against one of the literals in the
+clause. An ordinary logical inference system therefore could, in principle, learn from the example
+by eliminating one or more hypotheses. Suppose, for example, that the example is denoted by
+the sentence J;, and the hypothesis space is H) V H2V H3 V Hy. Then ifJ\ is inconsistent with
+Hz and H;, the logical inference system can deduce the new hypothesis space H\ V Hy.
+
+We therefore can characterize inductive learning in a logical setting as a process of gradually
+eliminating hypotheses that are inconsistent with the examples, narrowing down the possibilities.
+Because the hypothesis space is usually vast (or even infinite in the case of first-order logic), we
+do not recommend trying to build a learning system using resolution-based theorem proving and
+a complete enumeration of the hypothesis space. Instead, we will describe two approaches that
+find logically consistent hypotheses with much less effort.
+
+Current-best-hypothesis search
+
+The idea behind current-best-hypothesis search is to maintain a single hypothesis, and to adjust
+it as new examples arrive in order to maintain consistency. The basic algorithm was described
+by John Stuart Mill (1843), and may well have appeared even earlier.
+
+Suppose we have some hypothesis such as H,, of which we have grown quite fond. As
+long as each new example is consistent, we need do nothing. Then along comes a false negative
+example, X|3. What do we do?
+
+Figure 18.10(a) shows H, schematically as aregion: everything inside the rectangle is part
+of the extension of H,. The examples that have actually been seen so far are shown as “+” or
+“and we see that H,. correctly categorizes all the examples as positive or negative examples of
+WillWait. In Figure 18.10(b), a new example (circled) is a false negative: the hypothesis says it
+should be negative but it is actually positive. The extension of the hypothesis must be increased to
+include it. This is called generalization; one possible generalization is shown in Figure 18.10(c).
+Then in Figure 18.10(d), we see a false positive: the hypothesis says the new example (circled)
+should be positive, but it actually is negative. The extension of the hypothesis must be decreased
+to exclude the example. This is called specialization; in Figure 18.10(e) we see one possible
+specialization of the hypothesis.
+
+10 The terms "false positive" and "false negative” were first used in medicine to describe erroneous results from laboratory
+tests. A result is a false positive if it indicates that the patient has the disease when in fact no disease is present.
+
+ 
+

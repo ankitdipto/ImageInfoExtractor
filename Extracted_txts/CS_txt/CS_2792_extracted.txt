@@ -1,0 +1,47 @@
+14.1 Dynamic order statistics 34]
+
+OS-SELECT (x, i)
+r = x.left.size+1
+ifi ==r
+return x
+elseif i <r
+return OS-SELECT (x. left, i)
+else return OS-SELECT (x. right, i — 1)
+
+AnhwWwNe
+
+In line 1 of OS-SELECT, we compute r, the rank of node x within the subtree
+rooted at x. The value of x./eft.size is the number of nodes that come before x
+in an inorder tree walk of the subtree rooted at x. Thus, x./eft.size + 1 is the
+rank of x within the subtree rooted at x. If i = r, then node x is the ith smallest
+element, and so we return x in line 3. If i < r, then the ith smallest element
+resides in x’s left subtree, and so we recurse on x./eft in line 5. If i > r, then
+the 7th smallest element resides in x’s right subtree. Since the subtree rooted at x
+contains r elements that come before x’s right subtree in an inorder tree walk, the
+ith smallest element in the subtree rooted at x is the (i — r)th smallest element in
+the subtree rooted at x.right. Line 6 determines this element recursively.
+
+To see how OS-SELECT operates, consider a search for the 17th smallest ele-
+ment in the order-statistic tree of Figure 14.1. We begin with x as the root, whose
+key is 26, and with i = 17. Since the size of 26’s left subtree is 12, its rank is 13.
+Thus, we know that the node with rank 17 is the 17 — 13 = 4th smallest element
+in 26’s right subtree. After the recursive call, x is the node with key 41, andi = 4.
+Since the size of 41’s left subtree is 5, its rank within its subtree is 6. Thus, we
+know that the node with rank 4 is the 4th smallest element in 41’s left subtree. Af-
+ter the recursive call, x is the node with key 30, and its rank within its subtree is 2.
+Thus, we recurse once again to find the 4—2 = 2nd smallest element in the subtree
+rooted at the node with key 38. We now find that its left subtree has size 1, which
+means it is the second smallest element. Thus, the procedure returns a pointer to
+the node with key 38.
+
+Because each recursive call goes down one level in the order-statistic tree, the
+total time for OS-SELECT is at worst proportional to the height of the tree. Since
+the tree is a red-black tree, its height is O(lg ), where n is the number of nodes.
+Thus, the running time of OS-SELECT is O(lg7) for a dynamic set of n elements.
+
+Determining the rank of an element
+
+Given a pointer to a node x in an order-statistic tree T, the procedure OS-RANK
+returns the position of x in the linear order determined by an inorder tree walk
+of T.
+

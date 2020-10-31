@@ -1,0 +1,50 @@
+126 ~=©Chapter4 Processes
+
+© If local objects are to be passed as parameters to remote objects, they must
+implement the interface java. io.Serializable. Many objects in the
+core Java API implement Serializable, allowing them to be used with
+RMI. Object serialization allows the state of an object to be written toa byte
+stream.
+
+4.7 = Summary
+
+A process is a program in execution. As a process executes, it changes state. The
+state of a process is defined by that process’ current activity. Each process may
+be in one of the following states: new, ready, running, waiting, or terminated.
+Each process is represented in the operating system by its own process-control
+block (PCB).
+
+A process, when it is not executing, is placed in some waiting queue. The
+two major classes of queues in an operating system are 1/O request queues
+and the ready queue. The ready queue contains all the processes that are
+ready to execute and are waiting for the CPU. Each process is represented by
+a PCB, and the PCBs can be linked together to form a ready queue. Long-term
+(or job) scheduling is the selection of processes to be allowed to contend for
+the CPU. Normally, long-term scheduling is heavily influenced by resource-
+allocation considerations, especially memory management. Short-term (or
+CPU) scheduling is the selection of one process from the ready queue.
+
+The processes in the system can execute concurrently. There are several
+reasons for allowing concurrent execution: information sharing, computation
+speedup, modularity, and convenience. Concurrent execution requires mecha-
+nisms for process creation and deletion.
+
+The processes executing in the operating system may be either indepen-
+dent processes or cooperating processes. Cooperating processes must have
+the means to communicate with each other. Principally, two complementary
+communication schemes exist: shared memory and message systems. The
+shared-memory method requires communicating processes to share some vari-
+ables. The processes are expected to exchange information through the use of
+these shared variables. In a shared-memory system, the responsibility for pro-
+viding communication rests with the application programmers; the operating
+system needs to provide only the shared memory. The message-system method
+allows the processes to exchange messages. The responsibility for providing
+communication may rest with the operating system itself. These two schemes
+are not mutually exclusive, and can be used simultaneously within a single
+operating system.
+
+‘A socket is defined as an endpoint for communication. A connection
+between a pair of applications consists of a pair of sockets, one at each end of the
+communication channel. RPCs are another form of distributed communication.
+An RPC occurs when a process (or thread) calls a procedure on a remote
+

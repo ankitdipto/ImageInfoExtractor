@@ -1,0 +1,56 @@
+510
+
+Chapter 19 Fibonacci Heaps
+
+ 
+
+19.2 Mergeable-heap operations
+
+The mergeable-heap operations on Fibonacci heaps delay work as long as possible.
+The various operations have performance trade-offs. For example, we insert a node
+by adding it to the root list, which takes just constant time. If we were to start
+with an empty Fibonacci heap and then insert k nodes, the Fibonacci heap would
+consist of just a root list of k nodes. The trade-off is that if we then perform
+an EXTRACT-MIN operation on Fibonacci heap H, after removing the node that
+H.min points to, we would have to look through each of the remaining k — 1 nodes
+in the root list to find the new minimum node. As long as we have to go through
+the entire root list during the EXTRACT-MIN operation, we also consolidate nodes
+into min-heap-ordered trees to reduce the size of the root list. We shall see that, no
+matter what the root list looks like before a EXTRACT-MIN operation, afterward
+each node in the root list has a degree that is unique within the root list, which leads
+to a root list of size at most D(n) + 1.
+
+Creating a new Fibonacci heap
+
+To make an empty Fibonacci heap, the MAKE-FIB-HEAP procedure allocates and
+returns the Fibonacci heap object H, where H.n = 0 and H.min = NIL; there
+are no trees in H. Because t(H) = 0 and m(H) = 0, the potential of the empty
+Fibonacci heap is ®(H) = 0. The amortized cost of MAKE-FIB-HEAP is thus
+equal to its O(1) actual cost.
+
+Inserting a node
+
+The following procedure inserts node x into Fibonacci heap H, assuming that the
+node has already been allocated and that x.key has already been filled in.
+
+Fip-HEAP-INSERT(H, x)
+
+1 x.degree = 0
+
+2 Xx.p=NIL
+
+3 x.child = NIL
+
+4 x.mark = FALSE
+
+5 if H.min == NIL
+
+6 create a root list for H containing just x
+7 A.min = x
+
+8 else insert x into H’s root list
+9 if x.key < H.min.key
+10 A.min = x
+
+1 Hn=Hn+1
+

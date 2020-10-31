@@ -1,0 +1,51 @@
+444 Chapter 12 File-System Implementation
+
+A mount operation includes the name of the remote directory to be
+mounted and the name of the server machine storing it. The mount request
+is mapped to the corresponding RPC and is forwarded to the mount server
+running on the specific server machine. The server maintains an export list
+—the /etc/dfs/dfstab in Solaris, which can be edited only by a superuser—which
+specifies local file systems that it exports for mounting, along with names of
+machines that are permitted to mount them. The specification can also include
+access rights, such as read only. To simplify the maintenance of export lists and
+mount tables, a distributed naming scheme can be used to hold this information
+and make it available to appropriate clients.
+
+Recall that any directory within an exported file system can be mounted
+remotely by an accredited machine. Hence, a component unit is such a direc-
+tory. When the server receives a mount request that conforms to its export list,
+it returns to the client a file handle that serves as the key for further accesses
+to files within the mounted file system. The file handle contains all the infor-
+mation that the server needs to distinguish an individual file it stores. In UNIX
+terms, the file handle consists of a file-system identifier and an inode number
+to identify the exact mounted directory within the exported file system.
+
+The server also maintains a list of the client machines and the correspond-
+ing currently mounted directories. This list is used mainly for administrative
+purposes—for instance, for notifying all clients that the server is going down.
+Addition and deletion of entries in this list are the only ways that the server
+state can be affected by the mount protocol.
+
+Usually, a system has a static mounting preconfiguration that is established
+at boot time (/etc/vfstab in Solaris); however, this layout can be modified. In
+addition to the actual mount procedure, the mount protocol includes several
+other procedures, such as unmount and return export list.
+
+12.9.3 The NFS Protocol
+
+The NES protocol provides a set of RPCs for remote file operations. The proce-
+dures support the following operations:
+
+¢ Searching for a file within a directory
+
+e Reading a set of directory entries
+
+Manipulating links and directories
+
+e Accessing file attributes
+
+Reading and writing files
+
+These procedures can be invoked only after a file handle for the remotely
+mounted directory has been established.
+

@@ -1,0 +1,51 @@
+560 Chapter 18. Learning from Observations
+
+ 
+
+in which information is represented, it is proposed that simplicity be measured by the length of
+the shortest program for a universal Turing machine that correctly reproduces the observed data.
+Although there are many possible universal Turing machines, and hence many possible "shortest"
+programs, these programs differ in length by at most a constant that is independent ofthe amount
+of data. This beautiful insight, which essentially shows that any initial representation bias will
+eventually be overcome by the data itself, is marred only by the undecidability of computing the
+DESCRIPTION length ofthe shortest program. Approximate measures such as the minimum description length
+LENGTH . . . .
+or MDL (Rissanen, 1984) can be used instead, and have produced excellent results in practice.
+The recent text by Li and Vitanyi (1993) is the best source for Kolmogorov complexity.
+Computational learning theory in the modem sense, that is, the theory of PAC-learning, was
+inaugurated by Leslie Valiant (1984), but also has roots in the subfieldof statistics called uniform
+CONVERGENCE convergence theory (Vapnik and Chervonenkis, 1971). Valiant's work brought computational
+THEORY complexity issues into the picture, and emphasized the idea that the learner need find only
+approximately correct hypotheses. With Michael Kearns (1990), Valiant showed that several
+concept classes cannot be PAC-learned tractably even though sufficient information is available
+in the examples. Some positive results have been obtained for classes such as decision lists (Rivest,
+1987), although most PAC-leaming results have been negative.
+PAC-leaming theory and uniform convergence theory were unified by the "four Germans"
+(none of whom are actually German): Blumer, Ehrenfeucht, Haussler, and Warmuth (1989).
+PAC learning is also related to other theoretical approaches through the notion of an Ockham
+SOkHAN algorithm. Such algorithms are capable of finding a consistent hypothesis that achieves a
+"significant" compression of the data it represents. The four Germans showed that if an Ockham
+algorithm exists for a given class of concepts, then the class is PAC-learnable (Blumer et al.,
+1990). Board and Pitt (1992) showed that the implication also goes the other way: if a concept
+class is PAC-leamable, then there must exist an Ockham algorithm for it.
+A large number of important papers on machine learning have been collected in Readings
+in Machine Learning (Shavlik and Dietterich, 1990). The two volumes Machine Learning 1
+(Michalski et a/., 1983) and Machine Learning 2 (Michalski et al., 1986) also contain many
+important papers as well as huge bibliographies. Weiss and Kulikowski (1991) provide a broad
+introduction to function-learning methods from machine learning, statistics, and neural networks.
+The STATLOG project (Michie et al., 1994) is by far the most exhaustive investigation into the
+comparative performance of learning algorithms. Good current research in machine learning is
+published in the annual proceedings of the International Conference on Machine Learning, in
+the journal Machine Learning, and in mainstream Al journals. Work in computational learning
+theory appears in the annual ACM Workshop on Computational Learning Theory (COLT), in
+Machine Learning, and in several theoretical journals.
+
+a
+EXERCISES
+
+18.1 Consider the problem faced by an infant learning to speak and understand a language.
+Explain how this process fits into the general learning model, identifying each of the components
+ofthe model as appropriate.
+
+ 
+

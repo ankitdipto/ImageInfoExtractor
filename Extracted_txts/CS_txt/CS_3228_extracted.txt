@@ -1,0 +1,90 @@
+588
+
+  
+
+Chapter 19. Learning in Neural and Belief Networks
+
+ 
+
+19.6 BAYESIAN METHODS FOR LEARNING BELIEF NETWORKS.
+
+BAYESIAN LEARNING
+
+MAXIMUMA
+POSTERIORI
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+   
+ 
+ 
+   
+ 
+   
+ 
+ 
+   
+   
+    
+  
+ 
+  
+   
+
+Part V made the case for the importance of probabilistic representations of uncertain knowledge,
+and presented belief networks as a general and useful performance element based on probability
+theory. In this section, we discuss the general problem of learning probabilistic knowledge, and
+the specific problem of learning belief networks. We will see that a Bayesian view of learning is
+extremely powerful, providing general solutions to the problems of noise, overfitting, and optimal
+prediction. We will also find striking parallels between belief networks and neural networks in
+their amenability to local, gradient-descent learning methods. Most of this section is fairly
+mathematical, although the general lessons can be understood without plunging into the details.
+It may be helpful at this point to review the material in Chapters 14 and 15.
+
+Bayesian learning
+
+Bayesian learning views the problem of constructing hypotheses from data as a subproblem ofthe
+more fundamental problem ofmaking predictions. The idea is to use hypotheses as intermediaries
+between data and predictions. First, the probability of each hypothesis is estimated, given the
+data. Predictions are then made from the hypotheses, using the posterior probabilities of the
+hypotheses to weight the predictions. As a simple example, consider the problem of predicting
+tomorrow's weather. Suppose the available experts are divided into two camps: some propose
+model A, and some propose model B. The Bayesian method, rather than choosing between A
+and B, gives some weight to each based on their likelihood. The likelihood will depend on how
+much the known data support each of the two models.
+
+Suppose that we have data D and hypotheses H,,H>,..., and that we are interested in
+making a prediction concerning an unknown quantity X. Furthermore, suppose that each Hj
+specifies a complete distribution for. ¥. Then we have
+
+P(X|D) =_V POD, H)PH)|D)= PX|H)PCH|D)
+7
+This equation describes full Bayesian learning, and may require a calculation of P(H,|D) for all
+Hi. In most cases, this is intractable; it can be shown, however, that there is no better way to
+make predictions.
+The most common approximation is to use a most probable hypothesis, that is, an Hi that 4
+maximizes P(H;|D). This often called a maximum a posteriori or MAP hypothesis Haar:
+
+P(X|D) © P(X|Amap)P(Amar|D)
+The problem is now to find Hyap. By applying Bayes’ rule, we can rewrite P(Hi|D)as follows:
+
+_ PID|H)PCH)
+
+P(H||D) PD)
+
+Notice that in comparing hypotheses, P(D) remains fixed. Hence, to find Hmap, we need only
+
+maximize the numerator of the fraction. 3
+The first term, P(D|H;), represents the probability that this particular data set would have
+
+been observed, given H, as the underlying model of the world. The second term represents the
+

@@ -1,0 +1,53 @@
+13.2 Rotations 313
+
+Lert-Rorate(T, x)
+
+Y H a
+
+Ricut-Rorate(T, y)
+a B B Y
+Figure 13.2 The rotation operations on a binary search tree. The operation LEFT-ROTATE(T, x)
+transforms the configuration of the two nodes on the right into the configuration on the left by chang-
+ing a constant number of pointers. The inverse operation RIGHT-ROTATE(T, y) transforms the con-
+figuration on the left into the configuration on the right. The letters a, B, and y represent arbitrary
+
+subtrees. A rotation operation preserves the binary-search-tree property: the keys in a precede x. key,
+which precedes the keys in B, which precede y. key, which precedes the keys in y.
+
+ 
+
+LEFT-ROTATE(T, x)
+
+y = x.right set y
+x.right = y.left // turn y’s left subtree into x’s right subtree
+if y.left £ T.nil
+
+y.left.p = x
+
+  
+
+yep // \ink x’s parent to y
+if x.p
+T.root = y
+elseif x == x.p.left
+X.p.left = y
+else x.p.right = y
+ll y.left =x 7 put x on y’s left
+12 x.p=y
+
+SoCwmrgausune
+
+Figure 13.3 shows an example of how LEFT-ROTATE modifies a binary search
+tree. The code for RIGHT-ROTATE is symmetric. Both LEFT-ROTATE and RIGHT-
+ROTATE run in O(1) time. Only pointers are changed by a rotation; all other
+attributes in a node remain the same.
+
+Exercises
+
+13.2-1
+Write pseudocode for RIGHT-ROTATE.
+
+13.2-2
+Argue that in every m-node binary search tree, there are exactly n — 1 possible
+rotations.
+

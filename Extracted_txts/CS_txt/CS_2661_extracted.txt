@@ -1,0 +1,48 @@
+236
+
+Chapter 10 Elementary Data Structures
+
+101-5
+
+Whereas a stack allows insertion and deletion of elements at only one end, and a
+queue allows insertion at one end and deletion at the other end, a deque (double-
+ended queue) allows insertion and deletion at both ends. Write four O(1)-time
+procedures to insert elements into and delete elements from both ends of a deque
+implemented by an array.
+
+10.16
+Show how to implement a queue using two stacks. Analyze the running time of the
+queue operations.
+
+101-7
+Show how to implement a stack using two queues. Analyze the running time of the
+stack operations.
+
+ 
+
+10.2 Linked lists
+
+A linked list is a data structure in which the objects are arranged in a linear order.
+Unlike an array, however, in which the linear order is determined by the array
+indices, the order in a linked list is determined by a pointer in each object. Linked
+lists provide a simple, flexible representation for dynamic sets, supporting (though
+not necessarily efficiently) all the operations listed on page 230.
+
+As shown in Figure 10.3, each element of a doubly linked list L is an object with
+an attribute key and two other pointer attributes: next and prev. The object may
+also contain other satellite data. Given an element x in the list, x. next points to its
+successor in the linked list, and x.prev points to its predecessor. If x.prev = NIL,
+the element x has no predecessor and is therefore the first element, or head, of
+the list. If x.next = NIL, the element x has no successor and is therefore the last
+element, or tail, of the list. An attribute L.head points to the first element of the
+list. If L. head = NIL, the list is empty.
+
+A list may have one of several forms. It may be either singly linked or doubly
+linked, it may be sorted or not, and it may be circular or not. If a list is singly
+linked, we omit the prev pointer in each element. If a list is sorted, the linear order
+of the list corresponds to the linear order of keys stored in elements of the list; the
+minimum element is then the head of the list, and the maximum element is the
+tail. If the list is unsorted, the elements can appear in any order. In a circular list,
+the prev pointer of the head of the list points to the tail, and the next pointer of
+the tail of the list points to the head. We can think of a circular list as a ring of
+

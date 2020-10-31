@@ -1,0 +1,40 @@
+18.2 Basic operations on B-trees 493
+
+Inserting a key into a B-tree
+
+Inserting a key into a B-tree is significantly more complicated than inserting a key
+into a binary search tree. As with binary search trees, we search for the leaf position
+at which to insert the new key. With a B-tree, however, we cannot simply create
+a new leaf node and insert it, as the resulting tree would fail to be a valid B-tree.
+Instead, we insert the new key into an existing leaf node. Since we cannot insert a
+key into a leaf node that is full, we introduce an operation that splits a full node y
+(having 27 — 1 keys) around its median key y. key, into two nodes having only t — 1
+keys each. The median key moves up into y’s parent to identify the dividing point
+between the two new trees. But if y’s parent is also full, we must split it before we
+can insert the new key, and thus we could end up splitting full nodes all the way up
+the tree.
+
+As with a binary search tree, we can insert a key into a B-tree in a single pass
+down the tree from the root to a leaf. To do so, we do not wait to find out whether
+we will actually need to split a full node in order to do the insertion. Instead, as we
+travel down the tree searching for the position where the new key belongs, we split
+each full node we come to along the way (including the leaf itself). Thus whenever
+we want to split a full node y, we are assured that its parent is not full.
+
+ 
+
+Splitting a node in a B-tree
+
+The procedure B-TREE-SPLIT-CHILD takes as input a nonfull internal node x (as-
+sumed to be in main memory) and an index 7 such that x.c; (also assumed to be in
+main memory) is a fil! child of x. The procedure then splits this child in two and
+adjusts x so that it has an additional child. To split a full root, we will first make the
+root a child of a new empty root node, so that we can use B-TREE-SPLIT-CHILD.
+The tree thus grows in height by one; splitting is the only means by which the tree
+grows.
+
+Figure 18.5 illustrates this process. We split the full node y = x.c; about its
+median key S, which moves up into y’s parent node x. Those keys in y that are
+greater than the median key move into a new node z, which becomes a new child
+of x.
+

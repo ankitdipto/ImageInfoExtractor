@@ -1,0 +1,58 @@
+Section 19.2.
+
+Neural Networks 569
+
+ 
+
+where the final expression illustrates the use of vector notation. In this notation, the weights on
+links into node i are denoted by W, the set ofinput values is called a;, and the dot product denotes
+the sum of the pairwise products.
+
+The elementary computation step in each unit computes the new activation value for the
+unit by applying the activation function, g, to the result of the input function:
+
+a; — gin, = g (= wa]
+7
+
+Different models are obtained by using different mathematical functions for g. Three common
+choices are the step, sign, and sigmoid functions, illustrated in Figure 19.5. The step function
+has a threshold ¢ such that it outputs a 1 when the input is greater than its threshold, and outputs
+a 0 otherwise. The biological motivation is that a 1 represents the firing of a pulse down the
+axon, and a 0 represents no firing. The threshold represents the minimum total weighted input
+necessary to cause the neuron to fire. Threshold versions of the sign and sigmoid functions can
+also be defined.
+
+In most cases, we will find it mathematically convenient to replace the threshold with an
+extra input weight. This allows for a simpler learning element because it need only worry about
+adjusting weights, rather than adjusting both weights and thresholds. Thus, instead of having a
+threshold t for each unit, we add an extra input whose activation ap is fixed at -1. The extra weight
+Wo, associated with ap serves the function ofa threshold at t, provided that Woiay = —f. Then
+all units can have a fixed threshold at 0. Mathematically, the two representations for thresholds
+are entirely equivalent:
+
+n
+= wr > wa) where Wo, = ¢ and dp = — 1
+FO
+
+ 
+
+  
+
+ 
+
+ 
+
+a
++1
+in,
+(a) Step function (b) Sign function (c) Sigmoid function
+Figure 19.5 Three different activation functions for units.
+ad hifedt cx, F th ifx>0
+See ace Lon waco SemoidQ)= Tyo
+
+ 
+
+ 
+
+ 
+

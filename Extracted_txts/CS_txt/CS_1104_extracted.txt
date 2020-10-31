@@ -1,0 +1,44 @@
+Chapter 11: Console Input/Output 399
+
+ 
+
+Now a short explanation about these optional format specifiers.
+The field-width specifier tells printf() how many columns on
+screen should be used while printing a value. For example, %10d
+says, “print the variable as a decimal integer in a field of 10
+columns”. If the value to be printed happens not to fill up the
+entire field, the value is right justified and is padded with blanks
+on the left. If we include the minus sign in format specifier (as in
+%-10d), this means left justification is desired and the value will
+be padded with blanks on the right. Here is an example that should
+make this point clear.
+
+main()
+{
+int weight = 63 ;
+
+printf ( "\nweight is %d kg", weight ) ;
+
+printf ( "\nweight is %2d kg", weight ) ;
+printf ( "\nweight is %4d kg", weight ) ;
+printf ( "\nweight is %6d kg", weight ) ;
+printf ( "\nweight is %-6d kg", weight) ;
+
+}
+
+The output of the program would look like this ...
+
+Columns —_0123456789012345678901234567890
+weight is 63 kg
+weight is 63 kg
+weight is 63 kg
+weight is 63 kg
+weight is 63 kg
+
+Specifying the field width can be useful in creating tables of
+numeric values, as the following program demonstrates.
+
+main()
+{
+printf ( "\n%f %f %f", 5.0, 13.5, 133.9) ;
+

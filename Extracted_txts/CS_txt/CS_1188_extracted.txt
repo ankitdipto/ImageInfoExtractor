@@ -1,0 +1,48 @@
+Chapter 13: More Issues In Input/Output 467
+
+ 
+
+#include "stdio.h"
+main (int argc, char “argy[] )
+
+{
+
+FILE ‘fs, “ft;
+
+char ch;
+
+if (argc != 3)
+
+{
+puts (“Improper number of arguments" ) ;
+exit() ;
+
+}
+
+fs = fopen (argy(1], "r") ;
+
+if (fs == NULL)
+
+{
+puts (“Cannot open source file” ) ;
+exit() ;
+
+}
+
+ft = fopen (argy[2], “w") ;
+if (ft== NULL)
+{
+
+puts (“Cannot open target file" ) ;
+fclose (fs ) ;
+
+exit() ;
+}
+while (1)
+{
+ch = fgetc (fs ) ;
+if (ch == EOF)
+break ;
+else
+fpute (ch, ft) ;
+

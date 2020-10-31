@@ -1,0 +1,48 @@
+908
+
+Chapter 30 Polynomials and the FFT
+
+Corollary 30.4
+For any even integer n > 0,
+
+on? =o, =-1.
+Proof The proof is left as Exercise 30.2-1. .
+
+Lemma 30.5 (Halving lemma)
+
+If n > O is even, then the squares of the n complex nth roots of unity are the n/2
+complex (n/2)th roots of unity.
+
+Proof By the cancellation lemma, we have (w*)? = ok, for any nonnegative
+integer k. Note that if we square all of the complex mth roots of unity, then we
+obtain each (n/2)th root of unity exactly twice, since
+
+(wk nl)? = opktn
+
+= wx
+
+= oor
+
+= wk
+
+= wo
+
+= (ok),
+Thus, o* and w**”/? have the same square. We could also have used Corol-
+lary 30.4 to prove this property, since w?/? = —1 implies o**"/? = —o*, and
+thus (wk+"/?)? = (wk)? 7
+
+As we shall see, the halving lemma is essential to our divide-and-conquer ap-
+proach for converting between coefficient and point-value representations of poly-
+nomials, since it guarantees that the recursive subproblems are only half as large.
+
+Lemma 30.6 (Summation lemma)
+For any integer n > 1 and nonzero integer k not divisible by n,
+
+n-1 .
+Vi lon)' =0.
+j=0
+
+Proof Equation (A.5) applies to complex values as well as to reals, and so we
+have
+

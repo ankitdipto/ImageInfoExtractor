@@ -1,0 +1,36 @@
+Chapter 8: Arrays 295
+
+ 
+
+Using these concepts the following program prints out each
+element of a two-dimensional array using pointer notation.
+
+/" Pointer notation to access 2-D array elements */
+
+main()
+{
+int s[4][2] = {
+{ 1234, 56},
+{ 1212, 33},
+{ 1434, 80},
+{ 1312, 78}
+
+};
+int i,j;
+for (i=0;i<= 3; i++)
+printf ("\n") ;
+for (j=0;j<=1;j++)
+printf ("%d", *(*(s +i) +j));
+}
+And here is the output...
+1234 56
+1212 33
+1434 80
+1312 78
+
+Pointer to an Array
+
+If we can have a pointer to an integer, a pointer to a float, a pointer
+to a char, then can we not have a pointer to an array? We certainly
+can. The following program shows how to build and use it.
+

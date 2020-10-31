@@ -1,0 +1,48 @@
+6.3 Scheduling Algorithms 165
+
+In software, however, we need also to consider the effect of context switch-
+ing on the performance of RR scheduling. Let us assume that we have only one
+process of 10 time units. If the quantum is 12 time units, the process finishes
+in less than 1 time quantum, with no overhead. If the quantum is 6 time units,
+however, the process requires 2 quanta, resulting in 1 context switch. If the
+time quantum is 1 time unit, then 9 context switches will occur, slowing the
+execution of the process accordingly (Figure 6.4).
+
+Thus, we want the time quantum to be large with respect to the context-
+switch time. If the context-switch time is approximately 10 percent of the time
+quantum, then about 10 percent of the CPU time will be spent in context switch.
+
+Turnaround time also depends on the size of the time quantum. As we
+can see from Figure 6.5, the average turnaround time of a set of processes does
+not necessarily improve as the time-quantum size increases. In general, the
+average turnaround time can be improved if most processes finish their next
+CPU burst in a single time quantum. For example, given three processes of 10
+time units each and a quantum of 1 time unit, the average turnaround time is
+29. If the time quantum is 10, however, the average turnaround time drops to
+20. If context-switch time is added in, the average turnaround time increases
+for a smaller time quantum, since more context switches will be required.
+
+ 
+
+ 
+
+process | time
+Py 6
+Py 3
+Py 1
+P, 7
+
+ 
+
+ 
+
+ 
+
+average turnaround time
+
+ 
+
+time quantum
+
+Figure 6.5 Showing how turnaround time varies with the time quantum.
+

@@ -1,0 +1,65 @@
+184 — cHarTeRsix Programming the Basic Computer
+
+line of code
+
+Representation of Symbolic Program in Memory
+
+Prior to starting the assembly process, the symbolic program must be stored
+in memory. The user types the symbolic program on a terminal. A loader
+program is used to input the characters of the symbolic program into memory.
+Since the program consists of symbols, its representation in memory must use
+an alphanumeric character code. In the basic computer, each character is
+represented by an8-bitcode. The high-order bit isalways Oand the other seven
+bits are as specified by ASI. The hexadecimal equivalent of the character set
+is listed in Table 6-10. Each character is assigned two hexadecimal digits which
+can be easily converted to their equivalent 8-bit code. The last entry in the table
+does not print a character but is associated with the physical movement of the
+cursor in the terminal. The code for CR is produced when the return key
+is depressed. This causes the “carriage” to return to its initial position to start
+typing a new line. The assembler recognizes a CR code as the end of a line of
+code.
+
+‘Aline of code is stored in consecutive memory locations with two char-
+acters in each location. Two characters can be stored in each word since a
+memory word has a capacity of 16 bits. A label symbol is terminated with a
+comma, Operation and address symbols are terminated with a space and the
+end of the line is recognized by the CR code. For example, the following line
+of code:
+
+PL3, LDA SUBI
+
+TABLE 6-10 Hexadecimal Character Code
+
+ 
+
+A 4 Q st 6 6
+
+B 2 R 2 7 37
+
+c a s 33 8 38
+
+D 4 T 34 9 39
+
+E 45 U 55 space 20
+
+F 6 v 56 ¢ 2B
+
+G a w 37 ) 29
+
+H 48 x 58 * 2a
+
+1 9 Y 59 + 2B
+
+J 4a, Zz 5A : 2c
+
+K 4B 0 30 - 2D
+
+L ac 1 31 2E
+
+M 4D 2 2 ' OF
+
+N aE 3 3 = 3D
+
+° aE 4 34 CR OD (carriage
+P 0 5 35 return)
+

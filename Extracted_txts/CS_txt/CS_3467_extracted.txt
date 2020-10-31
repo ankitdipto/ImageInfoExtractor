@@ -1,0 +1,53 @@
+802
+
+FINEMOTION
+PLATINING
+
+Chapter 25. Robotics
+
+the easiest is to define a linking curve as the roadmap ofa critical slice. Because roadmaps
+are defined in terms of linking curves, this is a circular definition. But because the linking
+curve is a roadmap ofa slice that has one less dimension, the recursive construction is
+well-defined and terminates after a number of steps that equals the dimension of C.
+
+One disadvantage of this definition is that it gives curves on the boundary of free space. This
+is undesirable from both efficiency and safety perspectives. A slightly better definition borrows
+some ideas from Voronoi diagrams. Instead of using extremals in Y to define the silhouette
+curves, it uses extremals of distance from obstacles in slices X - c. This sounds like the same
+definition as the Voronoi diagram, but there are slight differences in two dimensions, and major
+differences in more than two. The definition of linking curves also changes. They still link
+critical points to silhouette curves, but this time, linking curves are computed by moving away
+from a critical point along curves that follow the direction of maximum increase of the distance
+function. In other words, start from a critical point, and hill-climb in configuration space to a
+local maximum of the distance function. That point lies on a silhouette curve under the new
+definition. This kind of roadmap is exemplified in Figure 25.18.
+
+av
+—
+
+Figure 25.18 A Voronoi-like roadmap ofa polygonal environment.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Fine-motion planning
+
+Fine-motion planning (FMP) is about planning small, precise motions for assembly. At the
+distance scales appropriate for FMP, the environment is not precisely known. Furthermore, the
+robot is unable to measure or control its position accurately. Dealing with these uncertainties is
+the principal concern of FMP. Like online algorithms, fine-motion plans are strategies or policies
+that make use of sensing or environment shape to determine the robot's path atrun time. However,
+whereas online algorithms assume nothing about the environment, partial knowledge is available
+to the fine-motion planner. This knowledge includes explicit models of the uncertainties in
+
+ 
+

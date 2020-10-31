@@ -1,0 +1,51 @@
+Section A.2.
+
+Inherently Hard Problems 853
+
+ 
+
+NP-COMPLETE.
+
+an exponentially large number of processors so that you can try all the guesses at once, or you
+are very lucky and always guess right the first time, then the NP problems become P problems.
+
+One of the big open questions in computer science is whether the class NP is equivalent to
+the class P when one does not have the luxury of an infinite number of processors or omniscient
+guessing. Most computer scientists are convinced that P # NP, that NP problems are inherently
+hard and only have exponential time algorithms. But this has never been proven.
+
+Those who are interested in deciding if P = NP look at a subclass of NP called the NP-
+complete problems. The word complete is used here in the sense of "most extreme," and thus
+refers to the hardest problems in the class NP. It has been proven that either all the NP-complete
+problems are in P or none ofthem is. This makes the class theoretically interesting, but the class
+is also of practical interest because many important problems are known to be NP-complete.
+An example is the satisfiability problem: given a logical expression (see Chapter 6), is there an
+assignment of truth values to the variables of the expression that make it true?
+
+Also studied is the class of PSPACE problems, those that require a polynomial amount of
+space, even on a nondeterministic machine. It is generally believed that PSPACE-hardproblems
+are worse than NP-complete, although it could turn out that NP = PSPACE, just as it could turn
+out that P = NP.
+
+ 
+
+BIBLIOGRAPHICAL AND HISTORICAL NOTES
+
+The O() notation so widely used in computer science today was first introduced in the context of
+number theory by the German mathematician P. G. H. Bachmann (1894). The concept of NP-
+completeness was invented by Cook (1971), and the modern method for establishing a reduction
+from one problem to another is due to Karp (1972). Cook and Karp have both won the Turing
+award, the highest honor in computer science, for their work.
+
+Classic works on the analysis and design ofalgorithms include those by Knuth (1973) and
+Aho, Hopcroft, and Ullman (1974); more recent contributions are by Tarjan (1983) and Cormen,
+Leiserson, and Rivest (1990). These books place an emphasis on designing and analyzing
+algorithms to solve tractable problems. For the theory of NP-completeness and other forms of
+intractability, the best introduction is by Garey and Johnson (1979). In addition to the underlying
+theory, Garey and Johnson provide examples that convey very forcefully why computer scientists
+are unanimous in drawing the line between tractable and intractable problems at the border
+between polynomial and exponential time complexity. They also provide a voluminous catalog
+of problems that are known to be NP-complete or otherwise intractable.
+
+ 
+

@@ -1,0 +1,45 @@
+774 Chapter 27 Multithreaded Algorithms
+
+this model, as well how the underlying concurrency platform can schedule compu-
+tations efficiently.
+Our model for dynamic multithreading offers several important advantages:
+
+* It is a simple extension of our serial programming model. We can describe a
+multithreaded algorithm by adding to our pseudocode just three “concurrency”
+keywords: parallel, spawn, and syne. Moreover, if we delete these concur-
+rency keywords from the multithreaded pseudocode, the resulting text is serial
+pseudocode for the same problem, which we call the “serialization” of the mul-
+tithreaded algorithm.
+
+* It provides a theoretically clean way to quantify parallelism based on the no-
+tions of “work” and “span.”
+
+* Many multithreaded algorithms involving nested parallelism follow naturally
+from the divide-and-conquer paradigm. Moreover, just as serial divide-and-
+conquer algorithms lend themselves to analysis by solving recurrences, so do
+multithreaded algorithms.
+
+* The model is faithful to how parallel-computing practice is evolving. A grow-
+ing number of concurrency platforms support one variant or another of dynamic
+multithreading, including Cilk [51, 118], Cilk++ [71], OpenMP [59], Task Par-
+allel Library [230], and Threading Building Blocks [292].
+
+Section 27.1 introduces the dynamic multithreading model and presents the met-
+tics of work, span, and parallelism, which we shall use to analyze multithreaded
+algorithms. Section 27.2 investigates how to multiply matrices with multithread-
+ing, and Section 27.3 tackles the tougher problem of multithreading merge sort.
+
+ 
+
+27.1 The basics of dynamic multithreading
+
+We shall begin our exploration of dynamic multithreading using the example of
+computing Fibonacci numbers recursively. Recall that the Fibonacci numbers are
+defined by recurrence (3.22):
+
+Fo = 0.
+Fo = 1,
+Fi = Firth. fori22.
+
+Here is a simple, recursive, serial algorithm to compute the th Fibonacci number:
+

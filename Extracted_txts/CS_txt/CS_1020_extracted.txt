@@ -1,0 +1,58 @@
+204 = caurrersix Programming the Basic Computer
+
+Character Manipulation
+
+A computer is not just a calculator but also a symbol manipulator. The binary-
+coded characters that represent symbols can be manipulated by computer
+instructions to achieve various data-processing tasks. One such task may be
+to pack two characters in one word. This is convenient because each character
+‘occupies 8 bits and amemory word contains 16 bits. The program in Table 6-20
+lists a subroutine named IN2 that inputs two characters and packs them into
+one 16-bit word. The packed word remains in the accumulator. Note that
+subroutine SH4 (Table 6-16) is called twice to shift the accumulator left eight
+times.
+
+In the discussion of the assembler it was assumed that the symbolic
+program is stored in a section of memory which is sometimes called a buffer.
+‘The symbolic program being typed enters through the input device and is
+stored in consecutive memory locations in the buffer. The program listed in
+Table 6-21 can be used to input a symbolic program from the keyboard, pack
+two characters in one word, and store them in the buffer. The first address of
+the buffer is 500. The first double character is stored in location 500 and all
+characters are stored in sequential locations. The program uses a pointer for
+keeping track of the current empty location in the buffer. No counter is used
+in the program, so characters will be read as long as they are available or until
+the buffer reaches location 0 (after location FFFF), In a practical situation it may
+be necessary to limit the size of the buffer and a counter may be used for this
+purpose. Note that subroutine IN2 of Table 6-20 is called to input and pack the
+two characters.
+
+In discussing the second pass of the assembler in Sec. 6-4 it was men-
+tioned that one of the most common operations of an assembler is table lookup.
+This is an operation that searches a table to find out if it contains a given
+symbol. The search may be done by comparing the given symbol with each of
+the symbols stored in the table. The search terminates when a match occurs
+
+TABLE 6.20 Subroutine to Input and Pack Two Characters
+
+In = ‘/Subroutine entry
+FST, SKI
+BUN FST
+INP ‘MInput first character
+OUT
+
+BSASH4 Shift left four times
+
+BSASH4 Shift left four more times
+SCD, SKI
+
+BUN SCD
+
+INP ‘Input second character
+
+our
+
+BUNIN2I /Return
+
+ 
+

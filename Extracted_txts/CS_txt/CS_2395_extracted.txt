@@ -1,0 +1,50 @@
+2.1 Insertion sort 19
+
+Initialization: It is true prior to the first iteration of the loop.
+
+Maintenance: If it is true before an iteration of the loop, it remains true before the
+next iteration.
+
+Termination: When the loop terminates, the invariant gives us a useful property
+that helps show that the algorithm is correct.
+
+When the first two properties hold, the loop invariant is true prior to every iteration
+of the loop. (Of course, we are free to use established facts other than the loop
+invariant itself to prove that the loop invariant remains true before each iteration.)
+Note the similarity to mathematical induction, where to prove that a property holds,
+you prove a base case and an inductive step. Here, showing that the invariant holds
+before the first iteration corresponds to the base case, and showing that the invariant
+holds from iteration to iteration corresponds to the inductive step.
+
+The third property is perhaps the most important one, since we are using the loop
+invariant to show correctness. Typically, we use the loop invariant along with the
+condition that caused the loop to terminate. The termination property differs from
+how we usually use mathematical induction, in which we apply the inductive step
+infinitely; here, we stop the “induction” when the loop terminates.
+
+Let us see how these properties hold for insertion sort.
+
+Initialization: We start by showing that the loop invariant holds before the first
+loop iteration, when j = 2.! The subarray A[1..j — 1], therefore, consists
+of just the single element A[1], which is in fact the original element in A[]].
+Moreover, this subarray is sorted (trivially, of course), which shows that the
+loop invariant holds prior to the first iteration of the loop.
+
+Maintenance: Next, we tackle the second property: showing that each iteration
+maintains the loop invariant. Informally, the body of the for loop works by
+moving A[j — 1], A[j — 2], A[j — 3], and so on by one position to the right
+until it finds the proper position for A[j] (lines 4—7), at which point it inserts
+the value of A[j] (line 8). The subarray A[1.. j] then consists of the elements
+originally in A[1.. j], but in sorted order. Incrementing j for the next iteration
+of the for loop then preserves the loop invariant.
+
+A more formal treatment of the second property would require us to state and
+show a loop invariant for the while loop of lines 5-7. At this point, however,
+
+ 
+
+1When the loop is a for loop, the moment at which we check the loop invariant just prior to the first
+iteration is immediately after the initial assignment to the loop-counter variable and just before the
+first test in the loop header. In the case of INSERTION-SoRT, this time is after assigning 2 to the
+variable j but before the first test of whether j < A. length.
+

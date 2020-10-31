@@ -1,0 +1,48 @@
+ 
+
+14.2 Disk Scheduling 493
+
+As we discussed in Chapter 2, whenever a process needs I/O to or from
+the disk, it issues a system call to the operating system. The request specifies
+several pieces of information:
+
+¢ Whether this operation is input or output
+¢ What the disk address for the transfer is
+« What the memory address for the transfer is
+
+¢ What the number of bytes to be transferred is
+
+If the desired disk drive and controller are available, the request can be
+serviced immediately. If the drive or controller is busy, any new requests for
+service will be placed on the queue of pending requests for that drive. For
+a multiprogramming system with many processes, the disk queue may often
+have several pending requests. Thus, when one request is completed, the
+operating system chooses which pending request to service next.
+
+14.2.1 FCFS Scheduling
+
+The simplest form of disk scheduling is, of course, the first-come, first-served
+(FCES) algorithm. This algorithm is intrinsically fair, but it generally does not
+provide the fastest service. Consider, for example, a disk queue with requests
+for I/O to blocks on cylinders
+
+98, 183, 37, 122, 14, 124, 65, 67,
+
+in that order. If the disk head is initially at cylinder 53, it will first move from
+53 to 98, then to 183, 37, 122, 14, 124, 65, and finally to 67, for a total head
+movement of 640 cylinders. This schedule is diagrammed in Figure 14.1.
+
+The wild swing from 122 to 14 and then back to 124 illustrates the problem
+with this schedule. If the requests for cylinders 37 and 14 could be serviced
+together, before or after the requests at 122 and 124, the total head movement
+could be decreased substantially, and performance could be thereby improved.
+
+14.2.2 SSTF Scheduling
+
+It seems reasonable to service all the requests close to the current head position,
+before moving the head far away to service other requests. This assumption is
+the basis for the shortest-seek-time-first (SSTF) algorithm. The SSTF algorithm
+selects the request with the minimum seek time from the current head position.
+Since seek time increases with the number of cylinders traversed by the head,
+SSTF chooses the pending request closest to the current head position.
+

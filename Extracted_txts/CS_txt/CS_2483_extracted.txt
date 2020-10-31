@@ -1,0 +1,47 @@
+4.4. The recursion-tree method for solving recurrences 91
+
+ 
+
+cn
+cn
+
+logsy21 /
+(5) (3) eB) (St) mnt Ime en
+
+Total: O(nlgn)
+Figure 4.6 A recursion tree for the recurrence T(n) = T(n/3) + T(2n/3) + cn.
+
+is bounded from above by the constant 16/13. Since the root’s contribution to the
+total cost is cn?, the root contributes a constant fraction of the total cost. In other
+words, the cost of the root dominates the total cost of the tree.
+
+In fact, if O(n?) is indeed an upper bound for the recurrence (as we shall verify in
+a moment), then it must be a tight bound. Why? The first recursive call contributes
+a cost of @(n?), and so Q(n?) must be a lower bound for the recurrence.
+
+Now we can use the substitution method to verify that our guess was cor-
+rect, that is, T(n) = O(n?) is an upper bound for the recurrence T(n) =
+3T({n/4]) + O(n?). We want to show that T(n) < dn? for some constant d > 0.
+Using the same constant c > 0 as before, we have
+
+T(n) 37 (|n/4]) + en?
+3d [n/4|? + en?
+3d(n/4)? + cn?
+
+IA IA IA
+
+3
+= dn® + cn?
+dn?,
+
+IA
+
+where the last step holds as long as d > (16/13)c.
+In another, more intricate, example, Figure 4.6 shows the recursion tree for
+
+T(n) = T(n/3) + T2n/3) + O(n) .
+
+(Again, we omit floor and ceiling functions for simplicity.) As before, we let c
+represent the constant factor in the O() term. When we add the values across the
+levels of the recursion tree shown in the figure, we get a value of cn for every level.
+

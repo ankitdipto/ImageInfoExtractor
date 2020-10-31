@@ -1,0 +1,43 @@
+Chapter 8: Arrays 293
+
+ 
+
+can be thought of as setting up an array of 5 elements, each of
+which is a one-dimensional array containing 2 integers. We refer
+to an element of a one-dimensional array using a single subscript.
+Similarly, if we can imagine s to be a one-dimensional array then
+we can refer to its zeroth element as s[0], the next element as s[1]
+and so on. More specifically, s[0] gives the address of the zeroth
+one-dimensional array, s[1] gives the address of the first one-
+dimensional array and so on. This fact can be demonstrated by the
+following program.
+
+I" Demo: 2-D array is an array of arrays */
+
+main()
+int s[4][2] = {
+{ 1234, 56},
+{1212, 33},
+{ 1434, 80},
+{ 1312, 78}
+
+hi
+int i;
+
+for (i=0;i<=3; i++)
+printf ( "\nAddress of %d th 1-D array = %u", i, s[i]) ;
+}
+
+And here is the output...
+
+Address of 0 th 1-D array = 65508
+Address of 1 th 1-D array = 65512
+Address of 2 th 1-D array = 65516
+Address of 3 th 1-D array = 65520
+
+Let’s figure out how the program works. The compiler knows that
+s is an array containing 4 one-dimensional arrays, each containing
+2 integers. Each one-dimensional array occupies 4 bytes (two
+bytes for each integer). These one-dimensional arrays are placed
+linearly (zeroth 1-D array followed by first 1-D array, etc.). Hence
+

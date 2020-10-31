@@ -1,0 +1,50 @@
+258
+
+Chapter 11 Hash Tables
+
+The dictionary operations on a hash table T are easy to implement when colli-
+sions are resolved by chaining:
+
+CHAINED-HASH-INSERT(T, x)
+1 insert x at the head of list T[h(x.key)]
+
+CHAINED-HASH-SEARCH(T, k)
+1 search for an element with key k in list T [h(k)]
+
+CHAINED-HASH-DELETE(T, x)
+1 delete x from the list T[h(x.key)]
+
+The worst-case running time for insertion is O(1). The insertion procedure is fast
+in part because it assumes that the element x being inserted is not already present in
+the table; if necessary, we can check this assumption (at additional cost) by search-
+ing for an element whose key is x.key before we insert. For searching, the worst-
+case running time is proportional to the length of the list; we shall analyze this
+operation more closely below. We can delete an element in O(1) time if the lists
+are doubly linked, as Figure 11.3 depicts. (Note that CHAINED-HASH-DELETE
+takes as input an element x and not its key k, so that we don’t have to search for x
+first. If the hash table supports deletion, then its linked lists should be doubly linked
+so that we can delete an item quickly. If the lists were only singly linked, then to
+delete element x, we would first have to find x in the list T [i(x.key)] so that we
+could update the next attribute of x’s predecessor. With singly linked lists, both
+deletion and searching would have the same asymptotic running times.)
+
+Analysis of hashing with chaining
+
+How well does hashing with chaining perform? In particular, how long does it take
+to search for an element with a given key?
+
+Given a hash table T with m slots that stores n elements, we define the load
+factor a for T as n/m, that is, the average number of elements stored in a chain.
+Our analysis will be in terms of a@, which can be less than, equal to, or greater
+than 1.
+
+The worst-case behavior of hashing with chaining is terrible: all n keys hash
+to the same slot, creating a list of length n. The worst-case time for searching is
+thus ©() plus the time to compute the hash function—no better than if we used
+one linked list for all the elements. Clearly, we do not use hash tables for their
+worst-case performance. (Perfect hashing, described in Section 11.5, does provide
+good worst-case performance when the set of keys is static, however.)
+
+The average-case performance of hashing depends on how well the hash func-
+tion / distributes the set of keys to be stored among the m slots, on the average.
+

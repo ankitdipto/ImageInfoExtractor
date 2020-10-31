@@ -1,0 +1,59 @@
+Problems for Chapter 20 557
+
+ 
+
+Problems
+
+20-1 Space requirements for van Emde Boas trees
+
+This problem explores the space requirements for van Emde Boas trees and sug-
+gests a way to modify the data structure to make its space requirement depend on
+the number 7 of elements actually stored in the tree, rather than on the universe
+size u. For simplicity, assume that ./@ is always an integer.
+
+a. Explain why the following recurrence characterizes the space requirement P(u)
+of a van Emde Boas tree with universe size u:
+
+Plu) = (Ju + IPC Vu) + (Vu). (20.5)
+b. Prove that recurrence (20.5) has the solution P(u) = O(u).
+
+In order to reduce the space requirements, let us define a reduced-space van Emde
+Boas tree, or RS-vEB tree, as a vVEB tree V but with the following changes:
+
+* The attribute V. cluster, rather than being stored as a simple array of pointers to
+vEB trees with universe size /i, is a hash table (see Chapter 1 1) stored as a dy-
+namic table (see Section 17.4). Corresponding to the array version of V.cluster,
+the hash table stores pointers to RS-vEB trees with universe size ,/u. To find
+the th cluster, we look up the key in the hash table, so that we can find the
+ith cluster by a single search in the hash table.
+
+* The hash table stores only pointers to nonempty clusters. A search in the hash
+table for an empty cluster returns NIL, indicating that the cluster is empty.
+
+* The attribute V. summary is NIL if all clusters are empty. Otherwise, V. summary
+points to an RS-vEB tree with universe size \/u.
+
+Because the hash table is implemented with a dynamic table, the space it requires
+is proportional to the number of nonempty clusters.
+
+When we need to insert an element into an empty RS-vEB tree, we create the RS-
+VEB tree by calling the following procedure, where the parameter u is the universe
+size of the RS-vEB tree:
+
+CREATE-NEW-RS-VEB-TREE(u)
+
+allocate a new VEB tree V
+
+Vu=u
+
+V.min = NIL
+
+V.max = NIL
+
+V.summary = NIL
+
+create V. cluster as an empty dynamic hash table
+return V
+
+NYAWRWNE
+

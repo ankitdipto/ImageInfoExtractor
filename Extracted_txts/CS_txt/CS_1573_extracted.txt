@@ -1,0 +1,48 @@
+88 Chapter3 Operating-System Structures
+
+An alternative is to compute and display the performance measures in
+real time. For example, a timer can trigger a routine to store the current
+instruction pointer value. The result is a statistical picture of the program
+locations most frequently used within the program. This approach may allow
+system operators to become familiar with system behavior and to modify
+system operation in real time.
+
+3.8 = System Generation
+
+We can design, code, and implement an operating system specifically for one
+machine at one site. More commonly, however, operating systems are designed
+to run on any of a class of machines at a variety of sites with a variety of
+peripheral configurations. The system must then be configured or generated for
+each specific computer site, a process sometimes known as system generation
+(SYSGEN).
+
+The operating system is normally distributed on disk or tape. To generate
+a system, we use a special program. The SYSGEN program reads from a
+given file, or asks the operator of the system for information concerning the
+specific configuration of the hardware system, or probes the hardware directly
+to determine what components are there. The following kinds of information
+must be determined.
+
+¢ What CPU will be used? What options (extended instruction sets, floating-
+point arithmetic, and so on) are installed? For multiple-CPU systems, each
+CPU must be described.
+
+¢ How much memory is available? Some systems will determine this value
+themselves by referencing memory location after memory location until an
+“jllegal address” fault is generated. This procedure defines the final legal
+address and hence the amount of available memory.
+
+© What devices are available? The system will need to know how to address
+each device (the device number), the device interrupt number, the device’s
+type and model, and any special device characteristics.
+
+¢ What operating-system options are desired, or what parameter values are
+to be used? These options or values might include how many buffers of
+which sizes should be used, what type of CPU-scheduling algorithm is
+desired, what the maximum number of processes to be supported is, and
+so on.
+
+Once this information is determined, it can be used in several ways. At one
+extreme, a system administrator can use it to modify a copy of the source code of
+the operating system. The operating system then is completely compiled. Data
+

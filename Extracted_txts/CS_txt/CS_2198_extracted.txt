@@ -1,0 +1,62 @@
+362. cuarren TEN Computer Arithmetic
+
+dividend alignment
+
+terminated. If neither of the operands is equal to zero, the process continues
+with the exponent addition.
+
+The exponent of the multiplier is in q and the adder is between exponents
+a and b, It is necessary to transfer the exponents from q to a, add the two
+exponents, and transfer the sum intoa. Since both exponents are biased by the
+addition ofa constant, the exponent sum will have double this bias. The correct,
+biased exponent for the product is obtained by subtracting the bias number
+from the sum.
+
+The multiplication of the mantissas is done as in the fixed-point case with
+the product residing in A and Q. Overflow cannot occur during multiplication,
+so there is no need to check for it.
+
+The product may have an underflow, so the most significant bit in A is
+checked. Ifit is a 1, the product isalready normalized. Ifit is a 0, the mantissa
+in AQ is shifted left and the exponent decremented. Note that only one
+normalization shift is necessary. The multiplier and multiplicand were origi-
+nally normalized and contained fractions. The smallest normalized operand is
+0.1, so the smallest possible product is 0.01. Therefore, only one leading zero
+may occur.
+
+Although the low-order half of the mantissa is in Q, we do not use it for
+the floating-point product. Only the value in the AC is taken as the product.
+
+ 
+
+Division
+
+Floating-point division requires that the exponents be subtracted and the
+mantissas divided. The mantissa division is done as in fixed-point except that
+the dividend has asingle-precision mantissa that is placed in the AC. Remem-
+ber that the mantissa dividend is a fraction and not an integer. For integer
+representation, a single-precision dividend must be placed in register Q and
+register A must be cleared. The zeros in A are to the left of the binary point
+and have no significance. In fraction representation, a single-precision divi-
+dend is placed in register A and register Q is cleared. The zeros in Q are to the
+right of the binary point and have no significance.
+
+The check for divide-overflow is the same as in fixed-point representa-
+tion. However, with floating-point numbers the divide-overflow imposes no
+problems. If the dividend is greater than or equal to the divisor, the dividend
+fraction is shifted to the right and its exponent incremented by 1 For normal-
+ized operands this is a sufficient operation to ensure that no mantissa divide-
+overflow will occur. The operation above is referred to as a dividend alignment.
+
+The division of two normalized floating-point numbers will always result
+in a normalized quotient provided that a dividend alignment is carried out
+before the division. Therefore, unlike the other operations, the quotient ob-
+tained after the division does not require a normalization.
+
+The division algorithm can be subdivided into five parts:
+
+ 
+
+1. Check for zeros.
+2. Initialize registers and evaluate the sign.
+

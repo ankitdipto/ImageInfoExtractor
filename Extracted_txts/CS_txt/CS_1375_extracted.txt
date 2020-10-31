@@ -1,0 +1,40 @@
+630 Let UsC
+
+ 
+
+Using the breakup of bytes shown in Figure 19.6 our program has
+first created a structure called boot. Notice the usage of #pragma
+pack to ensure that all elements of the structure are aligned on a 1-
+byte boundary, rather than the default 4-byte boundary. Then
+comes the surprise—there is no WinMain( ) in the program. This
+is because we want to display the boot sector contents on the
+screen rather than in a window. This has been done only for the
+sake of simplicity. Remember that our aim is to interact with the
+floppy, and not in drawing and painting in a window. If you wish
+you can of course adapt this program to display the same contents
+in a window. So the program is still a Windows application. Only
+difference is that it is built as a ‘Win32 Console Application’ using
+VC++. A console application always begins with main( ) rather
+than WinMain( ).
+
+To actually read the contents of boot sector of the floppy disk the
+program makes a call to a user-defined function called
+ReadSector( ). The ReadSector( ) function is quite similar to the
+absread( ) library function available in Turbo C/C++ under DOS.
+
+The first parameter passed to ReadSector( ) is a string that
+indicates the storage device from where the reading has to take
+place. The syntax for this string is \\machine-name\storage-
+device name. In \\.\\A:, we have used ‘.’ for the machine name. A
+‘? means the same machine on which the program is executing.
+Needless to say, A: refers to the floppy drive. The second
+parameter is the logical sector number. We have specified this as 0
+which means the boot sector in case of a floppy disk. The third
+parameter is the number of sectors that we wish to read. This
+parameter is specified as 1 since the boot sector occupies only a
+single sector. The last parameter is the address of a buffer/variable
+that would collect the data that is read from the floppy. Here we
+have passed the address of the boot structure variable b. As a
+result, the structure variable would be setup with the contents of
+the boot sector data at the end of the fiction call.
+

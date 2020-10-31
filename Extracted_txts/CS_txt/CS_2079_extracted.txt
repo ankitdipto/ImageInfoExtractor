@@ -1,0 +1,58 @@
+Chapter 9. Inference in First-Order Logic
+
+ 
+
+offers a book-length treatment of natural deduction. Gallier (1986) uses Gentzen sequents to
+expound the theoretical underpinnings of automated deduction.
+
+Conjunctive normal form and disjunctive normal form for propositional formulas were
+known to Schréder (1877), although the principles underlying the construction of these forms
+go back at least to Boole. The use of clausal form (conjunctive normal form for first-order
+logic) depends upon certain techniques for manipulating quantifiers, in particular skolemization.
+Whitehead and Russell (1910) expounded the so-called rules ofpassage (the actual term is from
+Herbrand (1930)) that are used to move quantifiers to the front of formulas. (Moving all the
+quantifiers to the front of a formula is called prenexing the formula, and a formula with all }
+the quantifiers in front is said to be in prenex form.) Horn form was introduced by Alfred
+Hom (1951). What we have called “implicative normal form" was used (with a right-to-left
+implication symbol) in Robert Kowalski’s (1979b) Logic for Problem Solving, and this way of
+writing clauses is sometimes called “Kowalski form."
+
+Skolem constants and Skolem functions were introduced, appropriately enough, by Thoralf
+Skolem (1920). The general procedure for skolemization is given in (Skolem, 1928), along with
+the important notion of the Herbrand universe
+
+Herbrand's theorem, named after the French logician Jacques Herbrand (1930), has played
+a vital role in the development of automated reasoning methods, both before and after Robinson's
+introduction ofresolution. This is reflected in ourreference to the "Herbrand universe" rather than -
+the "Skolem universe," even though Skolem really invented this concept (and indeed Herbrand
+does not explicitly use Skolem functions and constants, but a less elegant although roughly $
+equivalent device). Herbrand can also be regarded as the inventor of unification, because a }
+variant of the unification algorithm occurs in (Herbrand, 1930).
+
+First-order logic was shown to have complete proof procedures by Gidel (1930), using |
+methods similar to those of Skolem and Herbrand. Alan Turing (1936) and Alonzo Church (1936) §
+simultaneously showed, using very different proofs, that validity in first-order logic was not
+decidable. The excellent text by Enderton (1972) explains all of these results in a rigorous yet
+moderately understandable fashion.
+
+The first mechanical device to carry out logical inferences was constructed by the third
+Earl of Stanhope (1753-1816). The Stanhope Demonstrator could handle syllogisms and certain
+inferences in the theory of probability. The first mechanical device to carry out inferences in
+mathematical logic was William Stanley Jevons's "logical piano," constructed in 1869. Jevons
+was one of the nineteenth-century logicians who expanded and improved Boole's work; the
+logical piano carried out reasoning in Boolean logic. An entertaining and instructive history of
+these and other early mechanical devices for reasoning is given by Martin Gardner (1968).
+
+The first published results from research on automated deduction using electronic com-
+puters were those of Newell, Shaw, and Simon (1957) on the Logic Theorist. This program
+was based on an attempt to model human thought processes. Martin Davis (1957) had actually
+designed a program that came up with a proof in 1954, but the Logic Theorist's results were
+published slightly earlier. Both Davis's 1954 program and the Logic Theorist were based on
+somewhat ad hoc methods that did not strongly influence later automated deduction.
+
+It was Abraham Robinson who suggested attempting to use Herbrand’s Theorem to gener-
+ate proofs mechanically. Gilmore (1960) wrote a program that uses Robinson's suggestion in a
+way influenced by the “Beth tableaux" method of proof (Beth, 1955). Davis and Putnam (1960)
+
+ 
+

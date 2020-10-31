@@ -1,0 +1,37 @@
+15.1 Rod cutting 367
+
+‘
+
+Figure 15.4 The subproblem graph for the rod-cutting problem with n = 4. The vertex labels
+give the sizes of the corresponding subproblems. A directed edge (x, y) indicates that we need a
+solution to subproblem y when solving subproblem x. This graph is a reduced version of the tree of
+Figure 15.3, in which all nodes with the same label are collapsed into a single vertex and all edges
+go from parent to child.
+
+directly references array entry r[j — i] instead of making a recursive call to solve
+the subproblem of size j — i. Line 7 saves in r[j] the solution to the subproblem
+of size j. Finally, line 8 returns r[n], which equals the optimal value r,,.
+
+The bottom-up and top-down versions have the same asymptotic running time.
+The running time of procedure BOTTOM-Up-CutT-RopD is @(n7), due to its
+doubly-nested loop structure. The number of iterations of its inner for loop, in
+lines 5—6, forms an arithmetic series. The running time of its top-down counterpart,
+MEMOIZED-CUT-ROD, is also ©(n7), although this running time may be a little
+harder to see. Because a recursive call to solve a previously solved subproblem
+returns immediately, MEMOIZED-CUT-ROD solves each subproblem just once. It
+solves subproblems for sizes 0,1,...,. To solve a subproblem of size n, the for
+loop of lines 6—7 iterates n times. Thus, the total number of iterations of this for
+loop, over all recursive calls of MEMOIZED-CUT-ROD, forms an arithmetic series,
+giving a total of ©(n7) iterations, just like the inner for loop of BoTTOM-UP-
+CuT-Rop. (We actually are using a form of aggregate analysis here. We shall see
+aggregate analysis in detail in Section 17.1.)
+
+Subproblem graphs
+
+When we think about a dynamic-programming problem, we should understand the
+set of subproblems involved and how subproblems depend on one another.
+
+The subproblem graph for the problem embodies exactly this information. Fig-
+ure 15.4 shows the subproblem graph for the rod-cutting problem with n = 4. It
+is a directed graph, containing one vertex for each distinct subproblem. The sub-
+

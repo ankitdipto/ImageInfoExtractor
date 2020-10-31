@@ -1,0 +1,49 @@
+Chapter 20. Reinforcement Learning
+
+ 
+
+in an ADP learning agent; then we need to rewrite the update equation (i.e., Equation (17.4)) to
+incorporate the optimistic estimate. The following equation does this:
+
+U*(i) — RU) + max f (= MjU*)), Nea, i) (20.4)
+a
+a
+wheref(u,”) is called the exploration function. It determines how greed (preference for high
+values of u) is traded off against curiosity (preference for low values ofn, i.e., actions that have not
+been tried often). The function /(u, 2) should be increasing in u, and decreasing in n. Obviously,
+there are many possible functions that fit these conditions. One particularly simple definition is
+the following:
+R ifn<N,
+fem= { u otherwise
+
+where R* is an optimistic estimate of the best possible reward obtainable in any state, and N, is a
+fixed parameter. This will have the effect of making the agent try each action-state pair at least
+N, times.
+
+The fact that U/* rather than U appears on the right-hand side of Equation (20.4) is very
+important. As exploration proceeds, the states and actions near the start state may well be tried
+a large number of times. If we used U, the nonoptimistic utility estimate, then the agent would |
+soon become disinclined to explore further afield. The use of U* means that the benefits of
+exploration are propagated back from the edges of unexplored regions, so that actions that lead
+toward unexplored regions are weighted more highly, rather thanjust actions that are themselves
+unfamiliar. The effect of this exploration policy can be seen clearly in Figure 20.11, which
+shows a rapid convergence toward optimal performance, unlike that of the wacky or the greedy
+approaches. A very nearly optimal policy is found after just 18 trials. Notice that the utility
+estimates themselves do not converge as quickly. This is because the agent stops exploring the
+unrewarding parts of the state space fairly soon, visiting them only “by accident" thereafter.
+However, it makes perfect sense for the agent not to care about the exact utilities of states that it
+knows are undesirable and can be avoided.
+
+20.6 LEARNING AN AcTION-VALUE FUNCTION
+
+An action-value function assigns an expected utility to taking a given action in a given state;
+as mentioned earlier, such values are also called Q-values. We will use the notation Q(a,i)to
+denote the value of doing action a in state 7. Q-values are directly related to utility values by the
+following equation:
+
+U() = max O(a, i) (20.5)
+Q-values play an important role in reinforcement learning for two reasons: first, like condition-
+
+action rules, they suffice for decision making without the use ofa model; second, unlike condition-
+action rules, they can be learned directly from reward feedback.
+

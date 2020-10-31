@@ -1,0 +1,59 @@
+194 Chapter7 Process Synchronization
+
+do {
+
+ 
+
+flag[i] = true;
+while (flag[j]);
+
+ 
+
+ 
+
+critical section
+
+flagli] = fals
+
+remainder section
+
+ 
+
+} while (1);
+Figure 7.3 The structure of process P; in algorithm 2.
+
+not also ready to enter its critical section. If P; were ready, then P; would wait
+until P; had indicated that it no longer needed to be in the critical section (that
+is, until flag [j] was false). At this point, P; would enter the critical section.
+On exiting the critical section, P; would set flag [i] to be false, allowing the
+other process (if it is waiting) to enter its critical section.
+
+In this solution, the mutual-exclusion requirement is satisfied. Unfortu-
+nately, the progress requirement is not met. To illustrate this problem, we
+consider the following execution sequence:
+
+To: Posetsflag[0] = true
+Ty: Py setsflag[1] = true
+
+Now Py and P, are looping forever in their respective while statements.
+
+This algorithm is crucially dependent on the exact timing of the two pro-
+cesses. The sequence could have been derived in an environment where there
+are several processors executing concurrently, or where an interrupt (such as a
+timer interrupt) occurs immediately after step Ty is executed, and the CPU is
+switched from one process to another.
+
+Note that switching the order of the instructions for setting flag [i], and
+testing the value of a f1ag[j], will not solve our problem. Rather, we will have
+a situation where it is possible for both processes to be in the critical section at
+the same time, violating the mutual-exclusion requirement.
+
+7.2.1.3 Algorithm 3
+
+By combining the key ideas of algorithm 1 and algorithm 2, we obtain a correct
+solution to the critical-section problem, where all three requirements are met.
+The processes share two variables:
+
+boolean flag[2];
+int turn;
+

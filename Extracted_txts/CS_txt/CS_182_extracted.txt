@@ -1,0 +1,51 @@
+clock pulses
+
+SECTION 54 Timing and Control 135,
+
+user. Programs and data must be transferred into memory and results of
+computations must be transferred back to the user.
+
+The instructions listed in Table 5-2 constitute a minimum set that provides
+allthe capabilities mentioned above. Thereis one arithmetic instruction, ADD,
+and two related instructions, complement AC(CMA) and increment AC(INC)
+With these three instructions we can add and subtract binary numbers when
+negative numbers are in signed-2’s complement representation. The circulate
+instructions, CIR and CIL, can be used for arithmetic shifts as well as any other
+type of shifts desired Multiplication and division can be performed using
+addition, subtraction, and shifting. There are three logic operations: AND,
+complement AC(CMA), and clear AC(CLA). The AND and complement
+providea NAND operation. It can be shown that with the NAND operation
+it is possible to implement all the other logic operations with two variables
+(listed in Table 4-6). Moving information from memory to ACis accomplished
+with the load AC(LDA) instruction. Storing information from AC into memory
+isdone with the store AC(STA) instruction. The branch instructions BUN, BSA,
+and ISZ, together with the four skip instructions, provide capabilities for
+program control and checking of status conditions. The input (INP) and output
+(OUT) instructions cause information to be transferred between the computer
+and external devices.
+
+‘Although the set of instructions for the basic computer is complete, itis
+not efficient because frequently used operations are not performed rapidly. An
+efficient set of instructions will include such instructions as subtract, multiply,
+OR, and exclusive-OR. These operations must be programmed in the basic
+computer. The programs are presented in Chap. 6 together with other pro-
+gramming examples for the basic computer. By using a limited number of
+instructions it is possible to show the detailed logic design of the computer.
+Amore completeset of instructions would have made the design too complex.
+In this way we can demonstrate the basic principles of computer organization
+and design without going into excessive complex details. InChap. 8 we present
+a complete list of computer instructions that are included in most commercial
+computers.
+
+The function of each instruction listed in Table 5-2 and the microopera-
+tions needed for their execution are presented in Secs. 5-5 through 5-7. We
+delay this discussion because we must first consider the control unit and
+understand its internal organization.
+
+5-4 Timing and Control
+
+The timing for all registers in the basic computer is controlled by a master clock
+generator. The clock pulses are applied to all flip-flops and registers in the
+system, including the flip-flops and registers in the control unit. The clock
+pulses do not change the state of a register unless the register is enabled by
+

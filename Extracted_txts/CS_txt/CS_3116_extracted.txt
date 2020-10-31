@@ -1,0 +1,61 @@
+486
+
+Chapter 16. Making Simple Decisions
+
+ 
+
+ 
+
+ 
+
+Airport Site
+
+ 
+
+ 
+
+ 
+
+V
+
+ 
+
+ 
+
+Figure 16.5 A simplified representation of the airport-siting problem. Chance nodes corre-
+sponding to outcome states have been factored out.
+
+ 
+
+ 
+
+ 
+
+that omits these nodes can be used whenever the more general form can be used. Although the
+simplified form contains fewer nodes, the omission of an explicit description of the outcome of 4
+the siting decision means that it is less flexible with respect to changes in circumstances. For “4
+example, in Figure 164, a change in aircraft noise levels can be reflected by a change in the -;
+conditional probability table associated with the Noise node, whereas a change in the weight
+accorded to noise pollution in the utility function can be reflected by a change in the utility table.
+In the action-utility diagram, Figure 16.5, on the other hand, all such changes have to be reflected
+by changes to the action-utility table. Essentially, the action-utility formulation is a compiled :
+version of the original formulation. 4
+
+Evaluating decision networks
+
+Actions are selected by evaluating the decision network for each possible setting of the decision 4
+node. Once the decision node is set, it behaves exactly like a chance node that has been set as an 4
+evidence variable. The algorithm for evaluating decision networks is the following: '
+1. Set the evidence variables for the current state.
+2. For each possible value of the decision node:
+(a) Set the decision node to that value.
+(b) Calculate the posterior probabilities for the parent nodes of the utility node, using a
+standard probabilistic inference algorithm.
+(c) Calculate the resulting utility for the action.
+3. Return the action with the highest utility.
+This is a straightforward extension of the belief network algorithm, and can be incorporated
+directly into the agent design given in Figure 14.1. We will see in Chapter 17 that the possibility
+of executing several actions in sequence makes the problem much more interesting.
+
+ 
+

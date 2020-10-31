@@ -1,0 +1,99 @@
+10.1 Stacks and queues 233
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+23 6 2 5 6 7
+15[ 6 [2 [9 s [slo [2 [9 [i7[3 s [is]6]2]9 [:7/B
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+©
+
+ 
+
+ 
+
+ 
+
+ 
+
+4 4 t
+
+S.top=4 S.top =6 S.top =5
+
+(a) (b) (©)
+
+Figure 10.1 An array implementation of astack S. Stack elements appear only in the lightly shaded
+positions. (a) Stack S has 4 elements. The top element is 9. (b) Stack S after the calls PusH(S, 17)
+and Pusu(S, 3). (¢) Stack S after the call Pop(S) has returned the element 3, which is the one most
+recently pushed. Although element 3 still appears in the array, it is no longer in the stack; the top is
+element 17.
+
+inserted element. The stack consists of elements S[1..S.fop], where S[1] is the
+element at the bottom of the stack and S[S.top] is the element at the top.
+
+When S.top = 0, the stack contains no elements and is empty. We can test to
+see whether the stack is empty by query operation STACK-EMPTY. If we attempt
+to pop an empty stack, we say the stack underflows, which is normally an error.
+If S.top exceeds n, the stack overflows. (In our pseudocode implementation, we
+don’t worry about stack overflow.)
+
+We can implement each of the stack operations with just a few lines of code:
+
+STACK-EmPTy(S)
+
+1 if S.top ==0
+
+2 return TRUE
+3 else return FALSE
+
+PusH(S, x)
+
+1 S.top = S.top+1
+2 S[S.top] = x
+
+Pop(S)
+
+if STACK-EmpTy(S)
+error “underflow”
+
+else S.top = S.top—1
+return S[S.top + 1]
+
+BRwNe
+
+Figure 10.1 shows the effects of the modifying operations PUSH and Pop. Each of
+the three stack operations takes O(1) time.
+

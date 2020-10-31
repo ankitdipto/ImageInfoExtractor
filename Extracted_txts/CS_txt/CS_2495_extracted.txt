@@ -1,0 +1,55 @@
+4.6 Proof of the master theorem 101
+
+«—1
+— ploma-e (7?
+0 (FS) ;
+
+Since b and € are constants, we can rewrite the last expression as n'°%» @~€ O(n*) =
+O(n'2>“). Substituting this expression for the summation in equation (4.23) yields
+
+a(n) = O(n"**)
+
+ 
+
+thereby proving case 1.
+Because case 2 assumes that f(7) = ©(n'°%*), we have that f(n/b/) =
+O((n/b/)"%), Substituting into equation (4.22) yields
+
+log), n—1 cep @
+a) -0( s = (5) " ) : (4.24)
+
+We bound the summation within the @-notation as in case 1, but this time we do not
+obtain a geometric series. Instead, we discover that every term of the summation
+is the same:
+
+logy n=1 logy n—1
+
+. logy a i
+Sai YO jploxn a S .
+bi logy a
+j=0 j=0
+log, 2-1
+
+nen a > 1
+j=0
+
+= n%“log,n.
+Substituting this expression for the summation in equation (4.24) yields
+
+gin) = O(n“ log, n)
+O(n" Ign) ,
+
+proving case 2.
+
+We prove case 3 similarly. Since /() appears in the definition (4.22) of g(n)
+and all terms of g(”) are nonnegative, we can conclude that g(n) = Q( f(n)) for
+exact powers of b. We assume in the statement of the lemma that af(n/b) < cf (n)
+for some constant c < 1 and all sufficiently large n. We rewrite this assumption
+as f(n/b) < (c/a) f(n) and iterate j times, yielding f(n/b/) < (c/a)/ f(n) or,
+equivalently, a/ f(n/b/) < c/ f(n), where we assume that the values we iterate
+on are sufficiently large. Since the last, and smallest, such value is n/bi-, it is
+enough to assume that 1 /b/~ is sufficiently large.
+
+Substituting into equation (4.22) and simplifying yields a geometric series, but
+unlike the series in case 1, this one has decreasing terms. We use an O(1) term to
+

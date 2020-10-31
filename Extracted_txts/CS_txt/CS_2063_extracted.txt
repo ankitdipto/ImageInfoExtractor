@@ -1,0 +1,41 @@
+496 Chapter 14 Mass-Storage Structure
+
+queue = 98, 183, 37, 122, 14, 124, 65, 67
+head starts at 53
+
+oO 14 37 536567 98 122124 183 199
+
+ 
+
+Figure 14.4 C-SCAN disk scheduling.
+
+the head will have to wait until the arm moves to the end of the disk, reverses
+direction, and comes back.
+
+The SCAN algorithm is sometimes called the elevator algorithm, since the
+disk arm behaves just like an elevator in a building, first servicing all the
+requests going up, and then reversing to service requests the other way.
+
+Assuming a uniform distribution of requests for cylinders, consider the
+density of requests when the head reaches one end and reverses direction. At
+this point, relatively few requests are immediately in front of the head, since
+these cylinders have recently been serviced. The heaviest density of requests
+is at the other end of the disk. These requests have also waited the longest, so
+why not go there first? That is the idea of the next algorithm.
+
+14.2.4 C-SCAN Scheduling
+
+Circular SCAN (C-SCAN) scheduling is a variant of SCAN designed to provide
+a more uniform wait time. Like SCAN, C-SCAN moves the head from one end of
+the disk to the other, servicing requests along the way. When the head reaches
+the other end, however, it immediately returns to the beginning of the disk,
+without servicing any requests on the return trip (Figure 14.4). The C-SCAN
+scheduling algorithm essentially treats the cylinders as a circular list that wraps
+around from the final cylinder to the first one.
+
+14.2.5 LOOK Scheduling
+
+As we described them, both SCAN and C-SCAN move the disk arm across the
+full width of the disk. In practice, neither algorithm is implemented this way.
+More commonly, the arm goes only as far as the final request in each direction.
+

@@ -1,0 +1,49 @@
+2.3 Designing algorithms 31
+
+the output pile. We repeat this step until one input pile is empty, at which time
+we just take the remaining input pile and place it face down onto the output pile.
+Computationally, each basic step takes constant time, since we are comparing just
+the two top cards. Since we perform at most n basic steps, merging takes (7)
+time.
+
+The following pseudocode implements the above idea, but with an additional
+twist that avoids having to check whether either pile is empty in each basic step.
+We place on the bottom of each pile a sentinel card, which contains a special value
+that we use to simplify our code. Here, we use 00 as the sentinel value, so that
+whenever a card with oo is exposed, it cannot be the smaller card unless both piles
+have their sentinel cards exposed. But once that happens, all the nonsentinel cards
+have already been placed onto the output pile. Since we know in advance that
+exactly r— p + 1 cards will be placed onto the output pile, we can stop once we
+have performed that many basic steps.
+
+MERGE(A, p,q.)
+nm =q-ptl
+nm =r—-q
+let L[1..; + 1] and R[1..12 + 1] be new arrays
+fori = lton,
+
+L{i] = A[p+i-1]
+for j = 1 ton2
+
+RU] = Alq + J]
+L{[n, +1] = 0c
+R{nz + 1] = c
+10 i=1
+Hoja
+12 fork = ptor
+13 if L[i] < RU]
+14 Ak] = L{i]
+15 i=it+l
+16 else A[k] = R[j]
+17 j=jtl
+
+CHOIAAWAWHE
+
+In detail, the MERGE procedure works as follows. Line 1 computes the length 7;
+of the subarray A[p..q], and line 2 computes the length n of the subarray
+Alqg+1..r]. We create arrays L and R (“left” and “right”), of lengths ny + 1
+and n + 1, respectively, in line 3; the extra position in each array will hold the
+sentinel. The for loop of lines 4-5 copies the subarray A[p..q] into L[l..m,],
+and the for loop of lines 6-7 copies the subarray A[g + 1..1r] into R[1..n2].
+Lines 8-9 put the sentinels at the ends of the arrays L and R. Lines 10-17, illus-
+

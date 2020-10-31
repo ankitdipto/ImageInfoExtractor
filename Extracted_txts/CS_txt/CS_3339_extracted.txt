@@ -1,0 +1,64 @@
+Section 22.10.
+
+Summary 689
+
+ 
+
+ 
+
+22.3 Determine what semantic interpretation would be given to the following sentences by the
+grammar in this chapter:
+
+a. It is a wumpus.
+
+b. The wumpus is dead.
+
+c. The wumpus is in 2,2.
+
+Would it be a good idea to have the semantic interpretation for "It is a wumpus" be simply
+x Wumpus(x)?Consider altemative sentences such as "It was a wumpus."
+
+224 Augment the grammar from this chapter so that it handles the following:
+
+a. Pronoun case.
+b. Subject/verb agreement.
+
+c. Article/noun agreement: "agents" is an NP but "agent" is not. In general, only plural nouns
+can appear without an article.
+
+NR
+Ss
+in
+
+This exercise concerns grammars for very simple languages.
+
+>
+
+Write a context-free grammar for the language a"b".
+
+b. Write a context-free grammar for the palindrome language: the set of all strings whose
+second half is the reverse of the first half.
+
+c. Write a context-sensitive grammar for the language a"b"c".
+
+d. Write a context-sensitive grammar for the duplicate language: the set of all strings whose
+second halfis the same as the first half.
+
+22.6 This exercise continues the example of Section 22.9 by making the slave more intelligent.
+On each turn, the slave describes its percepts as before, but it also says where itis (e.g, "I am in
+1,1") and reports any relevant facts it has deduced about the neighboring squares (e.g., "There is
+a pit in 12" or "2,1 is safe"). You need not do any fancy language generation, but you do have
+to address the intention problem: deciding which facts are worth mentioning. In addition, you
+should give your slave a sense of self-preservation. If it is commanded to enter a deadly square,
+it should politely refuse. If commanded to enter an unsafe square, it can ask for confirmation,
+but ifcommanded again, it should obey. Run this slave in the wumpus environment a few times.
+How mush easier is it to work with this slave than the simple one from Section 22.9?
+
+22.7 Consider the sentence "Someone walked slowly to the supermarket" and the following set
+of context-free rewrite rules which give the grammatical categories of the words ofthe sentence:
+Pronoun someone V—walked
+Adv —slowly Prep —to
+Det —the Noun —supermarket
+Which of the following three sets of rewrite rules, when added to the preceding rules, yield
+context-free grammars that can generate the above sentence?
+

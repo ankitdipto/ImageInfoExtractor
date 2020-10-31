@@ -1,0 +1,83 @@
+350 charter TEN Computer Arithmetic
+
+  
+
+Divisor B= 10001, B+i=onn
+E A esc
+ae A La
+
+Dividend o110 = 000005
+
+snl EAQ © 1110009000
+
+aad B41 ant
+
+Ee 1 on
+
+Set Qy #1 1 1011 oooo1
+
+shlEAQ 0 — 10110010
+
+nad 81 aun
+
+EI 1 oo10r
+
+Set Oy 1 101 com
+
+shlEaQ 0 01010 ano
+
+nad B+ 1 oui
+
+E=0jlewe Q, =0 o 11001 onto
+
+‘ad 8 40901 2
+
+Restore remainder 1 1010
+
+snlEAQ 0 T0100 ont00
+
+Add B+1 out
+
+Ee 1 0011
+
+Set Q=1 1 oo ony
+
+snl EAQ 0 ooo T010
+
+Add B+ oun
+
+E=0;leaveQ, = 0 © 10101-11010
+
+Add 10901
+
+Restore remainder 1 wo = 1010
+
+Neglet £
+
+Remainder in A: coro
+
+Quotienting: oie
+
+Figure 10-12 Example of binary division with digital hardware.
+
+proposed division process. The divisor is stored in the B register and the
+double-length dividend is stored in registers A and Q. The dividend is shifted
+totheleft and the divisor is subtracted by adding its 2’s complement value. The
+information about the relative magnitude is availablein E. If E = 1, it signifies
+that A = B. A quotient bit 1 is inserted into Q, and the partial remainder is
+shifted to the left to repeat the process. If E = 0, it signifies that A < B so the
+quotient in Q, remains a 0 (inserted during the shift). The value of B is then
+added to restore the partial remainder in A to its previous value. The partial
+remainder is shifted to the left and the process is repeated again until all five
+quotient bits are formed. Note that while the partial remainder is shifted left,
+the quotient bits are shifted also and after five shifts, the quotient is in Q and
+the final remainder is in A.
+
+Before showing the algorithm in flowchart form, we have to consider the
+sign of the result and a possible overflow condition. The sign of the quotient
+is determined from the signs of the dividend and the divisor. If the two signs
+
+ 
+
+ 
+

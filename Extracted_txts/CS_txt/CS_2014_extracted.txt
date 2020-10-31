@@ -1,0 +1,37 @@
+Chapter 13
+
+ 
+
+I/O SYSTEMS
+
+ 
+
+The two main jobs of a computer are I/O and processing. In many cases, the
+main job is 1/O and the processing is merely incidental. For instance, when we
+browse a web page or edit a file, our immediate interest is to read or enter some
+information, not to compute an answer.
+
+The role of the operating system in computer I/O is to manage and control
+1/O operations and I/O devices. Although related topics appear in other
+chapters, here we bring together the pieces to paint a complete picture of
+I/O. First, we describe the basics of I/O hardware, because the nature of
+the hardware interface places requirements on the internal facilities of the
+operating system. Next, we discuss the I/O services provided by the operating
+system, and the embodiment of these services in the application I/O interface.
+Then, we explain how the operating system bridges the gap between the
+hardware interface and the application interface. We also discuss the UNIX
+System V STREAMS mechanism, which enables an application to assemble
+pipelines of driver code dynamically. Finally, we discuss the performance
+aspects of I/O, and the principles of operating-system design that improve the
+1/0 performance.
+
+13.1 = Overview
+The control of devices connected to the computer is a major concern of
+
+operating-system designers. Because I/O devices vary so widely in their func-
+tion and speed (consider a mouse, a hard disk, and a CD-ROM jukebox), a
+
+455
+
+ 
+

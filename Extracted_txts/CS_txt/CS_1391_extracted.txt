@@ -1,0 +1,83 @@
+230
+
+  
+
+Chapter 8. Building a Knowledge Base
+
+ 
+
+REIFICATION
+
+INHERITANCE
+
+TAXONOMY
+
+ 
+  
+ 
+   
+   
+  
+  
+   
+  
+   
+    
+   
+   
+  
+  
+ 
+   
+  
+  
+
+make predictions about objects once they are classified. One infers the presence of certain objects
+from perceptual input, infers category membership from the perceived properties of the objects,
+and then uses category information to make predictions about the objects. For example, from its
+green, mottled skin, large size, and ovoid shape, one can infer that an object is a watermelon;
+from this, one infers that it would be useful for fruit salad.
+There are two main choices for representing categories in first-order logic. The first we
+have already seen: categories are represented by unary predicates. The predicate symbol Tomato,
+for example, represents the unary relation that is true only for objects that are tomatoes, and
+Tomato(x)means thatx is a tomato.
+The second choice is to reify the category. Reification is the process of turning a predicate
+or function into an object in the language.’ We will see several examples of reification in this
+chapter. In this case, we use Tomatoes as a constant symbol referring to the object that is the set of'|
+all tomatoes. We use x G Tomatoes to say thatx is a tomato. Reified categories allow us to make
+assertions about the category itself, rather than about members of the category. For example, we
+can say Population(Humans) =5, 000, 000, 000,even though there is no individual human witha
+population of five billion.
+Categories perform one more important role: they serve to organize and simplify the
+knowledge base through inheritance. If we say that all instances of the category Food are edible,
+and if we assert that Fruit is a subclass of Food and Apples is a subclass of Fruit, then we know
+that every apple is edible. We say that the individual apples inherit the property of edibility, in
+this case from their membership in the Food category. :
+Subclass relations organize categories into a taxonomy or taxonomic hierarchy. Tax-
+onomies have been used explicitly for centuries in technical fields. For example, systematic
+biology aims to provide a taxonomy of all living and extinct species; library science has de-
+veloped a taxonomy of all fields of knowledge, encoded as the Dewey Decimal system: tax,
+authorities and other government departments have developed extensive taxonomies of occupa-
+tions and commercial products. Taxonomies are also an important aspect of general commonsense
+knowledge, as we will see in our investigations that follow.
+First-order logic makes it easy to state facts about categories, either by relating objects to
+categories or by quantifying over their members:
+
++ An object is a member ofa category. For example:
+Tomato,2G Tomatoes
+
++ A category is a subclass of another category. For example:
+Tomatoes C Fruit
+
++ All members of a category have some properties. For example:
+Wx x G Tomatoes = Red(x)A Round(x)
+
++ Members of a category can be recognized by some properties. For example:
+Wx Red(Interior(x))A Green(Exterior(x))A x € Melons = «x € Watermelons
+
++ A category as a whole has some properties. For example:
+Tomatoes G DomesticatedSpecies
+
+7 The term "reification" comes from the Latin word res, or thing. John McCarthy proposed the term “thingification7]
+but it never caught on
+

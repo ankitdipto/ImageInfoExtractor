@@ -1,0 +1,61 @@
+SECTION 103 Multiplication Algorithms 343
+
+correspond to the sign of the product since a double-length product will be
+stored in registers A and Q. Registers A and E are cleared and the sequence
+counter SCis set toa number equal to the number of bits of the multiplier. We
+are assuming here that operands are transferred to registers from a memory
+unit that has words of n bits. Since an operand must be stored with its sign,
+one bit of the word will be occupied by the sign and the magnitude will consist
+of n = 1 bits.
+
+After the initialization, the low-order bit of the multiplier in Q, is tested.
+If it is a1, the multiplicand in B is added to the present partial product in A.
+If itis a0, nothing is done. Register EAQ is then shifted once to the right to
+form the new partial product. The sequence counter is decremented by 1 and
+its new value checked. If it is not equal to zero, the process is repeated and a
+new partial product is formed. The process stops when SC = 0. Note that the
+partial product formed in A is shifted into Q one bit at a time and eventually
+replaces the multiplier. The final product is available in both A and Q, with A
+holding the most significant bits and Q holding the least significant bits.
+
+The previous numerical example is repeated in Table 10-2 to clarify the
+hardware multiplication process. The procedure follows the steps outlined in
+the flowchart.
+
+Booth Multiplication Algorithm
+
+Booth algorithm gives a procedure for multiplying binary integersin signed-2's
+complement representation. It operates on the fact that strings of 0's in the
+multiplier require no addition but just shifting, and a string of 1's in the
+multiplier from bit weight 2* to weight 2" can be treated as 2"! — 2", For
+example, the binary number 001110 (+14) has a string of 1’s from 2° to 2!
+
+TABLE 10-2 Numerical Example for Binary Multiplier
+
+ 
+
+   
+
+ 
+
+ 
+
+Multiplicand B = 10111 EA Qe sc
+Multiplier in Q 0 00000 10011101
+Q, = 1; add B yon
+First partial product o tor
+Shift right EAQ 0 o101 11001100
+Qn = 1; add B 10111
+‘Second partial product 1 00010
+Shift right EAQ 0 © 10001 0100 on
+Q, = 0; shift right EAQ 0 01000 100 010
+Qn = 0; shift right EAQ 0 on100 Orono
+Q, = 1; add B 10111
+
+ifth partial product o Ton
+Shift right EAQ 0 0110110101000
+
+Final product in AQ
+
+ 
+

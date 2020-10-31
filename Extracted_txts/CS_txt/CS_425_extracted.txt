@@ -1,0 +1,45 @@
+986
+
+Chapter 32 String Matching
+
+Algorithm Preprocessing time __Matching time
+Naive 0 O((n—m + 1m)
+Rabin-Karp em) O((n—m + 1)m)
+Finite automaton O(m|=)) em)
+Knuth-Morris-Pratt ©(m) en)
+
+Figure 32.2 The string-matching algorithms in this chapter and their preprocessing and matching
+times.
+
+Except for the naive brute-force algorithm, which we review in Section 32.1,
+each string-matching algorithm in this chapter performs some preprocessing based
+on the pattern and then finds all valid shifts; we call this latter phase “matching.”
+Figure 32.2 shows the preprocessing and matching times for each of the algorithms
+in this chapter. The total running time of each algorithm is the sum of the prepro-
+cessing and matching times. Section 32.2 presents an interesting string-matching
+algorithm, due to Rabin and Karp. Although the ©((n — m + 1)m) worst-case
+running time of this algorithm is no better than that of the naive method, it works
+much better on average and in practice. It also generalizes nicely to other pattern-
+matching problems. Section 32.3 then describes a string-matching algorithm that
+begins by constructing a finite automaton specifically designed to search for occur-
+rences of the given pattern P in a text. This algorithm takes O(m |X|) preprocess-
+ing time, but only ©(7) matching time. Section 32.4 presents the similar, but much
+cleverer, Knuth-Morris-Pratt (or KMP) algorithm; it has the same ©(n) matching
+time, and it reduces the preprocessing time to only @(m).
+
+Notation and terminology
+
+We denote by &* (read “sigma-star”) the set of all finite-length strings formed
+using characters from the alphabet &. In this chapter, we consider only finite-
+length strings. The zero-length empty string, denoted ¢, also belongs to £*. The
+length of a string x is denoted |x|. The concatenation of two strings x and y,
+denoted xy, has length |x| + |y| and consists of the characters from x followed by
+the characters from y.
+
+We say that a string w is a prefix of a string x, denoted w C x, if x = wy for
+some string y € D*. Note that if w C x, then |w| < |x|. Similarly, we say that a
+string w is a suffix of a string x, denoted w 4 x, if x = yw for some y € &*. As
+with a prefix, w 3 x implies |w| < |x|. For example, we have ab C abcca and
+cca abcca. The empty string ¢ is both a suffix and a prefix of every string. For
+any strings x and y and any character a, we have x 4 y if and only if xa 4 ya.
+

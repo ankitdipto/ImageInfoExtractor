@@ -1,0 +1,73 @@
+Section 15.4.
+
+Inference in Multiply Connected Belief Networks 455
+
+ 
+
+CUTSET
+
+BOUNDED CUTSET
+CONDITIONING
+
+LOGIC SAMPLING
+
+polytrees. Each simple network has one or more variables instantiated to a definite value. P(X\E)
+is computed as a weighted average over the values computed by each polytree.
+
+A set of variables that can be instantiated to yield polytrees is called a cutset. In Fig-
+ure 15.11, the cutset is just {Cloudy},and because it is a Boolean variable, there are just two
+resulting polytrees. In general, the number of resulting polytrees is exponential in the size of the
+cutset, so we want to find a small'cutset if possible.
+
+Cutset conditioning can be approximated by evaluating only some ofthe resulting polytrees.
+The error in the approximation is bounded by the total probability weight of the polytrees not yet
+evaluated. The obvious approach is to evaluate the most likely polytrees first. For example, if we
+need an answer accurate to within 0.1, we evaluate trees in decreasing order of likelihood until
+the total probability exceeds 0.9. This technique is called bounded cutset conditioning, and is
+useful in systems that need to make approximately correct decisions quickly.
+
+2 ~ =
+«
+(a)
+
+ 
+
+ 
+
+     
+
+Grass
+
+ 
+
+ 
+
+Figure 15.11 Networks created by instantiation.
+
+ 
+
+ 
+
+ 
+
+Stochastic simulation methods
+
+In the stochastic simulation method known as logic sampling, we un repeated simulations of
+the world described by the belief network, and estimate the probability we are interested in by
+counting the frequencies with which relevant events occur. Each round of the simulation starts by
+randomly choosing a value for each root node of the network, weighting the choice by the prior
+probabilities. Ifthe prior P(Cloudy)= 0.5, then we would pick Cloudy = True half the time, and
+Cloudy = False half the time. Whatever value is chosen, we can then choose values randomly for
+Sprinkler and Rain, using the conditional probabilities of those nodes given the known value of
+Cloudy. Finally, we do the same for WetGrass, and the first round is done
+
+To estimate P( WetGrass|Cloudy) (or in general P(X|£)),we repeat the process many times,
+and then compute the ratio of the number of runs where WetGrass and Cloudy are true to the
+number ofruns where just Cloudy is true. This will always converge to the right value, although
+it may take many runs.
+
+The main problem is when we are interested in some assignment of values to E that rarely
+occurs. For example, suppose we wanted to know
+
+P(WetGrass|Sprinkler A Rain)
+

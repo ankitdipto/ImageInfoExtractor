@@ -1,0 +1,54 @@
+76 =~ cuarrer THREE Data Representation
+
+subtraction
+
+end carry
+
+In the definitions above it was assumed that the numbers do not have a
+radix point If the original number N contains a radix point, it should be
+removed temporarily to form the r’s or (r ~ 1's complement. The radix point
+is then restored to the complemented number in the same relative position. It
+isalso worth mentioning that the complement of the complement restores the
+number to its original value. The r’s complement of N is r" — N. The comple-
+ment of the complement is” ~ (r" - N) = N giving back the original number.
+
+Subtraction of Unsigned Numbers
+The direct method of subtraction taught in elementary schools uses the borrow
+concept. In this method we borrow a1 from a higher significant position when
+the minuend digit is smaller than the corresponding subtrahend digit. This
+seems to be easiest when people perform subtraction with paper and pencil.
+When subtraction is implemented with digital hardware, this method is found
+to be less efficient than the method that uses complements.
+
+Thesubtraction oftwon-digit unsignednumbers M - N(N # 0) inbase
+can be done as follows:
+
+1. Add the minuend M to the r’s complement of the subtrahend N. This
+performs M + (r"- N)=M-N+r°.
+
+2. IfM = N, thesumwill produce an end carry r” which is discarded, and
+what is left is the result M ~ N.
+
+3. IfM<N, the sum does not produce an end carry and is equal to
+P= (N ~ M), which is the r’s complement of (N — M). To obtain the
+answerin a familiar form, take the r’s complement of the sum and place
+a negative sign in front.
+
+Consider, for example, the subtraction 72532 — 13250 = 59282. The 10’s com-
+plement of 13250 is 86750. Therefore:
+
+   
+
+M= 72532
+10's complement of N = +86750
+Sum
+Discard end carry 10°
+Answer
+
+Now consider an example with M </N. The subtraction 13250 — 72532
+produces negative 59282. Using the procedure with complements, we have
+
+10's complement of N
+
+ 
+

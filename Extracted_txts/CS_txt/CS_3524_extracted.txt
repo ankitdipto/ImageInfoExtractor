@@ -1,0 +1,62 @@
+SectionB.2. Describing Algorithms with Pseudo-Code 855
+
+ 
+
+ 
+
+can be used to separate alternative right-hand sides. Here isa BNF grammar for simple arithmetic
+
+expressions:
+Exp — Exp Operator Exp
+I (Exp)
+| Number -
+Mimber — Digit
+| Number Digit
+Digit = Of 1] 2| 3| 4] 5] 6| 7| 81 9
+Operator + +\ —\ +| X
+
+We cover languages and grammars in more detail in Chapter 22. Be aware that other books use
+slightly different notations for BNF; for example, you might see (Digit) instead of Digit for a
+nonterminal; ‘word’ instead of word for a terminal; or : : = instead of > in arule.
+
+ 
+
+ 
+
+B.2__ DESCRIBING ALGORITHMS WITH PSEUDO-CODE
+
+ 
+
+ 
+
+ 
+
+In this book, we define over 100 algorithms. Rather than picking a programming language (and
+risking that readers who are unfamiliar with the language will be lost), we have chosen to describe
+the algorithms in pseudo-code. Most of it should be familiar to users of languages like Pascal,
+C, or Common Lisp, but in some places we use mathematical formulas or ordinary English to
+describe parts that would otherwise be more cumbersome. There are a few idiosyncrasies that
+should be remarked on.
+
+Nondeterminism.
+
+It is the nature of AI that we are often faced with making a decision before we know enough to
+make the right choice. So our algorithms have to make a choice, but keep track ofthe alternatives
+in case the choice does not succeed. The clearest way to describe such algorithms without
+bogging them down with bookkeeping details is with the primitives choose and fail.
+
+The idea is that when we call choose(a,b,c), the algorithm will return either a, b, or c as
+the value of the choose expression. But it will also save the other two on an agenda of pending
+choices. The algorithm continues; ifit terminates normally then all is done, and we forget about
+the agenda. But if a fail statement is encountered, then a pending choice is taken off the agenda,
+and control is resumed at the point in the algorithm where that choice was saved. Algorithms
+
+NQWETERMINSTIC that make use of choose are called nondeterministic algorithms.
+
+You can think of a nondeterministic algorithm as a search through the space of possible
+choices. As such, any of the search algorithms from Chapters 3 or 4 can be used. The beauty
+of the nondetenninistic algorithm is that the search strategy can be specified separately from the
+main algorithm.
+
+ 
+

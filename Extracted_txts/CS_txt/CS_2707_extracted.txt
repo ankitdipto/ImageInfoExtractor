@@ -1,0 +1,32 @@
+11.4 Open addressing 273
+
+ 
+
+Figure 11.5 Insertion by double hashing. Here we have a hash table of size 13 with hy(k) =
+k mod 13 and ho(k) = 1 + (k mod 11), Since 14 = 1 (mod 13) and 14 = 3 (mod 11), we insert
+the key 14 into empty slot 9, after examining slots | and 5 and finding them to be occupied.
+
+amount /,(k), modulo m. Thus, unlike the case of linear or quadratic probing, the
+probe sequence here depends in two ways upon the key k, since the initial probe
+position, the offset, or both, may vary. Figure 11.5 gives an example of insertion
+by double hashing.
+
+The value /i2(k) must be relatively prime to the hash-table size m for the entire
+hash table to be searched. (See Exercise 11.4-4.) A convenient way to ensure this
+condition is to let m be a power of 2 and to design hz so that it always produces an
+odd number. Another way is to let m be prime and to design /2 so that it always
+returns a positive integer less than m. For example, we could choose m prime and
+let
+
+hi(k) = kmodm,
+ho(k) = 1+(kmodm’),
+
+where mm’ is chosen to be slightly less than m (say, m — 1). For example, if
+k = 123456, m = 701, and m’ = 700, we have h,(k) = 80 and h2(k) = 257, so
+that we first probe position 80, and then we examine every 257th slot (modulo m)
+until we find the key or have examined every slot.
+
+When mm is prime or a power of 2, double hashing improves over linear or qua-
+dratic probing in that @(m?) probe sequences are used, rather than O(m), since
+each possible (i(k), h2(k)) pair yields a distinct probe sequence. As a result, for
+

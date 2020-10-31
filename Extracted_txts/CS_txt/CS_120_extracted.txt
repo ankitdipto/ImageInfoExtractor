@@ -1,0 +1,45 @@
+738
+
+Chapter 26 Maximum Flow
+
+the fixed height |V| of the source. As we shall see, once we have emptied all the
+reservoirs, the preflow is not only a “legal” flow, it is also a maximum flow.
+
+The basic operations
+
+From the preceding discussion, we see that a push-relabel algorithm performs two
+basic operations: pushing flow excess from a vertex to one of its neighbors and
+relabeling a vertex. The situations in which these operations apply depend on the
+heights of vertices, which we now define precisely.
+
+Let G = (V,E) be a flow network with source s and sink f, and let f be a
+preflow in G. A function h : V — N is a height function’ if h(s) = |V|,
+h(t) = 0, and
+
+hu) <h(v) +1
+
+for every residual edge (u,v) € Ey. We immediately obtain the following lemma.
+
+Lemma 26.12
+
+Let G = (V, E) bea flow network, let f be a preflow in G, and let h be a height
+function on V. For any two vertices u,v € V, if h(w) > h(v) + 1, then (w, v) is
+not an edge in the residual network. .
+
+The push operation
+
+The basic operation PUSH(w, v) applies if v is an overflowing vertex, cf(u, v) > 0,
+and h(u) = h(v)+ 1. The pseudocode below updates the preflow f and the excess
+flows for u and v. It assumes that we can compute residual capacity cf (u,v) in
+constant time given c and f. We maintain the excess flow stored at a vertex u as
+the attribute uv. and the height of w as the attribute u.h. The expression A; (u,v)
+is a temporary variable that stores the amount of flow that we can push from u to v.
+
+ 
+
+3In the literature, a height function is typically called a “distance function,” and the height of a vertex
+is called a “distance label.” We use the term “height” because it is more suggestive of the intuition
+behind the algorithm. We retain the use of the term “relabel” to refer to the operation that increases
+the height of a vertex. The height of a vertex is related to its distance from the sink f, as would be
+found in a breadth-first search of the transpose GT.
+

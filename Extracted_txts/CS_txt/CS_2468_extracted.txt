@@ -1,0 +1,52 @@
+4.2 Strassen’s algorithm for matrix multiplication 79
+
+the factor of 8 in equation (4.16) or the factor of 2 in recurrence (4.1), the recursion
+tree would just be linear, rather than “bushy,” and each level would contribute only
+one term to the sum.
+
+Bear in mind, therefore, that although asymptotic notation subsumes constant
+multiplicative factors, recursive notation such as T (n/2) does not.
+
+Strassen’s method
+
+The key to Strassen’s method is to make the recursion tree slightly less bushy. That
+is, instead of performing eight recursive multiplications of n/2 x n/2 matrices,
+it performs only seven. The cost of eliminating one matrix multiplication will be
+several new additions of n/2 x n/2 matrices, but still only a constant number of
+additions. As before, the constant number of matrix additions will be subsumed
+by ©-notation when we set up the recurrence equation to characterize the running
+time.
+
+Strassen’s method is not at all obvious. (This might be the biggest understate-
+ment in this book.) It has four steps:
+
+1. Divide the input matrices A and B and output matrix C into n/2 x n/2 subma-
+trices, as in equation (4.9). This step takes @(1) time by index calculation, just
+as in SQUARE-MATRIX-MULTIPLY-RECURSIVE.
+
+2. Create 10 matrices S;,S2,...,Sio, each of which is n/2 x n/2 and is the sum
+or difference of two matrices created in step 1. We can create all 10 matrices in
+©(n?) time.
+
+3. Using the submatrices created in step 1 and the 10 matrices created in step 2,
+recursively compute seven matrix products P,, P,..., P7. Each matrix P; is
+n/2xn/2.
+
+4. Compute the desired submatrices C,;,C 12. C21, C22 of the result matrix C by
+adding and subtracting various combinations of the P; matrices. We can com-
+pute all four submatrices in ©(n7) time.
+
+We shall see the details of steps 2-4 in a moment, but we already have enough
+information to set up arecurrence for the running time of Strassen’s method. Let us
+assume that once the matrix size n gets down to 1, we perform a simple scalar mul-
+tiplication, just as in line 4 of SQUARE-MATRIX-MULTIPLY-RECURSIVE. When
+n > 1, steps 1, 2, and 4 take a total of @(n7) time, and step 3 requires us to per-
+form seven multiplications of n/2 x n/2 matrices. Hence, we obtain the following
+recurrence for the running time 7 (71) of Strassen’s algorithm:
+
+e(1) ifn =1,
+
+TO) =) or in/2) 4 OW) ifn > 1.
+
+(4.18)
+

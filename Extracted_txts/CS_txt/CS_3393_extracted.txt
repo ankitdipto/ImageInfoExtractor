@@ -1,0 +1,62 @@
+Section 24.4.
+
+Extracting 3-D Information Using Vision 735
+
+ 
+
+OPTICAL FLOW
+
+‘SUM OF SQUARED
+DIFFERENCES
+
+‘cross.
+‘CORRELATION
+
+example, combinations of rotations and translations. The difficulty lies in finding a representation
+of global shape that is general enough to deal with the wide variety of objects in the real world—
+not just simple forms like cylinders, cones, and spheres—and yet can be recovered easily from
+the visual input. The problem of characterizing the Jocal shape of a surface is much better
+understood. Essentially, this can be done in terms of curvature—how does the surface normal
+change as one moves in different directions on the surface. For a plane, there is no change at
+all. For a cylinder, if one moves parallel to the axis there is no change, but in the perpendicular
+direction, the surface normal rotates at a rate inversely proportional to the radius of the cylinder.
+And so on. All this is studied in the subject of differential geometry.
+
+The shape of an object is relevant for some manipulation tasks, for example, deciding
+where to grasp an object. But its most significant role is in object recognition, where geometric
+shape along with color and texture provide the most significant cues to enable us to identify
+objects, classify what is in the image as an example of some class one has seen before, and so on.
+
+The fundamental question is the following: Given the fact that during perspective projec-
+tion, all points in the 3-D world along a ray from the pinhole have been projected to the same
+point in the image, how do we recover 3-D information? There are a number of cues available
+in the visual stimulus for this, including motion, binocular stereopsis, texture, shading, and
+contour. Each ofthese cues relies on background assumptions about physical scenes in order to
+provide unambiguous interpretations. We discuss each ofthese cues in the following subsections.
+
+Motion
+
+Ifthe camera moves relative to the three-dimensional scene, the resulting apparent motion in the
+image is called optical flow. This describes the direction and speed of motion of features in the
+image as a result of relative motion between the viewer and the scene. In Figure 24.8, we show
+two frames from a video of a rotating Rubik's cube. Figure 24.9 shows the optical flow vectors
+computed from these images. The optical flow encodes useful information about scene structure.
+For example, when viewed from a moving car, distant objects have much slower apparent motion
+than close objects; thus, the rate of apparent motion can tell us something about distance
+
+The optical flow vector field can be represented by its components v,(x,y) in the x-direction
+and v,(x,y)in the y-direction. To measure optical flow, we need to find corresponding points
+between one time frame and the next. We exploit the fact that image patches around corresponding
+points have similar intensity patterns. Consider a block of pixels centered at pixel p, (xo. yo) at
+time fo. This block of pixels is to be compared with pixel blocks centered at various candidate
+pixels g; at (xo+ D,,yo + A) at time to + D,. One possible measure of similarity is the sum of
+squared differences (SSD):
+
+SSD(DyDy) = S7U Gy, 0 = Ie + Dy +Dyt + DP
+(x)
+Here (x, y) range over pixels in the block centered at (xo, yo) * We find the (A, A) that minimizes
+the SSD. The optical flow at (xo, yo)is then (v,.v,) = (A/A, D,/D,). Alternatively, one can
+maximize the cross-correlation:
+Correlation(D,,A.) = S~ (x,y, Hie + Duy +Dy.t +A)
+wy)
+

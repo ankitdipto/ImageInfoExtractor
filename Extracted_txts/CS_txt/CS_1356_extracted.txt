@@ -1,0 +1,45 @@
+614 Let UsC
+
+ 
+
+last two I have tried to catch the essence of Windows’ Event
+Driven Programming model. Once you have understood it
+thoroughly rest is just a matter of understanding and calling the
+suitable API functions to get your job done. Windows API is truly
+an endless world. It covers areas like Networking, Internet
+programming, Telephony, Drawing and Printing, Device I/O,
+Imaging, Messaging, Multimedia, Windowing, Database
+programming, Shell programming, to name a few. The programs
+that we have written have merely scratched the surface. No matter
+how many programs that we write under Windows, several still
+remain to be written. The intention of this chapter was to unveil
+before you, to give you the first glimpse of what is possible under
+Windows. The intention all along was not to catch fish for you but
+to show you how to catch fish so that you can do fishing all your
+life. Having made a sound beginning, rest is for you to explore.
+Good luck and happy fishing!
+
+Summary
+
+(a) In DOS, programmers had to write separate graphics code for
+every new video adapter. In Windows, the code once written
+works on any video adapter.
+
+(b) A Windows program cannot draw directly on an output device
+like screen or printer. Instead, it draws to the logical display
+surface using device context.
+
+(c) When the window is displayed for the first time, or when it is
+moved or resized OnPaint( ) handler gets called.
+
+(d) It is necessary to obtain the device context before drawing
+text or graphics in the client area.
+
+G) A device context is a structure containing information
+required to draw on a display surface. The information
+includes color of pen and brush, screen resolution, color
+palettes, etc.
+
+(e) To draw using a new pen or brush it is necessary to select
+them into the device context.
+

@@ -1,0 +1,62 @@
+Section 24.4.
+
+Extracting 3-D Information Using Vision 743
+
+ 
+
+TEXELS
+
+GRADIENTS
+
+include the pattem of windows on a building, the stitches on a sweater, the spots on a leopard's
+skin, blades of grass on a lawn, pebbles on a beach or a crowd ofpeople in a stadium. Sometimes
+the arrangement is quite periodic, as in the stitches on a sweater; in other instances, as in pebbles
+ona beach the regularity is only in a statistical sense—the density of pebbles is roughly the same
+on different parts ofthe beach. ,
+
+What we just said is true in the scene. In the image, the apparent size, shape, spacing, and
+so on, of the texture elements (the texels) do indeed vary, as illustrated in Figure 24.17. The tiles
+are identical in the scene. There are two main causes for this variation in the projected size and
+shape of the tiles:
+
+1. Varying distances of the different texels from the camera. Recall that under perspective
+projection, distant objects appear smaller. The scaling factor is 1/Z.
+
+N
+
+. Varying foreshortening of the different texels. This is related to the orientation of the texel
+relative to the line of sight from the camera. Ifthe texel is perpendicular to the line of sight,
+there is no foreshortening. The magnitude of the foreshortening effect is proportional to
+cos (7, where @ is the slant of the plane of the texel.
+
+After some mathematical analysis (Garding, 1992), one can compute expressions for the rate of
+change of various image texel features, such as area, foreshortening, and density. These texture
+gradients are functions of the surface shape as well as its slant and tilt with respect to the viewer.
+
+To recover shape from texture, one can use a two-step process: (a) measure the texture
+gradients; (b) estimate the surface shape, slant, and tilt that would give rise to the measured texture
+gradients. We show the results of an algorithm developed by Malik and Rosenholtz(1994) in
+Figures 24.17 and 24.18
+
+Shading
+
+Shading—variation in the intensity of light received from different portions of a surface in the
+scene—is determined by scene geometry and reflectance properties of the surfaces. In computer
+graphics, the objective is to determine the image brightness J(x,v) given the scene geometry and
+reflectance properties. In computer vision, our hope might be to invert the process, that is, recover
+the scene geometry and reflectance properties given the image brightness J(x, y). This has proved
+difficult to do in anything but the simplest cases.
+
+Let us start with an example of a situation where we can in fact solve for shape from
+shading. Consider a Lambertian surface illuminated by a distant point light source. We will
+assume that the surface is distant enough from the camera so that we could use orthographic
+projection as an approximation to perspective projection. The image brightness is
+
+I, y) = kn(x,y).s
+
+where k is a scaling constant, n is the unit surface normal vector, and s is the unit vector in the
+direction of the light source. Because n and s are unit vectors, their dot product is just the cosine
+of the angle between them. Surface shape is captured in the variation of the surface normal n
+along the surface. Let us assume that & and s are known. Our problem then is to recover the
+surface normal n(x, y) given the image intensity /(x, y).
+

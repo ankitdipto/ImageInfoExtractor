@@ -1,0 +1,55 @@
+580
+
+Chapter 21 Data Structures for Disjoint Sets
+
+* Because y is a root prior to the LINK, @g-1(”) = @(n) - y.rank. The LINK
+operation leaves y as a root, and it either leaves y’s rank alone or it increases y’s
+rank by 1. Therefore, either $g(y) = ¢q—1(y) or ¢g(¥) = ¢g—1(y) + @(n).
+
+The increase in potential due to the LINK operation, therefore, is at most a(n).
+The amortized cost of the LINK operation is O(1) + a(n) = O(a(n)). .
+
+Lemma 21.13
+The amortized cost of each FIND-SET operation is O(a@(n)).
+
+Proof Suppose that the gth operation is a FIND-SET and that the find path con-
+tains s nodes. The actual cost of the FIND-SET operation is O(s). We shall
+show that no node’s potential increases due to the FIND-SET and that at least
+max(0,s — (a@() + 2)) nodes on the find path have their potential decrease by
+at least 1.
+
+To see that no node’s potential increases, we first appeal to Lemma 21.10 for all
+nodes other than the root. If x is the root, then its potential is @(1) - x.rank, which
+does not change.
+
+Now we show that at least max(0,s — (a(n) + 2)) nodes have their potential
+decrease by at least 1. Let x be a node on the find path such that x.rank > 0
+and x is followed somewhere on the find path by another node y that is not a root,
+where level(y) = level(x) just before the FIND-SET operation. (Node y need not
+immediately follow x on the find path.) All but at most a(n) + 2 nodes on the find
+path satisfy these constraints on x. Those that do not satisfy them are the first node
+on the find path (if it has rank 0), the last node on the path (i.e., the root), and the
+last node w on the path for which level(w) = k, foreach k = 0,1,2,...,a(n)—1.
+
+Let us fix such a node x, and we shall show that x’s potential decreases by at
+least 1. Let k = level(x) = level(y). Just prior to the path compression caused by
+the FIND-SET, we have
+
+X.p.rank > AC) (x rank) (by definition of iter(x)) ,
+y.p.rank >  Ax(y.rank) (by definition of level(y)) ,
+y.rank > X.p.rank (by Corollary 21.5 and because
+
+y follows x on the find path) .
+
+Putting these inequalities together and letting i be the value of iter(x) before path
+compression, we have
+
+y.p.rank >  Ax(y.rank)
+
+Ax (x.p.rank) (because Ax (/) is strictly increasing)
+Ag (AG (x rank)
+
+AY) (x rank) .
+
+IV IV
+

@@ -1,0 +1,64 @@
+13.3 Insertion 315
+
+ 
+
+13.3 Insertion
+
+We can insert a node into an n-node red-black tree in O(lgn) time. To do so, we
+use a slightly modified version of the TREE-INSERT procedure (Section 12.3) to
+insert node z into the tree 7 as if it were an ordinary binary search tree, and then we
+color z red. (Exercise 13.3-1 asks you to explain why we choose to make node Zz
+red rather than black.) To guarantee that the red-black properties are preserved, we
+then call an auxiliary procedure RB-INSERT-FIXuP to recolor nodes and perform
+rotations. The call RB-INSERT(T, Z) inserts node z, whose key is assumed to have
+already been filled in, into the red-black tree T.
+
+RB-INSERT(T, z)
+
+ 
+
+  
+
+ 
+
+1 oy =T.nil
+
+2 x = T.root
+
+3 while x ¢ T.nil
+
+4 yo=x
+
+5 if z.key < x.key
+6 xX = Xx. left
+
+7 else xX = x. right
+8 zp=y
+
+9 ify ==T.nil
+
+10 T.root = Z
+
+11 elseif z.key < y.key
+
+12 y.left =
+
+13 else y.right
+
+14 z.left = T.nil
+
+ 
+
+z
+15 z.right = T.nil
+16 z.color = RED
+17 RB-INSERT-FIxuP(T, z)
+
+The procedures TREE-INSERT and RB-INseERT differ in four ways. First, all
+instances of NIL in TREE-INSERT are replaced by T.nil. Second, we set Z.left
+and z.right to T.nil in lines 14-15 of RB-INSERT, in order to maintain the
+proper tree structure. Third, we color z red in line 16. Fourth, because col-
+oring z red may cause a violation of one of the red-black properties, we call
+RB-INSERT-FIxuP(T, Z) in line 17 of RB-INSERT to restore the red-black prop-
+erties.
+

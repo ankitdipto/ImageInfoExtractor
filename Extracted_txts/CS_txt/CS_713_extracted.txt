@@ -1,0 +1,75 @@
+Section 6.4.
+
+Propositional Logic: A Very Simple Logic 169
+
+or "ifP then QO.” For one thing, propositional logic does not require any relation of causation or
+relevance between P and Q. The sentence "5 is odd implies Tokyo is the capital of Japan" is a true
+sentence of propositional logic (under the normal interpretation), even though it is a decidedly
+odd sentence of English. Another point of confusion is that any implication is true whenever its
+antecedent is false. For example, "5 is even implies Sam is smart" is true, regardless of whether
+Sam is smart. This seems bizarre, but it makes sense ifyou think of "P = Q'" as saying, "IfP
+is true, then I am claiming that Q is true. Otherwise I am making no claim."
+
+Validity and inference
+
+Truth tables can be used not only to define the connectives, but also to test for valid sentences.
+Given a sentence, we make a truth table with one row for each ofthe possible combinations of
+truth values for the proposition symbols in the sentence. For each row, we can calculate the truth
+value of the entire sentence. Ifthe sentence is true in every row, then the sentence is valid. For
+example, the sentence
+
+(PV H)A 7H) => P
+
+is valid, as can be seen in Figure 6.10. We include some intermediate columns to make it clear
+how the final column is derived, but it is not important that the intermediate columns are there, as
+long as the entries in the final column follow the definitions of the connectives. Suppose P means
+that there is a wumpus in [1,3] and H means there is a wumpus in [2,2]. Ifat some point we leam
+(P V H) and then we also learn sH, then we can use the valid sentence above to conclude that P
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+is true—that the wumpus is in [1,3].
+P H PVH (PVH)A>H_ | (PV H)A7H) > P
+False False False False True
+False True True False True
+True False True True True
+True True True False True
+Figure 6.10 Truth table showing validity of a complex sentence.
+
+ 
+
+ 
+
+ 
+
+This is important. It says that ifa machine has some premises and a possible conclusion,
+it can determine ifthe conclusion is true. It can do this by building a truth table for the sentence
+Premises => Conclusion and checking all the rows. If every row is true, then the conclusion is
+entailed by the premises, which means that the fact represented by the conclusion follows from
+the state of affairs represented by the premises. Even though the machine has no idea what the
+conclusion means, the user could read the conclusions and use his or her interpretation of the
+proposition symbols to see what the conclusions mean—in this case, that the wumpus is in [1,3].
+Thus, we have fulfilled the promise made in Section 6.3
+
+It will often be the case that the sentences input into the knowledge base by the user refer
+to a world to which the computer has no independent access, as in Figure 6.11, where it is the
+user who observes the world and types sentences into the computer. It is therefore essential
+

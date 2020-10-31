@@ -1,0 +1,66 @@
+ 
+
+ 
+
+Section 11.5. A Partial-Order Planning Example 351
+Start
+At(s), Sells(s,Drill) — . At(s), Sells(s,Mik) At(s), Sells(s,Bananas)
+
+ 
+
+Buy(Milk) Buy(Bananas)
+
+Have(Drill), Have/Milk), Have(Bananas), At(Home)
+
+Finish
+Ld
+
+Start
+
+AU(SM), Sells(SI At(SM), Sells(SM,Bananas)
+
+  
+
+ 
+
+Buy(Milk) | Buy(Bananas)
+
+ 
+
+ 
+
+Have(Drill), Have(Milk), Have(Bananas), At(Home)
+
+Finish
+
+ 
+
+ 
+
+ 
+
+Figure 11.7 Top: A partial plan that achieves three of the four preconditions of Finish. The
+heavy arrows show causal links, Bottom: Refining the partial plan by adding causal links to
+achieve the Sells preconditions of the Buy steps.
+
+ 
+
+ 
+
+ 
+
+Although itmay not seem like we have done much yet, this is actually quite an improvement
+over what we could have done with the problem-solving approach. First, out ofall the things that
+one can buy, and all the places that one can go, we were able to choose just the right Buy actions
+and just the right places, without having to waste time considering the others. Then, once we
+have chosen the actions, we need not decide how to order them; a partial-order planner can make
+that decision later.
+
+In Figure 11.8, we extend the plan by choosing two Go actions to get us to the hardware
+store and supennarket, thus achieving the At preconditions of the Buy actions.
+
+So far, everything has been easy. A planner could get this far without having to do any
+search. Now it gets harder. The two Go actions have unachieved preconditions that interact with
+each other, because the agent cannot be Af two places at the same time. Each Go action has a
+precondition At(x), where x is the location that the agent was at before the Go action. Suppose
+

@@ -1,0 +1,134 @@
+604
+
+Let Us C
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Default Memory DC
+Black Pen White Brush J
+HPEN|__200 200 400
+HBRUSH| 400 Default O/P Device
+HBITMAP|_405 4} Font |
+HFONT|_ 800 405 800
+: 1x1 Monochrome
+: bitmap
+Other Infc Default Drawing Objects
+
+ 
+
+ 
+
+Memory DC after selecting bitmap
+
+ 
+
+  
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Black Pen White Brush |
+
+HPEN|__200 200 400
+
+HBRUSH|__400 New O/P Device
+
+HBITMAP|_40000 i [__ Font]
+
+HFONT|_ 800 800
+
+Other Ink 40000
+190x220 24 -color
+bitmap
+Figure 18.7
+
+What purpose would just increasing the bitmap size/color would
+
+serve? Whatever we
+
+ 
+
+lraw here would get drawn on the bitmap but
+
+would still not be visible. We can make it visible by simply
+copying the bitmap image (including what has been drawn on it) to
+the screen DC by using the API function BitBIt().
+
+Before transferring the image to the screen DC we need to make
+the memory DC compatible with the screen DC. Here making
+compatible means making certain adjustments in the contents of
+the memory DC structure. Looking at these values the screen
+
+device driver would
+
+suitably adjust the colors when the pixels in
+

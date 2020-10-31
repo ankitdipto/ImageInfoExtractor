@@ -1,0 +1,53 @@
+8.7 Recovery from Deadlock 265
+
+2. How long the process has computed, and how much longer the process
+will compute before completing its designated task
+
+3. How many and what type of resources the process has used (for example,
+whether the resources are simple to preempt)
+
+4. How many more resources the process needs in order to complete
+5. How many processes will need to be terminated
+
+6. Whether the process is interactive or batch
+
+8.7.2 Resource Preemption
+
+To eliminate deadlocks using resource preemption, we successively preempt
+some resources from processes and give these resources to other processes until
+the deadlock cycle is broken.
+
+If preemption is required to deal with deadlocks, then three issues need to
+be addressed:
+
+1, Selecting a victim: Which resources and which processes are to be pre-
+empted? As in process termination, we must determine the order of pre-
+emption to minimize cost. Cost factors may include such parameters as the
+number of resources a deadlock process is holding, and the amount of time
+a deadlocked process has thus far consumed during its execution.
+
+2. Rollback: If we preempt a resource from a process, what should be done
+with that process? Clearly, it cannot continue with its normal execution; it
+is missing some needed resource. We must roll back the process to some
+safe state, and restart it from that state.
+
+Since, in general, it is difficult to determine what a safe state is, the
+simplest solution is a total rollback: Abort the process and then restart it.
+However, it is more effective to roll back the process only as far as necessary
+to break the deadlock. On the other hand, this method requires the system
+to keep more information about the state of all the running processes.
+
+3. Starvation: How do we ensure that starvation will not occur? That is, how
+can we guarantee that resources will not always be preempted from the
+same process?
+
+In a system where victim selection is based primarily on cost factors, it
+may happen that the same process is always picked as a victim. As a result,
+this process never completes its designated task, a starvation situation that
+needs to be dealt with in any practical system. Clearly, we must ensure that
+a process can be picked as a victim only a (small) finite number of times.
+The most common solution is to include the number of rollbacks in the cost
+factor.
+
+ 
+

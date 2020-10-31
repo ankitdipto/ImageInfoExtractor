@@ -1,0 +1,53 @@
+446
+
+Chapter 15. Probabilistic Reasoning Systems
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 15.5 A belief network describing some features of a car's electrical system and engine.
+
+ 
+
+ 
+
+ 
+
+what action to take. The two functions we need are BELIEF-NET-TELL, for adding evidence to the
+network, and BELIEF-NET-ASK, for computing the posterior probability distribution for a given
+query variable.
+
+The nature of probabilistic inferences
+
+Before plunging into the details of the inference algorithms, it is worthwhile to examine the kinds
+of things such algorithms can achieve. We will see that a single mechanism can account for a
+very wide variety of plausible inferences under uncertainty.
+
+Consider the problem of computing P(Burglary|JohnCalls),the probability that there is
+a burglary given that John calls. This task is quite tricky for humans, and therefore for many
+reasoning systems that attempt to encode human judgment. The difficulty is not the complexity
+of the problem, but keeping the reasoning straight. An incorrect but all-too-common line of
+reasoning starts by observing that when the alarm goes off, JohnCalls will be true 90% of the
+time. The alarm is fairly accurate at reflecting burglaries, so P(Burglary|JohnCalls)should also
+be about 0.9, or maybe 0.8 at worst. The problem is that this line of reasoning ignores the prior
+probability of John calling. Over the course of 1000 days, we expect one burglary, for which
+John is very likely to call. However, John also calls with probability 0.05 when there actually is
+NO alarm—about 50 times over 1000 days. Thus, we expect to receive about 50 false alarms from
+John for every 1 burglary, so P(Burglary|JohnCalls)is about 0.02. In fact, if we carry out the
+exact computation, we find that the true value is 0,016. It is less than our 0.02 estimate because
+the alarm is not perfect.
+
+Now suppose that as soon as we get offthe phone with John, Mary calls. We are now inter-
+ested in incrementally updating our network to give P(Burglary|JohnCallsA MaryCalls). Again,
+humans often overestimate this value; the correct answer is only 0.29. We can also determine
+that P(Alarm|JohnCalls \MaryCalls) is 0.76 and P(Earthquake|JohnCalls A MaryCalls) is 0.18.
+
+ 
+

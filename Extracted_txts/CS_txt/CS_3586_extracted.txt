@@ -1,0 +1,50 @@
+20.3 The van Emde Boas tree 553
+
+the cluster does not already have another element, then the element being inserted
+becomes the only element in the cluster, and we do not need to recurse to insert an
+element into an empty vEB tree:
+
+VEB-EmPTY-TREE-INSERT(V, x)
+
+1 Vimin = x
+2 V.max = x
+
+With this procedure in hand, here is the pseudocode for VEB-TREE-INSERT(V, x),
+which assumes that x is not already an element in the set represented by vVEB
+tree V:
+
+VEB-TREE-INSERT(V, x)
+if V.min == NIL
+VEB-EmPTY-TREE-INSERT(V, x)
+else if x < V.min
+exchange x with V. min
+ifViu>2
+if VEB-TREE-MINIMUM (V. cluster [high(x)]) == NIL
+VEB-TREE-INSERT (V. summary, high(x))
+VEB-EmpTY-TREE-INSERT (V.cluster[high(x)], low(x))
+else VEB-TREE-INSERT (V.cluster[high(x)], low(x))
+if x > Vmax
+V.max = x
+
+FSeCwmr AUNswHWNnH
+
+This procedure works as follows. Line | tests whether V is an empty vEB tree
+and, if it is, then line 2 handles this easy case. Lines 3-11 assume that V is not
+empty, and therefore some element will be inserted into one of V’s clusters. But
+that element might not necessarily be the element x passed to VEB-TREE-INSERT.
+If x < min, as tested in line 3, then x needs to become the new min. We don’t
+want to lose the original min, however, and so we need to insert it into one of V’s
+clusters. In this case, line 4 exchanges x with min, so that we insert the original
+min into one of V’s clusters.
+
+We execute lines 6-9 only if V is not a base-case vEB tree. Line 6 determines
+whether the cluster that x will go into is currently empty. If so, then line 7 in-
+serts x’s cluster number into the summary and line 8 handles the easy case of
+inserting x into an empty cluster. If x’s cluster is not currently empty, then line 9
+inserts x into its cluster. In this case, we do not need to update the summary,
+since x’s cluster number is already a member of the summary.
+
+Finally, lines 10-11 take care of updating max if x > max. Note that if V is a
+base-case VEB tree that is not empty, then lines 34 and 10-11 update min and max
+properly.
+

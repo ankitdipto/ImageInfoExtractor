@@ -1,0 +1,43 @@
+230 Let Us C
+
+ 
+
+intk = 35;
+return ( &K);
+}
+
+Here we are returning an address of k from fun() and collecting it
+in j. Thus j becomes pointer to k. Then using this pointer we are
+printing the value of k. This correctly prints out 35. Now try
+calling any function (even printf( ) ) immediately after the call to
+fun( ). This time printf() prints a garbage value. Why does this
+happen? In the first case, when the control returned from fun( )
+though k went dead it was still left on the stack. We then accessed
+this value using its address that was collected in j. But when we
+precede the call to printf( ) by a call to any other function, the
+stack is now changed, hence we get the garbage value. If we want
+to get the correct value each time then we must declare k as static.
+By doing this when the control returns from fun( ), k would not
+die.
+
+All this having been said, a word of advice—avoid using static
+variables unless you really need them. Because their values are
+kept in memory when the variables are not active, which means
+they take up space in memory that could otherwise be used by
+other variables.
+
+External Storage Class
+
+The features of a variable whose storage class has been defined as
+external are as follows:
+
+Storage — Memory.
+
+Default initial value —- Zero.
+
+Scope — Global.
+
+Life — As long as the program’s execution
+
+doesn’t come to an end.
+

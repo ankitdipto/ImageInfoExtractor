@@ -1,0 +1,43 @@
+Chapter 12: File Input/Output 453
+
+ 
+
+Note that when large buffers are used they must be made global
+variables otherwise stack overflow occurs.
+
+I/O Under Windows
+
+As said earlier I/O in C is carried out using functions present in the
+library that comes with the C compiler targeted for a specific OS.
+Windows permits several applications to use the same screen
+simultaneously. Hence there is a possibility that what is written by
+one application to the console may get overwritten by the output
+sent by another application to the console. To avoid such situations
+Windows has completely abandoned console I/O functions. It uses
+a separate mechanism to send output to a window representing an
+application. The details of this mechanism are discussed in
+Chapter 17.
+
+Though under Windows console I/O functions are not used, still
+functions like fprintf( ), fscanf( ), fread( ), fwrite( ), sprintf( ),
+sscanf() work exactly same under Windows as well.
+
+Summary
+
+(a) File I/O can be performed on a character by character basis, a
+line by line basis, a record by record basis or a chunk by
+chunk basis.
+
+(b) Different operations that can be performed on a file are—
+creation of a new file, opening an existing file, reading from a
+file, writing to a file, moving to a specific location in a file
+(seeking) and closing a file.
+
+(c) File I/O is done using a buffer to improve the efficiency.
+
+(d) A file can be a text file or a binary file depending upon its
+contents.
+
+(e) Library functions convert \n to \r\n or vice versa while
+writing/reading to/from a file.
+

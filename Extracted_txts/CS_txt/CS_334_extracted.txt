@@ -1,0 +1,51 @@
+912
+
+Chapter 30 Polynomials and the FFT
+
+Lines 11—12 combine the results of the recursive DFT,,/2 calculations. For yo. 1.
++++ ¥n/2-1, line 11 yields
+
+[0] x 01]
+
+Ve = Ve FOV
+AMOR) + of AM)
+= Alok) (by equation (30.9)) .
+For Yn/2-Vn/241e0++> Yn—1, letting k = 0,1,..., n/2—1, line 12 yields
+Vk+n/2) = ye ~ oF ye!
+= yl ok rm/2) yt (since ok +/2) = —wky
+n n n
+
+= AM) + on? AN)
+
+2k ke ke .
+= AM (en? +n) + ok Hn!) AU (cp? +n) (since win _ w2*)
+= Ak) (by equation (30.9)) .
+
+Thus, the vector y returned by RECURSIVE-FFT is indeed the DFT of the input
+vector a.
+
+Lines 11 and 12 multiply each value yell by wf, fork = 0,1,...,n/2—1.
+Line 11 adds this product to yP, and line 12 subtracts it. Because we use each
+factor w* in both its positive and negative forms, we call the factors w! twiddle
+factors.
+
+To determine the running time of procedure RECURSIVE-FFT, we note that
+exclusive of the recursive calls, each invocation takes time @(n), where n is the
+length of the input vector. The recurrence for the running time is therefore
+
+Tin) = 2T(n/2) + O(n)
+= O(nign).
+
+Thus, we can evaluate a polynomial of degree-bound n at the complex nth roots of
+unity in time ©(n1g7) using the fast Fourier transform.
+
+Interpolation at the complex roots of unity
+
+We now complete the polynomial multiplication scheme by showing how to in-
+terpolate the complex roots of unity by a polynomial, which enables us to convert
+from point-value form back to coefficient form. We interpolate by writing the DFT
+as a matrix equation and then looking at the form of the matrix inverse.
+
+From equation (30.4), we can write the DFT as the matrix product y = V,a,
+where V,, is a Vandermonde matrix containing the appropriate powers of @,:
+

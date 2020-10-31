@@ -1,0 +1,54 @@
+476
+
+Chapter 17 Amortized Anal
+
+ 
+
+17-5 Competitive analysis of self-organizing lists with move-to-front
+A self-organizing list is a linked list of n elements, in which each element has a
+unique key. When we search for an element in the list, we are given a key, and we
+want to find an element with that key.
+
+A self-organizing list has two important properties:
+
+1. To find an element in the list, given its key, we must traverse the list from the
+beginning until we encounter the element with the given key. If that element is
+the kth element from the start of the list, then the cost to find the element is k.
+
+2. We may reorder the list elements after any operation, according to a given rule
+with a given cost. We may choose any heuristic we like to decide how to reorder
+the list.
+
+Assume that we start with a given list of n elements, and we are given an access
+sequence 6 = (01,03, ....0,) of keys to find, in order. The cost of the sequence
+is the sum of the costs of the individual accesses in the sequence.
+
+Out of the various possible ways to reorder the list after an operation, this prob-
+lem focuses on transposing adjacent list elements— switching their positions in the
+list— with a unit cost for each transpose operation. You will show, by means of a
+potential function, that a particular heuristic for reordering the list, move-to-front,
+entails a total cost no worse than 4 times that of any other heuristic for maintaining
+the list order—even if the other heuristic knows the access sequence in advance!
+We call this type of analysis a competitive analysis.
+
+For a heuristic H and a given initial ordering of the list, denote the access cost of
+sequence o by Cy(a). Let m be the number of accesses in o.
+
+a. Argue that if heuristic H does not know the access sequence in advance, then
+the worst-case cost for H on an access sequence o is Cy (a) = Q(mn).
+
+With the move-to-front heuristic, immediately after searching for an element x,
+we move x to the first position on the list (i.e., the front of the list).
+
+Let rank, (x) denote the rank of element x in list L, that is, the position of x in
+list L. For example, if x is the fourth element in L, then rank,(x) = 4. Let ¢;
+denote the cost of access o; using the move-to-front heuristic, which includes the
+cost of finding the element in the list and the cost of moving it to the front of the
+list by a series of transpositions of adjacent list elements.
+
+b. Show that if o; accesses element x in list L using the move-to-front heuristic,
+then c; = 2 -rank,(x) — 1.
+
+Now we compare move-to-front with any other heuristic H that processes an
+access sequence according to the two properties above. Heuristic H may transpose
+

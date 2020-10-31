@@ -1,0 +1,56 @@
+Section 26.3.
+
+On the Possibility of Achieving Intelligent Behavior 829
+
+Dreyfus's first proposal for how this "know-how" operates is that humans solve problems by
+analogy, using a vast "case library" from which somehow the most relevant precedents are
+extracted. He proposed "some sort of holographic memory" as a potential mechanism. He later
+suggests neural networks as a possible implementation for the final "know-how" phase.
+
+Now he reaches what is perhaps the inevitable destination of the weak-Al critic: he ends up
+effectively as an AI researcher, because he cannot avoid the question "If AI mechanisms cannot
+work, what mechanism do you propose instead for human performance?" His answer, that humans
+use some sort of learning method, is not new to AI. Since the very early experiments of Samuel
+and Friedberg, researchers have proposed using machine learning as a method ofachieving higher
+levels of performance and avoiding the difficulties of hand coding. The question is, what is the
+target representation for the learning process? Dreyfus chooses neural networks because they can
+achieve intelligence, to some degree, without explicit representation of symbolic knowledge.'°
+He claims, however, that there is no reason to suppose that real intelligence can be achieved
+without a brain-sized network; nor would we understand the results of training such a network.
+
+Dreyfus's natural pessimism also leads him to make two useful observations on the difficulty
+ofa naive scheme to construct intelligence by training a large network with appropriate examples:
+
+1. Good generalization from examples cannot be achieved without a good deal of background
+knowledge: as yet, no one has any idea how to incorporate background knowledge into the
+neural network learning process.
+
+2. Neural network learning is a form of supervised learning (see Chapter 18), requiring the
+prior identification of relevant inputs and correct outputs. Therefore, it cannot operate
+autonomously without the help ofa human trainer.
+
+The first objection was also raised in Chapter 18, and in Chapter 21, we saw several ways
+in which background knowledge indeed can improve a system's ability to generalize. Those
+techniques, however, relied on the availability of knowledge in explicit form, something that
+Dreyfus denies strenuously. In our view, this is a good reason for a serious redesign of current
+models of neural processing so that they can take advantage of previously leamed knowledge.
+There has been some progress in this direction. The second objection leads directly to the
+need for reinforcement learning (Chapter 20), in which the learning system receives occasional
+positive or negative rewards, rather than being told the correct action in every instance. Given
+enough experience, a reinforcement learning agent can induce a utility function on situations, or
+altematively a mapping from situation-action pairs to expected values. For example, by winning
+and losing games a chess-playing agent can gradually learn which sorts ofpositions are promising
+or dangerous. Reinforcement learning is currently very popular in neural network systems.
+Dreyfus correctly points out that the major problem associated with reinforcement learning
+is how to generalize from particular situations to more general classes of situations—the general
+problem of inductive learning. One can take heart from the observation that reinforcement
+learning reduces to ordinary inductive learning, for which we already have some well-developed
+techniques. There are, of course, problems yet to be solved with inductive learning, including
+problem 1, mentioned earlier, concerning how to use background knowledge to improve learning.
+Dreyfus also brings up the problem of learning in the context of a large number of potentially
+
+10 In fact, many neural network researchers are proud that their networks seem to learn distinct, higher-level "features"
+of the input space and to combine them in approximately logical ways
+
+ 
+

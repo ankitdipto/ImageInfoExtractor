@@ -1,0 +1,63 @@
+Section 84.
+
+General Ontology 243
+
+ 
+
+INTRINSIC.
+
+EXTRINSIC
+
+The next thing to state was mentioned earlier: with some caveats about very small parts
+that we will omit for now, any part of a butter-object is also a butter-object:
+
+Vx,y x G Butter A PartOf(yx) => y € Butter
+
+Individual aardvarks derive properties such as approximate shape, size, weight, and diet
+from membership in the category of aardvarks. What sorts of properties does an object derive
+from being a member of the Butter category? Butter melts at around 30 degrees centigrade:
+
+Vx Butter(x) => MeltingPoint(x, Centigrade(30))
+
+Butter is yellow, less dense than water, soft at room temperature, has a high fat content, and
+so on. On the other hand, butter has no particular size, shape, or weight. We can define more
+specialized categories of butter such as UnsaltedButter,which is also a kind of stuffbecause any
+part of an unsalted-butter-object is also an unsalted-butter-object. On the other hand, if we define
+a category PoundOfButter,which includes as members all butter-objects weighing one pound,
+we no longer have a substance! If we cut a pound of butter in half, we do not get two pounds of
+butter—another of those annoying things about the world we live in.
+
+What is actually going on is this: there are some properties that are intrinsic: they belong to
+the very substance of the object, rather than to the object as a whole. When you cut something in
+half, the two pieces retain the same set of intrinsic properties—things like density, boiling point,
+flavor, color, ownership, and so on. On the other hand, extrinsic properties are the opposite:
+properties such as weight, length, shape, function, and so on are not retained under subdivision.
+
+A class of objects that includes in its definition only intrinsic properties is then a substance,
+or mass noun; a class that includes any extrinsic properties in its definition is a count noun. The
+category Stuff is the most general substance category, specifying no intrinsic properties. The
+category Thing is the most general discrete object category, specifying no extrinsic properties
+
+It follows that an object belongs to both mass and count classes. For example, LakeMichigan
+is an element of both Water and Lakes. Lake specifies such extrinsic properties as (approximate)
+size, topological shape, and the fact that it is surrounded by land. Note that we can also handle
+the fact that the water in Lake Michigan changes over time, simply by viewing the lake as an
+event whose constituent objects change over time, in much the same way as President(USA).
+
+This approach to the representation of stuffis not the only possibility. The major competing
+approach considers Butter to be what we would call BunchOfButter), namely, the object com-
+posed of all butter in the world. All individual butter-objects are thus PartOf butter, rather than
+instances of butter. Like any consistent knowledge representation scheme, it cannot be proved
+incorrect, but it does seem to be awkward for representing specialized kinds of substances such
+as UnsaltedButter and its relation to Butter.
+
+Mental events and mental objects
+
+The agents we have constructed so far have beliefs and can deduce new beliefs. Yet none of them
+has any knowledge about beliefs or deduction. For single-agent domains, knowledge about one's
+own knowledge and reasoning processes is useful for controlling inference. For example, if one
+knows that one does not know anything about Romanian geography, then one need not expend
+enormous computational effort trying to calculate the shortest path from Arad to Bucharest. In
+
+ 
+

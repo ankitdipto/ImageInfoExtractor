@@ -1,0 +1,85 @@
+492 CHAPTER THIRTEEN Multiprocessors
+
+shared memory
+
+ 
+
+Memory unit
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+crul cruz cpus 1oP1 loP2
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 13-1 Time-shared common bus organization.
+
+operations are conducted by the processor that is in control of the bus at the
+time Any other processor wishing to initiate a transfer must first determine
+the availability status of the bus, and only after the bus becomes available can
+the processor address the destination unit toinitiate the transfer. A command
+is issued to inform the destination unit what operation isto be performed. The
+receiving unit recognizes its address in the bus and responds to the control
+signals from the sender, after which the transfer is initiated. The system may
+exhibit transfer conflicts since one common bus is shared by all processors.
+These conflicts must be resolved by incorporating a bus controller that estab-
+lishes priorities among the requesting units.
+
+Asingle common-bus system is restricted to one transfer at a time. This
+means that when one processor is communicating with the memory, all other
+processors are either busy with internal operations or must be idle waiting for
+the bus. As a consequence, the total overall transfer rate within the system is
+limited by the speed of the single path. The processors in the system can be
+kept busy more often through the implementation of two or more independent
+buses to permit multiple simultaneous bus transfers. However, this increases
+the system cost and complexity.
+
+"A more economical implementation of a dual bus structure is depicted in
+Fig, 13-2. Here we have a number of local buses each connected tots own local
+memory and to one or more processors, Each local bus may be connected to
+a CPU, an IOP, or any combination of processors. A system bus controller links
+each local bus to a common system bus. The /O devices connected to the local
+IOP, as well as the local memory, are available to the local processor. The
+memory connected to the common system bus is shared by all processors. If
+an IOP is connected directly to the system bus, the /O devices attached to it
+may be made available to all processors. Only one processor can communicate
+with the shared memory and other common resources through the system bus
+at any given time. The other processors are kept busy communicating with
+theirlocal memory and V/O devices. Part of the local memory may be designed
+

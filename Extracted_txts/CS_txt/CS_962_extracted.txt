@@ -1,0 +1,51 @@
+Chapter 8: Arrays 283
+
+ 
+
+Suppose we have an array num ] = { 24, 34, 12, 44, 56, 17 }. The
+following figure shows how this array is located in memory.
+
+ 
+
+ 
+
+24 34 2 44 56 W
+
+65512 65514 65516 = 65518 65520 65522
+
+ 
+
+ 
+
+ 
+
+Figure 8.2
+
+Here is a program that prints out the memory locations in which
+the elements of this array are stored.
+
+main()
+
+{
+int num] = { 24, 34, 12, 44, 56, 17};
+int i;
+
+for (i=0;1<=5; i++)
+
+printf ( “\nelement no. %d ", i) ;
+printf ("address = %u", &numli] ) ;
+}
+}
+
+The output of this program would look like this:
+
+element no. 0 address = 65512
+element no. 1 address = 65514
+element no. 2 address = 65516
+element no. 3 address = 65518
+element no. 4 address = 65520
+element no. 5 address = 65522
+
+Note that the array elements are stored in contiguous memory
+locations, each element occupying two bytes, since it is an integer
+

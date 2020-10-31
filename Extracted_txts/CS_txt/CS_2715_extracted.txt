@@ -1,0 +1,59 @@
+11.5 Perfect hashing 279
+
+hashing to slot j are re-hashed into a secondary hash table Sj of size mj using a
+hash function h; chosen from the class Hpm; J
+
+We shall proceed in two steps. First, we shall determine how to ensure that
+the secondary tables have no collisions. Second, we shall show that the expected
+amount of memory used overall—for the primary hash table and all the secondary
+hash tables—is O(n).
+
+Theorem 11.9
+
+Suppose that we store n keys in a hash table of size m = n? using a hash function h
+randomly chosen from a universal class of hash functions. Then, the probability is
+less than 1/2 that there are any collisions.
+
+Proof There are () pairs of keys that may collide; each pair collides with prob-
+ability 1/m if h is chosen at random from a universal family J€ of hash functions.
+Let X be a random variable that counts the number of collisions. When m = n?,
+the expected number of collisions is
+
+E[LX] =
+
+ 
+
+n—n 1
+2 n
+< 1/2.
+
+ 
+
+(This analysis is similar to the analysis of the birthday paradox in Section 5.4.1.)
+Applying Markov’s inequality (C.30), Pr{X >t} < E[X]/t, witht = 1, com-
+pletes the proof. .
+
+In the situation described in Theorem 11.9, where m = n?, it follows that a hash
+function / chosen at random from J€ is more likely than not to have no collisions.
+Given the set K of n keys to be hashed (remember that K is static), it is thus easy
+to find a collision-free hash function / with a few random trials.
+
+When n is large, however, a hash table of size m = n? is excessive. Therefore,
+we adopt the two-level hashing approach, and we use the approach of Theorem 11.9
+only to hash the entries within each slot. We use an outer, or first-level, hash
+function h to hash the keys into m = n slots. Then, if n; keys hash to slot j, we
+use a secondary hash table S; of size mj = nz to provide collision-free constant-
+time lookup.
+
+ 
+
+ 
+
+1, we don’t really need a hash function for slot j; when we choose a hash
+(ak +b) mod p) mod m; for such a slot, we just use a = b =0.
+
+  
+
+'When nj = m
+function hap (k)
+

@@ -1,0 +1,43 @@
+24
+
+Single-Source Shortest Paths
+
+Professor Patrick wishes to find the shortest possible route from Phoenix to Indi-
+anapolis. Given a road map of the United States on which the distance between
+each pair of adjacent intersections is marked, how can she determine this shortest
+route?
+
+One possible way would be to enumerate all the routes from Phoenix to Indi-
+anapolis, add up the distances on each route, and select the shortest. It is easy to
+see, however, that even disallowing routes that contain cycles, Professor Patrick
+would have to examine an enormous number of possibilities, most of which are
+simply not worth considering. For example, a route from Phoenix to Indianapolis
+that passes through Seattle is obviously a poor choice, because Seattle is several
+hundred miles out of the way.
+
+In this chapter and in Chapter 25, we show how to solve such problems ef-
+ficiently. In a shortest-paths problem, we are given a weighted, directed graph
+G = (V,E), with weight function w : E — R mapping edges to real-valued
+weights. The weight w(p) of path p = (vo. ¥1..... vx) is the sum of the weights
+of its constituent edges:
+
+k
+w(p) = S) wiv) -
+
+i=l
+
+We define the shortest-path weight 5(u, v) from u to v by
+
+min{w(p):u a’ v} if there is a path from u tov ,
+
+btu, v) =
+(u,v) otherwise .
+
+A shortest path from vertex u to vertex v is then defined as any path p with weight
+w(p) = d(u, v).
+
+In the Phoenix-to-Indianapolis example, we can model the road map as a graph:
+vertices represent intersections, edges represent road segments between intersec-
+tions, and edge weights represent road distances. Our goal is to find a shortest path
+from a given intersection in Phoenix to a given intersection in Indianapolis.
+

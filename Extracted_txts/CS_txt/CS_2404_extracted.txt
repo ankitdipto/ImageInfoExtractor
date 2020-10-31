@@ -1,0 +1,44 @@
+2.2. Analyzing algorithms 27
+
+ 
+
+_ n(n—1)
+2
+
+(see Appendix A for a review of how to solve these summations), we find that in
+the worst case, the running time of INSERTION-SoRT is
+
+Tin) = cn bean —1) Fea 1) 465 (“-1)
+
++¢6 (“> ~) +¢7 “- ~) + cg(n — 1)
+
+(S+$+ F)n P£ (rte teat SSS 4eg)n
+
+—(co+¢4+¢s +0).
+
+We can express this worst-case running time as an? + bn +c for constants a, b,
+and c that again depend on the statement costs c;; it is thus a quadratic function
+of n.
+
+Typically, as in insertion sort, the running time of an algorithm is fixed for a
+given input, although in later chapters we shall see some interesting “randomized”
+algorithms whose behavior can vary even for a fixed input.
+
+Worst-case and average-case analysis
+
+In our analysis of insertion sort, we looked at both the best case, in which the input
+array was already sorted, and the worst case, in which the input array was reverse
+sorted. For the remainder of this book, though, we shall usually concentrate on
+finding only the worst-case running time, that is, the longest running time for any
+input of size n. We give three reasons for this orientation.
+
+* The worst-case running time of an algorithm gives us an upper bound on the
+running time for any input. Knowing it provides a guarantee that the algorithm
+will never take any longer. We need not make some educated guess about the
+running time and hope that it never gets much worse.
+
+* For some algorithms, the worst case occurs fairly often. For example, in search-
+ing a database for a particular piece of information, the searching algorithm’s
+worst case will often occur when the information is not present in the database.
+In some applications, searches for absent information may be frequent.
+

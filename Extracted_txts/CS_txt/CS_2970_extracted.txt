@@ -1,0 +1,48 @@
+Chapter 18 B-Trees 487
+
+nonetheless use the number of pages read or written as a first-order approximation
+of the total time spent accessing the disk.
+
+In a typical B-tree application, the amount of data handled is so large that all
+the data do not fit into main memory at once. The B-tree algorithms copy selected
+pages from disk into main memory as needed and write back onto disk the pages
+that have changed. B-tree algorithms keep only a constant number of pages in
+main memory at any time; thus, the size of main memory does not limit the size of
+B-trees that can be handled.
+
+We model disk operations in our pseudocode as follows. Let x be a pointer to an
+object. If the object is currently in the computer’s main memory, then we can refer
+to the attributes of the object as usual: x.key, for example. If the object referred to
+by x resides on disk, however, then we must perform the operation DISK-READ(x)
+to read object x into main memory before we can refer to its attributes. (We as-
+sume that if x is already in main memory, then DISK-READ(x) requires no disk
+accesses; it is a “no-op.”) Similarly, the operation DISK-WRITE(x) is used to save
+any changes that have been made to the attributes of object x. That is, the typical
+pattern for working with an object is as follows:
+
+X = a pointer to some object
+
+Disk-READ(x)
+
+operations that access and/or modify the attributes of x
+DISK-WRITE(x) // omitted if no attributes of x were changed
+other operations that access but do not modify attributes of x
+
+The system can keep only a limited number of pages in main memory at any one
+time. We shall assume that the system flushes from main memory pages no longer
+in use; our B-tree algorithms will ignore this issue.
+
+Since in most systems the running time of a B-tree algorithm depends primar-
+ily on the number of DISK-READ and DISK-WRITE operations it performs, we
+typically want each of these operations to read or write as much information as
+possible. Thus, a B-tree node is usually as large as a whole disk page, and this size
+limits the number of children a B-tree node can have.
+
+For a large B-tree stored on a disk, we often see branching factors between 50
+and 2000, depending on the size of a key relative to the size of a page. A large
+branching factor dramatically reduces both the height of the tree and the number of
+disk accesses required to find any key. Figure 18.3 shows a B-tree with a branching
+factor of 1001 and height 2 that can store over one billion keys; nevertheless, since
+we can keep the root node permanently in main memory, we can find any key in
+this tree by making at most only two disk accesses.
+

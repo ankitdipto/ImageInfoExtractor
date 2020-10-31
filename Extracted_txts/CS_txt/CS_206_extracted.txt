@@ -1,0 +1,41 @@
+SECTION 1-4 Map Simplification 15
+
+sums are OR terms and the product denotes the ANDing of these terms. With
+a minor modification, a product-of-sums form can be obtained from a map.
+
+The procedure for obtaining a product-of-sums expression follows from
+the basic properties of Boolean algebra. The 1's in the map represent the
+minterms that produce 1 for the function The squares not marked by 1
+represent the minterms that produce 0 for the function. If we mark the empty
+squares with 0's and combine them into groups of adjacent squares, we obtain
+the complement of the function, F’. Taking the complement of F’ produces an
+expression for F in product-of-sums form. The best way to show this is by
+example.
+
+We wish to simplify the following Boolean function in both sum-of-
+products form and product-of-sums form:
+
+F(A, B,C, D) = & (0, 1,2,5,8,9, 10)
+The 1’s marked in the map of Fig. 1-11 represent the minterms that produce
+1 for the function. The squares marked with 0's represent the minterms not
+included in F and therefore denote the complement of F. Combining the
+squares with 1's gives the simplified function in sum-of-products form:
+
+F=B'D'+ BC’ +A'CD
+
+If the squares marked with 0's are combined, as shown in the diagram, we
+obtain the simplified complemented function:
+
+ 
+
+F'= AB +CD + BD’
+
+Taking the complement of F’, we obtain the simplified function in product-of-
+sums forme
+
+F=(A’ + BYC’ + D'\(B’ + D)
+
+Figure 1-11 Map for F(A, B, C, D) = 5 (0,1,2,5,8,9,10).
+
+ 
+

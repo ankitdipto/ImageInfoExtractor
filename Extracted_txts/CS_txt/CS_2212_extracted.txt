@@ -1,0 +1,67 @@
+304
+
+Chapter 10. Logical Reasoning Systems
+
+ 
+
+10.3 LOGIC PROGRAMMING SYSTEMS
+
+ 
+
+PROLOG
+
+NEGATION AS
+FAILURE,
+
+We now tum from the details of implementing a knowledge base to a comparison of ways in
+which a knowledge base can be constructed and used. We start with logic programming.
+
+We have seen that the declarative approach has many advantages for building intelligent
+systems. Logic programming tries to extend these advantages to all programming tasks. Any
+computation can be viewed as a process of making explicit the consequences of choosing a
+particular programfor aparticular machine and providing particular inputs. Logic programming
+views the program and inputs as logical statements about the world, and the process of making
+consequences explicit as a process of inference. The relation between logic and algorithms is
+summed up in Robert Kowalski's equation
+
+Algorithm = Logic + Control
+
+A logic programming language makes it possible to write algorithms by augmenting logical
+sentences with information to control the inference process. Prolog is by far the most widely
+used logic programming language. Its users number in the hundreds of thousands. It is used
+primarily as a rapid-prototyping language and for symbol-manipulation tasks such as writing
+compilers (Van Roy, 1990) and parsing natural language (Pereira and Warten, 1980). It has also
+been used to develop expert system applications in legal, medical, financial, and other domains.
+
+The Prolog language
+
+We have already explained the notational conventions of Prolog in Chapter 7. Viewed as a logical
+knowledge base, a Prolog program has the following characteristics:
+
++ A program consists of a sequence of sentences, implicitly conjoined. All variables have
+
+implicit universal quantification, and variables in different sentences are considered distinct.
+
+Only Horn clause sentences are acceptable. This means that each sentence is either an
+atomic sentence or an implication with no negated antecedents and an atomic consequent.
+Tems can be constant symbols, variables, or functional terms
+
+Queries can include conjunctions, disjunctions, variables, and functional terms.
+
+Instead of negated antecedents in implications, Prolog uses a negation as failure operator:
+a goal not P is considered proved if the system fails to prove P.
+
+All syntactically distinct terms are assumed to refer to distinct objects. That is, you cannot
+assert 4 =B or A = F(x), where A is a constant. You can assert x=B or x - F(y), where x is
+a variable.
+
+There is a large set of built-in predicates for arithmetic, input/output, and various system
+and knowledge base functions. Literals using these predicates are "proved" by executing
+code rather than doing further inference. In Prolog notation (where capitalized names are
+variables), the goal X is 4+3 succeeds with X bound to 7. However, the goal 5 is X+Y
+cannot be proved, because the built-in functions do not do arbitrary equation solving.*
+
+3. Note that if proper axioms are provided for addition, such goals can be solved by inference within a Prolog program
+
+ 
+

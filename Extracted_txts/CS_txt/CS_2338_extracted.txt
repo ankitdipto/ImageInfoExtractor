@@ -1,0 +1,91 @@
+480) cuarrer TWELVE Memory Organization
+
+4 8 8
+‘Segment Page Word
+
+ 
+
+ 
+
+ 
+
+(@) Logical address format: 16 segments of 256 pages each,
+each page has 256 words
+
+R 8
+Block Word
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2x 2
+Physical memory
+
+ 
+
+ 
+
+ 
+
+(©) Physical address format: 4096 blocks of 256 words each,
+each word has 32 bits
+
+Figure 12-22 An example of logical and physical addresses.
+
+Fig. 12-23(b). The information from this table is entered in the segment and
+page tables as shown in Fig. 12-24(a).
+
+Now consider the specific logical address given in Fig. 12-24. The 20-bit
+address is listed as a five-digit hexadecimal number. It refers to word number
+7E of page 2 in segment 6. The base of segment 6 in the page table is at address
+35. Segment 6 has associated with it five pages, as shown in the page table at
+addresses 35 through 39. Page 2 of segment 6 is at address 35 + 2 = 37. The
+physical memory block is found in the page table to be 019. Word 7E in block
+19 gives the 20-bit physical address 0197E. Note that page 0 of segment 6 maps
+into block 12 and page 1 maps into block 0. The associative memory in Fig.
+
+ 
+
+Figure 12-23 Example of logical and physical memory address assignment.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Hexadecimal
+‘address Page number
+
+‘60000 Page Segment Page | Block
+
+60100 Page 1 é 00 | on
+
+6 or | 000
+
+0200 Page 2 6 a | o19
+
+60300 Page 3 6 |
+
+‘60400 6 AGL
+OaFF Page 4
+
+(a) Logical address assignment (b). Segment-page versus
+
+memory block assignment
+

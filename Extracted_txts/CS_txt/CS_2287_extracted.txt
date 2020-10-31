@@ -1,0 +1,64 @@
+438 © cHAPTER LEVEN Input-Output Organization
+
+control field
+
+by the transmitting station after any succession of five continuous 1’s. The
+receiver always removes a 0 that follows a succession of five 1’s. Thus the bit
+pattern 0111111 is transmitted as 01111101 and restored by the receiver to its
+original value by removal of the 0 following the five 1's. As a consequence, no
+pattern of 01111110 is ever transmitted between the beginning and ending
+flags.
+
+Following the flag is the address field, which is used by the primary
+station to designate the secondary station address. When a secondary station
+transmits a frame, the address tells the primary station which secondary
+station originated the frame. An address field of eight bits can specify up to
+256 addresses. Some bit-oriented protocols permit the use of an extended
+address field. To do this, the least significant bit of an address byte is set to 0
+if another address byte follows. A 1in the least significant bit of a byte is used
+to recognize the last address byte.
+
+Following the address field is the control field. The control field comes
+in three different formats, as shown in Fig. 11-27. The information transfer
+format is used for ordinary data transmission. Each frame transmitted in this
+format contains send and receive counts. A station that transmits sequenced
+frames counts and numbers each frame. This countis given by the send count
+N,. A station receiving sequenced frames counts each error-free frame that it
+receives. This count is given by the receive count N,. The N, count advances
+whena frameis checked and found to be without errors. The receiver confirms
+accepted numbered information frames by returning its N, count to the trans-
+mitting station.
+
+The P/F bit is used by the primary station to poll a secondary station to
+
+Figure 11-27 Control field format in bit-oriented protocol
+1203 4 5 6 7 8
+
+ 
+
+—
+Information tranter: | 0 7 Pe » |
+
+Supervisory: | 1 0 | Code | PIF |
+
+ 
+
+ 
+
+ 
+
+Unumbered: | 1 Code | P/F Code
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Send count P/F Pollfinal
+N, Receive count Code Binary code
+

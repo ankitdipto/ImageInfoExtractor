@@ -1,0 +1,254 @@
+20.2. A recursive structure 539
+
+‘proto-vEB(16)
+ul 16] — summary| cluster| a
+
+     
+        
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+      
+   
+    
+ 
+  
+
+proto-vEB(4) ince
+a Ry
+
+proto-vEB(4) proto-vEB(4)
+uw summary on u summary ol
+4 J 4 | J
+
+  
+  
+
+     
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+   
+
+5
+=
+
+  
+
+      
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+   
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+    
+
+    
+
+    
+
+S a a 2] ja e 2 2 |) \a @ [2
+
+8 8 8 8 ma 8 8 va 8
+
+= Fe ca ey | > a ae |= ——
+
+3 8 §0[0 Sy 0 80 Soft Say 1 8g gof0
+
+g g R
+
+5 & Aili Bit Rif Seyi} |s Raft
+clusters 0,1 clusters 2,3 elements 0,1 elements 2,3 elements 4,5 elements 6,7
+
+    
+ 
+  
+
+ 
+
+  
+
+uw summary oOo. uw summary on
+
+ 
+
+| proto-vEB(4) cluster proto-vEB(4) cluster
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+uw u
+
+ae] |e 2] js 2) ERE] |e 2] |e 2
+
+g s
+
+paee ff (eo) BE
+
+g go Solo g go Soli
+
+& Ry Sifo & Ry afi
+elements 8,9 elements 10,11 elements 12,13 elements 14,15
+
+Figure 20.4 A proto-vEB(16) structure representing the set {2,3, 4,5, 7, 14, 15}. It points to four
+proto-vEB(4) structures in cluster{0 ..3], and to a summary structure, which is also a proto-vEB(4).
+Each proto-vEB(4) structure points to two proto-vEB(2) structures in cluster[0..1], and to a
+proto-vEB(2) summary. Each proto-vEB(2) structure contains just an array A[0.. 1] of two bits.
+The proto-vEB(2) structures above “elements i,j” store bits i and j of the actual dynamic set, and
+the proto-vEB(2) structures above “clusters i,j” store the summary bits for clusters i and j in the
+top-level proto-v EB(16) structure. For clarity, heavy shading indicates the top level of a proto-vEB
+structure that stores summary information for its parent structure; such a proto-VEB structure is
+otherwise identical to any other proto-vEB structure with the same universe size.
+

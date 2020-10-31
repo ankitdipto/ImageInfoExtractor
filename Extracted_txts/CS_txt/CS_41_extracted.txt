@@ -1,0 +1,55 @@
+674
+
+Chapter 24 Single-Source Shortest Paths
+
+Lemma 24.16
+
+Let G = (V, E) be a weighted, directed graph with weight function w : E > R,
+let s € V be a source vertex, and assume that G contains no negative-weight
+cycles that are reachable from s. Then, after the graph is initialized by INITIALIZE-
+SINGLE-SOURCE(G, 5), the predecessor subgraph G, forms a rooted tree with
+root s, and any sequence of relaxation steps on edges of G maintains this property
+as an invariant.
+
+Proof Initially, the only vertex in G, is the source vertex, and the lemma is triv-
+ially true. Consider a predecessor subgraph G, that arises after a sequence of
+relaxation steps. We shall first prove that G, is acyclic. Suppose for the sake of
+contradiction that some relaxation step creates a cycle in the graph G,,. Let the cy-
+cle be ¢ = (v0, V1,.++5 Vz), Where vy = Vo. Then, v;.7 = vj; fori = 1,2,..., k
+and, without loss of generality, we can assume that relaxing edge (vg_1. Vx) created
+the cycle in Gy.
+
+We claim that all vertices on cycle c are reachable from the source s. Why?
+Each vertex on c has a non-NIL predecessor, and so each vertex on ¢ was assigned
+a finite shortest-path estimate when it was assigned its non-NIL z value. By the
+upper-bound property, each vertex on cycle c has a finite shortest-path weight,
+which implies that it is reachable from s.
+
+We shall examine the shortest-path estimates on c just prior to the call
+RELAX(v,_1, ¥¢, W) and show that c is a negative-weight cycle, thereby contra-
+dicting the assumption that G contains no negative-weight cycles that are reachable
+from the source. Just before the call, we have v;.7 = v;_, fori = 1,2,..., k-1.
+Thus, fori = 1,2,..., k —1, the last update to v;.d was by the assignment
+vj.d = vj-1.d+w(v;_-1, v;). If v;_1.d changed since then, it decreased. Therefore,
+just before the call RELAX (vz_1, Vg, W), We have
+
+vj.d > Vj-1.d + w(Vj-1, Vi) for alli = 1,2,..., k-l. (24.12)
+
+Because vz.7 is changed by the call, immediately beforehand we also have the
+strict inequality
+
+Vg. > Vg_-y.d + W(Vg~-1, VE) »
+
+Summing this strict inequality with the k — 1 inequalities (24.12), we obtain the
+sum of the shortest-path estimates around cycle c:
+
+k k
+Yovied > Yo @i-.d + w(vi-n. vs)
+
+i=l i=l
+
+k k
+= Yovia-d + Yovi-n. vi) -
+
+i=1 i=1
+

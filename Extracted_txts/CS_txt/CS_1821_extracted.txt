@@ -1,0 +1,111 @@
+294 Chapter9 Memory Management
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+     
+     
+ 
+
+ 
+  
+    
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+logical
+address
+CPU
+page frame
+number number
+TLB hit physical
+address
+f
+TLB miss
+f
+— physical
+memory
+page table
+
+Figure 9.10 Paging hardware with TLB.
+
+If the TLB does not support separate ASIDs, every time a new page table is
+selected (for instance, each context switch), the TLB must be flushed (or erased)
+to ensure that the next executing process does not use the wrong translation
+information. Otherwise, there could be old entries in the TLB that contain valid
+virtual addresses but have incorrect or invalid physical addresses left over from
+the previous process.
+
+The percentage of times that a particular page number is found in the TLB
+is called the hit ratio. An 80-percent hit ratio means that we find the desired
+page number in the TLB 80 percent of the time. If it takes 20 nanoseconds
+to search the TLB, and 100 nanoseconds to access memory, then a mapped-
+memory access takes 120 nanoseconds when the page number is in the TLB.
+If we fail to find the page number in the TLB (20 nanoseconds), then we must
+first access memory for the page table and frame number (100 nanoseconds),
+and then access the desired byte in memory (100 nanoseconds), for a total of
+220 nanoseconds. To find the effective memory-access time, we must weigh
+each case by its probability:
+
+effective access time = 0.80 x 120 + 0.20 x 220
+= 140 nanoseconds.
+

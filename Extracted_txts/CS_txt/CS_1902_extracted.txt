@@ -1,0 +1,122 @@
+    
+   
+
+276 Chapter 9. Inference in First-Order Logic
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Criminal(x)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+|American(x) — |HighTech(y] | Weapon(M1) | Nation)‘ |Hostile(Nono)\ | Sells(West,Nono.M1)}
+Yes, (x/West} Yes, (y/MI} Yes, (/Nonof
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+\Missile(M1) \ Enemy Nono,America)
+
+ 
+
+ 
+
+Yes, {/ Yes, {}
+
+ 
+
+Owns(Nono,M1y"[Missite(M1
+Yes, {} Yes,
+
+ 
+
+ 
+
+Figure 9.3 Proof tree to infer that West is a criminal.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Criminal(x)
+
+OO
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+[Americanix)| “ Weaponty) | "Nation' Hostile(America). ‘ Sells(West,America,M1)
+{x/West} {:/America} Fail
+“Missile(y)
+{y/M1}
+
+ 
+
+ 
+
+ 
+
+Figure9.4__A failed proof tree: nothing can be inferred.
+
+ 
+
+9.5 COMPLETENESS
+
+Suppose we have the following knowledge base:
+Vx Plt) = O(x)
+Vx P(x) => R(x) (9.40)
+Vx On) > S(x)
+Vax R(x) = S(x)
+Then we certainly want to be able to conclude S(A); S(A) is true if O(A) or R(A) is true, and on
+of those must be true because either P(A) is true or >P(A)is true.
+

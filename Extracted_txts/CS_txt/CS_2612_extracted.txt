@@ -1,0 +1,49 @@
+83 Radix sort 197
+
+8.2-4
+Describe an algorithm that, given integers in the range 0 to k, preprocesses its
+input and then answers any query about how many of the n integers fall into a
+range [a ..b] in O(1) time. Your algorithm should use @(n + k) preprocessing
+time.
+
+ 
+
+8.3 Radix sort
+
+Radix sort is the algorithm used by the card-sorting machines you now find only in
+computer museums. The cards have 80 columns, and in each column a machine can
+punch a hole in one of 12 places. The sorter can be mechanically “programmed”
+to examine a given column of each card in a deck and distribute the card into one
+of 12 bins depending on which place has been punched. An operator can then
+gather the cards bin by bin, so that cards with the first place punched are on top of
+cards with the second place punched, and so on.
+
+For decimal digits, each column uses only 10 places. (The other two places
+are reserved for encoding nonnumeric characters.) A d-digit number would then
+occupy a field of d columns. Since the card sorter can look at only one column
+at a time, the problem of sorting 1 cards on a d-digit number requires a sorting
+algorithm.
+
+Intuitively, you might sort numbers on their most significant digit, sort each of
+the resulting bins recursively, and then combine the decks in order. Unfortunately,
+since the cards in 9 of the 10 bins must be put aside to sort each of the bins, this
+procedure generates many intermediate piles of cards that you would have to keep
+track of. (See Exercise 8.3-5.)
+
+Radix sort solves the problem of card sorting —counterintuitively— by sorting on
+the least significant digit first. The algorithm then combines the cards into a single
+deck, with the cards in the 0 bin preceding the cards in the | bin preceding the
+cards in the 2 bin, and so on. Then it sorts the entire deck again on the second-least
+significant digit and recombines the deck in a like manner. The process continues
+until the cards have been sorted on all d digits. Remarkably, at that point the cards
+are fully sorted on the d-digit number. Thus, only d passes through the deck are
+required to sort. Figure 8.3 shows how radix sort operates on a “deck” of seven
+3-digit numbers.
+
+In order for radix sort to work correctly, the digit sorts must be stable. The sort
+performed by a card sorter is stable, but the operator has to be wary about not
+changing the order of the cards as they come out of a bin, even though all the cards
+in a bin have the same digit in the chosen column.
+
+ 
+

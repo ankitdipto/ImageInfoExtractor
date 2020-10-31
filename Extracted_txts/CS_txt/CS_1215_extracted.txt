@@ -1,0 +1,40 @@
+488 Let Us C
+
+ 
+
+A Word of Caution
+
+In the explanation a >> b if b is negative the result is
+unpredictable. If a is negative than its left most bit (sign bit) would
+be 1. On some computer right shifting a would result in extending
+the sign bit. For example, if a contains -1, its binary representation
+would be 1111111111111111. Without sign extension, the
+operation a >> 4 would be 0000111111111111. However, on the
+machine on which we executed this expression the result turns out
+to be 1111111111111111. Thus the sign bit 1 continues to get
+extended.
+
+Left Shift Operator
+
+This is similar to the right shift operator, the only difference being
+that the bits are shifted to the left, and for each bit shifted, a 0 is
+added to the right of the number. The following program should
+clarify my point.
+
+main()
+{
+int | = 5225, j,k;
+
+printf ("\nDecimal %d is same as", i) ;
+showbits (i) ;
+
+for (j=0;j<=4;j++)
+{
+k=i<<j;
+printf ("\n%d left shift %d gives", i,j);
+showbits (k ) ;
+}
+The output of the above program would be...
+
+Decimal 5225 is same as binary 0001010001101001
+

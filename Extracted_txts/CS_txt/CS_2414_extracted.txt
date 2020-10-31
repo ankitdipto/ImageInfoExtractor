@@ -1,0 +1,125 @@
+2.3 Designing algorithms 35
+
+sorted sequence
+
+1 2 2 #3 #4 +#«5 6 #7
+a merge ~.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2 4 5 7 1 2 3 6
+J. ve \ =
+2 5 4 7 1 3 2 6
+ny oo
+5 2 4 7 1 Es 2 6
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+initial sequence
+
+Figure 2.4 The operation of merge sort on the array A = (5, 2,4, 7, 1,3, 2, 6). The lengths of the
+sorted sequences being merged increase as the algorithm progresses from bottom to top.
+
+A recurrence for the running time of a divide-and-conquer algorithm falls out
+from the three steps of the basic paradigm. As before, we let T() be the running
+time on a problem of size n. If the problem size is small enough, say n < c
+for some constant c, the straightforward solution takes constant time, which we
+write as ©(1). Suppose that our division of the problem yields a subproblems,
+each of which is 1/b the size of the original. (For merge sort, both a and b are 2,
+but we shall see many divide-and-conquer algorithms in which a # b.) It takes
+time T(n/b) to solve one subproblem of size n/b, and so it takes time aT (n/b)
+to solve a of them. If we take D(n) time to divide the problem into subproblems
+and C(n) time to combine the solutions to the subproblems into the solution to the
+original problem, we get the recurrence
+
+@(1) ifn <c,
+
+T(n) = aT(n/b) + D(n) + C(n)_ otherwise .
+
+In Chapter 4, we shall see how to solve common recurrences of this form.
+
+Analysis of merge sort
+
+Although the pseudocode for MERGE-SoRT works correctly when the number of
+elements is not even, our recurrence-based analysis is simplified if we assume that
+

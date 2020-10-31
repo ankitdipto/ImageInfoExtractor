@@ -1,0 +1,49 @@
+138 Chapter5 Threads
+
+5.3.4 Thread Pools
+
+In Section 5.1, we described the scenario of multithreading a web server. In
+this situation, whenever the server receives a request, it creates a separate
+thread to service the request. Whereas creating a separate thread is certainly
+superior to creating a separate process, a multithreaded server nonetheless has
+potential problems. The first concerns the amount of time required to create the
+thread prior to servicing the request, compounded with the fact that this thread
+will be discarded once it has completed its work. The second issue is more
+problematic: If we allow all concurrent requests to be serviced in a new thread,
+we have not placed a bound on the number of threads concurrently active in the
+system. Unlimited threads could exhaust system resources, such as CPU time
+or memory. One solution to this issue is to use thread pools.
+
+The general idea behind a thread pool is to create a number of threads at
+process startup and place them into a pool, where they sit and wait for work.
+When a server receives a request, it awakens a thread from this pool—if one
+is available—passing it the request to service. Once the thread completes its
+service, it returns to the pool awaiting more work. If the pool contains no
+available thread, the server waits until one becomes free.
+
+In particular, the benefits of thread pools are:
+
+1. Itis usually faster to service a request with an existing thread than waiting
+to create a thread.
+
+2. A thread pool limits the number of threads that exist at any one point. This
+is particularly important on systems that cannot support a large number of
+concurrent threads.
+
+The number of threads in the pool can be set heuristically based upon fac-
+tors such as the number of CPUs in the system, the amount of physical memory,
+and the expected number of concurrent client requests. More sophisticated
+thread-pool architectures can dynamically adjust the number of threads in the
+pool according to usage patterns. Such architectures provide the further benefit
+of having a smaller pool—thereby consuming less memory —when the load on
+the system is low.
+
+5.3.5 Thread-Specific Data
+
+Threads belonging to a process share the data of the process. Indeed, this
+sharing of data provides one of the benefits of multithreaded programming.
+However, each thread might need its own copy of certain data in some cir-
+cumstances. We will call such data thread-specific data. For example, in a
+transaction-processing system, we might service each transaction in a separate
+thread. Furthermore, each transaction may be assigned a unique identifier. To
+

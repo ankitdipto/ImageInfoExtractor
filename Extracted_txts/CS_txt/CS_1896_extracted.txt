@@ -1,0 +1,50 @@
+10.7 Operating-System Examples 355
+
+8192
+fastscan
+
+scan rate
+
+100
+slowscan
+
+ 
+
+ 
+
+ 
+
+{ {
+t T >
+minfree desfree lotsfree
+amount of free memory
+
+Figure 10.19 Solaris 2 page scanner.
+
+The pageout algorithm uses several parameters to control the rate at which
+pages are scanned (known as the scanrate). The scanrate is expressed in pages
+per second and ranges from slowscan to fastscan. When free memory falls below
+lotsfree, scanning occurs at slowscan pages per second and progresses to fastscan
+depending upon the amount of free memory available. The default value of
+slowscan is 100 pages per second. fastscan is typically set to (Total PhysicalPages)/2
+pages per second with a maximum of 8,192 pages per second. This is shown in
+Figure 10.19 (with fastscan set to the maximum).
+
+The distance (in pages) between the hands of the clock is determined by
+a system parameter handspread. The amount of time between the front hand
+clearing a bit and the back hand investigating its value depends upon the
+scanrate and the handspread. If scanrate is 100 pages per second and handspread is
+1,024 pages, 10 seconds can pass between the time a bit is set by the front hand
+and checked by the back hand. However, because of the demands placed on the
+memory system, a scanrate of several thousand is not uncommon. This means
+that the amount of time between checking and investigating a bit is often a few
+seconds.
+
+As described above, the pageout process checks memory four times per
+second. However, if free memory falls below desfree (Figure 10.19) pageout
+will run 100 times per second with the intention of keeping at least desfree
+free memory available. If the pageout process in unable to keep the amount
+of free memory for a 30-second average at desfree, the kernel begins swapping
+processes, thereby freeing all pages allocated to the process. In general, the
+kernel looks for processes that have been idle for long periods of time. Last,
+

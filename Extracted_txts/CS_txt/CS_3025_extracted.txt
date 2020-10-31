@@ -1,0 +1,55 @@
+Section 13.3.
+
+Fully Integrated Planning and Execution 403
+
+ 
+
+are just the goal conditions because the remaining plan p is now empty, and the agent will detect
+that the chair is not all the same color as the table. Looking at the original plan g, the current
+state is identical to the precondition before the chair-painting step, so the agent will now try to
+paint over the bare spots. This behavior will cycle until the chair is completely painted.
+
+Suppose instead that the agent runs out of paint during the painting process. This is not
+envisaged by the action description for Paint, but it will be detected because the chair will again
+not be completely painted. At this point, the current state matches the precondition of the plan
+beginning with GerPaint, so the agent will go off and get a new can of paint before continuing.
+
+Consider again the agent's behavior in the first case, as it paints and repaints the chair.
+Notice that the behavior is identical to that ofa conditional planning agent running the looping
+plan shown earlier. The difference lies in the time at which the computation is done and the
+information is available to the computation process. The conditional planning agent reasons
+explicitly about the possibility of uneven paint, and prepares for it even though it may not occur.
+The looping behavior results from a looping plan. The replanning agent assumes at planning
+time that painting succeeds, but during execution checks on the results and plans just for those
+contingencies that actually arise. The looping behavior results not from a looping plan but from
+the interaction between action failures and a persistent replanner.
+
+We should mention the question of learning in response to failed expectations about the
+results of actions. Consider a plan for the painting agent that includes an action to open a door
+(perhaps to the paint store). Ifthe door sticks a little, the replanning agent will try again until the
+door opens. But if the door is locked, the agent has a problem. Of course, if the agent already
+knows about locked doors, then Unlocked will be a precondition of opening the door, and the
+agent will have inserted a CheckI{Locked action that observes the state of the door, and perhaps
+a conditional branch to fetch the key. But ifthe agent does not know about locked doors, it will
+continue pulling on the door indefinitely. What we would like to happen is for the agent to leam
+that its action description is wrong; in this case, there is a missing precondition. We will see how
+this kind of learning can take place in Chapter 21.
+
+13.3 FULLYINTEGRATEDPLANNINGANDEXECUTION
+
+SITUATED PLANNING
+AGENT
+
+In this section, we describe a more comprehensive approach to plan execution, in which the
+planning and execution processes are fully integrated. Rather than thinking of the planner and
+execution monitor as separate processes, one of which passes its results to the other, we can
+think of them as a single process in a situated planning agent.* The agent is thought of as
+always being part of the way through executing a plan—the grand plan of living its life. Its
+activities include executing some steps of the plan that are ready to be executed; refining the plan
+to resolve any of the standard deficiencies (open conditions, potential clobbering, and so on);
+refining the plan in the light of additional information obtained during execution; and fixing the
+
++ The word "situated," which became popular in Al in the late 1980s, is intended to emphasize that the process of
+deliberation takes place in an agent that is directly connected to an environment. In this book all the agents are "situated,"
+but the situated planning agent integrates deliberation and action to a greater extent than some of the other designs
+

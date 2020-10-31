@@ -1,0 +1,106 @@
+396
+
+Chapter 13. Planning and Acting
+
+ 
+
+‘CONDITIONAL LINK.
+
+‘CONDITIONAL STEP
+
+with distinct contexts can both be executed, such steps cannot interfere with each other. Contexts
+are therefore essential for keeping track of which steps can establish or violate the preconditions
+of which other steps. An example will make this clear.
+
+The flat-tire plan begins with the usual start and finish steps (Figure 13.2). Notice that the
+finish step has the context True, indicating that no assumptions have been made so far.
+
+ 
+
+___OngTireis
+
+Start_| Flat(Tiret) inte) [_Finish_]
+
+Inflated Spare) (True)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 13.2 Initial plan state for the flat-tire problem.
+
+ 
+
+ 
+
+There are two open conditions to be resolved: On(x) and Inflated(x). The first is satisfied
+by adding a link from the start step, with the unifier {x/Tire,}. The second is satisfied by adding
+the step /nflate(Tire,),which has preconditions Flat(Tire,) and Intact(Tire) (see Figure 13.3).
+
+ 
+
+On(Tiret)
+
+eo one) —
+
+| Start | Flat(Tiret) a ——_. Inflated(Tire1) |_Finish
+
+Inflated(Spare) Flat Tres) 4 True}
+Intact(Tro) late(Tiret)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+dntact(Ties))
+
+ 
+
+ 
+
+Figure 133 Plan after adding the Inflate(Tire:)step.
+
+ 
+
+ 
+
+ 
+
+The open condition Flar(Tire;) is satisfied by adding a link from the start step. The
+interesting part is what to do with the /ntact(Tire;) condition. In the statement of the problem
+there are no actions that can make the tire intact—that is, no action schema with the effect
+Intact(x). At this point a standard causal-link planner would abandon this plan and try another
+way to achieve the goal. There is, however, an action CheckTire(x)that allows one to know the
+truth value ofa proposition that unifies with /ntact(Tire,). If (and this is sometimes a big if) the
+outcome of checking the tire is that the tire is known to be intact, then the /nflate(Tire,)step can
+be achieved. We therefore add the CheckTire step to the plan with a conditional link (shown as a
+dotted arrow in Figure 13.4)to the /nflate(Tire,)step. The CheckTire step is called a conditional
+step because it will become a branch point in the final plan. The inflate step and the finish step |
+now acquire a context label stating that they are assuming the outcome /nract(Tire,) rather than |
+alntact(Tire,). Because CheckTire has no preconditions in our simple formulation, the plan is
+complete given the context of the finish step. 4
+
+Obviously, we cannot stop here. We need a plan that works in both cases. The conditional
+planner ensures this by adding a second copy of the original finish step, labelled with a context
+that is the negation of the existing context (see Figure 13.5). In this way, the planner covers an
+
+3. Ifthe solution of this new branch requires further context assumptions, then a third copy ofthe finish step will be added
+whose context is the negation of the disjunction of the existing finish steps. This continues until no more assumptions
+are needed.
+
+ 
+

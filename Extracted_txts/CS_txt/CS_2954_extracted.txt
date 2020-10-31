@@ -1,0 +1,59 @@
+474
+
+Chapter 17 Amortized Analysis
+
+We shall analyze this rebuilding scheme using the potential method. For a node x
+
+in a binary search tree T, we define
+
+A(x) = |x. left.size — x.right.size| ,
+
+and we define the potential of T as
+
+@(T)=c > A(x).
+
+xET:A(x)>2
+
+where c is a sufficiently large constant that depends on @.
+
+c.
+
+Argue that any binary search tree has nonnegative potential and that a 1/2-
+balanced tree has potential 0.
+
+|. Suppose that m units of potential can pay for rebuilding an m-node subtree.
+
+How large must c be in terms of @ in order for it to take O(1) amortized time
+to rebuild a subtree that is not a-balanced?
+
+Show that inserting a node into or deleting a node from an n-node @-balanced
+tree costs O(lgn) amortized time.
+
+17-4 The cost of restructuring red-black trees
+
+There are four basic operations on red-black trees that perform structural modi-
+fications: node insertions, node deletions, rotations, and color changes. We have
+seen that RB-INSERT and RB-DELETE use only O(1) rotations, node insertions,
+and node deletions to maintain the red-black properties, but they may make many
+more color changes.
+
+a.
+
+Describe a legal red-black tree with n nodes such that calling RB-INSERT to
+add the (n + 1)st node causes Q(lgm) color changes. Then describe a legal
+red-black tree with 1 nodes for which calling RB-DELETE on a particular node
+causes Q(lg 7) color changes.
+
+Although the worst-case number of color changes per operation can be logarithmic,
+we shall prove that any sequence of m RB-INSERT and RB-DELETE operations on
+an initially empty red-black tree causes O(m) structural modifications in the worst
+case. Note that we count each color change as a structural modification.
+
+b
+
+Some of the cases handled by the main loop of the code of both RB-INSERT-
+Fixup and RB-DELETE-FIXUP are terminating: once encountered, they cause
+the loop to terminate after a constant number of additional operations. For each
+of the cases of RB-INSERT-FIxuP and RB-DELETE-FIXUP, specify which are
+terminating and which are not. (Hint: Look at Figures 13.5, 13.6, and 13.7.)
+

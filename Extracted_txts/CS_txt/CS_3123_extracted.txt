@@ -1,0 +1,54 @@
+Chapter 16. Making Simple Decisions
+
+ 
+
+The knowledge engineering process required for building and using decision-theoretic
+expert system is as follows:
+
+* Determine the scope of the problem. Determine what are the possible actions, outcomes,
+and evidence to consider. Normally, the analyst will have to interview one or more experts
+in the domain to discover the important factors. Note that we recommended the same sort
+of determination as the first step of knowledge engineering in Section 8.2.
+
+Lay out the topology. Once all the relevant factors are determined, we need to know
+which ones are influenced by which others. It is particularly important to understand
+which aspects of the outcome state determine its utility.
+
+Assign probabilities. In decision networks, the conditional probabilities reflect not only 4
+causal influences between random variables, but also the effects of actions.
+
+Assign utilities. A utility function is often assessed using the techniques described earlier.
+Computer programs exist that automate the task of extracting preferences for various lotter-
+ies and constructing a utility function. Identifying the preference structure of multiattribute
+utility functions is also vital in reducing the dimensionality of the assessment problem. It
+can reduce the number of questions exponentially.
+
+Enter available evidence. For each specific case in which the system is used, there may
+be some initial evidence available.
+
+Evaluate the diagram. Calculate the optimal action according to the existing evidence
+
+Obtain new evidence. Calculate the value of information, comparing it with the costs of
+acquisition, and perform the appropriate observations, ifany. Notice that purely inferential *
+expert systems, without utilities, cannot decide what new evidence to acquire.
+
+Perform sensitivity analysis. This important step checks to see if the best decision is
+sensitive to small changes in the assigned probabilities and utilities by systematically
+varying these parameters and running the evaluation again. If small changes lead to
+significantly different decisions, then it may be worthwhile to spend more resources to
+collect better data. Ifall variations lead to the same decision, then the user will have more
+confidence that it is the right decision.
+
+   
+
+Sensitivity analysis is particularly important, because one of the main criticisms of probabilistic
+approaches to expert systems is that it is too difficult to assess the numerical probabilities
+required. Sensitivity analysis often reveals that many of the numbers need only be specified very
+approximately—within, say, 0.2 of the value that might be obtained from an exhaustive analysis. §
+Some systems allow probabilities to be specified as ranges. This leads to ranges for the utilities of 4
+actions. Ifthe range of one action dominates the ranges of all others, then no further probability
+assessment need occur. For example, it might be the case that the optimal siting of an airport is
+insensitive to the predicted air traffic over a large range of values, given the system’s beliefs about
+the other relevant factors, so that the user can remain unruffled by his or her lack of expertise on
+air traffic prediction.
+

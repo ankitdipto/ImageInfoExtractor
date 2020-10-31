@@ -1,0 +1,50 @@
+4.3 Operations on Processes 105
+
+It may also get the name of the output device. Some operating systems pass
+resources to child processes. On such a system, the new process may get two
+open files, F, and the terminal device, and may just need to transfer the datum
+between the two.
+
+When a process creates a new process, two possibilities exist in terms of
+execution:
+
+1. The parent continues to execute concurrently with its children.
+
+2. The parent waits until some or all of its children have terminated.
+There are also two possibilities in terms of the address space of the new process:
+
+1. The child process is a duplicate of the parent process.
+
+2. The child process has a program loaded into it.
+
+To illustrate these different implementations, let us consider the UNIX operating
+system. In UNIX, each process is identified by its process identifier, which
+is a unique integer. A new process is created by the fork system call. The
+new process consists of a copy of the address space of the original process.
+This mechanism allows the parent process to communicate easily with its child
+process. Both processes (the parent and the child) continue execution at the
+instruction after the fork system call, with one difference: The return code for
+the fork system call is zero for the new (child) process, whereas the (nonzero)
+process identifier of the child is returned to the parent.
+
+Typically, the execlp system call is used after a fork system call by
+one of the two processes to replace the process’ memory space with a new
+program. The exec1p system call loads a binary file into memory —destroying
+the memory image of the program containing the execlp system call—and
+starts its execution. In this manner, the two processes are able to communicate,
+and then to go their separate ways. The parent can then create more children, or,
+if it has nothing else to do while the child runs, it can issue a wait system call to
+move itself off the ready queue until the termination of the child. The C program
+shown in Figure 4.8 illustrates the UNIX system calls previously described. The
+parent creates a child process using the fork system call. We now have two
+different processes running a copy of the same program. The value of pid for
+the child process is zero; that for the parent is an integer value greater than zero.
+The child process overlays its address space with the UNIX command /bin/1s
+(used to get a directory listing) using the execlp system call. The parent waits
+for the child process to complete with the wait system call. When the child
+process completes, the parent process resumes from the call to wait where it
+completes using the exit system call.
+
+The DEC VMS operating system, in contrast, creates a new process, loads
+a specified program into that process, and starts it running. The Microsoft
+

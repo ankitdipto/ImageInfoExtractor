@@ -1,0 +1,57 @@
+492
+
+Chapter 18 B-Trees
+
+B-TREE-SEARCH(x,k)
+i=l
+while i < x.nandk > x.key;
+i=i+l
+ifi < x.nandk == x. key;
+return (x,i)
+elseif x. leaf
+return NIL
+else DisK-READ(x.¢;)
+return B-TREE-SEARCH(x.c;,k)
+
+CHIDAAKRwWNHH
+
+Using a linear-search procedure, lines 1-3 find the smallest index 7 such that
+k < x.key;, or else they set i to x.n + 1. Lines 4-5 check to see whether we
+have now discovered the key, returning if we have. Otherwise, lines 6—9 either ter-
+minate the search unsuccessfully (if x is a leaf) or recurse to search the appropriate
+subtree of x, after performing the necessary DISK-READ on that child.
+
+Figure 18.1 illustrates the operation of B-TREE-SEARCH. The procedure exam-
+ines the lightly shaded nodes during a search for the key R.
+
+As in the TREE-SEARCH procedure for binary search trees, the nodes encoun-
+tered during the recursion form a simple path downward from the root of the
+tree. The B-TREE-SEARCH procedure therefore accesses O(h) = O(log, n) disk
+pages, where / is the height of the B-tree and n is the number of keys in the B-tree.
+Since x.n < 2t, the while loop of lines 2-3 takes O(t) time within each node, and
+the total CPU time is O(th) = O(¢ log, n).
+
+Creating an empty B-tree
+
+To build a B-tree T, we first use B-TREE-CREATE to create an empty root node
+and then call B-TREE-INSERT to add new keys. Both of these procedures use an
+auxiliary procedure ALLOCATE-NODE, which allocates one disk page to be used
+as a new node in O(1) time. We can assume that a node created by ALLOCATE-
+NODE requires no DISK-READ, since there is as yet no useful information stored
+on the disk for that node.
+
+B-TREE-CREATE(T)
+
+1 x = ALLOCATE-NODE()
+2 x.leaf = TRUE
+
+3 xn=0
+
+4 DISK-WRITE(x)
+
+5 T.root = x
+
+B
+
+-TREE-CREATE requires O(1) disk operations and O(1) CPU time.
+

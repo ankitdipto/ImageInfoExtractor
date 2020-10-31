@@ -1,0 +1,33 @@
+548 Let UsC
+
+ 
+
+API functions available. They help an application to perform
+various tasks such as creating a window, drawing a line,
+performing file input/output, etc.
+
+True Reuse
+
+A C under Windows program calls several API functions during
+course of its execution. Imagine how much disk space would have
+been wasted had each of these functions become part of the EXE
+file of each program. To avoid this, the API functions are stored in
+special files that have an extension .DLL.
+
+DLL stands for Dynamic Link Libraries. A DLL is a binary file
+that provides a library of functions. The functions present in DLLs
+can be linked during execution. These functions can also be shared
+between several applications running in Windows. Since linking is
+done dynamically the functions do not become part of the
+executable file. As a result, the size of EXE files does not go out of
+hand. It is also possible to create your own DLLs. You would like
+to do this for two reasons:
+
+(a) Sharing common code between different executable files.
+
+(b) Breaking an application into component parts to provide a
+way to easily upgrade application’s components.
+
+The Windows API functions come in three DLL files. Figure 16.3
+lists these filenames along with purpose of each.
+

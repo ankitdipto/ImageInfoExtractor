@@ -1,0 +1,55 @@
+460
+
+Chapter 17 Amortized Analysis
+
+In practice, we do not always know how many operations might be performed.
+Therefore, if we require that ®(D;) > ®(Do) for all i, then we guarantee, as in
+the accounting method, that we pay in advance. We usually just define ®(Do) to
+be 0 and then show that ®(D;) > 0 for all i. (See Exercise 17.3-1 for an easy way
+to handle cases in which ®(Do) # 0.)
+
+Intuitively, if the potential difference ®(D;) — ®(D;-1) of the ith operation is
+positive, then the amortized cost ¢; represents an overcharge to the ith operation,
+and the potential of the data structure increases. If the potential difference is neg-
+ative, then the amortized cost represents an undercharge to the ith operation, and
+the decrease in the potential pays for the actual cost of the operation.
+
+The amortized costs defined by equations (17.2) and (17.3) depend on the choice
+of the potential function ®. Different potential functions may yield different amor-
+tized costs yet still be upper bounds on the actual costs. We often find trade-offs
+that we can make in choosing a potential function; the best potential function to
+use depends on the desired time bounds.
+
+Stack operations
+
+To illustrate the potential method, we return once again to the example of the stack
+operations PUSH, Pop, and MULTIPOP. We define the potential function ® on a
+stack to be the number of objects in the stack. For the empty stack Dp with which
+we start, we have ®(Do) = 0. Since the number of objects in the stack is never
+negative, the stack D; that results after the ith operation has nonnegative potential,
+and thus
+
+(Di)
+
+Iv
+
+0
+= (Dp).
+
+The total amortized cost of 1 operations with respect to ® therefore represents an
+upper bound on the actual cost.
+
+Let us now compute the amortized costs of the various stack operations. If the ith
+operation on a stack containing s objects is a PUSH operation, then the potential
+difference is
+
+®(D;) — ®(D;-1) (s+1)-s
+
+1.
+
+By equation (17.2), the amortized cost of this PUSH operation is
+
+G = c+ O(Di)— O(Di-1)
+1+1
+2.
+

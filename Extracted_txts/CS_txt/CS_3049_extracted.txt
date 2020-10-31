@@ -1,0 +1,81 @@
+Section 14.3.
+
+The Axioms of Probability 425
+
+ 
+
+PROBABILITY
+IBUTION
+
+ATOMIC EVENT
+
+The joint probability distribution
+
+ 
+
+In this section, we define the joint probability distribution (or "joint" for short), which com-
+pletely specifies an agent's probability assignments to all propositions in the domain (both simple
+and complex).
+
+A probabilistic model of a’domain consists of a set of random variables that can take on
+particular values with certain probabilities. Let the variables be X\ ...X,,. An atomic event is an
+assignment of particular values to all the variables—in other words, a complete specification of
+the state of the domain.
+
+The joint probability distribution P(X, ...,X,) assigns probabilities to all possible atomic
+events. Recall that P(X;) is a one-dimensional vector of probabilities for the possible values of
+the variable X;. Then the joint is an n-dimensional table with a value in every cell giving the
+probability of that specific state occurring. Here is a joint probability distribution for the trivial
+medical domain consisting of the two Boolean variables Toothache and Cavity:
+
+ 
+
+Toothache | =Toothache
+Cavity 0.04 0.06
+=Cavity| 0.01 0.89
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Because the atomic events are mutually exclusive, any conjunction of atomic events is necessarily
+false. Because they are collectively exhaustive, their disjunction is necessarily true. Hence, from
+the second and third axioms of probability, the entries in the table sum to |. In the same way,
+the joint probability distribution can be used to compute any probabilistic statement we care to
+know about the domain, by expressing the statement as a disjunction of atomic events and adding
+up their probabilities. Adding across a row or column gives the unconditional probability of a
+variable, for example, P(Cavity) = 0.06 + 0.04 = 0.10. As another example:
+
+P(CavityV Toothache) = 0.04 + 0.01 + 0.06 = 0.11
+
+Recall that we can make inferences about the probabilities of an unknown proposition
+A, given evidence B, by calculating P(A\B). A query to a probabilistic reasoning system will
+therefore ask for the value ofa particular conditional probability. Conditional probabilities can
+be found from the joint using Equation (14.1):
+
+P(Cavity A Toothache) _ 0.04
+P(Toothachey (0.04 + 0.01
+
+Ofcourse, in a realistic problem, there might be hundreds or thousands ofrandom variables
+to consider, not just two. In general it is not practical to define all the 2" entries for the joint
+probability distribution over « Boolean variables, but it is important to remember that if we could
+define all the numbers, then we could read off any probability we were interested in.
+
+Modem probabilistic reasoning systems sidestep the joint and work directly with condi-
+tional probabilities, which are after all the values that we are interested in. In the next section,
+we introduce a basic tool for this task.
+
+P(Cavity|Toothache) = =0.80
+
+ 
+

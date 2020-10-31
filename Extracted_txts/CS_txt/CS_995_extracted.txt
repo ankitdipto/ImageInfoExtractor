@@ -1,0 +1,58 @@
+202
+
+CHAPTER SIX Programming the Basic Computer
+
+tion. The subroutine must increment the return address stored in its first
+location for each operand that it extracts from the calling program. Moreover,
+the calling program can reserve one or more locations for the subroutine to
+return results that are computed. The first location in the subroutine must be
+incremented for these locations as well, before the return. If there is a large
+amount of data to be transferred, the data can be placed in a block of storage
+and the address of the first item in the block is then used as the linking
+parameter.
+
+Asubroutine that moves ablock of data starting at address 100into ablock
+starting with address 200 is listed in Table 6-18. The length of the block is 16
+words. The first introduction isa branch to subroutine MVE. The first part of
+the subroutine transfers the three parameters 100, 200 and — 16 from the main
+program and places them in its own storage location. The items are retrieved
+from their blocks by the use of two pointers. The counter ensures that only 16
+items are moved. When the subroutine completes its operation, the data
+required is in the block starting from the location 200. The return to the main
+program is to the HLT instruction.
+
+TABLE 6-18 Subroutine to Move a Block of Data
+
+‘/Main program
+BSA MVE ——_/Branch to subroutine
+HEX 100 MFirst address of source data
+HEX 200 MFirst address of destination data
+DEC -16 ——_/Number of items to move
+HLT
+MVE, HEX0 ‘Subroutine MVE
+LDA MVEI —/Bring address of source
+STA PTL /Store in first pointer
+
+ISZ MVE ___ increment return address
+LDA MVE /Bring address of destination
+STA PT2 ‘tore in second pointer
+ISZ MVE increment return address
+LDAMVEI —/Bring number of items
+STACTR Store in counter
+ISZMVE —_ increment return address
+LOP, LDAPTII —/Load source item
+STAPT2I __/Store in destination
+
+ISZ PTI ‘MAncrement source pointer
+ISZ PT2 increment destination pointer
+ISZ CTR ‘increment counter
+
+BUN LOP —_—_/Repeat 16 times
+BUN MVE I —/Returnto main program
+
+5
+
+cr —
+
+5
+

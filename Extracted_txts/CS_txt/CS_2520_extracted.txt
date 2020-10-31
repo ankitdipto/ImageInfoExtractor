@@ -1,0 +1,45 @@
+5.2 Indicator random variables 121
+
+By Lemma 5.1, we have that
+E[X;] = Pr {candidate i is hired} ,
+
+and we must therefore compute the probability that lines 5-6 of HIRE-ASSISTANT
+are executed.
+
+Candidate i is hired, in line 6, exactly when candidate i is better than each of
+candidates 1 through i — 1. Because we have assumed that the candidates arrive in
+arandom order, the first i candidates have appeared in a random order. Any one of
+these first 7 candidates is equally likely to be the best-qualified so far. Candidate i
+has a probability of 1/i of being better qualified than candidates 1 through i — 1
+and thus a probability of 1/i of being hired. By Lemma 5.1, we conclude that
+
+E[X] =1/i. (5.3)
+
+Now we can compute E [X]:
+
+E[X]
+
+E [= x| (by equation (5.2)) (5.4)
+i=1
+
+>» E[X;] (by linearity of expectation)
+i=l
+
+= Vivi (by equation (5.3))
+i=l
+= Inn+O(1) (by equation (A.7)) . (5.5)
+
+Even though we interview 1 people, we actually hire only approximately Inn of
+them, on average. We summarize this result in the following lemma.
+
+Lemma 5.2
+Assuming that the candidates are presented in a random order, algorithm HIRE-
+ASSISTANT has an average-case total hiring cost of O(cy Inn).
+
+Proof The bound follows immediately from our definition of the hiring cost
+and equation (5.5), which shows that the expected number of hires is approxi-
+mately Inn. .
+
+The average-case hiring cost is a significant improvement over the worst-case
+hiring cost of O(cyn).
+

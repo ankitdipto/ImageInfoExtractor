@@ -1,0 +1,52 @@
+58 Chapter3 Operating-System Structures
+
+medium is controlled by a device, such as a disk drive or tape drive, that also
+has unique characteristics. These properties include access speed, capacity,
+data-transfer rate, and access method (sequential or random).
+
+For convenient use of the computer system, the operating system provides
+a uniform logical view of information storage. The operating system abstracts
+from the physical properties of its storage devices to define a logical storage
+unit, the file. The operating system maps files onto physical media, and accesses
+these files via the storage devices.
+
+A file is a collection of related information defined by its creator. Com-
+monly, files represent programs (both source and object forms) and data. Data
+files may be numeric, alphabetic, or alphanumeric. Files may be free-form (for
+example, text files), or may be formatted rigidly (for example, fixed fields). A
+file consists of a sequence of bits, bytes, lines, or records whose meanings are
+defined by their creators. The concept of a file is an extremely general one.
+
+The operating system implements the abstract concept of a file by managing
+mass storage media, such as disks and tapes, and the devices that control them.
+Also, files are normally organized into directories to ease their use. Finally,
+when multiple users have access to files, we may want to control by whom and
+in what ways (for example, read, write, append) files may be accessed.
+
+The operating system is responsible for the following activities in connec-
+tion with file management:
+
+© Creating and deleting files
+
+Creating and deleting directories
+
+« Supporting primitives for manipulating files and directories
+« Mapping files onto secondary storage
+
+¢ Backing up files on stable (nonvolatile) storage media
+
+File-management techniques will be discussed in Chapters 11 and 12.
+
+3.14 I/O-System Management
+
+One of the purposes of an operating system is to hide the peculiarities of specific
+hardware devices from the user. For example, in UNIX, the peculiarities of
+1/O devices are hidden from the bulk of the operating system itself by the /O
+subsystem. The I/O subsystem consists of
+
+« A memory-management component that includes buffering, caching, and
+spooling
+e A general device-driver interface
+
+e Drivers for specific hardware devices
+

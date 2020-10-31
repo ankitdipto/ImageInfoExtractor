@@ -1,0 +1,52 @@
+990
+
+Chapter 32 String Matching
+
+Note that the gap character may occur an arbitrary number of times in the pattern
+but not at all in the text. Give a polynomial-time algorithm to determine whether
+such a pattern P occurs in a given text T, and analyze the running time of your
+algorithm.
+
+ 
+
+32.2. The Rabin-Karp algorithm
+
+Rabin and Karp proposed a string-matching algorithm that performs well in prac-
+tice and that also generalizes to other algorithms for related problems, such as
+two-dimensional pattern matching. The Rabin-Karp algorithm uses Q(m) prepro-
+cessing time, and its worst-case running time is @((n —m + 1)m). Based on certain
+assumptions, however, its average-case running time is better.
+
+This algorithm makes use of elementary number-theoretic notions such as the
+equivalence of two numbers modulo a third number. You might want to refer to
+Section 31.1 for the relevant definitions.
+
+For expository purposes, let us assume that © = {0,1,2,..., 9}, so that each
+character is a decimal digit. (In the general case, we can assume that each charac-
+ter is a digit in radix-d notation, where d = |X|.) We can then view a string of k
+consecutive characters as representing a length-k decimal number. The character
+string 31415 thus corresponds to the decimal number 31,415. Because we inter-
+pret the input characters as both graphical symbols and digits, we find it convenient
+in this section to denote them as we would digits, in our standard text font.
+
+Given a pattern P[1..m], let p denote its corresponding decimal value. Ina sim-
+ilar manner, given a text T[1..m], let ¢, denote the decimal value of the length-m
+substring T[s + 1..s +m], fors =0,1,..., n—m. Certainly, t, = p if and only
+if T[s +1..s +m] = P[1..m]; thus, s is a valid shift if and only if t, = p. If we
+could compute p in time @(m) and all the t, values in a total of O(n—m + 1) time,!
+then we could determine all valid shifts s in time O(m) + O(n —m + 1) = O(n)
+by comparing p with each of the f, values. (For the moment, let’s not worry about
+the possibility that p and the ¢, values might be very large numbers.)
+
+We can compute p in time @(m) using Horner’s rule (see Section 30.1):
+
+p = Pim] +10(P[m—1] + 10(P fm — 2] +--+ + 10(P[2] + 10P[I])--»)).
+
+Similarly, we can compute fy from T[1..m] in time O(m).
+
+ 
+
+1 We write ©(n —m + 1) instead of ©(n — m) because s takes on n —m + 1 different values. The
+“+1” is significant in an asymptotic sense because when m =n, computing the lone fs value takes
+(1) time, not ©(0) time.
+

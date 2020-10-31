@@ -1,0 +1,45 @@
+ 
+
+14.5 RAID Structure 507
+
+14.5.3 RAID Levels
+
+Mirroring provides high reliability, but it is expensive. Striping provides high
+data-transfer rates, but it does not improve reliability. Numerous schemes to
+provide redundancy at lower cost by using the idea of disk striping combined
+with “parity” bits (which we describe next) have been proposed. These schemes
+have different cost-performance tradeoffs and are classified into levels called
+RAID levels. We describe the various levels here; Figure 14.9 shows them
+pictorially (in the figure, P indicates error-correcting bits and C indicates a
+second copy of the data). In all cases depicted in the figure, four disks’ worth of
+
+GGG
+
+(a) RAID 0: non-redundant striping
+
+GEG00uus
+
+(b) RAID 1: mirrored disks
+
+GEGoubGs
+
+(©) RAID 2: memory-style error-correcting codes
+
+GREGG
+
+(d) RAID 3: bit-interleaved Parity
+
+Gouats
+
+(e) RAID 4: block-interleaved parity
+
+Guo
+
+() RAID 5: block-Interleaved distributed parity
+
+Ec lelele le)
+
+(g) RAID 6: P + Q redundancy
+
+Figure 14.9 RAID levels.
+

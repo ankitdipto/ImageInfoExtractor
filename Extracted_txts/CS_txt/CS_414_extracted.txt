@@ -1,0 +1,56 @@
+31.9 Integer factorization 97
+
+X1,X2,X4,Xg. X16... +
+
+Line 3 saves the value x,, and line 12 saves x, whenever i is equal to k. The
+variable k is initialized to 2 in line 4, and line 13 doubles it whenever line 12
+updates y. Therefore, k follows the sequence 1,2,4,8,... and always gives the
+subscript of the next value x; to be saved in y.
+
+Lines 8-10 try to find a factor of n, using the saved value of y and the cur-
+rent value of x;. Specifically, line 8 computes the greatest common divisor
+d = gced(y —x;,n). If line 9 finds d to be a nontrivial divisor of n, then line 10
+prints d.
+
+This procedure for finding a factor may seem somewhat mysterious at first.
+Note, however, that POLLARD-RHO never prints an incorrect answer; any num-
+ber it prints is a nontrivial divisor of n. POLLARD-RHO might not print anything
+at all, though; it comes with no guarantee that it will print any divisors. We shall
+see, however, that we have good reason to expect POLLARD-RHO to print a fac-
+tor p of n after @(/P) iterations of the while loop. Thus, if 7 is composite, we
+can expect this procedure to discover enough divisors to factor n completely after
+approximately n'/* updates, since every prime factor p of n except possibly the
+largest one is less than /77.
+
+We begin our analysis of how this procedure behaves by studying how long
+it takes a random sequence modulo 7 to repeat a value. Since Z, is finite, and
+since each value in the sequence (31.44) depends only on the previous value, the
+sequence (31.44) eventually repeats itself. Once we reach an x; such that x; = x;
+for some j < i, we are in a cycle, since Xj4+1 = Xj+1, Xit2 = Xj+2, and so on.
+The reason for the name “rho heuristic” is that, as Figure 31.7 shows, we can draw
+the sequence x), X2,...,%;—, as the “tail” of the rho and the cycle xj, Xj+1,..-, Xi
+as the “body” of the rho.
+
+Let us consider the question of how long it takes for the sequence of x; to repeat.
+This information is not exactly what we need, but we shall see later how to modify
+the argument. For the purpose of this estimation, let us assume that the function
+
+Jn(X) = (x? — 1) mod n
+
+ 
+
+   
+
+ 
+
+behaves like a “random” function. Of course, it is not really random, but this as-
+sumption yields results consistent with the observed behavior of POLLARD-RHO.
+We can then consider each x; to have been independently drawn from Z,, according
+toa uniform distribution on Z,,. By the birthday-paradox analysis of Section 5.4.1,
+we expect ©(.//) steps to be taken before the sequence cycles.
+
+Now for the required modification. Let p be a nontrivial factor of n such that
+ged(p,n/p) = 1. For example, if n has the factorization n = pi! ps3? --- pé", then
+we may take p to be p{!. (If e: = 1, then p is just the smallest prime factor of n,
+a good example to keep in mind.)
+

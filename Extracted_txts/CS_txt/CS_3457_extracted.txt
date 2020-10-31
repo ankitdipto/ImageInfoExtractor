@@ -1,0 +1,59 @@
+Section 25.5
+
+TRANSIT PATHS
+TRANSFER PATHS
+FOLIATION
+
+Configuration Spaces: A Framework for Analysis 793
+
+in space. The planning problem again reduces to finding a safe path for a point in the generalized
+free space F.
+
+If the other objects are not robots but are nonetheless movable, the problem is very much
+harder. Unfortunately, this is also the most interesting case, because usually we would like a
+robot to move inanimate things around. We can still construct a generalized configuration space,
+and eliminate configurations where the robot overlaps an object, or two objects overlap. But
+even if we find a path between two configurations cl and c> in generalized F, we may not be
+able to execute it. The problem is that an unrestricted path in W will usually describe motion of
+objects through midair without any help from the robot. We can partially address this problem
+by restricting W to comprise configurations where objects are either held by the robot or are
+supported by another object against gravity.
+
+But legal paths in this W can still describe object motions without robot aid, such as
+spontaneous sliding on a tabletop, which should be illegal. There is no easy solution to this
+problem. We simply cannot think of W as a benign sea in which we can navigate freely. Instead,
+we must follow certain shipping lanes, between which we transfer only at special configurations
+Although generalized \’ has many degrees of freedom, (it+ m degrees using the notation above),
+only & of these are actually controllable. Most of the time, we are changing only the robot
+configuration q,...., gx, and the object configurations ),... ,,, stay fixed. Sometimes though,
+if the robot is grasping an object, we can change both the robot and the objects configuration.
+We are still moving in a &-dimensional subset of W, but no longer one involving only the g
+(robot) coordinates. So we are in a (k +1)-dimensional sea with steerage only along two types of
+k-dimensional lanes. Motions where the robot moves freely are called transit paths, and those
+where the robot moves an object are called transfer paths.
+
+The navigable W in this case is called a foliation, suggesting an abundance of small
+randomly oriented sheets, but it is really more like a book. Each page of the book is a slightly
+different free space for the robot, defined by slightly different positions for the movable objects.
+Look again at Figure 25.12. On the left halfofthe figure, one of the objects has an arrow attached,
+indicating possible motion. The variable b is a coordinate measuring the object's displacement.
+The W for the system is now three-dimensional, and b is the new coordinate. For b fixed, a slice
+through the W' describes the allowable motions of the robot with the obstacles fixed, and looks
+like the C in the right half of the figure. Imagine constructing the C for many different values
+of b, printing the results on separate pages, sorting them by b coordinate, and assembling the
+pages into a book. Transit motion is possible within any page of the book, on which the object
+positions are fixed, but not between pages. Transfer motions, in which an object is moving (or
+being moved), form a kind of spine for the book, and allow motion between pages.
+
+The difficulty of planning for movable objects is real: the towers of Hanoi problem’ is a
+special case of it. The number of motions needed to move n Hanoi disks is exponential in n,
+implying that planning for movable objects requires time that grows at least exponentially with
+the dimension of W. At this time, there are no proved upper bounds for general planning with
+n movable objects. Robot planners usually make some strong assumptions to avoid tackling this
+problem head-on. One can do any of the following:
+
+ 
+
+7 The towers of Hanoi problem is to move a set of disks of different sizes from one peg to another, using a third peg
+for temporary storage. Disks are moved one at a time, and a larger disk cannot rest on a smaller one
+

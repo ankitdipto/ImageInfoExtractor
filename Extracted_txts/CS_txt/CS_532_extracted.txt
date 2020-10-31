@@ -1,0 +1,48 @@
+34.3 NP-completeness and reducibility 1073
+
+the size of C is polynomial in k, checking each one takes 2(2") time, which is
+superpolynomial in the size of the circuit.” In fact, as we have claimed, there is
+strong evidence that no polynomial-time algorithm exists that solves the circuit-
+satisfiability problem because circuit satisfiability is NP-complete. We break the
+proof of this fact into two parts, based on the two parts of the definition of NP-
+completeness.
+
+Lemma 34.5
+The circuit-satisfiability problem belongs to the class NP.
+
+Proof We shall provide a two-input, polynomial-time algorithm A that can verify
+CIRCUIT-SAT. One of the inputs to A is (a standard encoding of) a boolean com-
+binational circuit C. The other input is a certificate corresponding to an assignment
+of boolean values to the wires in C. (See Exercise 34.3-4 for a smaller certificate.)
+
+We construct the algorithm A as follows. For each logic gate in the circuit, it
+checks that the value provided by the certificate on the output wire is correctly
+computed as a function of the values on the input wires. Then, if the output of the
+entire circuit is 1, the algorithm outputs 1, since the values assigned to the inputs
+of C provide a satisfying assignment. Otherwise, A outputs 0.
+
+Whenever a satisfiable circuit C is input to algorithm A, there exists a certificate
+whose length is polynomial in the size of C and that causes A to output a 1. When-
+ever an unsatisfiable circuit is input, no certificate can fool A into believing that
+the circuit is satisfiable. Algorithm A runs in polynomial time: with a good imple-
+mentation, linear time suffices. Thus, we can verify CIRCUIT-SAT in polynomial
+time, and CIRCUIT-SAT € NP. :
+
+The second part of proving that CIRCUIT-SAT is NP-complete is to show that
+the language is NP-hard. That is, we must show that every language in NP is
+polynomial-time reducible to CIRCUIT-SAT. The actual proof of this fact is full
+of technical intricacies, and so we shall settle for a sketch of the proof based on
+some understanding of the workings of computer hardware.
+
+A computer program is stored in the computer memory as a sequence of in-
+structions. A typical instruction encodes an operation to be performed, addresses
+of operands in memory, and an address where the result is to be stored. A spe-
+cial memory location, called the program counter, keeps track of which instruc-
+
+ 
+
+90n the other hand, if the size of the circuit C is ©(2*), then an algorithm whose running time
+is O(2*) has a running time that is polynomial in the circuit size. Even if P 4 NP, this situa
+tion would not contradict the NP-completeness of the problem; the existence of a polynomial-time
+algorithm for a special case does not imply that there is a polynomial-time algorithm for all cases.
+

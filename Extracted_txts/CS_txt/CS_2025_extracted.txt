@@ -1,0 +1,50 @@
+464 Chapter 13 I/O Systems
+
+ground processing in kernel and application routines. We illustrate this point
+with the Solaris kernel. In Solaris, interrupt handlers are executed as kernel
+threads. A range of high priorities is reserved for these threads. These pri-
+orities give interrupt handlers precedence over application code and kernel
+housekeeping, and implement the priority relationships among interrupt han-
+dlers. The priorities cause the Solaris thread scheduler to preempt low-priority
+interrupt handlers in favor of higher-priority ones, and the threaded imple-
+mentation enables multiprocessor hardware to run several interrupt handlers
+concurrently. We describe the interrupt architecture of UNIX and Windows NT
+in Appendix A and Chapters 21, respectively.
+
+In summary, interrupts are used throughout modern operating systems to
+handle asynchronous events and to trap to supervisor-mode routines in the
+kernel. To enable the most urgent work to be done first, modern computers
+use a system of interrupt priorities. Device controllers, hardware faults, and
+system calls all raise interrupts to trigger kernel routines. Because interrupts
+are used so heavily for time-sensitive processing, efficient interrupt handling is
+required for good system performance.
+
+13.2.3 Direct Memory Access
+
+For a device that does large transfers, such as a disk drive, it seems waste-
+ful to use an expensive general-purpose processor to watch status bits and
+to feed data into a controller register 1 byte at a time—a process termed pro-
+grammed I/O (PIO). Many computers avoid burdening the main CPU with PIO
+by offloading some of this work to a special-purpose processor called a direct-
+memory-access (DMA) controller. To initiate a DMA transfer, the host writes a
+DMA command block into memory. This block contains a pointer to the source
+of a transfer, a pointer to the destination of the transfer, and a count of the
+number of bytes to be transferred. The CPU writes the address of this command
+block to the DMA controller, then goes on with other work. The DMA controller
+proceeds to operate the memory bus directly, placing addresses on the bus to
+perform transfers without the help of the main CPU. A simple DMA controller is
+a standard component in PCs, and bus-mastering I/O boards for the PC usually
+contain their own high-speed DMA hardware.
+
+Handshaking between the DMA controller and the device controller is
+performed via a pair of wires called DMA-request and DMA-acknowledge.
+The device controller places a signal on the DMA-request wire when a word
+of data is available for transfer. This signal causes the DMA controller to
+seize the memory bus, to place the desired address on the memory-address
+wires, and to place a signal on the DMA-acknowledge wire. When the device
+controller receives the DMA-acknowledge signal, it transfers the word of data
+to memory, and removes the DMA-request signal.
+
+When the entire transfer is finished, the DMA controller interrupts the CPU.
+This process is depicted in Figure 13.5. When the DMA controller seizes the
+

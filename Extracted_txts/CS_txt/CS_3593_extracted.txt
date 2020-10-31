@@ -1,0 +1,52 @@
+Notes for Chapter 20 559
+
+We cluster the n elements into n/1gu groups of size lgu. (Assume for now
+that lg u divides n.) The first group consists of the lg u smallest elements in the
+set, the second group consists of the next 1gu smallest elements, and so on.
+
+We designate a “representative” value for each group. The representative of
+the ith group is at least as large as the largest element in the ith group, and it is
+smaller than every element of the (i + 1)st group. (The representative of the last
+group can be the maximum possible element u — 1.) Note that a representative
+might be a value not currently in the set.
+
+We store the lgu elements of each group in a balanced binary search tree, such
+as a red-black tree. Each representative points to the balanced binary search
+tree for its group, and each balanced binary search tree points to its group’s
+representative.
+
+The perfect hash table stores only the representatives, which are also stored in
+a doubly linked list in increasing order.
+
+We call this structure a y -fast trie.
+
+c.
+
+d.
+
+Show that a y-fast trie requires only O(n) space to store n elements.
+
+Show how to perform the MINIMUM and MAXIMUM operations in O(lg lg u)
+time with a y-fast trie.
+
+Show how to perform the MEMBER operation in O(Iglg u) time.
+
+Show how to perform the PREDECESSOR and SUCCESSOR operations in
+O(lg lg u) time.
+
+Explain why the INSERT and DELETE operations take Q(1g lg w) time.
+
+h. Show how to relax the requirement that each group in a y-fast trie has exactly
+
+lg u elements to allow INSERT and DELETE to run in O(1g lg) amortized time
+without affecting the asymptotic running times of the other operations.
+
+ 
+
+Chapter notes
+
+The data structure in this chapter is named after P. van Emde Boas, who described
+an early form of the idea in 1975 [339]. Later papers by van Emde Boas [340]
+and van Emde Boas, Kaas, and Zijlstra [341] refined the idea and the exposition.
+Mehlhorn and Niher [252] subsequently extended the ideas to apply to universe
+

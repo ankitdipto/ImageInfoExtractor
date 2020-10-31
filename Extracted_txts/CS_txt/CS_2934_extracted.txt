@@ -1,0 +1,49 @@
+458
+
+Chapter 17 Amortized Anal
+
+ 
+
+Moreover, we can also charge MULTIPOP operations nothing. To pop the first
+plate, we take the dollar of credit off the plate and use it to pay the actual cost of a
+Pop operation. To pop a second plate, we again have a dollar of credit on the plate
+to pay for the Pop operation, and so on. Thus, we have always charged enough
+up front to pay for MULTIPOP operations. In other words, since each plate on the
+stack has | dollar of credit on it, and the stack always has a nonnegative number of
+plates, we have ensured that the amount of credit is always nonnegative. Thus, for
+any sequence of n PUSH, Pop, and MULTIPOP operations, the total amortized cost
+is an upper bound on the total actual cost. Since the total amortized cost is O(n),
+so is the total actual cost.
+
+Incrementing a binary counter
+
+As another illustration of the accounting method, we analyze the INCREMENT op-
+eration on a binary counter that starts at zero. As we observed earlier, the running
+time of this operation is proportional to the number of bits flipped, which we shall
+use as our cost for this example. Let us once again use a dollar bill to represent
+each unit of cost (the flipping of a bit in this example).
+
+For the amortized analysis, let us charge an amortized cost of 2 dollars to set a
+bit to 1. When a bit is set, we use | dollar (out of the 2 dollars charged) to pay
+for the actual setting of the bit, and we place the other dollar on the bit as credit to
+be used later when we flip the bit back to 0. At any point in time, every | in the
+counter has a dollar of credit on it, and thus we can charge nothing to reset a bit
+to 0; we just pay for the reset with the dollar bill on the bit.
+
+Now we can determine the amortized cost of INCREMENT. The cost of resetting
+the bits within the while loop is paid for by the dollars on the bits that are reset. The
+INCREMENT procedure sets at most one bit, in line 6, and therefore the amortized
+cost of an INCREMENT operation is at most 2 dollars. The number of Is in the
+counter never becomes negative, and thus the amount of credit stays nonnegative
+at all times. Thus, form INCREMENT operations, the total amortized cost is O(n),
+which bounds the total actual cost.
+
+Exercises
+
+172-1
+
+Suppose we perform a sequence of stack operations on a stack whose size never
+exceeds k. After every k operations, we make a copy of the entire stack for backup
+purposes. Show that the cost of n stack operations, including copying the stack,
+is O(n) by assigning suitable amortized costs to the various stack operations.
+

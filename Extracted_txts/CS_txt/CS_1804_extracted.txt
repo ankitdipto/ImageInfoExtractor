@@ -1,0 +1,38 @@
+280  Chapter9 Memory Management
+
+ 
+
+70K
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 9.3 Overlays for a two-pass assembler.
+
+and other systems that have limited amounts of physical memory and that
+lack hardware support for more advanced techniques. Some microcomputer
+compilers provide the programmer with support for overlays to make the task
+easier. Automatic techniques to run large programs in limited amounts of
+physical memory are certainly preferable.
+
+9.2 = Swapping
+
+A process needs to be in memory to be executed. A process, however, can
+be swapped temporarily out of memory to a backing store, and then brought
+back into memory for continued execution. For example, assume a multipro-
+gramming environment with a round-robin CPU-scheduling algorithm. When
+a quantum expires, the memory manager will start to swap out the process that
+just finished, and to swap in another process to the memory space that has been
+freed (Figure 9.4). In the meantime, the CPU scheduler will allocate a time slice
+to some other process in memory. When each process finishes its quantum, it
+will be swapped with another process. Ideally, the memory manager can swap
+processes fast enough that some processes will be in memory, ready to execute,
+when the CPU scheduler wants to reschedule the CPU. The quantum must also
+be sufficiently large that reasonable amounts of computing are done between
+swaps.
+

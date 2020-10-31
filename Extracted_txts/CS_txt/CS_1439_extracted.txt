@@ -1,0 +1,44 @@
+684 Let UsC
+
+ 
+
+because a expose_event signal would be sent to our application
+which would immediately redraw the shapes in our window.
+
+The way in Windows we have a device context, under Linux we
+have a graphics context. In order to draw in the window we need
+to obtain a graphics context for the window using the
+gdk_gc_new( ) function. This function returns a pointer to the
+graphics context structure. This pointer must be passed to the
+drawing functions like gdk_draw_line( ), gdk_draw_rectangle(),
+gdk_draw_arc( ), gdk_draw_polygon(), etc. Once we are
+through with drawing we should release the graphics context using
+the gdk_ge_unref() function.
+
+Where Do You Go From Here
+
+You have now understood signal processing, the heart of
+programming under Linux. With that knowledge under your belt
+you are now capable of exploring the vast world of Linux on your
+own. Complete Linux programming deserves a book on its own.
+Idea here was to raise the hood and show you what lies underneath
+it. 1am sure that if you have taken a good look at it you can try the
+rest yourselves. Good luck!
+
+Summary
+(a) Programs can communicate with the Linux OS using library
+functions.
+(b) The Linux OS communicates with a program by means of
+signals.
+
+(c) The interrupt signal (SIGINT) is sent by the kernel to our
+program when we press Ctrl + C.
+
+(d) A term signal (SIGTERM) is sent to the program when we
+use the kill command.
+
+(e) A process cannot handle an un-catchable signal.
+
+(f) The kill -SIGKILL variation of the kill command generates
+an un-catchable SIGKILL signal that terminates a process.
+

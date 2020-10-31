@@ -1,0 +1,57 @@
+368
+
+10.16
+
+10.17
+
+10.18
+
+Chapter 10 Virtual Memory
+
+A page-replacement algorithm should minimize the number of page
+faults. We can do this minimization by distributing heavily used pages
+evenly over all of memory, rather than having them compete for a small
+number of page frames. We can associate with each page frame a counter
+of the number of pages that are associated with that frame. Then, to
+replace a page, we search for the page frame with the smallest counter.
+
+a. Define a page-replacement algorithm using this basic idea. Specifi-
+cally address the problems of:
+i. what the initial value of the counters is,
+ii. when counters are increased,
+iii. when counters are decreased,
+iv. how the page to be replaced is selected.
+
+b. How many page faults occur for your algorithm for the following
+reference string, for four page frames?
+
+1, 2,3, 4,5, 3,4, 1, 6, 7, 8, 7,8, 9, 7, 8, 9,5, 4,5, 4, 2.
+
+c. What is the minimum number of page faults for an optimal page-
+replacement strategy for the reference string in part b with four
+page frames?
+
+Consider a demand-paging system with a paging disk that has an aver-
+age access and transfer time of 20 milliseconds. Addresses are translated
+through a page table in main memory, with an access time of 1 microsec-
+ond per memory access. Thus, each memory reference through the page
+table takes two accesses. To improve this time, we have added an asso-
+ciative memory that reduces access time to one memory reference, if the
+page-table entry is in the associative memory.
+
+Assume that 80 percent of the accesses are in the associative memory,
+and that, of the remaining, 10 percent (or 2 percent of the total) cause
+page faults. What is the effective memory access time?
+
+Consider a demand-paged computer system where the degree of multi-
+programming is currently fixed at four. The system was recently mea-
+sured to determine utilization of CPU and the paging disk. The results
+are one of the following alternatives. For each case, what is happening?
+Can you increase the degree of multiprogramming to increase the CPU
+utilization? Is the paging helping in improving performance?
+
+a. CPU utilization, 13 percent; disk utilization, 97 percent
+b. CPU utilization, 87 percent; disk utilization, 3 percent
+
+c. CPU utilization, 13 percent; disk utilization, 3 percent
+

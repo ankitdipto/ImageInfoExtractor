@@ -1,0 +1,57 @@
+Section 5.5.
+
+Games That Include an Element of Chance 135
+
+ 
+
+expccTiwin VALUE
+
+This gives us the expected utility of the position at C assuming best play. Going up one more
+level to the MIN nodes (v7 in Figure 5.10), we can now apply the normal minimax-value formula,
+because we have assigned utility values to all the chance nodes. We then move up to chance node
+B, where we can compute the expectimin value using a formula that is analogous to expectimax.
+
+This process can be applied recursively all the way up the tree, except at the top level
+where the dice roll is already known. To calculate the best move, then, we simply replace
+MINIMAX-VALUE in Figure 5.3 by EXPECTIMINIMAX-VALUE, the implementation of which we
+leave as an exercise.
+
+Position evaluation in games with chance nodes
+
+As with minimax, the obvious approximation to make with expectiminimax is to cut off search
+at some point and apply an evaluation function to the leaves. One might think that evaluation
+functions for games such as backgammon are no different, in principle, from evaluation functions
+for chess—they should just give higher scores to better positions.
+
+In fact, the presence of chance nodes means one has to be more careful about what the
+evaluation values mean. Remember that for minimax, any order-preserving transformation of
+the leaf values does not affect the choice of move. Thus, we can use either the values 1, 2, 3, 4
+or the values 1, 20, 30, 400, and get the same decision. This gives us a good deal of freedom in
+designing the evaluation function: it will work fine as long as positions with higher evaluations
+lead to wins more often, on average.
+
+With chance nodes, we lose this freedom. Figure 5.11 shows what happens: with leaf
+values 1, 2, 3, 4, move A\ is best; with leaf values 1, 20, 30, 400, move Ap is best. Hence,
+the program behaves totally differently if we make a change in the scale of evaluation values!
+It turns out that to avoid this sensitivity, the evaluation function can be only a positive linear
+transformation of the likelihood of winning from a position (or, more generally, of the expected
+utility ofthe position). This is an important and general property of situations in which uncertainty
+is involved, and we discuss it further in Chapter 16.
+
+Complexity of expectiminimax
+
+Ifthe program knew in advance all the dice rolls that would occur for the rest ofthe game, solving
+a game with dice would be just like solving a game without dice, which minimax does in O(b")
+time. Because expectiminimax is also considering all the possible dice-roll sequences, it will
+take O(b"n™), where n is the number of distinct rolls.
+
+Even if the depth of the tree is limited to some small depth d, the extra cost compared to
+minimax makes it unrealistic to consider looking ahead very far in games such as backgammon,
+where 7 is 21 and b is usually around 20, but in some situations can be as high as 4000. Two ply
+is probably all we could manage.
+
+Another way to think about the problem is this: the advantage of alpha-beta is that it ignores
+future developments thatjust are not going to happen, given best play. Thus, it concentrates on
+likely occurrences. In games with dice, there are no likely sequences of moves, because for those
+moves to take place, the dice would first have to come out the right way to make them legal.
+

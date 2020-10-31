@@ -1,0 +1,93 @@
+Section 19.4.
+
+Multilayer Feed-Forward Networks 581
+
+ 
+
+ 
+
+function BACK-PRop-UppaTe(network, examples, a) returns a network with modified weights
+inputs: network, a multilayer network
+examples, a set of input/output pairs
+a, the learning rate
+
+repeat
+for each e in examples do
+/* Compute the outputfor this example * I
+0 — RUN-NETWORK(nefwork, T°)
+/* Compute the error and A for units in the output layer * /
+Err’ —T - O
+/* Update the weights leading to the output layer */
+—Waito x ax Err x g'(in)
+for each subsequent layer in nenwork do
+/* Compute the error at each node */
+iin), Wai Ai
+/* Update the weights leading into the layer *I
+Wij Waj tax hk x Ay
+end
+end
+until nenwork has converged
+return nefhwork
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 19.14 The back-propagation algorithm for updating weights in a multilayer network.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+id I
+yg BD a9
+S % pormid
+2 % Opel
+g to gost a 4
+# £ F
+3 8 8 a7 | oar
+Es gs
+é \ 8 a6 =) Multilayer network =» —
+zg 4 i x Decision tree
+5
+S 2 ash:
+0 —
+
+De
+0 50 100 150 200 250 300 350 4c 0 10 20 30 40 50 60 7 80 90 100
+Number of epochs Training set size
+
+(a) (b)
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 1915 (a) Training curve showing the gradual reduction in error as weights are modified
+over several epochs, for a given set ofexamples in the restaurant domain. (b) Comparative learning
+curves for a back-propagation and decision-tree learning.
+
+ 
+
+ 
+

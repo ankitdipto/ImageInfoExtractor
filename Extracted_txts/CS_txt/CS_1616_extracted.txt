@@ -1,0 +1,49 @@
+124 Chapter4 Processes
+
+resulting from that call, which is executed by the DFS daemon on behalf of the
+client. For instance, a message might contain a request to transfer a whole file
+to a client, or be limited to simple block requests. In the latter case, several such
+requests might be needed if a whole file is to be transferred.
+
+4.6.3 Remote Method Invocation
+
+The remote method invocation (RMI) is a Java feature similar to RPCs. RMI
+allows a thread to invoke a method on a remote object. Objects are considered
+remote if they reside in a different Java virtual machine (JVM). Therefore, the
+remote object may be in a different JVM on the same computer or on a remote
+host connected by a network. This situation is illustrated in Figure 4.13. RMI
+and RPCs differ in two fundamental ways. First, RPCs support procedural
+programming whereby only remote procedures or functions may be called. RMI
+is object-based: It supports invocation of methods on remote objects. Second,
+the parameters to remote procedures are ordinary data structures in RPC; with
+RMI it is possible to pass objects as parameters to remote methods. By allowing
+a Java program to invoke methods on remote objects, RMI makes it possible for
+users to develop Java applications that are distributed across a network.
+
+To make remote methods transparent to both the client and the server,
+RMI implements the remote object using stubs and skeletons. A stub is a
+proxy for the remote object; it resides with the client. When a client invokes
+a remote method, this stub for the remote object is called. This client-side stub
+is responsible for creating a parcel consisting of the name of the method to be
+invoked on the server and the marshalled parameters for the method. The stub
+then sends this parcel to the server, where the skeleton for the remote object
+receives it. The skeleton is responsible for unmarshalling the parameters and
+invoking the desired method on the server. The skeleton then marshalls the
+return value (or exception, if any) into a parcel and returns this parcel to the
+client. The stub unmarshalls the return value and passes it to the client.
+
+Let us demonstrate how this process works. Assume that a client
+wishes to invoke a method on a remote object Server with the signature
+
+JVM
+
+JVM
+
+    
+
+ 
+
+t
+
+Figure 4.13 Remote method invocation.
+

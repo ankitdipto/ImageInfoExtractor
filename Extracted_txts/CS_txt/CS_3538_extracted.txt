@@ -1,0 +1,106 @@
+@
+
+(k)
+
+(m)
+
+ 
+
+19.2 Mergeable-heap operations 51S
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 19.4, continued —(i)-(1) The situation after each of the next four iterations of the for loop.
+(m) Fibonacci heap H after reconstructing the root list from the array A and determining the new
+H.min pointer.
+
+The procedure CONSOLIDATE uses an auxiliary array A[0.. D(H.n)] to keep
+track of roots according to their degrees. If A[i] = y, then y is currently a root
+with y.degree = i. Of course, in order to allocate the array we have to know how
+to calculate the upper bound D(H.n) on the maximum degree, but we will see how
+to do so in Section 19.4.
+

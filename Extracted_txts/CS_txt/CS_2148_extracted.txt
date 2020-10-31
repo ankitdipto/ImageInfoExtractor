@@ -1,0 +1,50 @@
+SECTION 9-6 Vector Processing 319
+
+The compiler for a processor that uses delayed branches is designed to
+analyze the instructions before and after the branch and rearrange the program
+sequence by inserting useful instructions in the delay steps. For example, the
+compiler can determine that the program dependencies allow one or more
+instructions preceding the branch to be moved into the delay steps after the
+branch. These instructions are then fetched from memory and executed
+through the pipeline while the branch instruction is being executed in other
+segments, The effect is the same as if the instructions were executed in their
+original order, except that the branch delay is removed. It is up to the compiler
+to find useful instructions to put after the branch instruction. Failing that, the
+compiler can insert no-op instructions.
+
+‘An example of delayed branch is shown in Fig. 9-10. The program for this,
+example consists of five instructions:
+
+Load from memory to R1
+Increment R2
+
+Add R3 to R4
+
+Subtract RS from R6
+Branch to address X
+
+In Fig. 9-10(a) the compiler inserts two no-op instructions after the branch.
+The branch address X is transferred to PC in clock cycle 7. The fetching of the
+instruction at X is delayed by two clock cycles by the no-op instructions. The
+instruction at X starts the fetch phase at clock cycle8afterthe program counter
+PC has been updated.
+
+The program in Fig. 9-10(b) isrearranged by placing the add and subtract
+instructions after the branch instruction instead of before as in the original
+program. Inspection of the pipeline timing shows that PC is updated to the
+value of X in clock cycle 5, but the add and subtract instructions are fetched
+from memory and executed in the proper sequence. In other words, if the load
+instruction is at address 101 and X is equal to 350, the branch instruction is
+fetched fromaddress 103, The add instruction is fetched from address 104 and
+executed in clock cycle 6. The subtract instruction is fetched from address 105
+and executed inclockcycle7. Sincethe value of Xis transferred to PC with clock
+cycle 5 in the E segment, the instruction fetched from memory at clock cycle
+6's from address 350, which is the instruction at the branch address.
+
+9-6 Vector Processing
+
+There is a class of computational problems that are beyond the capabilities of
+a conventional computer. These problems are characterized by the fact that
+they require a vast number of computations that will take a conventional
+computer days or even weeks to complete. In many science and engineering
+

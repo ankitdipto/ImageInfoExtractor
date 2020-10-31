@@ -1,0 +1,49 @@
+28.1 Solving systems of linear equations 825
+
+Like LU-DECOMPOSITION, our LUP-DECOMPOSITION procedure replaces
+the recursion with an iteration loop. As an improvement over a direct implemen-
+tation of the recursion, we dynamically maintain the permutation matrix P as an
+array 2, where [i] = j means that the ith row of P contains a | in column j.
+We also implement the code to compute L and U “in place” in the matrix A. Thus,
+when the procedure terminates,
+ajay et
+
+uy ifi<j.
+
+Figure 28.2 illustrates how LUP-DECOMPOSITION factors a matrix. Lines 3-4
+initialize the array 7 to represent the identity permutation. The outer for loop
+beginning in line 5 implements the recursion. Each time through the outer loop,
+lines 6-10 determine the element a,, with largest absolute value of those in the
+current first column (column k) of the (n — k + 1) x (n —k + 1) matrix whose
+LUP decomposition we are finding. If all elements in the current first column are
+zero, lines 11-12 report that the matrix is singular. To pivot, we exchange z[k’]
+with z[k] in line 13 and exchange the kth and kth rows of A in lines 14-15,
+thereby making the pivot element a,,%. (The entire rows are swapped because in
+the derivation of the method above, not only is A’ — vw"/a,, multiplied by P’, but
+so is v/dy,.) Finally, the Schur complement is computed by lines 16-19 in much
+the same way as it is computed by lines 7-12 of LU-DECOMPOSITION, except that
+here the operation is written to work in place.
+
+Because of its triply nested loop structure, LUP-DECOMPOSITION has a run-
+ning time of ©(n), which is the same as that of LU-DECOMPosITION. Thus,
+pivoting costs us at most a constant factor in time.
+
+Exercises
+
+28.1-1
+
+Solve the equation
+100 x 3
+410 x2 }=| 14
+-6 5 1 x3 -7
+
+by using forward substitution.
+
+28.1-2
+
+Find an LU decomposition of the matrix
+4-5 6
+8 -6 7
+
+12 -7 12
+

@@ -1,0 +1,66 @@
+310 | Chapter9 Memory Management
+
+a mixture of paging and segmentation. We can combine these two methods to
+improve on each. This combination is best illustrated by the architecture of the
+Intel 386.
+
+The IBM OS/2 32-bit version is an operating system running on top of the
+Intel 386 (and later) architecture. The 386 uses segmentation with paging for
+memory management. The maximum number of segments per process is 16
+KB, and each segment can be as large as 4 gigabytes. The page size is 4 KB. We
+shall not give a complete description of the memory-management structure of
+the 386 in this text. Rather, we shall present the major ideas.
+
+The logical-address space of a process is divided into two partitions. The
+first partition consists of up to 8 KB segments that are private to that process.
+The second partition consists of up to 8 KB segments that are shared among
+all the processes. Information about the first partition is kept in the local
+descriptor table (LDT), information about the second partition is kept in the
+global descriptor table (GDT). Each entry in the LDT and GDT consists of 8
+bytes, with detailed information about a particular segment including the base
+location and length of that segment.
+
+The logical address is a pair (selector, offset), where the selector is a 16-bit
+number:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+s & P
+13 1 2
+
+ 
+
+in which s designates the segment number, g indicates whether the segment is
+in the GDT or LDT, and p deals with protection. The offset is a 32-bit number
+specifying the location of the byte (or word) within the segment in question.
+
+The machine has six segment registers, allowing six segments to be
+addressed at any one time by a process. It has six 8-byte microprogram
+registers to hold the corresponding descriptors from either the LDT or GDT.
+This cache lets the 386 avoid having to read the descriptor from memory for
+every memory reference.
+
+The physical address on the 386 is 32 bits long and is formed as follows.
+The segment register points to the appropriate entry in the LDT or GDT. The
+base and limit information about the segment in question are used to generate
+a linear address. First, the limit is used to check for address validity. If the
+address is not valid, a memory fault is generated, resulting in a trap to the
+operating system. If it is valid, then the value of the offset is added to the value
+of the base, resulting in a 32-bit linear address. This address is then translated
+into a physical address.
+
+As pointed out previously, each segment is paged, and each page is 4 KB.
+A page table may thus consist of up to 1 million entries. Because each entry
+consists of 4 bytes, each process may need up to 4 MB of physical-address space
+for the page table alone. Clearly, we would not want to allocate the page table
+contiguously in main memory. The solution adopted in the 386 is to use a
+two-level paging scheme. The linear address is divided into a page number
+

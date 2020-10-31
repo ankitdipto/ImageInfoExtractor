@@ -1,0 +1,96 @@
+‘TABLE 7-1 Symbols and Binary Code for Microinstuction Fields
+
+ 
+
+CD Condition
+
+FL
+
+01
+o10
+ou
+100
+101
+0
+ul
+
+01
+o10
+ou
+100
+101
+10
+ul
+
+BR
+
+000
+01
+o10
+ou
+100
+101
+10
+strt
+
+Microoperation Symbol
+None NOP
+ACHAC +DR~ ADD
+ACH0 CLRAC
+ACHAC +1 INCAC
+AC-DR DRTAC
+AR —DRQ-10)  DRTAR
+AR <PC PCTAR
+M[AR]—DR WRITE
+Microoperation Symbol
+None NOP
+AC+AC-DR SUB
+AC+ACVDR OR
+ACHACADR AND
+DR=M[AR] READ
+DR-AC ACTDR
+DR+-DR+1 —_ INCDR
+DR(O-10)-PC — PCTDR
+Microoperation Symbol
+None NOP
+AC+AC®DR OR
+ACH AC COM
+ACeshl AC SHL
+ACeshr AC SHR
+PCHPC+1 — INCPC
+PCHAR ARTPC
+Reserved
+
+Symbol ‘Comments
+U___ Unconditional branch
+I Indirect address bit
+s Sign bit of AC
+Zz
+
+ 
+
+Zero value in AC
+
+BR
+
+‘CAR —AD if condition
+
+10
+uw
+
+Function
+
+ 
+
+CAR —CAR + lif condition = 0
+
+CAR —AD, SBR CAR + 1if condition
+
+ 
+
+CAR —CAR * 1 if condition = 0
+CAR —SBR (Return from subroutine)
+CAR(2-5)—DR( 11-14), CAR(0,1,6)-0
+
+224
+

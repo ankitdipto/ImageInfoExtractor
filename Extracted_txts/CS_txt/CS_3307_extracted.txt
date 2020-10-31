@@ -1,0 +1,56 @@
+Section 3.3
+
+Example Problems 0
+
+ 
+
+TRAVELLING.
+SALESPERSON
+PROBLEM
+
+mileage awards, and so on. Furthermore, the actions in the problem do not have completely
+known outcomes: flights can be late or overbooked, connections can be missed, and fog or
+emergency maintenance can cause delays.
+
+Touring and travelling salesperson problems
+
+Consider the problem, "Visit every city in Figure 3.3 at least once, starting and ending in
+Bucharest." This seems very similar to route finding, because the operators still comespond to
+trips between adjacent cities. But for this problem, the state space must record more information.
+In addition to the agent's location, each state must keep track of the set of cities the agent has
+visited. So the initial state would be "In Bucharest; visited {Bucharest},” a typical intermediate
+state would be "In Vaslui; visited {Bucharest,Urziceni,Vaslui}.” and the goal test would check if
+the agent is in Bucharest and that all 20 cities have been visited.
+
+The travelling salesperson problem (TSP) is a famous touring problem in which each city
+must be visited exactly once. The aim is to find the shortest tour. The problem is NP-hard (Karp,
+1972), but an enormous amount of effort has been expended to improve the capabilities of TSP
+algorithms. In addition to planning trips for travelling salespersons, these algorithms have been
+used for tasks such as planning movements of automatic circuit board drills.
+
+VLSI layout
+
+The design of silicon chips is one of the most complex engineering design tasks currently
+undertaken, and we can give only a brief sketch here. A typical VLSI chip can have as many as
+a million gates, and the positioning and connections of every gate are crucial to the successful
+operation of the chip. Computer-aided design tools are used in every phase of the process.
+Two of the most difficult tasks are cell layout and channel routing. These come after the
+components and connections of the circuit have been fixed; the purpose is to lay out the circuit
+on the chip so as to minimize area and connection lengths, thereby maximizing speed. In cell
+layout, the primitive components of the circuit are grouped into cells, each of which performs
+some recognized function. Each cell has a fixed footprint (size and shape) and requires a certain
+number of connections to each of the other cells. The aim is to place the cells on the chip so
+that they do not overlap and so that there is room for the connecting wires to be placed between
+the cells. Channel routing finds a specific route for each wire using the gaps between the cells.
+These search problems are extremely complex, but definitely worth solving. In Chapter 4, we
+will see some algorithms capable of solving them.
+
+Robot navigation
+
+Robot navigation is a generalization of the route-finding problem described earlier. Rather than
+a discrete set of routes, a robot can move ina continuous space with (in principle) an infinite set
+of possible actions and states. For a simple, circular robot moving on a flat surface, the space
+
+6 Strictly speaking, this is the travelling salesperson optimization problem; the TSP itself asks ifa tour exists with cost
+less than some constant
+

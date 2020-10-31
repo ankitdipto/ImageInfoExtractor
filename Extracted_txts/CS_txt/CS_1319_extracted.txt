@@ -1,0 +1,39 @@
+584 Let UsC
+
+ 
+
+hdc = BeginPaint ( hWnd, &ps ) ;
+
+for (i=0;1< 3; i++)
+
+{
+strcpy (f.lfFaceName, fonts[i]) ; /* copy font name */
+flfHeight = 40 *(i+1); /* font height */
+fifitalic = 1; /* italic */
+
+hfont = CreateFontIndirect ( 8f) ;
+holdfont = SelectObject ( hdc, hfont ) ;
+
+SetTextColor (hdc, RGB (0, 0, 255) );
+TextOut (hdc, 10, 70 “i, "Hello Windows”, 13 ) ;
+SelectObject (hdc, holdfont ) ;
+DeleteObject (hfont ) ;
+
+}
+
+EndPaint (hWnd, &ps ) ;
+}
+
+On execution of this program the window shown in Figure 18.1
+appears.
+
+Hello Windows
+
+Hello Windows
+
+Hello Windows
+
+Figure 18.1
+
+ 
+

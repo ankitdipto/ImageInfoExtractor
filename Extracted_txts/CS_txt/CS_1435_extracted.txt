@@ -1,0 +1,63 @@
+234
+
+Chapter 8. Building a Knowledge Base
+
+ 
+
+COMPOSITE OBJECT
+STRUCTURE
+
+SCHEMA
+SCRIPT
+
+BUNCH
+
+Any object that has parts is called a composite object. Categories of composite objects
+are often characterized by the structure of those objects, that is, the parts and how the parts are
+related. For example, a biped has exactly two legs that are attached to its body:
+
+Va Biped(a) >
+Ah .b.b Leg(l)) A Leg(I2)A Body(b) A
+PartOf(l,,@A PartOf(l,a) A PartOf(b,a) A
+Attached(1,,b) A Attached(l, b) A
+TAb AW; Legs) \ PantOf(.as (z=h Vly =h)
+
+This general form of sentence can be used to define the structure of any composite object,
+including events: for example, for all baseball games, there exist nine innings such that each
+is a part of the game, and so on. A generic event description of this kind is often called a
+schema or script, particularly in the area of natural language understanding. Some approaches
+to text understanding rely mainly on the ability to recognize instances of schematic events from
+descriptions of their parts, so that the text can be organized into coherent events, and questions can
+be answered about parts not explicitly mentioned. We discuss these issues furtherin Chapter 22.
+
+We can define a PartPartition relation analogous to the Partition relation for categories
+(see Exercise 8.4). An object is composed of the parts in its PartPartirion, and can be viewed as
+deriving some properties from those parts. For example, the mass of a composite object is the
+sum of the masses of the parts. Notice that this is not the case with categories: categories have
+no mass, even though their elements might.
+
+It is also useful to define composite objects with definite parts but no particular structure
+For example, we might want to say, "The apples in this bag weigh three pounds." Rather than
+commit the error of assigning the weight to the category of apples-in-the-bag, we can make a
+bunch out of the apples. For example, ifthe apples are Apple). Applez, andApples, then
+
+BunchOf\{Apple; , Applex, Apples })
+
+denotes the composite object with the three apples as parts. We can then use the bunch as a normal,
+albeit unstructured, object. Notice that BunchOfApples) is the composite object consisting of
+all apples — not to be confused with Apples, the category.
+
+Representing change with events
+
+Section 7.6 showed how situation calculus could be used to represent change. Situation calculus
+is perfect for the vacuum world, the wumpus world, or any world in which a single agent takes
+discrete actions. Unfortunately, situation calculus has two problems that limit its applicability.
+First, situations are instantaneous points in time, which are not very useful for describing the
+gradual growth of a kitten into a cat, the flow of electrons along a wire, or any other process
+where change occurs continuously over time. Second, situation calculus works best when only
+one action happens at a time. When there are multiple agents in the world, or when the world
+can change spontaneously, situation calculus begins to break down. It is possible to prop it back
+up for a while by defining composite actions, as in Exercise 7.12. If there are actions that have
+different durations, or whose effects depend on duration, then situation calculus in its intended
+form cannot be used at all.
+

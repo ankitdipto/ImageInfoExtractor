@@ -1,0 +1,48 @@
+30.3 Efficient FFT implementations 915
+
+DFT is therefore a special case of the chirp transform, obtained by taking Z = @n.
+Show how to evaluate the chirp transform in time O(n lg n) for any complex num-
+ber Z. (Hint: Use the equation
+
+n-l1
+— 7/2 ( 2) ("?)
+Ve =z y ajz Zz
+j=0
+
+to view the chirp transform as a convolution.)
+
+ 
+
+30.3 Efficient FFT implementations
+
+Since the practical applications of the DFT, such as signal processing, demand the
+utmost speed, this section examines two efficient FFT implementations. First, we
+shall examine an iterative version of the FFT algorithm that runs in O(n 1g 7) time
+but can have a lower constant hidden in the ©-notation than the recursive version
+in Section 30.2. (Depending on the exact implementation, the recursive version
+may use the hardware cache more efficiently.) Then, we shall use the insights that
+led us to the iterative implementation to design an efficient parallel FFT circuit.
+
+An iterative FFT implementation
+
+We first note that the for loop of lines 10-13 of RECURSIVE-FFT involves com-
+puting the value w* yl twice. In compiler terminology, we call such a value a
+common subexpression. We can change the loop to compute it only once, storing
+it in a temporary variable f.
+
+for k = Oton/2—1
+t=oyl!
+Vk = yp +t
+Ye-vin/2y = yet
+© = OO
+
+The operation in this loop, multiplying the twiddle factor @ = w* by yi, storing
+the product into ¢, and adding and subtracting ¢ from yl, is known as a butterfly
+operation and is shown schematically in Figure 30.3.
+
+We now show how to make the FFT algorithm iterative rather than recursive
+in structure. In Figure 30.4, we have arranged the input vectors to the recursive
+calls in an invocation of RECURSIVE-FFT in a tree structure, where the initial
+
+call is for n = 8. The tree has one node for each call of the procedure, labeled
+

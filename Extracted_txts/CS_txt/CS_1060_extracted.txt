@@ -1,0 +1,42 @@
+364 Let Us C
+
+hich mechanic is good enough who knows how to repair
+Wi one type of vehicle? None. Same thing is true about
+
+C language. It wouldn’t have been so popular had it been
+able to handle only all ints, or all floats or all chars at a time. In
+fact when we handle real world data, we don’t usually deal with
+little atoms of information by themselves—things like integers,
+characters and such. Instead we deal with entities that are
+collections of things, each thing having its own attributes, just as
+the entity we call a ‘book’ is a collection of things such as title,
+author, call number, publisher, number of pages, date of
+publication, etc. As you can see all this data is dissimilar, for
+example author is a string, whereas number of pages is an integer.
+For dealing with such collections, C provides a data type called
+‘structure’. A structure gathers together, different atoms of
+information that comprise a given entity. And structure is the topic
+of this chapter.
+
+ 
+
+Why Use Structures
+
+We have seen earlier how ordinary variables can hold one piece of
+information and how arrays can hold a number of pieces of
+information of the same data type. These two data types can
+handle a great variety of situations. But quite often we deal with
+entities that are collection of dissimilar data types.
+
+For example, suppose you want to store data about a book. You
+might want to store its name (a string), its price (a float) and
+number of pages in it (an int). If data about say 3 such books is to
+be stored, then we can follow two approaches:
+
+(a) Construct individual arrays, one for storing names, another for
+storing prices and still another for storing number of pages.
+(b) Use a structure variable.
+
+Let us examine these two approaches one by one. For the sake of
+programming convenience assume that the names of books would
+

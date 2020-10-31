@@ -1,0 +1,45 @@
+328 Let Us C
+
+ 
+
+sizes and dimensions, how to initialize arrays, how to pass
+
+arrays to a function, etc. With this knowledge under your belt,
+you should be ready to handle strings, which are, simply put, a
+special kind of array. And strings, the ways to manipulate them,
+and how pointers are related to strings are going to be the topics of
+discussion in this chapter.
+
+I: the last chapter you learnt how to define arrays of differing
+
+What are Strings
+
+The way a group of integers can be stored in an integer array,
+similarly a group of characters can be stored in a character array.
+Character arrays are many a time also called strings. Many
+languages internally treat strings as character arrays, but somehow
+conceal this fact from the programmer. Character arrays or strings
+are used by programming languages to manipulate text such as
+words and sentences.
+
+A string constant is a one-dimensional array of characters
+terminated by a null ( ‘\0’ ). For example,
+
+    
+
+char name[] = {'H’,'A’,'E','S','L,'E,'R', \0'};
+
+Each character in the array occupies one byte of memory and the
+last character is always ‘\0’. What character is this? It looks like
+two characters, but it is actually only one character, with the \
+indicating that what follows it is something special. ‘\0’ is called
+null character. Note that ‘\0’ and ‘0’ are not same. ASCII value of
+‘\0’ is 0, whereas ASCII value of ‘0’ is 48. Figure 9.1 shows the
+way a character array is stored in memory. Note that the elements
+of the character array are stored in contiguous memory locations.
+
+The terminating null (‘\0’) is important, because it is the only way
+the functions that work with a string can know where the string
+ends. In fact, a string not terminated by a ‘\0’ is not really a string,
+but merely a collection of characters.
+

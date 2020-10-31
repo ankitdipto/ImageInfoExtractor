@@ -1,0 +1,58 @@
+EBCDIC
+
+parity bit
+
+parity generator
+
+parity checker
+
+SECTION 3.6 Error Detection Codes 87
+
+space The other 10 characters are used to direct the data communication flow
+and report its status.
+
+Another alphanumeric (sometimes called alphameric) code used in IBM
+equipments the EBCDIC (Extended BCD Interchange Code) Ituses eight bits
+for each character and a ninth bit for parity). EBCDIC has the same character
+symbols as ASCII but the bit assignment to characters is different.
+
+When alphanumeric characters are used internally ina computer for data
+processing (not for transmission purposes) it is more convenient to use a 6-bit
+Code to represent 64 characters. A 6-bit code can specify the 26 uppercase letters
+of the alphabet, numerals zero to nine, and up to 28 special characters. This
+set of characters isusually sufficient for data-processing purposes. Using fewer
+bits to code characters has the advantage of reducing the memory space needed
+to store large quantities of alphanumeric data.
+
+3-6 Error Detection Codes
+
+Binaryinformation transmitted through some form of communication medium
+is subject to external noise that could change bits from 1 to 0, and vice versa.
+An error detection code is a binary code that detects digital errors during
+transmission. The detected errors cannot be corrected but their presence is
+indicated. The usual procedure is to observe the frequency of errors. If errors
+occurinfrequently at random, the particular erroneous information is transmit-
+ted again. If the error occurs too often, the systems checked for malfunction.
+
+‘The most common error detection code used is the parity bit. A parity bit
+is an extra bit included with a binary message to make the total number of 1's
+either odd or even. A message of three bits and two possible parity bits is
+shownin Table3-7. The P(odd) bit is chosen in such away as to make the sum
+of Ys (in all four bits) odd. The P(even) bit is chosen to make the sum of all
+Ys even. In either case, the sum is taken over the message and the P bit. In
+any particular application, one or the other type of parity will be adopted. The
+ever-parity scheme has the disadvantage of having abit combination of all 0’s,
+while in the odd parity there is always one bit (of the four bits that constitute
+the message and P) that is 1. Note that the P(odd) is the complement of the
+Pleven).
+
+Dunng transfer of information from one location to another, the parity
+bit is handled as follows. At the sending end, the message (in this case three
+bits) is applied to a parity generator, where the required parity bit is generated.
+The message, including the parity bit, is transmitted to its destination At the
+receiving end, all the incoming bits (in this case, four) are applied to a parity
+checker that checks the proper parity adopted (odd or even). An erroris detected
+if the checked parity does not conform to the adopted parity. The parity
+method detects the presence of one, three, or any odd number of errors. An
+even number of errors is not detected.
+

@@ -1,0 +1,55 @@
+974
+
+Chapter 31 Number-Theoretic Algorithms
+
+Proof Using Theorem 31.38, we see that if is composite, then each execution of
+the for loop of lines 1-4 has a probability of at least 1/2 of discovering a witness x
+to the compositeness of 1. MILLER-RABIN makes an error only if it is so unlucky
+as to miss discovering a witness to the compositeness of 1 on each of the s iterations
+of the main loop. The probability of such a sequence of misses is at most 2~*. sm
+
+If n is prime, MILLER-RABIN always reports PRIME, and if 1 is composite, the
+chance that MILLER-RABIN reports PRIME is at most 2°.
+
+When applying MILLER-RABIN to a large randomly chosen integer 7, however,
+we need to consider as well the prior probability that 1 is prime, in order to cor-
+rectly interpret MILLER-RABIN’s result. Suppose that we fix a bit length 6 and
+choose at random an integer 7 of length f bits to be tested for primality. Let A
+denote the event that ” is prime. By the prime number theorem (Theorem 31.37),
+the probability that 1 is prime is approximately
+
+Pr{A} = 1/Inn
+1.443/B .
+
+Now let B denote the event that MILLER-RABIN returns PRIME. We have that
+Pr {B | A} = 0 (or equivalently, that Pr{B | A} = 1) and Pr{B | A} < 2° (or
+equivalently, that Pr {B | A} > 1-27‘).
+
+But what is Pr{A | B}, the probability that n is prime, given that MILLER-
+RABIN has returned PRIME? By the alternate form of Bayes’s theorem (equa-
+tion (C.18)) we have
+
+v
+
+Pr{A}Pr{B | A}
+Pr {A} Pr{B | A} + Pr {A} Pr {B | A}
+1
+1+42%(Inn—1)°
+This probability does not exceed 1/2 until s exceeds lg(Inn — 1). Intuitively, that
+many initial trials are needed just for the confidence derived from failing to find a
+witness to the compositeness of n to overcome the prior bias in favor of n being
+composite. For a number with 6 = 1024 bits, this initial testing requires about
+Ig(Inn — 1) Ig(B/1.443)
+x 9
+
+Pr{A| B} =
+
+v
+
+trials. In any case, choosing s = 50 should suffice for almost any imaginable
+application.
+
+In fact, the situation is much better. If we are trying to find large primes by
+applying MILLER-RABIN to large randomly chosen odd integers, then choosing
+a small value of s (say 3) is very unlikely to lead to erroneous results, though
+

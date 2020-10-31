@@ -1,0 +1,50 @@
+310 Chapter 10. Logical Reasoning Systems
+
+ 
+
+worth storing and which should be ignored, either because they are easy to recompute or because
+they are unlikely to be asked again. Chapter 21 discusses these issues in the general context of
+an agent trying to take advantage of its previous reasoning experiences
+
+10.4__ THEOREM Provers
+
+Theorem provers (also known as automated reasoners) differ from logic programming languages
+in two ways. First, most logic programming languages only handle Horn clauses, whereas
+theorem provers accept full first-order logic. Second, Prolog programs intertwine logic and
+control. The programmer's choice in writing A < B A C instead of A < C A B affects the
+execution of the program. In theorem provers, the user can write either ofthese, or another form
+such as =B <= CA =A, and the results will be exactly the same. Theorem provers still need control
+information to operate efficiently, but this information is kept distinct from the knowledge base,
+rather than being part of the knowledge representation itself. Most of the research in theorem
+provers is in finding control strategies that are generally useful. In Section 9.6 we covered three
+generic strategies: unit preference, linear input resolution, and set of support.
+
+Design of a theorem prover
+
+In this section, we describe the theorem prover OTTER (Organized Techniques for Theorem-
+proving and Effective Research) (McCune, 1992), with particular attention to its control strategy.
+In preparing a problem for OTTER, the user must divide the knowledge into four parts:
+
++ A set of clauses known as the set of support (or sos), which defines the important facts
+about the problem. Every resolution step resolves a member of the set of support against
+another axiom, so the search is focused on the set of support.
+
++ A set of usable axioms that are outside the set of support. These provide background
+knowledge about the problem area. The boundary between what is part of the problem
+(and thus in sos) and what is background (and thus in the usable axioms) is up to the user's
+judgment.
+
++ A set of equations known as rewrites or demodulators. Although demodulators are
+equations, they are always applied in the left to right direction. Thus, they define a
+canonical form into which all terms will be simplified. For example, the demodulator
+x + 0=x says that every term ofthe form x + 0 should be replaced by the term x.
+
++ A set of parameters and clauses that defines the control strategy. In particular, the user
+specifies a heuristic function to control the search and a filtering function that eliminates
+some subgoals as uninteresting.
+
+OTTER works by continually resolving an element of the set of support against one of the usable
+axioms. Unlike Prolog, it uses a form of best-first search. Its heuristic function measures the
+"weight" of each clause, where lighter clauses are preferred. The exact choice of heuristic is up
+to the user, but generally, the weight of a clause should be correlated with its size and/or difficulty.
+

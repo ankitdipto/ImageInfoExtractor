@@ -1,0 +1,45 @@
+710 Let UsC
+
+ 
+
+{
+struct emp
+char name[35] ;
+int age ;
+hi
+
+struct emp e = {"Dubhashi", 40 } ;
+struct emp “ee ;
+
+printf ("\n%d'", e.age ) ;
+
+ee = 8;
+
+printf ( "\n%d", ee->>age ) ;
+}
+
+[17] Forgetting to use the far keyword for referring memory locations
+beyond the data segment.
+
+main()
+{
+unsigned int “s ;
+
+s = 0x413;
+
+printf ( "\n%d", *s ) ;
+}
+Here, it is necessary to use the keyword far in the declaration
+of variable s, since the address that we are storing in s (0x413)
+is a address of location present in BIOS Data Area, which is
+
+far away from the data segment. Thus, the correct declaration
+would look like,
+
+unsigned int far *s ;
+
+The far pointers are 4-byte pointers and are specific to DOS.
+Under Windows every pointer is 4-byte pointer.
+
+[18] Exceeding the range of integers and chars.
+

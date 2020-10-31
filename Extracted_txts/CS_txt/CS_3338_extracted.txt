@@ -1,0 +1,53 @@
+688
+
+Chapter 22. Agents that Communicate
+
+ 
+
+ambiguity is something to be resolved or to be cherished. Some of the earliest work on disam-
+biguation was Wilks’ (1975) theory of preference semantics, which tried to find interpretations
+that minimize the number of semantic anomalies. Hirst (1987) describes a system with similar
+aims that is closer to the compositional semantics described in this chapter. Some problems with
+multiple interpretations are addressed by Norvig (1988).
+
+Probabilistic techniques for disambiguation have been predominant in recent years, partly
+because of the availability of large corpora of text from which to gather statistics, and partly
+because the field is evolving towards a more scientific methodology. Research involving large
+corpora of text is described in the special issue of Computational Linguistics (Volume 19,
+Numbers 1 and 2, 1993) and the book by Garside ef al. (1987). The statistical approach to
+language is covered in a book by Charniak (1993). This subfield started when NLP researchers
+noticed the success of probabilistic models in information retrieval (Salton, 1989) and speech
+recognition (Rabiner, 1990). This lead to the development of probabilistic models for word
+sense disambiguation (Yarowsky, 1992; Resnik, 1993) and eventually to the full parsing task,
+as in the work by Church (1988) and by Chitrao and Grishman (1990). Some recent work
+casts the disambiguation problem as belief network evaluation (Charniak and Goldman, 1992;
+Goldman and Charniak, 1992; Wu, 1993).
+
+The Association for Computational Linguistics (ACL) holds regular conferences; much
+current research on natural language processing is published in their proceedings, and in the
+ACL's journal Computational Linguistics. Readings in Natural Language Processing (Grosz et
+al., 1986) is an anthology containing many important papers in the field. The leading textbook
+is Natural Language Understanding (Alien, 1995). Pereira and Sheiber (1987) and Covington
+(1994) offer concise overviews based on implementations in Prolog. The Encyclopedia of AI
+has many useful articles on the field; see especially "Computational Linguistics" and "Natural
+Language Understanding."
+
+EXERCISES
+
+22.1 Outline the major differences between Pascal (or any other computer language with which
+you are familiar) and English, and the "understanding" problem in each case. Think about such
+things as grammar, syntax, semantics, pragmatics, compositionality, context-dependence, lexical
+ambiguity, syntactic ambiguity, reference-finding (including pronouns), background knowledge,
+and what it means to "understand" in the first place.
+
+22.2. Which of the following are reasons for introducing a quasi-logical form?
+
+a. To make it easier to write simple compositional grammar rules.
+b. To extend the expressiveness of the semantic representation language.
+
+c. To be able to represent quantifier scoping ambiguities (among others) in a succinct form.
+
+a
+
+To make it easier to do semantic disambiguation.
+

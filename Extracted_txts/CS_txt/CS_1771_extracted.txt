@@ -1,0 +1,48 @@
+8.5 Deadlock Avoidance 253
+
+Note that the function F should be defined according to the normal
+order of usage of the resources in a system. For example, since the tape
+drive is usually needed before the printer, it would be reasonable to define
+F(tape drive) < F(printer).
+
+8.5 = Deadlock Avoidance
+
+Deadlock-prevention algorithms, as discussed in Section 8.4, prevent deadlocks
+by restraining how requests can be made. The restraints ensure that at least
+one of the necessary conditions for deadlock cannot occur, and, hence, that
+deadlocks cannot hold. Possible side effects of preventing deadlocks by this
+method, however, are low device utilization and reduced system throughput.
+
+An alternative method for avoiding deadlocks is to require additional
+information about how resources are to be requested. For example, in a system
+with one tape drive and one printer, we might be told that process P will
+request first the tape drive, and later the printer, before releasing both resources.
+Process Q, on the other hand, will request first the printer, and then the tape
+drive. With this knowledge of the complete sequence of requests and releases
+for each process, we can decide for each request whether or not the process
+should wait. Each request requires that the system consider the resources
+currently available, the resources currently allocated to each process, and the
+future requests and releases of each process, to decide whether the current
+request can be satisfied or must wait to avoid a possible future deadlock.
+
+The various algorithms differ in the amount and type of information
+required. The simplest and most useful model requires that each process
+declare the maximum number of resources of each type that it may need. Given
+a priori information about the maximum number of resources of each type
+that may be requested for each process, it is possible to construct an algorithm
+that ensures that the system will never enter a deadlock state. This algorithm
+defines the deadlock-avoidance approach. A deadlock-avoidance algorithm
+dynamically examines the resource-allocation state to ensure that a circular-
+wait condition can never exist. The resource-allocation state is defined by the
+number of available and allocated resources, and the maximum demands of
+the processes.
+
+8.5.1 Safe State
+
+A state is safe if the system can allocate resources to each process (up to its
+maximum) in some order and still avoid a deadlock. More formally, a system
+is in a safe state only if there exists a safe sequence. A sequence of processes
+<P}, P2, ..., Py> is a safe sequence for the current allocation state if, for each P;,
+the resources that P; can still request can be satisfied by the currently available
+resources plus the resources held by all the P;, with j < i. In this situation, if
+

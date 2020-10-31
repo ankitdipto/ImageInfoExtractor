@@ -1,0 +1,56 @@
+ata selector
+
+SECTION 2-3 Multiplexers 49
+
+When the selection inputs are equal to 00, output Y is equal to input Ig. When
+the selection inputs are equal to 01, input J, has a path to output Y, andsimilarly
+for the other two combinations. The multiplexer is also called a data selector,
+since it selects one of many data inputs and steers the binary information to
+the output.
+
+TABLE 2-3 Function Table for 4-10-1-Line Multiplexer
+
+ 
+
+Select Output
+
+ 
+
+ 
+
+Si So Y
+o 0 Io
+oot h
+1 0 b
+11 b
+
+The AND gates and inverters in the multiplexer resemble a decoder
+circuit, and indeed they decode the input selection lines. In general, a 2’-to-1-
+line multiplexeris constructed from an n-to-2" decoder by adding to it 2" input
+lines, one from each data input. The size of the multiplexer is specified by the
+number 2 ofits data inputs and the single output. It is then implied that it also
+contains n input selection lines. The multiplexer is often abbreviated as MUX.
+
+‘As in decoders, multiplexers may have an enable input to control the
+operation of the unit. When the enable input isin the inactivestate, the outputs
+are disabled, and whenitisin theactive state, the circuit functions as anormal
+multiplexer. The enable input is useful for expanding two or more multiplexers
+to a multiplexer with a larger number of inputs.
+
+In some cases two of more multiplexers are enclosed within a single
+integrated circuit package. The selection and the enable inputs in multiple-unit
+construction are usually common to all multiplexers. As an illustration, the
+block diagram of a quadruple 2-to-I-line multiplexer is shown in Fig. 2-5. The
+Gircuit has four multiplexers, each capable of selecting one of two input lines.
+Output ¥ecan be selected to come from either input Ap or Bo. Similarly, output
+¥% may have the value of A, or By, andso on. One input selection line $ selects
+one of the lines in each of the four multiplexers. The enable input E must be
+active for normal operation. Although the circuit contains four multiplexers,
+we can also think of it as a circuit that selects one of two 4-bit data lines. As
+shown in the function table, the unit is enabled when E = 1. Then, if S = 0,
+the four A inputs have a path to the four outputs. On the other hand, if $ = 1,
+the four B inputs are applied to the outputs. The outputs have all 0's when
+E = 0, regardless of the values of S.
+
+ 
+

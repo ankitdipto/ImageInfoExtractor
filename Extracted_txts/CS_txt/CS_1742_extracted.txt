@@ -1,0 +1,53 @@
+228  Chapter7 Process Synchronization
+
+written out to stable storage. We therefore require that, prior to a write(X)
+operation being executed, the log records corresponding to X be written onto
+stable storage.
+
+Note the performance penalty inherent in this system. Two physical writes
+are required for every logical write requested. Also, more storage is needed: for
+the data themselves and for the log of the changes. In cases where the data are
+extremely important and fast failure recovery is necessary, the price is worth
+the functionality.
+
+Using the log, the system can handle any failure that does not result in the
+loss of information on nonvolatile storage. The recovery algorithm uses two
+procedures:
+
+* undo(T;), which restores the value of all data updated by transaction T; to
+the old values
+
+« redo(T;), which sets the value of all data updated by transaction T; to the
+new values
+
+The set of data updated by T; and their respective old and new values can
+be found in the log.
+
+The undo and redo operations must be idempotent (that is, multiple
+executions of an operation have the same result as does one execution) to
+guarantee correct behavior, even if a failure occurs during the recovery process.
+
+If a transaction T; aborts, then we can restore the state of the data that
+it has updated by simply executing undo(Ti). If a system failure occurs, we
+restore the state of all updated data by consulting the log to determine which
+transactions need to be redone and which need to be undone. This classification
+of transactions is accomplished as follows:
+
+Transaction T; needs to be undone if the log contains the < T; starts>
+record, but does not contain the < Tj commits> record.
+
+Transaction T; needs to be redone if the log contains both the < T; starts>
+and the < T; commits> records.
+
+7.9.3 Checkpoints
+
+When a system failure occurs, we must consult the log to determine those
+transactions that need to be redone and those that need to be undone. In
+principle, we need to search the entire log to make these determinations. There
+are two major drawbacks to this approach:
+
+1. The searching process is time-consuming.
+
+2. Most of the transactions that, according to our algorithm, need to be redone
+have already actually updated the data that the log says they need to
+

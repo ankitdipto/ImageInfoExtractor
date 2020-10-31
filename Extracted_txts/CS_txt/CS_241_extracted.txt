@@ -1,0 +1,45 @@
+836
+
+Chapter 28 Matrix Operations
+
+principles exist for choosing n, but they are beyond the scope of this text. In any
+case, once we choose a value of 1 that is less than m, we end up with an overde-
+termined set of equations whose solution we wish to approximate. We now show
+how to do so.
+
+Let
+
+Ai) Alar) oo ful)
+_ Ai.) fol%2) ++ fn (2)
+Aim) fom). fn(%m)
+denote the matrix of values of the basis functions at the given points; that is,
+dij = fi (xi). Let c = (cx) denote the desired n-vector of coefficients. Then,
+
+Ait) fo) +. far) “1
+Sil%2)  f2Q%2) +. fn 2) C2
+Ac = : : 6 : :
+Aim) fol%m) -.- fam) Cn
+F(x)
+F(X2)
+
+Fn)
+
+is the m-vector of “predicted values” for y. Thus,
+n= Ac—y
+
+is the m-vector of approximation errors.
+To minimize approximation errors, we choose to minimize the norm of the error
+vector 7), which gives us a least-squares solution, since
+
+m 1/2
+In = (> ") .
+Because
+m n 2
+\In? = Ae - yIP = 0 (Sa - ») .
+=
+
+we can minimize ||7|| by differentiating ||7||? with respect to each cz and then
+setting the result to 0:
+
+ 
+

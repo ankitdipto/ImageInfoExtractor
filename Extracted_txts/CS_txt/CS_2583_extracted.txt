@@ -1,0 +1,99 @@
+172
+
+Chapter 7 Quicksort
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+i pi r
+@ 218]7]1]3]5 6]4
+pili r
+(b) PT: 7T1]3]5 6]
+pi r
+© 27 1]3]5 6]
+pii i r
+(a) 23a: 3/5 6]4
+pi i r
+©) 2 aa: 5 6f4
+pi jor
+( 2] 1 io 6 6]4
+pi jor
+(2) 2] 1 3|Smel-|:
+pi r
+(h) 2] 1 sPCEEE
+pi r
+@ 2] 1 3] PELE
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 7.1 The operation of PARTITION on a sample array. Array entry A[r] becomes the pivot
+element x. Lightly shaded array elements are all in the first partition with values no greater than x.
+Heavily shaded elements are in the second partition with values greater than x. The unshaded el-
+ements have not yet been put in one of the first two partitions, and the final white element is the
+pivot x. (a) The initial array and variable settings. None of the elements have been placed in either
+of the first two partitions. (b) The value 2 is “swapped with itself” and put in the partition of smaller
+values. (c)-(d) The values 8 and 7 are added to the partition of larger values. (e) The values 1 and 8
+are swapped, and the smaller partition grows. (f) The values 3 and 7 are swapped, and the smaller
+partition grows. (g)-(h) The larger partition grows to include 5 and 6, and the loop terminates. (i) In
+lines 7-8, the pivot element is swapped so that it lies between the two partitions.
+
+The indices between j and r — | are not covered by any of the three cases, and the
+values in these entries have no particular relationship to the pivot x.
+
+We need to show that this loop invariant is true prior to the first iteration, that
+each iteration of the loop maintains the invariant, and that the invariant provides a
+useful property to show correctness when the loop terminates.
+

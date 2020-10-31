@@ -1,0 +1,48 @@
+21.4 Analysis of union by rank with path compression 577
+Ag(ny(x.rank) > Ag(ny(1) (because Ax(/) is strictly increasing)
+
+>on (by the definition of o(n))
+
+> x.p.rank (by Lemma 21.6) ,
+
+which implies that level(x) < a(n). Note that because x.p.rank monotonically
+
+increases over time, so does level(x).
+The second auxiliary function applies when x.rank > 1:
+
+iter(x) = max {i : x.p.rank > AQ cg) (-rank)} .
+
+That is, iter(x) is the largest number of times we can iteratively apply Aleveix),
+applied initially to x’s rank, before we get a value greater than x’s parent’s rank.
+We claim that when x.rank > 1, we have
+
+1 < iter(x) < x.rank , (21.2)
+which we see as follows. We have
+
+X.p.rank > Ajeye(xy(x.rank) (by definition of level(x))
+
+AQ gl rank) (by definition of functional iteration) ,
+
+which implies that iter(x) > 1, and we have
+
+ACTOS) (x rank) = Arve) +1(X-rank) (by definition of Ax (j))
+> x.p.rank (by definition of level(x)) ,
+
+which implies that iter(x) < x.rank. Note that because x.p.rank monotonically
+increases over time, in order for iter(x) to decrease, level(x) must increase. As long
+as level(x) remains unchanged, iter(x) must either increase or remain unchanged.
+
+With these auxiliary functions in place, we are ready to define the potential of
+node x after q operations:
+
+a(n) - x.rank if x is a root or x.rank =0,
+(a(n) — level(x))-x.rank — iter(x) if x is not aroot and x.rank > 1.
+
+gq(x) =
+We next investigate some useful properties of node potentials.
+
+Lemma 21.8
+For every node x, and for all operation counts q, we have
+
+0 < g(x) < a(n) -x.rank .
+

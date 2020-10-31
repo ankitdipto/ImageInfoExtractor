@@ -1,0 +1,52 @@
+31.7 The RSA public-key cryptosystem 959
+
+for electronically signed business contracts, electronic checks, electronic purchase
+orders, and other electronic communications that parties wish to authenticate.
+
+The RSA public-key cryptosystem relies on the dramatic difference between the
+ease of finding large prime numbers and the difficulty of factoring the product of
+two large prime numbers. Section 31.8 describes an efficient procedure for finding
+large prime numbers, and Section 31.9 discusses the problem of factoring large
+integers.
+
+ 
+
+Public-key cryptosystems
+
+In a public-key cryptosystem, each participant has both a public key and a secret
+key. Each key is a piece of information. For example, in the RSA cryptosystem,
+each key consists of a pair of integers. The participants “Alice” and “Bob” are
+traditionally used in cryptography examples; we denote their public and secret
+keys as P4, S4 for Alice and Pg, Sz for Bob.
+
+Each participant creates his or her own public and secret keys. Secret keys are
+kept secret, but public keys can be revealed to anyone or even published. In fact,
+it is often convenient to assume that everyone’s public key is available in a pub-
+lic directory, so that any participant can easily obtain the public key of any other
+participant.
+
+The public and secret keys specify functions that can be applied to any message.
+Let D denote the set of permissible messages. For example, D might be the set of
+all finite-length bit sequences. In the simplest, and original, formulation of public-
+key cryptography, we require that the public and secret keys specify one-to-one
+functions from D to itself. We denote the function corresponding to Alice’s public
+key P4 by P4() and the function corresponding to her secret key S4 by S4(). The
+functions P4() and S4() are thus permutations of D. We assume that the functions
+P4() and S4() are efficiently computable given the corresponding key P4 or S4.
+
+The public and secret keys for any participant are a “matched pair” in that they
+specify functions that are inverses of each other. That is,
+
+M S4(Pa(M)) . (31.35)
+M = Pa(Sa(M)) (31.36)
+
+for any message M € JD. Transforming M with the two keys P4 and S4 succes-
+sively, in either order, yields the message M back.
+
+In a public-key cryptosystem, we require that no one but Alice be able to com-
+pute the function S4() in any practical amount of time. This assumption is crucial
+to keeping encrypted mail sent to Alice private and to knowing that Alice’s digi-
+tal signatures are authentic. Alice must keep S4 secret; if she does not, she loses
+her uniqueness and the cryptosystem cannot provide her with unique capabilities.
+The assumption that only Alice can compute S4() must hold even though everyone
+

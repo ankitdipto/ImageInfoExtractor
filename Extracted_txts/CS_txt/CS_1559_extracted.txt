@@ -1,0 +1,55 @@
+3.5 System Structure 77
+
+new
+operations
+
+existing
+operations
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 3.8 An operating-system layer.
+
+be on that layer, because the layers below it are already debugged. Thus, the
+design and implementation of the system are simplified when the system is
+broken down into layers.
+
+Each layer is implemented with only those operations provided by lower-
+level layers. A layer does not need to know how these operations are imple-
+mented; it needs to know only what these operations do. Hence, each layer
+hides the existence of certain data structures, operations, and hardware from
+higher-level layers.
+
+The major difficulty with the layered approach involves the careful defi-
+nition of the layers, because a layer can use only those layers below it. For
+example, the device driver for the disk space used by virtual-memory algo-
+rithms must be at a level lower than that of the memory-management routines,
+because memory management requires the ability to use the disk space.
+
+Other requirements may not be so obvious. The backing-store driver would
+normally be above the CPU scheduler, because the driver may need to wait for
+1/0 and the CPU can be rescheduled during this time. However, on a large
+system, the CPU scheduler may have more information about all the active
+processes than can fit in memory. Therefore, this information may need to be
+swapped in and out of memory, requiring the backing-store driver routine to
+be below the CPU scheduler.
+
+A final problem with layered implementations is that they tend to be less
+efficient than other types. For instance, when a user program executes an I/O
+operation, it executes a system call that is trapped to the I/O layer, which calls
+the memory-management layer, which in turn calls the CPU-scheduling layer,
+which is then passed to the hardware. At each layer, the parameters may be
+modified, data may need to be passed, and so on. Each layer adds overhead to
+the system call; the net result is a system call that takes longer than does one on
+anonlayered system.
+
+ 
+
+ 
+

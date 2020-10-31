@@ -1,0 +1,69 @@
+Section 10.3
+
+Logic Programming Systems 309
+
+ 
+
+METAREASONING
+
+CHRONOLOGICAL
+BACKTRACKING
+
+BACKUMPING
+
+DEPENDENCY-
+DIRECTED
+BACKTRACKING
+
+This query will be expensive to compute, because it must enumerate all person/income pairs, then
+fetch the spouse for each person (failing on those that are not married, and looping on anyone who
+is married multiple times), and finally check for the one person whose occupation is president.
+Conjunctive queries like this often can be answered more efficiently if we first spend some time
+to reorder the conjuncts to reduce the expected amount of computation. For this query, a better
+ordering is .
+
+Occupation(p President) A Married(s,p) A Income(s, i)
+
+This yields the same answer, but with no backtracking at all, assuming that the Occupation and
+Married predicates are indexed by their second arguments.
+
+This reordering process is an example ofmetareasoning, or reasoning about reasoning. As
+with constraint satisfaction search (Section 3.7), the heuristic we are using for conjunct ordering
+is to put the most constraining conjuncts first. In this case it is clear that only one p satisfies
+Occupation(p,President), but it is not always easy to predict in advance how many solutions
+there will be to a predicate. Even if it were, it would not be a good idea to try all n! permutations
+of an n-place conjunction for large n. Languages such as MRS (Genesereth and Smith, 1981;
+Russell, 1985)allow the programmer to write metarules to decide which conjuncts are tried first.
+For example, the user could write a rule saying that the goal with the fewest variables should be
+tried first.
+
+Some systems change the way backtracking is done rather than attempting to reorder
+conjuncts. Consider the problem of finding all people x who come from the same town as the
+president. One inefficient ordering of this query is:
+
+Resident(p, town) A Resident(x, town) A Occupation(p President)
+
+Prolog would try to solve this by enumerating all residents p of any town, then enumerating all
+residents x ofthat town, and then checking ifp is the president. When the Occupation(p,President)
+goal fails, Prolog backtracks to the most recent choice point, which is the Resident(x, town) goal.
+This is called chronological backtracking; although simple, it is sometimes inefficient. Clearly,
+generating a new x cannot possibly help p become president!
+
+The technique of backjumping avoids such pointless repetition. In this particular problem,
+abackjumping search would backtrack two steps to Resident(p, town) and generate a new binding
+forp. Discovering where to backjump to at compilation time is easy for a compiler that keeps
+global dataflow information. Sometimes, in addition to backjumping to a reasonable spot, the
+system will cache the combination of variables that lead to the dead end, so that they will
+not be repeated again in another branch of the search. This is called dependency-directed
+backtracking. In practice, the overhead of storing all the dead ends is usually too great—as with
+heuristic search, memory is often a stronger constraint than time. In practice, there are many
+more backjumping systems than full dependency-directed backtracking systems.
+
+The final kind of metareasoning is the most complicated: being able to remember a
+previously computed inference rather than having to derive it all over again. This is important
+because most logical reasoning systems are given a series of related queries. For example, a
+logic-based agent repeatedly ASKS its knowledge base the question "what should I do now?"
+Answering this question will involve subgoals that are similar or identical to ones answered the
+previous time around. The agent could just store every conclusion that it is able to prove, but
+this would soon exhaust memory. There must be some guidance to decide which conclusions are
+

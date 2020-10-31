@@ -1,0 +1,49 @@
+28.1 Solving systems of linear equations 8i5
+
+problem of finding good approximate solutions to overdetermined systems of linear
+equations.
+
+Let us return to our problem of solving the system Ax = b of n equations inn
+unknowns. We could compute Aq! and then, using equation (28.3), multiply >
+by A, yielding x = A7'b. This approach suffers in practice from numerical
+instability. Fortunately, another approach—LUP decomposition—is numerically
+stable and has the further advantage of being faster in practice.
+
+Overview of LUP decomposition
+
+The idea behind LUP decomposition is to find three n x n matrices L, U, and P
+such that
+
+PA=LU, (28.4)
+where
+
+¢ Lisa unit lower-triangular matrix,
+¢ U is an upper-triangular matrix, and
+
+* Pisa permutation matrix.
+
+We call matrices L, U, and P satisfying equation (28.4) an LUP decomposition
+of the matrix A. We shall show that every nonsingular matrix A possesses such a
+decomposition.
+
+Computing an LUP decomposition for the matrix A has the advantage that we
+can more easily solve linear systems when they are triangular, as is the case for
+both matrices L and U. Once we have found an LUP decomposition for A, we
+can solve equation (28.2), Ax = b, by solving only triangular linear systems, as
+follows. Multiplying both sides of Ax = b by P yields the equivalent equation
+PAx = Pb, which, by Exercise D.1-4, amounts to permuting the equations (28.1).
+Using our decomposition (28.4), we obtain
+
+LUx = Pb.
+
+We can now solve this equation by solving two triangular linear systems. Let us
+define y = Ux, where x is the desired solution vector. First, we solve the lower-
+triangular system
+
+Ly = Pb (28.5)
+
+for the unknown vector y by a method called “forward substitution.” Having solved
+for y, we then solve the upper-triangular system
+
+Ux=y (28.6)
+

@@ -1,0 +1,49 @@
+806
+
+Chapter 27 Multithreaded Algorithms
+
+Suppose that we set grain-size = 1. What is the parallelism of this implemen-
+tation?
+
+Give a formula for the span of SUM-ARRAYs’ in terms of n and grain-size.
+Derive the best value for grain-size to maximize parallelism.
+
+27-2 Saving temporary space in matrix multiplication
+
+The P-MATRIX-MULTIPLY-RECURSIVE procedure has the disadvantage that it
+must allocate a temporary matrix T of size n x n, which can adversely affect the
+constants hidden by the @-notation. The P-MATRIX-MULTIPLY-RECURSIVE pro-
+cedure does have high parallelism, however. For example, ignoring the constants
+in the Q-notation, the parallelism for multiplying 1000 x 1000 matrices comes to
+approximately 10007/10? = 107, since 1g 1000 ~ 10. Most parallel computers
+have far fewer than 10 million processors.
+
+a.
+
+Describe a recursive multithreaded algorithm that eliminates the need for the
+temporary matrix T at the cost of increasing the span to @(n). (Hint: Com-
+pute C = C + AB following the general strategy of P-MATRIX-MULTIPLY-
+RECURSIVE, but initialize C in parallel and insert a syne in a judiciously cho-
+sen location.)
+
+Give and solve recurrences for the work and span of your implementation.
+Analyze the parallelism of your implementation. Ignoring the constants in the
+
+@Q-notation, estimate the parallelism on 1000 x 1000 matrices. Compare with
+the parallelism of P-MATRIX-MULTIPLY-RECURSIVE.
+
+27-3 Multithreaded matrix algorithms
+
+a.
+
+Parallelize the LU-DECOMPOSITION procedure on page 821 by giving pseu-
+docode for a multithreaded version of this algorithm. Make your implementa-
+tion as parallel as possible, and analyze its work, span, and parallelism.
+
+Do the same for LUP-DECOMPOSITION on page 824.
+
+Do the same for LUP-SOLVE on page 817.
+
+Do the same for a multithreaded algorithm based on equation (28.13) for in-
+verting a symmetric positive-definite matrix.
+

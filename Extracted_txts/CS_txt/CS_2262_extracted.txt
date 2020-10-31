@@ -1,0 +1,64 @@
+412
+
+CHAPTER ELEVEN Input-Output Organization
+
+TABLE 11-2 Priority Encoder Truth Table
+
+ 
+
+ 
+
+ 
+
+ 
+
+Inputs, Outputs
+To th i x y IST Boolean functions
+1x x x 0 01
+o1xx O11 cA
+00 1 X 1 0 1 ya teh + IGT
+ooo1 Poll US=hththth
+0000 xx 0
+
+ 
+
+that lo = 0, regardless of the values of the other two lower-priority inputs. The
+output for /, is generated only if higher-priority inputs are 0, and so on down
+the priority level. The interrupt status [STis set only when one or more inputs
+are equal to 1. If all inputs are 0, IST is cleared to 0 and the other outputs of
+the encoder are not used, so they are marked with don’t-care conditions. This
+is because the vector address is not transferredto the CPU when IST = 0. The
+Boolean functions listed in the table specify the internal logic of the encoder.
+Usually, a computer will have more than four interrupt sources. A priority
+encoder with eight inputs, for example, will generate an output of three bits.
+The output of the priority encoder is used to form part of the vector
+address for each interrupt source. The other bits of the vector address can be
+assigned any value. Forexample, the vector address can be formed by append-
+ing sixzerostothe xand y outputs ofthe encoder. With thischoice the interrupt
+vectors for the four /O devices are assigned binary numbers 0, 1, 2, and 3.
+
+Interrupt Cycle
+
+The interrupt enable flip-flop IEN shown in Fig, 11-14 can be set or cleared by
+program instructions. When IEN is cleared, the interrupt request coming from
+IST is neglected by the CPU. The program-controlled IEN bit allows the pro-
+grammer to choose whether to use the interrupt facility. If an instruction to
+clear IEN has been inserted in the program, it means that the user does not
+‘want his program to be interrupted. An instruction to set JEN indicates that
+the interrupt facility will be used while the current program is running. Most
+computers include internal hardware that clears IEN to 0 every time an inter-
+rupt is acknowledged by the processor.
+
+Atthe end of each instruction cycle the CPU checks IENand the interrupt
+signal from IST. If either is equal to 0, control continues with the next instruc-
+tion. If both JEN and IST are equal to 1, the CPU goes to an interrupt cycle.
+During the interrupt cycle the CPU performs the following sequence of micro-
+operations:
+
+ 
+
+ 
+
+SP<-SP-1 Decrement stack pointer
+M{SP]~PC Push PC into stack
+

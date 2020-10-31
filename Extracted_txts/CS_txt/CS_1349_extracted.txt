@@ -1,0 +1,44 @@
+608 Let UsC
+
+ 
+
+window a noise occurs. Note that the width and height of the red-
+colored ball is 22 pixels. Given below is the WndProc(_) function
+and the various message handlers that help achieve animation and
+sound effect.
+
+HBITMAP hbmp ;
+int, y;
+
+HDC hmemdc ;
+HGDIOBJ holdbmp ;
+
+LRESULT CALLBACK WndProc ( HWND hWnd, UINT message,
+WPARAM wParam, LPARAM IParam )
+{
+
+switch (message )
+{
+case WM_DESTROY :
+OnDestroy ( hWnd) ;
+break ;
+case WM_CREATE :
+OnCreate ( hWnd ) ;
+break ;
+case WM_TIMER:
+OnTimer (hWnd) ;
+break ;
+default :
+return DefWindowProc (hWnd, message, wParam, IParam ) ;
+}
+return 0;
+}
+
+void OnCreate ( HWND hWnd )
+{
+RECT r;
+HDC hdc ;
+hbmp = LoadBitmap (hinst, MAKEINTRESOURCE (IDB_BITMAP1) ) ;
+
+hdc = GetDC ( hWnd) ;
+

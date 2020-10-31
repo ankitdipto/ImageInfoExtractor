@@ -1,0 +1,58 @@
+Chapter 9: Puppetting On Strings 335
+
+ 
+
+str2 = str1 ;/* error “/
+q=s;/* works */
+}
+
+Also, once a string has been defined it cannot be initialized to
+another set of characters. Unlike strings, such an operation is
+perfectly valid with char pointers.
+
+main()
+
+{
+char str1[] = "Hello" ;
+char “p= "Hello" ;
+str] = "Bye" ; /* error */
+p = "Bye" ; /* works */
+
+ 
+
+ 
+
+ 
+
+}
+Standard Library String Functions
+With every C compiler a large set of useful string handling library
+
+functions are provided. Figure 9.2 lists the more commonly used
+functions along with their purpose.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Function | Use
+
+strlen Finds length of a string
+
+strlwr Converts a string to lowercase
+
+strupr Converts a string to uppercase
+
+streat Appends one string at the end of another
+
+streat Appends first n characters of a string at the end of
+another
+

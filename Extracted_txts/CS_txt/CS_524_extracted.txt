@@ -1,0 +1,76 @@
+152
+
+Chapter 6. Agents that Reason Logically
+
+ 
+
+KNOWLEDGE
+REPRESENTATION
+LANGUAGE
+
+INFERENCE
+
+BACKGROUND
+KNOWLEDGE
+
+of English and other natural languages, but is not identical.) The sentences are expressed in a
+language called a knowledge representation language.
+
+There must be a way to add new sentences to the knowledge base, and a way to query what
+is known. The standard names for these tasks are TELL and Ask, respectively. The fundamental
+requirement that we will impose on TELL and ASK is that when one ASKS a question of the
+knowledge base, the answer should follow from what has been told (or rather, TELLed) to the
+knowledge base previously. Later in the chapter, we will be more precise about the crucial word
+"follow." For now, take it to mean that the knowledge base should notjust make up things as
+it goes along. Determining what follows from what the KB has been TELLed is the job of the
+inference mechanism, the other main component ofa knowledge-based agent.
+
+Figure 6,1 shows the outline of a knowledge-based agent program. Like all our agents, it
+takes a percept as input and returns an action. The agent maintains a knowledge base, KB, which
+may initially contain some background knowledge. Each time the agent program is called, it
+does two things. First, it TELLS the knowledge base what it perceives.' Second, it ASKS the
+knowledge base what action it should perform. In the process of answering this query, logical
+reasoning is used to prove which action is better than all others, given what the agent knows and
+what its goals are. The agent then performs the chosen action.
+
+ 
+
+function KB-AGENT(percept) returns an action
+static: KB, aknowledge base
+t, a counter, initially 0, indicating time
+
+TELL(KB, MAKE-PERCEPT-SENTENCE( percept, 1)
+action — ASK( KB, MAKE-ACTION-QUERY(1))
+TELL(KB, MakeE-ACTION-SENTENCE(action, 1))
+t—i+4
+
+return action
+
+ 
+
+ 
+
+Figure 6.1 A generic knowledge-based agent.
+
+ 
+
+ 
+
+ 
+
+The details of the representation language are hidden inside two functions that implement
+the interface between the agent program "shell" and the core representation and reasoning system.
+MAKE-PERCEPT-SENTENCE takes a percept and atime and returns a sentence representing the fact
+that the agent perceived the percept at the given time, and MAKE-ACTION-QUERY takes a time as
+input and returns a sentence that is suitable for asking what action should be performed at that
+time. The details of the inference mechanism are hidden inside TELL and ASK. Later sections
+will reveal these details
+
+A careful examination of Figure 6,1 reveals that it is quite similar to the design of agents
+with internal state described in Chapter 2. Because of the definitions of TELL and ASK, however,
+the knowledge-based agent is not an arbitrary program for calculating actions based on the internal
+state variable. At any point, we can describe a knowledge-based agent at three levels:
+
+1! You might think of TELL and ASK as procedures that humans can use to communicate with knowledge bases. Don't
+be confused by the fact that here it is the agent that is TELLing things to its own knowledge base
+

@@ -1,0 +1,52 @@
+7.4 Analysis of quicksort 183
+
+= > > E[Xij]
+
+i=1 j=it+l
+
+n-l n
+= > >» Pr {z; is compared to z;} - (7.2)
+
+i=l j=it+l
+
+It remains to compute Pr {z; is compared to z;}. Our analysis assumes that the
+RANDOMIZED-PARTITION procedure chooses each pivot randomly and indepen-
+dently.
+
+Let us think about when two items are not compared. Consider an input to
+quicksort of the numbers | through 10 (in any order), and suppose that the first
+pivot element is 7. Then the first call to PARTITION separates the numbers into two
+sets: {1,2,3,4,5,6} and {8, 9, 10}. In doing so, the pivot element 7 is compared
+to all other elements, but no number from the first set (e.g., 2) is or ever will be
+compared to any number from the second set (e.g., 9).
+
+In general, because we assume that element values are distinct, once a pivot x
+is chosen with z; < x < zj, we know that z; and z; cannot be compared at any
+subsequent time. If, on the other hand, z; is chosen as a pivot before any other item
+in Z,;, then z; will be compared to each item in Z;;, except for itself. Similarly,
+if z; is chosen as a pivot before any other item in Z;;, then z; will be compared to
+each item in Z;;, except for itself. In our example, the values 7 and 9 are compared
+because 7 is the first item from Z7,9 to be chosen as a pivot. In contrast, 2 and 9 will
+never be compared because the first pivot element chosen from Z 9 is 7. Thus, Z;
+and z; are compared if and only if the first element to be chosen as a pivot from Z;;
+is either Z; or Z;.
+
+We now compute the probability that this event occurs. Prior to the point at
+which an element from Z;; has been chosen as a pivot, the whole set Z;; is together
+in the same partition. Therefore, any element of Z;; is equally likely to be the first
+one chosen as a pivot. Because the set Z;; has j—i +1 elements, and because pivots
+are chosen randomly and independently, the probability that any given element is
+the first one chosen as a pivot is 1/(j —i + 1). Thus, we have
+
+ij>
+
+Pr {z; is compared to Zj;}_ = Pr {Z; or Z; is first pivot chosen from Z;;}
+= Pr {Z; is first pivot chosen from Z;;}
++ Pr {z; is first pivot chosen from Z;;}
+
+_ 1 4 1
+~ j-itl j-itl
+2
+
+= > (7.3)
+

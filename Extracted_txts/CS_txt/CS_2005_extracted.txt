@@ -1,0 +1,46 @@
+446 Chapter12_File-System Implementation
+
+client server
+
+     
+ 
+
+other types of
+"file systems
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 12.16 Schematic view of the NFS architecture.
+
+NBS service layer at the remote server. This call is reinjected to the VFS layer
+on the remote system, which finds that it is local and invokes the appropriate
+file-system operation. This path is retraced to return the result. An advantage
+of this architecture is that the client and the server are identical; thus, a machine
+may be a client, or a server, or both.
+
+The actual service on each server is performed by several kernel processes
+that provide a temporary substitute to a lightweight process (or threads) mech-
+anism.
+
+12.9.4 Path-Name Translation
+
+Path-name translation is done by breaking the path into component names
+and performing a separate NFS lookup call for every pair of component
+name and directory vnode. Once a mount point is crossed, every component
+lookup causes a separate RPC to the server. This expensive path-name-traversal
+scheme is needed, since each client has a unique layout of its logical name space,
+dictated by the mounts it performed. It would have been much more efficient
+to hand a server a path name and to receive a target vnode once a mount point
+was encountered. At any point, however, there can be another mount point for
+the particular client of which the stateless server is unaware.
+

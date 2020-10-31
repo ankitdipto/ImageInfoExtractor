@@ -1,0 +1,31 @@
+632 Chapter 23 Minimum Spanning Trees
+
+(a)
+
+©
+
+©
+
+(g)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 23.4 The execution of Kruskal’s algorithm on the graph from Figure 23.1, Shaded edges
+belong to the forest A being grown. The algorithm considers each edge in sorted order by weight.
+‘An arrow points to the edge under consideration at each step of the algorithm. If the edge joins two
+distinct trees in the forest, it is added to the forest, thereby merging the two trees.
+
+checks, for each edge (u,v), whether the endpoints u and v belong to the same
+tree. If they do, then the edge (u,v) cannot be added to the forest without creating
+a cycle, and the edge is discarded. Otherwise, the two vertices belong to different
+trees. In this case, line 7 adds the edge (u,v) to A, and line 8 merges the vertices
+in the two trees.
+

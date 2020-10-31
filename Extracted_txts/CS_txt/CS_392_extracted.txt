@@ -1,0 +1,61 @@
+152. cuaPrernve Basic Computer Organization and Design
+
+output register
+
+set to 1 when new information is available in the input device and is cleared
+to Owhen the information is accepted by the computer. The flag is needed to
+synchronize the timing rate difference between the input device and the
+computer. The process of information transfer is as follows Initially, theinput
+flag FGI is cleared to 0. When a key is struck in the keyboard, an 8-bit alphanu-
+meric code is shifted into INPR and the input flag FGI is set to 1. As long as
+the flag is set, the information in INPR cannot be changed by striking another
+key. The computer checks the flag bit; ifit is 1, the information from INPR is
+transferred in parallel into AC and FGIis cleared to 0. Once the flag is cleared,
+new information can be shifted into INPR by striking another key.
+
+The output register OUTR works similarly but the direction of informa-
+tion flow is reversed. Initially, the output flag FGO is set to 1. The computer
+checks the flag bit; if itis 1, the information from AC is transferred in parallel
+to OUTR and FGO is cleared to 0. The output device accepts the coded infor-
+mation, prints the corresponding character, and when the operation is com-
+pleted, it sets FGO to1. The computer does not load anew character into OUTR
+when FGO is 0 because this condition indicates that the output device is in the
+process of printing the character.
+
+Input—Output Instructions
+
+Input and output instructions are needed for transferring information to and
+from AC register, for checking the flag bits, and for controlling the interrupt
+facility. Input-output instructions have an operation code 1111 and are recog-
+nized by the control when D; = 1 and I = 1 The remaining bits of the instruc-
+tion specify the particular operation. The control functions and microopera-
+tions for the input-output instructions are listed in Table 5-5. These instructions
+are executed with the clock transition associated with timing signal Ts. Each
+control function needs a Boolean relation D;IT, which we designate for con-
+venience by the symbol p. The control function is distinguished by one of the
+bits in 1R(6-11). By assigning the symbol B, to bit i of IR, all control functions
+
+TABLE 5-5 Input-Output Instructions
+
+ 
+ 
+   
+
+(common to all input-output instructions)
+
+ 
+
+TR() = B; bit in IR(6-11) that specifies the instruction]
+sc-o Clear SC
+‘AC(O-T)“INPR, FGI-O Input character
+OUTR~AC(0-7),_FGO<-0 Output character
+If (FGI = 1) then (PC+-PC + 1) Skip on input flag
+
+ 
+
+If (FGO = 1) then (PC PC +1) Skip on output flag
+: IEN|1 Interrupt enable on
+IEN—0 Interrupt enable off
+
+ 
+

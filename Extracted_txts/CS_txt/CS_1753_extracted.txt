@@ -1,0 +1,76 @@
+7.6
+
+77
+
+78
+
+79
+
+Exercises 237
+
+do {
+
+ 
+
+flag[i] = true;
+while (flag(j]) {
+if (turn pf
+flag[i] = false;
+while (turn == j);
+flag[i] = true;
+
+ 
+
+ 
+
+ 
+
+ 
+
+critical section
+
+ 
+
+turn = j;
+flag[i] = false;
+
+ 
+
+ 
+
+ 
+
+remainder section
+} while (1);
+Figure 7.27 The structure of process P; in Dekker’s algorithm.
+
+All the elements of flag are initially idle; the initial value of turn is
+immaterial (between 0 and n-1). The structure of process P; is shown in
+Figure 7.28.
+
+Prove that the algorithm satisfies all three requirements for the critical-
+section problem.
+
+In Section 7.3, we mentioned that disabling interrupts frequently can affect
+the system’s clock. Explain why it can, and how such effects can be
+minimized.
+
+Show that, if the wait and signal operations are not executed atomically,
+then mutual exclusion may be violated.
+
+The Sleeping-Barber Problem. A barbershop consists of a waiting room
+with n chairs and the barber room containing the barber chair. If there are
+no customers to be served, the barber goes to sleep. If a customer enters
+the barbershop and all chairs are occupied, then the customer leaves the
+shop. If the barber is busy but chairs are available, then the customer sits
+in one of the free chairs. If the barber is asleep, the customer wakes up the
+barber. Write a program to coordinate the barber and the customers.
+
+The Cigarette-Smokers Problem. Consider a system with three smoker
+processes and one agent process. Each smoker continuously rolls a
+cigarette and then smokes it. But to roll and smoke a cigarette, the smoker
+
+ 
+
+ 
+

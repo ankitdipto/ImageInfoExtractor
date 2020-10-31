@@ -1,0 +1,58 @@
+468 CHAPTER TWELVE Memory Organization
+
+replacement
+algorithms
+
+ 
+
+ 
+
+ 
+
+Index Tag Data Taga
+ooo[or | 3450 [| 02 | 5670
+m[e2 [ene | oo | 2340 |
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 12-15 Two-way set-associative mapping cache.
+
+The octal numbers listed in Fig. 12-15 are with reference to the main
+memory contents illustrated in Fig. 12-13(a). The words stored at addresses
+01000 and 02000 of main memory are stored in cache memory at index address
+000. Similarly, the words at addresses 02777 and 00777 are stored in cache at
+indexaddress777. When the CPU generates amemory request, the index value
+‘of the address is used to access the cache. The tag field of the CPU address is
+thencompared with both tags in the cache to determine ifa match occurs. The
+comparison logic is done by an associative search of the tags in the set similar
+toan associative memory search: thus the name “set-associative.” The hit ratio
+will improve as the set size increases because more words with the same index
+but different tags can reside in cache. However, an increase in the set size
+increases the number of bits in words of cache and requires more complex
+comparison logic.
+
+When a miss occurs in a set-associative cache and the set is full, it is
+necessary to replace one of the tag-data items with a new value. The most
+common replacement algorithms used are: random replacement, first-in, first-
+out (FIFO), and least recently used (LRU). Withthe random replacement policy
+the control chooses one tag-data item for replacement at random. The FIFO
+procedure selects forreplacement the item that has been in the set the longest.
+‘TheLRUalgorithm selects forreplacementthe item thathas been least recently
+used by the CPU. Both FIFO and LRU can be implemented by adding a few
+extra bits in each word of cache.
+
+Writing into Cache
+
+‘An important aspect of cache organization is concerned with memory write
+requests. When the CPU finds a word in cache during a read operation, the
+main memory is not involved in the transfer. However, if the operation is a
+write, there are two ways that the system can proceed.
+

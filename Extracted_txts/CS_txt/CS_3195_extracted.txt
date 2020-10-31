@@ -1,0 +1,54 @@
+558 Chapter 18. Learning from Observations
+
+ 
+
+show in Chapter 21, the use ofprior knowledge to guide inductive learning makes it possible to
+leam quite large sets of sentences from reasonable numbers of examples, even in a language as
+expressive as first-order logic.
+
+187__ SUMMARY
+
+We have seen that all learning can be seen as learning a function, and in this chapter we
+concentrate on induction: learning a function from example input/output pairs. The main points
+were as follows:
+
++ Learning in intelligent agents is essential for dealing with unknown environments (ie.,
+compensating for the designer's lack of omniscience about the agent's environment).
+
+Learning is also essential for building agents with a reasonable amount of effort (ie.,
+compensating for the designer's laziness, or lack of time).
+
+Learning agents can be divided conceptually into a performance element, which is re-
+sponsible for selecting actions, and a learning element, which is responsible for modifying
+the performance element.
+
+Learning takes many forms, depending on the nature of the performance element, the
+available feedback, and the available knowledge
+
+Learning any particular component of the performance element can be cast as a problem
+of learning an accurate representation of a function.
+
+Leaming a function from examples of its inputs and outputs is called inductive learning.
+
+The difficulty of learning depends on the chosen representation. Functions can be repre-
+sented by logical sentences, polynomials, beliefnetworks, neural networks, and others.
+
+Decision trees are an efficient method for learning deterministic Boolean functions.
+
+Ockham's razor suggests choosing the simplest hypothesis that matches the observed
+examples. The information gain heuristic allows us to find a simple decision tree.
+
+The performance of inductive learning algorithms is measured by their learning curve,
+which shows the prediction accuracy as a function of the number of observed examples
+
+We presented two general approaches for learning logical theories. The current-best-
+hypothesis approach maintains and adjusts a single hypothesis, whereas the version space
+approach maintains a representation of all consistent hypotheses. Both are vulnerable to
+noise in the training set.
+
+Computational learning theory analyses the sample complexity and computational com-
+plexity of inductive learning. There is a trade-off between the expressiveness of the
+hypothesis language and the ease of learning.
+
+ 
+

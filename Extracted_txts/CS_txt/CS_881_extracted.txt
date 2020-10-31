@@ -1,0 +1,41 @@
+218 Let Us C
+
+ 
+
+A signed char is same as an ordinary char and has a range from
+-128 to +127; whereas, an unsigned char has a range from 0 to
+255. Let us now see a program that illustrates this range:
+
+main()
+
+char ch = 291 ;
+printf ( “\n%d %c", ch, ch ) ;
+
+What output do you expect from this program? Possibly, 291 and
+the character corresponding to it. Well, not really. Surprised? The
+reason is that ch has been defined as a char, and a char cannot
+take a value bigger than +127. Hence when value of ch exceeds
++127, an appropriate value from the other side of the range is
+picked up and stored in ch. This value in our case happens to be
+35, hence 35 and its corresponding character #, gets printed out.
+
+Here is another program that would make the concept clearer.
+
+main()
+{
+char ch;
+
+for (ch =0; ch <= 255 ; ch++)
+printf (“\n%d %c", ch, ch) ;
+}
+
+This program should output ASCII values and their corresponding
+characters. Well, No! This is an indefinite loop. The reason is that
+ch has been defined as a char, and a char cannot take values
+bigger than +127. Hence when value of ch is +127 and we perform
+cht++ it becomes -128 instead of +128. -128 is less than 255 hence
+the condition is still satisfied. Here onwards ch would take values
+like -127, -126, -125, .... -2, -1, 0, +1, +2, ... +127, -128, -127, ete.
+Thus the value of ch would keep oscillating between -128 to +127,
+thereby ensuring that the loop never gets terminated. How do you
+

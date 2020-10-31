@@ -1,0 +1,72 @@
+Section 23.3.
+
+Scaling Up the Lexicon 703
+
+ 
+
+2
+
+as)
+
+TOKENIZATION
+
+MORPHOLOGICAL
+ANALYSIS:
+
+INFLECTIONAL
+MORPHOLOGY
+
+DERIVATIONAL
+MORPHOLOGY
+
+‘COMPOUNDING
+
+difference between 2" and 2n, but for large n, this representation offers considerable saving. The
+representation is called a packed forest, because it is the equivalent to a set of trees (a forest),
+but they are efficiently packed into one structure.
+
+To implement the packed forest representation, we modify COMPLETER to keep track of
+lists of possible children, and we modify ADD-EDGE so that when we go to add an edge that is
+already in the chart. we merge its list of possible children with the list that is already there.
+
+We end up with a parsing algorithm that is O(n?) in the worst case (where n is the number
+of words in the input). This is the best that can be achieved for a context-free grammar. Note
+that without the packed forest, the algorithm would be exponential in the worst case, because it
+is possible for a sentence to have 0(2") different parse trees. In practice, one can expect a good
+implementation of the algorithm to parse on the order of 100 words per second, with variation
+depending on the complexity of the grammar and the input
+
+3 SCALING UP THE LEXICON
+
+In Chapter 22, the input was a sequence of words. In real text-understanding systems, the input
+is a sequence of characters from which the words must be extracted. Most systems follow a
+four-step process of tokenization, morphological analysis, dictionary lookup, and error recovery.
+
+Tokenization is the process of dividing the input into distinct tokens—words and punctu-
+ation marks. In Japanese, this is difficult because there are no spaces between words. Languages
+like English are easier, but not trivial. A hyphen at the end ofthe line may be an inter- or intraword
+dash. In some types of text, font changes, underlines, superscripts, and other control sequences
+must be accounted for. Tokenization routines are designed to be fast, with the idea that as long as
+they are consistent in breaking up the input text into tokens, any problems can always be handled
+at some later stage of processing.
+
+Morphological analysis is the process of describing a word in tems of the prefixes,
+suffixes, and root forms that comprise it. There are three ways that words can be composed:
+
+0 Inflectional morphology reflects the changes to a word that are needed in a particular
+grammatical context. For example, most nouns take the suffix “s” when they are plural.
+
+0 Derivational morphology derives a new word from another word that is usually of a
+different category. For example, the noun "shortness" is derived from the adjective "short"
+together with the suffix "ness."
+
+© Compounding takes two words and puts them together. For example, "bookkeeper" is a
+compound of "book" and "keeper." (The noun "keeper" is in turn derived from the verb
+"keep" by derivational morphology.)
+
+Even in a morphologically simple language like English, there can be morphological am-
+biguities. "Walks" can be either a plural noun or a third-person singular verb. “Unionizable”
+can be analyzed as “un-ion-izable” or “union-izable,” and “untieable” can be “‘un-(tie-able)” or
+“(un-tie)-able.” Many languages make more use of morphology than English. In German, it
+is not uncommon to see words like “Lebensversicherungsgesellschaftsangestellter” (life insur-
+

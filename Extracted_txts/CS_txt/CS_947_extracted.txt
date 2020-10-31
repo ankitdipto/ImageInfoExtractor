@@ -1,0 +1,53 @@
+198
+
+CHAPTER Six Programming the Basic Computer
+
+position of the number. The program forthearithmeticright-shiftrequires that
+we set E to the same value as the sign bit and circulate right, thus:
+
+CLE /Clear E too
+
+SPA /Skip if AC is positive; E remains 0
+CME /ACis negative; set Eto 1
+
+CIR /Circulate Band AC
+
+Forarithmetic shifteft itis necessary that the added bitin the least significant
+position be 0. This is easily done by clearing E prior to the circulate-left
+operation The sign bit must not change during this shift With a circulate
+instruction, the sign bit moves into E. It is then necessary to compare the sign
+bit with the value of E after the operation. If the two values are equal, the
+arithmetic shift has been correctly implemented. If they are not equal, an
+overflow occurs. An overflow indicates that the unshifted number was too
+large. When multiplied by 2 (by means of the shift), the number so obtained
+exceeds the capacity of the AC.
+
+6-7__ Subroutines
+
+Frequently, the same piece of code mustbe written overagainin many different
+parts of a program. Instead of repeating the code every time itis needed, there
+is an obvious advantage if the common instructions are written only once. A
+set of common instructions that can be used ina program many times is called
+a subroutine. Each time that a subroutine is used in the main part of the
+program, a branch is executed to the beginning of the subroutine. After the
+subroutine has been executed, a branch is made back to the main program.
+
+‘A subroutine consists of a self-contained sequence of instructions that
+carries out a given task. A branch can be made to the subroutine from any part
+of the main program. This poses the problem of how the subroutine knows
+which location to return to, since many different locations in the main program
+may make branches to the same subroutine. It is therefore necessary to store
+the return address somewhere in the computer for the subroutine to know
+where to return Because branching to a subroutine and returning to the main
+program is such a common operation, all computers provide special instruc-
+tions to facilitate subroutine entry and return.
+
+In the basic computer, the link between the main program and a sub-
+routineis the BSA instruction (branchandsave return address). To explain how
+this instruction is used, let us write a subroutine that shifts the content of the
+accumulator four times to the left. Shifting a word four times is a useful
+operation for processing binary coded decimal numbers or alphanumeric char-
+acters. Such an operation could have been included as a machine instruction
+in the computer. Since itis not included, asubroutine is formed to accomplish
+this task. The program of Table 6-16 starts by loading the value of X into the
+

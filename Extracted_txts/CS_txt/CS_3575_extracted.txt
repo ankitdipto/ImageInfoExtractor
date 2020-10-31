@@ -1,0 +1,48 @@
+20.3 The van Emde Boas tree 545
+
+20.2-2
+
+Write pseudocode for PROTO-VEB-DELETE. It should update the appropriate
+summary bit by scanning the related bits within the cluster. What is the worst-
+case running time of your procedure?
+
+20.2-3
+
+Add the attribute ” to each proto-vEB structure, giving the number of elements
+currently in the set it represents, and write pseudocode for PROTO-VEB-DELETE
+that uses the attribute 7 to decide when to reset summary bits to 0. What is the
+worst-case running time of your procedure? What other procedures need to change
+because of the new attribute? Do these changes affect their running times?
+
+20.2-4
+Modify the proto-vEB structure to support duplicate keys.
+
+20.2-5
+Modify the proto-vEB structure to support keys that have associated satellite data.
+
+20.2-6
+Write pseudocode for a procedure that creates a proto-v EB(u) structure.
+
+20.2-7
+Argue that if line 9 of PROTO-vEB-MINIMUM is executed, then the proto-vEB
+structure is empty.
+
+20.2-8
+Suppose that we designed a proto-vEB structure in which each cluster array had
+only w!/4 elements. What would the running times of each operation be?
+
+ 
+
+20.3 The van Emde Boas tree
+
+The proto-vEB structure of the previous section is close to what we need to achieve
+O(iglg uv) running times. It falls short because we have to recurse too many times
+in most of the operations. In this section, we shall design a data structure that
+is similar to the proto-vEB structure but stores a little more information, thereby
+removing the need for some of the recursion.
+
+In Section 20.2, we observed that the assumption that we made about the uni-
+verse size—that u = 22" for some integer k —is unduly restrictive, confining the
+possible values of u an overly sparse set. From this point on, therefore, we will
+allow the universe size u to be any exact power of 2, and when \/u is not an inte-
+

@@ -1,0 +1,36 @@
+248 Chapter8 Deadlocks
+
+ 
+
+ 
+
+Figure 8.2 Resource-allocation graph with a deadlock.
+
+Processes P;, Pz, and P3 are deadlocked. Process P2 is waiting for the resource
+R3, which is held by process P3. Process P3, on the other hand, is waiting for
+either process P; or process P2 to release resource Rp. In addition, process P, is
+waiting for process P2 to release resource Rj.
+
+Now consider the resource-allocation graph in Figure 8.3. In this example,
+we also have a cycle
+
+Pa RRR Pi
+
+However, there is no deadlock. Observe that process P, may release its instance
+of resource type Rz. That resource can then be allocated to P3, breaking the
+cycle.
+
+In summary, if a resource-allocation graph does not have a cycle, then the
+system is not in a deadlock state. On the other hand, if there is a cycle, then the
+system may or may not be in a deadlock state. This observation is important
+when we deal with the deadlock problem.
+
+8.3 = Methods for Handling Deadlocks
+
+Principally, we can deal with the deadlock problem in one of three ways:
+
+© We can use a protocol to prevent or avoid deadlocks, ensuring that the
+system will never enter a deadlock state.
+
+« We can allow the system to enter a deadlock state, detect it, and recover.
+

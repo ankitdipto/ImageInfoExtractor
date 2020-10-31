@@ -1,0 +1,63 @@
+SECTION 16 FlipeFlops 27
+
+Excitation Tables
+
+The characteristic tables of flip-flops specify the next state when the inputs and
+the present stateare known. During the design of sequential circuits we usually
+know the required transition from present state to next state and wish to find
+the flip-flop input conditions that will cause the required transition. For this
+reason we need a table that lists the required input combinations for a given
+change of state, Such a table is called a flip-flop excitation table.
+
+Table 1-3 lists the excitation tables for the four types of flip-flops. Each
+table consists of two columns, Q(t) and Q(t + 1), and a column for each input
+to show how the required transition is achieved. There are four possible
+transitions from present state Q(t) to next state Q(t + 1). The required input
+conditions for each of these transitions are derived from the information
+available in the characteristic tables. The symbol x in the tables represents a
+don’t-care condition; that is, it does not matter whether the input to the
+flip-flop is 0 or 1.
+
+Excitation Table for Four Flip-Flops
+
+   
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+aw ary] s RF a e+] d
+0 0 ox 0 0 0
+0 1 1 0 ° 1 1
+1 ° oo1 1 0 0
+1 1 x 0 1 1 1
+
+IK flip-flop T flip-flop
+
+a ar+n[s_ «k a aren | 7
+0 0 ox 0 0 0
+0 1 1 x 0 1 1
+1 0 x 1 1 0 1
+1 1 x 0 1 1 0
+
+ 
+
+ 
+
+The reason for the don’t-care conditions in the excitation tables is that
+there are two ways of achieving the required transition. For example, in a JK
+flip-flop, a transition from present state of 0 to a next state of 0 can be achieved
+by having inputs J and K equal to 0 (to obtain no change) or by letting J = 0
+and K = 1 to clear the flip-flop (although it is already cleared). In both cases
+J must be 0, but K is 0 in the first case and 1 in the second. Since the required
+transition will occur in either case, we mark the K input with a don‘t-care x
+

@@ -1,0 +1,68 @@
+Section 14.4.
+
+Bayes’ Rule and Its Use 429
+
+ 
+
+‘CONDITIONAL
+INDEPENDENCE
+
+When Catch is observed, we can apply Bayes” rule with Toothache as the constant conditioning
+context (see Exercise 14.5):
+. _ . P(Catch|Toothache A Cavity)
+P(Cavity|ToothacheA Catch) = P(Cavity|Toothache) P(Catch\Toothachey)
+P(Toothache|Cavity) P(Catch|Toothache A. Cavity)
+
+P(Toothache) P(Catch|Toothache)
+Thus, in Bayesian updating, as each new piece of evidence is observed, the beliefin the unknown
+variable is multiplied by a factor that depends on the new evidence. Exercise 14.8 asks you to
+prove that this process is order-independent, as we would hope.
+
+So far we are not out of the woods, because the multiplication factor depends not just
+on the new evidence, but also on the evidence already obtained. . Finding a value for the nu-
+merator, P(Catch|Toothache A Cavity), is not necessarily any easier than finding a value for
+P(Toothache A Catch|Cavity). We will need to make a substantive assumption in order to sim-
+plify our expressions. The key observation, in the cavity case, is that the cavity is the direct cause
+of both the toothache and the probe catching in the tooth. Once we know the patient has a cavity,
+we do not expect the probability of the probe catching to depend on the presence of a toothache;
+similarly, the probe catching is not going to change the probability that the cavity is causing a
+toothache. Mathematically, these properties are written as
+
+P(Catch|Cavity A Toothache) = P(Catch|Cavity)
+
+P(Toothache|Cavity A Catch) - P(Toothache|Cavity)
+
+These equations express the conditional independence of Toothache and Catch given Cavity.
+Given conditional independence, we can simplify the equation for updating:
+P(Toothaéné\Cavity) — P(Catch|Cavity)
+P(Toothache) — P(Catch|Toothache)
+There is still the term P(Catch|Toothache), which might seem to involve considering all pairs
+(triples, etc.) of symptoms, but in fact this term goes away. Notice that the product of the
+denominators is P(Catch|Toothache)P(Toothache), or P(Toothache A Catch). We can elimi-
+nate this term by normalization, as before, provided we also assess P(Toothache|=Cavity)and
+P(Catch|>Cavity). Thus, we are back where we were with a single piece of evidence: we just
+need to evaluate the prior for the cause, and the conditional probabilities of each of its effects
+
+We can also use conditional independence in the multivalued case. To say that X and Y are
+independent given Z, we write
+
+P(X|Y,Z) = PCX|Z)
+which represents a set of individual conditional independence statements. The corresponding
+simplification of Bayes’ rule for multiple evidence is
+
+P(Z\X, Y) = aP(Z)P(X|Z)P(Y|Z)
+where a is a normalization constant such that the entries in P(Z|X, Y) sum to 1.
+
+It is important to remember that this simplified form of Bayesian updating only works
+when the conditional independence relationships hold. Conditional independence information
+therefore is crucial to making probabilistic systems work effectively. In Chapter 15, we show
+how it can be represented and manipulated in a systematic fashion.
+
+= P(Cavity
+
+P(Cavity| Toothache \ Catch) = P(Cavity)
+
+ 
+
+ 
+

@@ -1,0 +1,52 @@
+12.4 Allocation Methods 423
+
+onto another floppy disk or onto a tape. The original floppy disk was then freed
+completely, creating one large contiguous free space. The routine then copied
+the files back onto the floppy disk by allocating contiguous space from this one
+large hole. This scheme effectively compacts all free space into one contiguous
+space, solving the fragmentation problem. The cost of this compaction is time.
+The time cost is particularly severe for large hard disks that use contiguous allo-
+cation, where compacting all the space may take hours and may be necessary
+on a weekly basis. During this down time, normal system operation generally
+cannot be permitted, so such compaction is avoided at all costs on production
+machines.
+
+Another problem with contiguous allocation is determining how much
+space is needed for a file. When the file is created, the total amount of space
+it will need must be found and allocated. How does the creator (program or
+person) know the size of the file to be created? In some cases, this determination
+may be fairly simple (copying an existing file, for example); in general, however,
+the size of an output file may be difficult to estimate.
+
+If we allocate too little space to a file, we may find that the file cannot
+be extended. Especially with a best-fit allocation strategy, the space on both
+sides of the file may be in use. Hence, we cannot make the file larger in place.
+Two possibilities then exist. First, the user program can be terminated, with
+an appropriate error message. The user must then allocate more space and
+run the program again. These repeated runs may be costly. To prevent them,
+the user will normally overestimate the amount of space needed, resulting in
+considerable wasted space.
+
+The other possibility is to find a larger hole, copy the contents of the file to
+the new space, and release the previous space. This series of actions may be
+repeated as long as space exists, although it can be time-consuming. However,
+in this case, the user never needs to be informed explicitly about what is
+happening; the system continues despite the problem, although more and more
+slowly.
+
+Even if the total amount of space needed for a file is known in advance,
+preallocation may be inefficient. A file that grows slowly over a long period
+(months or years) must be allocated enough space for its final size, even though
+much of that space may be unused for a long time. The file, therefore, has a
+large amount of internal fragmentation.
+
+To minimize these drawbacks, some operating systems use a modified
+contiguous-allocation scheme, in which a contiguous chunk of space is allo-
+cated initially, and then, when that amount is not large enough, another chunk
+of contiguous space, an extent, is added to the initial allocation. The location
+of a file’s blocks is then recorded as a location and a block count, plus a link
+to the first block of the next extent. On some systems, the owner of the file
+can set the extent size, but this setting results in inefficiencies if the owner is
+incorrect. Internal fragmentation can still be a problem if the extents are too
+large, and external fragmentation can be a problem as extents of varying sizes
+

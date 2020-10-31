@@ -1,0 +1,48 @@
+62  Chapter3 Operating-System Structures
+
+¢ I/O operations: A running program may require I/O. This I/O may involve
+a file or anI/O device. For specific devices, special functions may be desired
+(such as to rewind a tape drive, or to blank a CRT screen). For efficiency and
+protection, users usually cannot control 1/O devices directly. Therefore, the
+operating system must provide a means to do I/O.
+
+¢ File-system manipulation: The file system is of particular interest. Obvi-
+ously, programs need to read and write files. Programs also need to create
+and delete files by name.
+
+¢ Communications: In many circumstances, one process needs to exchange
+information with another process. Such communication can occur in two
+major ways. The first takes place between processes that are executing
+on the same computer; the second takes place between processes that
+are executing on different computer systems that are tied together by a
+computer network. Communications may be implemented via shared
+memory, or by the technique of message passing, in which packets of
+information are moved between processes by the operating system.
+
+Error detection: The operating system constantly needs to be aware of
+possible errors. Errors may occur in the CPU and memory hardware (such
+as a memory error or a power failure), in I/O devices (such as a parity error
+on tape, a connection failure on a network, or lack of paper in the printer),
+and in the user program (such as an arithmetic overflow, an attempt to
+access an illegal memory location, or a too-great use of CPU time). For each
+type of error, the operating system should take the appropriate action to
+ensure correct and consistent computing.
+
+In addition, another set of operating-system functions exists not for helping
+the user, but for ensuring the efficient operation of the system itself. Systems
+with multiple users can gain efficiency by sharing the computer resources
+among the users.
+
+Resource allocation: When multiple users are logged on the system or
+multiple jobs are running at the same time, resources must be allocated
+to each of them. Many different types of resources are managed by the
+operating system. Some (such as CPU cycles, main memory, and file
+storage) may have special allocation code, whereas others (such as I/O
+devices) may have much more general request and release code. For
+instance, in determining how best to use the CPU, operating systems have
+cPU-scheduling routines that take into account the speed of the CPU, the
+jobs that must be executed, the number of registers available, and other
+factors. There might also be routines to allocate a tape drive for use by ajob.
+One such routine locates an unused tape drive and marks an internal table
+to record the drive’s new user. Another routine is used to clear that table.
+

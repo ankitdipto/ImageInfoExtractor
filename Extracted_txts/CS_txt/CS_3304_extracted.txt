@@ -1,0 +1,78 @@
+Section 22.1.
+
+Communication as Action 657
+
+ 
+
+INTENTION
+
+GENERATION
+
+SYNTHESIS
+
+PERCEPTION
+
+Let us look at these seven processes in the context of the example shown in Figure 22.1.
+
+Intention. Somehow, the speaker decides that there is something that is worth saying to
+the hearer. This often involves reasoning about the beliefs and goals of the hearer, so that the
+utterance will have the desired effect. For our example, the speaker has the intention of having
+the hearer know that the wumpus is no longer alive.
+
+Generation. The speaker uses knowledge about language to decide what to say. In many
+ways, this is harder than the inverse problem ofunderstanding (i.e., analysis and disambiguation)
+Generation has not been stressed as much as understanding in AI, mainly because we humans
+are anxious to talk to machines, but are not as excited about them talking back. For now, wejust
+assume the hearer is able to choose the words "The wumpus is dead."
+
+Synthesis. Most language-based AI systems synthesize typed output on a screen or paper,
+which is a trivial task. Speech synthesis has been growing in popularity, and some systems are
+beginning to sound human. In Figure 22.1, we show the agent synthesizing a string of sounds
+written in the phonetic alphabet defined on page 758: “[thaxwahmpahsihzdeyd].” The details of
+this notation are unimportant; the point is that the sounds that get synthesized are different from
+the words that the agent generates. Also note that the words are run together; this is typical of
+quickly spoken speech.
+
+Perception. When the medium is speech, the perception step is called speech recognition;
+when it is printing, it is called optical character recognition. Both have moved from being
+
+ 
+
+SPEAKER
+Intention: Generation: Synthesis:
+
+Know(H,7 Alive(Wumpus,S3)) "The wumpus is dead" | {thaxwahmpahsihzdeyd]
+
+HEARER
+Perception: Ss Disambiguation:
+
+"The wumpus is dead" N A Alive(Wumpus,S3)
+
+Article Noun Verb Adjective
+! I I I
+The — wumpus is dead Incorporation:
+
+(Semantic Interpretation): — Alive( Wumpus,Now)
+
+Tired Wumpus, Now); TELL( KB,
+
+(Pragmatic Interpretation): 5 Alive(Wumpus,s) | A’Ne(WumpusSs)
+
+Tired( Wumpus, Ss)
+
+ 
+
+ 
+
+ 
+
+Figure 22.1. Seven processes involved in communication, using the example sentence "The
+
+ 
+
+ 
+
+wumpus is dead.”
+
+ 
+

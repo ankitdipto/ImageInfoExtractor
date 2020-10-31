@@ -1,0 +1,93 @@
+758
+
+Chapter 24. Perception
+
+ 
+
+‘SAMPLING RATE
+
+‘QUANTIZATION
+FACTOR
+
+FRAMES
+
+FEATURES
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Vowels Consonants B-N Consonants P-Z
+Phone Example Phone Example Phone Example
+fiy] beat [b] bet [pl pet
+
+[Lih ] bit [ch] Chet (r] rat
+Loy ] bet * [d] debt {s] set
+
+fe] bat {f] fat {sh} shoe
+Cah ]but [gl get (t] ten
+
+[a0] bought {hh] hat [th] thick
+[ow] boat — [hv] high [dh] that
+
+{uh} book Uh] jet (dx] butter
+[ux] beauty [k] kick [v] vet
+
+[er] Bert {1 let [w] wet
+
+fay] buy [el] bottle [wh] which
+[oy] boy [m] met iy yet
+
+[axr] diner [em] bottom [z] Z00
+
+[aw] down {n] net [zh] measure
+[ax] about [en] button
+
+[ix] roses [ng] sing
+
+[aa] cot [eng] Washington (1 (silence)
+Figure 24.32 The DARPA phonetic alphabet, listing all the phones used in English. There are
+several alternative notations, including an International Phonetic Alphabet (IPA), which contains
+the phones in all known languages.
+
+ 
+
+ 
+
+ 
+
+Signal processing
+
+Sound is an analog energy source. When a sound wave strikes a microphone, it is converted to
+an electrical current, which can be passed to an analog-to-digital converter to yield a stream of
+bits representing the sound. We have two choices in deciding how many bits to keep. First, the
+sampling rate is the frequency with which we look at the signal. For speech, a sampling rate
+between 8 and 16 KHz (i.c., 8 to 16,000 times per second) is typical. Telephones deliver only
+about 3 KHz. Second, the quantization factor determines the precision to which the energy at
+each sampling point is recorded. Speech recognizers typically keep 8 to 12 bits. That means
+that a low-end system, sampling at 8 KHz with 8-bit quantization, would require nearly half a
+megabyte per minute of speech. This is a lot of information to manipulate, and worse, it leaves
+us very far from our goal of discovering the phones that make up the signal
+
+The first step in coming up with a better representation for the signal is to group the samples
+together into larger blocks called frames. This makes it possible to analyze the whole frame for
+the appearance of speech phenomena such as a rise or drop in frequency, or a sudden onset or
+cessation of energy. A frame length of about 10 msecs (i.e., 80 samples at 8 KHz) seems to be
+long enough so that most such phenomena can be detected and that few short-duration phenomena
+will be missed. Within each frame, we represent what is happening with a vector of features. For
+example, we might want to characterize the amount ofenergy at each of several frequency ranges.
+
+ 
+

@@ -1,0 +1,47 @@
+1086 Chapter 34 NP-Completeness
+
+344-4
+Show that the problem of determining whether a boolean formula is a tautology is
+complete for co-NP. (Hint: See Exercise 34.3-7.)
+
+344-5
+Show that the problem of determining the satisfiability of boolean formulas in dis-
+junctive normal form is polynomial-time solvable.
+
+344-6
+
+Suppose that someone gives you a polynomial-time algorithm to decide formula
+satisfiability. Describe how to use this algorithm to find satisfying assignments in
+polynomial time.
+
+344-7
+
+Let 2-CNF-SAT be the set of satisfiable boolean formulas in CNF with exactly 2
+literals per clause. Show that 2~CNF-SAT € P. Make your algorithm as efficient as
+possible. (Hint: Observe that x Vv y is equivalent to =x — y. Reduce 2-CNF-SAT
+to an efficiently solvable problem on a directed graph.)
+
+ 
+
+34.5 NP-complete problems
+
+NP-complete problems arise in diverse domains: boolean logic, graphs, arithmetic,
+network design, sets and partitions, storage and retrieval, sequencing and schedul-
+ing, mathematical programming, algebra and number theory, games and puzzles,
+automata and language theory, program optimization, biology, chemistry, physics,
+and more. In this section, we shall use the reduction methodology to provide NP-
+completeness proofs for a variety of problems drawn from graph theory and set
+partitioning.
+
+Figure 34.13 outlines the structure of the NP-completeness proofs in this section
+and Section 34.4. We prove each language in the figure to be NP-complete by
+reduction from the language that points to it. At the root is CIRCUIT-SAT, which
+we proved NP-complete in Theorem 34.7.
+
+34.5.1 The clique problem
+
+A clique in an undirected graph G = (V, E) is a subset V’ C V of vertices, each
+pair of which is connected by an edge in EZ. In other words, a clique is a complete
+subgraph of G. The size of a clique is the number of vertices it contains. The
+clique problem is the optimization problem of finding a clique of maximum size in
+

@@ -1,0 +1,39 @@
+150
+
+Part Il Sorting and Order Statistics
+
+ 
+
+Worst-case Average-case/expected
+Algorithm running time running time
+Insertion sort @(n?) @(n?)
+Merge sort O(nlgn) O(nlgn)
+Heapsort O(n ign) _
+Quicksort @(n?) @(nlgn) (expected)
+Counting sort @O(k +n) @O(k +n)
+Radix sort @(d(n +k)) Od +k)
+Bucket sort @(n?) @(n)  (average-case)
+
+Order statistics
+
+The ith order statistic of a set of n numbers is the ith smallest number in the set.
+We can, of course, select the ith order statistic by sorting the input and indexing
+the ith element of the output. With no assumptions about the input distribution,
+this method runs in Q(n lg n) time, as the lower bound proved in Chapter 8 shows.
+
+In Chapter 9, we show that we can find the ith smallest element in O(n) time,
+even when the elements are arbitrary real numbers. We present a randomized algo-
+rithm with tight pseudocode that runs in ©(n7) time in the worst case, but whose
+expected running time is O(7). We also give a more complicated algorithm that
+runs in O(1) worst-case time.
+
+Background
+
+Although most of this part does not rely on difficult mathematics, some sections
+do require mathematical sophistication. In particular, analyses of quicksort, bucket
+sort, and the order-statistic algorithm use probability, which is reviewed in Ap-
+pendix C, and the material on probabilistic analysis and randomized algorithms in
+Chapter 5. The analysis of the worst-case linear-time algorithm for order statis-
+tics involves somewhat more sophisticated mathematics than the other worst-case
+analyses in this part.
+

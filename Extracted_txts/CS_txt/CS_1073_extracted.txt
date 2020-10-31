@@ -1,0 +1,46 @@
+Chapter 10: Structures 373
+
+ 
+
+()
+
+@
+
+This provides space in memory for 100 structures of the type
+struct book.
+
+The syntax we use to reference each element of the array b is
+similar to the syntax used for arrays of ints and chars. For
+example, we refer to zeroth book’s price as b[0].price.
+Similarly, we refer first book’s pages as b[1]-pages.
+
+It should be appreciated what careful thought Dennis Ritchie
+has put into C language. He first defined array as a collection
+of similar elements; then realized that dissimilar data types
+that are often found in real life cannot be handled using
+arrays, therefore created a new data type called structure. But
+even using structures programming convenience could not be
+achieved, because a lot of variables (b1 to b100 for storing
+data about hundred books) needed to be handled. Therefore he
+allowed us to create an array of structures; an array of similar
+data types which themselves are a collection of dissimilar data
+types. Hats off to the genius!
+
+In an array of structures all elements of the array are stored in
+adjacent memory locations. Since each element of this array is
+a structure, and since all structure elements are always stored
+in adjacent locations you can very well visualise the
+arrangement of array of structures in memory. In our example,
+b[0]’s name, price and pages in memory would be
+immediately followed by b[1]’s name, price and pages, and
+so on.
+
+What is the function linkfloat( ) doing here? If you don’t
+define it you are bound to get the error "Floating Point
+Formats Not Linked" with majority of C Compilers. What
+causes this error to occur? When parsing our source file, if the
+compiler encounters a reference to the address of a float, it
+sets a flag to have the linker link in the floating-point
+emulator. A floating point emulator is used to manipulate
+floating point numbers in runtime library functions like
+

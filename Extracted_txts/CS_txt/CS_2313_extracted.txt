@@ -1,0 +1,56 @@
+314
+
+Chapter 10. Logical Reasoning Systems
+
+ 
+
+of an agent—on each cycle, we add the percepts to the knowledge base and run the forward
+chainer, which chooses an action to perform according to a set of condition-action rules.
+
+Theoretically, we could implement a production system with a theorem prover, using
+resolution to do forward chaining over a full first-order knowledge base. A more restricted
+language, on the other hand, can provide greater efficiency because the branching factor is
+reduced. The typical production system has these features:
+
+The system maintains a knowledge base called the working memory. This contains a set
+of positive literals with no variables
+
+The system also maintains a separate rule memory. This contains a set of inference rules,
+each of the formp,; Ap) *** => act, Aacty** +, where the p; are literals, and the act; are
+actions to take when the p; are all satisfied. Allowable actions are adding and deleting
+elements from the working memory, and possibly other actions (such as printing a value).
+
+In each cycle, the system computes the subset of rules whose left-hand side is satisfied by
+the current contents of the working memory. This is called the match phase.
+
+The system then decides which of the rules should be executed. This is called the conflict
+resolution phase.
+
+The final step in each cycle is to execute the action(s) in the chosen rule(s). This is called
+the act phase.
+
+Match phase
+
+Unification addresses the problem of matching a pair of literals, where either literal can contain
+variables. We can use unification in a straightforward way to implement a forward-chaining
+production system, but this is very inefficient. If there are w elements in working memory and
+rtules each with n elements in the left-hand side, and solving a problem requires c cycles, then
+the naive match algorithm must perform wrnc unifications. A simple expert system might have
+w= 100,r = 200, n = 5,c = 1000, so this is a hundred million unifications. The rete algorithm*
+used in the OPS-5 production system was the first to seriously address this problem. The rete
+algorithm is best explained by example. Suppose we have the following rule memory:
+
+AQ) A BAYA Cy) = add Dix)
+A(x) A BOO A D(x} = add EQ)
+A(x) A B(x) A E(x} = delete A(x)
+and the following working memory:
+{A(1), A(2), B(2), B(3), B(4), C(5)}
+
+The rete algorithm first compiles the rule memory into the network shown in Figure 10.6. In
+this diagram, the circular nodes represent fetches (not unifications) to working memory. Under
+node A, the working memory elements A(1) and A(2) are fetched and stored. The square nodes
+indicate unifications. Of the six possible. 4 x B combinations at the 4 =B node, only A(2) and
+B(2) satisfy the unification. Finally, rectangular boxes indicate actions. With the initial working
+
++ Rete is Latin for net. It rhymes with treaty,
+

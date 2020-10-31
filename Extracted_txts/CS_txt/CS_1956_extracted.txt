@@ -1,0 +1,49 @@
+406 Chapter 11 File-System Interface
+
+to control whether a user can determine the existence of a file in a directory.
+Sometimes, knowledge of the existence and name of a file may be significant in
+itself. Thus, listing the contents of a directory must be a protected operation.
+Therefore, if a path name refers to a file in a directory, the user must be allowed
+access to both the directory and the file. In systems where files may have
+numerous path names (such as acyclic or general graphs), a given user may
+have different access rights to a file, depending on the path name used.
+
+11.6.4 An Example: UNIX
+
+In the UNIX system, directory protection is handled similarly to file protection.
+That is, associated with each subdirectory are three fields—owner, group, and
+universe—each consisting of the 3 bits rwx. Thus, a user can list the content of
+a subdirectory only if the r bit is set in the appropriate field. Similarly, a user
+can change his current directory to another current directory (say foo) only if the
+x bit associated with the foo subdirectory is set in the appropriate field.
+
+A sample directory listing from a UNIX environment is shown in Figure
+11.13. The first field describes the file or directory’s protection. A d as the first
+character indicates a subdirectory. Also shown are the number of links to the
+file, the owner’s name, the group’s name, the size of the file in unit of bytes, the
+creation date, and finally the file’s name (with optional extension).
+
+11.7 = Summary
+
+A file is an abstract data type defined and implemented by the operating
+system. It is a sequence of logical records. A logical record may be a byte, a line
+(fixed or variable length), or a more complex data item. The operating system
+may specifically support various record types or may leave that support to the
+application program.
+
+The major task for the operating system is to map the logical file concept
+onto physical storage devices such as magnetic tape or disk. Since the physical
+record size of the device may not be the same as the logical record size, it may
+
+-tw-TW-t- 1pbg staff 31200 Sep 308:30  intro.ps
+drwx— 5 pbg _ staff 512 Jul 809:33 _private/
+drwxrwxr-x 2 pbg__ staff 512 Jul 809:35 — doc/
+drwxrwx—  2pbg student «512, Aug 314:13 _student-proj/
+-tw-t-1— 1pbg _ staff 9423 Feb 241999 program.c
+“-EWXxr-xI-X 1pbg staff 20471 Feb 24200 program
+drwxoex 4pbg faculty 512 Jul 311031 _—lib/
+drwx— 3pbg staff 1024 Aug 2906:52 — mail/
+drwxrwxrwx 3 pbg__ staff 512 Jul 809:35 test/
+
+Figure 11.13 A sample directory listing.
+

@@ -1,0 +1,101 @@
+538
+
+Chapter 20 van Emde Boas Trees
+
+ 
+
+proto-vEB(u) O12 3 2... furl
+u summary cluster’
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Y YYVYVYVYVYYVY
+proto-vEB(,/u) structure — TS
+JU proto-v EB(,/u) structures
+
+Figure 20.3. The information in a proto-v EB(w) structure when u > 4. The structure contains the
+universe size u, a pointer summary to a proto-vEB(./%) structure, and an array cluster[0.../u — 1]
+of ./u pointers to proto-v EB(,/u) structures.
+
+always be the universe size of the data structure in which we call the function,
+which changes as we descend into the recursive structure.
+
+20.2.1 Proto van Emde Boas structures
+
+Taking our cue from recurrence (20.2), let us design a recursive data structure to
+support the operations. Although this data structure will fail to achieve our goal of
+O(ig lg uw) time for some operations, it serves as a basis for the van Emde Boas tree
+structure that we will see in Section 20.3.
+
+For the universe {0,1,2,...,a— 1}, we define a proto van Emde Boas struc-
+ture, or proto-vEB structure, which we denote as proto-vEB(u), recursively as
+follows. Each proto-vEB(u) structure contains an attribute w giving its universe
+size. In addition, it contains the following:
+
++ If = 2, then it is the base size, and it contains an array A[0. . 1] of two bits.
+
+* Otherwise, u = 2** for some integer k > 1, so that uw > 4. In addition
+to the universe size u, the data structure proto-vEB(u) contains the following
+attributes, illustrated in Figure 20.3:
+
+* a pointer named swmmary to a proto-vEB(,/1) structure and
+
+* an array cluster[0.. /u—1] of ,/u pointers, each to a proto-vEB(./u) struc-
+ture.
+
+The element x, where 0 < x < u, is recursively stored in the cluster numbered
+high(x) as element low(x) within that cluster.
+
+In the two-level structure of the previous section, each node stores a summary
+array of size /u, in which each entry contains a bit. From the index of each
+entry, we can compute the starting index of the subarray of size /w that the bit
+summarizes. In the proto-vEB structure, we use explicit pointers rather than index
+

@@ -1,0 +1,52 @@
+360  Chapter10 Virtual Memory
+
+Let’s look at a contrived but informative example. Assume that pages are
+128 words in size. Consider a Java program whose function is to initialize to 0
+each element of a 128 by 128 array. The following code is typical:
+
+int A()() = new int [128] [128];
+
+for (int j = 0; j < A-length; j++)
+for (int i = 0; i < A.length; itt)
+ALiJ [3] = 05
+
+Notice that the array is stored row major. That is, the array is stored A[0] [0],
+ALO] £13, ---, ALO) (1271, AL1] £0], AL1] £11, ---, A(127] [127]. For pages of
+128 words, each row takes one page. Thus, the preceding code zeros one word
+in each page, then another word in each page, and so on. If the operating system
+allocates less than 128 frames to the entire program, then its execution will result
+in 128 x 128 = 16,384 page faults. Changing the code to
+
+int ACO) = new int [128] [128];
+
+for (int i = 0; i < A-length; i++)
+for (int j = 0; j < A.length; j++)
+ALi] (§] = 05
+
+on the other hand, zeros all the words on one page before starting the next page,
+reducing the number of page faults to 128.
+
+Careful selection of data structures and programming structures can
+increase locality and hence lower the page-fault rate and the number of pages
+in the working set. A stack has good locality, since access is always made to
+the top. A hash table, on the other hand, is designed to scatter references,
+producing bad locality. Of course, locality of reference is just one measure of
+the efficiency of the use of a data structure. Other heavily weighted factors
+include search speed, total number of memory references, and total number of
+pages touched.
+
+At a later stage, the compiler and loader can have a significant effect on
+paging. Separating code and data and generating reentrant code means that
+code pages can be read only and hence will never be modified. Clean pages
+do not have to be paged out to be replaced. The loader can avoid placing
+routines across page boundaries, keeping each routine completely in one page.
+Routines that call each other many times can be packed into the same page.
+This packaging is a variant of the bin-packing problem of operations research:
+Try to pack the variable-sized load segments into the fixed-sized pages so that
+interpage references are minimized. Such an approach is particularly useful for
+large page sizes.
+
+The choice of programming language can affect paging as well. For exam-
+ple, C and C++ use pointers frequently, and pointers tend to randomize access
+to memory, thereby potentially diminishing a process’ locality. Some studies
+

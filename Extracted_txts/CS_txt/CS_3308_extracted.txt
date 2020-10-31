@@ -1,0 +1,78 @@
+660
+
+Chapter 22 Agents that Communicate
+
+ 
+
+TELEPATHIC
+COMMUNICATION
+
+Communicating using Tell and Ask
+
+In this section, we study a form of communication in which agents share the same internal repre-
+sentation language and have direct access to each other's knowledge bases through the TELL and
+ASK interface. That is, agent 4 can communicate proposition P to agent B with TeLL(KB,,"P"),
+just as A would add P to its own knowledge base with TELL(KB,,"P"). Similarly, agent 4 can find
+out ifB knows Q with Ask(KB,, “Q”). We will call this telepathic communication. Figure 22.2
+shows a schematic diagram in which each agent is modified to have an input/output port to its
+knowledge base, in addition to the perception and action ports.
+
+Humans are lacking in telepathy powers, so they cannot make use of this kind of commu-
+nication, but it is feasible to program a group of robots with a common internal representation
+language and equip them with radio or infrared links to transmit internal representations directly
+to each other's knowledge bases. Then if agent 4 wanted to tell agent B that there is a pit in
+location [2,3], all.4 would have to do is execute:
+
+TELL(KBp.“Pit(Pai)A At(Pas, [2.3]. Sa9)")
+
+where Syo is the current situation, and P4) is A's symbol for the pit. For this to work, the
+agents have to agree notjust on the format of the internal representation language, but also on a
+great many symbols. Some of the symbols are static: they have a fixed denotation that can be
+easily agreed on ahead of time. Examples are the predicates At and Pit, the constants A and B
+representing the agents, and the numbering scheme for locations.
+
+Other symbols are dynamic: they are created after the agents start exploring the world.
+Examples include the constant P,; representing a pit, and Sy representing the current situation.
+The hard part is synchronizing the use of these dynamic symbols. There are three difficulties:
+
+1. There has to be a naming policy so that A and B do not simultaneously introduce the same
+symbol to mean different things. We have adopted the policy that each agent includes its
+own name as part of the subscript to each symbol it introduces.
+
+2. There has to be some way of relating symbols introduced by different agents, so that an
+agent can tell whether P4; and, say, Ps: denote the same pit or not. In part, this is the same
+problem that a single agent faces. An agent that detects a breeze in two different squares
+
+ 
+
+Communication with Tell and Ask
+
+Agent B
+
+  
+ 
+
+—_— —— s es
+Percepts Actions Percepts ‘ Actions
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 22.2. Two agents with a shared internal language communicating directly with each
+other's knowledge bases through TELL and ASK.
+
+ 
+
+ 
+
+ 
+

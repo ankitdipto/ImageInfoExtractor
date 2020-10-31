@@ -1,0 +1,51 @@
+416
+
+Chapter 16 Greedy Algorithms
+
+The optimal substructure of the activity-selection problem
+
+We can easily verify that the activity-selection problem exhibits optimal substruc-
+ture. Let us denote by Sj; the set of activities that start after activity a; finishes and
+that finish before activity a; starts. Suppose that we wish to find a maximum set of
+mutually compatible activi in S;;, and suppose further that such a maximum set
+is Ajj, which includes some activity ag. By including a, in an optimal solution, we
+are left with two subproblems: finding mutually compatible activities in the set S;x
+(activities that start after activity a; finishes and that finish before activity a, starts)
+and finding mutually compatible activities in the set S,; (activities that start after
+activity a, finishes and that finish before activity a; starts). Let Ajx = Ajj Six
+and Ag; = Ajj Sg;, So that Ajx contains the activities in Aj; that finish before ax
+starts and Ax; contains the activities in Aj; that start after a, finishes. Thus, we
+have Aj; = Ajx U {ax} U Ax, and so the maximum-size set Aj; of mutually com-
+patible activities in S;; consists of |Aj;| = |Aix| + |Ag;| + | activities.
+
+The usual cut-and-paste argument shows that the optimal solution A;; must also
+include optimal solutions to the two subproblems for Sjx and S,;. If we could
+find a set A, of mutually compatible activities in Sx; where |Aj;| > |Ax;|, then
+we could use Ay; rather than A,;, in a solution to the subproblem for Sj;. We
+would have constructed a set of |A;x| + |Aj;| + 1 > |Aie| + |g] +1 = |Aij|
+mutually compatible activities, which contradicts the assumption that Aj; is an
+optimal solution. A symmetric argument applies to the activities in S;;.
+
+This way of characterizing optimal substructure suggests that we might solve
+the activity-selection problem by dynamic programming. If we denote the size of
+an optimal solution for the set Sj; by c[i, j], then we would have the recurrence
+
+ 
+
+ 
+
+cli, J] = cli.k] + clk. j] +1.
+
+Of course, if we did not know that an optimal solution for the set Sj; includes
+activity az, we would have to examine all activities in S;; to find which one to
+choose, so that
+
+40 if Sy =9,
+c= max {elf k] + elk, jJ+1} if Sy AO. (16.2)
+a ES; 7
+
+We could then develop a recursive algorithm and memoize it, or we could work
+bottom-up and fill in table entries as we go along. But we would be overlooking
+another important characteristic of the activity-selection problem that we can use
+to great advantage.
+

@@ -1,0 +1,46 @@
+29.3 The simplex algorithm 877
+
+Consider the system of equations formed by subtracting each equation in
+line (29.82) from the corresponding equation in line (29.80). The resulting sys-
+tem is
+
+0= 6; -b)- YG = GX; fori e B
+
+jeN
+or, equivalently,
+
+Yai; = (b; —b)/) + Yoaijx; forieB.
+
+jEN JEN
+
+Now, for each i € B, apply Lemma 29.3 with a; = aj;, Bj = 4j;, 7 = bj — bj, and
+I=N. Since a; = B;, we have that ay = qi; for each j € N, and since y = 0,
+we have that b; = b}. Thus, for the two slack forms, A and are identical to A’
+and b’. Using a similar argument, Exercise 29.3-1 shows that it must also be the
+case that c = c’ and v = v’, and hence that the slack forms must be identical. m
+
+We can now show that cycling is the only possible reason that SIMPLEX might
+not terminate.
+
+Lemma 29.5
+
+If SIMPLEX fails to terminate in at most ce") iterations, then it cycles.
+
+Proof By Lemma 29.4, the set B of basic variables uniquely determines a slack
+form. There are n + m variables and |B| = m, and therefore, there are at most
+("2") ways to choose B. Thus, there are only at most ("*’") unique slack forms.
+Therefore, if SIMPLEX runs for more than ("a") iterations, it must cycle. .
+
+Cycling is theoretically possible, but extremely rare. We can prevent it by choos-
+ing the entering and leaving variables somewhat more carefully. One option is to
+perturb the input slightly so that it is impossible to have two solutions with the
+same objective value. Another option is to break ties by always choosing the vari-
+able with the smallest index, a strategy known as Bland’s rule. We omit the proof
+that these strategies avoid cycling.
+
+Lemma 29.6
+If lines 4 and 9 of SIMPLEX always break ties by choosing the variable with the
+smallest index, then SIMPLEX must terminate. :
+
+We conclude this section with the following lemma.
+

@@ -1,0 +1,51 @@
+34.5 NP-complete problems 1097
+
+To prove that TSP is NP-hard, we show that HAM-CYCLE <p TSP. Let
+G = (V, E) be an instance of HAM-CYCLE. We construct an instance of TSP as
+follows. We form the complete graph G’ = (V, E’), where E’ = {(i, j) :i, 7 €V.
+andi # j}, and we define the cost function c by
+
+0 if@ f/)eEk.
+1 iff) ¢E.
+
+(Note that because G is undirected, it has no self-loops, and so c(v,v) = 1 for all
+vertices v € V.) The instance of TSP is then (G’,c, 0), which we can easily create
+in polynomial time.
+
+We now show that graph G has a hamiltonian cycle if and only if graph G’ has a
+tour of cost at most 0. Suppose that graph G has a hamiltonian cycle h. Each edge
+in h belongs to E and thus has cost 0 in G’. Thus, hr is a tour in G’ with cost 0.
+Conversely, suppose that graph G’ has a tour h’ of cost at most 0. Since the costs
+of the edges in E’ are 0 and 1, the cost of tour h’ is exactly 0 and each edge on the
+tour must have cost 0. Therefore, /’ contains only edges in E. We conclude that h’
+is a hamiltonian cycle in graph G. .
+
+ci. =
+
+34.5.5 The subset-sum problem
+
+We next consider an arithmetic NP-complete problem. In the subset-sum problem,
+we are given a finite set S of positive integers and an integer target t > 0. We ask
+whether there exists a subset S’ C S whose elements sum to f. For example,
+if S = {1,2,7,14, 49, 98, 343, 686, 2409, 2793, 16808, 17206, 117705, 117993}
+and ¢ = 138457, then the subset S’ = {1, 2.7, 98, 343, 686, 2409, 17206, 117705}
+is a solution.
+
+As usual, we define the problem as a language:
+
+SUBSET-SUM = {(S, 1) : there exists a subset S’ C S such thatt = °,<5, 8} -
+
+As with any arithmetic problem, it is important to recall that our standard encoding
+assumes that the input integers are coded in binary. With this assumption in mind,
+we can show that the subset-sum problem is unlikely to have a fast algorithm.
+
+Theorem 34.15
+The subset-sum problem is NP-complete.
+
+Proof Toshow that SUBSET-SUM is in NP, for an instance (S.) of the problem,
+we let the subset S’ be the certificate. A verification algorithm can check whether
+t = ) yes, in polynomial time.
+
+We now show that 3-CNF-SAT <p SUBSET-SUM. Given a 3-CNF formula ¢
+over variables x), X2,..., Xn With clauses C),C2,..., Cx, each containing exactly
+

@@ -1,0 +1,41 @@
+Chapter 5: Functions & Pointers 193
+
+ 
+
+called to call yet another rec(), the argument x being decreased in
+value by 1 for each of these recursive calls. We speak of this series
+of calls to rec() as being different invocations of rec(). These
+successive invocations of the same function are possible because
+the C compiler keeps track of which invocation calls which. These
+recursive invocations end finally when the last invocation gets an
+argument value of 1, which the preceding invocation of rec() now
+uses to calculate its own f value and so on up the ladder. So we
+might say what happens is,
+
+rec (5) returns (5 times rec (4),
+which returns (4 times rec (3),
+which returns (3 times rec (2),
+which returns (2 times rec (1),
+which returns (1) ))))
+
+Foxed? Well, that is recursion for you in its simplest garbs. I hope
+you agree that it’s difficult to visualize how the control flows from
+one function call to another. Possibly Figure 5.4 would make
+things a bit clearer.
+
+Assume that the number entered through scanf() is 3. Using
+Figure 5.4 let’s visualize what exactly happens when the recursive
+function rec() gets called. Go through the figure carefully. The
+first time when rec() is called from main(), x collects 3. From
+here, since x is not equal to 1, the if block is skipped and rec() is
+called again with the argument ( x — 1 ), i.e. 2. This is a recursive
+call. Since x is still not equal to 1, rec( ) is called yet another time,
+with argument (2 - 1). This time as x is 1, control goes back to
+previous rec() with the value 1, and f is evaluated as 2.
+
+Similarly, each rec() evaluates its f from the returned value, and
+finally 6 is returned to main(). The sequence would be grasped
+better by following the arrows shown in Figure 5.4. Let it be clear
+that while executing the program there do not exist so many copies
+of the function rec(). These have been shown in the figure just to
+

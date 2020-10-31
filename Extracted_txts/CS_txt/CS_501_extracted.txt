@@ -1,0 +1,38 @@
+34
+
+NP-Completeness
+
+Almost all the algorithms we have studied thus far have been polynomial-time al-
+gorithms: on inputs of size n, their worst-case running time is O(n“) for some con-
+stant k. You might wonder whether all problems can be solved in polynomial time.
+The answer is no. For example, there are problems, such as Turing’s famous “Halt-
+ing Problem,” that cannot be solved by any computer, no matter how much time we
+allow. There are also problems that can be solved, but not in time O(n") for any
+constant k. Generally, we think of problems that are solvable by polynomial-time
+algorithms as being tractable, or easy, and problems that require superpolynomial
+time as being intractable, or hard.
+
+The subject of this chapter, however, is an interesting class of problems, called
+the “NP-complete” problems, whose status is unknown. No polynomial-time al-
+gorithm has yet been discovered for an NP-complete problem, nor has anyone yet
+been able to prove that no polynomial-time algorithm can exist for any one of them.
+This so-called P # NP question has been one of the deepest, most perplexing open
+research problems in theoretical computer science since it was first posed in 1971.
+
+Several NP-complete problems are particularly tantalizing because they seem
+on the surface to be similar to problems that we know how to solve in polynomial
+time. In each of the following pairs of problems, one is solvable in polynomial
+time and the other is NP-complete, but the difference between problems appears to
+be slight:
+
+Shortest vs. longest simple paths: In Chapter 24, we saw that even with negative
+edge weights, we can find shortest paths from a single source in a directed
+graph G = (V, E) in O(VE) time. Finding a /ongest simple path between two
+vertices is difficult, however. Merely determining whether a graph contains a
+simple path with at least a given number of edges is NP-complete.
+
+Euler tour vs. hamiltonian cycle: An Euler tour of a connected, directed graph
+G = (V,E) is a cycle that traverses each edge of G exactly once, although
+it is allowed to visit each vertex more than once. By Problem 22-3, we can
+determine whether a graph has an Euler tour in only O(E) time and, in fact,
+

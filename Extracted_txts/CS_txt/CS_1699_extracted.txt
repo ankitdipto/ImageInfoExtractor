@@ -1,0 +1,63 @@
+7.2 The Critical-Section Problem 193
+
+do {
+
+ 
+
+ 
+
+while (turn != i);
+
+ 
+
+critical section
+
+ 
+
+ 
+
+turn = j;
+
+ 
+
+ 
+
+remainder section
+} while (1);
+Figure 7.2 The structure of process P; in algorithm 1.
+
+7.2.1 Two-Process Solutions
+
+In this section, we restrict our attention to algorithms that are applicable to
+only two processes at a time. The processes are numbered Py and P;. For
+convenience, when presenting P;, we use P; to denote the other process; that
+is, j==1-i.
+
+7.2.1.1 Algorithm 1
+
+Our first approach is to let the processes share a common integer variable turn
+initialized to 0 (or 1). If turn == i, then process P; is allowed to execute in its
+critical section. The structure of process P; is shown in Figure 7.2.
+
+This solution ensures that only one process at a time can be in its critical
+section. However, it does not satisfy the progress requirement, since it requires
+strict alternation of processes in the execution of the critical section. For
+example, if turn == 0 and P, is ready to enter its critical section, P; cannot
+do so, even though Pp may be in its remainder section.
+
+7.2.1.2 Algorithm 2
+
+The problem with algorithm 1 is that it does not retain sufficient information
+about the state of each process; it remembers only which process is allowed to
+enter its critical section. To remedy this problem, we can replace the variable
+turn with the following array:
+
+boolean flag[2];
+
+The elements of the array are initialized to false. If flag [i] is true, this value
+indicates that P; is ready to enter the critical section. The structure of process P;
+is shown in Figure 7.3.
+
+In this algorithm, process P; first sets flag [i] to be true, signaling that it
+is ready to enter its critical section. Then, P; checks to verify that process P; is
+

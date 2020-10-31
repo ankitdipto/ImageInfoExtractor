@@ -1,0 +1,36 @@
+26.3 Maximum bipartite matching 733
+
+(a) (b) (c)
+
+Figure 26.8 A bipartite graph G = (V, E) with vertex partition V = LU R. (a) A matching
+with cardinality 2, indicated by shaded edges. (b) A maximum matching with cardinality 3. (c) The
+corresponding flow network G’ with a maximum flow shown. Each edge has unit capacity, Shaded
+edges have a flow of 1, and all other edges carry no flow. The shaded edges from L to R correspond
+to those in the maximum matching from (b).
+
+directed edges of G’ are the edges of E, directed from L to R, along with |V| new
+directed edges:
+
+E' ={(s,u):ueL}U{u,v): (uv) € BE} UL, 1): ve Rh.
+
+To complete the construction, we assign unit capacity to each edge in E’. Since
+each vertex in V has at least one incident edge, |E| > |V| /2. Thus, |EZ| < |E’| =
+|E|+|V| <3|E£|, and so |E’| = O(£).
+
+The following lemma shows that a matching in G corresponds directly to a flow
+in G’s corresponding flow network G’. We say that a flow f ona flow network
+G = (V, E) is integer-valued if f (u,v) is an integer for all (u,v) EV x V.
+
+Lemma 26.9
+
+Let G = (V, E) be a bipartite graph with vertex partition V = L U R, and let
+G’ = (V’, E’) be its corresponding flow network. If M is a matching in G, then
+there is an integer-valued flow f in G’ with value | f| = |M|. Conversely, if f
+is an integer-valued flow in G’, then there is a matching M in G with cardinality
+\M|=|fl.
+
+Proof We first show that a matching M in G corresponds to an integer-valued
+flow f in G’. Define f as follows. If (u,v) € M, then f(s,u) = f(u.v) =
+Ff (v,t) = 1. For all other edges (u,v) € E’, we define f(u,v) = 0. It is simple
+to verify that f satisfies the capacity constraint and flow conservation.
+

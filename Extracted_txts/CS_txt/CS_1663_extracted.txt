@@ -1,0 +1,89 @@
+164 Chapter6 CPU Scheduling
+
+ 
+
+ 
+
+ 
+
+ 
+
+Poo ee Be ele lee le
+0 4 7 10 14 18 22 26
+
+ 
+
+The average waiting time is 17/3 = 5.66 milliseconds.
+
+In the RR scheduling algorithm, no process is allocated the CPU for more
+than 1 time quantum in a row. If a process’ CPU burst exceeds 1 time quantum,
+that process is preempted and is put back in the ready queue. The RR scheduling
+algorithm is preemptive.
+
+If there are n processes in the ready queue and the time quantum is q, then
+each process gets 1/7 of the CPU time in chunks of at most q time units. Each
+process must wait no longer than (n — 1) x q time units until its next time
+quantum. For example, if there are five processes, with a time quantum of
+20 milliseconds, then each process will get up to 20 milliseconds every 100
+milliseconds.
+
+The performance of the RR algorithm depends heavily on the size of the
+time quantum. At one extreme, if the time quantum is very large (infinite), the
+RR policy is the same as the FCFS policy. If the time quantum is very small (say
+1 microsecond), the RR approach is called processor sharing, and appears (in
+theory) to the users as though each of n processes has its own processor running
+at 1/n the speed of the real processor. This approach was used in Control
+Data Corporation (CDC) hardware to implement 10 peripheral processors with
+only one set of hardware and 10 sets of registers. The hardware executes one
+instruction for one set of registers, then goes on to the next. This cycle continues,
+resulting in 10 slow processors rather than one fast processor. (Actually, since
+the processor was much faster than memory and each instruction referenced
+memory, the processors were not much slower than 10 real processors would
+have been.)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+process time = 10 quantum context
+switches
+12 O
+0 10
+6 1
+0 6 10
+1 9
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+o 1 2 3 4 5 6 7 8 9 10
+
+Figure 6.4 Showing how a smaller time quantum increases context switches.
+

@@ -1,0 +1,51 @@
+2.2 I/O Structure 33
+
+some program wants them. In general, we may need a buffer for each input
+device.
+
+The main advantage of asynchronous I/O is increased system efficiency.
+While I/O is taking place, the system CPU can be used for processing or starting
+I/Os to other devices. Because I/O can be slow compared to processor speed,
+the system makes efficient use of its facilities. In Section 2.2.2, we describe
+another mechanism for improving system performance.
+
+2.2.2 DMA Structure
+
+Ina simple terminal-input driver, when a line is to be read from the terminal,
+the first character typed is sent to the computer. When that character is
+received, the asynchronous-communication (or serial-port) device to which the
+terminal line is connected interrupts the CPU. When the interrupt request from
+the terminal arrives, the CPU is about to execute some instruction. (If the
+CPU is in the middle of executing an instruction, the interrupt is normally
+held pending the completion of instruction execution.) The address of this
+interrupted instruction is saved, and control is transferred to the interrupt
+service routine for the appropriate device.
+
+The interrupt service routine saves the contents of any CPU registers that it
+will need to use. It checks for any error conditions that might have resulted.
+from the most recent input operation. It then takes the character from the
+device, and stores that character in a buffer. The interrupt routine must also
+adjust pointer and counter variables, to be sure that the next input character will
+be stored at the next location in the buffer. The interrupt routine next sets a flag
+in memory indicating to the other parts of the operating system that new input
+has been received. The other parts are responsible for processing the data in
+the buffer, and for transferring the characters to the program that is requesting
+input (see Section 2.5). Then, the interrupt service routine restores the contents
+of any saved registers, and transfers control back to the interrupted instruction.
+
+If characters are being typed to a 9600-baud terminal, the terminal can
+accept and transfer one character approximately every 1 millisecond, or 1000
+microseconds. A well-written interrupt service routine to input characters into
+a buffer may require 2 microseconds per character, leaving 998 microseconds
+out of every 1000 for CPU computation (and for servicing of other interrupts).
+Given this disparity, asynchronous I/O is usually assigned a low interrupt
+priority, allowing other, more important interrupts to be processed first, or even
+to preempt the current interrupt for another. A high-speed device, however —
+such as a tape, disk, or communications network—may be able to transmit
+information at close to memory speeds; if the CPU needs two microseconds to
+respond to each interrupt and interrupts arrive every four microseconds, for
+example, that does not leave much time for process execution.
+
+To solve this problem, direct memory access (DMA) is used for high-speed
+1/O devices. After setting up buffers, pointers, and counters for the I/O device,
+

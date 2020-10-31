@@ -1,0 +1,82 @@
+700
+
+Chapter 23. Practical Natural Language Processing
+
+ 
+
+ 
+
+  
+
+i: VP/NP
+
+ 
+ 
+
+a:S'/S LVP/WVerb Jj:NP/Pronoun
+b-S/NP VP g: VP/VP NP
+c:NP/Pronoun
+
+ 
+
+ 
+
+ 
+
+Figure 23.3. Chart for a parse of “y 11 feel 2 it 3." The notation m:S means that edge m has an
+‘S on the left-hand side, while the notation f: VP/Verbmeans that edge f has a VP on the left-hand
+side, but it is looking for a Verb. There are 5 complete edges above the vertices, and 8 incomplete
+edges below.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Edge Procedure Derivation
+
+a INITIALIZER [0,0, s’ + eS]
+
+b PREDICTOR(a) [0,0, S— eNP VP]
+
+c PREDICTOR(b) [0,0, NP Pronoun]
+
+d SCANNER(C) {0, 1, NP — Pronoune]
+
+e COMPLETER(b,d) [0.1, S—NPe VP]
+
+f PREDICTOR(e) [l,1, VP — eVerb]
+PREDICTOR(e) [1,1, VP — @VPNP]
+
+i SCANNER(f) (1,2, VP — Verbe]
+
+i COMPLETER(g.h) [1.2, VP — VP eNP]
+
+j PREDICTOR(g) [2, 2, NP — *Pronoun]
+
+k SCANNER (j) (2,3, NP — Pronoune]
+
+1 COMPLETER(i,k) [1,3, VP — VP NPe]
+
+m COMPLETER(e,1) [0,3, S ~~ NP VPe]
+
+ 
+
+ 
+
+ 
+
+Figure 234 Trace ofa parse of "o I , feel 2 it 3.” For each edge a-m, we show the procedure
+used to derive the edge from other edges already in the chart.
+
+ 
+
+ 
+
+ 
+

@@ -1,0 +1,52 @@
+FS
+
+508 Chapter 14 Mass-Storage Structure
+
+data is stored, and the extra disks are used to store redundant information for
+failure recovery.
+
+© RAID Level 0: RAID level 0 refers to disk arrays with striping at the level
+of blocks, but without any redundancy (such as mirroring or parity bits).
+Figure 14.9a shows an array of size 4.
+
+.
+
+RAID Level 1: RAID level 1 refers to disk mirroring. Figure 14.9b shows a
+mirrored organization that holds four disks’ worth of data.
+
+¢ RAID Level 2: RAID level 2 is also known as memory-style error-correcting-
+code (ECC) organization. Memory systems have long implemented error
+detection using parity bits. Each byte in a memory system may have a
+parity bit associated with it that records whether the numbers of bits in the
+byte set to 1 is even (parity=0) or odd (parity=1). If one of the bits in the
+byte gets damaged (either a 1 becomes a 0, or a 0 becomes a 1), the parity of
+the byte changes and thus will not match the stored parity. Similarly, if the
+stored parity bit gets damaged, it will not match the computed parity. Thus,
+all single-bit errors are detected by the memory system. Error-correcting
+schemes store two or more extra bits, and can reconstruct the data if a single
+bit gets damaged. The idea of ECC can be used directly in disk arrays via
+striping of bytes across disks. For example, the first bit of each byte could
+be stored in disk 1, the second bit in disk 2, and so on until the eighth bit
+is stored in disk 8, and the error-correction bits are stored in further disks.
+This scheme is shown pictorially in Figure 14.9, where the disks labeled P
+store the error-correction bits. If one of the disks fails, the remaining bits
+of the byte and the associated error-correction bits can be read from other
+disks and be used to reconstruct the damaged data. Figure 14.9¢ shows an
+array of size 4; note RAID level 2 requires only three disks’ overhead for four
+disks of data, unlike RAID level 1, which required four disks’ overhead.
+
+¢ RAID level 3: RAID level 3, or bit-interleaved parity organization,
+improves on level 2 by noting that, unlike memory systems, disk
+controllers can detect whether a sector has been read correctly, so a single
+parity bit can be used for error correction, as well as for detection. The idea
+is as follows. If one of the sectors gets damaged, we know exactly which
+sector it is, and, for each bit in the sector, we can figure out whether it is
+a 1 ora 0 by computing the parity of the corresponding bits from sectors
+in the other disks. If the parity of the remaining bits is equal to the stored
+parity, the missing bit is 0; otherwise, it is 1. RAID level 3 is as good as
+level 2 but is less expensive in the number of extra disks (it has only a
+one-disk overhead), so level 2 is not used in practice. This scheme is shown
+pictorially in Figure 14.9d.
+RAID level 3 has two benefits over level 1. Only one parity disk is
+needed for several regular disks, unlike one mirror disk for every disk in
+

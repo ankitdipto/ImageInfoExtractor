@@ -1,0 +1,51 @@
+70  Chapter3 Operating-System Structures
+
+3.3.2 File Management
+
+We will discuss the file system in more detail in Chapters 11 and 12. We can
+identify several common system calls dealing with files, however.
+
+We first need to be able to create and delete files. Either system call
+requires the name of the file and perhaps some of the file’s attributes. Once the
+file is created, we need to open it and to use it. We may also read, write, or
+reposition (rewind or skip to the end of the file, for example). Finally, we
+need to close the file, indicating that we are no longer using it.
+
+We may need these same sets of operations for directories if we have a
+directory structure for organizing files in the file system. In addition, for either
+files or directories, we need to be able to determine the values of various
+attributes, and perhaps to reset them if necessary. File attributes include the
+file name, a file type, protection codes, accounting information, and so on. At
+least two system calls, get file attribute and set file attribute, are
+required for this function. Some operating systems provide many more calls.
+
+3.3.3 Device Management
+
+A program, as it is running, may need additional resources to proceed. Addi-
+tional resources may be more memory, tape drives, access to files, and so on.
+If the resources are available, they can be granted, and control can be returned
+to the user program; otherwise, the program will have to wait until sufficient
+resources are available.
+
+Files can be thought of as abstract or virtual devices. Thus, many of the
+system calls for files are also needed for devices. If the system has multiple
+users, however, we must first request the device, to ensure exclusive use of it.
+After we are finished with the device, we must release it. These functions are
+similar to the open and close system calls for files.
+
+Once the device has been requested (and allocated to us), we can read,
+write, and (possibly) reposition the device, just as we can with ordinary
+files. In fact, the similarity between I/O devices and files is so great that many
+operating systems, including UNIX and MS-DOS, merge the two into a combined
+file-device structure. In this case, I/O devices are identified by special file
+names.
+
+3.3.4 Information Maintenance
+
+Many system calls exist simply for the purpose of transferring information
+between the user program and the operating system. For example, most
+systems have a system call to return the current time and date. Other system
+calls may return information about the system, such as the number of current
+users, the version number of the operating system, the amount of free memory
+or disk space, and so on.
+

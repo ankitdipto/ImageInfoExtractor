@@ -1,0 +1,53 @@
+244 cuarrerticHT Central Processing Unit
+
+control word
+
+common arithmetic logic unit (ALU). The operation selected in the ALU deter-
+mines the arithmetic or logic microoperation thatis to be performed. Theresult
+ofthe microoperation is available for output data and also goes into the inputs
+of all the registers. The register that receives the information from the output
+bus is selected by a decoder. The decoder activates one of the register load
+inputs, thus providing a transfer path between the data in the output bus and
+the inputs of the selected destination register.
+
+The control unit that operates the CPU bus system directs the information
+flow throughthe registers and ALU by selecting the various components in the
+system. For example, to perform the operation
+
+R1CR2 + RB
+
+the control must provide binary selection variables to the following selector
+inputs:
+
+1. MUX A selector (SELA}: to place the content of R2 into bus A.
+
+2. MUX B selector (SELB): to place the content of R3 into bus B.
+
+3. ALU operation selector (OPR): to provide the arithmetic addition
+A+B.
+
+4. Decoder destination selector (SELD}: to transfer the content of the
+output bus into R1.
+
+The four control selection variables are generated in the control unit and
+mustbe available at thebeginning ofaclockcycle. Thedatafromthe two source
+registers propagate through the gates in the multiplexers and the ALU, to the
+output bus, and into the inputs of the destination register, all during the clock
+cycle interval Then, when the next clock transition occurs, the binary informa-
+tion from the output bus is transferred into R 1. Toachieve a fast response time,
+the ALU is constructed with high-speed circuits. The buses are implemented
+with multiplexers or three-state gates, as shown in Sec. 4-3.
+
+Control Word
+There are 14 binary selection inputs in the unit, and their combined value
+specifies a control word. The 14-bit control word is defined in Fig. 8-2(b). It
+consists of four fields. Three fields contain three bits each, and one field has,
+five bits. The three bits of SELA select a source register for the A input of the
+ALU. The three bits of SELB select a register for the B input of the ALU. The
+three bits of SELD select a destination register using the decoder and its seven
+load outputs. The five bits of OPR select one of the operations in the ALU. The
+‘bit control word when applied to the selection inputs specify a particular
+microoperation.
+
+The encoding of the register selections is specified in Table 8-1. The 3-bit
+

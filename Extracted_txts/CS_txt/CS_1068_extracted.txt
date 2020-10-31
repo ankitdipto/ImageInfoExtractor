@@ -1,0 +1,62 @@
+ 
+
+Section 7.4 Logical Agents for the Wumpus World 201
+sentences to a knowledge base KB, we would call
+
+TELL(KB, (Wm, c Mother(c) =m <> Female(m) A Parent(m, c)))
+and so on. Now if we tell it
+
+TELL(KB,(Female(Maxi)A Parent(Maxi, Spot) A Parent(Spot, Boots)))
+then we can ,
+
+ASK(KB, Grandparent(Maxi,Boots))
+
+ASSERTIONS. and receive an affirmative answer. The sentences added using TELL are often called assertions,
+QUERIES and the questions asked using ASK are called queries or goal (not to be confused with goals as
+GOAL used to describe an agent's desired states)
+
+Certain people think it is funny to answer questions such as "Can you tell me the time?"
+with "Yes." A knowledge base should be more cooperative. When we ask a question that is
+existentially quantified, such as
+
+Ask(KB, Ix Child(x, Spot))
+we should receive an answer indicating that Boots is a child of Spot. Thus, a query with existential
+variables is asking "Is there an x such that ....” and we solve it by providing such an x. The
+
+SUBSTITUTION standard form for an answer of this sort is a substitution or binding list, which is a set of
+BINDING LIST variable/term pairs. In this particular case, the answer would be {x/Boots}.(Ifthere is more than
+
+one possible answer, a list of substitutions can be returned. Different implementations of ASK do
+different things.)
+
+14 LOGICAL AGENTS FOR THE WUMPUS WORLD
+
+MODEL-BASED
+AGENTS.
+GOAL-BASED
+AGENTS
+
+In Chapter 6 we showed the outline of a knowledge-based agent, repeated here in slightly modified
+form as Figure 7.2. We also hinted at how a knowledge-based agent could be constructed for
+the wumpus world, but the limitations of propositional logic kept us from completing the agent
+With first-order logic, we have all the representational power we need, and we can turn to the
+more interesting question of how an agent should organize what it knows in order to take the
+right actions. We will consider three agent architectures: reflex agents® that merely classify their
+percepts and act accordingly; model-based agents? that construct an internal representation of
+the world and use it to act; and goal-based agents that form goals and try to achieve them.
+(Goal-based agents are usually also model-based agents.)
+
+The first step in constructing an agent for the wumpus world (or for any world) is to define
+the interface between the environment and the agent. The percept sentence must include both
+the percept and the time at which it occurred; otherwise the agent will get confused about when
+it saw what. We will use integers for time steps. A typical percept sentence would be
+
+Percept([Stench,Breeze, Glitter, None, None], 5)
+
+* Reflex agents are also known as tropistic agents. The biological term sropism means having a tendency to react in a
+definite manner to stimuli. A heliotropic plant, for example, is one that tums toward the sun.
+
+Note that this usage of "model” is related but not identical to its meaning as a world referred to by a sentence
+
+ 
+

@@ -1,0 +1,55 @@
+520 Chapter 17. Making Complex Decisions
+
+ 
+
+ 
+
+BIBLIOGRAPHICAL AND HISTORICAL NOTES
+
+Richard Bellman (1957) initiated the modern approach to sequential decision problems, and
+proposed the dynamic programming approach in general and the value iteration algorithm in
+particular. A remarkable Ph.D. thesis by Ron Howard (1960) introduced policy iteration and
+the idea of system gain for solving infinite-horizon problems. Several additional results were
+introduced by Bellman and Dreyfus (1962). The analysis of discounting in terms of stationary
+preferences is due to Koopmans (1972). Bertsekas (1987) provides an authoritative modem text
+on dynamic programming, which has become one of the most widely used tools for search and
+optimization problems.
+
+The observation that partially observable Markov decision problems can be transformed
+into a regular Markov decision problem using the belief states is due to Astrom (1965). The
+first complete algorithm for exact solution of partially-observable Markov decision problems
+(POMDPs) was proposed by Edward Sondik (1971) in his Ph.D. thesis. (A later journal paper
+by Smallwood and Sondik (1973) contains some errors but is more accessible.) Lovejoy (1991)
+surveys the state of the art in POMDPs. In Al, Cassandra e/ al. (1994) have investigated the
+application of POMDP algorithms to planning problems.
+
+Several recent papers have attempted to combine dynamic programming algorithms such
+as policy iteration with planning and search models from AI (Dean ef al.. 1993; Tashand Russell,
+1994). This line of work involves approximating a Markov decision problem using a limited
+horizon and abstract states, in an effort to overcome the combinatorics of large state spaces.
+Heuristics based on the value of information can be used to select areas of the state space where
+a local expansion of the horizon will yield a significant improvement in decision quality. Agents
+using this approach can tailor their effort to handle time pressure, and generate some interesting
+behaviors such as using familiar "beaten paths" to find their way around the state space quickly
+without having to recompute optimal decisions at each point.
+
+Many of the basic ideas for estimating the state of dynamical systems came from the
+mathematician C. F. Gauss (1809), The prediction-estimation cycle for monitoring environments
+under uncertainty was proposed by Kalman (Kalman, 1960), building on classified wartime
+research by Wiener (1942) and Kolmogorov (1941). Kalman filtering, which Kalman derived
+for linear systems with Gaussian noise, has since become an industry in itself (Gelb, 1974;
+Bar-Shalom and Fortmann, 1988). Leonard and Durrant-Whyte (1992) describe probabilistic
+sensor models in detail, with particular attention to the modelling of sonar sensors.
+
+Dynamic belief networks (DBNs) can be viewed as a sparse encoding ofa Markov process,
+and were first used in AI by Dean and Kanazawa (1989), Nicholson (1992), and Kjaerulff(1992)-
+The last work includes a generic extension to the HUGIN belief net system to provide the necessary
+facilities for dynamic belief network generation and compilation. The development given in this
+chapter owes a good deal to the book by Dean and Wellman (1991), which provides extensive
+discussion of the use of DBNs and DDNs (dynamic decision networks) in mobile robots. Huang
+et al. (1994) describe an application of DBNs to the analysis of freeway traffic using computer
+vision. A notation and an evaluation algorithm for additive DDNs are provided by Tatman and
+Shachter (1990).
+
+ 
+

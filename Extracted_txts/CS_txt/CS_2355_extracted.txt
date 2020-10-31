@@ -1,0 +1,84 @@
+omega network
+
+SECTION 13-2 Interconnection Structures 497
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+LS
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+4 1) ior
+
+NG 12-10
+
+4 bLin
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 13-7 Binary tee with 2X 2 switches
+
+number. The first bit of the destination number determines the switch output
+in the firstlevel. The second bit specifies the output of the switch in the second
+level, and the third bit specifies the output of the switch in the third level. For
+example, to connect P, to memory 101, it is necessary to form a path from P,
+to output 1 in the first-level switch, output 0 in the second-level switch, and
+output lin the third-level switch. Itis clear that either P; or P; can be connected
+to any one of the eight memories. Certain request patterns, however, cannot
+be satisfied simultaneously. For example, if P, is connected to one of the
+destinations 000 through 011, P; can be connected to only one of the destina-
+tions 100 through 111.
+
+Many different topologies have been proposed for multistage switching
+networks to control processor-memory communication in a tightly coupled
+multiprocessor system or to control the communication between the process-
+ing elements in a loosely coupled system. One such topology is the omega
+switchingnetworkshownin Fig. 13-8. In this configuration, there is exactly one
+path from each source to any particular destination. Some request patterns,
+however, cannot be connected simultaneously. For example, any two sources
+cannot be connected simultaneously to destinations 000 and 001.
+
+ 
+

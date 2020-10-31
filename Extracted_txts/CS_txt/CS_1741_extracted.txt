@@ -1,0 +1,50 @@
+7.9 Atomic Transactions 227
+
+¢ Nonvolatile Storage: Information residing in nonvolatile storage usually
+survives system crashes. Examples of media for such storage are disks and
+magnetic tapes. Disks are more reliable than is main memory, but are less
+reliable than are magnetic tapes. Both disks and tapes, however, are subject
+to failure, which may result in loss of information. Currently, nonvolatile
+storage is slower than volatile storage by several orders of magnitude,
+because disk and tape devices are electromechanical and require physical
+motion to access data.
+
+¢ Stable Storage: Information residing in stable storage is never lost (never
+should be taken with a grain of salt, since theoretically such absolutes
+cannot be guaranteed). To implement an approximation of such storage, we
+need to replicate information in several nonvolatile storage caches (usually
+disk) with independent failure modes, and to update the information in a
+controlled manner (Section 14.7).
+
+Here, we are concerned only with ensuring transaction atomicity in an
+environment where failures result in the loss of information on volatile storage.
+
+7.9.2 Log-Based Recovery
+
+One way to ensure atomicity is to record, on stable storage, information describ-
+ing all the modifications made by the transaction to the various data it accessed.
+The most widely used method for achieving this form of recording is write-
+ahead logging. The system maintains, on stable storage, a data structure called
+the log. Each log record describes a single operation of a transaction write, and
+has the following fields:
+
+¢ Transaction Name: The unique name of the transaction that performed the
+write operation
+
+¢ Data Item Name: The unique name of the data item written
+© Old Value: The value of the data item prior to the write operation
+« New Value: The value that the data item will have after the write
+
+Other special log records exist to record significant events during transac-
+tion processing, such as the start of a transaction and the commit or abort of a
+transaction.
+
+Before a transaction T; starts its execution, the record < T; starts> is
+written to the log. During its execution, any write operation by T; is preceded
+by the writing of the appropriate new record to the log. When T; commits, the
+record < T; commits> is written to the log.
+
+Because the information in the log is used in reconstructing the state of
+the data items accessed by the various transactions, we cannot allow the actual
+update to a data item to take place before the corresponding log record is
+

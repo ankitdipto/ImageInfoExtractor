@@ -1,0 +1,65 @@
+2.5 Hardware Protection 47
+
+ 
+
+base + {limit
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+CPU
+
+ 
+
+ 
+
+ 
+
+   
+
+trap to operating system
+monitor—addressing error memory
+
+Figure 2.10 Hardware address protection with base and limit registers.
+
+fixed (for example, 1/60 second) or variable (for example, from 1 millisecond to
+1 second). A variable timer is generally implemented by a fixed-rate clock and
+a counter. The operating system sets the counter. Every time the clock ticks,
+the counter is decremented. When the counter reaches 0, an interrupt occurs.
+For instance, a 10-bit counter with a 1-millisecond clock allows interrupts at
+intervals from 1 millisecond to 1,024 milliseconds, in steps of 1 millisecond.
+
+Before turning over control to the user, the operating system ensures that
+the timer is set to interrupt. If the timer interrupts, control transfers automat-
+ically to the operating system, which may treat the interrupt as a fatal error
+or may give the program more time. Clearly, instructions that modify the
+operation of the timer are privileged.
+
+Thus, we can use the timer to prevent a user program from running too
+long. A simple technique is to initialize a counter with the amount of time that a
+program is allowed to run. A program with a 7-minute time limit, for example,
+would have its counter initialized to 420. Every second, the timer interrupts
+and the counter is decremented by 1. As long as the counter is positive, control
+is returned to the user program. When the counter becomes negative, the
+operating system terminates the program for exceeding the assigned time limit.
+
+A more common use of a timer is to implement time sharing. In the most
+straightforward case, the timer could be set to interrupt every N milliseconds,
+where N is the time slice that each user is allowed to execute before the next
+user gets control of the CPU. The operating system is invoked at the end of each
+time slice to perform various housekeeping tasks, such as adding the value N
+to the record that specifies (for accounting purposes) the amount of time the
+user program has executed thus far. The operating system also saves registers,
+internal variables, and buffers, and changes several other parameters to prepare
+for the next program to run. This procedure is known as a context switch; it is
+explored in Chapter 4. Following a context switch, the next program continues
+

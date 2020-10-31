@@ -1,0 +1,50 @@
+384
+
+Chapter 15 Dynamic Programming
+
+the assumption that p is a shortest path. Thus, we are assured that the subproblems
+for the shortest-path problem are independent.
+
+Both problems examined in Sections 15.1 and 15.2 have independent subprob-
+lems. In matrix-chain multiplication, the subproblems are multiplying subchains
+AjAj4i+++ Ag and Ag41AK+2°++ Aj. These subchains are disjoint, so that no ma-
+trix could possibly be included in both of them. In rod cutting, to determine the
+best way to cut up a rod of length n, we look at the best ways of cutting up rods
+of length i fori = 0,1,..., — 1. Because an optimal solution to the length-n
+problem includes just one of these subproblem solutions (after we have cut off the
+first piece), independence of subproblems is not an issue.
+
+Overlapping subproblems
+
+The second ingredient that an optimization problem must have for dynamic pro-
+gramming to apply is that the space of subproblems must be “small” in the sense
+that a recursive algorithm for the problem solves the same subproblems over and
+over, rather than always generating new subproblems. Typically, the total number
+of distinct subproblems is a polynomial in the input size. When a recursive algo-
+rithm revisits the same problem repeatedly, we say that the optimization problem
+has overlapping subproblems.* In contrast, a problem for which a divide-and-
+conquer approach is suitable usually generates brand-new problems at each step
+of the recursion. Dynamic-programming algorithms typically take advantage of
+overlapping subproblems by solving each subproblem once and then storing the
+solution in a table where it can be looked up when needed, using constant time per
+lookup.
+
+In Section 15.1, we briefly examined how a recursive solution to rod cut-
+ting makes exponentially many calls to find solutions of smaller subproblems.
+Our dynamic-programming solution takes an exponential-time recursive algorithm
+down to quadratic time.
+
+To illustrate the overlapping-subproblems property in greater detail, let us re-
+examine the matrix-chain multiplication problem. Referring back to Figure 15.5,
+observe that MATRIX-CHAIN-ORDER repeatedly looks up the solution to subprob-
+lems in lower rows when solving subproblems in higher rows. For example, it
+references entry m[3, 4] four times: during the computations of m[2, 4], m[1, 4],
+
+ 
+
+4Tt may seem strange that dynamic programming relies on subproblems being both independent
+and overlapping. Although these requirements may sound contradictory, they describe two different
+notions, rather than two points on the same axis. Two subproblems of the same problem are inde-
+pendent if they do not share resources. Two subproblems are overlapping if they are really the same
+subproblem that occurs as a subproblem of different problems.
+

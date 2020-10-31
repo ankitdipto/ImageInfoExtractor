@@ -1,0 +1,37 @@
+ 
+
+3 Growth of Functions
+
+The order of growth of the running time of an algorithm, defined in Chapter 2,
+gives a simple characterization of the algorithm’s efficiency and also allows us to
+compare the relative performance of alternative algorithms. Once the input size n
+becomes large enough, merge sort, with its O(n 1lgm) worst-case running time,
+beats insertion sort, whose worst-case running time is @(n?). Although we can
+sometimes determine the exact running time of an algorithm, as we did for insertion
+sort in Chapter 2, the extra precision is not usually worth the effort of computing
+it. For large enough inputs, the multiplicative constants and lower-order terms of
+an exact running time are dominated by the effects of the input size itself.
+
+When we look at input sizes large enough to make only the order of growth of
+the running time relevant, we are studying the asymptotic efficiency of algorithms.
+That is, we are concerned with how the running time of an algorithm increases with
+the size of the input in the limit, as the size of the input increases without bound.
+Usually, an algorithm that is asymptotically more efficient will be the best choice
+for all but very small inputs.
+
+This chapter gives several standard methods for simplifying the asymptotic anal-
+ysis of algorithms. The next section begins by defining several types of “asymp-
+totic notation,” of which we have already seen an example in ©-notation. We then
+present several notational conventions used throughout this book, and finally we
+review the behavior of functions that commonly arise in the analysis of algorithms.
+
+ 
+
+3.1 Asymptotic notation
+
+The notations we use to describe the asymptotic running time of an algorithm
+are defined in terms of functions whose domains are the set of natural numbers
+N = {0,1,2,...}. Such notations are convenient for describing the worst-case
+running-time function T(), which usually is defined only on integer input sizes.
+We sometimes find it convenient, however, to abuse asymptotic notation in a va-
+

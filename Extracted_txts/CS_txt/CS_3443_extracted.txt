@@ -1,0 +1,53 @@
+780
+
+Chapter 25. Robotics
+
+ 
+
+MANIPULATORS
+
+ 
+
+passive caster
+
+V
+
+independently
+controlled wheels
+
+ 
+
+ 
+
+Figure 253 The wheel arrangement on the Hilare mobile robot, viewed from the bottom.
+
+ 
+
+ 
+
+ 
+
+has a minimum turning radius or can turn on the spot. Ifthe latter is true, then itis always possible
+to move from configuration A to B by turning on the spot toward B, moving to B in a straight
+line, and rotating on the spot to the orientation of B. Ifthere is a turning-radius constraint, or if
+one would like to move without slowing down too much (which generates the same constraint),
+a special path planner is needed. It can be shown that the shortest path in such cases consists of
+straight-line segments joining segments of circles with the minimum radius.
+
+Sometimes the robot's design makes the control of locomotion very difficult. Reversing a
+wheeled vehicle with several trailers is beyond the capability of most humans; hence some large
+fire engines are fitted with a second steering wheel for the back wheels to make it easier. Fire
+engines have only a single trailer, but two-trailer examples can be seen at any modern airport.
+When leaving a gate, most aircraft are driven by a nose-wheel tender. The nose-wheel tender
+(the car) drives a long link attached to the nose wheel (first trailer). The aircraft itself forms the
+second trailer. This combination must be backed out of the gate each time an aircraft departs,
+and the only control is the steering of the tender. Fortunately, the much greater length of the
+aircraft makes it insensitive to small motions of the tender and link, and the control problem is
+tractable for an experienced driver. Recent advances in control theory have resulted in algorithms
+for automatically steering vehicles with any number of trailers of any size
+
+Manipulation
+
+We return now to manipulators, effectors that move objects in the environment. The ancestors of
+robot manipulators were teleoperated mechanisms that allowed humans to manipulate hazardous
+

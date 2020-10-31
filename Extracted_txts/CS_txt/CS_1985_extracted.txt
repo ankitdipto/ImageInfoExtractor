@@ -1,0 +1,49 @@
+430 Chapter12 File-System Implementation
+
+we may have to read first the index block and then the desired data block. For
+a two-level index, two index-block reads might be necessary. For an extremely
+large file, accessing a block near the end of the file would require reading in
+all the index blocks to follow the pointer chain before the needed data block
+finally could be read. Thus, the performance of indexed allocation depends
+on the index structure, on the size of the file, and on the position of the block
+desired.
+
+Some systems combine contiguous allocation with indexed allocation by
+using contiguous allocation for small files (up to three or four blocks), and
+automatically switching to an indexed allocation if the file grows large. Since
+most files are small, and contiguous allocation is efficient for small files, average
+performance can be quite good.
+
+For instance, the version of the UNIX operating system from Sun Microsys-
+tems was changed in 1991 to improve performance in the file-system allocation
+algorithm. The performance measurements indicated that the maximum disk
+throughput on a typical workstation (12-MIPS SPARCstation1) took 50 percent
+of the CPU and produced a disk bandwidth of only 1.5 MB per second. To
+improve performance, Sun made changes to allocate space in clusters of size
+56 KB whenever possible. (56 KB was the maximum size of a DMA transfer
+on Suns at that time.) This allocation reduced external fragmentation, and
+thus seek and latency times. In addition, the disk-reading routines were opti-
+mized to read in these large clusters. The inode structure was left unchanged.
+These changes, plus the use of read-ahead and free-behind (discussed in Section
+12.6.2), resulted in 25 percent less CPU being used for substantially improved
+throughput.
+
+Many other optimizations are possible and are in use. Given the disparity
+between CPU and disk speed, it is not unreasonable to add thousands of extra
+instructions to the operating system to save just a few disk-head movements.
+Furthermore, this disparity is increasing over time, to the point where hun-
+dreds of thousands of instructions reasonably could be used to optimize head
+movements.
+
+12.5 = Free-Space Management
+
+Since disk space is limited, we need to reuse the space from deleted files for new
+files, if possible. (Write-once optical disks only allow one write to any given
+sector, and thus such reuse is not physically possible.) To keep track of free
+disk space, the system maintains a free-space list. The free-space list records all
+free disk blocks—those not allocated to some file or directory. To create a file,
+we search the free-space list for the required amount of space, and allocate that
+space to the new file. This space is then removed from the free-space list. When
+a file is deleted, its disk space is added to the free-space list. The free-space list,
+despite its name, might not be implemented as a list, as we shall discuss.
+

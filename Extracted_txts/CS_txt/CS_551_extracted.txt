@@ -1,0 +1,94 @@
+SECTION 510 Design of Accumulator Logic 165,
+
+Control of AC Register
+
+The gate structure that controls the LD, INR, and CLR inputs of ACis shown
+in Fig, 5-20. The gate configuration is derived from the control functions in the
+list above The control function for the clear microoperation is rBy, where
+1 = Djl'T; and By = IR(11). The output of the AND gate that generates this
+control function is connected to the CLR input of the register. Similarly, the
+output of the gate that implements the increment microoperation is connected
+to the INR input of the register. The other seven microoperations are generated
+in the adder and logic circuit and are loaded into AC at the proper time. The
+outputs of the gates for each control function is marked with a symbolic name.
+These outputs are used in the design of the adder and logic circuit.
+
+ 
+
+Figure 5-20 Gate structure for controlling the LD, INR, and CLR of AC.
+
+Fram adder _16 16
+Tube ac > Tobus
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Chock
+%— 0 w me for
+2, app
+Ds
+Ts
+>
+an
+com
+3,
+4) _sur
+a 2 —
+
+ 
+
+ 
+
+_ to
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+t~—\_inc
+Bs J
+
+{—\_cur
+Bu J
+
+ 
+

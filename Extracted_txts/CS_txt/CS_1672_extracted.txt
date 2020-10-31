@@ -1,0 +1,51 @@
+6.5 Real-Time Scheduling 171
+
+Itis relatively simple to ensure that the former property holds. For example,
+we can disallow process aging on real-time processes, thereby guaranteeing that
+the priority of the various processes does not change. However, ensuring the
+latter property is much more involved. The problem is that many operating
+systems, including most versions of UNIX, are forced to wait either for a system
+call to complete or for an I/O block to take place before doing a context switch.
+The dispatch latency in such systems can be long, since some system calls are
+complex and some I/O devices are slow.
+
+To keep dispatch latency low, we need to allow system calls to be pre-
+emptible. There are several ways to achieve this goal. One is to insert pre-
+emption points in long-duration system calls, that check to see whether a high-
+priority process needs to be run. If so, a context switch takes place and, when
+the high-priority process terminates, the interrupted process continues with the
+system call. Preemption points can be placed at only “safe” locations in the
+kernel—only where kernel data structures are not being modified. Even with
+preemption points dispatch latency can be large, because only a few preemption
+points can be practically added to a kernel.
+
+Another method for dealing with preemption is to make the entire kernel
+preemptible. So that correct operation is ensured, all kernel data structures
+must be protected through the use of various synchronization mechanisms
+that we discuss in Chapter 7. With this method, the kernel can always be
+preemptible, because any kernel data being updated are protected from mod-
+ification by the high-priority process. This is the most effective (and complex)
+method in widespread use; it is used in Solaris 2.
+
+But what happens if the higher-priority process needs to read or modify
+kernel data currently being accessed by another, lower-priority process? The
+high-priority process would be waiting for a lower-priority one to finish. This
+situation is known as priority inversion. In fact, a chain of processes could all
+be accessing resources that the high-priority process needs. This problem can
+be solved via the priority-inheritance protocol, in which all these processes
+(the ones accessing resources that the high-priority process needs) inherit the
+high priority until they are done with the resource in question. When they are
+finished, their priority reverts to its original value.
+
+In Figure 6.8, we show the makeup of dispatch latency. The conflict phase
+of dispatch latency has two components:
+
+1. Preemption of any process running in the kernel
+
+2. Release by low-priority processes resources needed by the high-priority
+process
+
+As an example, in Solaris 2, the dispatch latency with preemption disabled is
+over 100 milliseconds. However, the dispatch latency with preemption enabled
+is usually reduced to 2 milliseconds.
+

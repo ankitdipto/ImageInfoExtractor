@@ -1,0 +1,53 @@
+Bibliographical Notes 369
+
+10.19 We have an operating system for a machine that uses base and limit
+registers, but we have modified the machine to provide a page table. Can
+we set up the page tables to simulate base and limit registers? How can
+we do so, or why can we not do so?
+
+10.20 What is the cause of thrashing? How does the system detect thrashing?
+Once it detects thrashing, what can the system do to eliminate this
+problem?
+
+10.21 Write a program that implements the FIFO and LRU page-replacement
+algorithms presented in this chapter. First, generate a random page-
+reference string where page numbers range from 0 to 9. Apply the
+random page-reference string to each algorithm and record the number
+of page faults incurred by each algorithm. Implement the replacement
+algorithms so that the number of page frames can vary from 1 to 7.
+Assume that demand paging is used.
+
+Bibliographical Notes
+
+Demand paging was first used in the Atlas system, implemented on the Manch-
+ester University MUSE computer around 1960 (Kilburn et al. [1961]). Another
+early demand-paging system was MULTICS, implemented on the GE 645 system
+(Organick [1972]).
+
+Belady et al. [1969] were the first researchers to observe that the FIFO
+replacement strategy may have the anomaly that bears Belady’s name. Mattson
+et al. [1970] demonstrated that stack algorithms are not subject to Belady’s
+anomaly.
+
+The optimal replacement algorithm was presented by Belady [1966]. It was
+proved to be optimal by Mattson et al. [1970]. Belady’s optimal algorithm is
+for a fixed allocation; Prieve and Fabry [1976] have an optimal algorithm for
+situations where the allocation can vary.
+
+The enhanced clock algorithm was discussed by Carr and Hennessy [1981];
+it is used in the Macintosh virtual memory-management scheme, and was
+described by Goldman [1989].
+
+The working-set model was developed by Denning [1968]. Discussions
+concerning the working-set model were presented by Denning [1980].
+
+The scheme for monitoring the page-fault rate was developed by Wulf
+[1969], who successfully applied this technique to the Burroughs B5500 com-
+puter system. Gupta and Franklin [1978] provided a performance comparison
+between the working-set scheme and the page-fault-frequency replacement
+scheme.
+
+Solomon [1998] describes how Windows NT implements virtual memory.
+Mauro and McDougall [2001] discusses virtual memory on Solaris 2. Virtual-
+memory techniques in Linux and BSD are described by Bovet and Cesati [2001]
+

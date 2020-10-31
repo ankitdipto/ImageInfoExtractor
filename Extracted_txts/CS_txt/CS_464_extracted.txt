@@ -1,0 +1,44 @@
+33.1 Line-segment properties 1017
+
+P2 P2
+Pi Pi
+counterclockwise clockwise
+Po Po
+(a) (b)
+
+Figure 33.2 Using the cross product to determine how consecutive line segments DoPy and Drpr
+turn at point p1. We check whether the directed segment D973 is clockwise or counterclockwise
+relative to the directed segment POPT- (a) If counterclockwise, the points make a left turn. (b) If
+clockwise, they make a right turn.
+
+(Pi — Po) X (P2 = Po) = (%1 — Xo) (V2 = Yo) — (2 = X0)(V1 — Yo) -
+
+If this cross product is positive, then PoP is clockwise from PoP>; if negative, it
+is counterclockwise.
+
+Determining whether consecutive segments turn left or right
+
+Our next question is whether two consecutive line segments PoP and Py Pz turn
+left or right at point p;. Equivalently, we want a method to determine which way a
+given angle Z po P1 P2 turns. Cross products allow us to answer this question with-
+out computing the angle. As Figure 33.2 shows, we simply check whether directed
+segment PoP? is clockwise or counterclockwise relative to directed segment Po Pi-
+To do so, we compute the cross product (p2 — po) x (pi — po). If the sign of
+this cross product is negative, then Do P> is counterclockwise with respect to PoP1,
+and thus we make a left turn at p;. A positive cross product indicates a clockwise
+orientation and a right turn. A cross product of 0 means that points po, Pi, and p2
+are colinear.
+
+Determining whether two line segments intersect
+
+To determine whether two line segments intersect, we check whether each segment
+straddles the line containing the other. A segment P;P> straddles a line if point p;
+lies on one side of the line and point p lies on the other side. A boundary case
+arises if p; Or P2 lies directly on the line. Two line segments intersect if and only
+if either (or both) of the following conditions holds:
+
+1. Each segment straddles the line containing the other.
+
+2. An endpoint of one segment lies on the other segment. (This condition comes
+from the boundary case.)
+

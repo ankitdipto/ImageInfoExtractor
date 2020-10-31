@@ -1,0 +1,50 @@
+124
+
+Chapter 5 Probabilistic Analysis and Randomized Algorithms
+
+RANDOMIZED-HIRE-ASSISTANT (I)
+
+1 randomly permute the list of candidates
+2 best =0 // candidate 0 is a least-qualified dummy candidate
+3 fori = lton
+interview candidate i
+if candidate i is better than candidate best
+best =i
+hire candidate i
+
+NYAWsA
+
+With this simple change, we have created a randomized algorithm whose perfor-
+mance matches that obtained by assuming that the candidates were presented in a
+random order.
+
+Lemma 5.3
+The expected hiring cost of the procedure RANDOMIZED-HIRE-ASSISTANT is
+O(calnn).
+
+Proof After permuting the input array, we have achieved a situation identical to
+that of the probabilistic analysis of HIRE-ASSISTANT. .
+
+Comparing Lemmas 5.2 and 5.3 highlights the difference between probabilistic
+analysis and randomized algorithms. In Lemma 5.2, we make an assumption about
+the input. In Lemma 5.3, we make no such assumption, although randomizing the
+input takes some additional time. To remain consistent with our terminology, we
+couched Lemma 5.2 in terms of the average-case hiring cost and Lemma 5.3 in
+terms of the expected hiring cost. In the remainder of this section, we discuss some
+issues involved in randomly permuting inputs.
+
+Randomly permuting arrays
+
+Many randomized algorithms randomize the input by permuting the given input
+array. (There are other ways to use randomization.) Here, we shall discuss two
+methods for doing so. We assume that we are given an array A which, without loss
+of generality, contains the elements 1 through n. Our goal is to produce a random
+permutation of the array.
+
+One common method is to assign each element A[i] of the array a random pri-
+ority P[i], and then sort the elements of A according to these priorities. For ex-
+ample, if our initial array is A = (1, 2, 3, 4) and we choose random priorities
+P = (36,3, 62,19), we would produce an array B = (2,4, 1,3), since the second
+priority is the smallest, followed by the fourth, then the first, and finally the third.
+We call this procedure PERMUTE-ByY-SORTING:
+

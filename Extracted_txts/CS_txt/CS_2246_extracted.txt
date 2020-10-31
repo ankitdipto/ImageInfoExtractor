@@ -1,0 +1,57 @@
+400 curren ELEVEN Input-Output Organization
+
+receiver
+
+FIFO
+
+baud rate. The CPU can transfer another character to the transmitter register
+after checking the flag in the status register. The interface is said to be double
+buffered because a new character can be loaded as soon as the previous one
+starts transmission.
+
+The operation of the receiver portion of the interface is similar. The
+receive data input is in the 1-state when the line is idle. The receiver control
+monitors the receive-data line for a 0 signal to detect the occurrence of a start
+bit. Once a start bit has been detected, the incoming bits of the character are
+shifted into the shift register at the prescribed baud rate. After receiving the
+data bits, the interface checks for the parity and stop bits. The character without
+the start and stop bits is then transferred in parallel from the shift register to
+the receiver register. The flag in the status register is set to indicate that the
+receiver register is full. The CPU reads the status register and checks the flag,
+and if set, it reads the data from the receiver register.
+
+The interface checks for any possible errors during transmission and sets
+appropriate bits in the status register. The CPU can read the status register at
+any time to check if any errors have occurred. Three possible errors that the
+interface checks during transmission are parity error, framing error, and over-
+run error. Parity error occurs if the number of 1’s in the received data is not
+the correct parity. A framing error occurs if the right number of stop bits is not
+detected at the end of the received character. An overrun error occurs if the
+CPU does not read the character from the receiver register before the next one
+becomes available in the shift register. Overrun error results in a loss of
+characters in the received data stream.
+
+ 
+
+  
+
+First-In, First-Out Buffer
+A first-in, first-out (FIFO) buffer is a memory unit that stores information in
+such a manner that the item first in is the item first out. A FIFO buffer comes
+with separate input and output terminals. The important feature of this buffer
+is that it can input data and output data at two different rates and the output
+data are always in the same order in which the data entered the buffer. When
+placed between two units, the FIFO can accept data from the source unit atone
+rate of transfer and deliver the data to the destination unit at another rate. If
+the source unit is slower than the destination unit, the buffer can be filled with
+data at a slow rate and later emptied at the higher rate. If the source is faster
+than the destination, the FIFO is useful for those cases where the source data
+arrive in bursts that fill out the buffer but the time between bursts is long
+enough forthe destination unit to empty some or all the information from the
+buffer. Thus a FIFO buffer can be useful in some applications when data are
+transferred asynchronously. It piles up data as they come in and gives them
+away in the same order when the data are needed.
+
+The logicdiagram of a typical 4 x 4 FIFO bufferis shown in Fig. 11-9. It
+consists of four 4-bit registers RI, I = 1, 2,3,4, and a control register with
+

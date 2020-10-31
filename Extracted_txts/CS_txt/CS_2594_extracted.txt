@@ -1,0 +1,49 @@
+7.4 Analysis of quicksort 18]
+
+observation gives us the bound maxoeg<n—1(q? + (n —q — 1)*) < Q—1)? =
+n? — 2n +1. Continuing with our bounding of T(), we obtain
+
+T(n) cn? — c(2n —1) + O(n)
+
+< cn?,
+
+IA
+
+since we can pick the constant c large enough so that the c(2n — 1) term dom-
+inates the O(n) term. Thus, T(n) = O(n”). We saw in Section 7.2 a specific
+case in which quicksort takes Q(n?) time: when partitioning is unbalanced. Al-
+ternatively, Exercise 7.4-1 asks you to show that recurrence (7.1) has a solution of
+T(n) = Q(n?). Thus, the (worst-case) running time of quicksort is @(n?).
+
+7.4.2 Expected running time
+
+We have already seen the intuition behind why the expected running time of
+RANDOMIZED-QUICKSORT is O(nlgn): if, in each level of recursion, the split
+induced by RANDOMIZED-PARTITION puts any constant fraction of the elements
+on one side of the partition, then the recursion tree has depth O(1g7), and O(n)
+work is performed at each level. Even if we add a few new levels with the most un-
+balanced split possible between these levels, the total time remains O(n lgn). We
+can analyze the expected running time of RANDOMIZED-QUICKSORT precisely
+by first understanding how the partitioning procedure operates and then using this
+understanding to derive an O(n lgn) bound on the expected running time. This
+upper bound on the expected running time, combined with the ©(n lg) best-case
+bound we saw in Section 7.2, yields a ©(n lg) expected running time. We assume
+throughout that the values of the elements being sorted are distinct.
+
+Running time and comparisons
+
+The QUICKSORT and RANDOMIZED-QUICKSORT procedures differ only in how
+they select pivot elements; they are the same in all other respects. We can therefore
+couch our analysis of RANDOMIZED-QUICKSORT by discussing the QUICKSORT
+and PARTITION procedures, but with the assumption that pivot elements are se-
+lected randomly from the subarray passed to RANDOMIZED-PARTITION.
+
+The running time of QUICKSORT is dominated by the time spent in the PARTI-
+TION procedure. Each time the PARTITION procedure is called, it selects a pivot
+element, and this element is never included in any future recursive calls to QUICK-
+SORT and PARTITION. Thus, there can be at most 7 calls to PARTITION over the
+entire execution of the quicksort algorithm. One call to PARTITION takes O(1)
+time plus an amount of time that is proportional to the number of iterations of the
+for loop in lines 3-6. Each iteration of this for loop performs a comparison in
+line 4, comparing the pivot element to another element of the array A. Therefore,
+

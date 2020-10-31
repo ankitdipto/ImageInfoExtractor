@@ -1,0 +1,72 @@
+Section 23.2.
+
+Efficient Parsing 697
+
+ 
+
+CHART
+
+PACKED FOREST
+
+VERTICES
+EDGES
+
+backtrack all the way to the first word. This kind of backtracking is inevitable, but if our parsing
+algorithm is to be efficient, it must avoid reanalyzing "the students in section 2 of Computer
+Science 101" as an NP each time it backtracks.
+
+In this section, we look at efficient parsing algorithms. df the broadest level, there are
+three main things we can do improve efficiency:
+
+1, Don't do twice what you can do once.
+2. Don't do once what you can avoid altogether.
+3. Don't represent distinctions that you don't need.
+
+To be more specific, we will design a parsing algorithm that does the following:
+
+1, Once we discover that "the students in section 2 of Computer Science 101” is an NP, itis a
+good idea to record that result in a data structure known as a chart. Algorithms that do this
+are called chart parsers. Because we are dealing with context-free grammars, any phrase
+that was found in the context of one branch of the search space can work just as well in
+any other branch of the search space. Recording results in the chart is a form of dynamic
+programming that avoids duplicate work.
+
+. We will see that our chart-parsing algorithm uses a combination of top-down and bottom-up
+processing in a way that means it never has to consider certain constituents that could not
+lead to a complete parse. (This also means it can handle grammars with both left-recursive
+tules and rules with empty right-hand sides without going into an infinite loop.)
+
+3. The result of our algorithm is a packed forest of parse tree constituents rather than an
+
+enumeration of all possible trees. We will see later why this is important.
+
+n
+
+The chart is a data structure for representing partial results of the parsing process in such a way
+that they can be reused later on. The chart for an n-word sentence consists of + 1 vertices and
+a number of edges that connect vertices. Figure 23.1 shows a chart with 6 vertices (circles), and
+3 edges (lines). For example, the edge labelled
+
+[0,5, S— NP VP e]
+
+means that an NP followed by a VP combine to make an S that spans the string from 0 to 5. The
+symbol « in an edge separates what has been found so far from what remains to be found.” Edges
+with the + at the end are called complete edges. The edge
+
+(0,2, S—NP + VP]
+
+says that an NP spans the string from 0 to 2, and ifwe could find a VP to follow it, then we would
+have an S. Edges like this with the dot before the end are called incomplete edges,* and we say
+that the edge is looking for a VP. We have already seen two ways to look at the parsing process.
+In BOTTOM-UP-PARSE on page 666, we described parsing as a process of building words into
+trees, backtracking when necessary. With Definite Clause Grammar, we described parsing as a
+form of logical inference on strings. Backtracking was used when several rules could derive the
+
+2. It is because of the + that edges are often called dotted rules, We think this term is a little confusing, because there
+can be many dotted rules corresponding to the same grammar rule
+
+3 Some authors call these active edges. In some papers (Earley, 1970), edges are called states; the idea is that an
+incomplete edge marks an intermediate state in the process of finding a complete constituent
+
+ 
+

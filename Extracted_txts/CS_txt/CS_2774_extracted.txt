@@ -1,0 +1,43 @@
+328
+
+Chapter 13 Red-Black Trees
+
+Case 2: x’s sibling w is black, and both of w’s children are black
+
+In case 2 (lines 10-11 of RB-DELETE-FIXuP and Figure 13.7(b)), both of w’s
+children are black. Since w is also black, we take one black off both x and w,
+leaving x with only one black and leaving w red. To compensate for removing
+one black from x and w, we would like to add an extra black to x.p, which was
+originally either red or black. We do so by repeating the while loop with x.p as
+the new node x. Observe that if we enter case 2 through case 1, the new node x
+is red-and-black, since the original x.p was red. Hence, the value c of the color
+attribute of the new node x is RED, and the loop terminates when it tests the loop
+condition. We then color the new node x (singly) black in line 23.
+
+Case 3: x’s sibling w is black, w’s left child is red, and w’s right child is black
+Case 3 (lines 13-16 and Figure 13.7(c)) occurs when w is black, its left child
+is red, and its right child is black. We can switch the colors of w and its left
+child w./eft and then perform a right rotation on w without violating any of the
+red-black properties. The new sibling w of x is now a black node with a red right
+child, and thus we have transformed case 3 into case 4.
+
+Case 4: x’s sibling w is black, and w’s right child is red
+
+Case 4 (lines 17—21 and Figure 13.7(d)) occurs when node x’s sibling w is black
+and w’s right child is red. By making some color changes and performing a left ro-
+tation on x.p, we can remove the extra black on x, making it singly black, without
+violating any of the red-black properties. Setting x to be the root causes the while
+loop to terminate when it tests the loop condition.
+
+Analysis
+
+What is the running time of RB-DELETE? Since the height of a red-black tree of n
+nodes is O(lgn), the total cost of the procedure without the call to RB-DELETE-
+Fixup takes O(lg7) time. Within RB-DELETE-FIXUP, each of cases 1, 3, and 4
+lead to termination after performing a constant number of color changes and at
+most three rotations. Case 2 is the only case in which the while loop can be re-
+peated, and then the pointer x moves up the tree at most O(lg 7) times, performing
+no rotations. Thus, the procedure RB-DELETE-FIXuP takes O(lg 77) time and per-
+forms at most three rotations, and the overall time for RB-DELETE is therefore
+also O(lgn).
+

@@ -1,0 +1,46 @@
+8.6 Deadlock Detection 261
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+(b)
+
+Figure 8.7 (a) Resource-allocation graph. (b) Corresponding wait-for graph.
+
+8.6.2 Several Instances of a Resource Type
+
+The wait-for graph scheme is not applicable to a resource-allocation system
+with multiple instances of each resource type. The deadlock-detection algo-
+rithm that we describe next is applicable to such a system. The algorithm
+employs several time-varying data structures that are similar to those used in
+the banker’s algorithm (Section 8.5.3):
+
+Available: A vector of length m indicates the number of available resources
+of each type.
+
+¢ Allocation: Ann x m matrix defines the number of resources of each type
+currently allocated to each process.
+
+¢ Request: An x m matrix indicates the current request of each process. If
+Request[i,j] = k, then process P; is requesting k more instances of resource
+
+type Rj.
+
+The < relation between two vectors is defined as in Section 8.5.3. To
+simplify notation, we shall again treat the rows in the matrices Allocation
+and Request as vectors, and shall refer to them as Allocation; and Request;,
+respectively. The detection algorithm described here simply investigates every
+possible allocation sequence for the processes that remain to be completed.
+Compare this algorithm with the banker’s algorithm of Section 8.5.3.
+

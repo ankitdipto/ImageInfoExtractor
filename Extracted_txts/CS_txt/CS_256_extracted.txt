@@ -1,0 +1,52 @@
+SECTION $5 Instruction Cyde 141
+
+signal T,, At the same time, PC is incremented by one to prepare it for the
+address of the next instruction in the program. At time T;, the operation code
+in IR is decoded, the indirect bit is transferred to flip-flop I, and the address
+part of the instruction is transferred to AR. Note that SC is incremented after
+each clock pulse to produce the sequence To, T, and T>
+
+Figure5-8 shows how the first two register transfer statements are imple-
+mented in the bus system. To provide the data path for the transfer of PC to
+AR we must apply timing signal Ty to achieve the following connection:
+
+1. Place the content of PC onto the bus by making the bus selection inputs
+
+$5150 equal to 010.
+2. Transfer the content of the bus to AR by enabling the LD input of AR.
+
+The next clock transition initiates the transfer from PC to AR since Ty = 1. In
+carder iy dmpbamenn ihe second statement
+
+Ts IR@MIAR], PC<PC +1
+
+it is necessary to use timing signal T; to provide the following connections in
+the bus system.
+
+1. Enable the read input of memory.
+
+2. Place the content of memory onto the bus by making $,5,5) = 111.
+3. Transfer the content of the bus to IR by enabling the LD input of IR.
+4, Increment PC by enabling the INR input of PC.
+
+ 
+
+The next clock transition initiates the read and increment operations since
+T=1
+
+Figure 5-8 duplicates a portion of the bus system and shows how Ty and
+T; are connected to the control inputs of the registers, the memory, and the
+bus selection inputs. Multiple input OR gates are included in the diagram
+because there are other control functions that will initiate similar operations.
+
+Determine the Type of Instruction
+The timing signal that is active after the decoding is Ts During time Ts, the
+control unit determines the type of instruction that wasjustread frommemory.
+The flowchart of Fig. 5-9 presents an initial configuration for the instruction
+cycle and shows how the control determines the instruction type after the
+decoding. The three possible instruction types available in the basic computer
+are specified in Fig. 5-5.
+
+Decoder output D; is equal to 1 if the operation code is equal to binary
+111. From Fig. 5-5 we determine that if D, = 1, the instruction must be a
+

@@ -1,0 +1,52 @@
+74  Chapter3 Operating-System Structures
+
+be defined completely by the code in the file rm. In this way, programmers can
+add new commands to the system easily by creating new files with the proper
+names. The command-interpreter program, which can be small, does not have
+to be changed for new commands to be added.
+
+This approach to the design of a command interpreter has problems. First,
+because the code to execute a command is a separate system program, the
+operating system must provide a mechanism for passing parameters from the
+command interpreter to the system program. This task can often be clumsy,
+because the command interpreter and the system program may not be in
+memory at the same time, and the parameter list can be extensive. Also, it
+is slower to load a program and to execute it than simply to jump to another
+section of code within the current program.
+
+Another problem is that the interpretation of the parameters is left up to
+the programmer of the system program. Thus, parameters may be provided
+inconsistently across programs that appear similar to the user, but were written
+at different times by different programmers.
+
+The view of the operating system seen by most users is thus defined by
+the system programs, rather than by the actual system calls. Think of using a
+PC. When your computer is running the Microsoft Windows operating system,
+you might see a command-line MS-DOS shell, or the graphical window-and-
+menu interface. Both use the same set of system calls, but the system calls
+look different and act in different ways. Consequently, your view may be
+substantially removed from the actual system structure. The design of a useful
+and friendly user interface is therefore not a direct function of the operating
+system. In this book, we shall concentrate on the fundamental problems of
+providing adequate service to user programs. From the point of view of the
+operating system, we do not distinguish between user programs and system
+programs.
+
+3.5 = System Structure
+
+A system as large and complex as a modern operating system must be engi-
+neered carefully if it is to function properly and be modified easily. A com-
+mon approach is to partition the task into small components, rather than have
+one monolithic system. Each of these modules should be a well-defined por-
+tion of the system, with carefully defined inputs, outputs, and function. We
+have already discussed briefly the common components of operating systems
+(Section 3.1). In this section, we discuss the way that these components are
+interconnected and melded into a kernel.
+
+3.5.1 Simple Structure
+
+Many commercial systems do not have a well-defined structure. Frequently,
+such operating systems started as small, simple, and limited systems, and then
+
+ 
+

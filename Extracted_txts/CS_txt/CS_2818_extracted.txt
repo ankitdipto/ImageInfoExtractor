@@ -1,0 +1,55 @@
+15.1 Rod cutting 363
+
+In this formulation, an optimal solution embodies the solution to only one related
+subproblem—the remainder—rather than two.
+
+Recursive top-down implementation
+
+The following procedure implements the computation implicit in equation (15.2)
+in a straightforward, top-down, recursive manner.
+
+Cut-Rop(p,n)
+
+1 ifn ==0
+
+2 return 0
+3 q=-~
+
+4 fori = lton
+5
+
+6
+
+ 
+
+q = max(q, pli] + CuT-Rop(p,n —i))
+return ¢
+
+Procedure CUT-Rop takes as input an array p[1..m] of prices and an integer n,
+and it returns the maximum revenue possible for a rod of length n. If n = 0, no
+revenue is possible, and so CUT-ROD returns 0 in line 2. Line 3 initializes the
+maximum revenue q to —0o, so that the for loop in lines 4—5 correctly computes
+q = max;<j<,(p; + CUT-ROD(p,n —)); line 6 then returns this value. A simple
+induction on 7 proves that this answer is equal to the desired answer r,,, using
+equation (15.2).
+
+If you were to code up CUT-ROD in your favorite programming language and run
+it on your computer, you would find that once the input size becomes moderately
+large, your program would take a long time to run. For n = 40, you would find that
+your program takes at least several minutes, and most likely more than an hour. In
+fact, you would find that each time you increase n by 1, your program’s running
+time would approximately double.
+
+Why is CuT-RopD so inefficient? The problem is that CUT-ROD calls itself
+recursively over and over again with the same parameter values; it solves the
+same subproblems repeatedly. Figure 15.3 illustrates what happens forn = 4:
+Cut-Rop(p,n) calls Cut-Rop(p,n —i) fori = 1,2,..., n. Equivalently,
+Cut-Rop(p,n) calls CuT-Rop(p, j) for each j = 0,1,..., n—1. When this
+process unfolds recursively, the amount of work done, as a function of n, grows
+explosively.
+
+To analyze the running time of CUT-ROD, let T(n) denote the total number of
+calls made to CuT-ROD when called with its second parameter equal to n. This
+expression equals the number of nodes in a subtree whose root is labeled n in the
+recursion tree. The count includes the initial call at its root. Thus, 7(0) = 1 and
+

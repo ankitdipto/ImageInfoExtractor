@@ -1,0 +1,57 @@
+4.1 Process Concept 97
+
+=
+
+         
+
+admitted interrupt
+
+  
+    
+ 
+
+VO or event completion V/O or event wait
+
+Figure 4.1 Diagram of process state.
+¢ Terminated: The process has finished execution.
+
+These state names are arbitrary, and they vary across operating systems.
+The states that they represent are found on all systems, however. Certain
+operating systems more finely delineate process states. Only one process can
+be running on any processor at any instant, although many processes may be
+ready and waiting. The state diagram corresponding to these states is presented
+in Figure 4.1.
+
+4.1.3 Process Control Block
+
+Each process is represented in the operating system by a process control block
+(PCB)—also called a task control block. A PCB is shown in Figure 4.2. It contains
+many pieces of information associated with a specific process, including these:
+
+ 
+
+state
+process number
+program counter
+
+pointer Pe
+
+_ registers
+
+ 
+
+memory limits
+list of open files
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 4.2 Process control block (PCB).
+

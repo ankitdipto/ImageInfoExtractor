@@ -1,0 +1,66 @@
+246
+
+Chapter 8. Building a Knowledge Base
+
+ 
+
+LOGICAL,
+OMINISCIENCE
+
+There are at least three directions we could go from here. One is to recognize that it is
+unrealistic to expect that there will be any real logical agents. Such an agent can, according to
+our axioms, deduce any valid conclusion instantaneously. This is called logical omniscience. It
+would be more realistic to define limited rational agents, which can make a limited number of
+deductions in a limited time. But it is very hard to axiomatize such an agent. Pretending that all
+agents are logically omniscient is like pretending that all problems with polynomial time bounds
+are tractable—it is clearly false, but if we are careful, it does not get us into too much trouble.
+
+A second direction is to define axioms for other propositional attitudes. The relation
+between believing and knowing has been studied for centuries by philosophers of the mind. It is
+commonly said that knowledge is justified true belief. That is, ifyou believe something, and ifit
+is actually true, and if you have a proof that it is true, then you know it. The proof is necessary
+to prevent you from saying "I know this coin flip will come up heads" and then taking credit for
+being right when the coin does end up heads, when actually you just made a lucky guess. If you
+accept this definition of knowledge, then it can be defined in terms of belief and truth:
+
+Va,p Knows(a,p) <> Believes(a,p) A T(Den(p)\A T(Den(KB(a))=> Den(p))
+This version of Knows can be read as "knows that." It is also possible to define other kinds of
+knowing. For example, here is a definition of "knowing whether":
+
+Va,p KnowsWhether(a,p) = Knows(a,p)V Knows(a,“~p")
+
+Continuing our example, Lois knows whether Clark can fly if she either knows that Clark can fly
+or knows that he cannot.
+
+The concept of "knowing what" is more complicated. One is tempted to say that an
+agent knows what Bob's phone number is if there is some x for which the agent knows
+x—PhoneNumber(Bob). But that is not right, because the agent might know that Alice and Bob
+have the same number, but not know what it is (Le., PhoneNumber(Alice) = PhoneNumber(Bob)),
+or the agent might know that there is some Skolem constant that is Bob's number withoutknowing
+anything at all about it (i.e., Kz; = PhoneNumber(Bob)). A better definition of "knowing what"
+says that the agent has to know of some x that is a string of digits and that is Bob's number:
+
+Va,b KnowsWhat(a,“PhoneNumber(b)”) >
+3x Knows(a, “x= PhoneNumber(b)y’)A DigitString(x)
+Of course, for other questions we have different criteria for what is an acceptable answer. For
+the question "what is the capital ofNew York," an acceptable answer is a proper name, "Albany,"
+not something like "the city where the state house is." To handle this, we will make KnowsWhat
+a three place relation: it takes an agent, a term, and a predicate that must be true of the answer.
+For example:
+
+KnowsWhat(Agent, Capital(New York),ProperName)
+
+KnowsWhat(Agent, PhoneNumber(Bob), DigitString)
+
+A third direction is to recognize that propositional attitudes change over time. When
+we recognized that processes occur over a limited interval of time, we introduced the relation
+T(process,interval). Similarly, we can use Believe(agent, string, interval) to mean that an agent
+believes in a proposition over a given interval. For example, to say that Lois believed yesterday
+that Superman can fly, we write
+
+Believes(Lois, Flies(Superman), Yesterday)
+
+ 
+
+ 
+

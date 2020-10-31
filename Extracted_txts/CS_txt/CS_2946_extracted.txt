@@ -1,0 +1,66 @@
+HIERARCHICAL
+DECOMPOSITION
+ABSTRACT
+OPERATOR
+
+PRIMITIVE.
+OPERATOR
+
+ 
+
+ 
+
+Chapter 12. Practical Planning
+
+To resolve this dilemma, all the practical planners we surveyed have adopted the idea of
+hierarchical decomposition:' that an abstract operator can be decomposed into a group of
+steps that forms a plan that implements the operator. These decompositions can be stored in a
+library of plans and retrieved as needed.
+
+Consider the problem of building a frame house. The abstract operator Build(House)can be
+decomposed into a plan that consists of the four steps Obtain Permit, Hire Builder, Construction, 4
+and Pay Builder, as depicted in Figure 12.1. The steps of this plan may in turn be further
+decomposed into even more specific plans. We show a decomposition of the Construction step.
+We could continue decomposing until we finally get down to the level of Hammer(Nail). The ;
+plan is complete when every step is a primitive operator—one that can be directly executed by
+the agent. Hierarchical decomposition is most useful when operators can be decomposed in more
+than one way. For example, the Build Walls operator can be decomposed into a plan involving
+wood, bricks, concrete, or vinyl.
+
+To make the idea of hierarchical planning work, we have to do two things. (1) Provide an
+extension to the STRIPS language to allow for nonprimitive operators. (2) Modify the planning
+algorithm to allow the replacement of a nonprimitive operator with its decomposition.
+
+Extending the language
+
+To incorporate hierarchical decomposition, we have to make two additions to the description of
+each problem domain.
+
+First, we partition the set of operators into primitive and nonprimitive operators. In our §
+domain, we might define Hammer(Nail)to be primitive and Build(ZIouse) to be nonprimitive
+In general, the distinction between primitive and nonprimitive is relative to the agent that will 3
+execute the plan. For the general contractor, an operator such as /nstall(FloorBoardsywould be |
+primitive, because all the contractor has to do is order a worker to do the installation. For the
+worker, Jnstall(FloorBoardsywould be nonprimitive, and Hammer(Nail) would be primitive.
+
+Second, we add a set of decomposition methods. Each method is an expression of the
+form Decompose(o,p), which means that a nonprimitive operator that unifies with o can be
+decomposed into a plan p. Here is decomposition of Construction from Figure 12.1:
+
+Decompose( Construction,
+Plan(STEps:{S; : Build(Foundation)S; : Build(Frame),
+Ss + Build(Roof),S4: Build( Walls),
+Ss + BuildUInterior)}
+OrDrRINGS: {S| <S;~ 53 Ss, S2~<S4<Ss},
+BINDINGS: {},
+Links:{S; Foundation 55, $ Frame Sa, $5 Frame $y, Sq Rook’ g.,s, Mauls s5}))
+
+A decomposition method is like a subroutine or macro definitionfor an operator. As such, it 18
+important to make sure that the decomposition is a correct implementation of the operator. We
+
+1 For hierarchical decomposition, some authors use the term operator reduction (reducing a high-level operator to
+a set of lower-level ones), and some use operator expansion (expanding a macro-like operator into the structure that
+implements it). This kind of planning is also called hierarchical task network planning
+
+ 
+

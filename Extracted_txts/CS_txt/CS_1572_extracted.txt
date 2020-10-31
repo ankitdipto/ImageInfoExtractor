@@ -1,0 +1,52 @@
+3.7 System Design and Implementation 87
+
+The first system not written in assembly language was probably the Master
+Control Program (MCP) for Burroughs computers. MCP was written in a variant
+of ALGOL. MULTICS, developed at MIT, was written mainly in PL/1. The Primos
+operating system for Prime computers is written in a dialect of Fortran. The
+UNIX operating system, OS/2, and Windows NT are mainly written in C. Only
+some 900 lines of code of the original UNIX were in assembly language, most of
+which constituted the scheduler and device drivers.
+
+The advantages of using a higher-level language, or at least a systems-
+implementation language, for implementing operating systems are the same
+as those accrued when the language is used for application programs: The
+code can be written faster, is more compact, and is easier to understand and
+debug. In addition, improvements in compiler technology will improve the
+generated code for the entire operating system by simple recompilation. Finally,
+an operating system is far easier to port—to move to some other hardware—if
+it is written in a high-level language. For example, MS-DOS was written in Intel
+8088 assembly language. Consequently, it is available on only the Intel family
+of CPUs.
+
+The UNIX operating system, on the other hand, which is written mostly in
+C, is available on a number of different CPUs, including Intel 80X86, Pentium,
+Motorola 680X0, Ultra SPARC, Compaq Alpha, and MIPS RX000.
+
+Opponents of implementing an operating system in a higher-level lan-
+guage claim the major disadvantages are reduced speed and increased stor-
+age requirements. Although an expert assembly-language programmer can
+produce efficient small routines, for large programs a modern compiler can
+perform complex analysis and apply sophisticated optimizations that produce
+excellent code. Modern processors have deep pipelining and multiple func-
+tional units, which can handle complex dependencies that can overwhelm the
+limited ability of the human mind to keep track of details.
+
+As is true in other systems, major performance improvements in operating
+systems are more likely to be the result of better data structures and algorithms
+than of excellent assembly-language code. In addition, although operating sys-
+tems are large, only a small amount of the code is critical to high performance;
+the memory manager and the CPU scheduler are probably the most critical rou-
+tines. After the system is written and is working correctly, bottleneck routines
+can be identified and replaced with assembly-language equivalents.
+
+To identify bottlenecks, we must be able to monitor system performance.
+Code must be added to compute and display measures of system behavior. In
+a number of systems, the operating system does this task by producing trace
+listings of system behavior. All interesting events are logged with their time and
+important parameters and are written to a file. Later, an analysis program can
+process the log file to determine system performance and to identify bottlenecks
+and inefficiencies. These same traces can be run as input for a simulation of
+a suggested improved system. Traces also can help people to find errors in
+operating-system behavior.
+

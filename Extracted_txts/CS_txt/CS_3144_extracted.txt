@@ -1,0 +1,66 @@
+510
+
+Chapter 17. Making Complex Decisions
+
+ 
+
+KatmaN FILTERING
+
+SENSOR MODEL
+ACTION MODEL
+
+STATIONARY,
+‘SENSOR MODEL
+
+percept E,. Because both the state variables and the percept refer to the same time, this is
+a simple matter of Bayesian updating, using Bel(X,) as the prior:
+
+Bel(X,)= oP(E, X,)Bel(X,) (179)
+where a is a normalization constant.
+
+Exercise 17.5 asks you to derive these equations from the assumptions listed earlier.
+
+It is worth noting that the equations for Bel and Bel area generalization of the technique
+known in classical control theory as Kalman filtering (Kalman, 1960). Kalman filtering assumes
+that each state variable is real-valued and distributed according to a Gaussian distribution; that
+each sensor suffers from unbiased Gaussian noise; that each action can be described as a vector of
+real values, one for each state variable; and that the new state is a linear function of the previous
+state and the action. These assumptions, taken together, allow prediction and estimation to be
+implemented by some simple matrix calculations, even with a large number of state variables
+Kalman filtering is universally applied in monitoring and controlling all sorts of dynamical
+systems, from chemical plants to guided missiles. It has good success even in domains where
+not all the assumptions are satisfied.
+
+Given a probability distribution over the current state, it is a simple matter to carry out
+the remaining steps of the decision cycle, which involve projecting forward the possible results
+of the available actions and choosing the one with maximal expected utility. The belief update
+equations also allow us to design an agent that keeps around just the current belief vector for
+the state variables. The complete design is shown in Figure 17.9. Although the formulas
+look quite complicated, bear in mind that they simply instantiate the basic design given in
+Figure 17.8. Furthermore, the conditional probabilities appearing in the various expressions are
+exactly what we would expect to see. We have P(E, X,), the sensor model, which describes
+how the environment generates the sensor data; and we have P(X, X,_;,A,_1), the action model,
+which describes the effects of actions (and similarly for t,¢+ 1). These are the same kinds
+of information that we have used throughout the book to make decisions. The action model
+generalizes the transition model used earlier for sequential decision problems. The sensor model
+was not used there, of course, because we assumed an accessible environment in which the
+percept and the state can be equated.
+
+The following sections describe sensor and action models in more detail, and show how
+the complete agent design can be implemented directly using the belief and decision network
+technology described in the previous chapters.
+
+Sensing in uncertain worlds
+
+We begin with the sensor model, which we defined previously as P(E,|X,), the probability of a
+percept given a state of the world. Actually, this is unnecessarily complicated, because it allows
+the sensor model to vary with time. We will instead assume a stationary sensor model:
+
+Vt P(E,|X,) = P(E|X)
+
+3) The notation used to describe the action model might make it look as if it only allows for actions by the agent. In fact,
+because the actions of other agents are presumably themselves determined by the state variables X;_1, the model can
+certainly handle multiple agents as is
+
+ 
+

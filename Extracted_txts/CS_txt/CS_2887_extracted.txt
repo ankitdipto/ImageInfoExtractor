@@ -1,0 +1,52 @@
+16.1 An activity-selection problem 419
+
+the size n of the original problem. It returns a maximum-size set of mutually com-
+patible activities in Sz. We assume that the 7” input activities are already ordered
+by monotonically increasing finish time, according to equation (16.1). If not, we
+can sort them into this order in O(n lg 7) time, breaking ties arbitrarily. In order
+to start, we add the fictitious activity a) with fo = 0, so that subproblem So is
+the entire set of activities S. The initial call, which solves the entire problem, is
+RECURSIVE-ACTIVITY-SELECTOR (s, f,0,7).
+
+RECURSIVE-ACTIVITY-SELECTOR (s, fk, 1)
+
+1 m=k+1
+
+2 while m <n and s[m] < f[k] // find the first activity in S; to finish
+3 m=m+i
+
+4 ifm<n
+
+5 return {d,,} U RECURSIVE-ACTIVITY-SELECTOR (s, f.m,1)
+
+6 else return %
+
+Figure 16.1 shows the operation of the algorithm. In a given recursive call
+RECURSIVE-ACTIVITY-SELECTOR (s, f,k,1), the while loop of lines 2-3 looks
+for the first activity in Sx to finish. The loop examines dg+1,dx-42,....@n, UN-
+til it finds the first activity a,, that is compatible with ax; such an activity has
+Sm = fk. If the loop terminates because it finds such an activity, line 5 returns
+the union of {a,,} and the maximum-size subset of S,,, retuned by the recursive
+call RECURSIVE-ACTIVITY-SELECTOR (5, f,m,m). Alternatively, the loop may
+terminate because m > n, in which case we have examined all activities in Sx
+without finding one that is compatible with ax. In this case, Sy = @, and so the
+procedure returns @ in line 6.
+
+Assuming that the activities have already been sorted by finish times, the running
+time of the call RECURSIVE-ACTIVITY-SELECTOR (s, f,0,7) is @(n), which we
+can see as follows. Over all recursive calls, each activity is examined exactly once
+in the while loop test of line 2. In particular, activity a; is examined in the last call
+made in which k <i.
+
+An iterative greedy algorithm
+
+We easily can convert our recursive procedure to an iterative one. The procedure
+RECURSIVE-ACTIVITY-SELECTOR is almost “tail recursive” (see Problem 7-4):
+it ends with a recursive call to itself followed by a union operation. It is usually a
+straightforward task to transform a tail-recursive procedure to an iterative form; in
+fact, some compilers for certain programming languages perform this task automat-
+ically. As written, RECURSIVE-ACTIVITY-SELECTOR works for subproblems S,,
+i.e., subproblems that consist of the last activities to finish.
+
+ 
+

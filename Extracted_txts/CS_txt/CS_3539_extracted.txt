@@ -1,0 +1,63 @@
+Chapter 19 Fibonacci Heaps
+
+CONSOLIDATE(H)
+
+1 let A[O.. D(H.n)] be a new array
+2 fori = 0to D(H.n)
+
+3 Afi] = NIL
+
+4 for each node w in the root list of H
+5 x=w
+
+6 d = x.degree
+
+7 while A[d] 4 NIL
+
+8 y = Ad] // another node with the same degree as x
+9 if x.key > y.key
+
+10 exchange x with y
+
+1 Fip-HEAP-LINK(H, y, x)
+12 Ald] = NIL
+
+13 d=d+l1
+
+14 Ald] =x
+
+15 H.min = NIL
+16 fori = 0to D(H.n)
+
+17 if A[i] A NIL
+
+18 if H.min == NIL
+
+19 create a root list for H containing just A[i]
+20 H.min = Afi}
+
+21 else insert A[i] into H’s root list
+
+22 if A[i].key < H.min.key
+
+23 H.min = Afi}
+
+Fip-HEAP-LINK (H, y, x)
+
+1 remove y from the root list of H
+
+2 make y achild of x, incrementing x. degree
+3 y.mark = FALSE
+
+In detail, the CONSOLIDATE procedure works as follows. Lines 1-3 allocate
+and initialize the array A by making each entry NIL. The for loop of lines 4-14
+processes each root w in the root list. As we link roots together, w may be linked
+to some other node and no longer be a root. Nevertheless, w is always in a tree
+rooted at some node x, which may or may not be w itself. Because we want at
+most one root with each degree, we look in the array A to see whether it contains
+a root y with the same degree as x. If it does, then we link the roots x and y but
+guaranteeing that x remains a root after linking. That is, we link y to x after first
+exchanging the pointers to the two roots if y’s key is smaller than x’s key. After
+we link y to x, the degree of x has increased by 1, and so we continue this process,
+linking x and another root whose degree equals x’s new degree, until no other root
+

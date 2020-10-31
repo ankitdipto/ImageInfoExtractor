@@ -1,0 +1,54 @@
+430
+
+CHAPTER ELEVEN Input-Output Organization
+
+ferred in a serial fashion with the result that the transfer rate is much slower.
+The task of the data communication processor is to transmit and collect digital
+information to and from each terminal, determine if the information is data or
+control and respond to all requests according to predetermined established
+procedures. The processor, obviously, must also communicate with the CPU
+and memory in the same manner as any UO processor.
+
+The way that remote terminals are connected to a data communication
+processor is via telephone lines or other public or private communication
+facilities. Since telephone lines were originally designed for voice communica-
+tion and computers communicate in terms of digital signals, some form of
+conversion must be used. The converters are called data sets, acoustic couplers,
+or modems (from “‘modulator-demodulator’). A modemconvertsdigitalsignals
+into audio tones to be transmittedovertelephonelines and also converts audio
+tones from the line to digital signals for machine use. Various modulation
+schemes as wellas different grades of communication media and transmission
+speeds are used. A communication line may be connected to a synchronous
+or asynchronous interface, depending on the transmission method of the
+remote terminal, An asynchronous interface receives serial data with start and
+stop bits in each character as shown in Fig. 11-7. This type ofinterfaceis similar
+to the asynchronous communication interface unit presented in Fig. 11-8.
+
+‘Synchronous transmission does not use start-stop bits to frame characters
+and therefore makes more efficient use of the communication link. High-speed
+devices use synchronous transmission to realize this efficiency. The modems
+used in synchronous transmission have internal clocks that are set to the
+frequency that bits are being transmitted in the communication line. For proper
+operation, it is required that the clocks in the transmitter and receiver modems
+remainsynchronized at all times. The communication line, however, contains
+only the data bits from which the clock information must be extracted. Fre-
+quency synchronization is achieved by the receiving modem from the signal
+transitions that occur in the received data. Any frequency shift that may occur
+between the transmitter and receiver clocks is continuously adjusted by main-
+taining the receiver clock at the frequency of the incoming bit stream. The
+modem transfers the received data together with the clock to the interface unit.
+The interface or terminal on the transmitterside also uses the clock information
+fromits modem. In this way, the same bit rate is maintained in both transmitter
+and receiver.
+
+Contrary to asynchronous transmission, where each character canbe sent
+separately with its own start and stop bits, synchronous transmission must
+send a continuous message in order to maintain synchronism. The message
+consists of a group of bits transmitted sequentially as a block of data. The entire
+block is transmitted with special control characters at the beginning and end
+of the block. The control characters at the beginning of the block supply the
+information needed to separate the incoming bits into individual characters.
+
+‘One of the functions of the data communication processor is to check for
+transmission errors. An error can be detected by checking the parity in each
+

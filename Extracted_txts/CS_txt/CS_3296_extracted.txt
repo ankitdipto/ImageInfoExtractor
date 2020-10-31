@@ -1,0 +1,57 @@
+68
+
+Chapter 3. Solving Problems by Searching
+
+ 
+
+ 
+
+Imagine the scene in real life: three members of the Arawaskan tribe, Alice, Bob, and Charles,
+stand at the edge of the crocodile-infested Amazon river with their new-found friends, Xavier,
+Yolanda, and Zelda. All around them birds cry, a rain storm beats down, Tarzan yodels, and so
+on. The missionaries Xavier, Yolanda, and Zelda are a little worried about what might happen if
+one of them were caught alone with two or three of the others, and Alice, Bob, and Charles are
+concemed that they might be in for a long sermon that they might find equally unpleasant. Both
+parties are not quite sure if the small boat they find tied up by the side of the river is up to making
+the crossing with two aboard.
+
+To formalize the problem, the first step is to forget about the rain, the crocodiles, and all the
+other details that have no bearing in the solution. The next step is to decide what the right operator
+set is. We know that the operators will involve taking one or two people across the river in the
+boat, but we have to decide if we need a state to represent the time when they are in the boat, or
+just when they get to the other side. Because the boat holds only two people, no "outnumbering"
+can occur in it; hence, only the endpoints of the crossing are important. Next, we need to abstract
+over the individuals. Surely, each of the six is a unique human being, but for the purposes of the
+solution, when it comes time for a cannibal to get into the boat, it does not matter if it is Alice,
+Bob, or Charles. Any permutation of the three missionaries or the three cannibals leads to the
+same outcome. These considerations lead to the following formal definition of the problem:
+
+0 States: a state consists of an ordered sequence of three numbers representing the number
+of missionaries, cannibals, and boats on the bank of the river from which they started.
+Thus, the start state is (3,3,1).
+
+0 Operators: from each state the possible operators are to take either one missionary, one
+cannibal, two missionaries, two cannibals, or one of each across in the boat. Thus, there
+are at most five operators, although most states have fewer because it is necessary to avoid
+illegal states. Note that if we had chosen to distinguish between individual people then
+there would be 27 operators instead ofjust 5.
+
+0 Goal test: reached state (0,0,0).
+
+Path cost: number of crossings.
+
+This state space is small enough to make it a trivial problem for a computer to solve. People.
+have a hard time, however, because some of the necessary moves appear retrograde. Presumably,
+humans use some notion of "progress" to guide their search. We will see how such notions are
+used in the next chapter.
+
+Real-world problems
+
+Route finding
+
+We have already seen how route finding is defined in terms of specified locations and transitions
+along links between them. Route-finding algorithms are used in a variety of applications, such
+as routing in computer networks, automated travel advisory systems, and airline travel planning
+systems. The last application is somewhat more complicated, because airline travel has a very
+complex path cost, in terms of money, seat quality, time of day, type of airplane, frequent-flyer
+

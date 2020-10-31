@@ -1,0 +1,54 @@
+136
+
+Chapter s. Game Playing
+
+ 
+
+ 
+
+DICE
+
+MIN
+
+ 
+
+20 20 30 30 1 1 400 400
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 5.11 An order-preserving transformation on leaf values changes the best move.
+
+ 
+
+This is a general problem whenever uncertainty enters the picture: the possibilities are multiplied
+enormously, and forming detailed plans ofaction becomes pointless because the world probably
+will not play along.
+
+No doubt it will have occurred to the reader that perhaps something like alpha-beta pruning
+could be applied to game trees with chance nodes. It turns out that it can, with a bit of ingenuity.
+Consider the chance node C in Figure 5.10, and what happens to its value as we examine and
+evaluate its children; the question is, is it possible to find an upper bound on the value of C
+before we have looked at all its children? (Recall that this is what alpha-beta needs in order to
+prune a node and its subtree.) At first sight, it might seem impossible, because the value of C is
+the average of its children's values, and until we have looked at all the dice rolls, this average
+could be anything, because the unexamined children might have any value at all. But if we put
+boundaries on the possible values of the utility function, then we can arrive at boundaries for the
+average. For example, if we say that all utility values are between +1 and —1, then the value of
+leaf nodes is bounded, and in turn we can place an upper bound on the value of a chance node
+without looking at all its children. Designing the pruning process is a little bit more complicated 4
+than for alpha-beta, and we leave it as an exercise.
+
+5,6 STATE-OF-THE-ART GAME PROGRAMS
+
+Designing game-playing programs has a dual purpose: both to better understand how to choose
+actions in complex domains with uncertain outcomes and to develop high-performance systems
+for the particular game studied. In this section, we examine progress toward the latter goal.
+

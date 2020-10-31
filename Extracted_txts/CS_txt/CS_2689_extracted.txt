@@ -1,0 +1,50 @@
+80 cuarren THREE Data Representation
+
+2s complement
+subtraction
+
+Arithmetic Subtraction
+Subtraction of two signed binary numbers when negative numbers are in 2's
+complement form is very simple and can be stated as follows: Take the 2's
+complement of the subtrahend (including the sign bit) and add it to the
+minuend (including the sign bit). A carry out of the sign bit position is dis-
+carded.
+
+This procedure stems from the fact that a subtraction operation can be
+changed to an addition operation if the sign of the subtrahend is changed. This
+is demonstrated by the following relationship:
+
+(A) ~ (+B) = (A) + (-B)
+(A) — (—B) = (A) + (+B)
+
+But changing a positive number toa negative number is easily done by taking
+its 2's complement. The reverse is also true because the complement of a
+negative number in complement form produces the equivalent positive num-
+ber. Consider the subtraction of (~6) - (-13) = +7. In binary with eight bits
+this is written as 11111010 — 11110011. The subtraction is changed to addition
+by taking the 2’s complement of the subtrahend (—13) to give (+13). In binary
+thisis 11111010 + 00001101 = 100000111. Removing the end carry, we obtain
+the correct answer 00000111 (+7).
+
+It is worth noting that binary numbers in the signed-2’s complement
+system are added and subtracted by the same basic addition and subtraction
+rules as unsigned numbers. Therefore, computers need only one common
+hardware circuit to handle both types of arithmetic. The user or programmer
+must interpret the results of such addition or subtraction differently depending
+on whether it is assumed that the numbers are signed or unsigned.
+
+Overflow
+When two numbers of n digits each are added and the sum occupies n + 1
+digits, we say that an overflow occurred. When the addition is performed with
+paper and pencil, an overflow is not a problem since there is no limit to the
+width of the page to write down the sum. An overflow is a problem in digital
+computers because the width of registersiis finite. A result that contains n + 1
+bits cannot be accommodated in a register with a standard length of » bits. For
+this reason, many computers detect the occurrence of an overflow, and when
+itoccurs, a corresponding flip-flop is set which can then be checked by the user.
+The detection of an overflow after the addition of two binary numbers
+depends on whether the numbers are considered to be signed or unsigned.
+When two unsigned numbers are added, an overflow is detected from the end
+carry out of the most significant position. In the case of signed numbers, the
+leftmost bit always represents the sign, and negative numbers are in 2's
+

@@ -1,0 +1,63 @@
+856
+
+Appendix B. Notes on Languages and Algorithms
+
+ 
+
+ORACLE
+
+Another way to think ofnondeterministic algorithms is to imagine an oracle that magically
+advises the algorithm to make the correct choice at every choice point. If such an oracle could
+be found, the algorithm would be deterministic; it would never need to backtrack. You can think
+of the agenda as a slower means of simulating the advice of the oracle.
+
+Nondeterministic algorithms are often clearer than deterministic versions, but unfortunately
+only a few programming languages support nondeterminism directly—Prolog and ICON are
+probably the best known. choose and fail can be implemented in SCHEME in about 15 lines of
+code, using the function call-with-current-continuation.
+
+Here is an example of a nondeterministic function: the function call INTEGER(start) returns
+an integer greater than or equal to start, chosen nondeterministically.
+
+ 
+
+function INTEGER(starf) returns an integer
+return choose(start, INTEGER(start+ 1))
+
+ 
+
+ 
+
+ 
+
+It is important to understand what the code fragment PRINT(INTEGER (0)); fail will do. First, it
+will print some integer, although we cannot say which one without knowing what control strategy
+is used by choose. Then fail will return control to one of the choice points in one of the recursive
+calls to INTEGER. Eventually, a different integer will be chosen and printed, and then fail will be
+executed again. The result is an infinite loop, with a single integer printed each time.
+
+We sometimes use the term pick to mean a choice that is not a backtracking point. For
+example, an algorithm to sum the elements ofa set is to initialize the total to 0, pick an element
+from the set and add it to the total, and continue until there are no more elements to pick. There
+is no need to backtrack, because any order of picking will get the job done.
+
+Static variables
+
+We use the keyword static to say that a variable is given an initial value the first time a function
+is called and retains that value (or the value given to it by a subsequent assignment statement)
+on all subsequent calls to the function. Thus, static variables are like global variables in that
+they outlive a single call to their function, but they are only accessible within the function. The
+agent programs in the book use static variables for "memory." Programs with static variables
+can be implemented as "objects" in object-oriented languages such as C++ and Smalltalk. In
+functional languages, they can be implemented easily by executing lambda-expressions within
+an environment in which the required variables are defined.
+
+Functions as values
+
+Functions and procedures have capitalized names and variables have lower case italic names.
+So most of the time, a function call looks like SoME-FUNCTION(variable). However, we allow
+the value of a variable to be a function; for example, if the value of variable is the square root
+function, then variable(9) returns 3.
+
+ 
+

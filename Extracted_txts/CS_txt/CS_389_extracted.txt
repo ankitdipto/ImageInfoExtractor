@@ -1,0 +1,61 @@
+31.6 Powers of an element 957
+
+ 
+
+i[9 8 7 6 5S 4 3 2 1 +0
+i{t o0 0 oOo +t I 0 0 0 O
+c]1 2 4 8 17 35 7 140 280 560
+d|7 49 157 526 160 241 298 166 67 1
+
+Figure 31.4 The results of MODULAR-EXPONENTIATION when computing a? (mod n), where
+a =7,b = 560 = (1000110000), and n = 561. The values are shown after each execution of the
+for loop. The final result is 1.
+
+significant bit.) The following procedure computes a° mod n as c is increased by
+doublings and incrementations from 0 to b.
+
+MODULAR-EXPONENTIATION (a, b,n)
+
+ 
+
+1 c=0
+
+2d=1
+
+3 let (dy, bea... bo) be the binary representation of b
+4 fori = k downto 0
+
+5
+
+6
+
+7
+
+8
+
+9
+10 return d
+
+The essential use of squaring in line 6 of each iteration explains the name “repeated
+squaring.” As an example, fora = 7, b = 560, and n = 561, the algorithm
+computes the sequence of values modulo 561 shown in Figure 31.4; the sequence
+of exponents used appears in the row of the table labeled by c.
+
+The variable c is not really needed by the algorithm but is included for the fol-
+lowing two-part loop invariant:
+
+Just prior to each iteration of the for loop of lines 4-9,
+
+1. The value of c is the same as the prefix (by, by_1...-. b; 41) of the binary
+representation of b, and
+
+2. d =a‘ modn.
+We use this loop invariant as follows:
+
+Initialization: Initially, i = k, so that the prefix (bx. by-1
+which corresponds to c = 0. Moreover, d = 1 = a® modn.
+
+» bi+1) is empty,
+
+ 
+

@@ -1,0 +1,49 @@
+SECTION &7 Program Control 273
+
+8-7 Program Control
+
+Instructions are always stored in successive memory locations. When proc-
+essed in the CPU, the instructions are fetched from consecutive memory
+locations and executed. Each time an instruction is fetched from memory, the
+program counter is incremented so that it contains the address of the next
+instruction in sequence. After the execution of a data transfer or data manip-
+ulation instruction, controlreturnsto the fetchcycle with the program counter
+containing the address of the instruction nextin sequence. On the other hand,
+program control type of instruction, when executed, may change the address
+value in the program counter and cause the flow of control to be altered. In
+other words, program control instructions specify conditions for altering the
+content of the program counter, while data transfer and manipulation in-
+structions specify conditions for data-processing operations. The change in
+value of the program counter as a result of the execution of a program con-
+trol instruction causes a break in the sequence of instruction execution. This
+is an important feature in digital computers, as it provides control over the flow
+of program execution and a capability for branching to different program
+segments.
+
+Some typical program control instructions are listed in Table 8-10. The
+branch and jump instructions are used interchangeably to mean the same
+thing, but sometimes they are used to denote different addressing modes. The
+branch is usually a one-address instruction. It is written in assembly language
+as BR ADR, where ADR is a symbolic name for an address. When executed,
+the branch instruction causes a transfer of the value of ADR into the program
+counter. Since the program counter contains the address of the instruction to
+be executed, the next instruction will come from location ADR.
+
+Branch and jump instructions may be conditional or unconditional. An
+unconditional branchinstruction causes a branchto the specified address with-
+‘out any conditions. The conditional branch instruction specifies a condition
+such as branch if positive or branch if zero. Ifthe condition is met, the program
+counter is loaded with the branch address and the next instruction is taken
+
+TABLE 8-10 Typical Program Control Instructions
+
+‘Name ‘Mnemonic
+Branch BR
+Jump JMP
+Skip SKP
+call CALL
+Return RET
+
+Compare (by subtraction) © CMP
+Test (by ANDing) TsT
+

@@ -1,0 +1,51 @@
+40 Chapter 2 Computer-System Structures
+
+2.4.1 Caching
+
+Caching is an important principle of computer systems. Information is nor-
+mally kept in some storage system (such as main memory). As it is used, it is
+copied into a faster storage system—the cache—on a temporary basis. When
+we need a particular piece of information, we first check whether it is in the
+cache. If it is, we use the information directly from the cache; if it is not, we
+use the information from the main storage system, putting a copy in the cache
+under the assumption that we will need it again soon.
+
+In addition, internal programmable registers, such as index registers,
+provide a high-speed cache for main memory. The programmer (or com-
+piler) implements the register-allocation and register-replacement algorithms
+to decide which information to keep in registers and which to keep in main
+memory. There are also caches that are implemented totally in hardware. For
+instance, most systems have an instruction cache to hold the next instructions
+expected to be executed. Without this cache, the CPU would have to wait several
+cycles while an instruction is fetched from main memory. For similar reasons,
+most systems have one or more high-speed data caches in the memory hierar-
+chy. We are not concerned with these hardware-only caches in this text, since
+they are outside of the control of the operating system.
+
+Because caches have limited size, cache management is an important
+design problem. Careful selection of the cache size and of a replacement policy
+can result in 80 to 99 percent of all accesses being in the cache, greatly increasing
+performance. Various replacement algorithms for software-controlled caches
+are discussed in Chapter 10.
+
+Main memory can be viewed as a fast cache for secondary storage, since
+data in secondary storage must be copied into main memory for use, and
+data must be in main memory before being moved to secondary storage for
+safekeeping. The file-system data, which resides permanently on secondary
+storage, may appear on several levels in the storage hierarchy. At the highest
+level, the operating system may maintain a cache of file-system data in main
+memory. Also, electronic RAM disks (also known as solid-state disks) may be
+used for high-speed storage that is accessed through the file-system interface.
+The bulk of secondary storage is on magnetic disks. The magnetic-disk storage,
+in turn, is often backed up onto magnetic tapes or removable disks to protect
+against data loss in case of a hard-disk failure. Some systems automatically
+archive old file data from secondary storage to tertiary storage, such as tape
+jukeboxes, to lower the storage cost (see Chapter 14).
+
+The movement of information between levels of a storage hierarchy may
+be either explicit or implicit, depending on the hardware design and the con-
+trolling operating-system software. For instance, data transfer from cache to
+CPU and registers is usually a hardware function, with no operating-system
+intervention. On the other hand, transfer of data from disk to memory is usually
+controlled by the operating system.
+

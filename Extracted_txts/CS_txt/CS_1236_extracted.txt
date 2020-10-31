@@ -1,0 +1,59 @@
+216 Chapter 7. First-Order Logic
+
+ 
+
+is a direct route. DirectRoute(x,y) is true if and only ifthere is a direct route from.x to y; you can
+assume that all such facts are already in the KB (see the map on page 62). The robot begins in
+Arad and must reach Bucharest.
+
+. Write a suitable logical description of the initial situation of the robot.
+Write a suitable logical query whose solutions will provide possible paths to the goal.
+. Write a sentence describing the Go action.
+Now suppose that following the direct route between two cities consumes an amount of
+fuel equal to the distance between the cities. The robot starts with fuel at full capacity.
+Augment your representation to include these considerations. Your action description
+should be such that the query you specified earlier will still result in feasible plans.
+e. Describe the initial situation, and write a new rule or rules describing the Go action.
+Now suppose some of the vertices are also gas stations, at which the robot can fill its tank
+using the Fillup action. Extend your representation to include gas stations and write all the
+tules needed to completely describe the Fillup action.
+
+Bose
+
+re
+
+7.12 In this exercise, you will extend situation calculus to allow for actions that take place
+simultaneously. You will use a function called Simultaneously, which takes two actions as
+arguments and denotes the combined action. Consider a grid world containing two agents. Write
+axioms describing the effects of simultaneous Forward actions:
+
+a. When two agents move at once, unless they are both trying to move to the same location,
+the result is the same as if one had moved and then the other had moved.
+b. Ifthe agents are trying to move to the same location, they remain in place
+
+7.13 Usingthe wumpus world simulator and the logical reasoning system in the code repository,
+implement a working agent for the wumpus world. You will need all of the wumpus-related
+axioms in the chapter, and perhaps more besides. Evaluate the performance of your agent.
+
+ 
+
+7.14 How hard would it be to build a successful wumpus world agent by writing a program in
+your favorite programming language? Compare this to the logical reasoning agent.
+
+7.15 Sketch an argument to the effect that a logical agent using the axioms and action preferences
+given in the chapter will always succeed in finding the gold safely whenever there is a safe
+sequence of actions that does so.
+
+716 A reflex agent is one whose action is always a function ofits percepts in the current time
+step. That is, the agent's action cannot be based on anything it learned in the past, and it cannot
+carry over any internal state information from one time step to the next. In the wumpus world,
+there are 32 different possible percepts and 6 different actions.
+
+a. How many different reflex agents can there be in the wumpus world?
+How many different 4 x 4 wumpus world are there? How many 10 x 10 worlds?
+
+c. What do you think the chances are that a reflex agent can be successful in a majority of
+wumpus worlds? Why?
+
+ 
+

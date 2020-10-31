@@ -1,0 +1,54 @@
+Section 20.9. Summary 623
+
+ 
+
+A more recent tradition springs from work at the University of Massachusetts in the early
+1980s (Barto et al., 1981). The paper by Sutton (1988) reinvigorated reinforcement learning
+research in AI, and provides a good historical overview. The Ph.D. theses by Watkins (1989)
+and Kaelbling (1990) and the survey by Barto et al. (1991) also contain good reviews of the
+field. Watkin's thesis originated Q-learning. and proved its convergence in the limit. Some
+recent work appears in a special issue of Machine Learning (Vol. 8, Nos. 3/4, 1992), with
+an excellent introduction by Sutton. The presentation in this chapter is heavily influenced
+by Moore and Atkeson (1993), who make a clear connection between temporal differencing
+and classical dynamic programming techniques. The latter paper also introduced the idea of
+prioritized sweeping. An almost identical method was developed independently by Peng and
+Williams (1993). Bandit problems, which model the problem of exploration, are analyzed in
+depth by Berry and Fristedt (1985).
+
+Reinforcement learning in games has also undergone a renaissance in recent years. In addi-
+tion to Tesauro's work, a world-class Othello system was developed by Lee and Mahajan (1988).
+Reinforcement learning papers are published frequently in the journal Machine Learning, and in
+the International Conferences on Machine Learning.
+
+Genetic algorithms originated in the work of Friedberg (1958), who attempted to produce
+learning by mutating small FORTRAN programs. Since most mutations to the programs produced
+inoperative code, little progress was made. John Holland (1975) reinvigorated the field by using
+bit-string representations of agents such that any possible string represented a functioning agent.
+John Koza (1992) has championed more complex representations of agents coupled with mutation
+and mating techniques that pay careful attention to the syntax of the representation language.
+Current research appears in the annual Conference on Evolutionary Programming.
+
+ 
+
+EXERCISES
+
+20.1 Show that the estimates developed by the LMS-UPDATE algorithm do indeed minimize the
+mean square error on the training data.
+
+20.2. Implement a passive learning agent in a simple environment, such as that shown in
+Figure 20.1. For the case of an initially unknown environment model, compare the learning
+performance of the LMS, TD, and ADP algorithms.
+
+ 
+
+20.3 Starting with the passive ADP agent, modify it to use an approximate ADP algorithm as
+discussed in the text. Do this intwo steps:
+
+a. Implement a priority queue for adjustments to the utility estimates. Whenever a state is
+adjusted, all of its predecessors also become candidates for adjustment, and should be
+added to the queue. The queue is initialized using the state from which the most recent
+transition took place. Change ADP-UPDATE to allow only a fixed number of adjustments
+
+b. Experiment with various heuristics for ordering the priority queue, examining their effect
+on learning rates and computation time.
+

@@ -1,0 +1,39 @@
+246 Let Us C
+
+ 
+
+There is perhaps a more important reason for using macro
+definition than mere readability. Suppose a constant like 3.1415
+appears many times in your program. This value may have to be
+changed some day to 3.141592. Ordinarily, you would need to go
+through the program and manually change each occurrence of the
+constant. However, if you have defined PI in a #define directive,
+you only need to make one change, in the #define directive itself:
+
+#define Pl 3.141592
+
+Beyond this the change will be made automatically to all
+occurrences of PI before the beginning of compilation.
+
+In short, it is nice to know that you would be able to change values
+of a constant at all the places in the program by just making a
+change in the #define directive. This convenience may not matter
+for small programs shown above, but with large programs macro
+definitions are almost indispensable.
+
+But the same purpose could have been served had we used a
+variable pi instead of a macro template PI. A variable could also
+have provided a meaningful name for a constant and permitted one
+change to effect many occurrences of the constant. It’s true that a
+variable can be used in this way. Then, why not use it? For three
+reasons it’s a bad idea.
+
+Fustly, it is inefficient, since the compiler can generate faster and
+more compact code for constants than it can for variables.
+Secondly, using a variable for what is really a constant encourages
+sloppy thinking and makes the program more difficult to
+understand: if something never changes, it is hard to imagine it as
+a variable. And thirdly, there is always a danger that the variable
+may inadvertently get altered somewhere in the program. So it’s
+no longer a constant that you think it is.
+

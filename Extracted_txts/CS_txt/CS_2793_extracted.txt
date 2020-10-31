@@ -1,0 +1,67 @@
+342
+
+Chapter 14 Augmenting Data Structures
+
+OS-RANK(T, x)
+
+1 or=x.left.size+1
+2y=x
+
+3 while y 4 T.root
+
+4 if y == y.p.right
+5
+
+6
+
+7
+
+ 
+
+r=r-+y.p.left.size +1
+VP
+
+ 
+
+ 
+
+y
+return r
+The procedure works as follows. We can think of node x’s rank as the number of
+nodes preceding x in an inorder tree walk, plus | for x itself. OS-RANK maintains
+the following loop invariant:
+
+At the start of each iteration of the while loop of lines 3-6, r is the rank
+of x. key in the subtree rooted at node y.
+
+We use this loop invariant to show that OS-RANK works correctly as follows:
+
+Initialization: Prior to the first iteration, line 1 sets r to be the rank of x.key within
+the subtree rooted at x. Setting y = x in line 2 makes the invariant true the
+first time the test in line 3 executes.
+
+Maintenance: At the end of each iteration of the while loop, we set y = y.p.
+Thus we must show that ifr is the rank of x. key in the subtree rooted at y at the
+start of the loop body, then r is the rank of x.key in the subtree rooted at y.p
+at the end of the loop body. In each iteration of the while loop, we consider
+the subtree rooted at y.p. We have already counted the number of nodes in the
+subtree rooted at node y that precede x in an inorder walk, and so we must add
+the nodes in the subtree rooted at y’s sibling that precede x in an inorder walk,
+plus 1 for y.p if it, too, precedes x. If y is a left child, then neither y.p nor any
+node in y.p’s right subtree precedes x, and so we leave r alone. Otherwise, y is
+aright child and all the nodes in y.p’s left subtree precede x, as does y.p itself.
+Thus, in line 5, we add y.p./eft.size + 1 to the current value of r.
+
+Termination: The loop terminates when y = T.root, so that the subtree rooted
+at y is the entire tree. Thus, the value of r is the rank of x. key in the entire tree.
+
+As an example, when we run OS-RANK on the order-statistic tree of Figure 14.1
+to find the rank of the node with key 38, we get the following sequence of values
+of y. key and r at the top of the while loop:
+
+iteration y.key 1
+1 38 2
+2 30 4
+3 41 4
+4 26 17
+

@@ -1,0 +1,45 @@
+4.3 The substitution method for solving recurrences 87
+
+which is very much like recurrence (4.19). Indeed, this new recurrence has the
+same solution: S(m) = O(m lgm). Changing back from S(m) to T(1), we obtain
+
+T(n) = T(2”) = S(m) = O(mlgm) = Ollgnlgign) .
+
+Exercises
+
+43-1
+Show that the solution of T(n) = T(n — 1) +n is O(n?).
+
+43-2
+Show that the solution of T(n) = T([n/2]) + lis O(gn).
+
+43-3
+We saw that the solution of T(n) = 2T([n/2]) +n is O(nlgn). Show that the so-
+lution of this recurrence is also Q(nlgn). Conclude that the solution is O(n Ign).
+
+4.3-4
+
+Show that by making a different inductive hypothesis, we can overcome the diffi-
+culty with the boundary condition T(1) = 1| for recurrence (4.19) without adjusting
+the boundary conditions for the inductive proof.
+
+43-5
+Show that @(7 1g 7) is the solution to the “exact” recurrence (4.3) for merge sort.
+
+43-6
+Show that the solution to T(n) = 27 ({n/2| + 17) +n is O(nlgn).
+
+4.3-7
+
+Using the master method in Section 4.5, you can show that the solution to the
+recurrence T(n) = 47 (n/3) +n is T(n) = ©(n'°834). Show that a substitution
+proof with the assumption T(n) < cn'°:34 fails. Then show how to subtract off a
+lower-order term to make a substitution proof work.
+
+4.3-8
+
+Using the master method in Section 4.5, you can show that the solution to the
+recurrence T(n) = 47(n/2) + n? is T(n) = ©(n?). Show that a substitution
+proof with the assumption T(n) < cn? fails. Then show how to subtract off a
+lower-order term to make a substitution proof work.
+

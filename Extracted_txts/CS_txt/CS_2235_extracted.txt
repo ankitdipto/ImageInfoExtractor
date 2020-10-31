@@ -1,0 +1,58 @@
+strobe
+
+handshaking
+
+timing diagram
+
+SECTION 113 Asynchronous Daa Transfer 391
+
+select one of the four registers in the interface as specified in the table accom-
+panying the diagram. The content of the selected register is transfer into the
+CPU via the data bus when the /O read signal is enabled. The CPU transfers
+binary information into the selected register via the data bus when the /O write
+input is enabled.
+
+11-3 Asynchronous Data Transfer
+
+The internal operations in a digital system are synchronized by means of clock
+pulses supplied by a common pulse generator. Clock pulses are applied to all
+registers within a unit and all data transfers among internal registers occur
+simultaneously during the occurrence of a clock pulse. Two units, such as a
+CPU and an I/O interface, are designed independently of each other. If the
+registers in the interface share a common clock with the CPU registers, the
+transfer between the two units is said to be synchronous. In most cases, the
+internal timing in each unit is independent from the other in that each uses its
+‘own private clock for internal registers. In that case, the two units are said to
+be asynchronous to each other. This approach is widely used in most computer
+systems.
+
+‘Asynchronous data transfer between two independent units requires
+that control signals be transmitted between the communicating units to indi
+cate the time at which data is being transmitted. One way of achieving this is
+by means of a strobe pulse supplied by one of the units to indicate to the other
+unit when the transfer has to occur. Another method commonly used is to
+accompany each data item being transferred with a control signal that indicates
+the presence of data in the bus. The unit receiving the data item responds with
+another control signal to acknowledge receipt of the data. This type of agree-
+ment between two independent units is referred to as handshaking.
+
+The strobe pulse method and the handshaking method of asynchronous
+data transfer are not restricted to VO transfers. In fact, they are used extensively
+on numerous occasions requiring the transfer of data between two indepen-
+dent units. In the general case we consider the transmitting unit as the source
+and the receiving unit as the destination. For example, the CPU is the source
+unit during an output or a write transfer and it is the destination unit during
+an inputor aread transfer. Itis customary to specify the asynchronous transfer
+between two independent units by means of a timing diagram that shows the
+timing relationship that must exist between the control signals and the data in
+the buses. The sequence of control during an asynchronous transfer depends
+on whether the transfer is initiated by the source or by the destination unit.
+
+ 
+
+Strobe Control
+
+The strobe control method of asynchronous data transfer employs a single
+control line to time each transfer. The strobe may be activated by either the
+source or the destination unit. Figure 11-3(a) shows a source-initiated transfer.
+

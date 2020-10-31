@@ -1,0 +1,53 @@
+UFO
+
+stack pointer
+
+SECTIONS-3 Stack Organization 247
+
+of all 0's (making the B field 000) A register can be cleared to 0 with an
+exclusive-OR operation. This is because x ® x = 0.
+
+Itis apparent from these examples that many other microoperations can
+be generated in the CPU. The most efficient way to generate control words with
+alarge number of bits is to store them in a memory unit. A memory unit that
+stores control wordsis referred toas a control memory. By reading consecutive
+control words from memory, it is possible to initiate the desired sequence of
+microoperations for the CPU. This type of control is referred to as micropro-
+grammed control. A microprogrammed control unit is shown in Fig. 7-8. The
+binary control word for the CPU will come from the outputs of the control
+memory marked “micro-ops.”
+
+8-3 Stack Organization
+
+‘A useful feature that is included in the CPU of most computers is a stack or
+last-in, first-out (LIFO) list. A stack is a storage device that stores information
+in such a manner that the item stored last is the first item retrieved. The
+operation of a stack can be compared to a stack of trays. The last tray placed
+on top of the stack is the first to be taken off.
+
+The stack in digital computers is essentially a memory unit with an
+address register that can count only (after an initial value is loaded into it). The
+register that holds the address for the stack is calleda stack pointer (SP) because
+its value always points at the top item in the stack. Contrary to a stack of trays
+where the tray itself may be taken out or inserted, the physical registers of a
+stack are always available for reading or writing, It is the content of the word
+that is inserted or deleted.
+
+The two operations of a stack re the insertion and deletion of items. The
+operation of insertion is called push (or push-down) because it can be thought
+ofas the result of pushing anew item on top. The operation of deletion is called
+pop (or pop-up) because it can be thought of as the result of removing one item
+so that the stack pops up. However, nothing is pushed or popped in a com-
+puter stack. Theseoperationsare simulated by incrementing or decrementing
+the stack pointer register.
+
+Register Stack
+
+‘Asstack can be placed in a portion of a large memory or it can be organized as
+a collection of afinite number of memory words or registers. Figure 8-3 shows
+the organization of a 64-word register stack. The stack pointer register SP
+containsa binary number whose value is equal to the address of the word that
+is currently on top of the stack. Three items are placed in the stack: A, B, and
+C, in that order. Item C is on top of the stack so that the content of SP is now
+3. Toremove the top item, the stack is popped by reading the memory word
+

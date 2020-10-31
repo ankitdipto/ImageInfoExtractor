@@ -1,0 +1,42 @@
+1108 Chapter 35 Approximation Algorithms
+
+Chapter outline
+
+The first four sections of this chapter present some examples of polynomial-time
+approximation algorithms for NP-complete problems, and the fifth section presents
+a fully polynomial-time approximation scheme. Section 35.1 begins with a study
+of the vertex-cover problem, an NP-complete minimization problem that has an
+approximation algorithm with an approximation ratio of 2. Section 35.2 presents
+an approximation algorithm with an approximation ratio of 2 for the case of the
+traveling-salesman problem in which the cost function satisfies the triangle in-
+equality. It also shows that without the triangle inequality, for any constant p > 1,
+a p-approximation algorithm cannot exist unless P = NP. In Section 35.3, we
+show how to use a greedy method as an effective approximation algorithm for the
+set-covering problem, obtaining a covering whose cost is at worst a logarithmic
+factor larger than the optimal cost. Section 35.4 presents two more approximation
+algorithms. First we study the optimization version of 3-CNF satisfiability and
+give a simple randomized algorithm that produces a solution with an expected ap-
+proximation ratio of 8/7. Then we examine a weighted variant of the vertex-cover
+problem and show how to use linear programming to develop a 2-approximation
+algorithm. Finally, Section 35.5 presents a fully polynomial-time approximation
+scheme for the subset-sum problem.
+
+ 
+
+35.1 The vertex-cover problem
+
+Section 34.5.2 defined the vertex-cover problem and proved it NP-complete. Recall
+that a vertex cover of an undirected graph G = (V, E) is a subset V’ C V such
+that if (u, v) is an edge of G, then either u € V’ or v € V’' (or both). The size of a
+vertex cover is the number of vertices in it.
+
+The vertex-cover problem is to find a vertex cover of minimum size in a given
+undirected graph. We call such a vertex cover an optimal vertex cover. This prob-
+lem is the optimization version of an NP-complete decision problem.
+
+Even though we don’t know how to find an optimal vertex cover in a graph G
+in polynomial time, we can efficiently find a vertex cover that is near-optimal.
+The following approximation algorithm takes as input an undirected graph G and
+returns a vertex cover whose size is guaranteed to be no more than twice the size
+of an optimal vertex cover.
+

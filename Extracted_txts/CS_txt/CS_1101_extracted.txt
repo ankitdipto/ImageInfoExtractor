@@ -1,0 +1,57 @@
+204 Chapter 7. First-Order Logic
+
+ 
+
+characterized by change rather than static truth. Richard has no brother until John is born; Spot
+is akitten for a while and then becomes a full-grown tomcat; the agent moves on.
+
+The easiest way to deal with change is simply to change the knowledge base; to erase
+the sentence that says the agent is at [1,1], and replace it with one that says it is at [1,2]. This
+approach can mitigate some of the difficulties we saw with the propositional agent. If we only 4
+want the knowledge base to answer questions about the latest situation, this will work fine. But
+it means that all knowledge about the past is lost, and it prohibits speculation about different
+possible futures.
+
+A second possibility was hinted at in Chapters 3 and 4: an agent can search through a
+space of past and possible future states, where each state is represented by a different knowledge
+base. The agent can explore hypothetical situations—what would happen if] went two squares
+forward? This approach allows an agent to switch its attention between several knowledge bases,
+but it does not allow the agent to reason about more than one situation simultaneously.
+
+To answer questions like "was there a stench in both [1,2] and [2,3]?” or "did Richard
+go to Palestine before he became king?" requires representing different situations and actions
+in the same knowledge base. In principle, representing situations and actions is no different
+from representing more concrete objects such as cats and kings, or concrete relations such as
+brotherhood. We need to decide on the appropriate objects and relations, and then write axioms
+about them. In this chapter, we will use the simplest, and oldest, solution to the problem. In ;
+Chapter 8, we will explore more complex approaches.
+
+ 
+
+Situation calculus
+
+mare Situation calculus is the name for a particular way of describing change in first-order logic. It
+conceives of the world as consisting of a sequence of situations, each of which is a "snapshot"
+of the state of the world. Situations are generated from previous situations by actions, as shown
+in Figure 7.3.
+
+Every relation or property that can change over time is handled by giving an extra situation
+argument to the corresponding predicate. We use the convention that the situation argument is 4
+always the last, and situation constants are of the form S;. Thus, instead of At(Agent, location),
+we might have
+
+~At(Agent, (1, 1], So) A At(Agent, [1,2], Si)
+~>to describe the location of the agent in the first two sin ationsin Figure.7.3, Relations or properties 4
+that are not subject to change do not need the extra situation argument. For example, we can just.
+say Even(8) instead of Even(8, So). In the wumpus world, where walls cannot move, we can just
+use Wall([0, 1})to say that there is a wall at [0,1].
+The next step is to represent how the world changes from one situation to the next
+Situation calculus uses the function Resuls(action, situation) to denote the situation that results
+~ from performing an action in some initial situation. Hence, in the sequence shown in Figure 7.3,
+We have the following:
+Result(Forward, So) = Si
+Result(Turn(Right),SO = Sz
+Result(Forward,S2) = S3
+
+ 
+

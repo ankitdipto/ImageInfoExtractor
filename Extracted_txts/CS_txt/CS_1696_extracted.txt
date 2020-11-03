@@ -1,0 +1,51 @@
+190 Chapter7 Process Synchronization
+
+while (1) {
+/* produce an item in nextProduced */
+while (counter == BUFFER-SIZE)
+; /* do nothing */
+buffer[in] = nextProduced;
+in = (in + 1) % BUFFER_SIZE;
+countert++;
+
+}
+
+The code for the consumer process can be modified as follows:
+
+while (1) {
+while (counter == 0)
+; /* do nothing */
+nextConsumed = buffer[out];
+out = (out + 1) % BUFFER_SIZE;
+counter-~;
+/* consume the item in nextConsumed */
+
+}
+
+Although both the producer and consumer routines are correct separately,
+they may not function correctly when executed concurrently. As an illustration,
+suppose that the value of the variable counter is currently 5, and that the
+producer and consumer processes execute the statements “counter++” and
+“counter--” concurrently. Following the execution of these two statements,
+the value of the variable counter may be 4, 5, or 6! The only correct result
+is counter == 5, which is generated correctly if the producer and consumer
+execute separately.
+
+We can show that the value of counter may be incorrect as follows. Note
+that the statement “counter++” may be implemented in machine language (on
+a typical machine) as
+
+register; = counter
+register, = register) + 1
+counter = register;
+
+where register; is a local CPU register. Similarly, the statement “counter-—” is
+implemented as follows:
+
+register, = counter
+register, = register, — 1
+counter = register,
+
+where again register? is a local CPU register. Even though register and register
+may be the same physical register (an accumulator, say), remember that the
+

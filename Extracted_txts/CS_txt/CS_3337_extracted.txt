@@ -1,0 +1,63 @@
+  
+
+Section 22.10.
+
+Summary 687
+
+ 
+
+GRAMMAR
+
+active sentences into passive, many modern grammars place the burden ofpassives on the lexicon.
+The grammar would have one or more rules saying a verb phrase can be a verb optionally preceded
+by an auxiliary verb and followed by complements. The lexical entry for "bitten" would say that
+it is preceded by form of the auxiliary verb "be" and followed by a prepositional phrase with
+the preposition "
+
+In the 1970sit was felt that putting this kind of information in the lexicon would be missing
+an important generality—that most transitive verbs have passive forms.'? The current view is
+that if we can account for the way the passives of new verbs are learned, then we have not lost
+any generalities. Putting the information in the lexicon rather than the grammar is just a kind of
+compilation—it can make the parser's job easier at run time. LFG or lexical-functional grammar
+(Bresnan, 1982) was the first major grammar of English and formalism to be highly lexicalized.
+If we carry lexicalization to an extreme, we end up with categorial grammar, in which there
+can be as few as two grammar rules, or dependency grammar (Meléuk and Polguere, 1988), in
+which there are no phrases, only words. TAG or Tree-Adjoining Grammar (Joshi, 1985) is not
+strictly lexical, but it is gaining popularity in its lexicalized form (Schabes ef al., 1988).
+
+A major barrier to the widespread use of natural language processing is the difficulty of
+tuning an NLP system to perform well in a new domain, and the amount of specialized training (in
+linguistics and computer science) needed to do the tuning. One way to lower this barrier is to throw
+out the specialized terminology and methodology of linguistics and base the system's grammar
+more directly on the problem domain. This is achieved by replacing abstract syntactic categories
+with domain-specific semantic categories. Such a grammar is called a semantic grammar. For
+example, an interface to an airline reservation system could have categories like Location and
+Fly-To instead of NP and VP. See Birnbaum and Selfridge (1981) for an implementation of a
+system based on semantic grammars.
+
+There are two main drawbacks to semantic grammars. First, they are specific to a particular
+domain. Very little of the work that goes into building a system can be transferred to a different
+domain. Second, they make it hard to add syntactic generalizations. Handling constructions
+such as passive sentences means adding not just one new rule, but one rule for each verb-like
+category. Getting it right is time-consuming and error-prone. Semantic grammars can be used to
+get a small application working quickly in a limited domain, but they do not scale up well.
+
+The other approach to knowledge acquisition for NLP is to use machine learning. Gold
+(1967) set the groundwork for this field, and Fu and Booth (1986a; 1986b) give a tutorial of
+recent work. Stolcke (1993) gives an algorithm for learning probabilistic context-free grammars,
+and Black et al. (1992) and Magerman (1993) show how to leam more complex grammars.
+
+Research on language leaming by humans is surveyed by Wanner and Gleitman (1982)
+and by Bloom (1994). Pinker (1989) gives his take on the field. A variety of machine learning
+experiments have tried to duplicate human language learning (Clark, 1992; Siskind, 1994).
+
+Disambiguation has always been one of the hardest parts of NLP. In part, this is because
+of a lack of help from other fields. Linguistics considers disambiguation to be largely outside
+its domain, and literary criticism (Empson, 1953; Hobbs, 1990) is ambiguous about whether
+
+ 
+
+® It is now known that passivity is a feature of sentences, not verbs. For example, "This bed was slept in by George
+Washington” is a good sentence, but "The stars were slept under by Fred” is not (even though the two comesponding
+active sentences are perfectly good)
+

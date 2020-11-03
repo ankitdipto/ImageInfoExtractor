@@ -1,0 +1,108 @@
+534
+
+Chapter 18. Learning from Observations
+
+ 
+
+CLASSIFICATION
+
+TRAINNG SET
+
+ 
+
+Inducing decision trees from examples
+
+An example is described by the values of the attributes and the value of the goal predicate. We
+call the value of the goal predicate the classification of the example. If the goal predicate is
+true for some example, we call it a positive example; otherwise we call it a negative example.
+A set of examples X;,... ,X;2 for the restaurant domain is shown in Figure 18,5, The positive
+examples are ones where the goal WillWait is true (X,,X3,...)and negative examples are ones
+where it is false (X2, Xs, ...).The complete set of examples is called the training set.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Attributes Goal
+Example
+Alt | Bar| Fi | Hun | Pat | Price] Rain| Res) Tipe Est |) willwait
+
+xX yes} No | No | Yes | Some| sss} No | Yes | French | 010 Yes
+X> yes| No | No| Yes| Full | $ | No| No| Thai | 30-60]| No
+X3 No| Yes| No| No| Some} § | No| No| Burger | 010 Yes
+Xy Yes} No | Yes| Yes| Full | S| No} No| That | 10-30 Yes
+Xs Yes| No | Yes| No} Full | §$$| No | Yes | French | >o0 No
+Xe No | Yes| No| Yes} some| §, Yes | Yes | Italian | 0-10 Yes
+X> No | Yes| No| No} None | $ | Yes| No} Burger | 010 No
+Xs No | No | No| Yes| some| $$ | Yes| Yes| thai | 010 Yes
+Xs No | Yes| Yes| No | Full Yes | No | Burger| >60 No
+Xo Yes | Yes | Yes | yes| Full | $$$) No | Yes | italian | 1030 No
+Xu No | No} No | No | None No | No| Thai | 0:10 No
+Xn Yes | Yes | Yes| Yes| Full | § | No| No | Burger | 30-60 Yes
+Figure 185 Examples for the restaurant domain.
+
+ 
+
+ 
+
+ 
+
+The problem of finding a decision tree that agrees with the training set might seem difficult,
+but in fact there is a trivial solution. We could simply construct a decision tree that has one path
+to a leaf for each example, where the path tests each attribute in turn and follows the value for
+the example, and the leaf has the classification of the example. When given the same example
+again,’ the decision tree will come up with the right classification. Unfortunately, it will not have
+much to say about any other cases!
+
+The problem with this trivial tree is that itjust memorizes the observations. It does not
+extract any pattem from the examples and so we cannot expect it to be able to extrapolate to
+examples it has not seen.
+
+Extracting a pattern means being able to describe a large number of cases in a concise
+way. Rather than just trying to find a decision tree that agrees with the examples, we should try
+to find a concise one, too. This is an example ofa general principle of inductive learning often
+called Ockham's razor:’ Zhe most likely hypothesis is the simplest one that is consistent with
+all observations. Some people interpret this as meaning "the world is inherently simple." Even
+if the world is complex, however, Ockham’s razor sti]] makes sense. There are far fewer simple
+
+7 The same example or an example with the same description—this distinction is very important and we will return to
+it in Chapter 21.
+
+8 Sometimes spelled "Occam,” although the origin ofthis corruption is obscure.
+
+ 
+

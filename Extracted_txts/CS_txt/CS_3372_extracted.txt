@@ -1,0 +1,61 @@
+716
+
+Chapter 23. Practical Natural Language Processing
+
+ 
+
+where KB is the hearer's knowledge base, and KB’ is the hearer's knowledge base after incorpo-
+rating the text. The difference between KB and KB’ is the hearer’s understanding of the text. At
+least six types of knowledge come into play in arriving at an understanding:
+1. General knowledge about the world.
+
+General knowledge about the structure of coherent discourse.
+. General knowledge about syntax and semantics.
+
+Specific knowledge about the situation being discussed.
+5. Specific knowledge about the beliefs of the characters.
+6. Specific knowledge about the beliefs of the speaker.
+
+Let us look at an example discourse:
+
+wn
+
+John went to a fancy restaurant.
+He was pleased and gave the waiter a big tip.
+He spent $50.
+
+A proper understanding of this discourse would include the fact that John ate a fancy meal at the
+restaurant, that the waiter was employed by the restaurant, and that John paid some ofthe $50 to
+the waiter and most of it to the restaurant. We'll call this understanding (a). All the inferences
+seem obvious, but to get them right we need to know a lot and apply the knowledge in just the
+right way. To understand why this is hard, we give an alternative understanding (b):
+
+John ducked into a fancy restaurant to ask directions. He was pleased that they were
+able to help him. Back on the street, John bumped into a man that he had met at
+a party the other night. All John could remember was that the man was a waiter at
+another restaurant and that he was interested in getting a new radio. John gave the
+man a tip that there was a great sale going on at the stereo store down the block. The
+man spent $50 on a radio.
+
+This is a situation that could conceivably be described by our three-sentence discourse. It is
+far-fetched for two reasons: First, the situation in (a) has a higher a priori probability—people
+go to restaurants to eat more often than to ask for directions. Second, the situation in (a) is more
+probable given the text. A rational speaker would not expect a hearer to extract understanding
+(b) from the discourse. To see why (a) is better, let us look at it piece by piece:
+
++ John ate a fancy meal at the restaurant.
+
+To get this requires going beyond disambiguation and into incorporation. There is certainly
+no part of the discourse that mentions the eating explicitly, but it still should be part of
+the updated knowledge base that the hearer comes away with. To get it, the hearer has to
+know that restaurants serve meals, and thus that a reason for going to a restaurant is to eat.
+The hearer also knows that fancy restaurants serve fancy meals, and that $50 is a typical
+price for such a meal, and that paying and leaving a tip are typically done after eating a
+restaurant meal. Besides this general knowledge about the world, it also helps if the hearer
+knows that discourses are commonly structured so that they describe some steps ofa plan
+for a character, but leave out steps that can be easily inferred from the other steps. From
+this, the hearer can infer from the first sentence that John has adopted the eat-at-restaurant
+plan, and that the eat-meal step probably occurred even if it was not mentioned.
+
+ 
+

@@ -1,0 +1,114 @@
+114
+
+Chapter 4. Informed Search Methods
+
+ 
+
+HEURISTIC REPAIR
+
+MIN-CONFLICTS
+
+temperature. The schedule determines the rate at which the temperature is lowered. Individual
+moves in the state space correspond to random fluctuations due to thermal noise. One can prove
+that if the temperature is lowered sufficiently slowly, the material will attain a lowest-energy
+(perfectly ordered) configuration. This corresponds to the statement that if schedule lowers T
+slowly enough, the algorithm will find a global optimum.
+
+Simulated annealing was first used extensively to solve VLSI layout problems in the
+early 1980s. Since then, it has been applied widely to factory scheduling and other large-scale
+optimization tasks. In Exercise 4.12, you are asked to compare its performance to that of
+random-restart hill-climbing on the n-queens puzzle.
+
+Applications in constraint satisfaction problems
+
+Constraint satisfaction problems (CSPs) can be solved by iterative improvement methods by
+first assigning values to all the variables, and then applying modification operators to move the
+configuration toward a solution. Modification operators simply assign a different value to a
+variable. For example, in the 8-queens problem, an initial state has all eight queens on the board,
+and an operator moves a queen from one square to another.
+
+Algorithms that solve CSPs in this fashion are often called heuristic repair methods,
+because they repair inconsistencies in the current configuration. In choosing a new value for a
+variable, the most obvious heuristic is to select the value that results in the minimum number of
+conflicts with other variables—the min-conflicts heuristic. This is illustrated in Figure 4.16 for
+an 8-queens problem, which it solves in two steps.
+
+Min-conflicts is surprisingly effective for many CSPs, and is able to solve the million-
+queens problem in an average of less than 50 steps. Ithas also been used to schedule observations
+for the Hubble space telescope, reducing the time taken to schedule a week of observations from
+three weeks (!) to around ten minutes. Min-conflicts is closely related to the GSAT algorithm
+described on page 182, which solves problems in propositional logic.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+    
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 4.16 A two-step solution for an 8-queens problem using min-conflicts. Ateach stage, a
+queen is chosen for reassignment in its column. The number of conflicts (in this case, the number
+of attacking queens) is shown in each square. The algorithm moves the queen to the min-conflict
+square, breaking ties randomly.
+
+ 
+
+ 
+
+ 
+
+ 
+

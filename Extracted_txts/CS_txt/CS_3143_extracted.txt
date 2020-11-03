@@ -1,0 +1,71 @@
+ 
+
+Decision-Theoretic Agent Design 509
+
+ 
+
+Section 17.4
+
+PREDICTION PHASE
+
+ESTIMATION PHASE
+
+(where each E; may also consist of observations on several random variables), and the previous
+actions have been A; ... A,—). then what we are interested in is
+
+P(X,|E, ...E,,Ay...As-1)
+
+that is, the probability distribution over the current state given all available evidence. We refer to
+this quantity as Bel(X,)— the belief about the state at time 1, given all evidence up to time ¢.
+
+This is arather complicated expression, and direct evaluation is out of the question because
+it requires conditioning on a large number of variables. As in Chapter 14, we can use conditional
+independence statements to simplify this expression. The main assumption is that the problem
+is Markovian—the probability distribution for the current state of the world depends only on the
+previous state and the action taken in it. IfX; is the state of the world at time ¢ and A, is the action
+taken at time 7, then we have
+
+PCX,|X) ...Xp-1, Ar. Ar1) = PX|X- 1.4/1) (17.5)
+
+Whether the Markov property holds depends on which state variables the agent is tracking, and on
+the details ofthe environment. For example, in the case ofa robot moving in the X-Y plane, the
+previous position and velocity might well be enough to predict the current position and velocity,
+given the previous motor command—one can simply use Newton's laws to calculate the new
+position and velocity. On the other hand, if the robot is battery-powered, then the effect of an
+action will depend on whether the battery is exhausted. Because this in turn depends on how
+much power was used by all previous commands, the Markov property is violated. We can restore
+the Markov property by including BarteryLevel, as one of the state variables that comprise X,.
+
+We also assume that each percept depends only on the state at the time. This amounts to
+the assertion that percepts (£,) are causally determined by the state of the world:
+
+P(E,|X) ...X),A,...A;-1,.E,...E,_,) = P(E|X)) (17.6)
+
+Finally, we assume that a similar equation holds for actions. The action taken depends only on
+the percepts the agent has received to date:
+
+P(A,-1|A,...A;-2, Ey... E,-1) = P(A;~:|E, ... Ex) (17.7)
+
+This final assertion is valid because of the structure of the agent itself: its only input from the
+outside is the percept at each time step.
+
+Taken together, Equations (17.5), (17.6), and (17.7) allow us to simplify the calculation of
+the current state estimate Be/(X,). The calculation takes place in two phases:
+
+© Prediction phase: first, we predict the probability distribution over states we would have
+expected, given our knowledge of the previous state and how actions affect states. We call
+this Bel, and calculate it by adding up the probabilities of arriving in a given state at time ¢
+for each of the states we could have been in at time tf — 1:
+Bel(X,)= >” P(X, Xy-1 =X,-1-A,-)Bel(X,—
+
+Xs
+
+(17.8)
+
+   
+
+where x,_1 ranges over all possible values of the state variables X,_1.
+
+0 Estimation phase: now we have a distribution over the current state variables, given
+everything but the most recent observation. The estimation phase updates this using the
+

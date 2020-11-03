@@ -1,0 +1,38 @@
+1062
+
+Chapter 34 NP-Completeness
+
+ 
+
+(a)
+
+Figure 34.2 (a) A graph representing the vertices, edges, and faces of a dodecahedron, with a
+hamiltonian cycle shown by shaded edges. (b) A bipartite graph with an odd number of vertices.
+Any such graph is nonhamiltonian.
+
+containing all the vertices.’ The dodecahedron is hamiltonian, and Figure 34.2(a)
+shows one hamiltonian cycle. Not all graphs are hamiltonian, however. For ex-
+ample, Figure 34.2(b) shows a bipartite graph with an odd number of vertices.
+Exercise 34.2-2 asks you to show that all such graphs are nonhamiltonian.
+
+We can define the hamiltonian-cycle problem, “Does a graph G have a hamil-
+tonian cycle?” as a formal language:
+
+HAM-CYCLE = {(G) : G is a hamiltonian graph} .
+
+How might an algorithm decide the language HAM-CYCLE? Given a problem
+instance (G), one possible decision algorithm lists all permutations of the vertices
+of G and then checks each permutation to see if it is a hamiltonian path. What is
+the running time of this algorithm? If we use the “reasonable” encoding of a graph
+as its adjacency matrix, the number m of vertices in the graph is Q(,/7), where
+n = |(G)| is the length of the encoding of G. There are m! possible permutations
+
+ 
+
+7In a letter dated 17 October 1856 to his friend John T. Graves, Hamilton [157, p. 624] wrote, “I
+have found that some young persons have been much amused by trying a new mathematical game
+which the Icosion furnishes, one person sticking five pins in any five consecutive points ...and the
+other player then aiming to insert, which by the theory in this letter can always be done, fifteen other
+pins, in cyclical succession, so as to cover all the other points, and to end in immediate proximity to
+the pin wherewith his antagonist had begun.”
+

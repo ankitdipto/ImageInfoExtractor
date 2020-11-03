@@ -1,0 +1,41 @@
+660 Let UsC
+
+ 
+
+After forking a child process we have called the execl( ) function.
+This function accepts variable number of arguments. The first
+parameter to execl( ) is the absolute path of the program to be
+executed. The remaining parameters describe the command line
+arguments for the program to be executed. The last parameter is an
+end of argument marker which must always be NULL. Thus in our
+case the we have called upon the execl() function to execute the Is
+program as shown below
+
+Is -al /etc
+
+As a result, all the contents of the /ete directory are listed on the
+screen. Note that the printf() below the call to execl( ) function is
+not executed. This is because the exec family functions overwrite
+the image of the calling process with the code and data of the
+program that is to be executed. In our case the child process’s
+memory was overwritten by the code and data of the Is program.
+Hence the call to printf() did not materialize.
+
+It would make little sense in calling execl( ) before fork( ). This is
+because a child would not get created and execl( ) would simply
+overwrite the main process itself. As a result, no statement beyond
+the call to execl( ) would ever get executed. Hence fork( ) and
+execl() usually go hand in hand.
+
+Zombies and Orphans
+
+We know that the ps -A command lists all the running processes.
+But from where does the ps program get this information? Well,
+Linux maintains a table containing information about all the
+processes. This table is called ‘Process Table’. Apart from other
+information the process table contains an entry of ‘exit code’ of the
+process. This integer value indicates the reason why the process
+was terminated. Even though the process comes to an end its entry
+would remain in the process table until such time that the parent of
+the terminated process queries the exit code. This act of querying
+

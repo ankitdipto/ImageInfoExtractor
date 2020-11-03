@@ -1,0 +1,93 @@
+322 Chapter10 Virtual Memory
+
+had brought in all pages. While the process executes and accesses pages that
+are memory resident, execution proceeds normally.
+
+But what happens if the process tries to access a page that was not brought
+into memory? Access to a page marked invalid causes a page-fault trap.
+The paging hardware, in translating the address through the page table, will
+notice that the invalid bit is set, causing a trap to the operating system. This
+trap is the result of the operating system’s failure to bring the desired page
+into memory (in an attempt to minimize disk-transfer overhead and memory
+requirements), rather than an invalid address error as a result of an attempt to
+use an illegal memory address (such as an incorrect array subscript). We must
+therefore correct this oversight. The procedure for handling this page fault is
+straightforward (Figure 10.4):
+
+1. We check an internal table (usually kept with the process control block)
+for this process, to determine whether the reference was a valid or invalid
+memory access.
+
+page is on
+backing store
+
+ 
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+operating
+system
+
+reference
+
+ 
+
+ 
+
+ 
+
+ 
+
+loadM }«—————,
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+restart page table
+instruction a
+free frame
+reset page bring in
+table missing page
+physical
+memory
+
+Figure 10.4 Steps in handling a page fault.
+

@@ -1,0 +1,66 @@
+304 — CHAPTER NM Pipeline and Vector Processing
+
+task
+
+space-time diagram
+
+TABLE 9-1 Content of Registers in Pipeline Example
+
+ 
+
+ 
+
+Clock Segment 1 Segment 2 Segment 3
+
+Pulse OO
+Number Rl R29 -R3— RS RS
+1 A BS = -
+2 A OB AB OG -
+
+3 A, By AWB, Cz AItB +O
+
+4 Ac Be ABs GG Ar* By + C2
+
+5 As Bs AstBe Ca AS* B+ Cs
+
+6 Ac Be AstBs Cs Aut Ba + Ca
+
+7 Ay Br AstBe Cy AS* BS + Cs
+
+8 AB, Cy AG BE + Ge
+
+9 = = ARB Hy
+
+ 
+
+R2. The second clock pulse transfers the product of R1 and R2 into R3 and C,
+into R4. The same clock pulse transfers Ay and By into R1 and R2. The third
+clock pulse operates on all three segments simultaneously. It places als and By
+into Rl and R2, transfers the product of R1 and R2 into R3, transfers C, into
+R4, and places the sum of R3 and R4 into RS. It takes three clock pulses to fill
+up the pipe and retrieve the first output from R5. From there on, each clock
+produces a new output and moves the data one step down the pipeline. This
+happens as long as new input data flow into the system. When no more input
+data are available, the clock must continue until the last output emerges out
+of the pipeline.
+
+General Considerations
+
+Any operation that can be decomposed into a sequence of suboperations of
+about the same complexity can be implemented by a pipeline processor. The
+technique is efficient for those applications that need to repeat the same task
+many times with different sets of data. The general structure of a four-segment
+pipeline is illustrated in Fig. 9-3. The operands pass through all four segments
+ina fixed sequence. Each segment consists of a combinational circuit 5; that
+performsa suboperation over the data stream flowing through the pipe The
+segments are separated by registers R; that hold the intermediate results
+between the stages. Information flows between adjacent stages under the
+control of a common clock applied to all the registers simultaneously. We
+define a task as the total operation performed going through all the segments
+in the pipeline.
+
+The behavior of a pipeline can be illustrated with a space-time diagram.
+This is a diagram that shows the segment utilization as a function of time. The
+space-time diagram ofa four-segment pipeline is demonstrated in Fig. 9-4. The
+horizontal axis displays the time in clock cycles and the vertical axis gives the
+

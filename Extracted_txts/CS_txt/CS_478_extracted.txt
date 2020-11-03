@@ -1,0 +1,113 @@
+SECTION 59 Design of Basic Computer 159
+
+TABLE 5-6 Control Functions and Microoperations for the Basic Computer
+
+ 
+
+ 
+
+Fetch
+Decode
+
+Indirect
+Interrupt
+
+TTIRUENYEG! + FCO)
+
+Memory-reference:
+‘AND
+
+SKO
+ION
+10F
+
+RTs AR@PC
+
+RT: IRMM[AR), PC—PC +1
+
+RTs De .-.,DyDecode IR(12-14),
+ARMIRO-1), 1 1R(S)
+
+DiITy AR M[AR)
+
+Rei
+ARW0, TRA PC
+
+RT: MIAR)=TR, PCHO
+
+RTs PC@PC +1, IENW0, Rw0, SCHO
+
+  
+
+DT: DReMIAR)
+Dis ACHACADR, SCHO
+
+Dire DReMIAR}
+
+Dils ACHAC + DR, Ex Cun, SCHO
+
+Dire DReMIAR)
+
+DiT: ACHDR, SCHO
+
+DT: MIAR]=AC, SCHO
+
+Die PCHAR, SCHO
+
+Die MIAR)=PC, ARWAR +1
+
+Dil: PCH AR, SCHO
+
+Die DReMIAR)
+
+Dis DR=DR+1
+
+Dale MIARJ=DR, if(DR = 0) thea(PC PC +1, SCHO
+
+1 (common to all reister-eference instructions)
+0,4, 2,11)
+
+  
+
+Fr SCHo
+rBy:-ACHO
+1B EO
+1B: AC WAT
+Bs EXE
+
+rBs ACwshr AC, AC(S)ME, E—AC(O)
+1B ACHSHLAC, AC(O)ME, EMAC)
+1Bs ACHAC +1
+
+7B IE(AC(S) = 0) then (PC PC +1)
+
+Bs: IE(AC(1S) = 1) then (PC—PC +1)
+
+By If(AC = 0) then PC PC +1)
+
+rB;: If(E =0)then (PC=PC + 1)
+
+ 
+
+ 
+
+  
+
+rBe SO
+DilT, = p (common to all input-output instructions)
+1R() = B, (i= 6, 7, 8, 9, 10, 11)
+
+SCH
+
+AC(O-7)“INPR, FGI-0
+OUTR—AC(0-7), FGO 0
+
+ 
+
+I(FGI = 1) then (PC —PC + 1)
+If (FGO = 1) then (PC PC + 1)
+HEN =1
+EN=0
+
+ 
+

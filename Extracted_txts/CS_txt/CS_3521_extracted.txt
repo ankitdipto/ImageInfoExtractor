@@ -1,0 +1,67 @@
+852
+
+Appendix A. Complexity analysis and O() notation
+
+ 
+
+ASYMPTOTIC
+ANALYSIS
+
+compiler or computer. For the SUMMATION program, this could be just the number of lines of
+code executed. Or it could be more detailed, measuring the number of additions, assignments,
+array references, and branches executed by the algorithm. Either way gives us a characterization
+of the total number of steps taken by the algorithm, as a function ofthe size of the input. We will
+call this 7/n). With the simpler measure, we have 7(n) = 2n + 2 for our example
+
+If all programs were as simple as SUMMATION, analysis of algorithms would be a trivial
+field. But two problems make it more complicated. First, it is rare to find a parameter like n that
+completely characterizes the number of steps taken by an algorithm. Instead, the best we can
+usually do is compute the worst case T,,.;.,(m)or the average case Ty,(n). Computing an average
+means that the analyst must assume some distribution of inputs.
+
+The second problem is that algorithms tend to resist exact analysis. In that case, it is
+necessary to fall back on an approximation. We say that the SUMMATION algorithm is O(n),
+meaning that its measure is at most a constant times n, with the possible exception of a few small
+values of. More formally,
+
+T(n)is O(f(n)if Tin) < kf(n)for some k, for all n > no
+The OO notation gives us what is called an asymptotic analysis. We can say without question
+that as n asymptotically approaches infinity, an O(n)algorithm is better than an O(n”)algorithm.
+A single benchmark figure could not substantiate such a claim.
+
+The OQ notation abstracts over constant factors, which makes it easier to use than the 7()
+notation, but less precise. For example, an O(n")algorithm will always be worse than an O(n)in
+the long run, butifthe two algorithms are T(n?+ 1) and 7(100n+ 1000), then the O(n)algorithm
+is actually better forn < 110.
+
+Despite this drawback, asymptotic analysis is the most widely used tool for analyzing
+algorithms. It is precisely because the analysis abstracts both over the exact number of operations
+(by ignoring the constant factor, k) and the exact content of the input (by only considering its size,
+n) that the analysis becomes mathematically feasible. The OQ notation is a good compromise
+between precision and ease of analysis.
+
+A.2__ INHERENTLY HARD PROBLEMS
+
+COMPLEXITY
+ANALYSIS.
+
+Analysis of algorithms and the OQ notation allow us to talk about the efficiency of a particular
+algorithm. However, they have nothing to say about whether or not there could be a better
+algorithm for the problem at hand. The field of complexity analysis analyzes problems rather
+than algorithms. The first gross division is between problems that can be solved in polynomial
+time and those that cannot be solved in polynomial time, no matter what algorithm is used. The
+class of polynomial problems is called P. These are sometimes called "easy" problems, because
+the class contains those problems with running times like O(logn) and O(n). But it also contains
+those with O(n!™), so the name "easy" should not be taken too literally.
+
+Another important class of problems is NP, the class of nondeterministic polynomial
+problems. A problem is in this class ifthere is some algorithm that can guess a solution and then
+verify whether or not the guess is correct in polynomial time. The idea is that if you either have
+
+poets
+
+{
+i
+
+ 
+

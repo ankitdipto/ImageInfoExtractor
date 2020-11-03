@@ -1,0 +1,53 @@
+680
+
+Chapter 24 Single-Source Shortest Paths
+
+shortest-path weights 6,(s,v) for all v € V, then computes 52(s,v) for ally € V,
+and so on, until it computes 6,(s,v) for all v € V. We assume throughout that
+|E| = |V| —1, and we shall see that computing 6; from 4;-; takes O(£) time, so
+that the entire algorithm takes O(k E) = O(E lg W) time.
+
+a.
+
+b
+
+Suppose that for all vertices v € V, we have 5(s,v) < |E|. Show that we can
+compute 5(s, v) for all v € V in O(£) time.
+
+Show that we can compute 5,(s, v) for all v € V in O(E) time.
+
+Let us now focus on computing 4; from 4;—;.
+
+c.
+
+Prove that fori = 2,3,..., k, we have either w;(u.v) = 2w;-;(u.v) or
+wi(u,v) = 2w;_,(u,v) + 1. Then, prove that
+
+25;-1(8.v) < 6;(s,v) < 26; (s,v) + |V]—1
+for allv eV.
+
+Define for i = 2,3,..., k andall (u,v) € E,
+Bi(u.v) = wi(u, v) + 25;-1(s,u) — 28)-1(s, v) .
+
+Prove that fori = 2,3,..., k andallu,v € V, the “reweighted” value @;(u, v)
+of edge (u,v) is a nonnegative integer.
+
+Now, define 3; (s,v) as the shortest-path weight from s to v using the weight
+function @;. Prove that for i = 2,3,.... kandallv eV,
+
+5i(s.v) = 55,0) + 25)-1(5,¥)
+and that 3;(s,v) < |E|.
+
+Show how to compute 6;(s, v) from 6;—1(s, v) for all v € V in O(E) time, and
+conclude that we can compute 4(s, v) for all v € V in O(E lg W) time.
+
+24-5 Karp’s minimum mean-weight cycle algorithm
+
+Let G = (V,E) bea directed graph with weight function w : E — R, and let
+n = |V|. We define the mean weight of a cycle c = (1. @2..... ex) of edges in E
+to be
+
+k
+we) = 7 owe).
+i=1
+

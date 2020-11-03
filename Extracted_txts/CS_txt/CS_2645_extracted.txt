@@ -1,0 +1,52 @@
+9.3 Selection in worst-case linear time 223
+
+Exercises
+
+9.3-1
+
+In the algorithm SELECT, the input elements are divided into groups of 5. Will
+the algorithm work in linear time if they are divided into groups of 7? Argue that
+SELECT does not run in linear time if groups of 3 are used.
+
+9.3-2
+Analyze SELECT to show that if > 140, then at least [n/4] elements are greater
+than the median-of-medians x and at least [n/4] elements are less than x.
+
+9.3-3
+Show how quicksort can be made to run in O(n lg 7) time in the worst case, as-
+suming that all elements are distinct.
+
+93-4 *
+
+Suppose that an algorithm uses only comparisons to find the ith smallest element
+in a set of n elements. Show that it can also find the i — 1 smaller elements and
+the n —i larger elements without performing any additional comparisons.
+
+9.3-5
+
+Suppose that you have a “black-box” worst-case linear-time median subroutine.
+Give a simple, linear-time algorithm that solves the selection problem for an arbi-
+trary order statistic.
+
+9.3-6
+
+The kth quantiles of an n-element set are the k — 1 order statistics that divide the
+sorted set into k equal-sized sets (to within 1). Give an O(n lgk)-time algorithm
+to list the kth quantiles of a set.
+
+9.3-7
+
+Describe an O(n)-time algorithm that, given a set S of n distinct numbers and
+a positive integer k < n, determines the k numbers in S that are closest to the
+median of S.
+
+9.3-8
+
+Let X[1..n] and Y[1..n] be two arrays, each containing n numbers already in
+sorted order. Give an O(lg n)-time algorithm to find the median of all 2n elements
+in arrays X and Y.
+
+I.3-9
+Professor Olay is consulting for an oil company, which is planning a large pipeline
+running east to west through an oil field of n wells. The company wants to connect
+

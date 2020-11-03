@@ -1,0 +1,50 @@
+600
+
+Chapter 22. Elementary Graph Algorithms
+
+from s, one of the shortest paths from s to v is a shortest path from s to v.z
+followed by the edge (v.77, v).
+
+Proof Assume, for the purpose of contradiction, that some vertex receives a d
+value not equal to its shortest-path distance. Let v be the vertex with min-
+imum 64(s,v) that receives such an incorrect d value; clearly v ¢ s. By
+Lemma 22.2, v.d > 5(s,v), and thus we have that v.d > 5(s,v). Vertex v must be
+reachable from 5, for if it is not, then 5(s,v) = 00 > v.d. Let u be the vertex im-
+mediately preceding v on a shortest path from s to v, so that 6(s,v) = 5(s,u) +1.
+Because 5(s,u) < 5(s,v), and because of how we chose v, we have u.d = 5(s,u).
+Putting these properties together, we have
+
+v.d > &(s,v) = &(s,u)+ l=ud+l. (22.1)
+
+Now consider the time when BFS chooses to dequeue vertex u from Q in
+line 11. At this time, vertex v is either white, gray, or black. We shall show
+that in each of these cases, we derive a contradiction to inequality (22.1). If v is
+white, then line 15 sets v.d = u.d + 1, contradicting inequality (22.1). If v is
+black, then it was already removed from the queue and, by Corollary 22.4, we have
+v.d < u.d, again contradicting inequality (22.1). If v is gray, then it was painted
+gray upon dequeuing some vertex w, which was removed from Q earlier than u
+and for which v.d = w.d + 1. By Corollary 22.4, however, w.d < u.d, and so we
+have v.d = w.d+1 <u.d +1, once again contradicting inequality (22.1).
+
+Thus we conclude that v.d = 6(s,v) for all v € V. All vertices v reachable
+from s must be discovered, for otherwise they would have oo = v.d > 6(s,v). To
+conclude the proof of the theorem, observe that if v.2 = u, then v.d = u.d +1.
+Thus, we can obtain a shortest path from s to v by taking a shortest path from s
+to v.z and then traversing the edge (v.77, v).
+
+.
+
+Breadth-first trees
+
+The procedure BFS builds a breadth-first tree as it searches the graph, as Fig-
+ure 22.3 illustrates. The tree corresponds to the z attributes. More formally, for
+a graph G = (V, E) with source s, we define the predecessor subgraph of G as
+Gz = (Vz, Ex), where
+
+Vz ={veV:iv.m ANIL} U {s}
+and
+Ex = {(v.0,v) iv €V_ — {s}}
+
+The predecessor subgraph G, is a breadth-first tree if V,, consists of the vertices
+reachable from s and, for all v € V,, the subgraph G, contains a unique simple
+

@@ -1,0 +1,45 @@
+418 Let Us C
+
+ 
+
+On execution of this program it displays the contents of the file
+‘PR1.C’ on the screen. Let us now understand how it does the
+same.
+
+Opening a File
+
+Before we can read (or write) information from (to) a file on a disk
+
+we must open the file. To open the file we have called the function
+
+fopen( ). It would open a file “PR1.C” in ‘read’ mode, which tells
+
+the C compiler that we would be reading the contents of the file.
+
+Note that “r’ is a string and not a character; hence the double
+
+quotes and not single quotes. In fact fopen( ) performs three
+
+important tasks when you open the file in “r” mode:
+
+(a) Firstly it searches on the disk the file to be opened.
+
+(b) Then it loads the file from the disk into a place in memory
+called buffer.
+
+(c) It sets up a character pointer that points to the first character
+of the buffer.
+
+Why do we need a buffer at all? Imagine how inefficient it would
+be to actually access the disk every time we want to read a
+character from it. Every time we read something from a disk, it
+takes some time for the disk drive to position the read/write head
+correctly. On a floppy disk system, the drive motor has to actually
+start rotating the disk from a standstill position every time the disk
+is accessed. If this were to be done for every character we read
+from the disk, it would take a long time to complete the reading
+operation. This is where a buffer comes in. It would be more
+sensible to read the contents of the file into the buffer while
+opening the file and then read the file character by character from
+the buffer rather than from the disk. This is shown in Figure 12.2.
+

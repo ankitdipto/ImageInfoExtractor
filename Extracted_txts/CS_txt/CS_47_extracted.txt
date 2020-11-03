@@ -1,0 +1,62 @@
+108
+
+Chapter 4. Informed Search Methods
+
+ 
+
+The one unresolved question is whether SMA* is always optimally efficient among all algorithms
+given the same heuristic information and the same memory allocation.
+
+The design of SMA* is simple, at least in overview. When it needs to generate a successor
+but has no memory left, it will need to make space on the queue. To do this, it drops a node from
+the queue. Nodes that are dropped from the queue in this way are called forgotten nodes. It
+prefers to drop nodes that are unpromising—that is, nodes with high/-cost. To avoid reexploring
+subtrees that it has dropped from memory, it retains in the ancestor nodes information about the
+quality ofthe best path in the forgotten subtree. In this way, it on/y regenerates the subtree when
+all other paths have been shown to look worse than the path it has forgotten. Another way of
+saying this is that if all the descendants of a node n are forgotten, then we will not know which
+way to go from n, but we will still have an idea of how worthwhile it is to go anywhere from n.
+
+SMA* is best explained by an example, which is illustrated in Figure 4.11. The top ofthe
+figure shows the search space. Each node is labelled with g + h —fvalues, and the goal nodes (D,
+F, I, J are shown in squares. The aim is to find the lowest-cost goal node with enough memory
+for only three nodes. The stages of the search are shown in order, left to right, with each stage
+numbered according to the explanation that follows. Each node is labelled with its current f-cost,
+which is continuously maintained to reflect the least f-cost of any ofits descendants.* Values in
+parentheses show the value of the best forgotten descendant. The algorithm proceeds as follows:
+
+. At each stage, one successor is added to the deepest lowest-/-cost node that has some
+successors not currently in the tree. The left child B is added to the root A.
+Now /(A) is still 12, so we add the right child G (f = 13). Now that we have seen all the
+children of A, we can update its f-cost to the minimum of its children, that is, 13. The
+memory is now full
+
+3. Gis now designated for expansion, but we must first drop a node to make room. We drop
+the shallowest highest-/-cost leaf, that is, B. When we have done this, we note that A's best
+forgotten descendant has f = 15, as shown in parentheses. We then add H, with f(H) = 18.
+Unfortunately, H is not a goal node, but the path to H uses up all the available memory.
+Hence, there is no way to find a solution through H, so we set f(H) = x.
+
+4. G is expanded again. We drop H, and add I, with f(7) = 24. Now we have seen both
+successors of G, with values of 00 and 24, so f(G) becomes 24. f(A) becomes 15, the
+minimum of 15 (forgotten successor value) and 24. Notice that I is a goal node, but it
+might not be the best solution because A's/-cost is only 15.
+
+5. A is once again the most promising node, so B is generated for the second time. We have
+found that the path through G was not so great after all.
+
+6. C, the first successor of B, is a nongoal node at the maximum depth, so f(C) = 00.
+
+7. To look at the second successor, D, we first drop C. Then f(D) = 20, and this value is
+inherited by B and A.
+
+8. Now the deepest, lowest-/-cost node is D. D is therefore selected, and because it is a goal
+
+node, the search terminates.
+
+ey
+
+4 Values computed in this way are called backed-up values. Because /(1n) is supposed to be an estimate of the least-cost
+solution path through », and a solution path through 1 is boundto go through one ofn’s descendants, backing up the least
+f-cost among the descendants is a sound policy.
+

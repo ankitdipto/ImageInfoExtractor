@@ -1,0 +1,62 @@
+460
+
+LOCALITY
+
+DETACHMENT
+
+TRUTH.
+FUNCTIONALITY
+
+Chapter 15. Probabilistic Reasoning Systems
+
++ Sometimes a system may draw a number of conclusions on the basis of a belief that is
+later retracted. How can a system keep track of which conclusions need to be retracted
+as a result? Conclusions that have multiple justifications, only some of which have been
+abandoned, should be retained; whereas those with no remaining justifications should be
+dropped. These problems have been addressed by truth maintenance systems, which are
+discussed in Section 10.8.
+
+How can beliefs that have default status be used to make decisions? This is probably the §
+hardest issue for default reasoning. Decisions often involve trade-offs, and one therefore
+needs to compare the strength of belief in the outcomes of different actions. In cases
+where the same kinds of decisions are being made repeatedly, it is possible to interpret
+default rules as "threshold probability" statements. For example, the default rule "My
+brakes are always OK" really means "The probability that my brakes are OK, given no
+other information, is sufficiently high that the optimal decision is for me to drive without
+checking them." When the decision context changes—for example, when one is driving
+a heavily laden truck down a steep mountain road—the default rule suddenly becomes
+inappropriate, even though there is no new evidence to suggest that the brakes are faulty.
+
+To date, no default reasoning system has successfully addressed all of these issues. Furthermore,
+most systems are formally undecidable, and very slow in practice. There have been several
+attempts to subsume default reasoning in a probabilistic system, using the idea that a default rule
+is basically a conditional probability of 1 — e. For reasons already mentioned, such an approach
+is likely to require a full integration of decision making before it fully captures the desirable
+features of default reasoning.
+
+Rule-based methods for uncertain reasoning
+
+In addition to monotonicity, logical reasoning systems have three other important properties that
+probabilistic reasoners lack:
+
+0 Locality: In logical systems, whenever we have a rule ofthe formA = B, we can conclude
+B given evidence 4, without worrying about any other rules. In probabilistic systems, we
+need to consider all of the available evidence.
+
+< Detachment: Once a logical proof is found for a proposition B, the proposition can be
+used regardless of how it was derived. That is, it can be detached from its justification. 3
+In dealing with probabilities, on the other hand, the source of the evidence for a belief is
+important for subsequent reasoning.
+
+0 Truth-functionality: In logic, the truth of complex sentences can be computed from the
+truth of the components. Probability combination does not work this way, except under
+strong independence assumptions.
+
+These properties confer obvious computational advantages. There have been several attempts to
+devise uncertain reasoning schemes by attaching degrees of belief to propositions and rules 1”
+what is essentially a logical system. This means treating degree of belief as a generalized truth
+value, in order to retain truth-functionality. That is, each proposition is assigned a degree of
+belief, and the degree of belief in, say, A V B is a function of the beliefin A and the beliefin B.
+
+ 
+

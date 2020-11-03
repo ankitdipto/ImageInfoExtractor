@@ -1,0 +1,66 @@
+464 > cHAPTER TWELVE Memory Organization
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 12-10 Example of cache memory.
+
+a duplicate copy in main memory. The CPU communicates with both memo-
+ries. It first sends a 15-bit address to cache. If there is a hit, the CPU accepts
+the 12-bit data from cache. Ifthereis amiss, the CPU reads the word from main
+memory and the word is then transferred to cache.
+
+Associative Mapping
+
+The fastest and mast flexible cache organization uses an associative memory.
+This organization is illustrated in Fig. 12-11. The associative memory stores
+both the address and content (data) of the memory word. This permits any
+location in cache to store any word from main memory. The diagram shows
+three words presently stored in the cache. The address value of 15 bits isshown
+as a five-digit octal number and its corresponding 12-bit word is shown as a
+four-digit octal number. A CPU address of 15 bits is placed in the argument
+register and the associative memory is searched for a matching address. If the
+
+Figure 12-11 Associative mapping cache (all numbers in octal)
+
+(PU address (15 bits)
+
+|
+
+‘Argument register
+
+|-— Address >} Data —+|
+
+01000 3450
+02777 6710
+22345 1234
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

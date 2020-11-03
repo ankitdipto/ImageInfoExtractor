@@ -1,0 +1,110 @@
+440 > cuarrer ELEVEN Input-Output Organization
+
+ns.
+
+ns.
+
+ny.
+
+118.
+
+19,
+
+11-10.
+
+wn.
+
+12,
+
+1-13.
+
+What is the difference between isolated /O and memory-mapped 0? What
+
+are the advantages and disadvantages of each?
+
+Indicate whether the following constitute a control, status, or data transfer
+
+‘commands
+
+a. Skip next instruction if flag is set.
+
+b. Seek a given record on a magnetic disk
+
+¢. Check if VO device is ready.
+
+4. Move printer paper to beginning of next page.
+
+ce. Read interface status register.
+
+‘A commercial interface unit uses different names for the handshake lines
+
+associated with the transfer of data from the UO device into the interface
+
+unit. The interface input handshake line is labeled STB (strobe), and the
+
+interface output handshake line is labeled IBF (input buffer full). A low-level
+
+signal on STB loads data from the /O bus into the interface data register. A
+
+high-level signal on IBF indicates that the data item has been accepted by the
+
+interface. IBF goes low after an /O read signal from the CPU when it reads
+
+the contents of the data register.
+
+a. Draw a block diagram showing the CPU, the interface, and the /O device
+together with the pertinent interconnections among the three units.
+
+b. Draw a timing diagram for the handshaking transfer.
+
+¢. Obtaina sequence-of-e vents flow chartfor the transfer from the deviceto
+the interface and from the interface to the CPU.
+
+ACPU witha 20-MHz docks connected toa memory unit whose accesstime
+
+is 40 ns. Formulate a read and write timing diagrams using a READ strobe
+
+and a WRITE strobe. Indude the address in the timing diagram.
+
+‘The asynchronous communication interface shown in Fig. 11-8 is connected
+
+betweena CPU anda printer. Draw a flowchart that describes the sequence
+
+‘of operations in the transmitter portion of the interface when the CPU sends
+
+characters to be printed.
+
+Give at Jeast six status conditions for the setting of individual bits in the
+
+status register of an asynchronous communication interface.
+
+How many bits are there in the transmitter shift register of Fig. 11-8 when
+
+the interface is attached to a terminal that needs one stop bit? List the bits
+
+inthe shift register when the letter W is transmitted using ASCII with even
+
+Parity.
+
+How many characters per second can be transmitted over a 1200-baud line
+
+in each of the following modes? (Assume a character code of eight bits)
+
+a. Synchronous serial transmission.
+
+'b. Asynchronous serial transmission with two stop bits.
+
+¢ Asynchronous serial transmission with one stop bit.
+
+Information is inserted into a FIFO buffer at a rate of m bytes per second.
+
+‘The information is deleted at a rate of n byte per second. The maximum.
+
+capacity of the buffer is k bytes
+
+a. How long does it take for an empty buffer to fill up when m > n?
+
+'b. How long does it take for a full buffer to empty when m <n?
+
+¢. Is the FIFO buffer needed if m = n?
+

@@ -1,0 +1,53 @@
+data communication
+Processor
+
+SECTION 11-8 Serial Communication 429
+
+that the IOP program must use in carrying out its task. The task block contains
+the actual program to be executed in the IOP.
+
+The CPU and IOP work together through the control and parameter
+blocks. The CPU obtains use of the shared memory after checking the busy flag
+to ensure that the IOP isavailable. The CPU then fills in the information in the
+parameter block and writes a “start operation” command in the CCW. After
+the communication blocks have been set up, the CPU enables the channel
+attention signal to inform the IOP to start its /O operation. The CPU then
+continues with another program. The IOP responds to the channel attention
+signal by placing the address of the control block into its program counter. The
+IOP refers to the control block and sets the busy flag. It then checks the
+operation in the CCW. The PB (parameter block) address and TB (task block)
+addressare then transferred into internal IOP registers. The IOP starts execut-
+ing the program in the task block using the information in the parameter block.
+The entries in the parameter block depend on the /O device. The parameters
+listed in Fig. 11-24 are suitable for data transfer to or from a magnetic disk. The
+memory address specifies the beginning address of amemory buffer. The byte
+count gives the number of bytes to be transferred. The device address specifies
+the particular /O device to be used. The track and sector numbers locate the
+data on the disk. When the I/O operation is completed, the IOP storesits status
+bits in the status word location of the parameter block and interrupts the CPU.
+The CPU can refer to the status word to check if the transfer has been com-
+pleted satisfactorily. -
+
+11-8 Serial Communication
+
+‘A data communication processor is an VO processor that distributes and
+collects data from many remote terminals connected through telephone and
+other communication lines. It is a specialized /O processor designed to com-
+municate directly with data communication networks. A communication
+network may consist of any of a wide variety of devices, such as printers,
+interactive display devices, digital sensors, or a remote computing facility.
+With the use of a data communication processor, the computer can service
+fragments of each network demand in an interspersed manner and thus have
+the apparent behavior of serving many usersat once. In this way the computer
+is able to operate efficiently in a time-sharing environment
+
+The most striking difference between an /O processor and a data comunu-
+nication processor is in the way the processor communicates with the /O
+devices. An V/O processor communicates with the peripherals through a com-
+mon U/O bus that is comprised of many data and control lines. All peripherals
+share the common bus and use it to transfer information to and from the /O
+processor. A data communication processor communicates with each terminal
+through a single pair of wires Both data and control information are trans-
+
+ 
+

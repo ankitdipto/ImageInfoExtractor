@@ -1,0 +1,56 @@
+Chapter 14: Operations On Bits 499
+
+ 
+
+Using the Truth table confirm the result obtained on ORing the
+two operands as shown below.
+
+11010000 — Original bit pattern
+00000111 OR mask
+
+11010111 Resulting bit pattern
+
+Bitwise OR operator is usually used to put ON a particular bit in a
+number.
+
+Let us consider the bit pattern 11000011. If we want to put ON bit
+number 3, then the OR mask to be used would be 00001000. Note
+that all the other bits in the mask are set to 0 and only the bit,
+which we want to set ON in the resulting value is set to 1.
+
+Bitwise XOR Operator
+
+The XOR operator is represented as * and is also called an
+Exclusive OR Operator. The OR operator returns 1, when any one
+of the two bits or both the bits are 1, whereas XOR returns 1 only
+if one of the two bits is 1. The truth table for the XOR operator is
+given below.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+“ 0 1
+0 0
+1 1 0
+
+ 
+
+ 
+
+Figure 14.12
+
+XOR operator is used to toggle a bit ON or OFF. A number
+XORed with another number twice gives the original number. This
+is shown in the following program.
+
+ 
+
+ 
+

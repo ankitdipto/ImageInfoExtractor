@@ -1,0 +1,56 @@
+page fault
+
+SECTION 12-6 Virtual Memory 475
+
+block number. The page field in each word is compared with the page number
+in the virtual address. If a match occurs, the word is read from memory and
+its corresponding block number is extracted.
+
+Consider again the case of eight pages and four blocks as in the example
+of Fig. 12-19. We replace the random access memory-page table with an
+associative memory of four words as shown in Fig. 12-20. Each entry in the
+associative memory array consists of two fields. The first three bits specify a
+field for storing the page number. The last twobits constitutea field for storing
+the block number. The virtual address is placed in the argument register. The
+page number bitsin the argument register are compared with all page numbers
+in the page field of the associative memory. If the page number is found, the
+S-bit word is read out from memory. The corresponding block number, being
+in the same word, is transferred to the main memory address register. If no
+‘match occurs, a call to the operating system is generated to bring the required
+page from auxiliary memory.
+
+Page Replacement
+
+A virtual memory system is a combination of hardware and software tech-
+niques The memory management software system handles all the software
+operations for the efficient utilization of memory space. It must decide (1)
+which page in main memory ought to be removed to make room for a new
+page, (2) when a new page is to be transferred from auxiliary memory to main
+memory, and (3) where the pageis to be placed in main memory. The hardware
+mapping mechanism and the memory management software together consti-
+tute the architecture of a virtual memory.
+
+When a program starts execution, one or more pages are transferred into
+main memory and the page table is set to indicate their position. The program
+is executed from main memory until it attempts to reference a page that is still
+in auxiliary memory. This condition is called pagefault. When page fault occurs,
+the execution of the present program is suspended until the required page is
+brought into main memory. Since loading a page from auxiliary memory to
+main memory is basically an UO operation, the operating system assigns this
+task to the /O processor. In the meantime, control is transferred to the next
+program in memory that is waiting to be processed in the CPU. Later, when
+the memory block has been assigned and the transfer completed, the original
+program can resume its operation.
+
+When a page fault occurs in a virtual memory system, it signifies that the
+page referenced by the CPU is not in main memory. A new page is then
+transferred from auxiliary memory to main memory. If main memory is full,
+it would be necessary to remove a page from a memory block to make room
+forthe new page. The policy for choosing pages to remove is determined from
+the replacement algorithm that is used. The goal of a replacement policy is to
+tay to remove the page least likely to be referenced in the immediate future
+
+Two of the most common replacement algorithms used are the first-in,
+
+ 
+

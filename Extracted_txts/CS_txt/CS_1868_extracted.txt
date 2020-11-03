@@ -1,0 +1,84 @@
+  
+
+Section 9.4.
+
+Forward and Backward Chaining 273
+
+ 
+
+   
+
+RENAMING
+
+coMPOSITION
+
+Forward-chaining algorithm
+
+Forward chaining is normally triggered by the addition of a new factp to the knowledge base. It
+can be incorporated as part of the TELL process, for example. The idea is to find all implications
+that have p as a premise; then ifthe other premises are already known to hold, we can add the
+consequent of the implication to the knowledge base, triggering further inference (see Figure 9.1).
+
+The FORWARD-CHAIN procedure makes use of the idea of a renaming. One sentence is
+a renaming of another if they are identical except for the names of the variables. For example,
+Likes(x, IceCream) and Likes(y, IceCream) are renamings of each other because they only differ
+in the choice ofx ory, but Likes(x, x) and Likes(x,y) are not renamings of each other.
+
+We also need the idea of a composition of substitutions. ComPosE(4, , 62) is the substitution
+whose effect is identical to the effect of applying each substitution in turn. That is,
+
+SuBST(COMPOSE(6), 92), p) = SUBST(02, SUBST(4),p))
+
+We will use our crime problem again to illustrate how FORWARD-CHAIN works. We will
+begin with the knowledge base containing only the implications in Hom form:
+
+American(x) A Weapon(y)A Nation(z)A Hostile(z)
+
+A Sells(x, =, y) => Criminal(x) (9.36)
+Owns(Nono,x) A Missile(x)=> Sells(West,Nono, x) (9.37)
+Missile(x)=> Weapon(x) (9.38)
+Enemy(x, America) = Hostile(x) (9.39)
+
+ 
+
+procedure FORWARD-CHAIN(KB, p)
+
+if there is a sentence in KB that is a renaming ofp then return
+
+Add p toKB
+
+for each (pj A ...A py => q) in KB such that for some i, UNIFY(pi,p) = 0 succeeds do
+Finp-AND-INFER(KB, [p1, ... :Pi-1sPiets- ++ Pub G9)
+
+end
+
+ 
+
+procedure FIND-AND-INFER(KB,premises, conclusion, 8)
+
+ifpremises = [ \ then
+FORWARD-CHAIN(KB, SUBST(@, conclusion))
+
+else for each p’ in KB such that UNiFY(p’, SUBST(#, FinsTipremises))) = 62 do
+FIND-AND-INFER(KB, REST( premises),conclusion, COMPOSE(9, 92))
+
+end
+
+ 
+
+ 
+
+Figure 9.1 The forward-chaining inference algorithm. It adds to KB all the sentences that can
+be inferred from the sentence p. If pis already in KB, it does nothing. If pis new, consider each
+implication that has a premise that matches p. For each such implication, if all the remaining
+premises are in XB, then infer the conclusion. Ifthe premises can be matched several ways, then
+infer each corresponding conclusion. The substitution @ keeps track of the way things match.
+
+ 
+
+ 
+
+ 
+
+ 
+

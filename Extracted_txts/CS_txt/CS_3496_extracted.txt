@@ -1,0 +1,53 @@
+86 Chapter 3 Solving Problems by Searching
+
+ 
+
+ 
+
+BIBLIOGRAPHICAL AND HISTORICAL NOTES
+
+Most of the state-space search problems analyzed in this chapter have a long history in the
+literature, and are far less trivial than they may seem. The missionaries and cannibals problem
+was analyzed in detail from an artificial intelligence perspective by Amarel (1968), although
+Amarel's treatment was by no means the first; it had been considered earlier in AI by Simon
+and Newell (1961), and elsewhere in computer science and operations research by Bellman and
+Dreyfus (1962). Studies such as these led to the establishment of search algorithms as perhaps the
+primary tools in the armory of early AI researchers, and the establishment of problem solving as
+the canonical AI task. (Of course, one might well claim that the latter resulted from the former.)
+
+Amarel's treatment of the missionaries and cannibals problem is particularly noteworthy
+because it is a classic example of formal analysis of a problem stated informally in natural
+language. Amarel gives careful attention to abstracting from the informal problem statement
+precisely those features that are necessary or useful in solving the problem, and selecting a formal
+problem representation that represents only those features. A more recent treatment of problem
+representation and abstraction, including AI programs that themselves perform these tasks (in
+part), is to be found in Knoblock (1990).
+
+The 8-queens problem was first published anonymously in the German chess magazine
+Schach in 1848; it was later attributed to one Max Bezzel. It was republished in 1850, and at that
+time drew the attention of the eminent mathematician Carl Friedrich Gauss, who attempted to
+enumerate all possible solutions. Even Gauss was able to find only 72 of the 92 possible solutions
+offhand, which gives some indication of the difficulty of this apparently simple problem. (Nauck,
+who had republished the puzzle, published all 92 solutions later in 1850.) Netto( 1901 )generalized
+the problem to “-queens” (on ann x n chessboard).
+
+The 8-puzzle initially appeared as the more complex 4 x 4 version, called the 15-puzzle. It
+was invented by the famous American game designer Sam Loyd (1959)in the 1870s and quickly
+achieved immense popularity in the United States, comparable to the more recent sensation caused |
+by the introduction of Rubik's Cube. It also quickly attracted the attention of mathematicians
+(Johnson and Story, 1879; Tait, 1880). The popular reception of the puzzle was so enthusiastic
+that the Johnson and Story article was accompanied by a note in which the editors of the American
+Journal of Mathematics felt it necessary to state that "The ‘15° puzzle for the last few weeks
+has been prominently before the American public, and may safely be said to have engaged the
+attention of nine out of ten persons of both sexes and all ages and conditions of the community.
+But this would not have weighed with the editors to induce them to insert articles upon such a
+subject in the American Journal of Mathematics, but for the fact that...” (there follows a brief
+summary of the reasons for the mathematical interest of the 15-puzzle). The 8-puzzle has often
+been used in AI research in place of the 15-puzzle because the search space is smaller and thus
+more easily subjected to exhaustive analysis or experimentation. An exhaustive analysis was
+carried out with computer aid by P. D. A. Schofield (1967). Although very time-consuming,
+this analysis allowed other, faster search methods to be compared against theoretical perfection
+for the quality of the solutions found. An in-depth analysis of the 8-puzzle, using heuristic
+search methods of the kind described in Chapter 4, was carried out by Doran and Michie (1966).
+The 15-puzzle, like the 8-queens problem, has been generalized to the n x n case. Ratner and
+

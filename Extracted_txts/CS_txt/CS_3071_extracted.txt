@@ -1,0 +1,74 @@
+Section 15.3 Inference in Belief Networks 445
+
+ 
+
+2. Zis in E and Z has both path arrows leading out
+3. Neither Z nor any descendant of Z is in £, and both path arrows lead in to Z.
+
+Figure 15.4 shows these three cases. The proof that d-separated nodes are conditionally indepen-
+dent is also complicated. We will use Figure 15.5 to give examples of the three cases:
+
+1, Whether there is Gas in the car and whether the car Radio plays are independent given
+evidence about whether the SparkPlugs fire.
+
+2. Gas and Radio are independent if it is known if the Battery works.
+
+3. Gas and Radio are independent given no evidence at all. But they are dependent given
+evidence about whether the car Starts. For example, if the car does not start, then the radio
+playing is increased evidence that we are out of gas. Gas and Radio are also dependent
+given evidence about whether the car Moves, because that is enabled by the car starting.
+
+ 
+
+ 
+
+ 
+
+ 
+
+wo | C=O Ot+o*
+@ | O-+O O--O
+e | O-+O O--0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 154 Three ways in which a path from X to Y can be blocked, given the evidence E. If
+every path from Xto Yis blocked, then we say that E d-separates X and ¥.
+
+ 
+
+ 
+
+ 
+
+ 
+
+153__ INFERENCE IN BELIEF NETWORKS
+
+ 
+
+ 
+
+ 
+
+The basic task for any probabilistic inference system is to compute the posterior probability
+distribution for a set of query variables, given exact values for some evidence variables. That
+is, the system computes P(Query|Evidence). In the alarm example, Burglary is an obvious query
+variable, and JohnCalls and MaryCalls could serve as evidence variables. Of course, belief
+networks are flexible enough so that any node can serve as either a query or an evidence variable
+There is nothing to stop us from asking P(Alarm|ohnCalls, Earthquake), although it would be
+somewhat unusual. In general, an agent gets values for evidence variables from its percepts (or
+ce from other reasoning), and asks about the possible values ofother variables so that it can decide
+
+ 
+

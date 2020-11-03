@@ -1,0 +1,50 @@
+29.1 Standard and slack forms 85
+
+maximize » CjXj (29.16)
+j=1
+
+subject to
+
+IA
+
+b; fori =1,2,..., m (29.17)
+
+dau
+j=l
+xy = 0 forj =1,2,..., n. (29.18)
+
+Generalizing the terminology we introduced for the two-variable linear program,
+we call expression (29.16) the objective function and the n + m inequalities in
+lines (29.17) and (29.18) the constraints. The n constraints in line (29.18) are the
+nonnegativity constraints. An arbitrary linear program need not have nonnegativ-
+ity constraints, but standard form requires them. Sometimes we find it convenient
+to express a linear program in a more compact form. If we create an m x n matrix
+A = (aj;), an m-vector b = (bj), an n-vector c = (c;), and an n-vector x = (xj),
+then we can rewrite the linear program defined in (29.16)—-(29.18) as
+
+maximize c™x (29.19)
+subject to
+
+Ax < b (29.20)
+
+x > 0. (29.21)
+
+In line (29.19), cTx is the inner product of two vectors. In inequality (29.20), Ax
+is a matrix-vector product, and in inequality (29.21), x > 0 means that each entry
+of the vector x must be nonnegative. We see that we can specify a linear program
+in standard form by a tuple (A, b,c), and we shall adopt the convention that A, b,
+and c always have the dimensions given above.
+
+We now introduce terminology to describe solutions to linear programs. We used
+some of this terminology in the earlier example of a two-variable linear program.
+We call a setting of the variables ¥ that satisfies all the constraints a feasible solu-
+tion, whereas a setting of the variables X that fails to satisfy at least one constraint
+is an infeasible solution. We say that a solution X has objective value c'X. A fea-
+sible solution ¥ whose objective value is maximum over all feasible solutions is an
+optimal solution, and we call its objective value cTX the optimal objective value.
+If a linear program has no feasible solutions, we say that the linear program is in-
+feasible; otherwise it is feasible. If a linear program has some feasible solutions
+but does not have a finite optimal objective value, we say that the linear program
+is unbounded. Exercise 29.1-9 asks you to show that a linear program can have a
+finite optimal objective value even if the feasible region is not bounded.
+

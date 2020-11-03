@@ -1,0 +1,53 @@
+   
+ 
+
+390 Chapter 12. Practical Planning
+
+ 
+
+about the allocation of limited resources to various plan steps. MOLGEN (Stefik, 1981b:
+Stefik, 198 1a) allowed reasoning about objects that are only partially specified (via constraints),
+GarI (Descotte and Latombe, 1985) allowed hierarchical reasoning with constraints, in that some
+lower-level constraints are given lower priorities and may be violated at some stages during plan
+construction. O-PLAN (Bell and Tate, 1985)had a uniform, general representation for constraints
+on time and resources. . 4
+
+Classical situation calculus had allowed the full predicate calculus for describing the
+preconditions and effects of plan steps. Later formalisms have tried to get much of this expres- 4
+siveness back, without sacrificing the efficiency gained by the use of STRIPS operators. The ADL |
+planning formalism (Pednault, 1986) allows for multiagent planning and avoids the problems
+with the STRIPS formalism that were pointed out by Lifschitz (1986). PEDESTAL (McDer-
+mott, 1991) was the first (partial) implementation of ADL. UCPOP (Penberthy and Weld, 1992;
+Barrett et al., 1993) is a more complete implementation of ADL that also allows for partial-order
+planning. POP-DUNC is based largely on this work. Weld (1994) describes UCPOP and gives a
+general introductionto partial-order planning with actions having conditional effects. Kambham-
+pati and Nau (1993) analyze the applicability of Chapman's (1987) NP-hardness results to actions ‘
+with conditional effects. Wolfgang Bibel (1986) has attempted to revive the use of full predicate -4
+calculus for planning, counting on advances in theorem proving to avoid the intractability that
+this led to in the early days of planning.
+
+The improvements in the richness of the representations used in modem planners have
+helped make them more nearly equal to the challenges of real-world planning tasks than was
+STRIPS. Several systems have been used to plan for scientific experimentation and observation.
+MOLGEN was used in the design of scientific experiments in molecular genetics. T-SCHED
+(Drabble, 1990) was used to schedule mission command sequences for the Uosat-II satellite. |
+PLAN-ERS1 (Fuchs ef al., 1990), based on O-PLAN, was used for observation planning at the
+European Space Agency; SPIKE (Johnston and Adorf, 1992) was used for observation planning
+at NASA for the Hubble space telescope. Manufacturing has been another fertile application
+area for advanced planning systems. OptimuM-AIV (Aarup et al., 1994), based on O-PLAN, 4
+has been used in spacecraft assembly at the European Space Agency. Isis (Fox et al., 1981; }
+Fox, 1990) has been used forjob shop scheduling at Westinghouse. GARI planned the machining
+and construction of mechanical parts. FORBIN was used for factory control. NONLIN+ was used
+fornaval logistics planning. Sipr has had a number of applications, including planning for aircraft
+cartier flight deck operations.
+
+TS
+
+EXERCISES
+12.1 Give decompositions for the Hire Builder and Obtain Permit steps in Figure 12.1, and
+show how the decomposed subplans connect into the overall plan. 3
+12.2 Rework the previous exercise using an approximation hierarchy. That is, assign criticality
+
+levels to each precondition of each step. How did you decide which preconditions get higher
+criticality levels?
+

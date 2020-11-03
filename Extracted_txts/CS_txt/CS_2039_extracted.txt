@@ -1,0 +1,50 @@
+ 
+
+476 Chapter13. I/O Systems
+
+operating systems can coordinate concurrent output. Another way to deal with
+concurrent device access is to provide explicit facilities for coordination. Some
+operating systems (including VMS) provide support for exclusive device access,
+by enabling a process to allocate an idle device, and to deallocate that device
+when it is no longer needed. Other operating systems enforce a limit of one
+open file handle to such a device. Many operating systems provide functions
+that enable processes to coordinate exclusive access among themselves. For
+instance, Windows NT provides system calls to wait until a device object
+becomes available. It also has a parameter to the open() system call that
+declares the types of access to be permitted to other concurrent threads. On
+these systems, it is up to the applications to avoid deadlock.
+
+13.4.5 Error Handling
+
+An operating system that uses protected memory can guard against many kinds
+of hardware and application errors, so that a complete system failure is not the
+usual result of each minor mechanical glitch. Devices and I/O transfers can
+fail in many ways, either for transient reasons, such as a network becoming
+overloaded, or for “permanent” reasons, such as a disk controller becoming
+defective. Operating systems can often compensate effectively for transient
+failures. For instance, a disk read() failure results in a read() retry, and
+a network send() error results in a resend(), if the protocol so specifies.
+Unfortunately, if an important component experiences a permanent failure, the
+operating system is unlikely to recover.
+
+As a general rule, an I/O system call will return 1 bit of information about
+the status of the call, signifying either success or failure. In the UNIX operating
+system, an additional integer variable named errno is used to return an error
+code—one of about 100 values—indicating the general nature of the failure
+(for example, argument out of range, bad pointer, or file not open). By contrast,
+some hardware can provide highly detailed error information, although many
+current operating systems are not designed to convey this information to the
+application. For instance, a failure of a SCSI device is reported by the SCSI
+protocol in terms of a sense key that identifies the general nature of the failure,
+such as a hardware error or an illegal request; an additional sense code that
+states the category of failure, such as a bad command parameter or a self-test
+failure; and an additional sense-code qualifier that gives even more detail,
+such as which command parameter was in error, or which hardware subsystem.
+failed its self-test. Further, many SCSI devices maintain internal pages of error-
+log information that can be requested by the host, but that seldom are.
+
+13.4.6 Kernel Data Structures
+
+The kernel needs to keep state information about the use of I/O components.
+It does so through a variety of in-kernel data structures, such as the open-file
+

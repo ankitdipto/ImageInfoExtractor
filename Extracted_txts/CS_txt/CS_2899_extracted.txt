@@ -1,0 +1,107 @@
+98 cuarrerrouR Register Transfer and Microoperations
+
+determine which register is selected by the bus during each particular register
+transfer.
+
+One way ofconstructing a common bus system is with multiplexers. The
+multiplexers select the source register whose binary information is then placed
+on the bus. The construction of a bus system for four registers is shown in
+Fig. 43. Each register has four bits, numbered 0 through 3. The bus consists
+of four 4 x 1 multiplexers each having four data inputs, through 3, and two
+selection inputs, 5; and Sp, In order not to complicate the diagram with 16 lines
+crossing each other, we use labels to show the connections from the outputs
+of the registers to the inputs of the multiplexers. For example, output 1 of
+register A is connected to input 0 of MUX 1 because this input is labeled Ay.
+The diagram shows that the bits in the same significant position in each register
+are connected to the data inputs of one multiplexer to form one line of the bus.
+Thus MUX 0 multiplexes the four Obits of the registers, MUX I multiplexes the
+four 1 bits of the registers, and similarly for the other two bits.
+
+Figure 4-3. Bus system for four registers,
+
+ 
+
+ 
+
+ 
+
+ 
+
+4 line
+Si bus
+So
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+4x1 | 4x1 4x1 4x1
+T] sis ate | LE] ot, | LE] tite
+
+si S210 s2ie s2i6
+tty PTT Pttt fttt
+
+‘Dz Cz Bz Az DC, B Ay Dy Co Bo Ao
+Dz Dy Do Cr Cr Co By B, Bo Ar Ar Ao
+ttt Ltt Ltt ttt
+39210 39210 39210 39210
+rs ers Tages Tease
+

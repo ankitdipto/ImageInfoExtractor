@@ -1,0 +1,55 @@
+Chapter 25. Robotics
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 255 A PUMA robot, showing the six rotary joints.
+
+ 
+
+ 
+
+ 
+
+Ultimately, the effectors are driven by electrical (or other) signals. Some effectors only
+accept on/off signals, some accept scalar values (e.g., turn right 3°), and some robot development
+environments provide higher level subroutine libraries or have complete languages for specifying
+actions that can be turned into primitive signals
+
+Sensors: Tools for perception
+
+Chapter 24 covered the general principles of perception, using vision as the main example. In
+this section, we describe the other kinds of sensors that provide percepts for a robot.
+
+Proprioception
+
+Like humans, robots have a proprioceptive‘ sense that tells them where theirjoints are. Encoders
+fitted to the joints provide very accurate data about joint angle or extension. If the output of the
+encoder is fed back to the control mechanism during motion, the robot can have much greater
+positioning accuracy than humans. For a manipulator, this typically translates to around a few
+mils (thousandths of an inch) of accuracy in its end-effector position. In contrast, humans can
+manage only a centimeter or two. To test this for yourself, place your finger at one end of a ruler
+(or some other object whose length is familiar). Then with your eyes closed try to touch the other
+
++ The word proprioceptive is derived from the same source as proprietary, and thus means "perception of privately
+owned (ie., internal) stimuli.”
+
+ 
+
+ 
+
+ 
+
+Seale
+
+ 
+

@@ -1,0 +1,68 @@
+Chapter 1: Getting Started 31
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+    
+
+ 
+
+Arithmetic Instruction | Result | Arithmetic Instruction | Result
+k=2/9 0 a=2/9 0.0
+k=2.0/9 0 a=2.0/9 0.2222
+k=2/9.0 0 2/9.0 0.2222
+k=2.0/9.0 0 2.0/9.0 0.2222
+k=9/2 4 a=9/2 4.0
+k=9.0/2 4 a=9.0/2 45
+k=9/2.0 4 =9/2.0 45
+k=9.0/2.0 4 a=9.0/2.0 45
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 1.7
+
+Note that though the following statements give the same result, 0,
+the results are obtained differently.
+
+ 
+
+k=2/9;
+k=2.0/9;
+
+In the first statement, since both 2 and 9 are integers, the result is
+an integer, i.e. 0. This 0 is then assigned to k. In the second
+statement 9 is promoted to 9.0 and then the division is performed.
+Division yields 0.222222. However, this cannot be stored in k, k
+being an int. Hence it gets demoted to 0 and then stored in k.
+
+Hierarchy of Operations
+
+While executing an arithmetic statement, which has two or more
+operators, we may have some problems as to how exactly does it
+get executed. For example, does the expression 2 * x - 3 * y
+correspond to (2x)-(3y) or to 2(x-3y)? Similarly, does A / B * C
+correspond to A / (B * C) or to (A / B) * C? To answer these
+questions satisfactorily one has to understand the ‘hierarchy’ of
+operations. The priority or precedence in which the operations in
+

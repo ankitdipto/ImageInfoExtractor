@@ -1,0 +1,76 @@
+dS
+
+Chapter 10. Logical Reasoning Systems
+
+ 
+
+The code in Figure 10.10 implements everything you need in order to ASK the network
+whether subset. membership, or other relations hold between two objects. Each of the functions
+simply follows the appropriate links until it finds what it is looking for, or runs out of links. The
+code does not handle double-boxed links, nor does it handle exceptions. Also, the code that
+TELLS the network about new relations is not shown, because it is straightforward.
+
+The code can be extended with other functions to answer other questions. One problem
+with this approach is that it is easy to become carried away with the data structures and forget their
+underlying semantics. For example, we could easily define aNUMBER-OF-SUBKINDS function that 4
+returns the length of the list in the SUBS slot. For Figure 10.7, NUMBER-OF-SUBKINDS(Animal)
+= 2. This may well be the answer the user wanted, but its logical status is dubious. First of all, it
+
+ 
+
+function MEMBER ?(element,category) returns True or False
+
+for each c in MEMBERSHIPS[element] do
+if SUBSET?%c, category) then return True
+return False
+
+function SUBSET?(sub, super)returns True or False
+
+if sub = super then return True
+for each c in SUPERS /sub] do
+
+if SUBSET%(c, super) then return True
+return False
+
+function RELATED-TO?(source,relation, destination) returns True or False
+
+ifrelation appears in RELS-OUT(source) then
+
+return = MEMBER([relation, destination], RELS-OUT(node))
+else for each c in MEMBERSHIPS(source) do
+
+if ALL-RELATED-T0?(c, relation, destination) then return True
+end
+return False
+
+ 
+
+function ALL-RELATED-TO?(source, relation, destination) returns True or False
+
+if relation appears in ALL-RELS-OUT(source) then
+
+return MEMBER([relation,destination], ALL-RELS-OUT(node))
+else for each c in SUPERS(category) do
+
+if ALI-RELATED-TO%c, relation, destination) then return True
+end
+return False
+
+ 
+
+ 
+
+ 
+
+Figure 10.10 Basic routines for inheritance and relation testing in a simple exception-free
+semantic network. Note that the function MEMBER? is defined here to operate on semantic
+network nodes, while the function MEMBER is a utility that operates on sets.
+
+ 
+
+ 
+
+ 
+
+ 
+

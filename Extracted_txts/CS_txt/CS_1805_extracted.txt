@@ -1,0 +1,40 @@
+9.2. Swapping 281
+
+backing store
+
+ 
+
+main memory
+
+Figure 9.4 Swapping of two processes using a disk as a backing store.
+
+A variant of this swapping policy is used for priority-based scheduling
+algorithms. If a higher-priority process arrives and wants service, the memory
+manager can swap out the lower-priority process so that it can load and execute
+the higher-priority process. When the higher-priority process finishes, the
+lower-priority process can be swapped back in and continued. This variant
+of swapping is sometimes called roll out, roll in.
+
+Normally a process that is swapped out will be swapped back into the same
+memory space that it occupied previously. This restriction is dictated by the
+method of address binding. If binding is done at assembly or load time, then
+the process cannot be moved to different locations. If execution-time binding
+is being used, then a process can be swapped into a different memory space,
+because the physical addresses are computed during execution time.
+
+Swapping requires a backing store. The backing store is commonly a fast
+disk. It must be large enough to accommodate copies of all memory images for
+all users, and it must provide direct access to these memory images. The system
+maintains a ready queue consisting of all processes whose memory images are
+on the backing store or in memory and are ready to run. Whenever the CPU
+scheduler decides to execute a process, it calls the dispatcher. The dispatcher
+checks to see whether the next process in the queue is in memory. If not, and
+there is no free memory region, the dispatcher swaps out a process currently in
+memory and swaps in the desired process. It then reloads registers as normal
+and transfers control to the selected process.
+
+The context-switch time in such a swapping system is fairly high. To get an
+idea of the context-switch time, let us assume that the user process is of size 1
+
+ 
+

@@ -1,0 +1,54 @@
+456
+
+Chapter 17 Amortized Anal
+
+ 
+
+Exercises
+
+171-1
+
+If the set of stack operations included a MULTIPUSH operation, which pushes k
+items onto the stack, would the O(1) bound on the amortized cost of stack opera-
+tions continue to hold?
+
+17.1-2
+Show that if a DECREMENT operation were included in the k-bit counter example,
+1 operations could cost as much as ©(nk) time.
+
+17.1-3
+
+Suppose we perform a sequence of 7 operations on a data structure in which the ith
+operation costs i if 7 is an exact power of 2, and | otherwise. Use aggregate analysis
+to determine the amortized cost per operation.
+
+ 
+
+17.2. The accounting method
+
+In the accounting method of amortized analysis, we assign differing charges to
+different operations, with some operations charged more or less than they actu-
+ally cost. We call the amount we charge an operation its amortized cost. When
+an operation’s amortized cost exceeds its actual cost, we assign the difference to
+specific objects in the data structure as credit. Credit can help pay for later oper-
+ations whose amortized cost is less than their actual cost. Thus, we can view the
+amortized cost of an operation as being split between its actual cost and credit that
+is either deposited or used up. Different operations may have different amortized
+costs. This method differs from aggregate analysis, in which all operations have
+the same amortized cost.
+
+We must choose the amortized costs of operations carefully. If we want to show
+that in the worst case the average cost per operation is small by analyzing with
+amortized costs, we must ensure that the total amortized cost of a sequence of oper-
+ations provides an upper bound on the total actual cost of the sequence. Moreover,
+as in aggregate analysis, this relationship must hold for all sequences of opera-
+tions. If we denote the actual cost of the ith operation by c; and the amortized cost
+of the ith operation by ¢;, we require
+
+ya=ye (17.1)
+
+for all sequences of n operations. The total credit stored in the data structure
+is the difference between the total amortized cost and the total actual cost, or
+
+   
+

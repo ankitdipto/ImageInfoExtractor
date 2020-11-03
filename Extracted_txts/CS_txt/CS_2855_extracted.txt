@@ -1,0 +1,70 @@
+394
+
+Chapter 15 Dynamic Programming
+
+has only @(mn) distinct subproblems, however, we can use dynamic programming
+to compute the solutions bottom up.
+
+Procedure LCS-LENGTH takes two sequences YX = (X), X2..... Xm) and
+Y = (yi. Y2.-..,¥n) as inputs. It stores the c[i, j] values ina table c[0..m,0..n],
+and it computes the entries in row-major order. (That is, the procedure fills in the
+first row of c from left to right, then the second row, and so on.) The procedure also
+maintains the table b[1..m,1..n] to help us construct an optimal solution. Intu-
+itively, b[i, j] points to the table entry corresponding to the optimal subproblem
+solution chosen when computing c[i, j]. The procedure returns the b and c tables;
+c[m,n] contains the length of an LCS of X and Y.
+
+LCS-LENGTH(X, Y)
+
+   
+ 
+
+ 
+
+ 
+
+1 m= X.length
+
+2 n= Y-.length
+
+3° let b[1..m,1..n] and c[0..m,0..n] be new tables
+4 fori = ltom
+
+5 c[i,0] = 0
+
+6 for j = Oton
+
+7 c[0, 7] = 0
+
+8 fori = ltom
+
+9 for j = lton
+
+10 if x; == y;
+
+in cli. j
+
+12 bi. j] =
+
+13 elseif c[i —1, j] = ci. 7 — 1]
+14 efi, J] = ci - LJ]
+
+15 bi. j="
+
+16 else cli, j] = cfi, j — 1]
+
+7 bli. {J ="
+
+18 return c and b
+
+Figure 15.8 shows the tables produced by LCS-LENGTH on the sequences ¥ =
+(A, B, C, B, D, A, B) and Y = (B, D.C, A, B, A). The running time of the
+procedure is © (mn), since each table entry takes ©(1) time to compute.
+
+Step 4: Constructing an LCS
+
+The b table returned by LCS-LENGTH enables us to quickly construct an LCS of
+X = (X1.N2...., Xm) and Y = (yy, Yo... Yn). We simply begin at b[m,n] and
+trace through the table by following the arrows. Whenever we encounter a “\.” in
+entry b[i, j], it implies that x; = y; is an element of the LCS that LCS-LENGTH
+

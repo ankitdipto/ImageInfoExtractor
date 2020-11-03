@@ -1,0 +1,60 @@
+192
+
+Chapter 7. First-Order Logic
+
+ 
+
+On the surface, this might look like a reasonable rendition of our sentence. But expanded out
+into a disjunction, it becomes
+
+(Sister(Spot,Spot) =» Cat(Spot))V
+
+(Sister(Rebecca,Spot) => Cat(Rebecca))V
+
+(Sister(Felix, Spot) => Cat(Felix))V.
+
+(Sister(Richard,Spot) => Cat(Richard))V
+
+(Sister(John,Spot) => Cat(John))V
+
+Now, this disjunction will be satisfied if any of its disjuncts are tre. An implication is true
+if both premise and conclusion are true, or ifits premise is false. So if Richard the Lionheart
+is not Spot's sister, then the implication Sister(Spot, Richard) = Cat(Richard)is true and the
+entire disjunction is therefore true. So, an existentially quantified implication sentence is true in
+a universe containing any object for which the premise of the implication is false; hence such~
+sentences really do not say much at all. —™
+
+Nested quantifiers
+
+We will often want to express more complex sentences using multiple quantifiers. The simplest
+case is where the quantifiers are of the same type. For example, "For all x and all y, ifx is the
+parent ofy then y is the child of x" becomes
+
+Vx,y Parent(x,y)=> Child(y,x)
+
+Vx,y is equivalent to Vx Vy. Similarly, the fact that a person's brother has that person as a
+sibling is expressed by
+
+Vx," Brother(x,y) => Sibling(y,x)
+In other cases we will have mixtures. "Everybody loves somebody" means that for every person,
+there is someone that person loves:
+
+Vx dy Loves(x,y)
+On the other hand, to say "There is someone who is loved by everyone" we write
+
+Fy Vx Loves(x,y)
+The order of quantification is therefore very important. It becomes clearer if we put in parentheses.
+In general, Vx (3 P(x.y)),Where P(x,y) is some arbitrary sentence involving x and y, says
+that every object in the universe has a particular property, namely, the property that it is related to
+some object by the relation P_On the other hand, 4x (Vy P(x,y) says that there is some object
+in the world that has a particular property, namely the property of being related by P to every
+object in the world. ~~
+
+A minor difficulty arises when two quantifiers are used with the same variable name.
+Consider the sentence
+
+Vx [Cat(x) V Ax Brother(Richard, x))]
+
+Here the x in Brother(Richard, x)is existentially quantified. The rule is that the variable belongs
+to the innermost quantifier that mentions it; then it will not be subject to any other quantification.
+

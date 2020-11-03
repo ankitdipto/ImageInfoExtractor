@@ -1,0 +1,55 @@
+906
+
+Chapter 30 Polynomials and the FFT
+
+30.1-5
+
+Show how to use equation (30.5) to interpolate in time ©(n”). (Hint: First compute
+the coefficient representation of the polynomial [];(x — x;) and then divide by
+(x —x,) as necessary for the numerator of each term; see Exercise 30.1-2. You can
+compute each of the n denominators in time O(1).)
+
+30.16
+
+Explain what is wrong with the “obvious” approach to polynomial division using
+a point-value representation, i.e., dividing the corresponding y values. Discuss
+separately the case in which the division comes out exactly and the case in which
+it doesn’t.
+
+ 
+
+30.1-7
+
+Consider two sets A and B, each having n integers in the range from 0 to 10”. We
+wish to compute the Cartesian sum of A and B, defined by
+C={x+y:xeAandy € B}.
+
+Note that the integers in C are in the range from 0 to 20n. We want to find the
+elements of C and the number of times each element of C is realized as a sum of
+elements in A and B. Show how to solve the problem in O(n Ign) time. (Hint:
+Represent A and B as polynomials of degree at most 107.)
+
+ 
+
+30.2. The DFT and FFT
+
+In Section 30.1, we claimed that if we use complex roots of unity, we can evaluate
+and interpolate polynomials in ©(n 1g 7) time. In this section, we define complex
+roots of unity and study their properties, define the DFT, and then show how the
+FFT computes the DFT and its inverse in O(n lg 1) time.
+
+Complex roots of unity
+
+A complex nth root of unity is a complex number @ such that
+
+o=1.
+
+There are exactly n complex nth roots of unity: e?7'*/" fork = 0,1,..., n—-1.
+To interpret this formula, we use the definition of the exponential of a complex
+number:
+
+e™ = cos(u) +i sin(u).
+
+Figure 30.2 shows that the n complex roots of unity are equally spaced around the
+circle of unit radius centered at the origin of the complex plane. The value
+

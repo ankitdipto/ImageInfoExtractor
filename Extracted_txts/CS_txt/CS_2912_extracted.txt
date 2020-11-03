@@ -1,0 +1,48 @@
+16.4 Matroids and greedy methods 439
+
+Theorem 16.6
+All maximal independent subsets in a matroid have the same size.
+
+Proof Suppose to the contrary that A is a maximal independent subset of M
+and there exists another larger maximal independent subset B of M. Then, the
+exchange property implies that for some x € B — A, we can extend A to a larger
+independent set A U {x}, contradicting the assumption that A is maximal. .
+
+As an illustration of this theorem, consider a graphic matroid Mg for a con-
+nected, undirected graph G. Every maximal independent subset of Mg must be a
+free tree with exactly |V | — 1 edges that connects all the vertices of G. Such a tree
+is called a spanning tree of G.
+
+We say that a matroid M = (S, L) is weighted if it is associated with a weight
+function w that assigns a strictly positive weight w(x) to each element x € S. The
+weight function w extends to subsets of S by summation:
+
+w(A) = >» w(x)
+
+xeA
+for any A C S. For example, if we let w(e) denote the weight of an edge e ina
+graphic matroid Mg, then w(A) is the total weight of the edges in edge set A.
+
+Greedy algorithms on a weighted matroid
+
+Many problems for which a greedy approach provides optimal solutions can be for-
+mulated in terms of finding a maximum-weight independent subset in a weighted
+matroid. That is, we are given a weighted matroid M = (S, I), and we wish to
+find an independent set A € I such that w(A) is maximized. We call such a sub-
+set that is independent and has maximum possible weight an optimal subset of the
+matroid. Because the weight w(x) of any element x € S is positive, an optimal
+subset is always a maximal independent subset — it always helps to make A as large
+as possible.
+
+For example, in the minimum-spanning-tree problem, we are given a connected
+undirected graph G = (V, £) and a length function w such that w(e) is the (posi-
+tive) length of edge e. (We use the term “length” here to refer to the original edge
+weights for the graph, reserving the term “weight” to refer to the weights in the
+associated matroid.) We wish to find a subset of the edges that connects all of
+the vertices together and has minimum total length. To view this as a problem of
+finding an optimal subset of a matroid, consider the weighted matroid Mg with
+weight function w’, where w’(e) = wo — w(e) and wo is larger than the maximum
+length of any edge. In this weighted matroid, all weights are positive and an opti-
+mal subset is a spanning tree of minimum total length in the original graph. More
+specifically, each maximal independent subset A corresponds to a spanning tree
+

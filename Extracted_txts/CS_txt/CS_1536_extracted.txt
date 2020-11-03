@@ -1,0 +1,50 @@
+3.1 System Components 59
+
+Only the device driver knows the peculiarities of the specific device to which it
+is assigned.
+
+We discussed in Chapter 2 how interrupt handlers and device drivers are
+used in the construction of efficient I/O subsystems. In Chapter 13, we will
+discuss how the 1/O subsystem interfaces to the other system components,
+manages devices, transfers data, and detects I/O completion.
+
+3.1.5 Secondary-Storage Management
+
+The main purpose of a computer system is to execute programs. These pro-
+grams, with the data they access, must be in main memory, or primary storage,
+during execution. Because main memory is too small to accommodate all data
+and programs, and because the data that it holds are lost when power is lost,
+the computer system must provide secondary storage to back up main mem-
+ory. Most modern computer systems use disks as the principal on-line storage
+medium, for both programs and data. Most programs—including compilers,
+assemblers, sort routines, editors, and formatters—are stored on a disk until
+loaded into memory, and then use the disk as both the source and destination
+of their processing. Hence, the proper management of disk storage is of central
+importance to a computer system.
+
+The operating system is responsible for the following activities in connec-
+tion with disk management:
+
+« Free-space management
+© Storage allocation
+© Disk scheduling
+
+Because secondary storage is used frequently, it must be used efficiently. The
+entire speed of operation of a computer may hinge on the speeds of the disk
+subsystem and of the algorithms that manipulate that subsystem. Techniques
+for secondary-storage management will be discussed in Chapter 14.
+
+3.1.6 Networking
+
+A distributed system is a collection of processors that do not share memory,
+peripheral devices, or a clock. Instead, each processor has its own local memory
+and clock, and the processors communicate with one another through various
+communication lines, such as high-speed buses or networks. The processors in
+a distributed system vary in size and function. They may include small micro-
+processors, workstations, minicomputers, and large, general-purpose computer
+systems.
+
+The processors in the system are connected through a communication net-
+work, which can be configured in a number of different ways. The network
+may be fully or partially connected. The communication-network design must
+

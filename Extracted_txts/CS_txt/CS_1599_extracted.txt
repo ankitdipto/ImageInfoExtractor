@@ -1,0 +1,49 @@
+4.5 Interprocess Communication 111
+
+4.5.2 Naming
+
+Processes that want to communicate must have a way to refer to each other.
+They can use either direct or indirect communication.
+
+4.5.2.1 Direct Communication
+
+With direct communication, each process that wants to communicate must
+explicitly name the recipient or sender of the communication. In this scheme,
+the send and receive primitives are defined as:
+
+¢ send(P, message) —Send a message to process P.
+
+* receive(Q, message) ~Receive a message from process Q.
+A communication link in this scheme has the following properties:
+
+¢ A link is established automatically between every pair of processes that
+want to communicate. The processes need to know only each other’s
+identity to communicate.
+
+¢ A link is associated with exactly two processes.
+
+Exactly one link exists between each pair of processes.
+
+This scheme exhibits symmetry in addressing; that is, both the sender and
+the receiver processes must name the other to communicate. A variant of
+this scheme employs asymmetry in addressing. Only the sender names the
+recipient; the recipient is not required to name the sender. In this scheme, the
+send and receive primitives are defined as follows:
+
+* send(P, message) —Send a message to process P.
+
+¢ receive(id, message) —Receive a message from any process; the vari-
+able id is set to the name of the process with which communication has
+taken place.
+
+The disadvantage in both symmetric and asymmetric schemes is the limited
+modularity of the resulting process definitions. Changing the name of a process
+may necessitate examining all other process definitions. All references to the
+old name must be found, so that they can be modified to the new name. This
+situation is not desirable from the viewpoint of separate compilation.
+
+4.5.2.2. Indirect Communication
+
+With indirect communication, the messages are sent to and received from
+mailboxes, or ports. A mailbox can be viewed abstractly as an object into
+

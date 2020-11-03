@@ -1,0 +1,73 @@
+Section 15.4.
+
+Inference in Multiply Connected Belief Networks 453
+
+ 
+
+ 
+
+15.4 INFERENCE IN MULTIPLY CONNECTED BELIEF NETWORKS
+
+UeKHEreo
+
+CLUSTERING
+
+CONDITIONING
+
+‘STOCHASTIC
+SIMULATION
+
+MEGANODE
+
+ 
+
+ 
+
+ 
+
+A multiply connected graph is one in which two nodes are connected by more than one path.
+One way this happens is when there are two or more possible causes for some variable, and the
+causes share a common ancestor. Alternatively, one can think of multiply connected networks
+as representing situations in which one variable can influence another through more than one
+causal mechanism. For example, Figure 15.9 shows a situation in which whether it is cloudy has
+a causal link to whether it rains, and also a causal link to whether the lawn sprinklers are turned
+on (because a gardener who observes clouds is less likely to turn the sprinklers on). Both rain
+and sprinklers have an effect on whether the grass gets wet.
+
+There are three basic classes of algorithms for evaluating multiply connected networks,
+each with its own areas of applicability:
+
+0 Clustering methods transform the network into a probabilistically equivalent (but topo-
+logically different) polytree by merging offending nodes.
+
+0 Conditioning methods do the transformation by instantiating variables to definite values,
+and then evaluating a polytree for each possible instantiation.
+
+© Stochastic simulation methods use the network to generate a large number of concrete
+models of the domain that are consistent with the network distribution. They give an
+approximation of the exact evaluation.
+
+In the general case, exact inference in belief networks is known to be NP-hard. It is fairly
+straightforward to prove this, because a general belief network can represent any propositional
+logic problem (if all the probabilities are 1 or 0) and propositional logic problems are known to
+be NP-complete. For very large networks, approximation using stochastic simulation is currently
+the method of choice. The problem of approximating the posterior probabilities to within an
+arbitrary tolerance is itselfNP-hard, but for events that are not too unlikely the calculations are
+usually feasible.
+
+Clustering methods
+
+One way ofevaluating the network in Figure 15.9 is to transform it into a polytree by combining
+the Sprinkler and Rain node into a meganode called Sprinkler+Rain, as shown in Figure 15.10.
+The two Boolean nodes are replaced by a meganode that takes on four possible values: TT, TF,
+FT, and FF. The meganode has only one parent, the Boolean variable Cloudy, so there are two
+conditioning cases. Once the network has been converted to a polytree, a linear-time algorithm
+can be applied to answer queries. Queries on variables that have been clustered can be answered
+by averaging over the values of the other variables in the cluster.
+
+Although clustering makes it possible to use a linear-time algorithm, the NP-hardness of
+the problem does not go away. In the worst case, the size of the network increases exponen-
+tially, because the conditional probability tables for the clusters involve the cross-product of the
+domains of the variables. In Figure 15.10, there are six independently specifiable numbers in
+Sprinkler+Rain, as opposed to four total in Sprinkler and Rain. (One of the numbers in each row
+

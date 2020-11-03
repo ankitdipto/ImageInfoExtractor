@@ -1,0 +1,51 @@
+500 CHAPTER THIRTEEN Multiprocessors
+
+system bus
+
+representative of the hypercube architecture is the Intel PSC computer
+complex. Itconsists of128 (n = 7) microcomputers connected throughcommu-
+nication channels. Each node consists of a CPU, a floating-point processor,
+local memory, and serial communication interface units. The individual nodes
+operate independently on data stored in local memory according to resident
+programs. Thedata and programs to each node come througha message-pass-
+ing system from other nodes or from a cube manager. Application programs
+are developed and compiled on the cube manager and then downloaded to the
+individual nodes. Computations are distributed through the system and exe-
+cuted concurrently.
+
+ 
+
+13-3__Interprocessor Arbitration
+
+Computer systems contain a number of buses at various levels to facilitate the
+transfer of information between components. The CPU contains a number of
+internal buses for transferring information between processor registers and
+ALU, A memory bus consists of lines for transferring data, address, and
+read/write information. An VO bus is used to transfer information to and from
+input and output devices. A bus that connects major components in a multi-
+processor system, such as CPUs, IOPs, and memory, is called asystem bus. The
+physical circuits of a system bus are contained in a number of identical printed
+Gircuit boards. Each board in the system belongs to a particular module. The
+board consists of circuits connected in parallel through connectors. Each pin
+of each circuit connector is connected by a wire to the corresponding pin of all
+other connectors in other boards. Thus any board can be plugged into a slot
+in the backplane that forms the system bus.
+
+The processors in a shared memory multiprocessor system request access
+tocommon memory or other common resources through the system bus. If no
+other processor is currently utilizing the bus, the requesting processor may be
+granted access immediately. However, the requesting processor must wait if
+another processor is currently utilizing the system bus. Furthermore, other
+processors may request the system bus at the same time. Arbitration must then
+be performed to resolve this multiple contention for the shared resources. The
+arbitration logic would be part of the system bus controller placed between the
+local bus and the system bus as shown in Fig. 13-2
+
+System Bus
+
+A typical system bus consists of approximately 100 signal lines. These lines are
+divided into three functional groups: data, address, and control. In addition,
+there are power distribution lines that supply power to the components. For
+example, the IEEE standard 796 multibus system has 16 data lines, 24 address
+lines, 26 control lines, and 20 power lines, for a total of 86 lines.
+

@@ -1,0 +1,49 @@
+Problems for Chapter 21 583
+
+OFF-LINE-MINIMUM (n, 11)
+
+1 fori = lton
+2 determine j such thati € Kj;
+3 ifj Am+1
+4 extracted[j] = i
+5 let / be the smallest value greater than j
+for which set K; exists
+K, = K; U Kj, destroying K;
+return extracted
+
+ud
+
+b. Argue that the array extracted returned by OFF-LINE-MINIMUM is correct.
+
+c. Describe how to implement OFF-LINE-MINIMUM efficiently with a disjoint-
+set data structure. Give a tight bound on the worst-case running time of your
+implementation.
+
+21-2 Depth determination
+In the depth-determination problem, we maintain a forest F = {T;} of rooted
+trees under three operations:
+
+MAKE-TREE(V) creates a tree whose only node is v.
+FIND-DEPTH(v) returns the depth of node v within its tree.
+
+GRAFT(r, v) makes node r, which is assumed to be the root of a tree, become the
+child of node v, which is assumed to be in a different tree than r but may or may
+not itself be a root.
+
+a. Suppose that we use a tree representation similar to a disjoint-set forest: v.p
+is the parent of node v, except that v.p = v if v is a root. Suppose further
+that we implement GRAFT(r, v) by setting rp = v and FIND-DEPTH(v) by
+following the find path up to the root, returning a count of all nodes other than v
+encountered. Show that the worst-case running time of a sequence of m MAKE-
+TREE, FIND-DEPTH, and GRAFT operations is @(m?).
+
+By using the union-by-rank and path-compression heuristics, we can reduce the
+worst-case running time. We use the disjoint-set forest 5 = {S;}, where each
+set S; (which is itself a tree) corresponds to a tree 7; in the forest F. The tree
+structure within a set S;, however, does not necessarily correspond to that of 7;. In
+fact, the implementation of S; does not record the exact parent-child relationships
+but nevertheless allows us to determine any node’s depth in Tj.
+
+The key idea is to maintain in each node v a “pseudodistance” v.d, which is
+defined so that the sum of the pseudodistances along the simple path from v to the
+

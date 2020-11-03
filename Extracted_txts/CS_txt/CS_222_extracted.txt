@@ -1,0 +1,54 @@
+28.1 Solving systems of linear equations 821
+
+Of course, if a;; = 0, this method doesn’t work, because it divides by 0. It also
+doesn’t work if the upper leftmost entry of the Schur complement 4’ — vw" /ai
+is 0, since we divide by it in the next step of the recursion. The elements by
+which we divide during LU decomposition are called pivots, and they occupy the
+diagonal elements of the matrix U. The reason we include a permutation matrix P
+during LUP decomposition is that it allows us to avoid dividing by 0. When we use
+permutations to avoid division by 0 (or by small numbers, which would contribute
+to numerical instability), we are pivoting.
+
+An important class of matrices for which LU decomposition always works cor-
+rectly is the class of symmetric positive-definite matrices. Such matrices require
+no pivoting, and thus we can employ the recursive strategy outlined above with-
+out fear of dividing by 0. We shall prove this result, as well as several others, in
+Section 28.3.
+
+Our code for LU decomposition of a matrix A follows the recursive strategy, ex-
+cept that an iteration loop replaces the recursion. (This transformation is a standard
+optimization for a “tail-recursive” procedure—one whose last operation is a recur-
+sive call to itself. See Problem 7-4.) It assumes that the attribute A.rows gives
+the dimension of A. We initialize the matrix U with Os below the diagonal and
+matrix L with 1s on its diagonal and Os above the diagonal.
+
+LU-DEcoMPosITION (A)
+
+1 n= A.rows
+
+2 let L and U be new n x n matrices
+
+3 initialize U with Os below the diagonal
+
+4 initialize L with 1s on the diagonal and 0s above the diagonal
+5 fork = 1ton
+
+6 Uk = Akk
+
+7 fori =k +1ton
+
+8 Lig = Gik/Ukk M1 :x holds v;
+9 Uki = Aki // ux holds wt
+10 fori =k+1ton
+ral for j =k+lton
+12 Gig = Gig —likugy
+
+13 return L and U
+
+The outer for loop beginning in line 5 iterates once for each recursive step. Within
+this loop, line 6 determines the pivot to be ugg = axx. The for loop in lines 7-9
+(which does not execute when k = 7), uses the v and w" vectors to update L
+and U. Line 8 determines the elements of the v vector, storing v; in /;;, and line 9
+computes the elements of the w" vector, storing w; in uj. Finally, lines 10-12
+compute the elements of the Schur complement and store them back into the ma-
+

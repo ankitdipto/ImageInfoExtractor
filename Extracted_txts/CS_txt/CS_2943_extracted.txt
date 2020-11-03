@@ -1,0 +1,55 @@
+17.4 Dynamic tables 465
+
+Notice that we have two “insertion” procedures here: the TABLE-INSERT proce-
+dure itself and the elementary insertion into a table in lines 6 and 10. We can
+analyze the running time of TABLE-INSERT in terms of the number of elementary
+insertions by assigning a cost of 1 to each elementary insertion. We assume that
+the actual running time of TABLE-INSERT is linear in the time to insert individual
+items, so that the overhead for allocating an initial table in line 2 is constant and
+the overhead for allocating and freeing storage in lines 5 and 7 is dominated by
+the cost of transferring items in line 6. We call the event in which lines 5-9 are
+executed an expansion.
+
+Let us analyze a sequence of n TABLE-INSERT operations on an initially empty
+table. What is the cost c; of the ith operation? If the current table has room for the
+new item (or if this is the first operation), then c; = 1, since we need only perform
+the one elementary insertion in line 10. If the current table is full, however, and an
+expansion occurs, then c; = 7: the cost is 1 for the elementary insertion in line 10
+plus i — 1 for the items that we must copy from the old table to the new table in
+line 6. If we perform n operations, the worst-case cost of an operation is O(n),
+which leads to an upper bound of O(n”) on the total running time for 1 operations.
+
+This bound is not tight, because we rarely expand the table in the course of n
+TABLE-INSERT operations. Specifically, the ith operation causes an expansion
+only when i — | is an exact power of 2. The amortized cost of an operation is in
+fact O(1), as we can show using aggregate analysis. The cost of the ith operation
+1S
+
+   
+
+i if i — 1 is an exact power of 2,
+
+c= .
+1 otherwise .
+
+The total cost of 1 TABLE-INSERT operations is therefore
+
+ 
+
+n lign]
+Yer < nt 02!
+j=0
+< n+2n
+= 3n,
+
+because at most 7” operations cost 1 and the costs of the remaining operations form
+a geometric series. Since the total cost of n TABLE-INSERT operations is bounded
+by 3n, the amortized cost of a single operation is at most 3.
+
+By using the accounting method, we can gain some feeling for why the amor-
+tized cost of a TABLE-INSERT operation should be 3. Intuitively, each item pays
+for 3 elementary insertions: inserting itself into the current table, moving itself
+when the table expands, and moving another item that has already been moved
+once when the table expands. For example, suppose that the size of the table is m
+immediately after an expansion. Then the table holds m/2 items, and it contains
+

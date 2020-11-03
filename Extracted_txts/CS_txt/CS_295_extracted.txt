@@ -1,0 +1,52 @@
+880
+
+Chapter 29 Linear Programming
+
+whose optimal value is identical to that of the original linear program. When refer-
+ring to dual linear programs, we call the original linear program the primal.
+
+Given a primal linear program in standard form, as in (29.16)-(29.18), we define
+the dual linear program as
+
+minimize >i y; (29.83)
+i=l
+subject to m
+aii => c¢ forj =1,2,..., n, (29.84)
+i=l
+yi = 0 fori =1,2,..., m. (29.85)
+
+To form the dual, we change the maximization to a minimization, exchange the
+roles of coefficients on the right-hand sides and the objective function, and replace
+each less-than-or-equal-to by a greater-than-or-equal-to. Each of the m constraints
+in the primal has an associated variable y; in the dual, and each of the n constraints
+in the dual has an associated variable x; in the primal. For example, consider the
+linear program given in (29.53)-(29.57). The dual of this linear program is
+
+minimize 30y; + 24y. + 36y3 (29.86)
+subject to
+
+Yio + 2y2 + 4y3 2 3 (29.87)
+Yi + 2y2 + ys = 1 (29.88)
+3y. + Sy2 + 2y3 2 2 (29.89)
+
+Vis Ya. V3 > 0. (29.90)
+
+We shall show in Theorem 29.10 that the optimal value of the dual linear pro-
+gram is always equal to the optimal value of the primal linear program. Further-
+more, the simplex algorithm actually implicitly solves both the primal and the dual
+linear programs simultaneously, thereby providing a proof of optimality.
+
+We begin by demonstrating weak duality, which states that any feasible solu-
+tion to the primal linear program has a value no greater than that of any feasible
+solution to the dual linear program.
+
+Lemma 29.8 (Weak linear-programming duality)
+Let ¥ be any feasible solution to the primal linear program in (29.16)-(29.18) and
+let ¥ be any feasible solution to the dual linear program in (29.83)-(29.85). Then,
+we have
+Vek < isi .
+
+i=l
+
+j=l
+

@@ -1,0 +1,80 @@
+390 caurrentevey Input-Output Organization
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+a a
+—————+| Bu register
+—_ ie
+owe [5
+—
+
+RSO Timing Controt Control
+
+and . ee
+
+wa le a |
+ow, |
+
+CS _RS1RSO| Reziser selected
+(© x x | None: data bus in high-impedance
+© | Pom register
+1 | Por register
+
+11 0 | Controtregister
+
+ 
+
+111 | Status register
+
+ 
+
+Figure 11-2 Example of /O interface unit.
+
+the forward direction. The bits in the status register are used for status condi-
+tions and for recording errors that may occur during the data transfer. For
+example, astatus bit may indicate that port A has received a new data item from
+theI/O device. Another bit in the status register may indicate that a parity error
+has occurred during the transfer.
+
+The interface registers communicate with the CPU through the bidirec-
+tional data bus. The address bus selects the interface unit through the chip
+select and the two register select inputs. A circuit must be provided externally
+(usually, a decoder) to detect the address assigned to the interface registers.
+This circuit enables the chip select (CS) input when the interface is selected by
+the address bus. The two register select inputs RS1 and RSO are usually
+connected to the two leastsignificant lines of the address bus. These two inputs
+

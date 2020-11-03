@@ -1,0 +1,59 @@
+466
+
+Chapter 15. Probabilistic Reasoning Systems
+
+ 
+
+POSSIBILITY THEORY
+
+The literature on default and nonmonotonic reasoning is very large. Early work is col-
+lected in Readings in Nonmonotonic Reasoning (Ginsberg, 1987). Shoham (1988) discusses
+the nonmonotonic nature of reasoning about time and change, and proposes a semantics based
+on general preferences between possible models of a default knowledge base. Geffner (1992)
+provides an excellent introduction to default reasoning, including early philosophical work on
+default conditionals. Some informative computational complexity results on default reasoning
+have been derived by Kautz and Selman (1991). Bain and Muggleton (1991) provide methods for
+learning default rules, suggesting a role for them as compact representations of data containing
+regularities with exceptions. Autoepistemic logic (Moore, 1985b) attempts to explain nonmono-
+tonicity as arising from the agent's reflection on its own states of knowledge. A comprehensive
+retrospective and summary of work in this area is given by Moore (1993).
+
+Applications of nonmonotonic reasoning have been largely limited to improving the the-
+oretical underpinnings of logic programming. The use of negation as failure in Prolog can be ©
+viewed as source of nonmonotonicity because adding new facts will rule out some potential
+derivations (Clark, 1978). An important subclass of the so-called default theories in the default
+logic of (Reiter, 1980) can be shown to be equivalent to logic programs in a language in which
+both negation as failure and classical logical negation are available (Gelfond and Lifschitz, 1991).
+The same is true of circumscriptive theories (Gelfond and Lifschitz, 1988). Autoepistemic logic
+can, in tur, be closely imitated by circumscription (Lifschitz, 1989).
+
+Certainty factors were invented for use in the medical expert system MYCIN (Shortliffe,
+1976), which was intended both as an engineering solution and as a model of human judgment
+under uncertainty. The collection Rule-Based Expert Systems (Buchanan and Shortliffe, 1984)
+provides a complete overview of MYCIN and its descendants. David Heckerman (1986) showed
+that a slightly modified version of certainty factors can be analyzed as a disguised form of reason-
+ing with standard probability theory. The PROSPECTOR expert system (Duda ef a/., 1979) used a
+rule-based approach in which the rules were justified by a global independence assumption. More
+recently, Bryan Todd has shown that a rule-based system can perform correct Bayesian infer-
+ence, provided that the structure of the rule set exactly reflects a set of conditional independence
+statements that is equivalent to the topology ofa belief network (Todd ef al., 1993).
+
+Dempster-Shafer theory originates with a paper by Arthur Dempster (1968) proposing a
+generalization of probability to interval values, and a combination rule forusing them. Later work
+by Glenn Shafer (1976) led to the Dempster-Shafer theory being viewed as a competing approach
+to probability. Ruspini et al. (1992) analyze the relationship between the Dempster-Shafer theory
+and standard probability theory from an AI standpoint. Shenoy (1989) has proposed a method
+for decision making with Dempster-Shafer belief functions.
+
+Fuzzy sets were developed by Lotfi Zadeh (1965) in response to the perceived difficulty
+of providing exact inputs for intelligent systems. The text by Zimmermann (1991) provides a
+thorough introduction to fuzzy set theory. As we mentioned in the text, fuzzy logic has often
+been perceived incorrectly as a direct competitor to probability theory whereas in fact it addresses
+a different set of issues. Possibility theory (Zadeh, 1978) was introduced to handle uncertainty
+in fuzzy systems, and has much in common with probability. Dubois and Prade (1994) provide
+a thorough survey of the connections between possibility theory and probability theory. An
+interesting interview/debate with Lotfi Zadeh (the founder of fuzzy logic) and William Kahan
+(the Turing award winner) appears in Woehr (1994).
+
+ 
+

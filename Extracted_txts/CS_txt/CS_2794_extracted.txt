@@ -1,0 +1,55 @@
+ 
+
+343
+
+14.1 Dynamic order statisti:
+
+The procedure returns the rank 17.
+
+Since each iteration of the while loop takes O(1) time, and y goes up one level in
+the tree with each iteration, the running time of OS-RANK is at worst proportional
+to the height of the tree: O(1g) on an n-node order-statistic tree.
+
+Maintaining subtree sizes
+
+Given the size attribute in each node, OS-SELECT and OS-RANK can quickly
+compute order-statistic information. But unless we can efficiently maintain these
+attributes within the basic modifying operations on red-black trees, our work will
+have been for naught. We shall now show how to maintain subtree sizes for both
+insertion and deletion without affecting the asymptotic running time of either op-
+eration.
+
+We noted in Section 13.3 that insertion into a red-black tree consists of two
+phases. The first phase goes down the tree from the root, inserting the new node
+as a child of an existing node. The second phase goes up the tree, changing colors
+and performing rotations to maintain the red-black properties.
+
+To maintain the subtree sizes in the first phase, we simply increment x. size for
+each node x on the simple path traversed from the root down toward the leaves. The
+new node added gets a size of 1. Since there are O(Igm) nodes on the traversed
+path, the additional cost of maintaining the size attributes is O(Ig).
+
+In the second phase, the only structural changes to the underlying red-black tree
+are caused by rotations, of which there are at most two. Moreover, a rotation is
+a local operation: only two nodes have their size attributes invalidated. The link
+around which the rotation is performed is incident on these two nodes. Referring
+to the code for LEFT-ROTATE(T, x) in Section 13.2, we add the following lines:
+
+13 y.size = X.size
+14 x.size = Xx. left.size + x.right.size + 1
+
+Figure 14.2 illustrates how the attributes are updated. The change to RIGHT-
+ROTATE is symmetric.
+
+Since at most two rotations are performed during insertion into a red-black tree,
+we spend only O(1) additional time updating size attributes in the second phase.
+Thus, the total time for insertion into an n-node order-statistic tree is O(lg7),
+which is asymptotically the same as for an ordinary red-black tree.
+
+Deletion from a red-black tree also consists of two phases: the first operates
+on the underlying search tree, and the second causes at most three rotations and
+otherwise performs no structural changes. (See Section 13.4.) The first phase
+either removes one node y from the tree or moves upward it within the tree. To
+update the subtree sizes, we simply traverse a simple path from node y (starting
+from its original position within the tree) up to the root, decrementing the size
+

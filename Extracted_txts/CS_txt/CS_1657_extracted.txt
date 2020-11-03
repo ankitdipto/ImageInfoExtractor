@@ -1,0 +1,57 @@
+254
+
+Chapter 8. Building a Knowledge Base
+
+ 
+
+DOMAIN CLOSURE
+
+To implement this, we start with a set of causal rules for percepts:
+
+Vx x G Tomatoes = SurfaceColor(xRed)
+
+Vxx€ Oranges = SurfaceColor(x,Orange)
+
+Vx x€Apples = SurfaceColor(xRed) V SurfaceColor(x,Green)
+Vx x€ Tomatoes = Shape(x,Round)
+
+Yx x G Oranges = Shape(x, Round)
+
+Vx SurfaceColor(xe) A Visible(x) => CausesColorPercept(x,c)
+Wx Shape(x, s) A Visible(x) => CausesShapePercept(x, s)
+
+These rules, and many more like them, give a flavor ofa causal theory ofhow percepts are formed
+by objects in the world. Notice how simplistic it is. For example, it does not mention lighting at
+all. (Fortunately, the lights are always on in our supermarket.) From these rules, the agent will |
+be able to deduce a set ofpossible objects that might explain its percepts. Knowledge about what
+sorts of objects appear where will usually eliminate all but one category. Of course, the fact that
+the agent only knows about one sort of object that might produce a given percept does not mean
+that the percept must be produced by that sort of object. Logically, there might be other sorts of
+objects (e.g., plastic tomatoes) that produce the same percept as the known category. This can
+be handled either by a domain closure axiom, stating that the known categories are all the ones
+there are, or by a default assumption, as described in Chapter 15.
+
+The other part ofthe gathering problem is manipulation: being able to pick up objects and 4
+carry them. In our simulation, we just assume a primitive action to grasp an object, and that the
+agent can carry all the items it will need. In the real world, the actions required to pick up a
+bunch of bananas without bruising them and a gallonjug of milk without dropping it pose serious |
+problems. Chapter 25 considers them in more detail.
+
+Communicating
+
+The successful shopper knows when to ask questions (Where are the anchovies? Are these
+tomatillas?). Unfortunately, being able to carry on a conversation is a difficult task, so we
+will delay covering it until Chapter 22. Instead, we will cover a simpler form of one-way
+communication: reading signs. If a word appears on an aisle's sign, then members of the
+category that the word refers to will be located in that aisle
+
+Va (a€Aisles\ 3s,w SignOf(sa) Aw G Words(s))>
+dx,c Referent(wc) Ax Ge A A(x, a)
+
+Ifa word appears on a small sign, then items of that category will be located nearby.
+
+Vs,w,1 (sG Signs A Size(s) < Meters(3) A w G Words(s\A At(s, )) =>
+3x, ¢ Referent(wc) Ax G c A At(x, AreaAround(I))
+
+ 
+

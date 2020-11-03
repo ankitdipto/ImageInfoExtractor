@@ -1,0 +1,79 @@
+94 Paging 299
+
+ 
+
+ 
+
+outer page inner page offset
+pl p2 d
+42 10 12
+
+ 
+
+ 
+
+ 
+
+ 
+
+The outer page table will consist of 2” entries, or 24 bytes. The obvious method
+to avoid such a large table is to divide the outer page table into smaller pieces.
+This approach is also used on some 32-bit processors for added flexibility and
+efficiency.
+
+We can divide the outer page table in various ways. We can page the
+outer page table, giving us a three-level paging scheme. Suppose that the outer
+page table is made up of standard-size pages (2" entries, or 2'? bytes); a 64-bit
+address space is still daunting:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2nd outer page outer page inner page offset
+pl p2 p3 d
+32 10 10 12
+
+The outer page table is still 2° bytes large.
+
+The next step would be a four-level paging scheme, where the second-
+level outer page table itself is also paged. The SPARC architecture (with 32-bit
+addressing) supports a three-level paging scheme, whereas the 32-bit Motorola
+68030 architecture supports a four-level paging scheme.
+
+However, for 64-bit architectures, hierarchical page tables are generally
+considered inappropriate. For example, the 64-bit UltraSPARC would require
+seven levels of paging—a prohibitive number of memory accesses to translate
+each logical address.
+
+9.4.4.2 Hashed Page Tables
+
+A common approach for handling address spaces larger than 32 bits is to use
+a hashed page table, with the hash value being the virtual-page number. Each
+entry in the hash table contains a linked list of elements that hash to the same
+location (to handle collisions). Each element consists of three fields: (a) the
+virtual page number, (b) the value of he mapped page frame, and (c) a pointer
+to the next element in the linked list.
+
+The algorithm works as follows: The virtual page number in the virtual
+address is hashed into the hash table. The virtual page number is compared
+to field (a) in the first element in the linked list. If there is a match, the
+corresponding page frame (field (b)) is used to form the desired physical
+address. If there is no match, subsequent entries in the linked list are searched
+for a matching virtual page number. This scheme is shown in Figure 9.14.
+
+A variation to this scheme that is favorable for 64-bit address spaces has
+been proposed. Clustered page tables are similar to hashed page tables except
+that each entry in the hash table refers to several pages (such as 16) rather than
+a single page. Therefore, a single page-table entry can store the mappings for
+

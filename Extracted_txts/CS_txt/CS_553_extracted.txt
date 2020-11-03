@@ -1,0 +1,43 @@
+1090
+
+Chapter 34 NP-Completeness
+
+ 
+
+(a) (b)
+
+Figure 34.15 Reducing CLIQUE to VERTEX-COVER. (a) An undirected graph G = (V, E) with
+clique V’ = (1, v,x, y}. (b) The graph G produced by the reduction algorithm that has vertex cover
+V-V! ={u,z}.
+
+ 
+
+determine whether a graph has a vertex cover of a given size k. As a language, we
+define
+
+VERTEX-COVER = {(G.k) : graph G has a vertex cover of size k} .
+
+The following theorem shows that this problem is NP-complete.
+
+Theorem 34.12
+The vertex-cover problem is NP-complete.
+
+Proof We first show that VERTEX-COVER € NP. Suppose we are given a graph
+G = (V, E) and an integer k. The certificate we choose is the vertex cover V’ C V
+itself. The verification algorithm affirms that |V’| = k, and then it checks, for each
+edge (u,v) € E, thatu € V’ or v € V’. We can easily verify the certificate in
+polynomial time.
+
+We prove that the vertex-cover problem is NP-hard by showing that CLIQUE <p
+VERTEX-COVER. This reduction relies on the notion of the “complement” of a
+graph. Given an undirected graph G = (V, E), we define the complement of G
+as G = (V,E), where E = {(u,v): u,v € V,u ¥ v, and (u,v) ¢ E}. In other
+words, G is the graph containing exactly those edges that are not in G. Figure 34.15
+shows a graph and its complement and illustrates the reduction from CLIQUE to
+VERTEX-COVER.
+
+The reduction algorithm takes as input an instance (G, k) of the clique problem.
+It computes the complement G, which we can easily do in polynomial time. The
+output of the reduction algorithm is the instance (G, |V| — k) of the vertex-cover
+problem. To complete the proof, we show that this transformation is indeed a
+

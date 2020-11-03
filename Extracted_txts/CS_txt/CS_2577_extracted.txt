@@ -1,0 +1,54 @@
+168
+
+Chapter 6 Heapsort
+
+c. Give an algorithm to implement EXTRACT-MIN on a nonempty m x n Young
+tableau that runs in O(m +n) time. Your algorithm should use a recur-
+sive subroutine that solves an m x n problem by recursively solving either
+an (m—1) xn or an m x(n —1) subproblem. (Hint: Think about MAx-
+HEAPIFY.) Define T(p), where p = m + n, to be the maximum running time
+of EXTRACT-MIN on any m xn Young tableau. Give and solve a recurrence
+for T(p) that yields the O(m + n) time bound.
+
+d. Show how to insert a new element into a nonfull m x n Young tableau in
+O(m +n) time.
+
+e. Using no other sorting method as a subroutine, show how to use an 7 x n Young
+tableau to sort n? numbers in O(n°) time.
+
+f. Give an O(m + n)-time algorithm to determine whether a given number is
+stored in a given m x n Young tableau.
+
+ 
+
+Chapter notes
+
+The heapsort algorithm was invented by Williams [357], who also described how
+to implement a priority queue with a heap. The BUILD-MAX-HEAP procedure
+was suggested by Floyd [106].
+
+We use min-heaps to implement min-priority queues in Chapters 16, 23, and 24.
+We also give an implementation with improved time bounds for certain operations
+in Chapter 19 and, assuming that the keys are drawn from a bounded set of non-
+negative integers, Chapter 20.
+
+If the data are b-bit integers, and the computer memory consists of addressable
+b-bit words, Fredman and Willard [115] showed how to implement MINIMUM in
+O(1) time and INSERT and ExTRACT-MIN in O(,/Ign) time. Thorup [337] has
+improved the O(/ign) bound to O(lglg) time. This bound uses an amount of
+space unbounded in 7, but it can be implemented in linear space by using random-
+ized hashing.
+
+An important special case of priority queues occurs when the sequence of
+EXTRACT-MIN operations is monotone, that is, the values returned by succes-
+sive EXTRACT-MIN operations are monotonically increasing over time. This case
+arises in several important applications, such as Dijkstra’s single-source shortest-
+paths algorithm, which we discuss in Chapter 24, and in discrete-event simula-
+tion. For Dijkstra’s algorithm it is particularly important that the DECREASE-KEY
+operation be implemented efficiently. For the monotone case, if the data are in-
+tegers in the range 1,2,..., C, Ahuja, Mehlhorn, Orlin, and Tarjan [8] describe
+
+  
+
+ 
+

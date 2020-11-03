@@ -1,0 +1,41 @@
+252 Let Us C
+
+ 
+
+in PR1.I. You need to generate this file at the command
+prompt by saying:
+
+cpp pri.c
+
+Here CPP stands for C PreProcessor. It generates the
+expanded source code and stores it in a file called PR1.I. You
+can now open this file and see the expanded source code.
+Note that the file PRI. gets generated in C:\TC\BIN
+directory. The procedure for generating expanded source code
+for compilers other than Turbo C/C++ might be a little
+different.
+
+Macros versus Functions
+
+In the above example a macro was used to calculate the area of the
+circle. As we know, even a function can be written to calculate the
+area of the circle. Though macro calls are ‘like’ function calls, they
+are not really the same things. Then what is the difference between
+the two?
+
+In a macro call the preprocessor replaces the macro template with
+its macro expansion, in a stupid, unthinking, literal way. As
+against this, in a function call the control is passed to a function
+along with certain arguments, some calculations are performed in
+the function and a useful value is returned back from the function.
+
+This brings us to a question: when is it best to use macros with
+arguments and when is it better to use a function? Usually macros
+make the program run faster but increase the program size,
+whereas functions make the program smaller and compact.
+
+If we use a macro hundred times in a program, the macro
+expansion goes into our source code at hundred different places,
+thus increasing the program size. On the other hand, if a function
+is used, then even if it is called from hundred different places in
+

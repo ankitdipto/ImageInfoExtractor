@@ -1,0 +1,71 @@
+Section 18.5.
+
+Learning General Logical Descriptions 547
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 1810 (a) A consistent hypothesis. (b) A false negative. (c) The hypothesis is general-
+ized. (d) A false positive. (e) The hypothesis is specialized.
+
+ 
+
+ 
+
+ 
+
+We can now specify the CURRENT-BEST-LEARNING algorithm, shown in Figure 18.11.No-
+tice that each time we consider generalizing or specializing the hypothesis, we must check for con-
+sistency with the other examples, because there is no guarantee that an arbitrary increase/decrease
+in the extension will avoid including/excluding any other negative/positive examples.
+
+ 
+
+ 
+
+function CURRENT-BEST-LEARNING(examplesyeturns a hypothesis
+
+H— any hypothesis consistent with the first example in examples
+for each remaining example in examples do
+if ¢ is false positive for H then
+H— choose a specialization of H consistent with examples
+alse ife is false negative for H then
+H — choose a generalization of H consistent with examples
+if no consistent specialization/generalization can be found then fail
+end
+return Z
+
+ 
+
+ 
+
+Figure 1811 The current-best-hypothesis learning algorithm. It searches for a consistent
+hypothesis and backtracks when no consistent specialization/ generalization can be found.
+
+ 
+
+ 
+
+ 
+
+We have defined generalization and specialization as operations that change the extension
+of a hypothesis. Now we need to determine exactly how they can be implemented as syntactic
+operations that change the candidate definition associated with the hypothesis, so that a program
+can carry them out. This is done by first noting that generalization and specialization are also
+logical relationships between hypotheses. Ifhypothesis H,, with definition C), is a generalization
+of hypothesis Hz with definition C>, then we must have
+
+Vx Cox) > Ci(x)
+
+Therefore in order to construct a generalization of H2, we simply need to find a definition C\
+that is logically implied by C2. This is easily done. For example, if C2(x) is Alternate(x) A
+

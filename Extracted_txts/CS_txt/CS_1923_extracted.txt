@@ -1,0 +1,78 @@
+11.1 FileConcept 377
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+filetype | usualextension | function
+executable exe, com, bin read to run machine-
+or none language program
+object obj, 0 compiled, machine language,
+not linked
+source code ¢, CC, java, pas, source code in various
+asm, a languages
+batch bat, sh commands to the command
+interpreter
+text ‘txt, doc textual data, documents
+word processor | wp, tex, rrf, various word-processor
+doc formats
+library lib, a, so, dll, libraries of routines for
+mpeg, mov, rm programmers
+print or view are, zip, tar ASCII or binary file in a
+format for printing or
+viewing
+archive are, zip, tar related files grouped into
+
+one file, sometimes com-
+pressed, for archiving
+or storage
+
+ 
+
+multimedia mpeg, mov, rm binary file containing
+audio or A/V information
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11.1 Common file types.
+
+the name of the program that created it. This attribute is set by the operating
+system during the create call, so its use is enforced and supported by the
+system. For instance, a file produced by a word processor has the word
+processor’s name as its creator. When the user opens that file, by double-
+clicking the mouse on the icon representing the file, the word processor is
+invoked automatically and the file is loaded, ready to be edited.
+
+The UNIX system is unable to provide such a feature because it uses a crude
+magic number stored at the beginning of some files to indicate roughly the
+type of the file—executable program, batch file (or shell script), postscript file,
+and so on. Not all files have magic numbers, so system features cannot be
+based solely on this type of information. UNIX does not record the name of the
+creating program, either. UNIX does allow file-name-extension hints, but these
+extensions are not enforced or depended on by the operating system; they are
+mostly to aid users in determining the type of contents of the file. Extensions
+

@@ -1,0 +1,53 @@
+design of input logic
+
+SECTION 7-4 Design of Control Unit 233
+
+‘The purpose of a microprogram sequencer is to present an address to the
+control memory so that a microinstruction may be read and executed. The
+next-address logic of the sequencer determines the specific address source to
+be loaded into the control address register. The choice of the address source
+is guided by the next-address information bits that the sequencer receives from
+the present microinstruction. Commercial sequencers include within the unit
+an internal register stack used for temporary storage of addresses during
+microprogram looping and subroutine calls. Some sequencers provide an
+output register which can function as the address register for the control
+memory.
+
+Toillustrate the internal structure of a typical microprogram sequencer
+we will show a particular unit that is suitable for use in the microprogram
+computer example developed in the preceding section The block diagram of
+the microprogram sequencer is shown in Fig. 7-8 The control memory is
+included in the diagram to show the interaction between the sequencer and the
+memory attached to it. There are two multiplexers in the circuit. The first
+multiplexer selects an address from one of four sources and routes it into a
+control address register CAR. The second multiplexer tests the value of a
+selected status bit and the result of the test is applied to an input logic circuit.
+The output from CAR provides the address for the control memory. The
+content of CAR is incremented and applied to one of the multiplexer inputs and
+to the subroutine register SBR. The other three inputs to multiplexer number
+I come from the address field of the present microinstruction, from the output
+of SBR, and from an external source that maps the instruction. Although the
+diagram shows a single subroutine register, a typical sequencer will have a
+register stack about four to eight levels deep. In this way, a number of subrou-
+tinescan be active at the same time. A push and pop operation, in conjunction
+witha stack pointer, stores and retrieves the return address during the call and
+return microinstructions.
+
+The CD (condition) field of the microinstruction selectgs one of the status
+bits in the second multiplexer. If the bit selected is equal to 1, the T (test)
+variable is equal to 1; otherwise, it is equal to 0. The T value together with the
+two bits from the BR (branch) field go to an input logic circuit. The input logic
+ina particular sequencer will determine the ty pe of operations that are available
+in the unit. Typical sequencer operations are: increment, branch or jump, call
+and return from subroutine, load an external address, push or pop the stack,
+and other address sequencing operations. With three inputs, the sequencer
+can provide up to eight address sequencing operations. Some commercial
+sequencers have three or four inputsin addition to theT input and thus provide
+a wider range of operations.
+
+The input logic circuit in Fig, 7-8 has three inputs, fo, {, and T, and three
+outputs, S, $,, and L. Variables Sp and S; select one of the source addresses
+forCAR. Variable L enables the load input in SBR. The binary values of the two
+selection variables determine the path in the multiplexer. For example, with
+$,So= 10, multiplexer input number 2 is selected and establishes a transfer
+

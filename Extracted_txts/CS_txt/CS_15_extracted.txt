@@ -1,0 +1,30 @@
+652
+
+Chapter 24 Single-Source Shortest Paths
+
+ 
+
+Figure 24.4 The execution of the Bellman-Ford algorithm. The source is vertex s. The d val-
+ues appear within the vertices, and shaded edges indicate predecessor values: if edge (u,v) is
+shaded, then v.27 = w. In this particular example, each pass relaxes the edges in the order
+(6.2). (6, 9) (E2). (0), 0.2), 2)s (ZX), (2.5), (8,0), (8, ). (a) The situation just before the
+first pass over the edges. (b)-(e) The situation after each successive pass over the edges. The d
+and 7 values in part (e) are the final values. The Bellman-Ford algorithm returns TRUE in this
+example,
+
+Lemma 24.2
+
+Let G = (V,E) be a weighted, directed graph with source s and weight func-
+tion w : E — R, and assume that G contains no negative-weight cycles that are
+reachable from s. Then, after the |V| — 1 iterations of the for loop of lines 2-4
+of BELLMAN-ForD, we have v.d = 8(s,v) for all vertices v that are reachable
+from s.
+
+Proof We prove the lemma by appealing to the path-relaxation property. Con-
+sider any vertex v that is reachable from s, and let p = (vo. V1. .... ve), Where
+vo = 8 and vg = V, be any shortest path from s to v. Because shortest paths are
+simple, p has at most |V|—1 edges, and sok < |V|—1. Each of the |V|— 1 itera-
+tions of the for loop of lines 2-4 relaxes all |E | edges. Among the edges relaxed in
+the ith iteration, fori = 1,2,.... k, is (vj-1, v;). By the path-relaxation property,
+therefore, v.d = vg.d = 8(s, v¢) = S(s, v). .
+

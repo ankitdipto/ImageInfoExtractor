@@ -1,0 +1,69 @@
+346
+
+Chapter 11. Planning
+
+ 
+
+MODIFICATION
+OPERATOR
+
+LEAST COMMITMENT
+
+PARTIAL ORDER
+TOTAL ORDER
+
+LNEARIZATION
+
+FULLY INSTANTIATED.
+PLANS
+
+of complete, fully constrained plans. Refinement operators eliminate some plans from this set,
+but they never add new plans to it. Anything that is not a refinement operator is a modification
+operator. Some planners work by constructing potentially incorrect plans, and then "debugging"
+them using modification operators. In this chapter, we use only refinement operators.
+
+Representations for plans
+
+Ifwe are going to search through a space of plans, we need to be able to represent them. We
+can settle on a good representation for plans by considering partial plans for a simple problem:
+putting on a pair of shoes. The goal is the conjunction of RightShoeOn A LefiShoeOn, the initial
+state has no literals at all, and the four operators are
+
+Op( ACTION: RightShoe, PRECOND:RightSockOn, EFFECT: RightShoeOn)
+Op( ACTION: RightSock, EFFECT: RightSockOn)
+
+Op( ACTION: LeftShoe,PRECOND: LeftSockOn, EFFECT. LefiShoeOn)
+Op(Action:LeftSock,EFFECT: LeftSockOn)
+
+A partial plan for this problem consists of the two steps RightShoe and LeftShoe. But which step
+should come first? Many planners use the principle of least commitment, which says that one
+should only make choices about things that you currently care about, leaving the other choices
+to be worked out later. This is a good idea for programs that search, because if you make a
+choice about something you don't care about now, you are likely to make the wrong choice and *
+have to backtrack later. A least commitment planner could leave the ordering of the two steps
+unspecified. When a third step, RightSock, is added to the plan, we want to make sure that putting
+on the right sock comes before putting on the right shoe, but we do not care where they come
+with respect to the left shoe. A planner that can represent plans in which some steps are ordered
+(before or after) with respect to each other and other steps are unordered is called a partial order
+planner. The alternative is a total order planner, in which plans consist of a simple list of steps. §
+A totally ordered plan that is derived from a plan P by adding ordering constraints is called a
+linearization of P.
+
+The socks-and-shoes example does not show it, but planners also have to commit to bindings
+for variables in operators. For example, suppose one of your goals is Have(Milk),and you have
+the action Buy(item, store). A sensible commitment is to choose this action with the variable item
+bound to Milk. However, there is no good reason to pick a binding for store, so the principle of
+least commitment says to leave it unbound and make the choice later. Perhaps another goal will
+be to buy an item that is only available in one specialty store. If that store also carries milk, then
+we can bind the variable store to the specialty store at that time. By delaying the commitment to
+a particular store, we allow the planner to make a good choice later. This strategy can also help
+prune out bad plans. Suppose that for some reason the branch of the search space that includes |
+the partially instantiated action Buy(Milk, store) leads to a failure for some reason unrelated to
+the choice of store (perhaps the agent has no money). If we had committed to a particular store,
+then the search algorithm would force us to backtrack and consider another store. But ifwe have
+not committed, then there is no choice to backtrack over and we can discard this whole branch
+of the search tree without having to enumerate any ofthe stores. Plans in which every variable is
+bound to a constant are called fully instantiated plans.
+
+ 
+

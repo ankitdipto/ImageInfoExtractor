@@ -1,0 +1,46 @@
+Notes for Chapter 26 765
+
+f. Show that the number of repeat loop iterations in the algorithm is at
+most 2,/|V|. (Hint: By how much can M grow after iteration number /|V|?)
+
+g. Give an algorithm that runs in O(£) time to find a maximal set of vertex-
+disjoint shortest augmenting paths P;. P>..... P, for a given matching M.
+Conclude that the total running time of HOPCROFT-KarpP is O(./V E).
+
+ 
+
+Chapter notes
+
+Ahuja, Magnanti, and Orlin [7], Even [103], Lawler [224], Papadimitriou and Stei-
+glitz [271], and Tarjan [330] are good references for network flow and related algo-
+rithms. Goldberg, Tardos, and Tarjan [139] also provide a nice survey of algorithms
+for network-flow problems, and Schrijver [304] has written an interesting review
+of historical developments in the field of network flows.
+
+The Ford-Fulkerson method is due to Ford and Fulkerson [109], who originated
+the formal study of many of the problems in the area of network flow, including
+the maximum-flow and bipartite-matching problems. Many early implementations
+of the Ford-Fulkerson method found augmenting paths using breadth-first search;
+Edmonds and Karp [102], and independently Dinic [89], proved that this strategy
+yields a polynomial-time algorithm. A related idea, that of using “blocking flows,”
+was also first developed by Dinic [89]. Karzanov [202] first developed the idea of
+preflows. The push-relabel method is due to Goldberg [136] and Goldberg and Tar-
+jan [140]. Goldberg and Tarjan gave an O(V*)-time algorithm that uses a queue to
+maintain the set of overflowing vertices, as well as an algorithm that uses dynamic
+trees to achieve a running time of O(VE lg(V?/E +2)). Several other researchers
+have developed push-relabel maximum-flow algorithms. Ahuja and Orlin [9] and
+Ahuja, Orlin, and Tarjan [10] gave algorithms that used scaling. Cheriyan and
+Maheshwari [62] proposed pushing flow from the overflowing vertex of maximum
+height. Cheriyan and Hagerup [61] suggested randomly permuting the neighbor
+lists, and several researchers [14, 204, 276] developed clever derandomizations of
+this idea, leading to a sequence of faster algorithms. The algorithm of King, Rao,
+and Tarjan [204] is the fastest such algorithm and runs in O(VE loggyyigv) V)
+time.
+
+The asymptotically fastest algorithm to date for the maximum-flow problem, by
+Goldberg and Rao [138], runs in time O(min(V/?, E"’7)E lg(V2/E + 2)lgC),
+where C = maxq»ez C(u,v). This algorithm does not use the push-relabel
+method but instead is based on finding blocking flows. All previous maximum-
+flow algorithms, including the ones in this chapter, use some notion of distance
+(the push-relabel algorithms use the analogous notion of height), with a length of 1
+

@@ -1,0 +1,64 @@
+Chapter 18 B-Trees 485
+
+T.root
+
+\
+
+M
+
+ 
+
+ 
+
+ 
+
+ 
+
+oo
+
+oa |
+
+Figure 18.1 A B-tree whose keys are the consonants of English. An internal node x containing
+x.nkeys has x. + 1 children. All leaves are at the same depth in the tree. The lightly shaded nodes
+are examined ina search for the letter R.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+alto
+
+ 
+
+ 
+
+ 
+
+spindle
+
+platter ~~ track read/write
+head
+arms
+
+Figure 18.2 A typical disk drive. It comprises one or more platters (two platters are shown here)
+that rotate around a spindle. Each platter is read and written with a head at the end of an arm, Arms
+rotate around a common pivot axis. A track is the surface that passes beneath the read/write head
+when the head is stationary.
+
+consists of silicon memory chips. This technology is typically more than an order
+of magnitude more expensive per bit stored than magnetic storage technology, such
+as tapes or disks. Most computer systems also have secondary storage based on
+magnetic disks; the amount of such secondary storage often exceeds the amount of
+primary memory by at least two orders of magnitude.
+
+Figure 18.2 shows a typical disk drive. The drive consists of one or more plat-
+ters, which rotate at a constant speed around a common spindle. A magnetizable
+material covers the surface of each platter. The drive reads and writes each platter
+by a head at the end of an arm. The arms can move their heads toward or away
+

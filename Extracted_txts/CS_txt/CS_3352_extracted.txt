@@ -1,0 +1,79 @@
+698
+
+Chapter 23. Practical Natural Language Processing
+
+ 
+
+INITIAUZER
+PREDICTOR
+
+‘COMPLETER
+
+‘SCANNER
+
+ 
+
+[0, 5S->NP VP .7
+
+ 
+
+[0,2S->NP*+ VP [2, 5 VP > Verb NP +]
+
+MO Th agent feels breeze
+OMG OOO 4
+
+Figure 231 Part of the chart for the sentence "The agent feels a breeze." All 6 vertices are
+shown, but only three of the edges that would make up a complete parse.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+same predicate. Now we will see a third approach, chart-parsing. Under this view, the process
+ofparsing an n- word sentence consists of forming a chart withn + 1 vertices and adding edges to
+the chart one at a time, trying to produce a complete edge that spans from vertex 0 to n and is of
+category S. There is no backtracking; everything that is put in the chart stays there.
+
+There are four ways to add an edge to the chart, and we can give each one a name: The
+initializer adds an edge to indicate that we are looking for the start symbol of the grammar, S,
+starting at position 0, but that we have not found anything yet. The predictor takes an incomplete
+edge that is looking for an Y and adds new incomplete edges that, if completed, would build an
+Xin the right place. The completer takes an incomplete edge that is looking for an X and ends at
+vertexj and a complete edge that begins at7 and has X as the left-hand side, and combines them
+to make a new edge where the Yhas been found. Finally, the scanner is similar to the completer,
+except that it uses the input words rather than existing complete edges to generate the X. That is,
+ifthere is an edge ending at vertex/ that is looking for a Noun, and ifthe jth word in the input
+string has a Noun entry in the lexicon, then the scanner will add a new edge that incorporates the
+word, and goes to vertexj + 1.
+
+We will show two versions of chart-parsing algorithms. Figure 23.2 treats the chart as a set
+of edges and at each step adds one new edge to the set, nondeterministically choosing between
+the possible additions. This algorithm uses the operator pick rather than choose to indicate that it
+has no backtrack points. Any order of choices leads to the same result in the end. The algorithm
+terminates when none of the four methods can add a new edge. We use a slight trick to start: we
+add the edge {0,0, $’ — #5] to the chart, where S is the grammar's start symbol, and S’ is a new
+symbol that we just invented. This edge makes the PREDICTOR add an edge for each grammar
+tule with S on the left-hand side, which isjust what we need to start.
+
+Figures 23.3 and 23.4 show a chart and trace of the algorithm parsing the sentence "I feel
+it." Thirteen edges (labelled a-m) are recorded in the chart, including five complete edges (shown
+above the vertices of the chart) and eight incomplete ones (below the vertices). Note the cycle
+of predictor, scanner, and completer actions. For example, the predictor uses the fact that edge
+(a) is looking for an S to license the prediction of an NP (edge b) and a Pronoun (edge c). Then
+the scanner recognizes that there is a Pronoun in the right place (edge d), and the completer
+combines the incomplete edge b with the complete edge d to yield a new edge, e. Note that the
+name COMPLETER is misleading in that the edges it produces (like e) are not necessarily complete.
+We use the name because it has a long history, but a better name might have been EXTENDER.
+
+ 
+

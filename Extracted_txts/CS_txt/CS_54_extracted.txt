@@ -1,0 +1,53 @@
+Chapter 25 All-Pairs Shortest Paths 685
+
+0 ifi=j,
+wij = { the weight of directed edge (i,j) ifi # j and (i,j)€E, (25.1)
+co ifi Aj and(i,j)ZE.
+
+We allow negative-weight edges, but we assume for the time being that the input
+graph contains no negative-weight cycles.
+
+The tabular output of the all-pairs shortest-paths algorithms presented in this
+chapter is ann x n matrix D = (d;;), where entry dj; contains the weight of a
+shortest path from vertex i to vertex j. That is, if we let 5(i, 7) denote the shortest-
+path weight from vertex i to vertex j (as in Chapter 24), then dj; = 4(i, j) at
+termination.
+
+To solve the all-pairs shortest-paths problem on an input adjacency matrix, we
+need to compute not only the shortest-path weights but also a predecessor matrix
+Tl = (aj), where 7;; is NIL if either i = j or there is no path from i to j,
+and otherwise 7; is the predecessor of j on some shortest path from 7. Just as
+the predecessor subgraph G, from Chapter 24 is a shortest-paths tree for a given
+source vertex, the subgraph induced by the ith row of the IT matrix should be a
+shortest-paths tree with root 7. For each vertex i € V, we define the predecessor
+subgraph of G for i as Gz; = (Vz; Ex) , where
+
+Vai = {7 €V : my ANIL} U {i}
+
+and
+
+Ex = (mij. J) 2 7 © Vani — AB
+
+If G,; is a shortest-paths tree, then the following procedure, which is a modified
+
+version of the PRINT-PATH procedure from Chapter 22, prints a shortest path from
+vertex i to vertex j.
+
+PRINT-ALL-PAIRS-SHORTEST-PATH (IT, i, j)
+
+ifi ==j7
+print i
+
+elseif 77; == NIL
+print “no path from” i “to” j “exists”
+
+else PRINT-ALL-PAIRS-SHORTEST- PATH (II, i, 7)
+print j
+
+AnNhwWNH
+
+In order to highlight the essential features of the all-pairs algorithms in this chapter,
+we won't cover the creation and properties of predecessor matrices as extensively
+as we dealt with predecessor subgraphs in Chapter 24. Some of the exercises cover
+the basics.
+

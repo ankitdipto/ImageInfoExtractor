@@ -1,0 +1,80 @@
+There is another way to write the right side of this statement so that we have only
+the piercing component of E. We define an area vector AA that is perpendicular to
+the patch and that has a magnitude equal to the area AA of the patch (Fig. 23-4c).
+Then we can write
+
+Ab =E - AA,
+
+and the dot product automatically gives us the component of E that is parallel to
+AA and thus piercing the patch.
+
+To find the total flux ® through the surface in Fig. 23-4, we sum the flux
+through every patch on the surface:
+
+®=DE-AA. (23-1)
+
+However, because we do not want to sum hundreds (or more) flux values, we trans-
+form the summation into an integral by shrinking the patches from small squares
+with area AA to patch elements (or area elements) with area dA.The total flux is then
+
+= | E-dA  (totalftux). (23-2)
+
+Now we can find the total flux by integrating the dot product over the full surface.
+
+Dot Product. We can evaluate the dot product inside the integral by writing the
+two vectors in unit-vector notation. For example, in Fig. 23-4,dA = dAi and E might
+be, say, (41 + 4j) N/C. Instead, we can evaluate the dot product in magnitude-angle
+notation: E cos @ dA. When the electric field is uniform and the surface is flat, the
+product E cos @ is a constant and comes outside the integral. The remaining [dA is
+just an instruction to sum the areas of all the patch elements to get the total area, but
+we already know that the total area is A. So the total flux in this simple situation is
+
+® = (Ecos 6)A (uniform field, flat surface). (23-3)
+
+Closed Surface. To use Gauss’ law to relate flux and charge, we need a closed
+surface. Let’s use the closed surface in Fig. 23-5 that sits in a nonuniform electric
+field. (Don’t worry. The homework problems involve less complex surfaces.) As be-
+fore, we first consider the flux through small square patches. However, now we are
+interested in not only the piercing components of the field but also on whether the
+piercing is inward or outward (just as we did with Figs. 23-1 through 23-3).
+
+Directions. To keep track of the piercing direction, we again use an area vec-
+tor AA that is perpendicular to a patch, but now we always draw it pointing outward
+from the surface (away from the interior). Then if a field vector pierces outward, it
+and the area vector are in the same direction, the angle is 6 = 0, and cos @ = 1.
+Thus, the dot product E: AA is positive and so is the flux. Conversely, if a field vec-
+tor pierces inward, the angle is @ = 180° and cos @ = —1. Thus, the dot product is
+negative and so is the flux. If a field vector skims the surface (no piercing), the dot
+product is zero (because cos 90° = 0) and so is the flux. Figure 23-5 gives some
+general examples and here is asummary:
+
+oO An inward piercing field is negative flux. An outward piercing field is positive
+flux. A skimming field is zero flux.
+
+Net Flux. In principle, to find the net flux through the surface in Fig. 23-5, we
+find the flux at every patch and then sum the results (with the algebraic signs in-
+cluded). However, we are not about to do that much work. Instead, we shrink the
+squares to patch elements with area vectors dA and then integrate:
+
+= $ E-dA (net flux). (23-4)
+
+23-1 ELECTRIC FLUX 661
+
+ 
+
+@<0 @>0
+Pierce E Pierce
+inward: outward:
+negative 2 Ax positive
+flux 0-0 flux
+
+Skim: zero flux
+
+Figure 23-5 A Gaussian surface of arbitrary
+shape immersed in an electric field. The
+surface is divided into small squares of area
+AA. The electric field vectors E and the
+
+area vectors AA for three representative
+squares, marked 1,2, and 3, are shown.
+

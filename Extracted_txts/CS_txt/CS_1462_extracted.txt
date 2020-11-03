@@ -1,0 +1,40 @@
+708 Let UsC
+
+ 
+
+ 
+
+a pointer to the character string “a” is assigned to ch.
+Note that in the first case, the declaration of ch would be,
+char ch;
+
+whereas in the second case it would be,
+
+char “ch;
+
+[13] Forgetting the bounds of an array.
+main()
+{
+
+int num[50}, i;
+
+for (i= 1; 1 <= 50; i++)
+num[i] i;
+
+ 
+
+}
+
+Here, in the array num there is no such element as num[50],
+since array counting begins with 0 and not 1. Compiler would
+not give a warning if our program exceeds the bounds. If not
+taken care of, in extreme cases the above code might even
+hang the computer.
+
+[14] Forgetting to reserve an extra location in a character array for the
+null terminator.
+
+Remember each character array ends with a ‘\0’, therefore its
+dimension should be declared big enough to hold the normal
+characters as well as the ‘\0’.
+

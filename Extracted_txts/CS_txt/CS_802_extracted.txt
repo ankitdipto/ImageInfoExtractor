@@ -1,0 +1,64 @@
+Section 6.5.
+
+An Agent for the Wumpus World 177
+
+ 
+
+ 
+
+function PROPOSITIONAL-KB-AGENT percept) returns an action
+static: KB, a knowledge base
+t, acounter, initially 0, indicating time
+
+TELL(KB, MAKE-PERCEPT-SENTENCE( percept, f))
+for each action in the list of possible actions do
+if ASK(KB, MAKE-ACTION-QUERY(f, action)) then
+t—t+1
+return action
+end
+
+ 
+
+ 
+
+Figure 6.16 A knowledge-based agent using propositional logic.
+
+ 
+
+ 
+
+ 
+
+world is larger than a 4 x 4 grid. Given this multiplication ofrules, it will take thousands ofrules
+to define a competent agent. The problem is notjust that it is taxing to write the rules down, but
+also that having so many of them slows down the inference procedure. Remember that the size
+ofa truth table is 2”, where n is the number of propositional symbols in the knowledge base.
+
+Another problem is dealing with change. We showed a snapshot of the agent reasoning at
+a particular point in time, and all the propositions in the knowledge base were true at that time.
+But in general the world changes over time. When the agent makes its first move, the proposition
+A,, becomes false and A>, becomes true. But it may be important for the agent to remember
+where it was in the past, so it cannotjust forget A;.;. To avoid confusion, we will need different
+propositional symbols for the agent's location at each time step. This causes difficulties in two
+ways. First, we do not know how long the game will go on, so we do not know how many of these
+time-dependent propositions we will need. Second, we will now have to go back and rewrite
+time-dependent versions of each rule. For example, we will need
+
+AY, A East) A WS, = —Forward®
+AL) A East, AW3, => Forward!
+Aj, A Bast 3A W3, => ~Forward?
+
+A’, ANorth, AW), => —Forward®
+Aj, ANorth\ A Wi, => Forward!
+Ai, A Northy AW; => >Forward?
+
+where the superscripts indicate times. If we want the agent to run for 100 time steps, we will
+need 6400 of these rules, just to say one should not go forward when the wumpus is there.
+
+In summary, the problem with propositional logic is that it only has one representational
+device: the proposition. In the next chapter, we will introduce first-order logic, which can
+represent objects and relations between objects in addition to propositions. In first-order logic,
+the 6400 propositional rules can be reduced to one.
+
+ 
+

@@ -1,0 +1,27 @@
+626 Let UsC
+
+ 
+
+Communication with Storage Devices
+
+Since DOS is commercially dead the rest of the chapter would
+focus on communication with the devices under Windows
+platform. We would illustrate this with the help of several
+programs.
+
+Let us begin with the one that interacts with the simplest storage
+device, namely the floppy disk. Rather than the physical structure
+of the floppy disk it is the way the stored information is laid out
+and managed that concerns programmers most. Let us understand
+how the information is laid out on a floppy disk. Each floppy disk
+consists of four logical parts—Boot Sector, File Allocation Table
+(FAT), Directory and Data space. Of these, the Boot Sector
+contains information about how the disk is organized. That is, how
+many sides does it contain, how many tracks are there on each
+side, how many sectors are there per track, how many bytes are
+there per sector, etc. The files and the directories are stored in the
+Data Space. The Directory contains information about the files like
+its attributes, name, size, etc. The FAT contains information about
+where the files and directories are stored in the data space. Figure
+19.5 shows the four logical parts of a 1.44 MB disk.
+

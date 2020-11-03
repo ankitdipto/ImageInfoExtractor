@@ -1,0 +1,58 @@
+460 CHAPTER TWELVE Memory Organization
+
+We now include the key bit Kjin the comparison logic. The requirement
+is that if K; = 0, the corresponding bits of 4; and F; need no comparison. Only
+when Kj = 1 must they be compared. This requirement is achieved by ORing
+each term with Kj, thus:
+
+  
+ 
+
+sem- {7 EBT)
+
+ 
+
+When K; = 1, we have Kj = 0 and x + 0 = x. When Kj = 0, then K/ = 1 and
+4) +1= 1 A term (x, + Kj) will be in the 1 state if its pair of bits is not
+compared. This is necessary because each term is ANDed with ll other terms
+so that an output of 1 will have no effect. The comparison of the bits has an
+effect only when Kj = 1.
+
+The match logic for word iinan associative memory can now be expressed
+by the following Boolean function:
+
+ 
+
+Mi = (%1 + Kila + Ki)(%s + Ks) ++ Hq + Ka)
+
+Each term in the expression will be equal to 1 if its corresponding K; = 0. If
+Kj = 1, the term will be either 0 or 1 depending on the value of x; A match will
+occur and M; will be equal to 1 if all terms are equal to 1.
+
+If we substitute the original definition 0 fx;, the Boolean function above
+can be expressed as follows:
+
+ 
+
+m= Ha +a +x)
+
+where Il is a product symbol designating the AND operation ofall n terms We
+need m such functions, one for each word i = 1, 2,3,...,m.
+
+The circuit for matching one word is shown in Fig. 12-9. Each cell requires
+two AND gates and one OR gate. The inverters for A, and K, are needed once
+for each column and are used for all bits in the column. The output of all OR
+gates in the cells of the same word go to the input of a common AND gate to
+generate the match signal for M;. M; will be logic 1 if a match occurs and 0 if
+no match occurs. Note that if the key register contains all 0’s, output M, will
+be a 1 irrespective of the value of A or the word. This occurrence must be
+avoided during normal operation.
+
+Read Operation
+
+If more than one word in memory matches the unmasked argument field, all
+the matched words will have 1’s in the corresponding bit position of the match
+register. It is then necessary to scan the bits of the match register one at a time.
+‘The matched words are read in sequence by applying a read signal to eachword
+line whose corresponding M; bit is a 1.
+

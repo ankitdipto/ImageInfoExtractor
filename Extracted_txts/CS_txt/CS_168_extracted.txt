@@ -1,0 +1,36 @@
+778
+
+Chapter 27 Multithreaded Algorithms
+
+ 
+
+Figure 27.2 A directed acyclic graph representing the computation of P-F1B(4). Each circle rep-
+resents one strand, with black circles representing either base cases or the part of the procedure
+(instance) up to the spawn of P-FrB(n — 1) in line 3, shaded circles representing the part of the pro-
+cedure that calls P-F1B(7 — 2) in line 4 up to the syne in line 5, where it suspends until the spawn of
+P-F1B(n — 1) returns, and white circles representing the part of the procedure after the syne where
+it sums x and y up to the point where it returns the result, Each group of strands belonging to the
+same procedure is surrounded by a rounded rectangle, lightly shaded for spawned procedures and
+heavily shaded for called procedures. Spawn edges and call edges point downward, continuation
+edges point horizontally to the right, and return edges point upward. Assuming that each strand takes
+unit time, the work equals 17 time units, since there are 17 strands, and the span is 8 time units, since
+the critical path—shown with shaded edges—contains 8 strands.
+
+If G has a directed path from strand u to strand v, we say that the two strands are
+(logically) in series. Otherwise, strands u and v are (logically) in parallel.
+
+We can picture a multithreaded computation as a dag of strands embedded in a
+tree of procedure instances. For example, Figure 27.1 shows the tree of procedure
+instances for P-F1B(6) without the detailed structure showing strands. Figure 27.2
+zooms in on a section of that tree, showing the strands that constitute each proce-
+dure. All directed edges connecting strands run either within a procedure or along
+undirected edges in the procedure tree.
+
+We can classify the edges of a computation dag to indicate the kind of dependen-
+cies between the various strands. A continuation edge (u,u’), drawn horizontally
+in Figure 27.2, connects a strand u to its successor u’ within the same procedure
+instance. When a strand u spawns a strand v, the dag contains a spawn edge (u,v),
+which points downward in the figure. Call edges, representing normal procedure
+calls, also point downward. Strand u spawning strand v differs from wu calling v
+in that a spawn induces a horizontal continuation edge from u to the strand u’ fol-
+

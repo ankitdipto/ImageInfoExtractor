@@ -1,0 +1,52 @@
+SECTION 11-6 Direct Memory Access 415
+
+programmer can use any bit configuration for the mask register. The interrupt
+status bit must be cleared so it can be set again when a higher-priority interrupt
+occurs. The contents of processor registers are saved because they may be
+needed by the program that has been interrupted aftercontrol returns toit. The
+interrupt enable IEN is then set to allow other (higher-priority) interrupts and
+the computer proceeds to service the interrupt request
+
+The final sequence in each interrupt service routine must have instruc-
+tions to control the interrupt hardware in the following manner:
+
+1. Clear interrupt enable bit IEN.
+
+2. Restore contents of processor registers
+
+3. Clear the bit in the interrupt register belonging to the source that has
+been serviced.
+
+4. Set lower-level priority bits in the mask register.
+
+5. Restore return address into PC and set IEN.
+
+The bit in the interrupt register belonging to the source of the interrupt
+must be cleared so that it will be available again for the source to interrupt. The
+lower-priority bits in the mask register (including the bit of the source being
+interrupted) are set so they can enable the interrupt. The return to the inter-
+rupted program is accomplished by restoring the return address to PC. Note
+that the hardwaremust be designed so that nointerrupts occur while executing
+steps 2 through 5; otherwise, the return address may be lost and the informa-
+tion in the mask and processor registers may be ambiguous if an interrupt
+is acknowledged while executing the operations in these steps. For this reason
+IEN is initially cleared and then set after the return address is transferred into
+PC.
+
+The initial and final operations listed above are referred to as overhead
+operations or housekeeping chores. They are not part of the service program
+proper but are essential for processing interrupts. All overhead operations can
+be implemented by software. This is done by inserting the proper instructions
+at the beginning and at the end of each service routine. Some of the overhead
+operations can be done automatically by the hardware. The contents of proces-
+sor registers can be pushed into a stack by the hardware before branching to
+the service routine. Other initial and final operations can be assigned to the
+hardware. In this way, it is possible to reduce the time between receipt of an
+interrupt and the execution of the instructions that service the interrupt source.
+
+11-6 Direct Memory Access (DMA)
+
+The transfer of data between a fast storage device such as magnetic disk and
+memory is often limited by the speed of the CPU. Removing the CPU from the
+path and letting the peripheral device manage the memory buses directly
+

@@ -1,0 +1,51 @@
+576
+
+Chapter 21 Data Structures for Disjoint Sets
+
+Lemma 21.7
+
+Suppose we convert a sequence S’ of m’ MAKE-SET, UNION, and FIND-SET op-
+erations into a sequence S of m MAKE-SET, LINK, and FIND-SET operations by
+turning each UNION into two FIND-SET operations followed by a LINK. Then, if
+sequence S runs in O(m a(n)) time, sequence S’ runs in O(m' a(n)) time.
+
+Proof Since each UNION operation in sequence S’ is converted into three opera-
+tions in S, we have m! < m < 3m’. Since m = O(m’), an O(m a(n)) time bound
+for the converted sequence S implies an O(m' a(n)) time bound for the original
+sequence S’. /
+
+In the remainder of this section, we shall assume that the initial sequence of m’
+MaKE-SET, UNION, and FIND-SET operations has been converted to a sequence
+of m MAKE-SET, LINK, and FIND-SET operations. We now prove an O(m a(n))
+time bound for the converted sequence and appeal to Lemma 21.7 to prove the
+O(m’ a(n)) running time of the original sequence of m’ operations.
+
+Potential function
+
+The potential function we use assigns a potential @,(x) to each node x in the
+disjoint-set forest after g operations. We sum the node potentials for the poten-
+tial of the entire forest: By = )>, ¢q(x), where ®, denotes the potential of the
+forest after q operations. The forest is empty prior to the first operation, and we
+arbitrarily set Bp = 0. No potential ®, will ever be negative.
+
+The value of (x) depends on whether x is a tree root after the qth operation.
+If it is, or if x.rank = 0, then bg (x) = @(n) - x.rank.
+
+Now suppose that after the gth operation, x is not a root and that x.rank > 1.
+We need to define two auxiliary functions on x before we can define #4 (x). First
+we define
+
+level(x) = max {k : x.p.rank > Ag(x.rank)} .
+
+That is, level(x) is the greatest level k for which Ax, applied to x’s rank, is no
+greater than x’s parent’s rank.
+We claim that
+
+0 < level(x) < a(n), (21.1)
+which we see as follows. We have
+
+X.p.rank > x.rank+1 (by Lemma 21.4)
+= Ao(x.rank) (by definition of Ao(j)) ,
+
+which implies that level(x) > 0, and we have
+

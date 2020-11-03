@@ -1,0 +1,82 @@
+String Matching
+
+ 
+
+Text-editing programs frequently need to find all occurrences of a pattern in the
+text. Typically, the text is a document being edited, and the pattern searched for is a
+particular word supplied by the user. Efficient algorithms for this problem—called
+“string matching” —can greatly aid the responsiveness of the text-editing program.
+Among their many other applications, string-matching algorithms search for par-
+ticular patterns in DNA sequences. Internet search engines also use them to find
+Web pages relevant to queries.
+
+We formalize the string-matching problem as follows. We assume that the
+text is an array T[1..n] of length nm and that the pattern is an array P[1..m]
+of length m < n. We further assume that the elements of P and T are char-
+acters drawn from a finite alphabet &. For example, we may have © = {0,1}
+or D = {a,b,...,2z}. The character arrays P and T are often called strings of
+characters.
+
+Referring to Figure 32.1, we say that pattern P occurs with shift s in text T
+(or, equivalently, that pattern P occurs beginning at position s + 1 in text T) if
+0<s <n—mandT[s+1..s+m] = P[l..m] (that is, if T[s + j] = P[j], for
+1 <j <™m). If P occurs with shift s in 7, then we call s a valid shift, otherwise,
+we call s an invalid shift. The string-matching problem is the problem of finding
+all valid shifts with which a given pattern P occurs in a given text T.
+
+ 
+
+ 
+
+text T alb|cla|/bja/a|b/cla/bjajc
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+s=3
+pattern P —*=~>lfal]blala
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 32.1 An example of the string-matching problem, where we want to find all occurrences of
+the pattern P = abaa in the text T = abcabaabcabac. The pattern occurs only once in the text,
+at shift s = 3, which we call a valid shift. A vertical line connects each character of the pattern to its
+matching character in the text, and all matched characters are shaded.
+

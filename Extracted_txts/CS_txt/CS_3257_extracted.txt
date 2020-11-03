@@ -1,0 +1,84 @@
+Section 20.6.
+
+ 
+
+Learning an Action-Value Function 613
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+e
+ria
+> yt RMS or
+Bi2\i Policy loss
+i eT
+& 5
+1 - wef 70-8
+2 2 06
+4 7 '
+- B04
+ALI Fo2 |
+1 ——
+50
+40 60 = 80 1m 2 40 «60 80100
+Number of iterations Number of epochs
+(a) (b)
+
+ 
+
+ 
+
+Figure 20.11 Performance of the exploratory ADP agent. using R* = 2 and.N, = 5. (a) Utility
+estimates for selected states over time. After the initial exploratory phase in which the states get
+an exploration bonus, the high-valued states quickly reach their correct values. The low-valued
+states converge slowly because they are seldom visited. (b) The RMS error in utility values and
+the associated policy loss.
+
+ 
+
+ 
+
+ 
+
+As with utilities, we can write a constraint equation that must hold at equilibrium when the
+Q-values are correct:
+
+QCa,i) = RW) + YP Mj max Ola’ j) 206)
+7
+
+As in the ADP learning agent, we can use this equation directly as an update equation for an
+iteration process that calculates exact Q-values given an estimated model. This does, however,
+require that a model be learned as well because the equation uses M§. The temporal-difference
+approach, on the other hand, requires no model. The update equation for TD Q-learning is
+
+Ora, i) — O(a, i) + a(R(i)+ max Qa’, j)- OCa.i)) (20.7)
+
+which is calculated after each transition from state / to statej.
+
+The complete agent design for an exploratory Q-learning agent using TD is shown in
+Figure 20.12. Notice that ituses exactly the same exploration function fas used by the exploratory
+ADP agent, hence the need to keep statistics on actions taken (the table N). Ifa simpler exploration
+policy is used—say, acting randomly on some fraction of steps, where the fraction decreases over
+time—then we can dispense with the statistics.
+
+Figure 20.13 shows the performance of the Q-learning agent in our 4 x 3 world. Notice that
+the utility estimates (derived from the Q-values using Equation (20.5)) take much longer to settle
+down than they did with the ADP agent. This is because TD does not enforce consistency among
+values via the model. Although a good policy is found after only 26 trials, it is considerably
+further from optimality than that found by the ADP agent (Figure 20.11).
+
+Although these experimental results are forjust one set oftrials on one specific environment,
+they do raise a general question: is it better to learn a model and a utility function or to learn
+an action-value function with no model? In other words, what is the best way to represent the
+
+ 
+

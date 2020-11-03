@@ -1,0 +1,37 @@
+34.4 NP-completeness proofs 1081
+
+ 
+
+Figure 34.10 Reducing circuit satisfiability to formula satisfiability. The formula produced by the
+reduction algorithm has a variable for each wire in the circuit.
+
+has a variable x;. We can now express how each gate operates as a small formula
+involving the variables of its incident wires. For example, the operation of the
+output AND gate is x19 <> (x7 A Xg A X9). We call each of these small formulas a
+clause.
+
+The formula ¢ produced by the reduction algorithm is the AND of the circuit-
+output variable with the conjunction of clauses describing the operation of each
+gate. For the circuit in the figure, the formula is
+
+% = Xo A (%4 <> 7X3)
+A (X5 <> (X1 V X2))
+(X%6 <> 7X4)
+(%7 > (%1 A X2 A X4))
+(xg <> (Xs V Xo)
+(x9 <> (X%6 V X7))
+(x10 <> 7 AXg AX9))-
+
+>> >> >
+
+Given a circuit C, it is straightforward to produce such a formula ¢ in polynomial
+time.
+
+Why is the circuit C satisfiable exactly when the formula ¢ is satisfiable? If C
+has a satisfying assignment, then each wire of the circuit has a well-defined value,
+and the output of the circuit is 1. Therefore, when we assign wire values to
+variables in @, each clause of ¢ evaluates to 1, and thus the conjunction of all
+evaluates to 1. Conversely, if some assignment causes ¢ to evaluate to 1, the
+circuit C is satisfiable by an analogous argument. Thus, we have shown that
+CIRCUIT-SAT <p SAT, which completes the proof. :
+

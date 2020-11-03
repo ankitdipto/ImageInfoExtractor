@@ -1,0 +1,43 @@
+422 Let Us C
+
+ 
+
+Closing the File
+
+When we have finished reading from the file, we need to close it.
+This is done using the function felose( ) through the statement,
+
+fclose (fp) ;
+
+Once we close the file we can no longer read from it using gete( )
+unless we reopen the file. Note that to close the file we don’t use
+the filename but the file pointer fp. On closing the file the buffer
+associated with the file is removed from memory.
+
+In this program we have opened the file for reading. Suppose we
+open a file with an intention to write characters into it. This time
+too a buffer would get associated with it. When we attempt to
+write characters into this file using fpute( ) the characters would
+get written to the buffer. When we close this file using felose( )
+three operations would be performed:
+
+(a) The characters in the buffer would be written to the file on the
+disk.
+
+(b) At the end of file a character with ASCII value 26 would get
+written.
+
+(c) The buffer would be eliminated from memory.
+
+You can imagine a possibility when the buffer may become full
+before we close the file. In such a case the buffer’s contents would
+be written to the disk the moment it becomes full. All this buffer
+management is done for us by the library functions.
+
+Counting Characters, Tabs, Spaces, ...
+
+Having understood the first file /O program in detail let us now
+try our hand at one more. Let us write a program that will read a
+file and count how many characters, spaces, tabs and newlines are
+present in it. Here is the program...
+

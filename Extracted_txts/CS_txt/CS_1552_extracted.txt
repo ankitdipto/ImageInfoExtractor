@@ -1,0 +1,53 @@
+72 Chapter3 Operating-System Structures
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+kernel
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(b)
+
+Figure 3.5 Communications models. (a) Msg passing. (b) Shared memory.
+
+memory allows maximum speed and convenience of communication, as it can
+be done at memory speeds when within a computer. Problems exist, however,
+in the areas of protection and synchronization. The two communications
+models are contrasted in Figure 3.5.
+
+3.4 = System Programs
+
+Another aspect of a modern system is the collection of system programs. Recall
+Figure 1.1, which depicted the logical computer hierarchy. At the lowest
+level is hardware. Next is the operating system, then the system programs,
+and finally the application programs. System programs provide a convenient
+environment for program development and execution. Some of them are
+simply user interfaces to system calls; others are considerably more complex.
+They can be divided into these categories:
+
+File management: These programs create, delete, copy, rename, print,
+dump, list, and generally manipulate files and directories.
+
+Status information: Some programs simply ask the system for the date,
+time, amount of available memory or disk space, number of users, or
+similar status information. That information is then formatted, and is
+printed to the terminal or other output device or file.
+

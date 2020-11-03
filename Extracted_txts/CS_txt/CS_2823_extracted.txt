@@ -1,0 +1,46 @@
+368
+
+Chapter 15 Dynamic Programming
+
+problem graph has a directed edge from the vertex for subproblem x to the vertex
+for subproblem y if determining an optimal solution for subproblem x involves
+directly considering an optimal solution for subproblem y. For example, the sub-
+problem graph contains an edge from x to y if a top-down recursive procedure for
+solving x directly calls itself to solve y. We can think of the subproblem graph
+as a “reduced” or “collapsed” version of the recursion tree for the top-down recur-
+sive method, in which we coalesce all nodes for the same subproblem into a single
+vertex and direct all edges from parent to child.
+
+The bottom-up method for dynamic programming considers the vertices of the
+subproblem graph in such an order that we solve the subproblems y adjacent to
+a given subproblem x before we solve subproblem x. (Recall from Section B.4
+that the adjacency relation is not necessarily symmetric.) Using the terminology
+from Chapter 22, in a bottom-up dynamic-programming algorithm, we consider the
+vertices of the subproblem graph in an order that is a “reverse topological sort,” or
+a “topological sort of the transpose” (see Section 22.4) of the subproblem graph. In
+other words, no subproblem is considered until all of the subproblems it depends
+upon have been solved. Similarly, using notions from the same chapter, we can
+view the top-down method (with memoization) for dynamic programming as a
+“depth-first search” of the subproblem graph (see Section 22.3).
+
+The size of the subproblem graph G = (V, E) can help us determine the running
+time of the dynamic programming algorithm. Since we solve each subproblem just
+once, the running time is the sum of the times needed to solve each subproblem.
+Typically, the time to compute the solution to a subproblem is proportional to the
+degree (number of outgoing edges) of the corresponding vertex in the subproblem
+graph, and the number of subproblems is equal to the number of vertices in the sub-
+problem graph. In this common case, the running time of dynamic programming
+is linear in the number of vertices and edges.
+
+Reconstructing a solution
+
+Our dynamic-programming solutions to the rod-cutting problem return the value of
+an optimal solution, but they do not return an actual solution: a list of piece sizes.
+We can extend the dynamic-programming approach to record not only the optimal
+value computed for each subproblem, but also a choice that led to the optimal
+value. With this information, we can readily print an optimal solution.
+
+Here is an extended version of BOTTOM-UPp-CuT-RoD that computes, for each
+rod size j, not only the maximum revenue 1, but also s;, the optimal size of the
+first piece to cut off:
+

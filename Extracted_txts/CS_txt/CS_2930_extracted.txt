@@ -1,0 +1,54 @@
+454
+
+Chapter 17 Amortized Analysis
+
+analysis, we assign the amortized cost of each operation to be the average cost. In
+this example, therefore, all three stack operations have an amortized cost of O(1).
+
+We emphasize again that although we have just shown that the average cost, and
+hence the running time, of a stack operation is O(1), we did not use probabilistic
+reasoning. We actually showed a worst-case bound of O(n) on a sequence of 1
+operations. Dividing this total cost by n yielded the average cost per operation, or
+the amortized cost.
+
+Incrementing a binary counter
+
+As another example of aggregate analysis, consider the problem of implementing
+a k-bit binary counter that counts upward from 0. We use an array A[0..k — 1] of
+bits, where A./ength = k, as the counter. A binary number x that is stored in the
+counter has its lowest-order bit in A [0] and its highest-order bit in A[k — 1], so that
+x= eS A{i]-2'. Initially, x = 0, and thus A[/] = 0 fori = 0,1,..., k—1.To
+add 1 (modulo 2*) to the value in the counter, we use the following procedure.
+
+INCREMENT(A)
+
+i=0
+
+while i < A.length and A{i] == 1
+Afi] = 0
+i=i+l
+
+if i < A.length
+Afi] =1
+
+AnkRwWNe
+
+Figure 17.2 shows what happens to a binary counter as we increment it 16 times,
+starting with the initial value 0 and ending with the value 16. At the start of
+each iteration of the while loop in lines 2-4, we wish to add a | into position i.
+If A[i] = 1, then adding 1 flips the bit to 0 in position i and yields a carry of 1,
+to be added into position i + 1 on the next iteration of the loop. Otherwise, the
+loop ends, and then, if i < k, we know that A[i] = 0, so that line 6 adds a | into
+position /, flipping the 0 to a 1. The cost of each INCREMENT operation is linear
+in the number of bits flipped.
+
+As with the stack example, a cursory analysis yields a bound that is correct but
+not tight. A single execution of INCREMENT takes time ©(k) in the worst case, in
+which array A contains all 1s. Thus, a sequence of n INCREMENT operations on
+an initially zero counter takes time O(nk) in the worst case.
+
+We can tighten our analysis to yield a worst-case cost of O(n) for a sequence of n
+INCREMENT operations by observing that not all bits flip each time INCREMENT
+is called. As Figure 17.2 shows, A[0] does flip each time INCREMENT is called.
+The next bit up, A[I], flips only every other time: a sequence of n INCREMENT
+

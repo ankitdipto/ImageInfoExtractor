@@ -1,0 +1,53 @@
+936
+
+Chapter 31 Number-Theoretic Algorithms
+
+Proof The proof proceeds by induction on k. For the basis of the induction, let
+k =1. Then, b > 1 = Fy, and since a > b, we must have a > 2 = F3. Since
+b > (a mod b), in each recursive call the first argument is strictly larger than the
+second; the assumption that a > b therefore holds for each recursive call.
+
+Assume inductively that the lemma holds if k — 1 recursive calls are made; we
+shall then prove that the lemma holds for k recursive calls. Since k > 0, we have
+b > 0, and Euc.ip(a,b) calls EucLip(b,a mod 5) recursively, which in turn
+makes k — | recursive calls. The inductive hypothesis then implies that b > Fy+1
+(thus proving part of the lemma), and a mod b > Fy. We have
+
+b+(amodb) = b+(a—b|a/b})
+<a,
+
+since a > b > O implies |a/b| > 1. Thus,
+
+b + (a mod b)
+
+Frys + Fe
+Frio. .
+
+ae
+2
+
+The following theorem is an immediate corollary of this lemma.
+
+Theorem 31.11 (Lamé’s theorem)
+For any integer k > 1, ifa > b > land b < Fy 4,, then the call EucLip(a,b)
+makes fewer than k recursive calls. .
+
+We can show that the upper bound of Theorem 31.11 is the best possible by
+showing that the call EUCLID(F;+,, Fj.) makes exactly k — 1 recursive calls
+when k > 2. We use induction on k. For the base case, k = 2, and the call
+EUCLID(F3, Fy) makes exactly one recursive call, to EUCLID(1,0). (We have to
+start atk = 2, because when k = 1 we do not have F, > F;.) For the induc-
+tive step, assume that EUCLID(F;, Fy_1) makes exactly k — 2 recursive calls. For
+k > 2,wehave Fy > Fy; > Oand Fy4, = Fy + Fy_-1, and so by Exercise 31.1-1,
+we have Fy,, mod Fy = Fy_;. Thus, we have
+
+ged(Frsi, Fe) = ged(Fe, Fe+1 mod Fx)
+= ged(Fr, Fe-1)«
+
+Therefore, the call EUCLID(Fx+1, Fe) recurses one time more than the call
+EucLip( Fx, Fy_1), or exactly k — 1 times, meeting the upper bound of Theo-
+rem 31.11.
+
+Since Fy is approximately ¢*//5, where ¢ is the golden ratio (1 + /5)/2 de-
+fined by equation (3.24), the number of recursive calls in EUCLID is O(Igb). (See
+

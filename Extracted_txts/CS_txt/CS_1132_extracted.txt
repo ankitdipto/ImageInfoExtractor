@@ -1,0 +1,39 @@
+Chapter 12: File Input/Output 421
+
+ 
+
+In our program we go on reading each character from the file till
+end of file is not met. As each character is read we display it on the
+screen. Once out of the loop, we close the file.
+
+Trouble in Opening a File
+
+There is a possibility that when we try to open a file using the
+function fopen( ), the file may not be opened. While opening the
+file in “r” mode, this may happen because the file being opened
+may not be present on the disk at all. And you obviously cannot
+read a file that doesn’t exist. Similarly, while opening the file for
+writing, fopen( ) may fail due to a number of reasons, like, disk
+space may be insufficient to open a new file, or the disk may be
+write protected or the disk is damaged and so on.
+
+Crux of the matter is that it is important for any program that
+accesses disk files to check whether a file has been opened
+successfully before trying to read or write to the file. If the file
+opening fails due to any of the several reasons mentioned above,
+the fopen( ) function returns a value NULL (defined in “stdio.h”
+as #define NULL 0). Here is how this can be handled in a
+program...
+
+#include "stdio.h"
+
+main()
+{
+FILE “fp;
+fp = fopen ("PR1.C", "t") ;
+if (fp == NULL)
+{
+
+puts (“cannot open file”) ;
+exit() ;
+

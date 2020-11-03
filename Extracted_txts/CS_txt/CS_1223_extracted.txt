@@ -1,0 +1,42 @@
+Chapter 14: Operations On Bits 495
+
+ 
+
+completely independent of the operation performed on the other
+pairs.
+
+Probably, the best use of the AND operator is to check whether a
+particular bit of an operand is ON or OFF. This is explained in the
+following example.
+
+Suppose, from the bit pattern 10101101 of an operand, we want to
+check whether bit number 3 is ON (1) or OFF (0). Since we want
+to check the bit number 3, the second operand for the AND
+operation should be 1 * 23, which is equal to 8. This operand can
+be represented bitwise as 00001000.
+
+Then the ANDing operation would be,
+
+10101101 Original bit pattern
+00001000 AND mask
+
+00001000 Resulting bit pattern
+
+The resulting value we get in this case is 8, ie the value of the
+second operand. The result turned out to be 8 since the third bit of
+the first operand was ON. Had it been OFF, the bit number 3 in the
+resulting bit pattern would have evaluated to 0 and the complete
+bit pattern would have been 00000000.
+
+Thus, depending upon the bit number to be checked in the first
+operand we decide the second operand, and on ANDing these two
+operands the result decides whether the bit was ON or OFF. If the
+bit is ON (1), the resulting value turns out to be a non-zero value
+which is equal to the value of second operand, and if the bit is OFF
+(0) the result is zero as seen above. The following program puts
+this logic into action.
+
+!" To test whether a bit in a number is ON or OFF */
+main()
+{
+

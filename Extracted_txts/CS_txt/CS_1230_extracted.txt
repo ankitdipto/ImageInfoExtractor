@@ -1,0 +1,39 @@
+500 Let Us C
+
+ 
+
+main()
+
+{
+int b =50;
+b=b*12;
+
+printf ("\n%d", b) ; /* this will print 62 */
+
+b=b*12;
+printf ("\n%d", b) ; /* this will print 50 */
+}
+
+The showbits() Function
+
+We have used this function quite often in this chapter. Now we
+have sufficient knowledge of bitwise operators and hence are in a
+position to understand it. The function is given below followed by
+a brief explanation.
+
+showbits (int n)
+
+int i, k, andmask ;
+for (i= 15; i>=0;i-)
+andmask = 1 <<i;
+k =n & andmask ;
+k == 0? printf ("0") : printf ("1");
+} }
+
+All that is being done in this function is using an AND operator
+and a variable andmask we are checking the status of individual
+bits. If the bit is OFF we print a 0 otherwise we print a 1.
+
+First time through the loop, the variable andmask will contain the
+value 1000000000000000, which is obtained by left-shifting 1,
+

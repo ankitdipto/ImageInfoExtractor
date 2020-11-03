@@ -1,0 +1,56 @@
+678
+
+Chapter 24 Single-Source Shortest Paths
+
+ 
+
+Problems
+
+24-1 Yen’s improvement to Bellman-Ford
+
+Suppose that we order the edge relaxations in each pass of the Bellman-Ford al-
+gorithm as follows. Before the first pass, we assign an arbitrary linear order
+Vi.V2,00-, v\y| to the vertices of the input graph G = (V,E). Then, we parti-
+tion the edge set E into Ey U Ey, where Ey = {(vj.¥j) € Es i < j} and
+Ey = {(vi.vj) € E: i > j}. (Assume that G contains no self-loops, so that every
+edge is in either Ey or Ey.) Define Gp = (V, Ey) and Gy = (V, Es).
+
+a. Prove that Gy is acyclic with topological sort (v1, ¥2,..., Vjy|) and that Gp is
+acyclic with topological sort (vy), Vjyj-1.- +++ Vv).
+
+Suppose that we implement each pass of the Bellman-Ford algorithm in the fol-
+lowing way. We visit each vertex in the order v,,V2,..., Vjy|, relaxing edges of Ey
+that leave the vertex. We then visit each vertex in the order Wy, Viyj-1.---. V1,
+relaxing edges of E,» that leave the vertex.
+
+ 
+
+b. Prove that with this scheme, if G contains no negative-weight cycles that are
+reachable from the source vertex s, then after only [|V| /2] passes over the
+edges, v.d = 4(s, v) for all vertices v € V.
+
+c. Does this scheme improve the asymptotic running time of the Bellman-Ford
+algorithm?
+
+24-2 Nesting boxes
+
+A d-dimensional box with dimensions (x,,X2,..., Xq) nests within another box
+with dimensions (, V2.-... ya) if there exists a permutation z on {1,2,..., dy
+such that X71) < Yi, Xx(2) < Y2.--.,Xa(d) < Va-
+
+a. Argue that the nesting relation is transitive.
+
+b. Describe an efficient method to determine whether or not one d -dimensional
+box nests inside another.
+
+c. Suppose that you are given a set of n d-dimensional boxes {B,, B2,
+Give an efficient algorithm to find the longest sequence (B;,, B;,,
+boxes such that B;, nests within B;,,, for j = 1,2,...,k — 1. Express the
+running time of your algorithm in terms of n and d.
+
+ 
+
+ 
+
+ 
+

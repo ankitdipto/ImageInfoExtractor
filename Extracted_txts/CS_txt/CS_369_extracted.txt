@@ -1,0 +1,70 @@
+Section 5.6.
+
+State-of-the-Art Game Programs 137
+
+ 
+
+Chess
+
+Chess has received by far the largest share of attention in game playing. Although not meeting
+the promise made by Simon in 1957 that within 10 years, computers would beat the human world
+champion, they are now within reach of that goal. In speed chess, computers have defeated the
+world champion, Gary Kasparov, In both 5-minute and 25-minute games, but in full tournament
+games are only ranked among the top 100players worldwide at the time of writing. Figure 5.12
+shows the ratings of human and computer champions over the years. It is tempting to try to
+extrapolate and see where the lines will cross.
+
+Progress beyond a mediocre level was initially very slow: some programs in the early
+1970sbecame extremely complicated, with various kinds of tricks for eliminating some branches
+of search, generating plausible moves, and so on, but the programs that won the ACM North
+American Computer Chess Championships (initiated in 1970)tended to use straightforwardalpha-
+beta search, augmented with book openings and infallible endgame algorithms. (This offers an
+interesting example of how high performance requires a hybrid decision-making architecture to
+implement the agent function.)
+
+The first real jump in performance came not from better algorithms or evaluation functions,
+but from hardware. Belle, the first special-purpose chess computer (Condon and Thompson,
+1982), used custom integrated circuits to implement move generation and position evaluation,
+enabling it to search several million positions to make a single move. Belle's rating was around
+2250, on a scale where beginning humans are 1000 and the world champion around 2750; it
+became the first master-level program.
+
+The HITECH system, also a special-purpose computer, was designed by former world
+correspondence champion Hans Berliner and his student Carl Ebeling to allow rapid calculation
+of very sophisticated evaluation functions. Generating about 10 million positions per move
+and using probably the most accurate evaluation of positions yet developed, HITECH became
+
+ 
+
+    
+
+    
+
+ 
+
+ 
+
+ 
+
+ 
+
+3000
+rr )
+2000 —|
+3
+= é
+al ¢ 3S al dal al |é al S|
+H st ela) a] | 5/88 = alah a) 4
+J 2] 2a Sl SEE a ice |
+a) 3 Ae 3 a) de 2 ale e
+° a] 2 ols) og 6} 2]2 2 2|alé a 4
+T TT | re TT I T TT T TT I T T l
+1960 1965 1970 1975 1980 1985 1990
+Figure 5.12. Ratings of human and machine chess champions.
+
+ 
+
+ 
+
+ 
+

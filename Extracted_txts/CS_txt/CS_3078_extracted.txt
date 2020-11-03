@@ -1,0 +1,70 @@
+Section 15.3
+
+Inference in Belief Networks 451
+
+ 
+
+Ey, is independent of X and 7; given y,, and E},, y is independent of X and y,. We can also pull a
+term with no z; out of the z; summation:
+
+P(E |X)= TT E PCEy, yi) DPE}, x2) P01,21X)
+
+ih
+
+Apply Bayes' rule to P(E}, y|2/);
+
+PORES) P(E y)
+P(EX |X) = To Pex |) DD 7 (95. 2;|X)
+
+Rewriting the conjunction Y,, z):
+
+ 
+
+F(Zi|E}y x P(E} x)
+P(E IX) = T] 0 Pe) > ea RolK x)P(@iX)
+
+Now P(z;|X) = P(z;), because Z and X are d-separated, so we can cancel them out. We can also
+replace P(E}, y)by a normalizing constant ,3):
+
+PEX |X) = [TE PE, iE BPE}, PO:
+
+iy zi
+
+Finally, the parents of Y; (the Z;) are independent ofeach other, so we can multiply them together,
+just as we did with the U; parents previously. We also combine the ,3; into one big normalizing
+
+constant 3:
+TLS: Py bo SS Powlx.20 T] Peiléz,\y) (15.4)
+ao z i
+
+P(EX |X) =
+Notice that each of the terms in the final expression is easily evaluated:
+
+ 
+
+LX, 2)
+
+ 
+
+* P(Ey yj) is arecursive instance of P(Ey \X).
++ P(y;x2;) is a conditional probability table entry for Y;.
+* P(zjEz,\y,) is a recursive instance of the P(X|£) calculation—that is, P(X|Ex\)
+
+Tt is now a simple matter to turn all this into an algorithm. We will need two basic routines.
+Support-EXxcept(X,V) computes P(X|E\y),using a slight generalization of Equation (15.3) to
+handle the "except" variable V. EvipENCE-ExcePT(X,V) computes P(EX\ y|X),using a general-
+ization of Equation (15.4). The algorithms are shown in Figure 15.8.
+
+The computation involves recursive calls that spread out from-X along all paths in the
+network. The recursion terminates on evidence nodes, root nodes (which have no parents), and
+leaf nodes (which have no children). Each recursive call excludes the node from which it was
+called, so each node in the tree is covered only once. Hence the algorithm is linear in the number
+of nodes in the network. Remember that this only works because the network is apolytree. If
+there were more than one path between a pair of nodes, then our recursions would either count
+the same evidence more than once or they would fail to terminate.
+
+We have chosen to present a "backward-chaining" algorithm because it is the simplest
+algorithm for polytrees. One drawback is that it computes the probability distribution for just
+one variable. If we wanted the posterior distributions for all the non-evidence variables, we
+would have to run the algorithm once for each. This would give a quadratic runtime, and
+

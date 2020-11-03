@@ -1,0 +1,41 @@
+468 Let Us C
+
+ 
+
+fclose (fs ) ;
+fclose (ft);
+}
+
+The arguments that we pass on to main() at the command prompt
+are called command line arguments. The function main() can
+have two arguments, traditionally named as arge and argv. Out of
+these, argv is an array of pointers to strings and arge is an int
+whose value is equal to the number of strings to which argv
+points. When the program is executed, the strings on the command
+line are passed to main(). More precisely, the strings at the
+command line are stored in memory and address of the first string
+is stored in argv[0], address of the second string is stored in
+argy[1] and so on. The argument arge is set to the number of
+strings given on the command line. For example, in our sample
+program, if at the command prompt we give,
+
+filecopy PR1.C PR2.C
+
+then,
+
+argc would contain 3
+
+argv[0] would contain base address of the string “filecopy"
+argv[1] would contain base address of the string "PR1.C"
+argv[2] would contain base address of the string "PR2.C"
+
+Whenever we pass arguments to main(), it is a good habit to
+check whether the correct number of arguments have been passed
+on to main() or not. In our program this has been done through,
+
+if ( argc != 3)
+{
+
+printf ( "Improper number of arguments" ) ;
+exit() ;
+

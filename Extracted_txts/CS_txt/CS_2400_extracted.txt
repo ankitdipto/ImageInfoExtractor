@@ -1,0 +1,51 @@
+24
+
+Chapter 2. Getting Started
+
+Real computers contain instructions not listed above, and such instructions rep-
+resent a gray area in the RAM model. For example, is exponentiation a constant-
+time instruction? In the general case, no; it takes several instructions to compute x”
+when x and y are real numbers. In restricted situations, however, exponentiation is
+a constant-time operation. Many computers have a “shift left” instruction, which
+in constant time shifts the bits of an integer by k positions to the left. In most
+computers, shifting the bits of an integer by one position to the left is equivalent
+to multiplication by 2, so that shifting the bits by k positions to the left is equiv-
+alent to multiplication by 2‘. Therefore, such computers can compute 2* in one
+constant-time instruction by shifting the integer | by k positions to the left, as long
+as k is no more than the number of bits in a computer word. We will endeavor to
+avoid such gray areas in the RAM model, but we will treat computation of 2" as a
+constant-time operation when k is a small enough positive integer.
+
+In the RAM model, we do not attempt to model the memory hierarchy that is
+common in contemporary computers. That is, we do not model caches or virtual
+memory. Several computational models attempt to account for memory-hierarchy
+effects, which are sometimes significant in real programs on real machines. A
+handful of problems in this book examine memory-hierarchy effects, but for the
+most part, the analyses in this book will not consider them. Models that include
+the memory hierarchy are quite a bit more complex than the RAM model, and so
+they can be difficult to work with. Moreover, RAM-model analyses are usually
+excellent predictors of performance on actual machines.
+
+Analyzing even a simple algorithm in the RAM model can be a challenge. The
+mathematical tools required may include combinatorics, probability theory, alge-
+braic dexterity, and the ability to identify the most significant terms in a formula.
+Because the behavior of an algorithm may be different for each possible input, we
+need a means for summarizing that behavior in simple, easily understood formulas.
+
+Even though we typically select only one machine model to analyze a given al-
+gorithm, we still face many choices in deciding how to express our analysis. We
+would like a way that is simple to write and manipulate, shows the important char-
+acteristics of an algorithm’s resource requirements, and suppresses tedious details.
+
+ 
+
+Analysis of insertion sort
+
+The time taken by the INSERTION-SORT procedure depends on the input: sorting a
+thousand numbers takes longer than sorting three numbers. Moreover, INSERTION-
+Sort can take different amounts of time to sort two input sequences of the same
+size depending on how nearly sorted they already are. In general, the time taken
+by an algorithm grows with the size of the input, so it is traditional to describe the
+running time of a program as a function of the size of its input. To do so, we need
+to define the terms “running time” and “size of input” more carefully.
+

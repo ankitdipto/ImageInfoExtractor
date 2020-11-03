@@ -1,0 +1,66 @@
+428
+
+Chapter 14. Uncertainty
+
+ 
+
+NORMALIZATION
+
+BAYESIAN UPDATING
+
+Substituting into the equation for P(M|S),we have
+P(S\M)P(M)
+P(S[M)P(M) + P(S[>M)P(>M),
+This process is called normalization, because it treats 1/P(S)as a normalizing constant that
+allows the conditional terms to sum to 1. Thus, in return for assessing the conditional probability
+
+P(S|>M),we can avoid assessing P(S)and still obtain exact probabilities from Bayes’ rule. In
+the general, multivalued case, we obtain the following form for Bayes’ rule:
+
+PX) = aP(X|Y)P(Y)
+
+P(M|S) =
+
+where a is the normalization constant needed to make the entries in the table P(Y|X) sum to 1.
+The normal way to use normalization is to calculate the unnormalized values, and then scale them
+all so that they add to 1 (Exercise 14.7).
+
+Using Bayes’ rule: Combining evidence
+Suppose we have two conditional probabilities relating to cavities:
+
+P(Cavity|Toothache) = 0.8
+P(Cavity|Catch) = 0.95
+
+which might perhaps have been computed using Bayes’ rule. What can a dentist conclude ifher
+nasty steel probe catches in the aching tooth ofa patient? Ifwe knew the wholejoint distribution,
+it would be easy to read off P(Cavity|Toothache A Catch). Alternatively, we could use Bayes’
+tule to reformulate the problem:
+
+RBarbuacike + Garah Geviie \ Vwvii))
+P(Toothache A Catch)
+
+For this to work, we need to know the conditional probabilities of the pair Toothache A Catch
+given Cavity. Although it seems feasible to estimate conditional probabilities (given Cavity) for
+n different individual variables, it is a daunting task to come up with numbers for n’ pairs of
+variables. To make matters worse, a diagnosis may depend on dozens of variables, notjust two.
+That means we need an exponential number of probability values to complete the diagnosis—
+we might as well go back to using the joint. This is what first led researchers away from
+probability theory toward approximate methods for evidence combination that, while giving
+incorrect answers, require fewer numbers to give any answer at all. 4
+
+In many domains, however, the application of Bayes’ rule can be simplified to a form
+that requires fewer probabilities in order to produce a result. The first step is to take a slightly
+different view of the process of incorporating multiple pieces of evidence. The process of }
+Bayesian updating incorporates evidence one piece at a time, modifying the previously held
+belief in the unknown variable. Beginning with Toothache, we have (writing Bayes” rule in such
+a way as to reveal the updating process):
+
+P(Cavity|Toothache A Catch) =
+
+pee
+P(Cavity|Toothache) = Parity re ee uty)
+
+ 
+
+ 
+

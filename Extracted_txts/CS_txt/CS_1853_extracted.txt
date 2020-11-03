@@ -1,0 +1,105 @@
+320 Chapter 10 Virtual Memory
+
+10.2 = Demand Paging
+
+A demand-paging system is similar to a paging system with swapping (Figure
+10.2). Processes reside on secondary memory (which is usually a disk). When
+we want to execute a process, we swap it into memory. Rather than swapping
+the entire process into memory, however, we use a lazy swapper. A lazy
+swapper never swaps a page into memory unless that page will be needed.
+Since we are now viewing a process as a sequence of pages, rather than as one
+large contiguous address space, use of swap is technically incorrect. A swapper
+manipulates entire processes, whereas a pager is concerned with the individual
+pages of a process. We thus use pager, rather than swapper, in connection with
+demand paging.
+
+10.2.1 Basic Concepts
+
+When a process is to be swapped in, the pager guesses which pages will be
+used before the process is swapped out again. Instead of swapping in a whole
+process, the pager brings only those necessary pages into memory. Thus, it
+avoids reading into memory pages that will not be used anyway, decreasing
+the swap time and the amount of physical memory needed.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+program swap out ol] 1
+A 4 5]
+8] ol
+27137]
+on swap in 6LJ17!
+21[_) 22| 5
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+main
+memory
+
+Figure 10.2 Transfer of a paged memory to contiguous disk space.
+

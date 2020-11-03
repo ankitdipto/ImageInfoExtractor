@@ -1,0 +1,70 @@
+tag field
+
+SECTION 125 Cache Memory 465,
+
+address is found, the corresponding 12-bit data is read and sent to the CPU.
+If no match occurs, the main memory is accessed for the word. The ad-
+dress-data pairis then transferred tothe associative cache memory. Ifthe cache
+is full, an address-data pair must be displaced to make room for a pair that is
+needed and not presently in the cache. The decision as to what pair is replaced
+is determined fromthe replacement algorithm that the designer chooses for the
+cache. A simple procedure is to replace cells of the cache in round-robin order
+whenever a new word is requested from main memory. This constitutes a
+first-in first-out (FIFO) replacement policy.
+
+Direct Mapping
+
+‘Associative memories are expensive compared to random-access memories
+because of the added logic associated with each cell. The possibility of using
+a random-access memory for the cache is investigated in Fig. 12-12. The CPU
+address of 15 bits is divided into two fields. The nine least significant bits
+constitute the index field and the remaining sixbits form the tag field. The figure
+shows that main memory needs an address that includes both the tag and the
+index bits. The number of bits in the index field is equal to the number of
+address bits required to access the cache memory.
+
+In the general case, there are 2* words in cache memory and 2" words in
+main memory. The n-bit memory address is divided into two fields: k bits for
+the index field and » ~ k bits for the tag field. The direct mapping cache
+organization uses the n-bit address to access the main memory and the k-bit
+index to access the cache. The internal organization of the words in the cache
+memory is as shown in Fig. 12-13(b). Each word in cache consists of the data
+word and its associated tag. When a new word is first brought into the cache,
+the tag bits are stored alongside the data bits. When the CPU generates a
+memory request, the index field is used for the address to access the cache. The
+
+Figure 12-12 Addressing relationships between main and cache memories,
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+Gbits 9 bits
+Tag [Index
+00, 000 32K x 12 000 51212
+Octal Cache memory
+Octal Main memory address pddeses 9 tits
+address pee ahr |__Data=i2 bits.
+Data = 12 bits
+nm
+
+ 
+
+ 
+
+ 
+

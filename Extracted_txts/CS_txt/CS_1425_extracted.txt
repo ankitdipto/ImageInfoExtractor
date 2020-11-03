@@ -1,0 +1,41 @@
+672 Let UsC
+
+ 
+
+In this program apart from SIGINT we have additionally
+registered two new signals, namely, SIGTERM and SIGCONT.
+The signal( ) function is called thrice to register a different handler
+for each of the three signals. After registering the signals we enter
+a infinite while loop to print the ‘Program running’ message on the
+screen.
+
+As in the previous program, here too, when we press Ctrl + C the
+handler for the SIGINT i.e. inthandler( ) is called. However,
+when we try to kill the program from the second terminal using the
+kill command the program does not terminate. This is because
+when the kill command is used it sends the running program a
+SIGTERM signal. The default handler for the message terminates
+the program. Since we have handled this signal ourselves, the
+handler for SIGTERM ie. termhandler( ) gets called. As a
+result the printf( ) statement in the termhandler( ) function gets
+executed and the message ‘SIGTERM Received’ gets displayed on
+the screen. Once the execution of termhandler( ) function is over
+the program resumes its execution and continues to print ‘Program
+Running’. Then how are we supposed to terminate the program?
+Simple. Use the following command from the another terminal:
+
+kill -SIGKILL 3276
+
+As the command indicates, we are trying to send a SIGKILL
+signal to our program. A SIGKILL signal terminates the program.
+
+Most signals may be caught by the process, but there are a few
+signals that the process cannot catch, and they cause the process to
+terminate. Such signals are often known as un-catchable signals.
+The SIGKILL signal is an un-catchable signal that forcibly
+terminates the execution of a process.
+
+Note that even if a process attempts to handle the SIGKILL signal
+by registering a handler for it still the control would always land in
+the default SIGKILL handler which would terminate the program.
+

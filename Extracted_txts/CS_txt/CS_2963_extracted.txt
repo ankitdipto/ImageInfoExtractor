@@ -1,0 +1,30 @@
+ 
+
+Introduction
+
+This part returns to studying data structures that support operations on dynamic
+sets, but at a more advanced level than Part III. Two of the chapters, for example,
+make extensive use of the amortized analysis techniques we saw in Chapter 17.
+Chapter 18 presents B-trees, which are balanced search trees specifically de-
+signed to be stored on disks. Because disks operate much more slowly than
+random-access memory, we measure the performance of B-trees not only by how
+much computing time the dynamic-set operations consume but also by how many
+disk accesses they perform. For each B-tree operation, the number of disk accesses
+increases with the height of the B-tree, but B-tree operations keep the height low.
+Chapter 19 gives an implementation of a mergeable heap, which supports the
+operations INSERT, MINIMUM, EXTRACT-MIn, and Unton.' The UNION oper-
+ation unites, or merges, two heaps. Fibonacci heaps—the data structure in Chap-
+ter 19—also support the operations DELETE and DECREASE-KEY. We use amor-
+tized time bounds to measure the performance of Fibonacci heaps. The opera-
+tions INSERT, MINIMUM, and UNION take only O(1) actual and amortized time
+on Fibonacci heaps, and the operations EXTRACT-MIN and DELETE take O(lg)
+amortized time. The most significant advantage of Fibonacci heaps, however, is
+that DECREASE-KEY takes only O(1) amortized time. Because the DECREASE-
+
+ 
+
+1As in Problem 10-2, we have defined a mergeable heap to support MINIMUM and EXTRACT-MIN,
+and so we can also refer to it as a mergeable min-heap. Alternatively, if it supported MAXIMUM
+and EXTRACT-MAx, it would be a mergeable max-heap. Unless we specify otherwise, mergeable
+heaps will be by default mergeable min-heaps.
+

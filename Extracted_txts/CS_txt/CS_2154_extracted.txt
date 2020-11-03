@@ -1,0 +1,52 @@
+SECTION 9-6 Vector Processing 325
+
+The advantage of a modular memory is that it allows the use of a tech-
+nique called interleaving. In an interleaved memory, different sets of addresses
+are assigned to different memory modules. For example, in a two-module
+memory system, the even addresses may be in one module and the odd
+addresses in the other. When the number of modules is a power of 2, the least
+significant bits of the address select a memory module and the remaining bits
+designate the specific location to be accessed within the selected module.
+
+‘Amodularmemory is useful in systemswith pipeline and vector process-
+ing. A vector processor that uses an n-way interleaved memory can fetch n
+operands from n different modules. By staggering the memory access, the
+effective memory cycle time can be reduced by a factor close to the number of
+modules. A CPU with instruction pipeline can take advantage of multiple
+memory modules so that each segment in the pipeline can access memory
+independent of memory access from other segments.
+
+Supercomputers
+
+Acommercial computer with vector instructions and pipelined floating-point
+arithmetic operations is referred to as a supercomputer. Supercomputers are
+very powerful, high-performance machines used mostly for scientific compu-
+tations. To speed up the operation, the componentsare packed tightly together
+to minimize the distance that the electronic signals have to travel. Supercom-
+puters also use special techniques for removing the heat from circuits to
+prevent them from burning up because of their close proximity.
+
+The instruction set of supercomputers contains the standard data trans-
+fer, data manipulation, and program control instructions of conventional com-
+puters. This is augmented by instructions that process vectors and combina-
+tions of scalarsand vectors. A supercomputerisa computer system best known
+for its high computational speed, fast and large memory systems, and the
+extensive use of parallel processing. It is equipped with multiple functional
+units and each unit has its own pipeline configuration. Although the super-
+computer is capable of general-purpose applications foundin all other comput-
+crs, it isspecifically optimized for the type of numerical calculations involving,
+vectors and matrices of floating-point numbers.
+
+Supercomputers are not suitable for normal everyday processing of a
+typical computer installation. They are limited in their use to a number of
+scientific applications, such as numerical weather forecasting, seismic wave
+analysis, and space research. They have limited use and limited market be-
+cause of their high price.
+
+‘A measure used to evaluate computers in their ability to perform a given
+number of floating-point operations per second is referred to as flops. The term
+re aflops is used to denote million flops and gigaflops to denote billion flops.
+‘A typical supercomputer has a basic cycle time of 4 to 20 ns. If the processor
+can calculate a floating-point operation through a pipeline each cycle time, it
+will have the ability to perform 50 to 250 megaflops. This rate would be
+

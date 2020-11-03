@@ -1,0 +1,50 @@
+9.3 Contiguous Memory Allocation 283
+
+memory-management solution. Modified versions of swapping, however, are
+found on many systems.
+
+A modification of swapping is used in many versions of UNIX. Swapping
+was normally disabled, but would start if many processes were running and
+were using a threshold amount of memory. Swapping would again be halted
+if the load on the system were reduced. Memory management in UNIX is
+described fully in Section A.6.
+
+Early PCs lacked sophisticated hardware (or operating systems that
+take advantage of the hardware) to implement more advanced memory-
+management methods, but they were used to run multiple large processes by
+a modified version of swapping. A prime example is the Microsoft Windows
+3.1 operating system, which supports concurrent execution of processes in
+memory. If a new process is loaded and there is insufficient main memory,
+an old process is swapped to disk. This operating system, however, does not
+provide full swapping, because the user, rather than the scheduler, decides
+when it is time to preempt one process for another. Any swapped-out process
+remains swapped out (and not executing) until the user selects that process
+to run. Follow-on Microsoft operating systems, such as Windows NT, take
+advantage of advanced MMU features now found even on PCs. In Section 9.6,
+we describe the memory-management hardware found on the Intel 386 family
+of processors used in many PCs. In that section, we also describe the memory
+management used on this CPU by another advanced operating system for PCs:
+IBM OS/2.
+
+9.3 = Contiguous Memory Allocation
+
+The main memory must accommodate both the operating system and the
+various user processes. We therefore need to allocate different parts of the
+main memory in the most efficient way possible. This section will explain one
+common method, contiguous memory allocation.
+
+The memory is usually divided into two partitions: one for the resident
+operating system, and one for the user processes. We may place the operating
+system in either low memory or high memory. The major factor affecting this
+decision is the location of the interrupt vector. Since the interrupt vector is
+often in low memory, programmers usually place the operating system in low
+memory as well. Thus, in this text, we shall discuss only the situation where
+the operating system resides in low memory. The development of the other
+situation is similar.
+
+We usually want several user processes to reside in memory at the same
+time. We therefore need to consider how to allocate available memory to the
+processes that are in the input queue waiting to be brought into memory. In this
+contiguous memory allocation, each process is contained in a single contiguous
+section of memory.
+

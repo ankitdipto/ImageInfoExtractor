@@ -1,0 +1,61 @@
+Summary 333
+
+ 
+
+ 
+
+b. What standard list operation does R represent?
+
+c. Define the Prolog predicate last (1, X) (X is the last element of list L) using R and no
+other predicates
+
+103 In this exercise, we will look at sorting in Prolog.
+
+a. Write Prolog clauses that define the predicate sorted (L) , which is true ifand only if list
+L is sorted in ascending order.
+
+b. Write a Prolog definition for the predicate perm (L,M), which is true ifand only ifL is a
+permutation of M.
+
+c. Define sort (L,M) (Misa sorted version of L) using perm and sorted.
+
+d. Run sort on longer and longer lists until you lose patience. What is the time complexity
+of your program?
+
+e. Write a faster sorting algorithm, such as insertion sort or quicksort, in Prolog.
+
+104 In this exercise, we will look at the recursive application of rewrite rules using logic
+programming. A rewrite rule (or demodulator in OTTER terminology) is an equation with a
+specified direction. For example, the rewrite rule x + 0 — x suggests replacing any expression
+that matches x + 0 with the expression x. The application of rewrite mules is a central part
+of mathematical reasoning systems, for example, in expression simplification and symbolic
+differentiation. We will use the predicate Rewrite(x, y) to represent rewrite rules. For example,
+the earlier rewrite rule is written as Rewrire(x + 0,x). We will also need some way to define
+primitive terms that cannot be further simplified. For example, we can use Primitive(0) to say
+that 0 is a primitive term.
+
+a. Write a definition ofa predicate Simplify(ay), that is true when y is a simplified version of
+x; that is, no further rewrite rules are applicable to any subexpression ofy.
+
+b. Write a collection ofrules for simplification ofexpressions involving arithmetic operators,
+and apply your simplification algorithm to some sample expressions.
+
+c. Write a collection of rewrite rules for symbolic differentiation, and use them along with
+your simplification rules to differentiate and simplify expressions involving arithmetic
+expressions, including exponentiation.
+
+105 In this exercise, we will consider the implementation of search algorithms in Prolog.
+Suppose that successor (x, Y) istruewhen state ¥ isa successor of state X; and that goal (X)
+
+is true when X is a goal state. Write a definition for solve (X, P) ,which means that P is a path
+(list ofstates) beginning with X, ending in a goal state, and consisting of a sequence of legal steps
+as defined by successor. You will find that depth-first search is the easiest way to do this.
+How easy would it be to add heuristic search control?
+
+10.6 Why do you think that Prolog includes no heuristics for guiding the search for a solution
+to the query?
+
+10.7 Assume we put into a logical database a segment of the U.S. census data listing the age, city
+of residence, date of birth, and mother of every person, and where the constant symbol for each
+person is just their social security number. Thus, Ron's age is given by Age(443-65-1282, 76).
+

@@ -1,0 +1,42 @@
+Chapter 8: Arrays 277
+
+ 
+
+Thus, to see to it that we do not reach beyond the array size is
+entirely the programmer’s botheration and not the compiler’s.
+
+Passing Array Elements to a Function
+
+Array elements can be passed to a function by calling the function
+by value, or by reference. In the call by value we pass values of
+array elements to the function, whereas in the call by reference we
+pass addresses of array elements to the function. These two calls
+are illustrated below:
+
+/" Demonstration of call by value */
+main()
+{
+int i;
+int marks[] = { 55, 65, 75, 56, 78, 78, 90} ;
+
+for (i=0;i<=6; i++)
+display ( marks[i] ) ;
+display (int m)
+{
+
+printf (°%d", m) ;
+}
+
+And here’s the output...
+
+55 65 75 56 78 78 90
+
+Here, we are passing an individual array element at a time to the
+function display() and getting it printed in the function display( ).
+Note that since at a time only one element is being passed, this
+element is collected in an ordinary integer variable m, in the
+
+function display( ).
+
+And now the call by reference.
+

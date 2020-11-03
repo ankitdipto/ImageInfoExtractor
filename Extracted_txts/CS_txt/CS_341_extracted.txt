@@ -1,0 +1,58 @@
+30.3 Efficient FFT implementations 917
+
+in the leaves of the tree of Figure 30.4. (We shall show later how to determine this
+order, which is known as a bit-reversal permutation.) Because we have to combine
+DFTs on each level of the tree, we introduce a variable s to count the levels, ranging
+from 1 (at the bottom, when we are combining pairs to form 2-element DFTs)
+to Ign (at the top, when we are combining two (n/2)-element DFTs to produce the
+final result). The algorithm therefore has the following structure:
+
+1 fors = 1tolgn
+
+2 for k = 0 ton—1 by 2°
+
+3 combine the two 2°~!-element DFTs in
+Alk ..k +25! — 1] and A[k +25! ..k +25 — 1]
+into one 2*-element DFT in A[k ..k + 2° — 1]
+
+We can express the body of the loop (line 3) as more precise pseudocode. We
+copy the for loop from the RECURSIVE-FFT procedure, identifying y!! with
+Afk ok + 2°! — 1] and y") with A[k + 2°1..k 4+ 2° — 1]. The twiddle fac-
+tor used in each butterfly operation depends on the value of s; it is a power of @m,
+where m = 2°. (We introduce the variable m solely for the sake of readability.)
+We introduce another temporary variable u that allows us to perform the butterfly
+operation in place. When we replace line 3 of the overall structure by the loop
+body, we get the following pseudocode, which forms the basis of the parallel im-
+plementation we shall present later. The code first calls the auxiliary procedure
+Bit-REVERSE-Copy (a, A) to copy vector a into array A in the initial order in
+which we need the values.
+
+ITERATIVE-FFT (a)
+1 Bit-REVERSE-Copy (a, A)
+
+2 n= a.length // n is a power of 2
+3 fors = 1tolgn
+
+4 m = 28
+
+5 Om = e2zilm
+
+6 fork = Oton—lbym
+
+7 oa=1
+
+8 for j = 0tom/2-1
+
+9 t= wAlk + j +m/2]
+10 u = Alk + j]
+
+ll Alk+j]=u+t
+
+12 Ak + j +m/2] =u-t
+13 O = OWm
+
+14 return A
+
+How does BIT-REVERSE-Copy get the elements of the input vector a into the
+desired order in the array A? The order in which the leaves appear in Figure 30.4
+

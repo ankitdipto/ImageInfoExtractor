@@ -1,0 +1,50 @@
+12
+
+Chapter 1 The Role of Algorithms in Computing
+
+Efficiency
+
+Different algorithms devised to solve the same problem often differ dramatically in
+their efficiency. These differences can be much more significant than differences
+due to hardware and software.
+
+As an example, in Chapter 2, we will see two algorithms for sorting. The first,
+known as insertion sort, takes time roughly equal to c,n? to sort n items, where c,
+is a constant that does not depend on n. That is, it takes time roughly proportional
+to n?. The second, merge sort, takes time roughly equal to c.n Ign, where Ign
+stands for log, and C2 is another constant that also does not depend on n. Inser-
+tion sort typically has a smaller constant factor than merge sort, so that c; < C2.
+We shall see that the constant factors can have far less of an impact on the running
+time than the dependence on the input size n. Let’s write insertion sort’s running
+time as cy - n and merge sort’s running time as c2/ - 1g. Then we see that where
+insertion sort has a factor of 7 in its running time, merge sort has a factor of Ign,
+which is much smaller. (For example, when n = 1000, lg is approximately 10,
+and when 7 equals one million, 1g is approximately only 20.) Although insertion
+sort usually runs faster than merge sort for small input sizes, once the input size n
+becomes large enough, merge sort’s advantage of Ign vs. n will more than com-
+pensate for the difference in constant factors. No matter how much smaller c, is
+than c2, there will always be a crossover point beyond which merge sort is faster.
+
+For a concrete example, let us pit a faster computer (computer A) running inser-
+tion sort against a slower computer (computer B) running merge sort. They each
+must sort an array of 10 million numbers. (Although 10 million numbers might
+seem like a lot, if the numbers are eight-byte integers, then the input occupies
+about 80 megabytes, which fits in the memory of even an inexpensive laptop com-
+puter many times over.) Suppose that computer A executes 10 billion instructions
+per second (faster than any single sequential computer at the time of this writing)
+and computer B executes only 10 million instructions per second, so that com-
+puter A is 1000 times faster than computer B in raw computing power. To make
+the difference even more dramatic, suppose that the world’s craftiest programmer
+codes insertion sort in machine language for computer A, and the resulting code
+requires 2n? instructions to sort 7 numbers. Suppose further that just an average
+programmer implements merge sort, using a high-level language with an inefficient
+compiler, with the resulting code taking 50n Ign instructions. To sort 10 million
+numbers, computer A takes
+
+2- (107)? instructions
+
+———____———_ = 20,000 seconds than 5.5 hours) ,
+10!° instructions/second :000 seconds (more than ous)
+
+while computer B takes
+

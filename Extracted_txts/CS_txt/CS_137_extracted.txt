@@ -1,0 +1,54 @@
+26.5 The relabel-to-front algorithm 751
+
+Discharging an overflowing vertex
+
+An overflowing vertex u is discharged by pushing all of its excess flow through
+admissible edges to neighboring vertices, relabeling u as necessary to cause edges
+leaving u to become admissible. The pseudocode goes as follows.
+
+DISCHARGE(u)
+
+1 while u.e > 0
+
+2 v = u.current
+
+3 ify == NIL
+
+4 RELABEL (u)
+
+5 u.current = u.N.head
+
+6 elseif cf(u,v) > Oand u.h ==v.h +1
+7 PusH(u, v)
+
+8 else u.current = v.next-neighbor
+
+Figure 26.9 steps through several iterations of the while loop of lines 1-8, which
+executes as long as vertex u has positive excess. Each iteration performs exactly
+one of three actions, depending on the current vertex v in the neighbor list u.N.
+
+1. If v is NIL, then we have run off the end of u.N. Line 4 relabels vertex u,
+and then line 5 resets the current neighbor of u to be the first one in u.N.
+(Lemma 26.29 below states that the relabel operation applies in this situation.)
+
+2. If v is non-NIL and (u,v) is an admissible edge (determined by the test in
+line 6), then line 7 pushes some (or possibly all) of u’s excess to vertex v.
+
+3. If v is non-NIL but (w,v) is inadmissible, then line 8 advances u. current one
+position further in the neighbor list u.N.
+
+Observe that if DISCHARGE is called on an overflowing vertex u, then the last
+action performed by DISCHARGE must be a push from u. Why? The procedure
+terminates only when u.e becomes zero, and neither the relabel operation nor ad-
+vancing the pointer wu. current affects the value of u.e.
+
+We must be sure that when PUSH or RELABEL is called by DISCHARGE, the
+operation applies. The next lemma proves this fact.
+
+Lemma 26.29
+If DISCHARGE calls PUSH(uw, v) in line 7, then a push operation applies to (1, v).
+If DISCHARGE calls RELABEL (11) in line 4, then a relabel operation applies to u.
+
+Proof The tests in lines 1 and 6 ensure that a push operation occurs only if the
+operation applies, which proves the first statement in the lemma.
+

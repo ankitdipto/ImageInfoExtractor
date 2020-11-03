@@ -1,0 +1,45 @@
+204
+
+Chapter 8 Sorting in Linear Time
+
+Using this expected value in equation (8.1), we conclude that the average-case
+running time for bucket sort is O(n) + - O(2— 1/n) = O(n).
+
+Even if the input is not drawn from a uniform distribution, bucket sort may still
+run in linear time. As long as the input has the property that the sum of the squares
+of the bucket sizes is linear in the total number of elements, equation (8.1) tells us
+that bucket sort will run in linear time.
+
+Exercises
+
+8.4-1
+Using Figure 8.4 as a model, illustrate the operation of BUCKET-SORT on the array
+A = (.79, .13, .16, .64, .39, .20, .89, .53, .71, .42).
+
+8.4-2
+
+Explain why the worst-case running time for bucket sort is @(?). What simple
+change to the algorithm preserves its linear average-case running time and makes
+its worst-case running time O(n lgn)?
+
+8.4-3
+Let X be a random variable that is equal to the number of heads in two flips of a
+fair coin. What is E[X?]? What is E? [X]?
+
+84-4 *
+
+We are given n points in the unit circle, pj = (x;. y;), such that 0 < x? + y? <1
+fori = 1,2,...,n. Suppose that the points are uniformly distributed; that is, the
+probability of finding a point in any region of the circle is proportional to the area
+of that region. Design an algorithm with an average-case running time of ©(71) to
+sort the 1 points by their distances dj = \/x? + y? from the origin. (Hint: Design
+the bucket sizes in BUCKET-SoRT to reflect the uniform distribution of the points
+in the unit circle.)
+
+84-5 &
+A probability distribution function P(x) for a random variable X is defined
+by P(x) = Pr{X <x}. Suppose that we draw a list of n random variables
+X1,Xo,..., X,, from a continuous probability distribution function P that is com-
+putable in O(1) time. Give an algorithm that sorts these numbers in linear average-
+case time.
+

@@ -1,0 +1,51 @@
+120
+
+Chapter 5 Probabilistic Analysis and Randomized Algorithms
+
+E[X]
+
+i=1
+
+= VEX)
+= so1/2
+
+= n/2.
+
+[es]
+
+Thus, compared to the method used in equation (C.37), indicator random variables
+greatly simplify the calculation. We shall use indicator random variables through-
+out this book.
+
+Analysis of the hiring problem using indicator random variables
+
+Returning to the hiring problem, we now wish to compute the expected number of
+times that we hire a new office assistant. In order to use a probabilistic analysis, we
+assume that the candidates arrive in a random order, as discussed in the previous
+section. (We shall see in Section 5.3 how to remove this assumption.) Let X be the
+random variable whose value equals the number of times we hire a new office as-
+sistant. We could then apply the definition of expected value from equation (C.20)
+to obtain
+
+E[X]= Sox Pr{X =x}.
+x=1
+
+but this calculation would be cumbersome. We shall instead use indicator random
+variables to greatly simplify the calculation.
+
+To use indicator random variables, instead of computing E[X] by defining one
+variable associated with the number of times we hire a new office assistant, we
+define n variables related to whether or not each particular candidate is hired. In
+particular, we let X; be the indicator random variable associated with the event in
+which the ith candidate is hired. Thus,
+
+ 
+
+X; = I{candidate i is hired}
+1. if candidate i is hired ,
+0 if candidate i is not hired ,
+
+and
+
+X=X,4+X. +--+. (5.2)
+

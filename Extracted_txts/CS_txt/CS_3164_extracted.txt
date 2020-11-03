@@ -1,0 +1,66 @@
+Section 18.2.
+
+Inductive Learning 529
+
+ 
+
+Bringing it all together
+
+Each of the seven components of the performance element can be described mathematically as
+a function: for example, information about the way the world evolves can be described as a
+function from a world state (the current state) to a world state (the next state or states); a goal can
+be described as a function from a state to a Boolean value (0 or 1) indicating whether the state
+satisfies the goal. The key point is that al/ learning can be seen as learning the representation of
+afunction. We can choose which component of the performance element to improve and how it
+is to be represented. The available feedback may be more or less useful, and we may or may not
+have any prior knowledge. The underlying problem remains the same.
+
+18.2__ INDUCTIVE LEARNING
+
+EXAMPLE
+
+PURE INDUCTIVE
+INFERENCE
+
+HYPOTHESIS
+
+BIAS:
+
+INCREMENTAL
+LEARNING
+
+ 
+
+In supervised learning, the learning element is given the correct (or approximately correct) value
+of the function for particular inputs, and changes its representation of the function to try to match
+the information provided by the feedback. More formally, we say an example is a pair (x, f(x),
+where x is the input and f(x) is the output ofthe function applied tox. The task of pure inductive
+inference (or induction) is this: given a collection of examples of /, retum a function h that
+approximates f. The function h is called a hypothesis.
+
+Figure 18.2shows an example ofthis from plane geometry. The examples in Figure 18.2(a)
+are (x,y)points in the plane, where y = f(x), and the task is to find a function /(x) that fits the
+points well. In Figure 18.2(b) we have a piecewise-linear / function, while in Figure 18.2(c) we
+have a more complicated h function. Both functions agree with the example points, but differ
+on the y values they assign to other x inputs. In (d) we have a function that apparently ignores
+one of the example points, but fits the others with a simple function. The true f is unknown,
+so there are many choices for h, but without further knowledge, we have no way to prefer (b),
+(c), or (d). Any preference for one hypothesis over another, beyond mere consistency with the
+examples, is called a bias. Because there are almost always a large number of possible consistent
+hypotheses, all learning algorithms exhibit some sort of bias. We will see many examples in this
+and subsequent chapters.
+
+To get back to agents, suppose we have a reflex agent’ that is being taught by a teacher.
+Figure 18.3 shows that the REFLEX-LEARNING-ELEMENT updates a global variable, examples,
+that holds a list of (percept, action) pairs. The percept could be a chess board position,
+and the action could be the best move as determined by a helpful grandmaster. When the
+REFLEX-PERFORMANCE-ELEMENT is faced with a percept it has been told about, it chooses the
+corresponding action. Otherwise, it calls a learning algorithm INDUCE on the examples it has
+seen so far. INDUCE returns a hypothesis / which the agent uses to choose an action.
+
+There are many variants on this simple scheme. For example, the agent could perform
+incremental learning: rather than applying the learning algorithm to the entire set of examples
+each time a new prediction is needed, the agent couldjust try to update its old hypothesis whenever
+
+3 Recall that reflex agents map directly from percepts to actions
+

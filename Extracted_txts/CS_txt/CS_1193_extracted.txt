@@ -1,0 +1,41 @@
+Chapter 13: More Issues In Input/Output 471
+
+ 
+
+printf (“Error in reading file” ) ;
+
+break ;
+}
+else
+printf ("%c", ch) ;
+}
+fclose (fp) ;
+
+}
+
+In this program the fgete( ) function would obviously fail first time
+around since the file has been opened for writing, whereas fgetc( )
+is attempting to read from the file. The moment the error occurs
+ferror() returns a non-zero value and the if block gets executed.
+Instead of printing the error message using printf( ) we can use the
+standard library function perror( ) which prints the error message
+specified by the compiler. Thus in the above program the perror()
+function can be used as shown below.
+
+if (ferror() )
+
+{
+perror ("TRIAL") ;
+break ;
+
+}
+
+Note that when the error occurs the error message that is displayed
+is:
+
+TRIAL: Permission denied
+This means we can precede the system error message with any
+
+message of our choice. In our program we have just displayed the
+filename in place of the error message.
+

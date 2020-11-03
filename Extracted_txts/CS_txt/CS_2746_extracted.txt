@@ -1,0 +1,97 @@
+354
+
+Chapter 11. Planning
+
+ 
+
+Start
+
+ 
+
+attHtome) > At(HWS)
+—___> |
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Go(HWS) Go(SM)
+At(HWS), Setis(HWS,Drill} 7 ASM), Seits(SM,Milk) — At(SM), Selis(SM Bananas) At'SM)
+Buy (Drill) Buy(Milk} | Buy(Bananas) GojHome)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+~N } > vy
+
+Have(Drill), Have(Milk}, Have(Bananas) , At(rome)
+
+ 
+
+Finish
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 1111 Causal link protection in the shopping plan. The Go(HWS)*“™' Buy(Drill)
+causal link is protected ordering the Go(SM) step after Buy(Drill), and the Go(SM) “8
+Buy(Milk/Bananas)link is protected by ordering Go(Home) after Buy(Milk)and Buy(Bananas).
+
+ 
+
+ 
+
+ 
+
+Only the Ar(Home) precondition of the Finish step remains unachieved. Adding a
+Go(Home) step achieves it, but introduces an Az(x) precondition that needs to be achieved.® |
+Again, the protection of causal links will help the planner decide how to do this:
+
++ Ifit tries to achieve Ar(x) by linking to Ar(Home) in the initial state, there will be no way
+to resolve the threats caused by go(HWS)and Go(SM).
+
++ Ifit tries to link Ar(x) to the Go(HWS)step, there will be no way to resolve the threat posed
+by the Go(SM)step, which is already constrained to come after Go(HWS).
+
+* A link from Go(SM)to A(x) means that x is bound to SM, so that now the Go(Home)
+step deletes the At(SM) condition. This results in threats to the A‘(SM) preconditions of
+Buy(Milk)and Buy(Bananas), but these can be resolved by ordering Go(Home)to come
+after these steps (Figure 11.11).
+
+Figure 11.12 shows the complete solution plan, with the steps redrawn to reflect the ordering
+constraints on them. The result is an almost totally ordered plan; the only ambiguity is that
+Buy(Milk)and Buy(Bananas) can come in either order.
+
+Let us take stock of what our partial-order planner has accomplished. It can take a problem
+that would require many thousands of search states for a problem-solving approach, and solve it
+with only a few search states. Moreover, the least commitment nature of the planner means it
+only needs to search at all in places where subplans interact with each other. Finally, the causal
+links allow the planner to recognize when to abandon a doomed plan without wasting a lot of
+time expanding irrelevant parts of the plan.
+© Notice that the Go(Home)step also has the effect A(x), meaning that the step will delete an 4? condition for some
+
+location yet to be decided. This is a possible threat to protected conditions in the plan such as At(SM), but we will not
+worry about it for now. Possible threats are dealt with in Section 11.7.
+

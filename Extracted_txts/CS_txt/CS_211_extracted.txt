@@ -1,0 +1,25 @@
+812
+
+Chapter 27 Multithreaded Algorithms
+
+Graham [149] and Brent [55] showed that there exist schedulers achieving the
+bound of Theorem 27.1. Eager, Zahorjan, and Lazowska [98] showed that any
+greedy scheduler achieves this bound and proposed the methodology of using work
+and span (although not by those names) to analyze parallel algorithms. Blelloch
+[47] developed an algorithmic programming model based on work and span (which
+he called the “depth” of the computation) for data-parallel programming. Blumofe
+and Leiserson [52] gave a distributed scheduling algorithm for dynamic multi-
+threading based on randomized “work-stealing” and showed that it achieves the
+bound E [Tp] < 7,/P + O(T,.). Arora, Blumofe, and Plaxton [19] and Blelloch,
+Gibbons, and Matias [49] also provided provably good algorithms for scheduling
+dynamic multithreaded computations.
+
+The multithreaded pseudocode and programming model were heavily influenced
+by the Cilk [51, 118] project at MIT and the Cilk++ [71] extensions to C++ dis-
+tributed by Cilk Arts, Inc. Many of the multithreaded algorithms in this chapter
+appeared in unpublished lecture notes by C. E. Leiserson and H. Prokop and have
+been implemented in Cilk or Cilk++. The multithreaded merge-sorting algorithm
+was inspired by an algorithm of Akl [12].
+
+The notion of sequential consistency is due to Lamport [223].
+

@@ -1,0 +1,48 @@
+964
+
+Chapter 31 Number-Theoretic Algorithms
+
+long—to resist possible advances in the art of factoring. At the time of this
+writing (2009), RSA moduli were commonly in the range of 768 to 2048 bits.
+To create moduli of such sizes, we must be able to find large primes efficiently.
+Section 31.8 addresses this problem.
+
+For efficiency, RSA is often used in a “hybrid” or “key-management” mode
+with fast non-public-key cryptosystems. With such a system, the encryption and
+decryption keys are identical. If Alice wishes to send a long message M to Bob
+privately, she selects a random key K for the fast non-public-key cryptosystem and
+encrypts M using K, obtaining ciphertext C. Here, C is as long as M, but K
+is quite short. Then, she encrypts K using Bob’s public RSA key. Since K is
+short, computing Pg(K) is fast (much faster than computing Pg(M)). She then
+transmits (C, Pg(K)) to Bob, who decrypts Pg(K) to obtain K and then uses K
+to decrypt C, obtaining M.
+
+We can use a similar hybrid approach to make digital signatures efficiently.
+This approach combines RSA with a public collision-resistant hash function h—a
+function that is easy to compute but for which it is computationally infeasible to
+find two messages M and M’ such that h(M) = h(M’). The value h(M) is
+a short (say, 256-bit) “fingerprint” of the message M. If Alice wishes to sign a
+message M, she first applies / to M to obtain the fingerprint )(M), which she
+then encrypts with her secret key. She sends (M, S4(h(M))) to Bob as her signed
+version of M. Bob can verify the signature by computing (M) and verifying
+that P4 applied to S4(h(M)) as received equals i(M). Because no one can create
+two messages with the same fingerprint, it is computationally infeasible to alter a
+signed message and preserve the validity of the signature.
+
+Finally, we note that the use of certificates makes distributing public keys much
+easier. For example, assume there is a “trusted authority” JT whose public key
+is known by everyone. Alice can obtain from T a signed message (her certificate)
+stating that “Alice’s public key is P4.” This certificate is “self-authenticating” since
+everyone knows Pr. Alice can include her certificate with her signed messages,
+so that the recipient has Alice’s public key immediately available in order to verify
+her signature. Because her key was signed by T, the recipient knows that Alice’s
+key is really Alice’s.
+
+Exercises
+
+31.7-1
+
+Consider an RSA key set with p = 11, ¢ = 29,n = 319, and e = 3. What
+value of d should be used in the secret key? What is the encryption of the message
+M = 100?
+

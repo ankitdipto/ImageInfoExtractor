@@ -1,0 +1,54 @@
+Chapter 14: Operations On Bits 497
+
+ 
+
+ 
+
+ 
+
+Bit numbers Meaning
+
+ 
+
+ 
+
+. ot Read only
+1. ‘| Hidden
+lo... System
+Po... Volume label entry
+
+elo. eo. Sub-directory entry
+- Lo... . . | Archive bit
+- lo. 2... | Unused
+lo... | Unused
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 14.10
+
+ 
+
+Now, suppose we want to check whether a file is a hidden file or
+not. A hidden file is one, which is never shown in the directory,
+even though it exists on the disk. From the above bit classification
+of attribute byte, we only need to check whether bit number 1 is
+ON or OFF.
+
+So, our first operand in this case becomes the attribute byte of the
+file in question, whereas the second operand is the 1 * 2! = 2, as
+discussed earlier. Similarly, it can be checked whether the file is a
+system file or not, whether the file is read-only file or not, and so
+on.
+
+The second, and equally important use of the AND operator is in
+changing the status of the bit, or more precisely to switch OFF a
+particular bit.
+

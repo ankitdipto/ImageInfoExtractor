@@ -1,0 +1,52 @@
+374
+
+Chapter 15 Dynamic Programming
+
+Step 2: A recursive solution
+
+Next, we define the cost of an optimal solution recursively in terms of the optimal
+solutions to subproblems. For the matrix-chain multiplication problem, we pick as
+our subproblems the problems of determining the minimum cost of parenthesizing
+AjAjyi +++ Aj for 1 <i < j <n. Let mfi, j] be the minimum number of scalar
+multiplications needed to compute the matrix Aj, ;; for the full problem, the lowest-
+cost way to compute A;_,, would thus be m[1,n].
+
+We can define m[i, j] recursively as follows. If i = j, the problem is trivial;
+the chain consists of just one matrix A;_; = A;, so that no scalar multiplications
+are necessary to compute the product. Thus, m[i,i] = 0 fori = 1,2,..., n. To
+compute m{i, 7] when i < j, we take advantage of the structure of an optimal
+solution from step 1. Let us assume that to optimally parenthesize, we split the
+product A; A;4,---A; between Ay and Ay4,, where i < k < j. Then, mii, j]
+equals the minimum cost for computing the subproducts Aj, and Ax+1,.;, plus the
+cost of multiplying these two matrices together. Recalling that each matrix A; is
+Pi-1 X pi, we see that computing the matrix product Aj_¢Ax41.j takes pj—1 Pk Pj
+scalar multiplications. Thus, we obtain
+
+mi, j] = m[i.k] + mlk + 17] + pin Pe; -
+
+This recursive equation assumes that we know the value of k, which we do not.
+There are only j —i possible values for k, however, namely k =i,i+1,..., j-i.
+Since the optimal parenthesization must use one of these values for k , we need only
+check them all to find the best. Thus, our recursive definition for the minimum cost
+of parenthesizing the product A;Aj+,--- A; becomes
+
+0 ifi=j,
+
+min, {m[i.k] + m[k-+ 1 j]+ Paper) ifi< jg. OD
+
+mii. j] =
+
+The m[i, j] values give the costs of optimal solutions to subproblems, but they
+do not provide all the information we need to construct an optimal solution. To
+help us do so, we define s[i, j] to be a value of k at which we split the product
+Aj Aj+1 +++ Aj in an optimal parenthesization. That is, s[i, j] equals a value k such
+that m[i, j] = m[i.k] + m[k +1, 7] + pi-1PKD;-
+
+Step 3: Computing the optimal costs
+
+At this point, we could easily write a recursive algorithm based on recurrence (15.7)
+to compute the minimum cost m[1,7] for multiplying A, A,--- A,. As we saw for
+the rod-cutting problem, and as we shall see in Section 15.3, this recursive algo-
+rithm takes exponential time, which is no better than the brute-force method of
+checking each way of parenthesizing the product.
+

@@ -1,0 +1,48 @@
+31.5 The Chinese remainder theorem 953
+
+2 3 4 5 6 7 8 9 10 HW 12
+
+ 
+
+26 1 41 16 56 31 6 46 21 61 36 II SI
+5227 2 42 17 57 32 7 47 22 62 37 12
+
+RWS
+
+39 14 S429 4 44 19 59 34 49244
+
+Figure 31.3 An illustration of the Chinese remainder theorem for m1 = Sand nz = 13. For this
+example, c = 26 and cz = 40. In row i, column j is shown the value of a, modulo 65, such
+that @ mod 5 = i and a mod 13 = j. Note that row 0, column 0 contains a 0. Similarly, row 4,
+column 12 contains a 64 (equivalent to —1). Since cy = 26, moving down a row increases a by 26.
+Similarly, cy = 40 means that moving right by a column increases a by 40. Increasing a by 1
+corresponds to moving diagonally downward and to the right, wrapping around from the bottom to
+the top and from the right to the left.
+
+As an example of the application of the Chinese remainder theorem, suppose we
+are given the two equations
+
+= 2 (mod 5),
+
+= 3 (mod 13),
+so thata,; = 2,m, = m2 = 5, da. = 3, andnz = m, = 13, and we wish
+to compute a mod 65, since n = ninz = 65. Because 137! = 2 (mod 5) and
+5"! =8 (mod 13), we have
+c, = 13@Qmod5) = 26,
+
+C2 = 5(8mod 13) = 40,
+and
+a = 2-26+3-40 (mod 65)
+= 52+ 120 (mod 65)
+= 2 (mod 65) .
+See Figure 31.3 for an illustration of the Chinese remainder theorem, modulo 65.
+Thus, we can work modulo n by working modulo n directly or by working in the
+
+transformed representation using separate modulo n; computations, as convenient.
+The computations are entirely equivalent.
+
+Exercises
+
+31.5-1
+Find all solutions to the equations x = 4 (mod 5) and x = 5 (mod 11).
+

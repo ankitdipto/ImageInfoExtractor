@@ -1,0 +1,57 @@
+Chapter 18: Graphics Under Windows 597
+
+ 
+
+WndProc( ) function and the message handlers that perform this
+task are given below
+
+int x1, y1, x2, y2;
+
+LRESULT CALLBACK WndProc ( HWND hWnd, UINT message,
+WPARAM wParam, LPARAM IParam )
+{
+
+switch ( message )
+{
+case WM_DESTROY :
+OnDestroy (hWnd) ;
+break ;
+
+ 
+
+case WM_LBUTTONDOWN :
+
+OnLButtonDown ( hWnd, LOWORD (IParam ),
+HIWORD ( (Param )) ;
+break ;
+
+ 
+
+ 
+
+case WM_LBUTTONUP :
+OnLButtonUp() ;
+break ;
+
+ 
+
+ 
+
+case WM_MOUSEMOVE :
+OnMouseMove (hWnd, wParam, LOWORD (IParam),
+HIWORD (|Param) ) ;
+
+break ;
+default:
+return DefWindowProc ( hWnd, message, wParam, IParam ) ;
+}
+return 0;
+}
+
+void OnLButtonDown ( HWND hWnd, int x, int y )
+{
+
+SetCapture (hWnd ) ;
+
+X1=X;
+

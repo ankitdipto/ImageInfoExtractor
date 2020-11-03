@@ -1,0 +1,53 @@
+SECTION 10 Decimal Arithmetic Unit 363
+
+3. Align the dividend.
+4, Subtract the exponents.
+5. Divide the mantissas.
+
+The flowchart for floating-point division is shown in Fig. 10-17. The two
+operands are checked for zero. If the divisor is zero, it indicates an attempt to
+divide by zero, which is an illegal operation. The operation is terminated with
+an error message. Analternative procedure would be to set the quotient in QR
+tothe most positive number possible (if the dividend is positive) or to the most
+negative possible (if the dividend is negative). If the dividend in AC is zero, the
+quotient in QR is made zero and the operation terminates.
+
+If the operands are not zero, we proceed to determine the sign of the
+quotient and store it in Q,. The sign of the dividend in A, is left unchanged to
+be the sign of the remainder. The Q registeris cleared and the sequence counter
+SC is set to a number equal to the number of bits in the quotient.
+
+The dividend alignment is similar to the divide-overflow check in the
+fixed-point operation. The proper alignment requires that the fraction dit
+dend be smaller than the divisor. The two fractions are compared by a subtrac-
+tion test. The carry in E determines their relative magnitude. The dividend
+fraction is restored to its original value by adding the divisor. If A = B, it is
+necessary to shift A once to the right and increment the dividend exponent.
+Since both operands are normalized, this alignment ensures that A < B.
+
+Next, the divisor exponent is subtracted from the dividend exponent.
+Since both exponents were originally biased, the subtraction operation gives
+the difference without the bias. The bias is then added and the result trans-
+ferred into q because the quotient is formed in QR.
+
+The magnitudes of the mantissas are divided as in the fixed-point case.
+After the operation, the mantissa quotient resides in Q and the remainder in
+A. The floating-point quotient is already normalized and resides in QR. The
+exponent of the remainder should be the sameas the exponent of the dividend.
+The binary point for the remainder mantissa lies (n — 1) positions to the left
+of A,. The remainder can be converted to a normalized fraction by subtracting
+n ~ 1 from the dividend exponent and by shift and decrement until the bit in
+A; is equal to 1 This is not shown in the flow chart and is left as an exercise.
+
+ 
+
+10-6 Decimal Arithmetic Unit
+
+The user of a computer prepares data with decimal numbers and receives
+results in decimal form. A CPU with an arithmetic logic unit can perform
+arithmetic microoperations with binary data. To perform arithmetic operations
+with decimal data, it is necessary to convert the input decimal numbers to
+binary, to perform all calculations with binary numbers, and to convert the
+results into decimal. This may be an efficient method in applications requiring
+a large number of calculations and a relatively smaller amount of input and
+

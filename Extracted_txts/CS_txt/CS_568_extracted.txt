@@ -1,0 +1,52 @@
+1102
+
+Chapter 34 NP-Completeness
+
+. Formulate a related decision problem for the independent-set problem, and
+
+prove that it is NP-complete. (Hint: Reduce from the clique problem.)
+
+Suppose that you are given a “black-box” subroutine to solve the decision prob-
+lem you defined in part (a). Give an algorithm to find an independent set of max-
+imum size. The running time of your algorithm should be polynomial in |V|
+and |£|, counting queries to the black box as a single step.
+
+Although the independent-set decision problem is NP-complete, certain special
+cases are polynomial-time solvable.
+
+c.
+
+Give an efficient algorithm to solve the independent-set problem when each ver-
+tex in G has degree 2. Analyze the running time, and prove that your algorithm
+works correctly.
+
+|. Give an efficient algorithm to solve the independent-set problem when G is
+
+bipartite. Analyze the running time, and prove that your algorithm works cor-
+rectly. (Hint: Use the results of Section 26.3.)
+
+34-2 Bonnie and Clyde
+
+Bonnie and Clyde have just robbed a bank. They have a bag of money and want
+to divide it up. For each of the following scenarios, either give a polynomial-time
+algorithm, or prove that the problem is NP-complete. The input in each case is a
+list of the n items in the bag, along with the value of each.
+
+a. The bag contains 7 coins, but only 2 different denominations: some coins are
+
+worth x dollars, and some are worth y dollars. Bonnie and Clyde wish to divide
+the money exactly evenly.
+
+The bag contains 7 coins, with an arbitrary number of different denominations,
+but each denomination is a nonnegative integer power of 2, i.e., the possible
+denominations are | dollar, 2 dollars, 4 dollars, etc. Bonnie and Clyde wish to
+divide the money exactly evenly.
+
+The bag contains n checks, which are, in an amazing coincidence, made out to
+“Bonnie or Clyde.” They wish to divide the checks so that they each get the
+exact same amount of money.
+
+|. The bag contains 1 checks as in part (c), but this time Bonnie and Clyde are
+
+willing to accept a split in which the difference is no larger than 100 dollars.
+

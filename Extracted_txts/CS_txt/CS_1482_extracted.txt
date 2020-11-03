@@ -1,0 +1,50 @@
+14 Chapter 1 Introduction
+
+processes and resources—such as memory—to be shared dynamically among
+the various processors, and can lower the variance among the processors. Such
+a system must be written carefully, as we shall see in Chapter 7. Virtually
+all modern operating systems—including Windows NT, Solaris, Digital UNIX,
+0S/2, and Linux—now provide support for SMP.
+
+The difference between symmetric and asymmetric multiprocessing may be
+the result of either hardware or software. Special hardware can differentiate the
+multiple processors, or the software can be written to allow only one master and
+multiple slaves. For instance, Sun’s operating system SunOS Version 4 provides
+asymmetric multiprocessing, whereas Version 5 (Solaris 2) is symmetric on the
+same hardware.
+
+As microprocessors become less expensive and more powerful, additional
+operating-system functions are off-loaded to slave processors (or back-ends).
+For example, it is fairly easy to add a microprocessor with its own memory
+to manage a disk system. The microprocessor could receive a sequence of
+requests from the main CPU and implement its own disk queue and scheduling
+algorithm. This arrangement relieves the main CPU of the overhead of disk
+scheduling. PCs contain a microprocessor in the keyboard to convert the
+keystrokes into codes to be sent to the CPU. In fact, this use of microprocessors
+has become so common that it is no longer considered multiprocessing.
+
+1.5 = Distributed Systems
+
+A network, in the simplest terms, is a communication path between two or
+more systems. Distributed systems depend on networking for their function-
+ality. By being able to communicate, distributed systems are able to share
+computational tasks, and provide a rich set of features to users.
+
+Networks vary by the protocols used, the distances between nodes, and
+the transport media. TCP/IP is the most common network protocol, although
+ATM and other protocols are in widespread use. Likewise, operating-system
+support of protocols varies. Most operating systems support TCP/IP, including
+the Windows and UNIX operating systems. Some systems support proprietary
+protocols to suit their needs. To an operating system, a network protocol
+simply needs an interface device—a network adapter, for example—with a
+device driver to manage it, and software to package data in the communications
+protocol to send it and to unpackage it to receive it. These concepts are
+discussed throughout the book.
+
+Networks are typecast based on the distances between their nodes. A
+local-area network (LAN), exists within a room, a floor, or a building. A
+wide-area network (WAN), usually exists between buildings, cities, or coun-
+tries. A global company may have a WAN to connect its offices, worldwide.
+These networks could run one protocol or several protocols. The continuing
+advent of new technologies brings about new forms of networks. For exam-
+

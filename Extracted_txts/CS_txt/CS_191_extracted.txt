@@ -1,0 +1,50 @@
+Section 4.5. Summary 121
+
+ 
+
+performance of the three recovery schemes using a variety of exchange rates between
+search cost and path cost.
+
+4.15 In this exercise, we will examine hill-climbing in the context of robot navigation, using
+the environment in Figure 4,17 as an example.
+
+ 
+
+a. Repeat Exercise 4.14 using hill-climbing. Does your agent ever get stuck on a local
+maximum? Is itpossible for it to get stuck with convex obstacles?
+
+b. Construct a nonconvex polygonal environment in which the agent gets stuck.
+
+c. Modify the hill-climbing algorithm so that instead of doing a depth-1 search to decide
+where to go next, it does a depth-k search. It should find the best k-step path and do one
+step along it, and then repeat the process.
+
+d. Is there some k for which the new algorithm is guaranteed to escape from local maxima?
+
+4.16 Prove that IDA* returns optimal solutions whenever there is sufficient memory for the
+longest path with cost < f*. Could it be modified along the lines of SMA* to succeed even with
+enough memory for only the shortest solution path?
+
+4.17 Compare the performance of A*, SMA*, and IDA* on a set of randomly generated
+problems in the 8-puzzle (with Manhattan distance) and TSP (with minimum spanning tree)
+domains. Discuss your results. What happens to the performance of IDA* when a small random
+number is added to the heuristic values in the 8-puzzle domain?
+
+4.18 Proofs of properties of SMA*:
+
+a. SMA* abandons paths that fill up memory by themselves but do not contain a solution.
+Show that without this check, SMA" will get stuck in an infinite loop whenever it does not
+have enough memory for the shortest solution path.
+
+b. Prove that SMA* terminates in a finite space or ifthere is a finite path to a goal. The proof
+will work by showing that it can never generate the same tree twice. This follows from the
+fact that between any two expansions ofthe same node, the node's parent must increase its
+Jf-cost. We will prove this fact by a downward induction on the depth of the node.
+
+(i) Show that the property holds for any node at depth d = MAX.
+
+Gi) Show that if it holds for all nodes at depth d + 1 or more, it must also hold for all
+nodes at depth d.
+
+ 
+

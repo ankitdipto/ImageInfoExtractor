@@ -1,0 +1,47 @@
+Chapter 6: Data Types Revisited 231
+
+ 
+
+External variables differ from those we have already discussed in
+that their scope is global, not local. External variables are declared
+outside all functions, yet are available to all functions that care to
+use them. Here is an example to illustrate this fact.
+
+int i;
+main()
+{
+printf ( “\ni = %d", i) ;
+
+increment() ;
+increment() ;
+decrement ) ;
+decrement ) ;
+}
+
+increment( )
+{
+
+i=i+1;
+
+printf ( "\non incrementing i = %d", i) ;
+}
+
+decrement( )
+{
+
+i=i-1;
+
+printf ( "\non decrementing i = %d", i) ;
+}
+
+The output would be:
+
+i=0
+
+on incrementing i = 1
+
+on incrementing i = 2
+
+on decrementing i = 1
+on decrementing i = 0
+

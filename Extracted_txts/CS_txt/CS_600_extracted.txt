@@ -1,0 +1,49 @@
+1128 Chapter 35 Approximation Algorithms
+
+35.44
+
+Show that the constraints in line (35.19) are redundant in the sense that if we re-
+move them from the linear program in lines (35.17)-(35.20), any optimal solution
+to the resulting linear program must satisfy x(v) < 1 for each v € V.
+
+ 
+
+35.5 The subset-sum problem
+
+Recall from Section 34.5.5 that an instance of the subset-sum problem is a
+pair (S,t), where S is a set {x1.X2.....X,} of positive integers and f is a posi-
+tive integer. This decision problem asks whether there exists a subset of S that
+adds up exactly to the target value t. As we saw in Section 34.5.5, this problem is
+NP-complete.
+
+The optimization problem associated with this decision problem arises in prac-
+tical applications. In the optimization problem, we wish to find a subset of
+{x1,X2.....X,} Whose sum is as large as possible but not larger than t. For ex-
+ample, we may have a truck that can carry no more than ¢ pounds, and n different
+boxes to ship, the ith of which weighs x; pounds. We wish to fill the truck with as
+heavy a load as possible without exceeding the given weight limit.
+
+In this section, we present an exponential-time algorithm that computes the op-
+timal value for this optimization problem, and then we show how to modify the
+algorithm so that it becomes a fully polynomial-time approximation scheme. (Re-
+call that a fully polynomial-time approximation scheme has a running time that is
+polynomial in 1/e as well as in the size of the input.)
+
+An exponential-time exact algorithm
+
+Suppose that we computed, for each subset S’ of S, the sum of the elements
+in S’, and then we selected, among the subsets whose sum does not exceed f,
+the one whose sum was closest to f. Clearly this algorithm would return the op-
+timal solution, but it could take exponential time. To implement this algorithm,
+we could use an iterative procedure that, in iteration i, computes the sums of
+all subsets of {x),X2,...,X;}, using as a starting point the sums of all subsets
+of {X1,X2,...,X;—1}. In doing so, we would realize that once a particular subset S’
+had a sum exceeding f, there would be no reason to maintain it, since no super-
+set of S’ could be the optimal solution. We now give an implementation of this
+strategy.
+
+The procedure EXACT-SUBSET-SUM takes an input set S = {X1,X2,....Xn}
+and a target value ¢; we’ll see its pseudocode in a moment. This procedure it-
+
+ 
+

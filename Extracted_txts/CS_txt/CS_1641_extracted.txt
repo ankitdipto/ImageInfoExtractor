@@ -1,0 +1,51 @@
+5.8 JavaThreads 145
+
+the parent process is to be shared with the child. If none of the flags is set,
+no sharing occurs and clone acts just like fork. If all five flags are set, the
+child process shares everything with the parent. Other combinations of the
+flags allow various levels of sharing between these two extremes.
+
+Interestingly, Linux does not distinguish between processes and threads.
+In fact, Linux generally uses the term task—rather than process or thread—
+when referring to a flow of control within a program. Aside from the cloned
+process, Linux does not support multithreading, separate data structures, or
+kernel routines. However, various Pthreads implementations are available for
+user-level multithreading.
+
+5.8 = Java Threads
+
+As we have already seen, support for threads may be provided at the user level
+with a library such as Pthreads. Furthermore, most operating systems provide
+support for threads at the kernel level as well. Java is one of a small number
+of languages that provide support at the language level for the creation and
+management of threads. However, because threads are managed by the Java
+Virtual Machine (JVM), not by a user-level library or kernel, it is difficult to
+classify Java threads as either user- or kernel-level. In this section we present
+Java threads as an alternative to the strict user- or kernel-level models. Later
+in this section, we will discuss how a Java thread may be mapped to the
+underlying kernel thread.
+
+AllJava programs comprise at least a single thread of control. Evena simple
+Java program consisting of only a main method runs as a single thread in the
+JVM. In addition, Java provides commands that allow the developer to create
+and manipulate additional threads of control within the program.
+
+5.8.1 Thread Creation
+
+One way to create a thread explicitly is to create a new class that is derived from
+the Thread class, and to override the run method of the Thread class. This
+approach is shown in Figure 5.8, the Java version of a multithreaded program
+that determines the summation of a non-negative integer.
+
+An object of this derived class will run as a separate thread of control in the
+JVM. However, creating an object that is derived from the Thread class does not
+specifically create the new thread; rather, it is the start method that actually
+creates the new thread. Calling the start method for the new object does two
+things:
+
+1. Itallocates memory and initializes a new thread in the JVM.
+
+2. It calls the run method, making the thread eligible to be run by the JVM.
+(Note that you do not ever call the run method directly. Rather, call the
+start method, and it will call the run method on your behalf.)
+

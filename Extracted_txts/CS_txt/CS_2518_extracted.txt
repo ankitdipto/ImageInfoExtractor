@@ -1,0 +1,43 @@
+5.2 Indicator random variables 119
+
+Proof By the definition of an indicator random variable from equation (5.1) and
+the definition of expected value, we have
+
+E[X%4] = Ell{4})
+
+1-Pr{A} +0- Pr {4}
+
+= Pr{A},
+
+where A denotes S — A, the complement of A. :
+
+Although indicator random variables may seem cumbersome for an application
+such as counting the expected number of heads on a flip of a single coin, they are
+useful for analyzing situations in which we perform repeated random trials. For
+example, indicator random variables give us a simple way to arrive at the result
+of equation (C.37). In this equation, we compute the number of heads in n coin
+flips by considering separately the probability of obtaining 0 heads, 1 head, 2 heads,
+etc. The simpler method proposed in equation (C.38) instead uses indicator random
+variables implicitly. Making this argument more explicit, we let X; be the indicator
+random variable associated with the event in which the ith flip comes up heads:
+Xj = I {the ith flip results in the event H }. Let X be the random variable denoting
+the total number of heads in the n coin flips, so that
+
+X= yx.
+i=l
+
+We wish to compute the expected number of heads, and so we take the expectation
+of both sides of the above equation to obtain
+
+n
+E[X] =E [E*| .
+i=l
+
+The above equation gives the expectation of the sum of 7 indicator random vari-
+ables. By Lemma 5.1, we can easily compute the expectation of each of the random
+variables. By equation (C.21)—linearity of expectation—it is easy to compute the
+expectation of the sum: it equals the sum of the expectations of the n random
+variables. Linearity of expectation makes the use of indicator random variables a
+powerful analytical technique; it applies even when there is dependence among the
+random variables. We now can easily compute the expected number of heads:
+

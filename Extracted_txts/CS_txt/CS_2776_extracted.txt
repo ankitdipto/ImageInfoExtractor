@@ -1,0 +1,31 @@
+(a)
+
+(b)
+
+(©)
+
+@
+
+13.4 Deletion 329
+
+ 
+
+   
+
+new x = T.root
+
+Figure 13.7 The cases in the while loop of the procedure RB-DELETE-FIxuP. Darkened nodes
+have color attributes BLACK, heavily shaded nodes have color attributes RED, and lightly shaded
+nodes have color attributes represented by c and c’, which may be either RED or BLACK. The letters
+a, B,...,¢ represent arbitrary subtrees. Each case transforms the configuration on the left into the
+configuration on the right by changing some colors and/or performing a rotation. Any node pointed
+to by x has an extra black and is either doubly black or red-and-black. Only case 2 causes the loop to
+repeat. (a) Case 1 is transformed to case 2, 3, or 4 by exchanging the colors of nodes B and D and
+performing a left rotation. (b) In case 2, the extra black represented by the pointer x moves up the
+tree by coloring node D red and setting x to point to node B. If we enter case 2 through case 1, the
+while loop terminates because the new node x is red-and-black, and therefore the value c of its color
+attribute is RED. (c) Case 3 is transformed to case 4 by exchanging the colors of nodes C and D and
+performing a right rotation. (d) Case 4 removes the extra black represented by x by changing some
+colors and performing a left rotation (without violating the red-black properties), and then the loop
+terminates.
+

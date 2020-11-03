@@ -1,0 +1,51 @@
+11.4 Open addressing 269
+
+11,3-3
+
+Consider a version of the division method in which h(k) = k mod m, where
+m = 2? —1 and k is a character string interpreted in radix 2?. Show that if we
+can derive string x from string y by permuting its characters, then x and y hash to
+the same value. Give an example of an application in which this property would be
+undesirable in a hash function.
+
+I1.3-4
+
+Consider a hash table of size m = 1000 and a corresponding hash function i(k) =
+[m (kA mod 1)| for A = (V5 — 1)/2. Compute the locations to which the keys
+61, 62, 63, 64, and 65 are mapped.
+
+113-5 x
+
+Define a family # of hash functions from a finite set U to a finite set B to be
+e-universal if for all pairs of distinct elements k and / in U,
+
+Pr {h(k) =h()} <e.
+
+where the probability is over the choice of the hash function / drawn at random
+from the family J€. Show that an €-universal family of hash functions must have
+
+tt
+~ (Bi Ul”
+113-6 *
+
+Let U be the set of n-tuples of values drawn from Zp, and let B = Zp, where p
+is prime. Define the hash function hy : U — B for b € Zp on an input n-tuple
+(40.d1,.... n—1) from U as
+
+nl
+hp ((do.d1,.++, G,-1)) = (Sw) mod p ,
+
+j=0
+
+and let #0 = {hy :b € Zp}. Argue that J is ((n — 1)/p)-universal according to
+the definition of €-universal in Exercise 11.3-5. (Hint: See Exercise 31.4-4.)
+
+ 
+
+11.4 Open addressing
+
+In open addressing, all elements occupy the hash table itself. That is, each table
+entry contains either an element of the dynamic set or NIL. When searching for
+an element, we systematically examine table slots until either we find the desired
+element or we have ascertained that the element is not in the table. No lists and
+

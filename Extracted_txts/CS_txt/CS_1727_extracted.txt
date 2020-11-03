@@ -1,0 +1,42 @@
+7.6 CriticalRegions 215
+
+When a process leaves the critical section, it may have changed the value
+of some Boolean condition B that prevented another process from entering the
+critical section. Accordingly, we must trace through the queue of processes
+waiting on first_delay and second_delay (in that order) allowing each
+process to test its Boolean condition. When a process tests its Boolean condition
+(during this trace), it may discover that the latter now evaluates to the value
+true. In this case, the process enters its critical section. Otherwise, the
+process must wait again on the first_delay and second_delay semaphores,
+as described previously. Accordingly, for a shared variable x, the statement
+
+region x when (B) S;
+
+can be implemented as shown in Figure 7.18. Note that this implementation
+requires the reevaluation of the expression B for any waiting processes every
+time a process leaves the critical region. If several processes are delayed waiting
+for their respective Boolean expressions to become true, this reevaluation
+overhead may result in inefficient code. We can use various optimization
+methods to reduce this overhead. Refer to the Bibliographical Notes for relevant
+references.
+
+monitor monitor-name
+
+{
+shared variable declarations
+procedure body Pi (... ) {
+}
+procedure body P2(... ) {
+}
+procedure body Pn (... ) {
+}
+{
+
+initialization code
+
+}
+
+}
+
+Figure 7.19 Syntax of a monitor.
+

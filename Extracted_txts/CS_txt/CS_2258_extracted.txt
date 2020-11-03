@@ -1,0 +1,67 @@
+308
+
+Chapter 10. Logical Reasoning Systems
+
+ 
+
+‘OR-PARALLELISM
+
+AND-PARALLELISM
+
+‘CONSTRAINT LOGIC
+PROGRAWMING
+
+TYPE PREDICATES
+
+Other logic programming languages
+
+Although Prolog is the only accepted standard for logic programming, there are many other useful
+systems, each extending the basic Prolog model in different ways.
+
+The parallelization of Prolog is an obvious direction to explore. If we examine the work
+done by a Prolog program, there are two principal sources of parallelism. The first, called
+OR-parallelism, comes from the possibility of a goal unifying with many different literals and
+implications in the knowledge base. Each gives rise to an independent branch in the search space
+that can lead to a potential solution, and all such branches can be solved in parallel. The second,
+called AND-parallelism, comes from the possibility of solving each conjunct in the body ofan
+implication in parallel. And-parallelism is more difficult to achieve, because solutions for the
+whole conjunction require consistent bindings for all the variables. Each conjunctive branch must
+communicate with the other branches to ensure a global solution. A number of projects have
+been successful in achieving a degree of parallel inference, but the most advanced is probably
+the PIM (Parallel Inference Machine) project, part of the Fifth Generation Computing Systems
+project in Japan. PIM has achieved speeds of 64 million LIPS.
+
+Prolog can be enriched, rather than just accelerated, by generalizing the notion of the
+binding of a variable. Prolog's logic variables are very useful because they allow a programmer
+to generate a partial solution to a problem, leaving some of the variables unbound, and then
+later fill in the values for those variables. Unfortunately, there is no way in Prolog to specify
+constraints on values: for example, to say thatX < 3, and then later in the computation determine
+the exact value ofX. The constraint logic programming (CLP) formalism extends the notions
+of variables and unification to allow such constraints. Consider this definition of a triangle based
+on the lengths of the three sides:
+
+Triangle(x, y, 2) <= (x >O)AQG>0DAE>NDAMtY>JAW+I>WA(KHz>y)
+
+In either Prolog or CLP, this definition can be used to confirm Triangle(3,4, 5). But only in CLP
+would the query Triangle(x, 4, 5) give the binding specified by the constraint {x> 1 Ax < 9}; in
+standard Prolog, this query would fail
+
+As well as using arithmetical constraints on variables, it is possible to use logical constraints.
+For example, we can insist that a particular variable refer to a Person. In standard Prolog, this
+can only be done by inserting the conjunct Person(p)into the body of a clause. Then, when the
+clause is used, the system will attempt to solve the remainder of the clause with p bound to each
+different person in the knowledge base. In languages such as Login and Life, literals containing
+type predicates such as Person are implemented as constraints. Inference is delayed until the
+constraints need to be resolved. Thus, Person(p)just means that the variable p is constrained
+to be a person; it does not generate alternative bindings forp. The use of types can simplify
+programs, and the use of constraints can speed up their execution.
+
+Advanced control facilities
+
+Going back to our census knowledge base, consider the query "What is the income of the spouse
+of the president?" This might be stated in Prolog as
+
+Income(s,1) A Married(s, p)A Occupation(p, President)
+
+ 
+

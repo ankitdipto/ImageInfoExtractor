@@ -1,0 +1,55 @@
+284
+
+CHAPTER EGHT Central Processing Unit
+
+3. A large variety of addressing modes—typically from 5 to 20 different
+modes
+
+4. Variable-length instruction formats
+
+5. Instructions that manipulate operands in memory
+
+RISC Characteristics
+
+The concept of RISC architecture involvesan attempt to reduce execution time
+by simplifying the instruction set of the computer. The major characteristics
+of a RISC processor are:
+
+1. Relatively few instructions
+
+2. Relatively few addressing modes
+
+3. Memory access limited to load and store instructions
+4. All operations done within the registers of the CPU
+5. Fixed-length, easily decoded instruction format
+
+6. Single-cycle instruction execution
+
+7. Hardwired rather than microprogrammed control
+
+The small set of instructions of a typical RISC processor consists mostly
+of register-to-register operations, with only simple load and store operations
+formemory access. Thus each operand isbroughtintoa processorregister with
+aload instruction. All computations are done among the data stored in proces-
+sor registers. Resultsare transferred tomemory by meansof store instructions.
+This architectural feature simplifies the instruction set and encourages the
+optimization of register manipulation. The use of only a few addressing modes
+results from the fact that almost all instructions have simple register address-
+ing. Other addressing modes may be included, such as immediate operands
+and relative mode.
+
+By using arelatively simple instruction format, the instructionlength can
+be fixedand alignedon word boundaries. An important aspect of RISC instruc-
+tion format is that it is easy to decode. Thus the operation code and register
+fields of the instruction code can be accessed simultaneously by the control.
+By simplifying the instructions and their format, it is possible to simplify the
+control logic. For faster operations, a hardwired control is preferable over a
+microprogrammed control. An example of hardwired control is presented in
+Chap. 5 in conjunction with the control unit of the basic computer. Examples
+of microprogrammed control are presented in Chap. 7.
+
+‘A characteristic of RISC processors is their ability to execute one instruc-
+tion per clock cycle. This is done by overlapping the fetch, decode, and execute
+phases of two or three instructions by using a procedure referred toas pipelin-
+ing. A load or store instruction may require two clock cycles because access to
+

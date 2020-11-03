@@ -1,0 +1,43 @@
+23.1 Growing a minimum spanning tree 625
+
+ 
+
+Figure 23.1 A minimum spanning tree for a connected graph. The weights on edges are shown,
+and the edges in a minimum spanning tree are shaded. The total weight of the tree shown is 37. This
+minimum spanning tree is not unique: removing the edge (b,c) and replacing it with the edge (a, h)
+yields another spanning tree with weight 37.
+
+to problems. For the minimum-spanning-tree problem, however, we can prove that
+certain greedy strategies do yield a spanning tree with minimum weight. Although
+you can read this chapter independently of Chapter 16, the greedy methods pre-
+sented here are a classic application of the theoretical notions introduced there.
+
+Section 23.1 introduces a “generic” minimum-spanning-tree method that grows
+a spanning tree by adding one edge at a time. Section 23.2 gives two algorithms
+that implement the generic method. The first algorithm, due to Kruskal, is similar
+to the connected-components algorithm from Section 21.1. The second, due to
+Prim, resembles Dijkstra’s shortest-paths algorithm (Section 24.3).
+
+Because a tree is a type of graph, in order to be precise we must define a tree in
+terms of not just its edges, but its vertices as well. Although this chapter focuses
+on trees in terms of their edges, we shall operate with the understanding that the
+vertices of a tree T are those that some edge of T is incident on.
+
+ 
+
+23.1 Growing a minimum spanning tree
+
+Assume that we have a connected, undirected graph G = (V, £) with a weight
+function w : E — R, and we wish to find a minimum spanning tree for G. The
+two algorithms we consider in this chapter use a greedy approach to the problem,
+although they differ in how they apply this approach.
+
+This greedy strategy is captured by the following generic method, which grows
+the minimum spanning tree one edge at a time. The generic method manages a set
+of edges A, maintaining the following loop invariant:
+
+Prior to each iteration, A is a subset of some minimum spanning tree.
+
+At each step, we determine an edge (u,v) that we can add to A without violating
+this invariant, in the sense that A U {(1, v)} is also a subset of a minimum spanning
+

@@ -1,0 +1,47 @@
+SECTION 10-7 Decimal Arithmetic Operations 369
+
+B,M’ + (BiB, + ByB)M
+44 = BeM’ + Bi BiBiM
+
+ 
+
+From these equations we see that x = B when M = 0. When M = 1, the x
+outputs produce the %s complement of B.
+
+(One stage ofa decimal arithmetic unit that can add orsubtract two BCD
+digits is shownin Fig. 10-19. It consists of aBCD adder and as complementer.
+‘The mode Mcontrols the operation ofthe unit WithM = 0, the S outputs form
+the sum of A and B. With M = 1, the S outputs form the sum of A plus the
+9’scomplement of B. For numbers with n decimal digits we need n such stages.
+The output carry C,,. from one stage must be connected to the input carry C,
+of the next-higher-order stage. The best way to subtract the two decimal
+numbers is to let M = 1 and apply a 1 to the input carry C; of the first stage.
+The outputs will form the sum of A plus the 10's complement of B, which
+is equivalent to a subtraction operation if the carry-out of the last stage is
+discarded.
+
+10-7 Decimal Arithmetic Operations
+
+The algorithms for arithmetic operations with decimal data are similar to the
+algorithms for the corresponding operations with binary data In fact, except
+fora slight modification in the multiplication and division algorithms, the same
+
+Figure 10-19 One stage of a decimal arithmetic unit.
+
+ 
+
+ 
+
+ 
+
+ 
+
+i
+iP i
+
+ 
+
+ 
+
+ 
+

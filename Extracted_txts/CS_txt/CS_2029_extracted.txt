@@ -1,0 +1,73 @@
+ 
+
+468 Chapter13 I/O Systems
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+aspect variation example
+data-transfer mode character terminal
+block disk
+access method sequential modem
+random CD-ROM
+transfer schedule synchronous tape
+asynchronous keyboard
+sharing dedicated tape
+sharable keyboard
+device speed latency
+seek time
+transfer rate
+delay between operations
+W/O direction read only CD-ROM
+write only graphics controller
+read-write disk
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 13.7 Characteristics of 1/O devices.
+
+© Sharable or dedicated: A sharable device can be used concurrently by
+several processes or threads; a dedicated device cannot.
+
+© Speed of operation: Device speeds range from a few bytes per second toa
+few gigabytes per second.
+
+« Read-write, read only, or write only: Some devices perform both input
+and output, but others support only one data direction.
+
+For the purpose of application access, many of these differences are hidden
+by the operating system, and the devices are grouped into a few conventional
+types. The resulting styles of device access have been found to be useful
+and broadly applicable. Although the exact system calls may differ across
+operating systems, the device categories are fairly standard. The major access
+conventions include block I/O, character-stream 1/O, memory-mapped file
+access, and network sockets. Operating systems also provide special system
+calls to access a few additional devices, such as a time-of-day clock and a timer.
+Some operating systems provide a set of system calls for graphical display,
+video, and audio devices.
+
+Most operating systems also have an escape (or back-door) that transpar-
+ently passes arbitrary commands from an application to a device driver. In
+UNIX, this system call is ioct1() (for I/O control). The ioct1() system call
+enables an application to access any functionality that can be implemented by
+any device driver, without the need to invent a new system call. The ioct1()
+

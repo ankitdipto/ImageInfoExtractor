@@ -1,0 +1,65 @@
+608
+
+Chapter 20. Reinforcement Learning
+
+ 
+
++ The agent must now choose an action at each step, and will need a performance element
+to do so. In the algorithm, this means calling PERFORMANCE-ELEMENT(e) and returning
+the resulting action. We assume that the model M and the utilities U are shared by the
+performance element; that is the whole point of learning them.
+
+We now reexamine the dynamic programming and temporal-difference approaches in the light
+of the first two changes. The question of how the agent should act is covered in Section 20.5.
+
+Because the ADP approach uses the environment model, we will need to change the
+algorithm for learning the model. Instead of learning the probability My ofa transition, we will
+need to learn the probability M¢ ofa transition conditioned on taking an action a. In the explicit
+tabular representation for M, this simply means accumulating statistics in a three-dimensional
+table. With an implicit functional representation, as we will soon see, the input to the function
+will include the action taken. We will assume that a procedure UPDATE-ACTIVE-MODEL takes
+care of this. Once the model has been updated, then the utility function can be recalculated using
+a dynamic programming algorithm and then the performance element chooses what to do next.
+We show the overall design for ACTIVE-ADP-AGENT in Figure 20.9.
+
+An active temporal-difference learning agent that learns utility functions also will need
+to lean a model in order to use its utility function to make decisions. The model acquisition
+problem for the TD agent is identical to that for the ADP agent. What of the TD update mle
+itself? Perhaps surprisingly, the update rule (20.2) remains unchanged. This might seem odd, for
+the following reason. Suppose the agent takes a step that normally leads to a good destination,
+but because ofnondeterminism in the environment the agent ends up ina catastrophic state. The
+TD update rule will take this as seriously as if the outcome had been the normal result of the
+
+ 
+
+function ACTIVE-ADP-AGENT(e) returns an action
+static: U, a table of utility estimates
+M, a table of transition probabilities from state to state for each action
+R, a table of rewards for states
+percepts, a percept sequence (initially empty)
+Jast-action, the actionjust executed
+
+add e to percepts
+R[StatE[e]] — REWARD{e]
+M — Uppate-AcTIVE-MopeL(M, percepts, last-action)
+U— VALUE-ITERATION(U, M, R)
+if TERMINAL?[e] then
+percepts — the empty sequence
+last-action — PERFORMANCE-ELEMENT(e)
+return Jast-action
+
+ 
+
+ 
+
+Figure 20.9 Design for an active ADP agent. The agent leams an environment model
+by observing the results of its actions, and uses the model to calculate the utility function
+U using a dynamic programming algorithm (here POLICY-ITERATION could be substituted for
+VALUE-ITERATION)
+
+ 
+
+ 
+
+ 
+

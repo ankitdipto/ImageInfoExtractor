@@ -1,0 +1,49 @@
+550
+
+Chapter 20 van Emde Boas Trees
+
+VEB-TREE-MINIMUM (V)
+1 return V.min
+
+VEB-TREE-MAXIMUM(V)
+1 return V.max
+
+Determining whether a value is in the set
+
+The procedure VEB-TREE-MEMBER(V,x) has a recursive case like that of
+PROTO-VEB-MEMBER, but the base case is a little different. We also check di-
+rectly whether x equals the minimum or maximum element. Since a vEB tree
+doesn’t store bits as a proto-vEB structure does, we design VEB-TREE-MEMBER
+to return TRUE or FALSE rather than | or 0.
+
+VEB-TREE-MEMBER(V, x)
+
+1 if. x == V.min or x == V.max
+
+2 return TRUE
+
+3 elseif V.u == 2
+
+4 return FALSE
+
+5 else return VEB-TREE-MEMBER (V.cluster[high(x)], low(x))
+
+Line 1 checks to see whether x equals either the minimum or maximum element.
+If it does, line 2 returns TRUE. Otherwise, line 3 tests for the base case. Since
+a vEB(2) tree has no elements other than those in min and max, if it is the base
+case, line 4 returns FALSE. The other possibility — it is not a base case and x equals
+neither min nor max—is handled by the recursive call in line 5.
+
+Recurrence (20.4) characterizes the running time of the VEB-TREE-MEMBER
+procedure, and so this procedure takes O(1g lg) time.
+
+Finding the successor and predecessor
+
+Next we see how to implement the SUCCESSOR operation. Recall that the pro-
+cedure PROTO-vVEB-SUCCESSOR (V, x) could make two recursive calls: one to
+determine whether x’s successor resides in the same cluster as x and, if it does
+not, one to find the cluster containing x’s successor. Because we can access the
+maximum value in a VEB tree quickly, we can avoid making two recursive calls,
+and instead make one recursive call on either a cluster or on the summary, but not
+on both.
+

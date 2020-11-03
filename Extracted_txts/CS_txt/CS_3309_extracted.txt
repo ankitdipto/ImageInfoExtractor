@@ -1,0 +1,50 @@
+Section 22.2. Types of Communicating Agents 661
+
+ 
+
+might introduce the symbols P\ and P) to denote the two pits that caused the breezes, and
+must then do some reasoning to decide if P; = P2. But the problem is harder for multiple
+agents because they share fewer symbols to begin with, and thus have less common ground
+to reason with. In particular, agent B has the problem of deciding how the situation S49
+relates to its own situation symbols. This problem can be lessened by minimizing the
+number of new symbols. For example, 4 could tell B that there is a pit in [2,3] without
+introducing any new dynamic symbols with the following action:
+
+TELL(KBs.Sp,s Pit(p) A At(p, [2,31,5)”)
+
+This sentence is weaker than the one containing P4, and S49 because it does not say which
+pit is in [2,3], nor when it was there, but it turns out that these facts do not really matter for
+the wumpus world. Note that this sentence is similar to the English sentence "There is a
+pit in 2,3," which also fails to uniquely identify the pit and the time.
+
+3. The final difficulty is in reconciling the differences between different agents’ knowledge
+bases. If communication is free and instantaneous, then all agents can adopt the policy of
+broadcasting each new fact to everyone else as soon as they learn it. That way everyone
+will have all the same knowledge. But in most applications, the bandwidth between agents
+is limited, and they are often completely out of touch with each other for periods of time.
+When they come back into contact, they have the problem ofdeciding what new information
+is worth communicating, and of discovering what interesting facts the other agent knows.
+
+Another problem with telepathic agents as we have described them is that they are vulnerable to
+sabotage. Another agent could TELL lies directly into the knowledge base and make our naive
+telepathic agent believe anything.
+
+Communicating using formal language
+
+Because of the sabotage problem, and because it is infeasible for everyone to have the same
+internal language, most agents communicate through language rather than through direct access
+to knowledge bases. Figure 22.3 shows a diagram of this type of communication. Agents
+can perform actions that produce language, which other agents can perceive. The extemal
+communication language can be different from the internal representation language, and the
+agents can each have different internal languages. They need not agree on any intemal symbols
+at all as long as each one can map reliably from the external language to its own internal symbols.
+
+An external communication language brings with it the problems of generation and analysis,
+and much of the effort in natural language processing (NLP) has gone into devising algorithms
+for these two processes. But the hardest part of communication with language is still problem
+(3) from the previous section: reconciling the differences between different agents’ knowledge
+bases. What agent 4 says, and how agent B interprets A’s statement depends crucially on what 4
+and B already believe (including what they believe about each other's beliefs). This means that
+agents that have the same internal and external language would have an easy time with generation
+and analysis, but they would still find it challenging to decide what to say to each other.
+

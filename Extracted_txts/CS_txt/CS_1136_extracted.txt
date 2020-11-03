@@ -1,0 +1,66 @@
+Section 7.6.
+
+ 
+
+Representing Change in the World
+
+207
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+THE FRAME PROBLEM AND ITS RELATIVES
+
+Many AI texts refer to something called the frame problem. The problem was noticed
+soon after situation calculus was applied to reasoning about actions. Originally, it
+centered on the apparently unavoidable need for a large number of frame axioms that
+made for a very inelegant and inefficient description of actions. Many researchers
+considered the problem insoluble within first-order logic. There are at least three
+entire volumes of collected papers on the problem, and at least one author (Crockett,
+1994)cites the problem as one symptom of the inevitable failure of the AI enterprise
+
+The proliferation of frame axioms is now called the representational frame
+problem, and as we have shown, is easily solved using successor-state axioms. The
+inferential frame problem concerns the way we make inferences about the world.
+When reasoning about the result of a long sequence of actions in situation calculus,
+one has to carry each property through all intervening situations one step at a time,
+even ifthe property remains unchanged throughout. This is true whether one uses
+frame axioms or successor-state axioms. One would like to be able to make only
+the changes required by the action descriptions, and have the rest available without
+further effort. This seems like the natural and efficient thing to do because we do
+not expect more than a small fraction of the world to change at any given moment.
+Of course, we cannot expect a general-purpose representation language such as first-
+order logic (and associated general-purpose reasoning systems) to have this bias. It is
+possible, however, to build special-purpose reasoning systems that do work efficiently
+for reasoning about actions that change only a small fraction of the world. These are
+called planning systems, and are the subject of Part IV.
+
+Other problems besides the frame problem have surfaced in the study of reasoning
+about actions. The qualification problem arises because it is difficult, in the real
+world, to define the circumstances under which a given action is guaranteed to work.
+In the real world, grabbing a gold brick may not work ifthe brick is wet and slippery,
+or if it is electrified or screwed to the table, or if your back gives out when you bend
+over, or ifthe guard shoots you, and so on. If some of these conditions are left out of
+the successor-state axiom, then the agent is in danger of generating false beliefs.
+
+Finally, the ramification problem concerns the proliferation of implicit conse-
+quences of actions. For example, if a gold brick is covered in dust, then when the
+agent picks up the brick it also picks up each particle of dust that adheres to the brick.
+One prefers to avoid describing the motion of the dust (ifany) as part of the description
+of picking up things in general. It is better to state separately that the dust is stuck to
+the brick, and to infer the new location of the dust as necessary. Doing this efficiently
+requires a special-purpose reasoning system, just as with the frame problem.
+
+ 
+
+ 
+
+ 
+

@@ -1,0 +1,46 @@
+250 Chapter8 Deadlocks
+
+of recognizing what has happened. In this case, the undetected deadlock will
+result in the deterioration of the system performance, because resources are
+being held by processes that cannot run, and because more and more processes,
+as they make requests for resources, enter a deadlock state. Eventually, the
+system will stop functioning and will need to be restarted manually.
+
+Although this method does not seem to be a viable approach to the dead-
+lock problem, it is nevertheless used in some operating systems. In many
+systems, deadlocks occur infrequently (say, once per year); thus, this method is
+cheaper than the costly deadlock-prevention, deadlock-avoidance, or deadlock-
+detection and recovery methods that must be used constantly. Also, in some
+circumstances, the system is in a frozen state but not in a deadlock state. As
+an example, consider a real-time process running at the highest priority (or any
+process running on a non-preemptive scheduler) and never returning control to
+the operating system. Thus, systems must have manual recovery methods for
+non-deadlock conditions, and may simply use those techniques for deadlock
+recovery.
+
+8.4 = Deadlock Prevention
+
+As we noted in Section 8.2.1, for a deadlock to occur, each of the four necessary
+conditions must hold. By ensuring that at least one of these conditions cannot
+hold, we can prevent the occurrence of a deadlock. Let us elaborate on this
+approach by examining each of the four necessary conditions separately.
+
+8.4.1 Mutual Exclusion
+
+The mutual-exclusion condition must hold for nonsharable resources. For
+example, a printer cannot be simultaneously shared by several processes.
+Sharable resources, on the other hand, do not require mutually exclusive access,
+and thus cannot be involved in a deadlock. Read-only files are a good example
+of a sharable resource. If several processes attempt to open a read-only file at
+the same time, they can be granted simultaneous access to the file. A process
+never needs to wait for a sharable resource. In general, however, we cannot
+prevent deadlocks by denying the mutual-exclusion condition: Some resources
+are intrinsically nonsharable.
+
+8.4.2 Hold and Wait
+
+To ensure that the hold-and-wait condition never occurs in the system, we must
+guarantee that, whenever a process requests a resource, it does not hold any
+other resources. One protocol that can be used requires each process to request
+and be allocated all its resources before it begins execution. We can implement
+

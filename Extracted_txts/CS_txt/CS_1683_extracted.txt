@@ -1,0 +1,53 @@
+180 Chapter6 CPU Scheduling
+
+6.7.2. An Example: Windows 2000
+
+Windows 2000 schedules threads using a priority-based, preemptive scheduling
+algorithm. The Windows 2000 scheduler ensures the highest-priority thread will
+always run. The portion of the Windows 2000 kernel that handles scheduling
+is called the dispatcher. A thread selected to run by the dispatcher will run
+until it is preempted by a higher-priority thread, until it terminates, until its
+time quantum ends, or until it calls a blocking system call, such as for I/O. Ifa
+higher-priority real-time thread becomes ready while a lower-priority thread
+is running, the lower-priority thread will be preempted. This preemption
+gives a real-time thread preferential access to the CPU when the thread needs
+such access. Windows 2000 is not a hard real-time operating system, however,
+because it does not guarantee that a real-time thread will start to execute within
+any particular time limit.
+
+The dispatcher uses a 32-level priority scheme to determine the order of
+thread execution. Priorities are divided into two classes: the variable class
+contains threads having priorities from 1 to 15, and the real-time class contains
+threads with priorities ranging from 16 to 31. (There is also a thread running at
+priority 0 that is used for memory management.) The dispatcher uses a queue
+for each scheduling priority, and traverses the set of queues from highest to
+lowest until it finds a thread that is ready to run. If no ready thread is found,
+the dispatcher will execute a special thread called the idle thread.
+
+There is a relationship between the numeric priorities of the Windows 2000
+kernel and the Win32 API. The Win32 API identifies several priority classes that
+a process may belong to. These include:
+
+ REALTIME_PRIORITY-CLASS
+
+¢ HIGH_PRIORITY-CLASS
+
+« ABOVE.NORMAL-PRIORITY-CLASS
+
+e@ NORMAL-PRIORITY_CLASS
+
+ BELOW_NORMAL.-PRIORITY-CLASS
+
+ IDLE_PRIORITY-CLASS
+All priority classes except the REALTIME_PRIORITY.CLASS are variable class
+priorities, meaning that the priority of a thread belonging to one of these classes
+can change.
+
+Within each of these priority classes is a relative priority. The values for
+
+relative priority include:
+
+e@ TIME-CRITICAL
+
+e HIGHEST
+

@@ -1,0 +1,41 @@
+Minimum Spanning Trees
+
+ 
+
+Electronic circuit designs often need to make the pins of several components elec-
+trically equivalent by wiring them together. To interconnect a set of 7 pins, we can
+use an arrangement of n — | wires, each connecting two pins. Of all such arrange-
+ments, the one that uses the least amount of wire is usually the most desirable.
+
+We can model this wiring problem with a connected, undirected graph G =
+(V, E), where V is the set of pins, E is the set of possible interconnections between
+pairs of pins, and for each edge (u,v) € E, we have a weight w(u, v) specifying
+the cost (amount of wire needed) to connect u and v. We then wish to find an
+acyclic subset T C E that connects all of the vertices and whose total weight
+
+w(T)= > w(u,v)
+
+(uv)eT
+
+is minimized. Since T is acyclic and connects all of the vertices, it must form a tree,
+which we call a spanning tree since it “spans” the graph G. We call the problem of
+determining the tree T the minimum-spanning-tree problem.' Figure 23.1 shows
+an example of a connected graph and a minimum spanning tree.
+
+In this chapter, we shall examine two algorithms for solving the minimum-
+spanning-tree problem: Kruskal’s algorithm and Prim’s algorithm. We can easily
+make each of them run in time O(E lg V) using ordinary binary heaps. By using
+Fibonacci heaps, Prim’s algorithm runs in time O(E + V lg V), which improves
+over the binary-heap implementation if |V| is much smaller than | E}.
+
+The two algorithms are greedy algorithms, as described in Chapter 16. Each
+step of a greedy algorithm must make one of several possible choices. The greedy
+strategy advocates making the choice that is the best at the moment. Such a strat-
+egy does not generally guarantee that it will always find globally optimal solutions
+
+ 
+
+! The phrase “minimum spanning tree” is a shortened form of the phrase “minimum-weight spanning
+tree.” We are not, for example, minimizing the number of edges in T, since all spanning trees have
+exactly || — 1 edges by Theorem B.2.
+

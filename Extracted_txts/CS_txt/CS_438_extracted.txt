@@ -1,0 +1,65 @@
+32.3 String matching with finite automata 997
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(a)
+input
+state abc P
+0 fifofo] a
+1 Jif2fo] b
+2 [3]folo] a
+3 [1]4fo] »
+4 [sfofo] a
+s |1]4]6|] ¢ i —-12345678 91011
+6 |7[o]o|] a Ti] -—abababacaba
+7 /1[2]o state g(T;) 0 123 45 4 5 62 3
+(b) (c)
+
+Figure 32.7 (a) A state-transition diagram for the string-matching automaton that accepts all
+strings ending in the string ababaca. State 0 is the start state, and state 7 (shown blackened) is
+the only accepting state. A directed edge from state i to state j labeled a represents 6(i,a) = j. The
+right-going edges forming the “spine” of the automaton, shown heavy in the figure, correspond to
+successful matches between pattern and input characters. The left-going edges correspond to failing
+matches. Some edges corresponding to failing matches are omitted; by convention, if a state i has
+no outgoing edge labeled a for some a € , then (i,a) = 0. (b) The corresponding transition
+function 5, and the pattern string P = ababaca. The entries corresponding to successful matches
+between pattern and input characters are shown shaded. (c) The operation of the automaton on the
+text T = abababacaba. Under each text character T[i] appears the state #(7;) that the automa-
+ton is in after processing the prefix 7}. The automaton finds one occurrence of the pattern, ending in
+position 9.
+
+The suffix function o is well defined since the empty string Po = e is a suf-
+fix of every string. As examples, for the pattern P = ab, we have o(e) = 0,
+o(ccaca) = 1, and o(ccab) = 2. Fora pattern P of length m, we have
+o(x) = m if and only if P 3 x. From the definition of the suffix function,
+xX 2 y implies o(x) < o()).
+
+We define the string-matching automaton that corresponds to a given pattern
+P[1..m] as follows:
+

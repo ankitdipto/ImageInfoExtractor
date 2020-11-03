@@ -1,0 +1,63 @@
+ 
+
+14.3 Disk Management 501
+
+ 
+
+sector 0 boot block
+
+1 5
+sector FAT
+
+ 
+
+root directory
+Leseeiarneraead
+
+data blocks
+(subdirectories) i
+
+ 
+
+ 
+
+ 
+
+Figure 14.6 MS-DOS disk layout.
+
+More sophisticated disks, such as the SCSI disks used in high-end PCs and
+most workstations and servers, are smarter about bad-block recovery. The
+controller maintains a list of bad blocks on the disk. The list is initialized during
+the low-level format at the factory, and is updated over the life of the disk. Low-
+level formatting also sets aside spare sectors not visible to the operating system.
+The controller can be told to replace each bad sector logically with one of the
+spare sectors. This scheme is known as sector sparing or forwarding.
+
+A typical bad-sector transaction might be as follows:
+
+« The operating system tries to read logical block 87.
+
+¢ The controller calculates the ECC and finds that the sector is bad. It reports
+this finding to the operating system.
+
+« The next time that the system is rebooted, a special command is run to tell
+the SCSI controller to replace the bad sector with a spare.
+
+After that, whenever the system requests logical block 87, the request is
+translated into the replacement sector’s address by the controller.
+
+Such a redirection by the controller could invalidate any optimization by
+the operating system’s disk-scheduling algorithm! For this reason, most disks
+are formatted to provide a few spare sectors in each cylinder, and a spare
+cylinder as well. When a bad block is remapped, the controller uses a spare
+sector from the same cylinder, if possible.
+
+As an alternative to sector sparing, some controllers can be instructed to
+teplace a bad block by sector slipping. Here is an example: Suppose that
+logical block 17 becomes defective, and the first available spare follows sector
+202. Then, sector slipping would remap all the sectors from 17 to 202, moving
+them all down one spot. That is, sector 202 would be copied into the spare, then
+sector 201 into 202, and then 200 into 201, and so on, until sector 18 is copied
+into sector 19. Slipping the sectors in this way frees up the space of sector 18, so
+sector 17 can be mapped to it.
+

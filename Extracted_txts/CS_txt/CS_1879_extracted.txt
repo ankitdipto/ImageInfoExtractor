@@ -1,0 +1,63 @@
+274
+
+Chapter 9. Inference in First-Order Logic
+
+ 
+
+DATA-DRIVEN
+
+Now we add the atomic sentences to the knowledge base one by one, forward chaining each time
+and showing any additional facts that are added:
+
+FORWARD-CHAIN(KB, American(West))
+
+Add to the KB. It unifies with a premise of (9.36), but the other premises of (9.36) are not known,
+so FORWARD-CHAIN returns without making any new inferences.
+
+FORWARD-CHAIN(KB, Nation(Nono))
+
+Add to the KB. It unifies with a premise of (9.36), but there are still missing premises, so
+FORWARD-CHAIN returns.
+
+FORWARD-CHAIN (KB, Enemy(Nono, America))
+Add to the KB. It unifies with the premise of (9.39), with unifier {x/Nono}.Call
+FORWARD-CHAIN (KB, Hostile(Nono))
+
+Add to the KB. It unifies with a premise of (9.36). Only two other premises are known, so
+processing terminates.
+
+FORWARD-CHAIN (KB, Owns(Nono,M1))
+
+Add to the KB. It unifies with a premise of (9.37), with unifier {x/M1}.The other premise, now
+Missile(M 1)is not known, so processing terminates.
+
+FORWARD-CHAIN(KB, Missile(M1))
+Add to the KB. Itunifies with a premise of (9.37) and (9.38). We will handle them in that order.
+
+* Missile(M unifies with a premise of (9.37) with unifier {x/M1}. The other premise, now j
+Owns(Nono, M 1),is known, so call
+
+FORWARD-CHAIN(KB, Sells(West, Nono,M1))
+Add to the KB. It unifies with a premise of (9.36), with unifier {x/West, y/M1,</Nono}
+The premise Weapon(M1js unknown, so processing terminates
+* Missile(M \)unifies with a premise of (9.38) with unifier {x/M1}.Call
+FORWARD-CHAIN(KB, Weapon(M1))
+
+Add to the KB. It unifies with a premise of (9.36), with unifier {y/M1}.The other premises
+are all known, with accumulated unifier {x/West, y/M1,z/Nono} Call
+
+FORWARD-CHAIN(KB, Criminal(West))
+Add to the KB. Processing terminates.
+
+  
+ 
+
+As can be seen from this example, forward chaining builds up a picture of the situation gradually
+as new data comes in. Its inference processes are not directed toward solving any particular
+problem; for this reason it is called a data-driven or data-directed procedure. In this example,
+there were no rules capable of drawing irrelevant conclusions, so the lack of directedness was not
+a problem. In other cases (for example, if we have several rules describing the eating habits of
+Americans andthe price ofmissiles), FORWARD-CHAIN will generate many irrelevant conclusions.
+In such cases, it is often better to use backward chaining, which directs all its effort toward the
+question at hand.
+

@@ -1,0 +1,49 @@
+5.1 Overview 131
+
+Threads also play a vital role in remote procedure call (RPC) systems. Recall
+from Chapter 4 that RPCs allow interprocess communication by providing a
+communication mechanism similar to ordinary function or procedure calls.
+Typically, RPC servers are multithreaded. When a server receives a message, it
+services the message using a separate thread. This allows the server to service
+several concurrent requests.
+
+5.1.2 Benefits
+
+The benefits of multithreaded programming can be broken down into four
+major categories:
+
+1. Responsiveness: Multithreading an interactive application may allow a
+program to continue running even if part of it is blocked or is performing
+a lengthy operation, thereby increasing responsiveness to the user. For
+instance, a multithreaded web browser could still allow user interaction
+in one thread while an image is being loaded in another thread.
+
+2. Resource sharing: By default, threads share the memory and the resources
+of the process to which they belong. The benefit of code sharing is that it
+allows an application to have several different threads of activity all within
+the same address space.
+
+3. Economy: Allocating memory and resources for process creation is costly.
+Alternatively, because threads share resources of the process to which they
+belong, it is more economical to create and context switch threads. It can
+be difficult to gauge empirically the difference in overhead for creating and
+maintaining a process rather than a thread, but in general it is much more
+time consuming to create and manage processes than threads. In Solaris 2,
+creating a process is about 30 times slower than is creating a thread, and
+context switching is about five times slower.
+
+4. Utilization of multiprocessor architectures: The benefits of multithreading
+can be greatly increased in a multiprocessor architecture, where each thread
+may be running in parallel on a different processor. A single-threaded
+process can only run on one CPU, no matter how many are available.
+Multithreading on a multi-CPU machine increases concurrency. In a single-
+processor architecture, the CPU generally moves between each thread so
+quickly as to create an illusion of parallelism, but in reality only one thread
+is running at a time.
+
+5.1.3 User and Kernel Threads
+
+Our discussion so far has treated threads in a generic sense. However, support
+for threads may be provided at either the user level, for user threads, or by the
+kernel, for kernel threads.
+

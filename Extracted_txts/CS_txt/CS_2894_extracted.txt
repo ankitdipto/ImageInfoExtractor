@@ -1,0 +1,51 @@
+424
+
+Chapter 16 Greedy Algorithms
+
+3. Demonstrate optimal substructure by showing that, having made the greedy
+choice, what remains is a subproblem with the property that if we combine an
+optimal solution to the subproblem with the greedy choice we have made, we
+arrive at an optimal solution to the original problem.
+
+We shall use this more direct process in later sections of this chapter. Neverthe-
+less, beneath every greedy algorithm, there is almost always a more cumbersome
+dynamic-programming solution.
+
+How can we tell whether a greedy algorithm will solve a particular optimization
+problem? No way works all the time, but the greedy-choice property and optimal
+substructure are the two key ingredients. If we can demonstrate that the problem
+has these properties, then we are well on the way to developing a greedy algorithm
+for it.
+
+Greedy-choice property
+
+The first key ingredient is the greedy-choice property: we can assemble a globally
+optimal solution by making locally optimal (greedy) choices. In other words, when
+we are considering which choice to make, we make the choice that looks best in
+the current problem, without considering results from subproblems.
+
+Here is where greedy algorithms differ from dynamic programming. In dynamic
+programming, we make a choice at each step, but the choice usually depends on the
+solutions to subproblems. Consequently, we typically solve dynamic-programming
+problems in a bottom-up manner, progressing from smaller subproblems to larger
+subproblems. (Alternatively, we can solve them top down, but memoizing. Of
+course, even though the code works top down, we still must solve the subprob-
+lems before making a choice.) In a greedy algorithm, we make whatever choice
+seems best at the moment and then solve the subproblem that remains. The choice
+made by a greedy algorithm may depend on choices so far, but it cannot depend on
+any future choices or on the solutions to subproblems. Thus, unlike dynamic pro-
+gramming, which solves the subproblems before making the first choice, a greedy
+algorithm makes its first choice before solving any subproblems. A dynamic-
+programming algorithm proceeds bottom up, whereas a greedy strategy usually
+progresses in a top-down fashion, making one greedy choice after another, reduc-
+ing each given problem instance to a smaller one.
+
+Of course, we must prove that a greedy choice at each step yields a globally
+optimal solution. Typically, as in the case of Theorem 16.1, the proof examines
+a globally optimal solution to some subproblem. It then shows how to modify
+the solution to substitute the greedy choice for some other choice, resulting in one
+similar, but smaller, subproblem.
+
+We can usually make the greedy choice more efficiently than when we have to
+consider a wider set of choices. For example, in the activity-selection problem, as-
+

@@ -1,0 +1,102 @@
+78  Chapter3 Operating-System Structures
+
+These limitations have caused a small backlash against layering in recent
+years. Fewer layers with more functionality are being designed, providing most
+of the advantages of modularized code while avoiding the difficult problems
+of layer definition and interaction. For instance, OS/2 is a descendant of MS-
+DOS that adds multitasking and dual-mode operation, as well as other new
+features. Because of this added complexity and the more powerful hardware
+for which OS/2 was designed, the system was implemented in a more layered
+fashion. Compare the MS-DOS structure (Figure 3.6) with that shown in Figure
+3.9; from both the system-design and implementation standpoints, OS/2 has the
+advantage. For instance, direct user access to low-level facilities is not allowed,
+providing the operating system with more control over the hardware and more
+knowledge of which resources each user program is using.
+
+Asa further example, consider the history of Windows NT. The first release
+had a highly layer-oriented organization; however, it delivered low perfor-
+mance compared to that of Windows 95. Windows NT 4.0 partially redressed
+the performance problem by moving layers from user space to kernel space and
+more closely integrating them.
+
+ 
+
+application application application
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+subsystem subsystem
+system
+kernel memory management
+* task dispatching
+«device management
+device driver device driver device driver
+a
+L
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 3.9 OS/2 layer structure.
+
+ 
+

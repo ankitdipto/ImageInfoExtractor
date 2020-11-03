@@ -1,0 +1,48 @@
+Chapter 11: Console Input/Output 403
+
+ 
+
+will print...
+He said, "Let's do it!"
+
+So far we have been describing printf( )’s specification as if we
+are forced to use only %d for an integer, only %c for a char, only
+%s for a string and so on. This is not true at all. In fact, printf()
+uses the specification that we mention and attempts to perform the
+specified conversion, and does its best to produce a proper result.
+Sometimes the result is nonsensical, as in case when we ask it to
+print a string using %d. Sometimes the result is useful, as in the
+case we ask printf( ) to print ASCII value of a character using
+%d. Sometimes the result is disastrous and the entire program
+blows up.
+
+The following program shows a few of these conversions, some
+sensible, some weird.
+
+ 
+
+main()
+
+{
+char ch ;
+int i= 125;
+float a = 12.55 ;
+
+char s[] = "hello there !" ;
+
+printf ( "\n%c %d %f", ch, ch, ch) ;
+printf ( "\n%s %d %f", s, 5, $) ;
+printf ("\n%c %d %f".i,i, 1) ;
+printf ( "\n%f %d\n", a, a) ;
+
+}
+
+And here’s the output ...
+
+Z 122 -9362831782501783000000000000000000000000000.000000
+hello there ! 3280 -
+
+9362831782501 783000000000000000000000000000.000000
+
+} 125 -9362831782501783000000000000000000000000000.000000
+

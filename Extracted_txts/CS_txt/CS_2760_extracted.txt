@@ -1,0 +1,59 @@
+316
+
+Chapter 13 Red-Black Trees
+
+RB-INSERT-FIxuP (T, Z)
+
+ 
+
+ 
+
+ 
+
+1
+
+2
+
+3 y = Z.p.p.right
+
+4 if y.color == RED
+
+5 z.p.color = BLACK HW case 1
+6 y.color = BLACK HW case 1
+7 Z.p.p.color = RED 1 case 1
+8 HW case 1
+9
+10 Z=2p H case 2
+1 LEFT-ROTATE (T, z) // case 2
+12 z.p.color = BLACK 1 case 3
+13 Z.p.p.color = RED 1 case 3
+14 RIGHT-ROTATE(T, Z.p.p) 1 case 3
+15 else (same as then clause
+
+with “right” and “left” exchanged)
+16 T.root.color = BLACK
+
+To understand how RB-INSERT-FIxXuP works, we shall break our examination
+of the code into three major steps. First, we shall determine what violations of
+the red-black properties are introduced in RB-INSERT when node z is inserted
+and colored red. Second, we shall examine the overall goal of the while loop in
+lines 1-15. Finally, we shall explore each of the three cases! within the while
+loop’s body and see how they accomplish the goal. Figure 13.4 shows how RB-
+INSERT-FIXUP operates on a sample red-black tree.
+
+Which of the red-black properties might be violated upon the call to RB-
+INSERT-FIXUP? Property | certainly continues to hold, as does property 3, since
+both children of the newly inserted red node are the sentinel T.nil. Property 5,
+which says that the number of black nodes is the same on every simple path from
+a given node, is satisfied as well, because node z replaces the (black) sentinel, and
+node z is red with sentinel children. Thus, the only properties that might be vi-
+olated are property 2, which requires the root to be black, and property 4, which
+says that a red node cannot have a red child. Both possible violations are due to z
+being colored red. Property 2 is violated if z is the root, and property 4 is violated
+if z’s parent is red. Figure 13.4(a) shows a violation of property 4 after the node z
+has been inserted.
+
+ 
+
+' Case 2 falls through into case 3, and so these two cases are not mutually exclusive.
+

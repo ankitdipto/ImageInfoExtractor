@@ -1,0 +1,60 @@
+programmed 110
+
+interrupt
+
+DMA
+
+IOP
+
+SECTION 11-4 Modes of Transfer 403
+
+Programmed /O operations are the result of LO instructions written in
+the computer program. Each data item transfer is initiated by an instruction
+in the program. Usually, the transfer is to and from a CPU register and
+peripheral. Otherinstructions are needed to transferthe data to and from CPU
+and memory. Transferring data under program control requires constant mon-
+itoringof the peripheral by the CPU. Once a data transfer is initiated, the CPU
+is required to monitor the interface to see when a transfer can again be made.
+Itis up to the programmed instructions executed in the CPU to keepclose tabs
+on everything that is taking place in the interface unit and the UO device.
+
+In the programmed LO method, the CPU stays in a program loop until
+the /O unit indicates that it is ready for data transfer. This is a time-consuming
+process since it keeps the processor busy needlessly. It can be avoided by using
+an interrupt facility and special commands to inform the interface to issue an
+interrupt request signal when the data are available from the device. In the
+meantime the CPU can proceed to execute another program. The interface
+meanwhile keeps monitoring the device. When the interface determines that
+the device is ready for data transfer, it generates an interrupt request to the
+computer. Upon detecting the external interrupt signal, the CPU momentarily
+stops the task itis processing, branches to a service program to process the /O
+transfer, and then returns to the task it was originally performing.
+
+Transfer of data under programmed I/O is between CPU and peripheral.
+Indirect memory access (DMA), the interface transfers data into and out of the
+memory unit through the memory bus. The CPU initiates the transfer by
+supplying the interface with the starting address and the number of words
+needed to be transferred and then proceeds to execute other tasks. When the
+transferis made, the DMA requests memory cycles through the memory bus.
+When the requestiis granted by the memory controller, the DMA transfers the
+data directly intomemory. The CPU merely delays its memory access operation
+to allow the direct memory /O transfer. Since peripheral speed is usually
+slower than processor speed, I/O-memory transfers are infrequent compared
+to processor access to memory. DMA transfer is discussed in more detail in
+Sec. 114.
+
+Many computers combine the interface logic with the requirements for
+direct memory access into one unit and cal it an /O processor (IOP). The IOP
+can handle many peripherals through a DMA and interrupt facility. In such
+a system, the computer is divided into three separate modules: the memory
+unit, the CPU, and the IOP. /O processors are presented in Sec. 11-7.
+
+Example of Programmed /O
+
+In the programmed I/O method, the /O device does not have direct access to
+memory. A transfer from an /O device to memory requires the execution of
+severalinstructions by the CPU, including an input instruction to transfer the
+data from the device to the CPU and astoreinstruction to transfer the data from
+the CPU to memory. Other instructions may be needed to verify that the data
+are available from the device and to count the numbers of words transferred.
+

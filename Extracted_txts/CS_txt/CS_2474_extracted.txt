@@ -1,0 +1,48 @@
+Chapter 4 Divide-and-Conquer
+
+where the last step holds as long as c > 1.
+
+Mathematical induction now requires us to show that our solution holds for the
+boundary conditions. Typically, we do so by showing that the boundary condi-
+tions are suitable as base cases for the inductive proof. For the recurrence (4.19),
+we must show that we can choose the constant c large enough so that the bound
+T(n) <cnlgn works for the boundary conditions as well. This requirement
+can sometimes lead to problems. Let us assume, for the sake of argument, that
+T (1) = 1 is the sole boundary condition of the recurrence. Then for n = 1, the
+bound T(n) < cnlgn yields T(1) < cl lg 1 = 0, which is at odds with T(1) = 1.
+Consequently, the base case of our inductive proof fails to hold.
+
+We can overcome this obstacle in proving an inductive hypothesis for a spe-
+cific boundary condition with only a little more effort. In the recurrence (4.19),
+for example, we take advantage of asymptotic notation requiring us only to prove
+T(n) < cnlgn for n > no, where no is a constant that we get to choose. We
+keep the troublesome boundary condition T(1) = 1, but remove it from consid-
+eration in the inductive proof. We do so by first observing that for n > 3, the
+recurrence does not depend directly on T(1). Thus, we can replace T(1) by T(2)
+and 7 (3) as the base cases in the inductive proof, letting no = 2. Note that we
+make a distinction between the base case of the recurrence (n = 1) and the base
+cases of the inductive proof (n = 2 andn = 3). With T(1) = 1, we derive from
+the recurrence that T(2) = 4 and T(3) = 5. Now we can complete the inductive
+proof that T(n) < cnlgn for some constant c > 1 by choosing c large enough
+so that T(2) < c2lg2 and T(3) < c3lg3. As it tums out, any choice of c > 2
+suffices for the base cases of n = 2 and n = 3 to hold. For most of the recurrences
+we shall examine, it is straightforward to extend boundary conditions to make the
+inductive assumption work for small n, and we shall not always explicitly work out
+the details.
+
+Making a good guess
+
+Unfortunately, there is no general way to guess the correct solutions to recurrences.
+Guessing a solution takes experience and, occasionally, creativity. Fortunately,
+though, you can use some heuristics to help you become a good guesser. You
+can also use recursion trees, which we shall see in Section 4.4, to generate good
+guesses.
+
+If a recurrence is similar to one you have seen before, then guessing a similar
+solution is reasonable. As an example, consider the recurrence
+
+T(n) =2T(\n/2| +17) +n,
+
+which looks difficult because of the added “17” in the argument to T on the right-
+hand side. Intuitively, however, this additional term cannot substantially affect the
+

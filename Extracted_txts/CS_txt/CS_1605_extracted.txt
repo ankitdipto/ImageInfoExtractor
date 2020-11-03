@@ -1,0 +1,55 @@
+4.5 Interprocess Communication 115
+
+and two mailbox names. When a message is sent, one mailbox name is the
+mailbox to which the message is being sent. Commonly, the sending thread
+expects a reply; the mailbox name of the sender is passed on to the receiving
+task, which may use it as a “return address” to send messages back.
+
+The variable part of a message is a list of typed data items. Each entry in the
+list has a type, size, and value. The type of the objects specified in the message
+is important, since operating-system—defined objects—such as the ownership
+or receive access rights, task states, and memory segments—may be sent in
+messages.
+
+The send and receive operations themselves are flexible. For instance,
+when a message is sent to a mailbox, the mailbox may be full. If the mailbox is
+not full, the message is copied to the mailbox and the sending thread continues.
+If the mailbox is full, the sending thread has four options:
+
+1. Wait indefinitely until there is room in the mailbox.
+2. Wait at most n milliseconds.
+
+3. Do not wait at all, but rather return immediately.
+
+4.
+
+. Temporarily cache a message. One message can be given to the operating
+system to keep, even though the mailbox to which it is being sent is full.
+When the message can be put in the mailbox, a notification message is sent
+back to the sender; only one such message to a full mailbox can be pending
+at any time for a given sending thread.
+
+The final option is meant for server tasks, such as a line-printer driver. After
+finishing a request, these tasks may need to send a one-time reply to the task
+that had requested service, but must also continue with other service requests,
+even if the reply mailbox for a client is full.
+
+The receive operation must specify from which mailbox or mailbox set
+to receive a message. A mailbox set is a collection of mailboxes, as declared
+by the task, which can be grouped together and treated as one mailbox for
+the purposes of the task. Threads in a task can receive from only a mailbox
+or mailbox set for which that task has receive access. A port_status system
+call returns the number of messages in a given mailbox. The receive operation
+attempts to receive from either of the following:
+
+1. any mailbox in a mailbox set
+
+2. a specific (named) mailbox
+
+If no message is waiting to be received, the receiving thread may wait, wait at
+most n milliseconds, or not wait.
+
+The Mach system was especially designed for distributed systems, which
+we discuss in Chapters 15 through 17, but Mach is also suitable for single-
+processor systems. The major problem with message systems has generally
+

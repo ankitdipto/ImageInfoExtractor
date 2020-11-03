@@ -1,0 +1,39 @@
+ 
+
+2 Getting Started
+
+This chapter will familiarize you with the framework we shall use throughout the
+book to think about the design and analysis of algorithms. It is self-contained, but
+it does include several references to material that we introduce in Chapters 3 and 4.
+(It also contains several summations, which Appendix A shows how to solve.)
+
+We begin by examining the insertion sort algorithm to solve the sorting problem
+introduced in Chapter 1. We define a “pseudocode” that should be familiar to you if
+you have done computer programming, and we use it to show how we shall specify
+our algorithms. Having specified the insertion sort algorithm, we then argue that it
+correctly sorts, and we analyze its running time. The analysis introduces a notation
+that focuses on how that time increases with the number of items to be sorted.
+Following our discussion of insertion sort, we introduce the divide-and-conquer
+approach to the design of algorithms and use it to develop an algorithm called
+merge sort. We end with an analysis of merge sort’s running time.
+
+ 
+
+2.1 Insertion sort
+
+Our first algorithm, insertion sort, solves the sorting problem introduced in Chap-
+ter 1:
+
+Input: A sequence of 1 numbers (@;,d2.....4n).
+
+Output: A permutation (reordering) (a), a, ....a/,) of the input sequence such
+that a, <a, <--- <a}.
+
+The numbers that we wish to sort are also known as the keys. Although conceptu-
+ally we are sorting a sequence, the input comes to us in the form of an array with n
+elements.
+
+In this book, we shall typically describe algorithms as programs written in a
+pseudocode that is similar in many respects to C, C++, Java, Python, or Pascal. If
+you have been introduced to any of these languages, you should have little trouble
+

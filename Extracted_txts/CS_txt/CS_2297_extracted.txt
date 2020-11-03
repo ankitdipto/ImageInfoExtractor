@@ -1,0 +1,53 @@
+multiprogramming
+
+SECTION 12-1 Memory Hierarchy 447
+
+By making programsand dataavailableat a rapid rate, itis possible to increase
+the performance rate of the computer.
+
+While the UO processor manages data transfers between auxiliary mem-
+ory and main memory, the cache organization is concerned with the transfer
+of information between main memory and CPU. Thus each is involved with
+adifferent level in the memory hierarchy system. The reason for having two
+or three levels of memory hierarchy is economics. As the storage capacity of
+thememoryincreases, the cost per bit forstoring binary information decreases
+and the access time of the memory becomes longer. The auxiliary memory has
+a large storage capacity, is relatively inexpensive, but has low access speed
+compared to main memory. The cache memory is very small, relatively expen-
+sive, and has very high access speed. Thus as the memory access speed
+increases, s0 does itsrelative cost. The overall goal ofusing amemory hierarchy
+is to obtain the highest-possible average access speed while minimizing the
+total cost of the entire memory system.
+
+Auxiliary and cache memories are used fordifferent purposes. The cache
+holds those parts of the program and data that are most heavily used, while
+the auxiliary memory holds those parts that are not presently used by the CPU.
+Moreover, the CPU has direct access to both cache and main memory but not
+to auxiliary memory. The transfer from auxiliary to main memory is usually
+done by means of direct memory access of large blocks of data. The typical
+access time ratio between cache and main memory is about 1 to 7. Forexample,
+atypical cache memory may have an access time of 100ns, while main memory
+access time may be 700 ns. Auxiliary memory average access time is usually
+1000 times that of main memory. Block size in auxiliary memory typically
+ranges from 256 to 2048 words, while cache block size is typically from 1 to 16
+words.
+
+Many operating systems are designed to enable the CPU to process a
+number of independent programs concurrently. This concept, called multipro-
+‘gramming, refers to the existence of two or more programs in different parts
+of the memory hierarchy at the same time. In this way it is possible to keep
+all parts of the computer busy by working with several programs in sequence.
+For example, suppose that a programis being executed in the CPU and an/O
+transfer is required. The CPU initiates the UO processor to start executing the
+transfer. This leaves the CPU free to execute another program. In a multipro-
+gramming system, when one program is waiting for input or output transfer,
+there is another program ready to utilize the CPU.
+
+With multiprogram ming the need arises for running partial programs, for
+varying the amount of main memory in use by a given program, and for
+moving programs around the memory hierarchy. Computer programs are
+sometimes to long to be accommodated in the total space available in main
+memory. Moreover, a computer system uses many programs and all the
+programs cannot reside in main memory at all times. A program with its data
+normally resides in auxiliary memory. When the program or a segment of the
+

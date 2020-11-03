@@ -1,0 +1,67 @@
+SECTION 36 Error Detection Codes 89
+
+generator circuit. As shownin Fig, 33, this circuit consists of one exclusive-OR
+and one exclus'tve-NOR gate. Since P(even) is the exclusive-OR of x, y, z, and
+P(odd) is the complement of P(even), it is necessary to employ an exclusive-
+NOR gate for the needed complementation. The message and the odd-parity
+bit are transmitted to their destination where they are applied to a parity
+checker. An error has occurred during transmission if the parity of the fourbits
+received is even, since the binary information transmitted was originally odd.
+The output of the parity checker would be1 when an erroroccurs, that is, when
+the number of 1's in the four inputs is even. Since the exclusive-OR function
+ofthe fourinputs is an odd function, we again need to complement the output
+by using an exclusive-NOR gate...
+
+It is worth noting that the parity generator can use the same circuit as the
+parity checker if the fourth input is permanently held at a logic-0 value. The
+advantage of this is that the same circuit can be used for both parity generation
+and parity checking.
+
+It is evident from the example above that even-parity generators and
+checkers can be implemented with exchusive-OR functions. Odd-par'ty net-
+works need an exclusive-NOR at the output to complement the function.
+
+ 
+
+— + os]
+
+ 
+
+ 
+
+ 
+
+3-1. Convert the following binary numbers to decimal: 101110; 1110101; and
+
+120110100.
+
+Convert the following numbers with the indicated bases to decimal: (12121)5;
+
+(4310)s; (50),; and (198).2.
+
+3-3. Convert the following decimal numbers to binary: 1231; 673; and 1998.
+
+34. Convert the following decima} numbers to the bases indicated.
+
+a. 7562 to octal
+b. 1938 to hexadecimal
+¢. 175 to binary
+
+35. Convert the hexadecimat number F3A7C2 to binary and octal.
+
+3-6. What is the radix of the numbers if the solution to the quadratic equation
+x? — 10x + 31 = Qisx = Sandx = 8?
+
+37. Show the value of all bits of a 12-hit register that hold the number equivalent
+to decimal 215in (a) binary; (b) binary-coded octal; (c) binary-codedhexadec-
+imal; (d) binary-coded decmal (BCD).
+
+38. Show the bit configuration of a 24-b't register when its content represents
+the decimal equivalent of 295: (a) in binary; (b) in BCD; (c) in ASCLL using
+eight bits with even parity.
+
+39, Write your name in ASCI usingan 8-bit code with the leftmost bit always
+@ Include a space between names and a period after a middle initial
+
+ 
+

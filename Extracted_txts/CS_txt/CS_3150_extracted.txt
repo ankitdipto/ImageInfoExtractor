@@ -1,0 +1,67 @@
+516
+
+ 
+
+Chapter 17. Making Complex Decisions
+
+ 
+
+17.6__ DYNAMIC DECISION NETWORKS
+
+DYNAMIC DECISION
+NETWORKS
+
+  
+   
+ 
+   
+  
+ 
+ 
+   
+  
+
+ 
+
+(a) Prediction
+
+(b) Rollup
+
+(© Estimation
+
+ 
+
+ 
+
+ 
+
+Figure 17.14 The steps in updating a dynamic beliefnetwork overtime. Each step is described
+in detail in the text.
+
+ 
+
+ 
+
+ 
+
+principal state variable LanePosition. The model of interest here is that for SensorFailure. The
+model is quite simple: basically, once a sensor has broken, it usually stays broken. Whathappens 3
+over time is that as the sensor continues to send nonsense signals, it becomes more and more
+likely that they are incorrect. This is especially true if there are other sensors through which
+the network can infer LanePosition indirectly. It will even work, however, just using the state ¥
+evolution model for LanePosition, which will usually put limits on how much lateral motion we 4
+can expect for a vehicle. 4
+
+All we need in order to convertynamic belief networks into dynamic decision networks
+(DDNs) is to add utility nodes and decision nodes for actions. Figure 17.16 shows the generic 4
+structure of a DDN for a sequential decision problem where the terminal states are three steps 4
+ahead. The decision problem involves calculating the value of D, that maximizes the agent's 3
+expected utility over the remaining state sequence.* In addition to the decision nodes for the 4
+
+5 Usually, the final utility will be calculated as a sum of expected rewards R, + Riv
+order to simplify the diagram
+
+ 
+
+We omit the reward nodes #1
+

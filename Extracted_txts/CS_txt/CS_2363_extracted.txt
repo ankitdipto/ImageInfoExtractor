@@ -1,0 +1,63 @@
+SECTION 1-3 Interprocessor Arbitration 503
+
+ 
+
+Highest Lowest
+priority Priority
+To next
+Bus Bus Bus Bus weet
+1—|et poh*}pt POP} PO pL PO
+arbiter 1 arbiter 2 arbiter 3 arbiter 4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Bus busy line
+
+Figure 13-10 Serial (daisy-chain) arbitration.
+
+priority in (PH) of the next-lower-priority arbiter. The Pl of the highest-priority
+‘unit is maintained at a logic 1 value The highest-priority unit in the system
+will always receive access to the system bus when it requests it. The PO output
+for a particular arbiter is equal to 1 if its PI inputs equal to 1 and the processor
+associated with the arbiter logic is not requesting control of the bus. This is the
+way that priority is passed to the nextunit in the chain. Ifthe processor requests
+control of the bus and the corresponding arbiter finds its Pl input equal to 1,
+it sets its PO output to 0. Lower-priority arbiters receive a 0 in PI and generate
+a Oin PO. Thus the processor whose arbiter has a PI = 1 and PO = Ois the
+one that is given control of the system bus.
+
+‘A processor may be in the middle of a bus operation when a higher-
+priority processor requests the bus. The lower-priority processor must com-
+plete its bus operation before it relinquishes control of the bus. The bus busy
+line shown in Fig. 13-10 provides a mechanism for an orderly transfer of
+control. The busy line comes from open-collector circuits in each unit and
+provides a wired-OR logic connection. When an arbiter receives control of the
+bus (because its PI = 1 and PO = 0) it examines the busy line. If the line is
+inactive, it means that no other processor is using the bus. The arbiter activates
+the busy line and its processor takes control of the bus. However, if the arbiter
+finds the busy line active, it means that another processor is currently using
+the bus. The arbiter keeps examining the busy line while the lower-priority
+processor that lost control of the bus completes its operation. When the bus
+busy line returns to its inactive state, the higher-priority arbiter enables the
+busy line, and its corresponding processor can then conduct the required bus
+transfers
+
+Parallel Arbitration Logic
+
+The parallel bus arbitration technique uses an external priority encoder and a
+decoder as shown in Fig. 13-11. Each bus arbiter in the parallel scheme has
+a bus request output line and a bus acknowledge input line Each arbiter
+enables the request line when its processor is requesting access to the system
+

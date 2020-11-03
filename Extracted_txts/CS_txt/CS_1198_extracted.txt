@@ -1,0 +1,40 @@
+474 Let Us C
+
+ 
+
+should come from and where output should go. Redirection
+permits us to change these assumptions.
+
+For example, using redirection the output of the program that
+normally goes to the VDU can be sent to the disk or the printer
+without really making a provision for it in the program. This is
+often a more convenient and flexible approach than providing a
+separate function in the program to write to the disk or printer.
+Similarly, redirection can be used to read information from disk
+file directly into a program, instead of receiving the input from
+keyboard.
+
+To use redirection facility is to execute the program from the
+command prompt, inserting the redirection symbols at appropriate
+places. Let us understand this process with the help of a program.
+
+Redirecting the Output
+
+Let’s see how we can redirect the output of a program, from the
+screen to a file. We'll start by considering the simple program
+shown below:
+
+/" File name: util.c */
+#include "stdio.h"<+>
+main()
+
+char ch;
+while (( ch = getc (stdin ) ) != EOF )
+putc (ch, stdout) ;
+}
+
+On compiling this program we would get an executable file
+UTIL.EXE. Normally, when we execute this file, the putc( )
+function will cause whatever we type to be printed on screen, until
+we don’t type Ctrl-Z, at which point the program will terminate, as
+

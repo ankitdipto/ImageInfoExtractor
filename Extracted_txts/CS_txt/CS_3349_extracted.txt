@@ -1,0 +1,54 @@
+696
+
+Chapter 23 Practical Natural Language Processing
+
+ 
+
+the categories. In the last few years, NLP systems have proven to be just as accurate, correctly
+categorizing over 90% of the news stories. They are also far faster and more consistent, so there
+has been a switch from humans to automated systems.
+
+Text categorization is amenable to NLP techniques where IR is not because the categories
+are fixed, and thus the system builders can spend the time tuning their program to the problem.
+For example, in a dictionary, the primary definition of the word "crude" is vulgar, but in a large
+sample of the Wall Street Journal, "crude" refers to oil 100% of the time.
+
+Extracting data from text
+
+The task of data extraction is to take on-line text and derive from it some assertions that can be
+put into a structured database. For example, the SCISOR system (Jacobs and Rau, 1990)is able to
+take the following Dow Jones News Service story:
+
+PILLSBURY SURGED 3 3-4 TO 62 IN BIG BOARD COMPOSITE TRADING OF 3.1 MIL-
+LION SHARES AFTER BRITAIN'S GRAND METROPOLITAN RAISED ITS HOSTILE
+TENDER OFFER BY $3 A SHARE TO $63, THE COMPANY PROMPTLY REJECTED
+THE SWEETENED BID, WHICH CAME AFTER THE TWO SIDES COULDN'T AGREE
+TO A HIGHER OFFER ON FRIENDLY TERMS OVER THE WEEKEND.
+
+and generate this template to add to a database:
+
+Corp-Takeover-Core:
+Subevent: Increased Offer, Rejected Offer
+Type: Hostile
+Target: Pillsbury
+Suitor: Grand Metropolitan
+Share-Price: 63
+Stock-Exchange: NYSE
+Volume: 3.1M
+Effect-On-Stock: (Up Increment: 3 3-4, To: 62)
+
+23.2__ EFFICIENT PARSING
+
+Consider the following two sentences:
+
+Have the students in section 2 of Computer Science 101 take the exam.
+Have the students in section 2 of Computer Science 101 taken the exam?
+
+Even though they share the first ten words, these sentences have very different parses, because
+the first is acommand and the second is a question. A left-to-right parsing algorithm like the one
+in Section 22.4 that nondeterministically tries to build the right structure would have to guess if
+the first word is part ofa command or a question, and will not be able to tell if the guess is correct
+until at least the eleventh word, "take/taken." Ifthe algorithm guessed wrong, it will have to
+
+ 
+

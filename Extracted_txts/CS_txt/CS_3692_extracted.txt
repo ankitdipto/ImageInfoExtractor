@@ -1,0 +1,49 @@
+640
+
+Chapter 23 Minimum Spanning Trees
+
+a. Let T be the set of edges returned by MST-REDUCE, and let A be the minimum
+spanning tree of the graph G’ formed by the call MST-PRIM(G’,c’, 1"), where c’
+is the weight attribute on the edges of G’.E and r is any vertex in G’. V. Prove
+that T U {(x, y).orig’ : (x, y) € A} is a minimum spanning tree of G.
+
+b. Argue that |G’.V| < |V| /2.
+
+c. Show how to implement MST-REDUCE so that it runs in O(E) time. (Hint:
+Use simple data structures.)
+
+d. Suppose that we run k phases of MST-REDUCE, using the output G’ produced
+by one phase as the input G to the next phase and accumulating edges in T.
+Argue that the overall running time of the k phases is O(kE).
+
+e. Suppose that after running k phases of MST-REDUCE, as in part (d), we run
+Prim’s algorithm by calling MST-PRIM(G’,c’,r), where G’, with weight at-
+tribute c’, is returned by the last phase and r is any vertex in G’. V. Show how
+to pick k so that the overall running time is O(E lglg V). Argue that your
+choice of k minimizes the overall asymptotic running time.
+
+J. For what values of |E| (in terms of |V'|) does Prim’s algorithm with preprocess-
+
+ing asymptotically beat Prim’s algorithm without preprocessing?
+
+23-3 Bottleneck spanning tree
+
+A bottleneck spanning tree T of an undirected graph G is a spanning tree of G
+whose largest edge weight is minimum over all spanning trees of G. We say that
+the value of the bottleneck spanning tree is the weight of the maximum-weight
+edge in T.
+
+a. Argue that a minimum spanning tree is a bottleneck spanning tree.
+
+Part (a) shows that finding a bottleneck spanning tree is no harder than finding
+a minimum spanning tree. In the remaining parts, we will show how to find a
+bottleneck spanning tree in linear time.
+
+b. Give a linear-time algorithm that given a graph G and an integer b, determines
+whether the value of the bottleneck spanning tree is at most b.
+
+c. Use your algorithm for part (b) as a subroutine in a linear-time algorithm for
+the bottleneck-spanning-tree problem. (Hint: You may want to use a subroutine
+that contracts sets of edges, as in the MST-REDUCE procedure described in
+Problem 23-2.)
+

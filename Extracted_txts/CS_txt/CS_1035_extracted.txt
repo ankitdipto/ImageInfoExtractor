@@ -1,0 +1,59 @@
+198
+
+AXIOMS
+THEOREMS
+
+INDEPENDENT
+AXIOM
+
+DEFINITION
+
+Chapter 7. First-Order Logic
+
+One's husband is one's male spouse:
+Yw,h Husband(h,w) = Male(h)A Spouse(h,w)
+Male and female are disjoint categories:
+Vx Male(x) < —Female(x)
+Parent and child are inverse relations:
+Vp.c Parent(p,c) = Childic,p)
+A grandparent is a parent of one's parent:
+Vg,« Grandparent(g.c)< Ap Parent(g,p)A Parent(p,c)
+A sibling is another child of one's parents:
+Vx,y  Sibling(,y) << x#y A Ip Parent(p.x) A Parent(p,y)
+
+We could go on for several more pages like this, and in Exercise 7.6 we ask you to do just that
+
+Axioms, definitions, and theorems
+
+Mathematicians write axioms to capture the basic facts about a domain, define other concepts
+in terms of those basic facts, and then use the axioms and definitions to prove theorems. In
+AI, we rarely use the term "theorem," but the sentences that are in the knowledge base initially
+are sometimes called "axioms," and it is common to talk of "definitions." This brings up an
+important question: how do we know when we have written down enough axioms to fully specify
+a domain? One way to approach this is to decide on a set of basic predicates in terms of which |
+all the other predicates can be defined. In the kinship domain, for example, Child, Spouse, Male,
+and Female would be reasonable candidates for basic predicates. In other domains, as we will
+see, there is no clearly identifiable basic set.”
+
+The converse problem also arises: do we have too many sentences? For example, do we
+need the following sentence, specifying that siblinghood is a symmetric relation?
+
+Vax.y Sibling(x,y) = Sibling(y,x)
+In this case, we do not. From Sibling(John,Richard), we can infer that
+Sp Parent(p,John) A Parent(p, Richard),
+
+and from that we can infer Sibling(Richard,Joln). In mathematics, an independent axiom is one
+that cannot be derived from all the other axioms. Mathematicians strive to produce a minimal set
+of axioms that are all independent. In AI it is common to include redundant axioms, not because
+they can have any effect on what can be proved, but because they can make the process of finding
+a proof more efficient.
+
+An axiom of the form Yx,yv P(x) = ... is often called a definition of P, because it
+s to define exactly for what objects P does and does not hold. It is possible to have several
+ions for the same predicate; for example, a triangle could be defined both as a polygon
+
+  
+
+7 In alt cases, the set of sentences will have models other than the intended model; this follows from a theorem of
+‘Lowenheim’s stating that all consistent axiom sets have a model whose domain is the integers.
+

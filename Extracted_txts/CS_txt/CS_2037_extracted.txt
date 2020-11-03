@@ -1,0 +1,52 @@
+ 
+
+474 Chapter13 I/O Systems
+
+ 
+
+gigaplane
+bus
+SBUS
+
+SCSI bus
+
+fast
+ethernet
+
+hard disk
+
+ethernet
+
+laser
+printer
+
+modem
+mouse
+
+keyboard
+
+ 
+
+ 
+
+Figure 13.8 Sun Enterprise 6000 device-transfer rates (logarithmic).
+
+networking, where buffers are used widely for fragmentation and reassembly
+of messages. At the sending side, a large message is fragmented into small
+network packets. The packets are sent over the network, and the receiving side
+places them in a reassembly buffer to form an image of the source data.
+
+A third use of buffering is to support copy semantics for application I/O.
+An example will clarify the meaning of “copy semantics.” Suppose that an
+application has a buffer of data that it wishes to write to disk. It calls the
+write () system call, providing a pointer to the buffer and an integer specifying
+the number of bytes to write. After the system call returns, what happens if
+the application changes the contents of the buffer? With copy semantics, the
+version of the data written to disk is guaranteed to be the version at the time
+of the application system call, independent of any subsequent changes in the
+application’s buffer. A simple way that the operating system can guarantee
+copy semantics is for the write () system call to copy the application data into
+a kernel buffer before returning control to the application. The disk write is
+performed from the kernel buffer, so that subsequent changes to the application
+buffer have no effect. Copying of data between kernel buffers and application
+

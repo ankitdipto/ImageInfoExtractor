@@ -1,0 +1,55 @@
+284
+
+Chapter 11 Hash Tables
+
+11-4 Hashing and authentication
+
+Let # be a class of hash [unetions in which each hash function ) € J€ maps the
+universe U of keys to {0,1,..., — 1}. We say that 3 is k-universal if, for every
+fixed sequence of k distinct eye (x, x, ..., x) and for any h chosen at
+random from H, the sequence (h(x), h(x),...,h(x)) is equally likely to be
+any of the m* sequences of length k with elements drawn from {0,1,...,m — 1}.
+
+a. Show that if the family J€ of hash functions is 2-universal, then it is universal.
+
+ 
+
+ 
+
+b. Suppose that the universe U is the set of n-tuples of values drawn from
+Zp = {0,1,..., p—1}, where p is prime. Consider an element x =
+(Xo. Xe. ees Xn—-1) € U. For any n-tuple a = (do. a). .... an-1) € U, de-
+fine the hash function h, by
+
+nl
+ha(x) = (Xe) mod p.
+
+j=0
+
+Let H = {hq}. Show that J is universal, but not 2-universal. (Hint: Find a key
+for which all hash functions in J€ produce the same value.)
+
+c. Suppose that we modify 4 slightly from part (b): for any a € U and for any
+b € Zp, define
+
+nl
+hiy(x) = (Xow + ') mod p
+
+j=0
+
+and Jt’ = {h’,,}. Argue that J’ is 2-universal. (Hint: Consider fixed n-tuples
+x € U and y € U, with x; 4 y; for some i. What happens to h’/,,(x)
+and h’,,(y) as a; and b range over Zp?)
+
+d. Suppose that Alice and Bob secretly agree on a hash function h from a
+2-universal family J€ of hash functions. Each h € J€ maps from a universe of
+keys U to Z,, where p is prime. Later, Alice sends a message m to Bob over the
+Internet, where m € U. She authenticates this message to Bob by also sending
+an authentication tag ¢ = h(m), and Bob checks that the pair (m, t) he receives
+indeed satisfies t = h(m). Suppose that an adversary intercepts (m, f) en route
+and tries to fool Bob by replacing the pair (m,t) with a different pair (m’,t’).
+Argue that the probability that the adversary succeeds in fooling Bob into ac-
+cepting (m’,t’) is at most 1/p, no matter how much computing power the ad-
+versary has, and even if the adversary knows the family J€ of hash functions
+used.
+

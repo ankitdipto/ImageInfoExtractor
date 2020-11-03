@@ -1,0 +1,57 @@
+370
+
+Chapter 12 Practical Planning
+
+ 
+
+expensive and sometimes contain humans, and any mistake can be costly and irrevocable. Second,
+space missions take place in space, which does not contain many other agents to mess up the
+expected effects of actions. Planners have been used by the ground teams for the Hubble space
+telescope and at least three spacecraft: Voyager, Uosat-II, and ERS-1. In each case, the goal is
+to orchestrate the observational equipment, signal transmitters, and attitude- and velocity-control
+mechanisms, in order to maximize the value of the information gained from observations while
+obeying resource constraints on time and energy.
+
+Mission scheduling often involves very complex temporal constraints, particularly those
+involving periodic events. For example, ERS-1, the European Earth Resource Observation
+satellite, completes an orbit every 100minutes, and returns to the same point every 72 hours. An
+observation of a particular point on the earth's surface thus can be made at any one of a number of.
+times, each separated by 72 hours, but at no other time. Satellites also have resource constraints
+on their power output: they cannot exceed a fixed maximum output, and they must be sure not
+to discharge too much power over a period of time. Other than that, a satellite can be considered
+as ajob-shop scheduling problem, where the telescopes and other instruments are the machines,
+and the observations are the products. PlanERS-1 is a planner based on O-PLAN that produces
+observation plans for the ERS-1.
+
+The Hubble space telescope (HST) is a good example of the need for automated planning
+tools. After it was launched in April 1990, the primary mirror was found to be out of focus.
+Using Bayesian techniques for image reconstruction (see Chapter 24), the ground team was
+able to compensate for the defect to a degree, enabling the HST to deliver novel and important {
+data on Pluto, a gravitational lens, a supemova, and other objects. In 1993, shuttle astronauts
+repaired most of the problems with the primary mirror, opening up the possibility ofa new set of
+observations. The ground team is constantly learning more about what the HST can and cannot
+do, and it would be impossible to update the observation plans to reflect this ever-increasing
+knowledge without automated planning and scheduling tools.
+
+Any astronomer can submit a proposal to the HST observing committee. Proposals are
+classified as high priority (which are almost always executed and take up about 70% of the avail-
+able observing time), low priority (which are scheduled as time allows), or rejected. Proposals
+are received at the rate of about one per day, which means there are more proposals than can be
+executed. Each proposal includes a machine-readable specification of which instrument should {
+be pointed at which celestial object, and what kind of exposure should be made. Some observa-
+tions can be done at any time, whereas others are dependent on factors such as the alignment of
+planets and whether the HST is in the earth's shadow. There are some constraints that are unique
+to this domain. For example, an astronomer may request periodic observations ofa quasar over a
+period of months or years subject to the constraint that each observation be taken under the same
+shadow conditions.
+
+The HST planning system is split into two parts. A long-term scheduler, called SPIKE,
+first schedules observations into one-week segments. The heuristic is to assign high-priority
+proposals so that they can all be executed within the scheduled segment, and then to pack each
+segment with extra low-priority proposals until they are about 20% above capacity. This is done
+a year or more ahead of time. A multiyear schedule with 5000 observations or so can be created
+in less than an hour, so replanning is easy. After each segment is scheduled, a short-term planner,
+SPSS, does the detailed planning of each segment, filling in the time between high-priority tasks
+
+ 
+

@@ -1,0 +1,55 @@
+640
+
+Chapter 21. Knowledge in Leaming '
+
+ 
+
+stead of Parent(Elizabeth,y) = Grandparent(George,y), the inverse resolution step might have
+generated the following sentences:
+
+Parent(Elizabeth, Anne) = Grandparent(George, Anne)
+Parent(z,Anne) = Grandparent(George, Anne)
+Parent(z,y) =» Grandparent(George, y)
+
+(See Exercises 21.4 and 21.5.) Furthermore, the clauses , (and perhaps also €;) that participate |
+in each step can be chosen from the Background knowledge, from the example Descriptions,
+from the negated Classifications, or from hypothesized clauses that have already been generated
+in the inverse resolution tree.
+
+An exhaustive search process for inverse resolution would be extremely inefficient. ILP
+systems use a number of restrictions to make the process more manageable, including the |
+elimination of function symbols, generating only the most specific hypotheses possible, and the *
+use of Horn clauses. One can also consider inverting the restricted resolution strategies that
+were introduced in Chapter 9. With a restricted but complete strategy, such as linear resolution,
+the inverse resolution process will be more efficient because certain clauses will be ruled out
+as candidates for C\ and C2. Other useful constraints include the fact that all the hypothesized
+clauses must be consistent with each other, and that each hypothesized clause must agree with the
+observations. This last criterion would rule out the clause Parent(z, y) => Grandparent(George,y)
+listed before.
+
+Discovering new predicates and new knowledge
+
+An inverse resolution procedure that inverts a complete resolution strategy is, in principle, a 3
+complete algorithm for learning first-order theories. That is, if some unknown Hypothesis
+generates a set of examples, then an inverse resolution procedure can generate Hypothesis from §
+the examples. This observation suggests an interesting possibility. Suppose, for example, that
+the available examples include a variety of trajectories of falling bodies. Would an inverse
+resolution program be theoretically capable of inferring the law of gravity? The answer is clearly
+yes, because the law of gravity allows one to explain the examples, given suitable background
+mathematics. Similarly, one can imagine that electromagnetism, quantum mechanics, and the |
+theory ofrelativity are also within the scope of ILP programs. However, such imaginings are on
+a par with the proverbial monkey with a typewriter, at least until we find ways to overcome the
+very large branching factors and the lack of structure in the search space that characterize current
+systems.
+
+One thing that inverse resolution systems wil] do for you is invent new predicates. This |
+ability is often seen as somewhat magical, because computers are often thought of as "merely
+working with what they are given." In fact, new predicates fall directly out of the inverse
+resolution step. The simplest case arises when hypothesizing two new clauses C\ and C2, given
+aclause C. The resolution of C, and C» eliminates a literal that the two clauses share, hence
+it is quite possible that the eliminated literal contained a predicate that does not appear in C.
+Thus, when working backwards, one possibility is to generate a new predicate from which to
+reconstruct the missing literal.
+
+ 
+

@@ -1,0 +1,42 @@
+Chapter 6: Data Types Revisited 229
+
+ 
+
+Like auto variables, static variables are also local to the block in
+which they are declared. The difference between them is that static
+variables don’t disappear when the function is no longer active.
+Their values persist. If the control comes back to the same function
+again the static variables have the same values they had last time
+around.
+
+In the above example, when variable i is auto, each time
+increment( ) is called it is re-initialized to one. When the function
+terminates, i vanishes and its new value of 2 is lost. The result: no
+matter how many times we call increment( ), i is initialized to 1
+every time.
+
+On the other hand, ifi is static, it is initialized to 1 only once. It is
+never initialized again. During the first call to incrementt ), i is
+incremented to 2. Because i is static, this value persists. The next
+time increment( ) is called, i is not re-initialized to 1; on the
+contrary its old value 2 is still available. This current value of i
+(i.e. 2) gets printed and then i=i+t 1 adds 1 to i to get a value of 3.
+When increment( ) is called the third time, the current value of i
+(i.e. 3) gets printed and once again i is incremented. In short, if the
+storage class is static then the statement static int i= 1 is executed
+only once, irrespective of how many times the same function is
+called.
+
+Consider one more program.
+
+main()
+{
+int *j;
+int * fun() ;
+j=fun();
+printf ( "\n%d", *j) ;
+}
+
+int “fun()
+{
+

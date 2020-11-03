@@ -1,0 +1,52 @@
+472
+
+Chapter 17 Amortized Analysis
+
+ 
+
+Problems
+
+17-1 Bit-reversed binary counter
+Chapter 30 examines an important algorithm called the fast Fourier transform,
+or FFT. The first step of the FFT algorithm performs a bit-reversal permutation on
+an input array A[0..—1] whose length is n = 2* for some nonnegative integer k.
+This permutation swaps elements whose indices have binary representations that
+are the reverse of each other.
+
+We can express each index a as a k-bit sequence (ax—1, dk-2. .... ao), Where
+a= eS a; 2'. We define
+
+TEV ((Ak=1, Uk—-250+ + do)) = (d0,41,--+, dk-1) +
+
+thus,
+k-1
+
+rev;(a) = Yo agii2! .
+i=0
+
+For example, ifn = 16 (or, equivalently, k = 4), then revg(3) = 12, since
+the 4-bit representation of 3 is 0011, which when reversed gives 1100, the 4-bit
+representation of 12.
+
+a. Given a function rev, that runs in @(k) time, write an algorithm to perform the
+bit-reversal permutation on an array of length n = 2 in O(nk) time.
+
+We can use an algorithm based on an amortized analysis to improve the running
+time of the bit-reversal permutation. We maintain a “bit-reversed counter” and a
+procedure BIT-REVERSED-INCREMENT that, when given a bit-reversed-counter
+value a, produces rev, (rev; (a) + 1). If k = 4, for example, and the bit-reversed
+counter starts at 0, then successive calls to BIT-REVERSED-INCREMENT produce
+the sequence
+
+0000, 1000, 0100, 1100, 0010, 1010,... = 0,8,4,12,2.10,... .
+
+b. Assume that the words in your computer store k-bit values and that in unit time,
+your computer can manipulate the binary values with operations such as shifting
+left or right by arbitrary amounts, bitwise-AND, bitwise-OR, etc. Describe
+an implementation of the BIT-REVERSED-INCREMENT procedure that allows
+the bit-reversal permutation on an n-element array to be performed in a total
+of O(n) time.
+
+c. Suppose that you can shift a word left or right by only one bit in unit time. Is it
+still possible to implement an O(7)-time bit-reversal permutation?
+

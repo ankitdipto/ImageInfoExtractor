@@ -1,0 +1,63 @@
+470
+
+  
+
+Chapter 15. Probabilistic Reasoning Systems
+
+ 
+
+ 
+
+ 
+  
+   
+  
+   
+ 
+ 
+   
+  
+    
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+are just toys to amuse sadistic instructors, bear in mind that a 1 % improvement in risk assessment
+is worth well over a billion dollars a year.)
+
+In order to design a belief network, you need output variables and evidence variables.
+The output variables are those for which the insurance company is trying to get a probability
+distribution for their possible values. The evidence variables are those variables for which you
+can obtain information, on the basis of which it is legal to make decisions, and that are relevant
+to the decision.
+
+Output variables represent the costs of various catastrophic events that the insurance com-
+pany might have to reimburse. (We do not consider the ways in which the company tries to
+avoid payment.) In the automobile insurance domain, the major output variables are medical cost
+(MedCost),property cost (PropCost),and intangible liability cost (/LiCost). Medical and prop-
+erty costs are those incurred by ail individuals involved in an accident; auto theft or vandalism §
+might also incur property costs. Intangible liability costs are legal penalties for things like "pain
+and suffering," punitive damages, and so forth, that a driver might incur in an accident in which
+he or she is at fault. :
+
+Evidence variables for this domain include the driver's age and record; whether or not he
+or she owns another car; how far he or she drives per year; the vehicle's make, model and year;
+whether it has safety equipment such as an airbag and antilock brakes; where it is garaged and |
+whether it has an antitheft device. 4
+
+Build a network for this problem. You will need to decide on suitable domains for the
+variables, bearing in mind the need to discretize (unless you plan to use a stochastic simulation al-
+gorithm). You will also need to add intermediate nodes such as DrivingSkill and AutoRuggedness.
+Write commentary to describe your reasoning in choosing your domains, variables, links, and }
+inference algorithm. If you find that a node has too many predecessors (so that the conditional 4
+probability table becomes too big), that is a good hint that you need some intermediate variables.
+Generate a few reasonable-looking test cases to get a feeling for what your network does with
+them. How would you convince the insurance company to adopt your product?
+
+15.6 Is probabilistic reasoning monotonic or nonmonotonic? Do these concepts even apply to
+probabilities?
+

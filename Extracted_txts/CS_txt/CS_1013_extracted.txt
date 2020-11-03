@@ -1,0 +1,73 @@
+196
+
+Chapter 7. First-Order Logic
+
+ 
+
+The uniqueness quantifier 4!
+
+We have seen how to use 3 to say that some objects exist, but there is no concise way to say that
+aunique object satisfying some predicate exists. Some authors use the notation
+
+Bix King(x)
+to mean "there exists a unique object x satisfying King(x)” or more informally, "there's exactly
+one King." You should think of this not as adding a new quantifier, 3!, but rather as being a
+convenient abbreviation for the longer sentence
+
+dx KingQ)A Vy Kingiy) > x=y
+Of course, if we knew from the start there was only one King, we probably would have used the
+constant King rather than the predicate King(x). A more complex example is "Every country has
+exactly one ruler":
+
+Ve Country(c)=> 3tr Ruler(r, od)
+
+ 
+
+The uniqueness operator «
+
+It is convenient to use J! to state uniqueness, but sometimes it is even more convenient to have
+a term representing the unique object directly. The notation / x P(x) is commonly used for this.
+(The symbol z is the Greek letter iota.) To say that "the unique ruler of Freedonia is dead" or
+equivalently "the r that is the ruler of Freedonia is dead," we would write:
+
+Dead(« r Ruler(r, Freedonia))
+This is just an abbreviation for the following sentence:
+
+St r Ruler(r, Freedonia) A Dead(r)
+
+Notational variations
+
+The first-order logic notation used in this book is the defacto standard for artificial intelligence;
+one can safely use the notation in a journal article without defining it, because it is recognizable
+to most readers. Several other notations have been developed, both within AI and especially in
+other fields that use logic, including mathematics, computer science, and philosophy. Here are
+some of the variations:
+
+ 
+
+ 
+
+Syntax item This book | Others
+
+Negation (not) aP ~P P
+
+Conjunction (and) | PAQ P&O PQ PQ P,Q
+Disjunction (or) PVQ P|Q P:Q P+Q
+
+Implication (if) P=0 P—Q PDO
+Equivalence (iff) |PaeOQ |P=Q P—@
+
+Universal (all) Vx P@) | x)PQ@) AxPX) PCD
+Existential (exists) | 3x P(x) GBx)P() x P(x) P(Skolem,)
+Relation Rx, y) (Rxy) Rey xRy
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

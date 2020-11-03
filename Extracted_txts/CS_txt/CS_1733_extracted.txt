@@ -1,0 +1,53 @@
+7.7. Monitors 221
+
+implementation is unnecessary, and a significant improvement in efficiency is
+possible. We leave this problem to you in Exercise 7.13.
+
+We turn now to the subject of process-resumption order within a monitor. If
+several processes are suspended on condition x, and an x.signal operation is
+executed by some process, then how do we determine which of the suspended
+processes should be resumed next? One simple solution is to use a FCFS
+ordering, so that the process waiting the longest is resumed first. In many
+circumstances, however, such a simple scheduling scheme is not adequate. For
+this purpose, the conditional-wait construct can be used; it has the form
+
+x.wait(c);
+
+where ¢ is an integer expression that is evaluated when the wait operation is
+executed. The value of c, which is called a priority number, is then stored
+with the name of the process that is suspended. When x. signal is executed,
+the process with the smallest associated priority number is resumed next.
+
+To illustrate this new mechanism, we consider the monitor shown in Fig-
+ure 7.23, which controls the allocation of a single resource among competing
+processes. Each process, when requesting an allocation of its resources, speci-
+fies the maximum time it plans to use the resource. The monitor allocates the
+resource to that process that has the shortest time-allocation request.
+
+A process that needs to access the resource in question must observe the
+following sequence:
+
+monitor ResourceAllocation
+{
+
+boolean busy;
+
+condition x;
+
+void acquire(int time) {
+if (busy)
+x.wait (time) ;
+busy = true;
+}
+void release() {
+busy = false;
+x. signal ();
+
+void initQ {
+busy = false;
+}
+
+}
+
+Figure 7.23 A monitor to allocate a single resource.
+

@@ -1,0 +1,50 @@
+160
+
+Chapter 6 Heapsort
+
+by exchanging it with A[n]. If we now discard node n from the heap—and we
+can do so by simply decrementing A.heap-size—we observe that the children of
+the root remain max-heaps, but the new root element might violate the max-heap
+property. All we need to do to restore the max-heap property, however, is call
+MaAx-HEapIry (A, 1), which leaves a max-heap in A[1..n — 1]. The heapsort
+algorithm then repeats this process for the max-heap of size n — 1 down to a heap
+of size 2. (See Exercise 6.4-2 for a precise loop invariant.)
+
+HEAPSORT(A)
+
+1 BurLtp-MaAx-HEapP(A)
+2 fori = A.length downto 2
+
+3 exchange A[1] with A[/]
+4 A. heap-size = A.heap-size — 1
+5 MaAx-Heapiry (A, 1)
+
+Figure 6.4 shows an example of the operation of HEAPSORT after line 1 has built
+the initial max-heap. The figure shows the max-heap before the first iteration of
+the for loop of lines 2-5 and after each iteration.
+
+The HEAPSORT procedure takes time O(n lg), since the call to BUILD-MAx-
+Heap takes time O(n) and each of the n — 1 calls to MAX-HEAPIFY takes
+time O(lgn).
+
+Exercises
+
+6.4-1
+Using Figure 6.4 as a model, illustrate the operation of HEAPSORT on the array
+A = (5,13,2,25,7, 17, 20,8, 4).
+
+6.4-2
+Argue the correctness of HEAPSORT using the following loop invariant:
+
+At the start of each iteration of the for loop of lines 2-5, the subarray
+A[l1..i] is a max-heap containing the i smallest elements of A[1..n], and
+the subarray A[i + 1..n] contains the n — i largest elements of A[1..n],
+sorted.
+
+6.4-3
+What is the running time of HEAPSORT on an array A of length n that is already
+sorted in increasing order? What about decreasing order?
+
+6.4-4
+Show that the worst-case running time of HEAPSORT is Q(n Ign).
+

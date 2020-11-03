@@ -1,0 +1,74 @@
+590
+
+ve
+
+Chapter 22. Elementary Graph Algorithms
+
+ 
+
+1234 5
+1 1/0 1001
+2 2)1 0111
+3 3/0 1010
+4 4/0 110 1
+5 5}1 1010
+
+ 
+
+ 
+
+ 
+
+ 
+
+(a) (b) (©)
+
+Figure 22.1 Two representations of an undirected graph. (a) An undirected graph G with 5 vertices
+and 7 edges. (b) An adjacency-list representation of G. (c) The adjacency-matrix representation
+of G.
+
+ 
+
+ 
+
+12345 6
+
+1 1fo10100
+
+2 2/0 0001 0
+
+(2) @) 3 3/0 00011
+4 4J0 10000
+
+5 5|/0 00100
+
+G) @D> 6 6f0 00001
+
+ 
+
+ 
+
+ 
+
+(a)
+
+Figure 22.2 Two representations of a directed graph. (a) A directed graph G with 6 vertices and 8
+edges. (b) An adjacency-list representation of G. (c) The adjacency-matrix representation of G.
+
+shortest-paths algorithms presented in Chapter 25 assume that their input graphs
+are represented by adjacency matrices.
+
+The adjacency-list representation of a graph G = (V, E) consists of an ar-
+ray Adj of |V| lists, one for each vertex in V. For each u € V, the adjacency list
+Adj{u] contains all the vertices v such that there is an edge (u,v) € E. That is,
+Adj{u] consists of all the vertices adjacent to u in G. (Alternatively, it may contain
+pointers to these vertices.) Since the adjacency lists represent the edges of a graph,
+in pseudocode we treat the array Adj as an attribute of the graph, just as we treat
+the edge set E. In pseudocode, therefore, we will see notation such as G. Adj[u].
+Figure 22.1(b) is an adjacency-list representation of the undirected graph in Fig-
+ure 22.1(a). Similarly, Figure 22.2(b) is an adjacency-list representation of the
+directed graph in Figure 22.2(a).
+
+If G is a directed graph, the sum of the lengths of all the adjacency lists is |E|,
+since an edge of the form (u, ) is represented by having v appear in Adj]. If G is
+

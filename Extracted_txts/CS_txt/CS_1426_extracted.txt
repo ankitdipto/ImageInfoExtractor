@@ -1,0 +1,39 @@
+Chapter 21: More Linux Programming 673
+
+ 
+
+The SIGKILL signal is to be used as a last resort to terminate a
+program that gets out of control. One such process that makes uses
+of this signal is a system shutdown process. It first sends a
+SIGTERM signal to all processes, waits for a while, thus giving a
+‘grace period’ to all the running processes. However, after the
+grace period is over it forcibly terminates all the remaining
+processes using the SIGKILL signal.
+
+That leaves only one question—when does a process receive the
+SIGCONT signal? Let me try to answer this question.
+
+A process under Linux can be suspended using the Ctrl + Z
+command. The process is stopped but is not terminated, ie. it is
+suspended. This gives rise to the un-catchable SIGSTOP signal.
+To resume the execution of the suspended process we can make
+use of the fg (foreground) command. As a result of which the
+suspended program resumes its execution and receives the
+SIGCONT signal (CONT means continue execution).
+
+Registering a Common Handler
+
+Instead of registering a separate handler for each signal we may
+decide to handle all signals using a common signal handler. This is
+shown in the following program:
+
+# include <unistd.h>
+# include <sys/types.h>
+# include <signal.h>
+
+void sighandler (int signum )
+{
+switch ( signum )
+
+case SIGINT :
+

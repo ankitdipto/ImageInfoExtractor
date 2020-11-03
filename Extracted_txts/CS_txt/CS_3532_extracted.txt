@@ -1,0 +1,45 @@
+19.1 Structure of Fibonacci heaps 509
+
+heap. If more than one root has a key with the minimum value, then any such root
+may serve as the minimum node. When a Fibonacci heap H is empty, H.min
+is NIL.
+
+The roots of all the trees in a Fibonacci heap are linked together using their
+left and right pointers into a circular, doubly linked list called the root list of the
+Fibonacci heap. The pointer H.min thus points to the node in the root list whose
+key is minimum. Trees may appear in any order within a root list.
+
+We rely on one other attribute for a Fibonacci heap H: H.n, the number of
+nodes currently in H.
+
+Potential function
+
+As mentioned, we shall use the potential method of Section 17.3 to analyze the
+performance of Fibonacci heap operations. For a given Fibonacci heap H, we
+indicate by ¢(H) the number of trees in the root list of H and by m(#) the number
+of marked nodes in H. We then define the potential ®(H) of Fibonacci heap H
+by
+
+®(H) =t(H) +2m(H) . (19.1)
+
+(We will gain some intuition for this potential function in Section 19.3.) For exam-
+ple, the potential of the Fibonacci heap shown in Figure 19.2 is 5+ 2-3 = 11. The
+potential of a set of Fibonacci heaps is the sum of the potentials of its constituent
+Fibonacci heaps. We shall assume that a unit of potential can pay for a constant
+amount of work, where the constant is sufficiently large to cover the cost of any of
+the specific constant-time pieces of work that we might encounter.
+
+We assume that a Fibonacci heap application begins with no heaps. The initial
+potential, therefore, is 0, and by equation (19.1), the potential is nonnegative at
+all subsequent times. From equation (17.3), an upper bound on the total amortized
+cost provides an upper bound on the total actual cost for the sequence of operations.
+
+Maximum degree
+
+The amortized analyses we shall perform in the remaining sections of this chapter
+assume that we know an upper bound D(n) on the maximum degree of any node
+in an n-node Fibonacci heap. We won't prove it, but when only the mergeable-
+heap operations are supported, D(n) < [gn]. (Problem 19-2(d) asks you to prove
+this property.) In Sections 19.3 and 19.4, we shall show that when we support
+DECREASE-KEY and DELETE as well, D(n) = O(lgn).
+

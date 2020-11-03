@@ -1,0 +1,102 @@
+526
+Let Us ©
+
+Value of a = 1.500000
+
+This program
+uses i a
+parentheses around YP€ Casting. This consists
+
+f ing a paji
+said, the name of the data pe, of putting a pair of
+
+In this program we
+
+a=(float) x/y;
+
+1 .
+he expression ( float ) causes the variabl
+
+WHEL
+YPE Int to type float before being used in € x to be converted from!
+
+the division oj i
+. eration.
+Here is another example of type casting:
+
+# include <stdio.h>
+void main( )
+
+float a= 6.35:
+
+printf ( "\nValue of aon
+printf ( "\nValue of a = Wes ele ees eh
+
+And here is the output...
+
+Value of a ont i
+ype ci =
+Value of a = 6 me 6
+
+Note that the
+value of a d z
+result of typecasti oesn’t get permanel ;
+UNAEINEE tmerors Rather it is the value of ne changed as a
+ype conversion wheney the expression that
+
+er the cast appears,
+Bit Fields
+
+If in a pro .
+gram a variable i
+teally need only a si 18 to take only two val
+take values fr ite bit to store it. Similarly, if a on ye
+0 3, then two bits are sufficient to to =e a
+re these
+
+Chapter 15: Miscellaneous Features 527
+
+values. And if a variable is to take values from 0 through 7, then
+three bits will be enough, and so on.
+
+Why waste an entire integer when one or two or three bits will do?
+Well, for one thing, there aren’t any one bit or two bit or three bit
+data types available in C. However, when there are several
+variables whose maximum values are small enough to pack into a
+single memory location, we can use ‘bit fields’ to store several
+values in a single integer. To demonstrate how bit fields work, let
+us consider an example. Suppose we want to store the following
+data about an employee. Each employee can:
+
+(a) be male or female
+
+(b) be single, married, divorced or widowed
+
+(c) have one of the eight different hobbies
+
+(@)_ can choose from any of the fifteen different schemes proposed
+by the company to pursue his/her hobby.
+
+This means we need one bit to store gender, two to store marital
+status, three for hobby, and four for scheme (with one value used
+for those who are not desirous of availing any of the schemes). We
+need ten bits altogether, which means’ we can pack all this
+information into a single integer, since an integer is 16 bits long.
+
+To do this using bit fields, we declare the following structure:
+
+struct employee
+{
+
+unsigned gender : ti;
+
+unsigned mar_stat : 2;
+
+unsigned hobby :3;
+
+unsigned scheme : 4;
+hi
+The colon in the above declaration tells the compiler that we are
+talking about bit fields and the number after it tells how many bits
+to allot for the field. 512
+

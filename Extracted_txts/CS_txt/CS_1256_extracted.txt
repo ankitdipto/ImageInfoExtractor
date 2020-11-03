@@ -1,0 +1,56 @@
+‘microoperations
+
+condition field
+
+SECTION 73 Microprogram Example 223
+
+333k 7
+
+ 
+
+FI, F2,F3: Mierooperation fields
+CD: Condition for branching
+BR: Branch field
+
+AD: Address eld
+
+Figure 7-6 Microinstruction code format (20 bits)
+
+selects status bit conditions. The BR field specifies the type of branch to be
+used. The AD field contains a branch address. The address field is seven bits
+wide, since the control memory has 128 = 2” words.
+
+‘The microoperations are subdivided into three fields of three bits each.
+The three bits in each field are encoded to specify seven distinct microopera-
+tions as listed in Table 7-1. This gives a total of 21 microoperations. No more
+than three microoperationscan be chosen for a microinstruction, one from each
+field. If fewer than three microoperations are used, one or mare of the fields
+willuse the binary code 000for no operation As an illustration, amicroinstruc-
+tion can specify two simultaneous microoperations from F2 and F3 and none
+from Fl.
+
+DR<M[AR] _ with F2 = 100
+and PC<PC+1 — with F3 = 101
+
+The nine bits of the microoperation fields will then be 000 100 101. It is
+important to realize that two or more conflicting microoperations cannot be
+specified simultaneously. For example, amicrooperation field 010 001 000has
+nomeaning because it specifies the operations to clear AC to Oand subtract DR
+from AC at the same tim
+
+Each microoperation in Table7-1 is defined with a register transfer state-
+ment and is assigned a symbol for use in a symbolic microprogram. All
+transfer-type microoperations symbols use five letters. The first two letters
+designate the source register, the third letter is always aT, and the last two
+letters designate the destination register. For example, the microoperation that
+specifies the transfer AC<-DR (Fl = 100) has the symbol DRTAC, which
+stands for a transfer from DR to AC.
+
+The CD (condition) field consists of two bits which are encoded to specify
+four status bit conditions as listed in Table 7-1. The first condition is always a
+1, so that a reference to CD = 00 (or the symbol U) will always find the
+condition to be true. When this condition is used in conjunction with the BR
+(branch) field, it provides an unconditional branch operation. The indirect bit
+
+ 
+

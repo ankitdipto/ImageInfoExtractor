@@ -1,0 +1,33 @@
+Notes for Chapter 15 413
+
+Galil and Park [125] classify dynamic-programming algorithms according to the
+size of the table and the number of other table entries each entry depends on. They
+call a dynamic-programming algorithm ¢D/e D if its table size is O(n‘) and each
+entry depends on O(n°) other entries. For example, the matrix-chain multiplication
+algorithm in Section 15.2 would be 2D/1D, and the longest-common-subsequence
+algorithm in Section 15.4 would be 2D/0D.
+
+Hu and Shing [182, 183] give an O(n 1gn)-time algorithm for the matrix-chain
+multiplication problem.
+
+The O(mn)-time algorithm for the longest-common-subsequence problem ap-
+pears to be a folk algorithm. Knuth [70] posed the question of whether subquadratic
+algorithms for the LCS problem exist. Masek and Paterson [244] answered this
+question in the affirmative by giving an algorithm that runs in O(mn/ gn) time,
+where 1 < m and the sequences are drawn from a set of bounded size. For the
+special case in which no element appears more than once in an input sequence,
+Szymanski [326] shows how to solve the problem in O((n + m)1g(n + m)) time.
+Many of these results extend to the problem of computing string edit distances
+(Problem 15-5).
+
+An early paper on variable-length binary encodings by Gilbert and Moore [133]
+had applications to constructing optimal binary search trees for the case in which all
+probabilities p; are 0; this paper contains an O(n3)-time algorithm. Aho, Hopcroft,
+and Ullman [5] present the algorithm from Section 15.5. Exercise 15.5-4 is due to
+Knuth [212]. Hu and Tucker [184] devised an algorithm for the case in which all
+probabilities p; are 0 that uses O(n?) time and O(n) space; subsequently, Knuth
+[211] reduced the time to O(n lg n).
+
+Problem 15-8 is due to Avidan and Shamir [27], who have posted on the Web a
+wonderful video illustrating this image-compression technique.
+

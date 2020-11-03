@@ -1,0 +1,55 @@
+386
+
+Chapter 15 Dynamic Programming
+
+does the multiplication in line 5, inspection of the procedure yields the recurrence
+
+T() 1,
+
+Iv
+
+n-1
+
+1+ YT +T(n—k) +1) forn>1.
+k=1
+
+T(n)
+
+IV
+
+Noting that fori = 1,2,...,n— 1, each term T(i) appears once as T(k) and once
+as T(n — k), and collecting the n — 1 Is in the summation together with the 1 out
+front, we can rewrite the recurrence as
+
+nal
+Tn) = 290TH) +n. (15.8)
+i=l
+We shall prove that T(n) = Q(2") using the substitution method. Specifi-
+cally, we shall show that T(n) > 2"-! for alln > 1. The basis is easy, since
+T(1) = 1 = 2°. Inductively, for n > 2 we have
+
+n-l1
+Tin) = 202440
+i=1
+
+n-2
+= 2.027 +4n
+i=0
+2(2""! —1) +n (by equation (A.5))
+
+2"-2+n
+> 27,
+
+which completes the proof. Thus, the total amount of work performed by the call
+RECURSIVE-MATRIX-CHAIN(p, 1,7) is at least exponential in 1.
+
+Compare this top-down, recursive algorithm (without memoization) with the
+bottom-up dynamic-programming algorithm. The latter is more efficient because
+it takes advantage of the overlapping-subproblems property. Matrix-chain mul-
+tiplication has only @(n”) distinct subproblems, and the dynamic-programming
+algorithm solves each exactly once. The recursive algorithm, on the other hand,
+must again solve each subproblem every time it reappears in the recursion tree.
+Whenever a recursion tree for the natural recursive solution to a problem contains
+the same subproblem repeatedly, and the total number of distinct subproblems is
+small, dynamic programming can improve efficiency, sometimes dramatically.
+

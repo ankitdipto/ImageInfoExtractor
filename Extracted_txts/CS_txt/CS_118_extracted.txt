@@ -1,0 +1,51 @@
+736
+
+Chapter 26 Maximum Flow
+
+that is, the set of vertices adjacent to some member of X. Prove Hall’s theorem:
+there exists a perfect matching in G if and only if |A| < |N(A)| for every subset
+ACL.
+
+263-5 x
+
+We say that a bipartite graph G = (V, E), where V = LU R, is d-regular if every
+vertex v € V has degree exactly d. Every d-regular bipartite graph has || = |R|.
+Prove that every d-regular bipartite graph has a matching of cardinality |L| by
+arguing that a minimum cut of the corresponding flow network has capacity |L|.
+
+ 
+
+* 26.4 Push-relabel algorithms
+
+In this section, we present the “push-relabel” approach to computing maximum
+flows. To date, many of the asymptotically fastest maximum-flow algorithms are
+push-relabel algorithms, and the fastest actual implementations of maximum-flow
+algorithms are based on the push-relabel method. Push-relabel methods also effi-
+ciently solve other flow problems, such as the minimum-cost flow problem. This
+section introduces Goldberg’s “generic” maximum-flow algorithm, which has a
+simple implementation that runs in O(V?E) time, thereby improving upon the
+O(VE7) bound of the Edmonds-Karp algorithm. Section 26.5 refines the generic
+algorithm to obtain another push-relabel algorithm that runs in O(V%) time.
+
+Push-relabel algorithms work in a more localized manner than the Ford-
+Fulkerson method. Rather than examine the entire residual network to find an aug-
+menting path, push-relabel algorithms work on one vertex at a time, looking only
+at the vertex’s neighbors in the residual network. Furthermore, unlike the Ford-
+Fulkerson method, push-relabel algorithms do not maintain the flow-conservation
+property throughout their execution. They do, however, maintain a preflow, which
+isafunction f : Vx V — R that satisfies the capacity constraint and the following
+relaxation of flow conservation:
+
+fo. -Y fav) 20
+veV veV
+
+for all vertices u € V — {s}. That is, the flow into a vertex may exceed the flow
+out. We call the quantity
+
+eu) = > fv.u) — > fur) (26.14)
+veV vev
+the excess flow into vertex u. The excess at a vertex is the amount by which the
+
+flow in exceeds the flow out. We say that a vertex u € V — {s,t} is overflowing if
+e(u) > 0.
+

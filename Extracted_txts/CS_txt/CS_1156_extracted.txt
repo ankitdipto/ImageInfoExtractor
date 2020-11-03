@@ -1,0 +1,42 @@
+Chapter 12: File Input/Output 441
+
+ 
+
+Here, the fread( ) function causes the data read from the disk to be
+placed in the structure variable e. The format of fread() is same as
+that of fwrite( ). The function fread( ) returns the number of
+records read. Ordinarily, this should correspond to the third
+argument, the number of records we asked for... 1 in this case. If
+we have reached the end of file, since fread( ) cannot read
+anything, it returns a 0. By testing for this situation, we know
+when to stop reading.
+
+As you can now appreciate, any database management application
+in C must make use of fread( ) and fwrite( ) functions, since they
+store numbers more efficiently, and make writing/reading of
+structures quite easy. Note that even if the number of elements
+belonging to the structure increases, the format of fread( ) and
+fwrite() remains same.
+
+Database Management
+
+So far we have learnt record I/O in bits and pieces. However, in
+any serious database management application, we will have to
+combine all that we have learnt in a proper manner to make sense.
+I have attempted to do this in the following menu driven program.
+There is a provision to Add, Modify, List and Delete records, the
+operations that are imperative in any database management.
+Following comments would help you in understanding the
+program easily:
+
+— Addition of records must always take place at the end of
+existing records in the file, much in the same way you would
+add new records in a register manually.
+
+— Listing records means displaying the existing records on the
+screen. Naturally, records should be listed from first record to
+last record.
+
+— While modifying records, first we must ask the user which
+record he intends to modify. Instead of asking the record
+

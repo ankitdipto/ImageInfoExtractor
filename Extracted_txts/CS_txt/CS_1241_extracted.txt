@@ -1,0 +1,86 @@
+524
+Let UsC
+
+struct employee
+{
+
+char name{30]
+int age ;
+float bs ;
+
+typedet struct employ 5‘
+EMP ef, 62; Ue EMP:
+
+Thus, by r i
+
+a tynedefeat be bi te apparent complexity of data
+s, fy ; arify source listing ; Save ti
+
+energy spent in understanding a seosen uanee tine a
+
+The above typedef can also be written as
+
+eae struct employee
+
+char name{30] ;
+int age ;
+float bs;
+
+}EMP ;
+
+EMP e1, e2:
+
+typedef can al.
+° Iso be used to reng 2
+below: rename pointer data types as shown
+
+struct employee
+
+char name[3Q] ;
+int age ;
+float bs;
+
+typedef struct employee * PI i
+PEMP p; ny a
+
+P-> age = 32;
+
+Chapter 15: Miscellaneous Features 525
+
+ffypecasting
+
+Sometimes we are required to force the compiler to explicitly
+convert the value of an expression to a particular data type. This
+would be clear from the following example:
+
+#include <stdio.h>
+
+void main( )
+{
+float a;
+int x =6, y=4;
+a=xly;
+printf ( "\nValue of a = %f", a) ;
+}
+And here is the output...
+
+Value of a = 1.000000
+
+The answer turns out to be 1.000000 and not 1.5. This is because,
+6 and 4 are both integers and hence 6 / 4 yields an integer, 1. This
+1 when stored in a is converted to 1.000000 . But what if we don’t
+want the quotient to be truncated? One solution is to make either x
+or y as float. Let us say that other requirements of the program do
+not permit us to do this. In such a case what do we do? Use type
+casting, The following program illustrates this.
+
+# include <stdio.h>
+void main( )
+
+float a;
+int x =6,y=4;
+a=( float) x/y;
+} printf ( “\nValue of a= %f", a);
+
+And here is the output... 510
+

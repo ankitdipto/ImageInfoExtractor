@@ -1,0 +1,54 @@
+byte
+
+interface
+
+SECTION 11-2 Input-Output Interface 385,
+
+the familiar typewriter controls, such as backspace (BS), horizontal tabulation
+(HT), and carriage return (CR). Information separators are used to separate the
+data into divisions like paragraphs and pages. They include characters such as
+record separator (RS) and file separator (FS). The communication control char-
+acters are useful during the transmission of text between remote terminals.
+Examples of communication control characters are STX (start of text)and ETX
+(end of text), whichare used toframea text message when transmitted through
+a communication medium.
+
+ASCII is a7-bit code, but most computers manipulate an 8-bit quantity
+asa single unit called a byte. Therefore, ASCII characters most often are stored
+one per byte. The extra bit is sometimes used for other purposes, depending
+on the application. For example, some printers recognize &-bit ASCII characters
+with the most significant bit set to 0. Additional 128 8-bit characters with the
+most significant bit set to 1 are used for other symbols, such as the Greek
+alphabet or italic type font. When used in data communication, the eighth bit
+may be employed to indicate the parity of the binary-coded character.
+
+11-2 Input-Output Interface
+
+Input-output interface provides a method for transferring information be-
+tween internal storage and external /O devices. Peripherals connected to a
+computer need special communication links for interfacing them with the
+central processing unit. The purpose of the communication link is to resolve
+the differences that exist between the central computer and each peripheral.
+The major differences are:
+
+1. Peripherals are electromechanical and electromagnetic devices and their
+manner of operation is different from the operation of the CPU and
+memory, which are electronicdevices. Therefore, a conversion ofsignal
+values may be required.
+
+2. The data transfer rate of peripherals is usually slower than the transfer
+rate of the CPU, and consequently, a synchronization mechanism may
+be needed.
+
+3. Data codes and formats in peripherals differ from the word format in
+the CPU and memory.
+
+4, The operating modes of peripherals are different from each other and
+each must be controlled so as not to disturb the operation of other
+peripherals connected to the CPU.
+
+To resolve these differences, computer systems include special hardware
+components between the CPU and peripherals to supervise and synchronize
+all input and output transfers. These components are called interface units
+because they interface between the processor bus and the peripheral device.
+

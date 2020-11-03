@@ -1,0 +1,38 @@
+21
+
+Data Structures for Disjoint Sets
+
+Some applications involve grouping 7 distinct elements into a collection of disjoint
+sets. These applications often need to perform two operations in particular: finding
+the unique set that contains a given element and uniting two sets. This chapter
+explores methods for maintaining a data structure that supports these operations.
+
+Section 21.1 describes the operations supported by a disjoint-set data structure
+and presents a simple application. In Section 21.2, we look at a simple linked-list
+implementation for disjoint sets. Section 21.3 presents a more efficient represen-
+tation using rooted trees. The running time using the tree representation is theo-
+retically superlinear, but for all practical purposes it is linear. Section 21.4 defines
+and discusses a very quickly growing function and its very slowly growing inverse,
+which appears in the running time of operations on the tree-based implementation,
+and then, by a complex amortized analysis, proves an upper bound on the running
+time that is just barely superlinear.
+
+ 
+
+21.1 Disjoint-set operations
+
+A disjoint-set data structure maintains a collection 5 = {S,,S2,..., Sx} of dis-
+joint dynamic sets. We identify each set by a representative, which is some mem-
+ber of the set. In some applications, it doesn’t matter which member is used as the
+representative; we care only that if we ask for the representative of a dynamic set
+twice without modifying the set between the requests, we get the same answer both
+times. Other applications may require a prespecified rule for choosing the repre-
+sentative, such as choosing the smallest member in the set (assuming, of course,
+that the elements can be ordered).
+
+As in the other dynamic-set implementations we have studied, we represent each
+element of a set by an object. Letting x denote an object, we wish to support the
+following operations:
+
+ 
+

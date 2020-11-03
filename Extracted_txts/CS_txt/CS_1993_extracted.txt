@@ -1,0 +1,49 @@
+12.7 Recovery 437
+
+others, can be synchronous. Operating systems frequently include a flag in
+the open system call to allow a process to request that writes be performed
+synchronously. For example, databases use this feature for atomic transactions,
+to assure that data reaches stable storage in the required order.
+
+Some systems optimize their page cache by using different replacement
+algorithms, depending on the access type of the file. A file being read or
+written sequentially should not have its pages replaced in LRU order, because
+the most recently used page will be used last, or perhaps never again. Instead,
+sequential access may be optimized by techniques known as free-behind and
+read-ahead. Free-behind removes a page from the buffer as soon as the next
+page is requested. The previous pages are not likely to be used again and waste
+buffer space. With read-ahead, a requested page and several subsequent pages
+are read and cached. These pages are likely to be requested after the current
+page is processed. Retrieving this data from the disk in one transfer and caching
+it saves a considerable amount of time. A track cache on the controller does not
+eliminate the need for read-ahead on a multiprogrammed system, because of
+the high latency and overhead of many small transfers from the track cache to
+main memory.
+
+Another method of using main memory to improve performance is com-
+mon on PCs. A section of memory is set aside and treated as a virtual disk (or
+RAM disk). In this case, a RAM-disk device driver accepts all the standard disk
+operations but performs those operations on the memory section, instead of on
+a disk. All disk operations can then be executed on this RAM disk and, except
+for the lightning-fast speed, users will not notice a difference. Unfortunately,
+RAM disks are useful only for temporary storage, since a power failure or a
+reboot of the system will usually erase them. Commonly, temporary files such
+as intermediate compiler files are stored there.
+
+The difference between a RAM disk and a disk cache is that the contents
+of the RAM disk are totally user controlled, whereas those of the disk cache
+are under the control of the operating system. For instance, a RAM disk will
+stay empty until the user (or programs, at a user’s direction) creates files there.
+Figure 12.13 shows the possible caching locations in a system.
+
+12.7 = Recovery
+
+Since files and directories are kept both in main memory and on disk, care must
+taken to ensure that system failure does not result in loss of data or in data
+inconsistency.
+
+12.7.1 Consistency Checking
+
+As discussed in Section 12.3, part of the directory information is kept in main
+memory (or cache) to speed up access. The directory information in main
+

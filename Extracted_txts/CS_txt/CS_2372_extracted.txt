@@ -1,0 +1,53 @@
+510
+
+CHAPTER THIRTEEN Multiprocessors
+
+without cache coherence enforcement mechanisms. To illustrate the problem,
+consider the three-processor configuration with private caches shown in
+Fig. 13-12. Sometime during the operation an element X from main memory
+is loaded into the three processors, Pi, P,, and P5, As a consequence, it is also
+copied into the private caches of the three processors. For simplicity, we
+assume that X contains the value of 52. The load on X to the three processors
+results in consistent copies in the caches and main memory.
+
+Ifone of the processors performsa store to X, the copies of X in the caches
+become inconsistent. A load by the other processors will not return the latest,
+value. Depending on the memory update policy used in the cache, the main
+memory may also be inconsistent with respect to the cache. This is shown in
+Fig. 13-13. A store to X (of the value of 120) into the cache of processor P;
+updates memory to the new value ina write-through policy. A write-through
+policy maintains consistency between memory and the originating cache, but
+the other two caches are inconsistent since they still hold the old value. In a
+write-back policy, main memory is not updated at the time of the store. The
+copies in the other two caches and main memory are inconsistent. Memory is
+updated eventually when the modified data in the cache are copied back into
+memory.
+
+‘Another configuration that may cause consistency problems is a direct
+memory access (DMA) activity in conjunction with an IOP connected to the
+system bus. In the case of input, the DMA may modify locations in main
+memory that also reside in cache without updating the cache During a DMA.
+output, memory locations may be read before they are updated from the cache
+when using a write-back policy. /O-based memory incoherence can be over-
+come by making the IOP a participant in the cache coherent solution that is
+Adopted in the system.
+
+Solutions to the Cache Coherence Problem
+
+Various schemes have been proposed to solve the cache coherence problem in
+shared memory multiprocessors. We discuss some of these schemes briefly
+here. See references 3 and 10 for more detailed discussions.
+
+simple scheme is todisallow private caches for each processorandhave
+a shared cache memory associated with main memory. Every data access is
+made to the shared cache. This method violates the principle of closeness of
+CPU to cache and increases the average memory access time. In effect, this
+scheme solves the problem by avoiding it.
+
+For performance considerations it is desirable to attach a private cache to
+each processor. One scheme that has been used allows only nonshared and
+read-only data to be stored in caches. Such items are called cachable. Shared
+writable data are noncachable. The compiler must tag data as either cachable or
+noncachable, and the system hardware makes sure that only cachable data are
+stored in caches. The noncachable data remain in main memory. This method
+

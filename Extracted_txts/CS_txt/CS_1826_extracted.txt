@@ -1,0 +1,98 @@
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+outer-page
+table
+
+94 Paging 297
+
+ 
+
+ 
+
+f_}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+page of
+page table
+
+ 
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+page table
+
+ 
+
+ 
+
+ 
+
+Figure 9.12 A two-level page-table scheme.
+
+entries (2°*/2'). Assuming that each entry consists of 4 bytes, each process may
+need up to 4 MB of physical-address space for the page table alone. Clearly, we
+would not want to allocate the page table contiguously in main memory. One
+simple solution to this problem is to divide the page table into smaller pieces.
+There are several ways to accomplish this division.
+
+One way is to use a two-level paging algorithm, in which the page table
+itself is also paged (Figure 9.12). Remember our example to our 32-bit machine
+with a page size of 4 KB. A logical address is divided into a page number
+consisting of 20 bits, and a page offset consisting of 12 bits. Because we page
+the page table, the page number is further divided into a 10-bit page number
+and a 10-bit page offset. Thus, a logical address is as follows:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+page number page offset
+Pi P2 d
+10 10 12
+

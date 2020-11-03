@@ -1,0 +1,61 @@
+40
+
+Chapter 2. Intelligent Agents
+
+ 
+
+CONDITION-ACTION
+RULE
+
+What performance measure would we like our automated driver to aspire to? Desirable
+qualities include getting to the correct destination; minimizing fuel consumption and wear and
+tear; minimizing the trip time and/or cost; minimizing violations of traffic laws and disturbances
+to other drivers; maximizing safety and passenger comfort; maximizing profits. Obviously, some
+of these goals conflict, so there will be trade-offs involved.
+
+Finally, were this a real project, we would need to decide what kind of driving environment
+the taxi will face. Should it operate on local roads, or also on freeways? Will it be in Southern
+California, where snow is seldom a problem, or in Alaska, where it seldom is not? Will it always
+be driving on the right, or might we want it to be flexible enough to drive on the left in case we
+want to operate taxis in Britain or Japan? Obviously, the more restricted the environment, the
+easier the design problem.
+
+Now we have to decide how to build a real program to implement the mapping from
+percepts to action. We will find that different aspects of driving suggest different types of agent
+program. We will consider four types of agent program:
+
+* Simple reflex agents
+
++ Agents that keep track of the world
+* Goal-based agents
+
+* Utility-based agents
+
+Simple reflex agents
+
+The option of constructing an explicit lookup table is out of the question. The visual input from
+a single camera comes in at the rate of 50 megabytes per second (25 frames per second, 1000 x
+1000 pixels with 8 bits of color and 8 bits of intensity information). So the lookup table for an
+hour would be 2* °° entries.
+
+However, we can summarize portions of the table by noting certain commonly occurring
+input/output associations. For example, if the car in front brakes, and its brake lights come on,
+then the driver should notice this and initiate braking. In other words, some processing is done on
+the visual input to establish the condition we call "The car in front is braking"; then this triggers
+some established connection in the agent program to the action "initiate braking". We call such
+a connection a condition-action rule’ written as
+
+if car-in-front-is-brakingthen initiate-braking
+
+Humans also have many such connections, some of which are learned responses (as for driving)
+and some of which are innate reflexes (such as blinking when something approaches the eye).
+In the course of the book, we will see several different ways in which such connections can be
+learned and implemented.
+
+Figure 2.7 gives the structure of a simple reflex agent in schematic form, showing how
+the condition-action rules allow the agent to make the connection from percept to action. (Do
+not worry if this seems trivial; it gets more interesting shortly.) We use rectangles to denote
+
+7 Also called situation-action rules, productions, or if-then rules. The last term is also used by some authors for
+logical implications, so we will avoid it altogether
+

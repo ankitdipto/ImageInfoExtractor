@@ -1,0 +1,52 @@
+ 
+
+472 Chapter 13 1/O Systems
+
+frames from a file on disk while simultaneously decompressing and displaying
+the output on the display.
+
+One way that an application writer can overlap execution with I/O is to
+write a multithreaded application. Some threads can perform blocking sys-
+tem calls, while others continue executing. The Solaris developers used this
+technique to implement a user-level library for asynchronous I/O, freeing the
+application writer from that task. Some operating systems provide nonblocking
+1/O system calls. A nonblocking call does not halt the execution of the applica-
+tion for an extended time. Instead, it returns quickly, with a return value that
+indicates how many bytes were transferred.
+
+An alternative to a nonblocking system call is an asynchronous system
+call. An asynchronous call returns immediately, without waiting for the I/O to
+complete. The application continues to execute its code. The completion of the
+1/O at some future time is communicated to the application, either through the
+setting of some variable in the address space of the application, or through the
+triggering of a signal or software interrupt or a call-back routine that is executed
+outside the linear control flow of the application. The difference between
+nonblocking and asynchronous system calls is that a nonblocking read()
+returns immediately with whatever data are available—the full number of
+bytes requested, fewer, or none at all. An asynchronous read () call requests
+a transfer that will be performed in its entirety, but that will complete at some
+future time.
+
+A good example of nonblocking behavior is the select () system call for
+network sockets. This system call takes an argument that specifies a maximum
+waiting time. By setting it to 0, an application can poll for network activity
+without blocking. But using select () introduces extra overhead, because
+the select () call only checks whether I/O is possible. For a data transfer,
+select() must be followed by some kind of read() or write() command.
+A variation of this approach, found in Mach, is a blocking multiple-read call.
+It specifies desired reads for several devices in one system call, and returns as
+soon as any one of them completes.
+
+13.4 = Kernel I/O Subsystem
+
+Kernels provide many services related to 1/O. Several services—scheduling,
+buffering, caching, spooling, device reservation, and error handling —are pro-
+vided by the kernel’s I/O subsystem and build on the hardware and device-
+driver infrastructure.
+
+13.4.1 V/O Scheduling
+
+To schedule a set of I/O requests means to determine a good order in which
+to execute them. The order in which applications issue system calls rarely is
+the best choice. Scheduling can improve overall system performance, can share
+

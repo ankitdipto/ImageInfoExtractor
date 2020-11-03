@@ -1,0 +1,32 @@
+598 Let UsC
+
+ 
+
+yey;
+}
+void OnMouseMove ( HWND hWnd, int flags, int x, int y )
+{
+HDC hdc ;
+if ( flags == MK_LBUTTON ) /“is left mouse button depressed */
+{
+hdc = GetDC ( hWnd) ;
+X2=X;
+ye=yi
+MoveToEx (hdc, x1, y1, NULL ) ;
+LineTo (hdc, x2, y2) ;
+ReleaseDC ( hWnd, hdc ) ;
+X1=X2;
+yl=y2;
+}
+}
+void OnLButtonUp()
+{
+ReleaseCapture( ) ;
+}
+
+On execution of this program the window shown in Figure 18.5
+appears. We can now click the left mouse button with mouse
+pointer placed anywhere in the window. We can then drag the
+mouse on the table to draw the freehand. The freehand drawing
+would continue till we do not release the left mouse button.
+

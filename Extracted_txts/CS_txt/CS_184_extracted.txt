@@ -1,0 +1,55 @@
+790
+
+Chapter 27 Multithreaded Algorithms
+
+As an example of how easy it is to generate code with races, here is a faulty
+implementation of multithreaded matrix-vector multiplication that achieves a span
+of @(1gn) by parallelizing the inner for loop:
+
+Mat-VEC-WRONG(A, x)
+1 n= A.rows
+
+2 let y be anew vector of length n
+3 parallel for i = | ton
+
+4 yi =0
+
+5 parallel for i = | ton
+
+6 parallel for j = | ton
+7 Vi = Vi + GijxXj
+
+8 return y
+
+This procedure is, unfortunately, incorrect due to races on updating y; in line 7,
+which executes concurrently for all m values of j. Exercise 27.1-6 asks you to give
+a correct implementation with @(lg7) span.
+
+A multithreaded algorithm with races can sometimes be correct. As an exam-
+ple, two parallel threads might store the same value into a shared variable, and it
+wouldn’t matter which stored the value first. Generally, however, we shall consider
+code with races to be illegal.
+
+A chess lesson
+
+We close this section with a true story that occurred during the development of
+the world-class multithreaded chess-playing program «Socrates [80], although the
+timings below have been simplified for exposition. The program was prototyped
+on a 32-processor computer but was ultimately to run on a supercomputer with 512
+processors. At one point, the developers incorporated an optimization into the pro-
+gram that reduced its running time on an important benchmark on the 32-processor
+machine from 732 = 65 seconds to Tj, = 40 seconds. Yet, the developers used
+the work and span performance measures to conclude that the optimized version,
+which was faster on 32 processors, would actually be slower than the original ver-
+sion on 512 processsors. As a result, they abandoned the “optimization.”
+
+Here is their analysis. The original version of the program had work T; = 2048
+seconds and span T,, = | second. If we treat inequality (27.4) as an equation,
+Tp = T;/P + Too, and use it as an approximation to the running time on P pro-
+cessors, we see that indeed T3. = 2048/32 + 1 = 65. With the optimization, the
+work became T/ = 1024 seconds and the span became T}, = 8 seconds. Again
+using our approximation, we get Tj, = 1024/32 + 8 = 40.
+
+The relative speeds of the two versions switch when we calculate the running
+times on 512 processors, however. In particular, we have T312 = 2048/512+1 =5
+

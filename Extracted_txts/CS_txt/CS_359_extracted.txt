@@ -1,0 +1,48 @@
+31.1 Elementary number-theoretic notions 931
+
+Relatively prime integers
+
+Two integers a and b are relatively prime if their only common divisor is 1, that
+is, if ged(a,b) = 1. For example, 8 and 15 are relatively prime, since the divisors
+of 8 are 1, 2, 4, and 8, and the divisors of 15 are 1, 3, 5, and 15. The following
+theorem states that if two integers are each relatively prime to an integer p, then
+their product is relatively prime to p.
+
+Theorem 31.6
+For any integers a, b, and p, if both gcd(a, p) = 1 and ged(b, p) = 1, then
+ged(ab, p) = 1.
+
+Proof It follows from Theorem 31.2 that there exist integers x, y, x’, and y’ such
+that
+
+1,
+1.
+
+ax + py
+bx' + py’
+
+Multiplying these equations and rearranging, we have
+ab(xx') + p(ybx' + y'ax + pyy')=1.
+
+Since | is thus a positive linear combination of ab and p, an appeal to Theo-
+rem 31.2 completes the proof. .
+
+Integers 1), No, ..., N¢ are pairwise relatively prime if, whenever i # j, we
+have ged(n;,nj;) = 1.
+
+Unique factorization
+
+An elementary but important fact about divisibility by primes is the following.
+
+Theorem 31.7
+For all primes p and all integers a and b, if p | ab, then p | a or p | b (or both).
+
+Proof Assume for the purpose of contradiction that p | ab, but that p + a and
+p { b. Thus, ged(a, p) = 1 and ged(b, p) = 1, since the only divisors of p are 1
+and p, and we assume that p divides neither a nor b. Theorem 31.6 then implies
+that gcd(ab, p) = 1, contradicting our assumption that p | ab, since p | ab
+implies gcd(ab, p) = p. This contradiction completes the proof. .
+
+A consequence of Theorem 31.7 is that we can uniquely factor any composite
+integer into a product of primes.
+

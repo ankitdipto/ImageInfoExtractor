@@ -1,0 +1,49 @@
+Section 10.8.
+
+Managing Retractions, Assumptions, and Explanations 325
+
+ 
+
+This sounds wonderful in principle, until one realizes that it can only have one of two conse-
+quences: hard problems either cannot be stated at all, or require exponentially large descriptions!
+However, the tractability results do shed light on what sorts of constructs cause problems, and
+thus help the user to understand how different representations behave. For example, description
+logics usually lack negation and disjunction. These both force first-order logical systems to
+essentially go through an exponential case analysis in order to ensure completeness. For the
+same reason, they are excluded from Prolog. CLASSIC only allows a limited form of disjunction
+in the Fills and OneOf constructs, which allow disjunction over explicitly enumerated individuals
+but not over descriptions. With disjunctive descriptions, nested definitions can lead easily to an
+exponential number of altemative routes by which one category can subsume another.
+
+Practical uses of description logics
+
+Because they combine clear semantics and simple logical operations, description logics have
+become popular with both the theoretical and practical AI communities. Applications have
+included financial management (Mays et al., 1987), database interfaces (Beck ef al., 1989), and
+software information systems (Devanbu er al., 1991). Because ofthe gradual extension of the class
+of tractable languages, and a better understanding of what kinds of constructs cause intractability,
+the efficiency of description logic systems has improved by several orders of magnitude over the
+last decade
+
+10.8 MANAGING RETRACTIONS, ASSUMPTIONS, AND EXPLANATIONS
+
+‘We have said a great deal about TELL and ASK, but so far very little about RETRACT. Most logical
+reasoning systems, regardless of their implementation, have to deal with RETRACT. As we have
+seen, there are three reasons for retracting a sentence. It may be that a fact is no longer important,
+and we want to forget about it to free up space for other purposes. It may be that the system
+is tracking the current state of the world (without worrying about past situations) and that the
+world changes. Or it may be that the system assumed (or determined) that a fact was true, but
+now wants to assume (or comes to determine) that it is actually false. In any case, we want to be
+able to retract a sentence from the knowledge base without introducing any inconsistencies, and
+we would like the interaction with the knowledge base as a whole (the cycle of TELL, ASK and
+RETRACT requests) to be efficient.
+
+It takes a little experience to appreciate the problem. First, it is important to understand
+the distinction between RETRACT(KB,P) and TELL(KB, =P). Assuming that the knowledge base
+already contains P, adding ~P with TELL will allow us to conclude both P and —P, whereas
+removing P with RETRACT will allow us to conclude neither P nor =P. Second, if the system
+does any forward chaining, then RETRACT has some extra work to do. Suppose the knowledge
+base was told Pand P = Q, and used that to infer Q and add it to the knowledge base. Then
+RETRACT(KB, P) must remove both P and Q to keep the knowledge base consistent. However, if
+there is some other independent reason for believing Q (perhaps both R and R => Q have been
+

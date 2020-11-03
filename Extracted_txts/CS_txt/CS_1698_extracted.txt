@@ -1,0 +1,63 @@
+192 Chapter7 Process Synchronization
+
+do {
+
+ 
+
+entry section
+
+ 
+
+ 
+
+critical section
+
+ 
+
+ 
+
+ 
+
+exit section
+
+ 
+
+remainder section
+} while (1);
+Figure 7.1 General structure of a typical process P;.
+
+A solution to the critical-section problem must satisfy the following three
+requirements:
+
+1. Mutual Exclusion: If process P; is executing in its critical section, then no
+other processes can be executing in their critical sections.
+
+2. Progress: If no process is executing in its critical section and some processes
+wish to enter their critical sections, then only those processes that are
+not executing in their remainder section can participate in the decision
+on which will enter its critical section next, and this selection cannot be
+postponed indefinitely.
+
+3. Bounded Waiting: There exists a bound on the number of times that other
+processes are allowed to enter their critical sections after a process has made
+a request to enter its critical section and before that request is granted.
+
+We assume that each process is executing at a nonzero speed. However, we can
+make no assumption concerning the relative speed of the 1 processes.
+
+In Sections 7.2.1 and 7.2.2, we work up to solutions to the critical-section
+problem that satisfy these three requirements. The solutions do not rely on any
+assumptions concerning the hardware instructions or the number of processors
+that the hardware supports. We do, however, assume that the basic machine-
+language instructions (the primitive instructions such as load, store, and
+test) are executed atomically. That is, if two such instructions are executed
+concurrently, the result is equivalent to their sequential execution in some
+unknown order. Thus, if a load and a store are executed concurrently, the
+load will get either the old value or the new value, but not some combination
+of the two.
+
+When presenting an algorithm, we define only the variables used for syn-
+chronization purposes, and describe only a typical process P; whose general
+structure is shown in Figure 7.1. The entry section and exit section are enclosed
+in boxes to highlight these important segments of code.
+

@@ -1,0 +1,39 @@
+Problems for Chapter 13 331
+
+ 
+
+Problems
+
+ 
+
+13-1 Persistent dynamic sets
+
+During the course of an algorithm, we sometimes find that we need to maintain past
+versions of a dynamic set as it is updated. We call such a set persistent. One way to
+implement a persistent set is to copy the entire set whenever it is modified, but this
+approach can slow down a program and also consume much space. Sometimes, we
+can do much better.
+
+Consider a persistent set S with the operations INSERT, DELETE, and SEARCH,
+which we implement using binary search trees as shown in Figure 13.8(a). We
+maintain a separate root for every version of the set. In order to insert the key 5
+into the set, we create a new node with key 5. This node becomes the left child
+of a new node with key 7, since we cannot modify the existing node with key 7.
+Similarly, the new node with key 7 becomes the left child of a new node with
+key 8 whose right child is the existing node with key 10. The new node with key 8
+becomes, in turn, the right child of a new root r’ with key 4 whose left child is the
+existing node with key 3. We thus copy only part of the tree and share some of the
+nodes with the original tree, as shown in Figure 13.8(b).
+
+Assume that each tree node has the attributes key, left, and right but no parent.
+(See also Exercise 13.3-6.)
+
+ 
+
+(a) (b)
+
+Figure 13.8 (a) A binary search tree with keys 2,3, 4,7,8, 10. (b) The persistent binary search
+tree that results from the insertion of key 5. The most recent version of the set consists of the nodes
+reachable from the root r’, and the previous version consists of the nodes reachable from r. Heavily
+shaded nodes are added when key 5 is inserted.
+

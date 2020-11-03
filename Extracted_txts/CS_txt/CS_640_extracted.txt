@@ -1,0 +1,44 @@
+22 Let Us C
+
+ 
+
+The first printf() outputs the message ‘Enter values of p, n, 1’ on
+the screen. Here we have not used any expression in printf()
+which means that using expressions in printf() is optional.
+
+Note that the ampersand (&) before the variables in the scanf()
+function is a must. & is an ‘Address of’ operator. It gives the
+location number used by the variable in memory. When we say
+&a, we are telling scanf( ) at which memory location should it
+store the value supplied by the user from the keyboard. The
+detailed working of the & operator would be taken up in Chapter
+5.
+
+Note that a blank, a tab or a new line must separate the values
+supplied to scanf( ). Note that a blank is creating using a spacebar,
+tab using the Tab key and new line using the Enter key. This is
+shown below:
+
+Ex.: The three values separated by blank
+
+1000 5 15.5
+
+Ex.: The three values separated by tab.
+1000 5 15.5
+
+Ex.: The three values separated by newline.
+1000
+5
+15.5
+
+So much for the tips. How about another program to give you a
+feel of things...
+
+/* Just for fun. Author: Bozo */
+main()
+{
+
+int num;
+
+printf ("Enter a number” ) ;
+

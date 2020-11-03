@@ -1,0 +1,115 @@
+12.4 Allocation Methods
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ns directory
+He file index block
+oD] 16 20 3 jeep 19
+40 5 7
+8) of 1p 41
+_ 9
+120] 13( 14) 4 6
+10
+16f7L] 18L jg) 19 25
+A
+20[ J21L] 22/723} 4
+-1
+24[_]25( J 26(_] 27]
+28] 29(] 301] 31
+Figure 12.8 Indexed allocation of disk space.
+
+427
+
+use the pointer in the ith index-block entry to find and read the desired block.
+
+This scheme is similar to the paging scheme described in Chapter 9.
+
+When the file is created, all pointers in the index block are set to nil. When
+the ith block is first written, a block is obtained from the free-space manager,
+
+and its address is put in the ith index-block entry.
+
+Indexed allocation supports direct access, without suffering from external
+fragmentation, because any free block on the disk may satisfy a request for more
+
+space.
+
+Indexed allocation does suffer from wasted space. The pointer overhead
+of the index block is generally greater than the pointer overhead of linked
+allocation. Consider a common case in which we have a file of only one or two
+blocks. With linked allocation, we lose the space of only one pointer per block
+(one or two pointers). With indexed allocation, an entire index block must be
+
+allocated, even if only one or two pointers will be non-varnil.
+
+This point raises the question of how large the index block should be. Every
+file must have an index block, so we want the index block to be as small as
+possible. If the index block is too small, however, it will not be able to hold
+enough pointers for a large file, and a mechanism will have to be available to
+
+deal with this issue:
+
+« Linked scheme: An index block is normally one disk block. Thus, it can
+be read and written directly by itself. To allow for large files, we may link
+together several index blocks. For example, an index block might contain a
+

@@ -1,0 +1,51 @@
+ 
+
+ 
+
+MAKING COMPLEX
+
+DECISIONS
+
+ 
+
+‘SEQUENTIAL
+DECISION,
+PROBLEMS.
+
+ 
+
+In which we examine methods for deciding what to do today, given that we will have
+a chance to act again tomorrow.
+
+In this chapter, we address the computational issues involved in making decisions. Whereas
+Chapter 16 was concerned with single decision problems, in which the utility of each action's
+outcome was well-known, in this chapter we will be concerned with sequential decision prob-
+lems, where the agent's utility depends on a sequence of decisions. Sequential decision problems,
+which include utilities, uncertainty, and sensing, generalize the search and planning problems
+described in Parts II and IV.
+
+The chapter divides roughly into two parts. Sections 17.1 through 17.3 deal with classical
+techniques from control theory, operations research, and decision analysis that were developed to
+solve sequential decision problems under uncertainty. They operate in much the same way that
+the search algorithms of Part II solved sequential decision problems in deterministic domains:
+by looking for a sequence of actions that leads to a good state. The difference is that what they
+return is not the fixed sequence of actions, but rather a poliey—that is, a set of situation-action
+tules for each state—arrived at by calculating utilities for each state
+
+The second part, Sections 17.4 through 17.6, develops a complete sketch of a decision-
+theoretic agent using a richer representation of states in terms of random variables in a belief
+network. We also show how to efficiently update the network over time, and how to be able to
+safely forget things about the past.
+
+17.1 _ SEQUENTIAL DECISION PROBLEMS
+
+Suppose that an agent is situated in the environment shown in Figure 17.1. Beginning in the start
+state, it must execute a sequence of actions. The environment terminates when the agent reaches
+one of the states marked +1 or -1. In each location, the available actions are called North, South,
+East, and West. We will assume for now that the agent knows which state it is in initially, and
+that it knows the effects of all of its actions on the state of the world. q
+
+498
+
+ 
+

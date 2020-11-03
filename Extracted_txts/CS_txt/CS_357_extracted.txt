@@ -1,0 +1,44 @@
+930
+
+Chapter 31 Number-Theoretic Algorithms
+
+Theorem 31.2
+If a and b are any integers, not both zero, then gcd(a, b) is the smallest positive
+element of the set {ax + by : x, y € Z} of linear combinations of a and b.
+
+Proof Let s be the smallest positive such linear combination of a and b, and let
+s = ax + by for some x, y € Z. Let g = |a/s|. Equation (3.8) then implies
+amods = a—qs
+
+= a—gq(ax+by)
+
+= a(l—qx)+b(-ay) .
+and so a mod s is a linear combination of a and b as well. But, since 0 <
+a mod s < s,wehave that a mod s = 0, because s is the smallest positive such lin-
+ear combination. Therefore, we have that s | a and, by analogous reasoning, s | b.
+Thus, s is a common divisor of a and b, and so ged(a,b) > s. Equation (31.4)
+implies that ged(a,b) | s, since ged(a,b) divides both a and b and s is a linear
+combination of a and b. But ged(a,b) | s and s > 0 imply that ged(a,b) < s.
+Combining gcd(a,b) > s and gced(a,b) < s yields gcd(a,b) = s. We conclude
+that s is the greatest common divisor of a and b. .
+
+Corollary 31.3
+For any integers a and b, if d | aandd |b, thend | gcd(a,b).
+
+Proof This corollary follows from equation (31.4), because gcd(a, b) is a linear
+combination of a and b by Theorem 31.2. .
+
+Corollary 31.4
+For all integers a and b and any nonnegative integer n,
+
+ged(an, bn) = ngcd(a,b) .
+Proof \fn = 0, the corollary is trivial. If n > 0, then gcd(an, bn) is the smallest
+
+positive element of the set {anx + bny : x,y € Z}, which is 1 times the smallest
+positive element of the set {ax + by : x,y € Z}. .
+
+Corollary 31.5
+For all positive integers n, a, and b, if n | ab and ged(a,n) = 1, thenn | b.
+
+Proof We leave the proof as Exercise 31.1-5. .
+

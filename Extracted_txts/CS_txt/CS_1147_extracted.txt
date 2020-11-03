@@ -1,0 +1,64 @@
+208 Chapter 7. First-Order Logic
+
+ 
+
+step forward in the given direction.
+
+Va,y LocationToward([x, y], OF [x + 1,y]
+
+Ya,y LocationToward({x, y], 90% [xy + 1]
+
+Vx, y LocationToward([xy], 180)= [x - 1,y]
+
+Vx,y LocationToward([x, y], 270 [xy — 1]
+From the map, it is possible to tell which square is directly ahead of the agent, or indeed
+of any agent p at any location /:
+
+Vp.ls At(p,1,s) >
+
+LocationAhead(p,S) =LocationToward(1, Orientation(p, s))
+
+It is also useful to define adjacency:
+
+Vij,lz Adjacent(I\,hb) < 3d 1, =LocationToward(h,d)
+Whatever is known about the contents of the locations (geographical details on the map).
+In what follows we assume that the locations surrounding the 4 x 4 cave contain walls, and
+
+other locations do not. Sometimes the agent knows this kind of information to start, ‘and
+sometimes it does not.
+
+Vay Wall([x. yl) (x=O0Vx=5 Vy=0Vy=5)
+* What the actions do to location. Only going forward changes location, and then only if
+there is no wall ahead. The successor-state axiom for location is
+Va,d,p,s At(p, 1, Result(a,s))
+[ (a =Forward A | =LocationAhead(p,s) \ =Wall()))
+V (Atpd,s) A a#Forward)|
++ What the actions do to orientation. Turning is the only action that changes orientation. The
+successor-state axiom for orientation is
+Va,d,p,s Orientation(p, Result(a, s))=d &
+[ (a= Turn(Right)A d= Mod(Orientation(p,s) - 90, 360))
+V (a = Turn(Lefi d = Mod(Orientation(p,s) + 90,360))
+V (Orientation(p,s) = d A 7(a= Turn(Right( a = Turn(Left))}
+In addition to keeping track of location and the gold, the agent should also keep track of whether
+the wumpus is alive or dead. We leave the problem of describing Shoot as an exercise.
+
+ 
+
+7.7_DEDUCING HIDDEN PROPERTIES OF THE WORLD
+
+ 
+
+ 
+
+ 
+
+Once the agent knows where it is, it can associate qualities with the places rather than just the
+situations, so, for example, one might say that if the agent is at a place and perceives a breeze,
+then that place is breezy, and if the agent perceives a stench, then that place is smelly:
+
+Vi/,s At(Agent,J, s) A Breeze(s) = Breezy(D)
+
+V/,8 At(Agent, /,s) A Stench(s) => Smelly()
+
+ 
+

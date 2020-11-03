@@ -1,0 +1,155 @@
+30.3 Efficient FFT implementations 919
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+do Yo
+wo
+
+a y
+
+wo +
+
+a> H Ya
+of ~\y o} ——
+
+a HTH > Ys
+
+of
+
+ay IH ye
+wo > a} >—
+
+as n Ys
+
+/ oo «2 +—__|
+
+a Ye
+of ~|y o> 03 >
+
+a> > ys
+
+ 
+
+ 
+
+ 
+
+ 
+
+= —_—.
+stage 5 =1 stages =2 stage 5
+
+ 
+
+Figure 30.5 A circuit that computes the FFT in parallel, here shown on n = 8 inputs. Each
+butterfly operation takes as input the values on two wires, along with a twiddle factor, and it produces
+as outputs the values on two wires. The stages of butterflies are labeled to correspond to iterations
+of the outermost loop of the ITERATIVE-FFT procedure. Only the top and bottom wires passing
+through a butterfly interact with it; wires that pass through the middle of a butterfly do not affect
+that butterfly, nor are their values changed by that butterfly. For example, the top butterfly in stage 2
+has nothing to do with wire 1 (the wire whose output is labeled y1); its inputs and outputs are only
+‘on wires 0 and 2 (labeled yo and yo, respectively). This circuit has depth @(Ig 72) and performs
+(ng n) butterfly operations altogether.
+
+A parallel FFT circuit
+
+We can exploit many of the properties that allowed us to implement an efficient
+iterative FFT algorithm to produce an efficient parallel algorithm for the FFT. We
+will express the parallel FFT algorithm as a circuit. Figure 30.5 shows a parallel
+FFT circuit, which computes the FFT on n inputs, for 2 = 8. The circuit begins
+with a bit-reverse permutation of the inputs, followed by lgn stages, each stage
+consisting of n/2 butterflies executed in parallel. The depth of the circuit—the
+maximum number of computational elements between any output and any input
+that can reach it—is therefore O(1g 7).
+
+The leftmost part of the parallel FFT circuit performs the bit-reverse permuta-
+tion, and the remainder mimics the iterative ITERATIVE-FFT procedure. Because
+each iteration of the outermost for loop performs n/2 independent butterfly opera-
+tions, the circuit performs them in parallel. The value of s in each iteration within
+

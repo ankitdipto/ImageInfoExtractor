@@ -1,0 +1,50 @@
+Problems for Chapter 35 1137
+
+Suppose that we use the following greedy algorithm for parallel machine schedul-
+ing: whenever a machine is idle, schedule any job that has not yet been scheduled.
+
+c. Write pseudocode to implement this greedy algorithm. What is the running
+time of your algorithm?
+
+d. For the schedule returned by the greedy algorithm, show that
+
+1
+Coax SF dS mK + MAX Pk -
+
+isksn
+
+Conclude that this algorithm is a polynomial-time 2-approximation algorithm.
+
+35-6 Approximating a maximum spanning tree
+
+Let G = (V, E) be an undirected graph with distinct edge weights w(u, v) on each
+edge (u,v) € E. For each vertex v € V, let max(v) = maxqyeg {w(u, v)} be
+the maximum-weight edge incident on that vertex. Let Sg = {max(v):v €V}
+be the set of maximum-weight edges incident on each vertex, and let Tg be the
+maximum-weight spanning tree of G, that is, the spanning tree of maximum total
+weight. For any subset of edges E’ C E, define w(E’) = Dy yyex, W(U, V).
+
+a. Give an example of a graph with at least 4 vertices for which Sg = Tg.
+b. Give an example of a graph with at least 4 vertices for which Sg 4 Tg.
+c. Prove that Sg € Tg for any graph G.
+
+d. Prove that w(Tg) = w(Sg)/2 for any graph G.
+
+e. Give an O(V + E)-time algorithm to compute a 2-approximation to the maxi-
+mum spanning tree.
+
+35-7 An approximation algorithm for the 0-1 knapsack problem
+
+Recall the knapsack problem from Section 16.2. There are n items, where the ith
+item is worth v; dollars and weighs w; pounds. We are also given a knapsack
+that can hold at most W pounds. Here, we add the further assumptions that each
+weight w; is at most W and that the items are indexed in monotonically decreasing
+order of their values: vy > v2 >+++ > Vy.
+
+In the 0-1 knapsack problem, we wish to find a subset of the items whose total
+weight is at most W and whose total value is maximum. The fractional knapsack
+problem is like the 0-1 knapsack problem, except that we are allowed to take a
+fraction of each item, rather than being restricted to taking either all or none of
+
+ 
+

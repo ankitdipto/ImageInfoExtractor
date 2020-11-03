@@ -1,0 +1,63 @@
+260
+
+Chapter 8. Building a Knowledge Base
+
+ 
+
+MODAL LOGIC
+
+POSSIBLE WORLDS
+
+(QUALITATIVE
+PHYSICS
+
+SPATIAL REASONING
+
+natural model in terms of beliefs as physical configurations of a computer or a brain, it has been
+popular in AI in recent years. Konolige (1982) and Haas (1986) used it to describe inference
+engines of limited power, and Morgenstern (1987) showed how it could be used to describe knowl-
+edge preconditions in planning. The methods for planning observation actions in Chapter 13 are
+based on the syntactic theory.
+
+Modal logic is the classical method for reasoning about knowledge in philosophy. Modal
+logic augments first-order logic with modal operators, such as B (believes) and K (knows),
+that take sentences as arguments rather than terms. The proof theory for modal logic restricts
+substitution within modal contexts, thereby achieving referential opacity. The modal logic of
+knowledge was invented by Jaakko Hintikka (1962). Saul Kripke (1963) defined the semantics
+of the modal logic of knowledge in terms of possible worlds. Roughly speaking, a world is
+possible for an agent if it is consistent with everything the agent knows. From this, one can
+derive rules of inference involving the K operator. Robert C. Moore relates the modal logic of
+knowledge to a style of reasoning about knowledge which refers directly to possible worlds in
+first-order logic (Moore, 1980; Moore, 1985a). Modal logic can be an intimidatingly arcane field,
+but has also found significant applications in reasoning about information in distributed computer
+systems (Halpern, 1987). For an excellent comparison of the syntactic and modal theories of
+knowledge, see (Davis, 1990).
+
+For obvious reasons, this chapter does not cover every area of knowledge representation in
+depth. The three principal topics omitted are the following:
+
+© Qualitative physics: A subfield of knowledge representation concemed specifically with
+constructing a logical, nonnumeric theory of physical objects and processes. The term
+was coined by Johan de Kleer (1975), although the enterprise could be said to have started
+in Fahlman's (1974) BUILD. BUILD was a sophisticated planner for constructing complex
+towers of blocks. Fahlman discovered in the process of designing it that most of the effort
+(80%, by his estimate) went into modelling the physics of the blocks world to determine
+the stability of various subassemblies of blocks, rather than into planning per se. He
+sketches a hypothetical naive-physics like process to explain why young children can solve
+BUILD-like problems without access to the high-speed floating-point arithmetic used in
+BUILD'S physical modelling. Hayes (1985a) uses “histories,” four-dimensional slices of.
+space-time similar to Davidson's events, to construct a fairly complex naive physics of
+liquids. Hayes was the first to prove that a bath with the plug in will eventually overflow
+if the tap keeps running; and that a person who falls into a lake will get wet all over.
+De Kleer and Brown (1985) and Ken Forbus (1985) attempted to construct something
+like a general-purpose theory of the physical world, based on qualitative abstractions of.
+physical equations. In recent years, qualitative physics has developed to the point where
+it is possible to analyze an impressive variety of complex physical systems (Sacks and
+Joskowicz, 1993; Yip, 1991). Qualitative techniques have been also used to construct
+novel designs for clocks, windscreen wipers, and six-legged walkers (Subramanian, 1993;
+Subramanian and Wang, 1994). The collection Readings in Qualitative Reasoning about
+Physical Systems (Weld and de Kleer, 1990) provides a good introduction to the field
+
+< Spatial reasoning: The reasoning necessary to navigate in the wumpus world and super-
+market world is trivial in comparison to the rich spatial structure of the real world. The
+

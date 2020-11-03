@@ -1,0 +1,54 @@
+684 Chapter 22. Agents that Communicate
+
+Acknowledgments are even simpler—they consist of a single word: "yes" or "OK" to positively
+acknowledge, and "no" to negatively acknowledge. Here are the rules:
+
+S(Acknowledge(sem)) = Ack(sem)
+Ack(True) — yes
+
+Ack(True) + OK .
+Ack(False) —- no
+
+It is up to the master (or whoever hears an acknowledgment) to do pragmatic interpretation to
+realize that "OK," which gets the interpretation Ack(True), means that the agent has agreed to
+follow out a command (usually the most recent command). The agent program for the robot
+slave was shown in Figure 22.4 (page 663). But in a sense we do not need a new agent program;
+all we need to do is use an existing agent (such as a logical planning agent) and give it the goals
+of understanding the input and responding to it properly.
+
+22.10 _ SUMMARY
+
+We have seen why it is useful to communicate, and how language can be interpreted by agents in
+a situation. Natural language processing is difficult for three reasons. First, one has to have a lot
+of specific knowledge about the words and grammar rules of the language. Second, one must be
+able to integrate this knowledge with other knowledge about the world. Third, language involves
+an additional complication that we have not dealt with so far: that there are other agents in the
+world who have their own beliefs, goals, and plans. This chapter makes the following points in
+addressing these difficulties:
+
+Agents send signals to each other to achieve certain purposes: to inform, to warn, to elicit
+help, to share knowledge, or to promise something. Sending a signal in this way is called
+a speech act. Ultimately, all speech acts are an attempt to get another agent to believe
+something or do something.
+
+All animals use some conventional signs to communicate, but humans use language in a
+more sophisticated way that enables them to communicate much more
+
+Formal language theory and phrase structure grammars (and in particular, context-free
+grammar) are useful tools for dealing with some aspects of natural language.
+
+Communication involves three steps by the speaker: the intention to convey an idea, the
+mental generation of words, and their physical synthesis. The hearer then has four steps:
+perception, analysis, disambiguation, and incorporation of the meaning.
+
+The encoded message model of communication states that a speaker encodes a represen-
+tation of a proposition into language, and the hearer then decodes the message to uncover
+the proposition. The situated language model states that the meaning of a message is a
+function of both the message and the situation in which it occurs.
+
+It is convenient to augment a grammar to handle such problems as subject/verb agreement,
+pronoun case, and semantics. Definite Clause Grammar (DCG) is an extension of BNF
+that allows for augmentations.
+
+ 
+

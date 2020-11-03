@@ -1,0 +1,49 @@
+27.1 The basics of dynamic multithreading 775
+
+ 
+
+ 
+
+(FB@)) (FB@)) (e@Q) Fed) Cs@) Fed) Fed) FeO)
+
+ 
+
+ 
+
+(FQ) Fed) Ged) Fe®©) Fe@) FBO) (Cs@) Fs)
+
+ 
+
+(Fed) (Fe@)
+
+Figure 27.1 The tree of recursive procedure instances when computing F1B (6). Each instance of
+FB with the same argument does the same work to produce the same result, providing an inefficient
+but interesting way to compute Fibonacci numbers.
+
+Fip(n)
+
+1 ifn <1
+
+2 return 71
+
+3 else x = FiB(n — 1)
+4 y = FiB(n — 2)
+5 return x + y
+
+You would not really want to compute large Fibonacci numbers this way, be-
+cause this computation does much repeated work. Figure 27.1 shows the tree of
+recursive procedure instances that are created when computing Fs. For example,
+a call to F1B(6) recursively calls F1B(5) and then F1B(4). But, the call to FrB(5)
+also results in a call to F1B(4). Both instances of F1B(4) return the same result
+(Fs = 3). Since the F1B procedure does not memoize, the second call to F1B(4)
+replicates the work that the first call performs.
+
+Let T(n) denote the running time of FIB(1). Since F1B(m) contains two recur-
+sive calls plus a constant amount of extra work, we obtain the recurrence
+
+T(n) =T(n—1) + T(n—2) + O(1).
+
+This recurrence has solution T(n) = ©(F,,), which we can show using the substi-
+tution method. For an inductive hypothesis, assume that T(n) < a F,, — b, where
+a >and b > Oare constants. Substituting, we obtain
+

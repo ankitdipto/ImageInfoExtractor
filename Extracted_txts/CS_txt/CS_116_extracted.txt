@@ -1,0 +1,51 @@
+734
+
+Chapter 26 Maximum Flow
+
+Intuitively, each edge (u,v) € M corresponds to one unit of flow in G’ that
+traverses the path s + u — v — t. Moreover, the paths induced by edges in M
+are vertex-disjoint, except for s and ¢. The net flow across cut (L U {5s}, R U {f})
+is equal to |M|; thus, by Lemma 26.4, the value of the flow is | /| = |M|.
+
+To prove the converse, let f be an integer-valued flow in G’, and let
+
+M ={(u,v):ueL, ve R, and f(u,v) > 0}.
+
+Each vertex u € L has only one entering edge, namely (s,u), and its capacity
+is 1. Thus, each u € L has at most one unit of flow entering it, and if one unit of
+flow does enter, by flow conservation, one unit of flow must leave. Furthermore,
+since f is integer-valued, for each u € L, the one unit of flow can enter on at most
+one edge and can leave on at most one edge. Thus, one unit of flow enters u if and
+only if there is exactly one vertex v € R such that f(u,v) = 1, and at most one
+edge leaving each u € L carries positive flow. A symmetric argument applies to
+each v € R. The set M is therefore a matching.
+
+To see that |M| = |/ |, observe that for every matched vertex u € L, we have
+Ff (s,u) = 1, and for every edge (u,v) € E — M, we have f(u,v) = 0. Conse-
+quently, f(L U {s}, R U {7}), the net flow across cut (L U {s}, R U {t}), is equal
+to |M|. Applying Lemma 26.4, we have that | f| = f(LU{s}, RU{t}) =|M|. @
+
+ 
+
+ 
+
+Based on Lemma 26.9, we would like to conclude that a maximum matching
+in a bipartite graph G corresponds to a maximum flow in its corresponding flow
+network G’, and we can therefore compute a maximum matching in G by running
+a maximum-flow algorithm on G’. The only hitch in this reasoning is that the
+maximum-flow algorithm might return a flow in G’ for which some f (u,v) is
+not an integer, even though the flow value | f| must be an integer. The following
+theorem shows that if we use the Ford-Fulkerson method, this difficulty cannot
+arise.
+
+Theorem 26.10 (Integrality theorem)
+
+If the capacity function c takes on only integral values, then the maximum flow f
+produced by the Ford-Fulkerson method has the property that | f| is an integer.
+Moreover, for all vertices u and v, the value of f(u, v) is an integer.
+
+Proof The proof is by induction on the number of iterations. We leave it as
+Exercise 26.3-2. /
+
+We can now prove the following corollary to Lemma 26.9.
+

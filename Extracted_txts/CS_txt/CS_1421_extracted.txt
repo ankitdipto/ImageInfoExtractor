@@ -1,0 +1,40 @@
+Chapter 21: More Linux Programming 669
+
+ 
+
+default signal handler there is code to terminate the program.
+Hence on pressing Ctrl + C the program gets terminated.
+
+But how on earth would the default signal handler get called. Well,
+it is simple. There are several signals that can be sent to a program.
+A unique number is associated with each signal. To avoid
+remembering these numbers, they have been defined as macros
+like SIGINT, SIGKILL, SIGCONT, etc. in the file ‘signal.h’.
+Every process contains several ‘signal ID - function pointer’ pairs
+indicating for which signal which function should be called. If we
+do not decide to handle a signal then against that signal ID the
+address of the default signal handler function is present. It is
+precisely this default signal handler for SIGINT that got called
+when we pressed Ctrl + C when the above program was executed.
+INT in SIGINT stands for interrupt.
+
+Let us know see how can we prevent the termination of our
+program even after hitting Ctrl + C. This is shown in the following
+
+program:
+# include <signal.h>
+void sighandler (int signum )
+
+printf ( "SIGINT received. Inside sighandler\n" ) ;
+
+}
+int main()
+signal ( SIGINT, ( void* ) sighandler ) ;
+while (1)
+printf ("Program Running\n" ) ;
+return 0 ;
+}
+
+In this program we have registered a signal handler for the SIGINT
+signal by using the signal( ) library function. The first parameter
+

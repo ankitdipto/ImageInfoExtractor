@@ -1,0 +1,46 @@
+9.2 Selection in expected linear time 215
+
+we process elements in pairs. We compare pairs of elements from the input first
+with each other, and then we compare the smaller with the current minimum and
+the larger to the current maximum, at a cost of 3 comparisons for every 2 elements.
+
+How we set up initial values for the current minimum and maximum depends
+on whether 7 is odd or even. If n is odd, we set both the minimum and maximum
+to the value of the first element, and then we process the rest of the elements in
+pairs. If n is even, we perform 1 comparison on the first 2 elements to determine
+the initial values of the minimum and maximum, and then process the rest of the
+elements in pairs as in the case for odd n.
+
+Let us analyze the total number of comparisons. If 1 is odd, then we perform
+3 |n/2] comparisons. If n is even, we perform | initial comparison followed by
+3(n — 2)/2 comparisons, for a total of 37/2 — 2. Thus, in either case, the total
+number of comparisons is at most 3 [n/2].
+
+Exercises
+
+9.1-1
+Show that the second smallest of n elements can be found with n + [Ign] — 2
+comparisons in the worst case. (Hint: Also find the smallest element.)
+
+912 *
+
+Prove the lower bound of [3/2] — 2 comparisons in the worst case to find both
+the maximum and minimum of n numbers. (Hint: Consider how many numbers
+are potentially either the maximum or minimum, and investigate how a comparison
+affects these counts.)
+
+ 
+
+9.2 Selection in expected linear time
+
+The general selection problem appears more difficult than the simple problem of
+finding a minimum. Yet, surprisingly, the asymptotic running time for both prob-
+lems is the same: ©(). In this section, we present a divide-and-conquer algorithm
+for the selection problem. The algorithm RANDOMIZED-SELECT is modeled after
+the quicksort algorithm of Chapter 7. As in quicksort, we partition the input array
+recursively. But unlike quicksort, which recursively processes both sides of the
+partition, RANDOMIZED-SELECT works on only one side of the partition. This
+difference shows up in the analysis: whereas quicksort has an expected running
+time of @(n Ign), the expected running time of RANDOMIZED-SELECT is @(7),
+assuming that the elements are distinct.
+

@@ -1,0 +1,57 @@
+112 caarrer FOUR Register Transfer and Microoperations
+
+selective-set
+
+selective-complement
+
+selective-clear
+
+by logic microoperations as a function of the bits of another register (designated
+by B). Ina typical application, register A is a processor register and the bits of
+register B constitute a logic operand extracted from memory and placed in
+register B.
+
+The selective-set operation sets to 1 the bits in register A where there are
+corresponding 1's in register B. It does not affect bit positions that have 0's in
+B, The following numerical example clarifies this operation:
+
+1010 A before
+1100 _B (logic operand)
+m0 A after
+
+The two leftmost bits of B are 1's, so the corresponding bits of A are set to 1.
+One of these two bits was already set and the other has been changed from
+Otol. The two bits of A with corresponding 0's in B remain unchanged. The
+example above serves as a truth table since it has ll four possible combinations
+of two binary variables. From the truth table we note that the bits of A after
+the operation are obtained from the logic-OR operation of bits in B and previ-
+ous values of A. Therefore, the OR microoperation can be used to selectively
+set bits of a register.
+
+The selective-complement operation complements bits in A where there are
+corresponding 1's in B. It does not affect bit positions that have 0's in B. For
+example:
+
+1010 A before
+1100 __B (logic operand)
+110A after
+
+Again the two leftmost bits of B are 1's, so the corresponding bits of A are
+complemented. This example again can serve asa truth table from which one
+can deduce that the selective-complement operation is just an exclusive-OR
+microoperation. Therefore, the exclusive-OR microoperation can be used to
+selectively complement bits of a register.
+
+The selective-clear operation clears to 0 the bits in A only where there are
+corresponding 1’s in B. For example:
+
+1010 A before
+1100 __B (logic operand)
+010 A after
+
+Again the two leftmost bits of B are 1’s, so the corresponding bits of A are
+cleared to 0. One can deduce that the Boolean operation performed on the
+individual bits is AB’. The corresponding logic microoperation is
+
+ASCAANB
+

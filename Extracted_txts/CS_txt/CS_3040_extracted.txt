@@ -1,0 +1,68 @@
+Section 14.1.
+
+Acting under Uncertainty A417
+
+ 
+
+TIGA,
+Rhee
+
+DEGREE OF BELIEF
+
+PROBABILITY
+THEORY
+
+ 
+
+EVIDENCE
+
+© Practical ignorance: Even if we know all the rules, we may be uncertain about a particular
+patient because all the necessary tests have not or cannot be run.
+
+The connection between toothaches and cavities is just not a logical consequence in either
+direction. This is typical of the medical domain, as well as most other judgmental domains: law,
+business, design, automobile repair, gardening, dating, and so on. The agent's knowledge can at
+best provide only a degree of belief in the relevant sentences. Our main tool for dealing with
+degrees of belief will be probability theory, which assigns a numerical degree of beliefbetween
+0 and 1 to sentences.”
+
+Probability provides a way ofsummarizing the uncertainty that comes from our laziness
+and ignorance. We may not know for sure what afflicts a particular patient, but we believe that
+there is, say, an 80% chance—that is, a probability of 0.8—that the patient has a cavity ifhe or she
+has a toothache. This probability could be derived from statistical data—80% of the toothache
+patients seen so far have had cavities—or from some general rules, or from a combination of
+evidence sources. The 80% summarizes those cases in which all the factors needed for a cavity to
+cause a toothache are present, as well as other cases in which the patient has both toothache and
+cavity but the two are unconnected. The missing 20% summarizes all the other possible causes
+of toothache that we are too lazy or ignorant to confirm or deny.
+
+A probability of 0 for a given sentence corresponds to an unequivocal belief that the
+sentence is false, while a probability of 1 corresponds to an unequivocal belief that the sentence is
+true. Probabilities between 0 and 1 correspond to intermediate degrees of beliefin the truth of the
+sentence. The sentence itselfis infact either true or false. It is important to note that a degree of
+beliefis different from a degree of truth. A probability of 0.8 does not mean "80% true" but rather
+an 80% degree of belicf—thatis, a fairly strong expectation. Ifan agent assigns a probability of
+0.8 to a sentence, then the agent expects that in 80% of cases that are indistinguishable from the
+current situation as far as the agent's knowledge goes, the sentence will turn out to be actually
+true. Thus, probability theory makes the same ontological commitment as logic, namely, that
+facts either do or do not hold in the world. Degree of truth, as opposed to degree of belief, is the
+subject of fuzzy logic, which is covered in Section 15.6
+
+Before we plunge into the details of probability, let us pause to consider the status of prob-
+ability statements such as "The probability that the patient has a cavity is 0.8." In propositional
+and first-order logic, a sentence is true or false depending on the interpretation and the world; it
+is truejust when the fact it refers to is the case. Probability statements do not have quite the same
+kind of semantics.* This is because the probability that an agent assigns to a proposition depends
+on the percepts that it has received to date. In discussing uncertain reasoning, we call this the
+evidence. For example, suppose that the agent has drawn a card from a shuffled pack. Before
+looking at the card, the agent might assign a probability of 1/52 to its being the ace of spades.
+After looking at the card, an appropriate probability for the same proposition would be 0 or 1.
+Thus, an assignment of probability to a proposition is analogous to saying whether or not a given
+logical sentence (or its negation) is entailed by the knowledge base, rather than whether or not it
+
+2 Until recently, it was thought that probability theory was too unwieldy for general use in AI, and many approximations
+and alternatives to probability theory were proposed. Some of these will be covered in Section 15.6
+
+3. The objectivist view of probability, however, claims that probability statements are true or false in the same way as
+logical sentences. In Section 14.5, we discuss this claim further
+

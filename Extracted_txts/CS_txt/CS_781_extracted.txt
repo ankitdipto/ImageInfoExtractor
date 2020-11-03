@@ -1,0 +1,43 @@
+136 Let Us C
+
+ 
+
+required to make a choice between a number of alternatives
+
+rather than only one or two. For example, which school to join
+or which hotel to visit or still harder which girl to marry (you
+almost always end up making a wrong decision is a different
+matter altogether!). Serious C programming is same; the choice we
+are asked to make is more complicated than merely selecting
+between two alternatives. C provides a special control statement
+that allows us to handle such cases effectively; rather than using a
+series of if statements. This control instruction is in fact the topic
+of this chapter. Towards the end of the chapter we would also
+study a keyword called goto, and understand why we should avoid
+its usage in C programming.
+
+I n real life we are often faced with situations where we are
+
+Decisions Using switch
+
+The control statement that allows us to make a decision from the
+number of choices is called a switch, or more correctly a switch-
+case-default, since these three keywords go together to make up
+the control statement. They most often appear as follows:
+
+switch (integer expression )
+
+case constant 1 :
+do this ;
+case constant 2 :
+do this ;
+case constant 3 :
+do this ;
+default :
+do this ;
+}
+
+The integer expression following the keyword switch is any C
+expression that will yield an integer value. It could be an integer
+constant like 1, 2 or 3, or an expression that evaluates to an
+

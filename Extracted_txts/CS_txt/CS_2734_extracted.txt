@@ -1,0 +1,52 @@
+296
+
+Chapter 12 Binary Search Trees
+
+The procedure for deleting a given node z from a binary search tree T takes as
+arguments pointers to T and Z. It organizes its cases a bit differently from the three
+cases outlined previously by considering the four cases shown in Figure 12.4.
+
+* If z has no left child (part (a) of the figure), then we replace z by its right child,
+which may or may not be NIL. When z’s right child is NIL, this case deals with
+the situation in which z has no children. When z’s right child is non-NIL, this
+case handles the situation in which z has just one child, which is its right child.
+
+* If z has just one child, which is its left child (part (b) of the figure), then we
+replace z by its left child.
+
+* Otherwise, z has both a left and a right child. We find z’s successor y, which
+lies in z’s right subtree and has no left child (see Exercise 12.2-5). We want to
+splice y out of its current location and have it replace z in the tree.
+
+* If y is z’s right child (part (c)), then we replace z by y, leaving y’s right
+child alone.
+
+* Otherwise, y lies within z’s right subtree but is not z’s right child (part (d)).
+In this case, we first replace y by its own right child, and then we replace z
+by y.
+
+In order to move subtrees around within the binary search tree, we define a
+subroutine TRANSPLANT, which replaces one subtree as a child of its parent with
+another subtree. When TRANSPLANT replaces the subtree rooted at node u with
+the subtree rooted at node v, node u’s parent becomes node v’s parent, and u’s
+parent ends up having v as its appropriate child.
+
+TRANSPLANT(T, u,v)
+1 ifu.p == NIL
+
+2 T.root = v
+
+3 elseif u == u.p. left
+4 u.p.left = v
+5 else u.p.right = v
+6 ifv ANIL
+
+7 V.p=uUp
+
+Lines 1-2 handle the case in which u is the root of T. Otherwise, wu is either a left
+child or a right child of its parent. Lines 3-4 take care of updating u.p.left if u
+is a left child, and line 5 updates u.p.right if u is a right child. We allow v to be
+NIL, and lines 6-7 update v.p if v is non-NIL. Note that TRANSPLANT does not
+attempt to update v./eft and v.right; doing so, or not doing so, is the responsibility
+of TRANSPLANT’ caller.
+

@@ -1,0 +1,51 @@
+406
+
+Chapter 15 Dynamic Programming
+
+words of lengths /,,/2,...,/,, measured in characters. We want to print this para-
+graph neatly on a number of lines that hold a maximum of M characters each. Our
+criterion of “neatness” is as follows. If a given line contains words i through /,
+where i < j, and we leave exactly one space between words, the number of extra
+space characters at the end of the line is M — j +7 — Yy4_;/x, which must be
+nonnegative so that the words fit on the line. We wish to minimize the sum, over
+all lines except the last, of the cubes of the numbers of extra space characters at the
+ends of lines. Give a dynamic-programming algorithm to print a paragraph of n
+words neatly on a printer. Analyze the running time and space requirements of
+your algorithm.
+
+15-5 Edit distance
+
+In order to transform one source string of text x[1..m] to a target string y[1..7],
+we can perform various transformation operations. Our goal is, given x and y,
+to produce a series of transformations that change x to y. We use an ar-
+ray Z—assumed to be large enough to hold all the characters it will need—to hold
+the intermediate results. Initially, z is empty, and at termination, we should have
+zLj] = y[/] for j = 1,2,...,”. We maintain current indices i into x and j into z,
+and the operations are allowed to alter z and these indices. Initially, i = j = 1.
+We are required to examine every character in x during the transformation, which
+means that at the end of the sequence of transformation operations, we must have
+i=m+l1.
+
+We may choose from among six transformation operations:
+
+Copy a character from x to z by setting z[j] = x[i] and then incrementing both i
+and j. This operation examines x[i].
+
+Replace a character from x by another character c, by setting z[j] = c, and then
+incrementing both i and j. This operation examines x[/].
+
+Delete a character from x by incrementing i but leaving j alone. This operation
+examines x [i].
+
+Insert the character c into z by setting z[j] = c and then incrementing j, but
+leaving i alone. This operation examines no characters of x.
+
+Twiddle (i.e., exchange) the next two characters by copying them from x to z but
+in the opposite order; we do so by setting z[j] = x[i + 1] and z[j + 1] = x[/]
+and then setting i = i + 2 and j = j +2. This operation examines x[i]
+and x[i + 1].
+
+Kill the remainder of x by setting i = m + 1. This operation examines all char-
+acters in x that have not yet been examined. This operation, if performed, must
+be the final operation.
+

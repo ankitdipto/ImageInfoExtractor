@@ -1,0 +1,75 @@
+SECTION 10-5 Floating-Point Arithmetic Operations 357
+
+to 99. Positive exponents in registers have the range of numbers from 99 to 50.
+The subtraction 050 gives the positive values from 4900. Negative exponents
+are represented in registers in the range from 49 to 00. The subtraction of 50
+gives the negative values in the range of -1 to -50.
+
+The advantage of biased exponents is that they contain only positive
+numbers Itis then simpler to compare their relative magnitude without being
+concerned withtheir signs. Asa consequence, a magnitude comparator can be
+used to compare their relative magnitude during the alignment of the man-
+tissa. Anotheradvantageis that the smallest possible biased exponent contains
+all zeros. The floating-point representation of zero is then a zero mantissa and
+the smallest possible exponent.
+
+In the examples above, we used decimal numbers to demonstrate some
+of the concepts that must be understood when dealing with floating-point
+numbers. Obviously, the same concepts apply to binary numbers as well. The
+algorithmsdevelopedin this sectionareforbinary numbers. Decimal computer
+arithmetic is discussed in the next section.
+
+Register Configuration
+
+The register configuration for floating-point operations is quite similar to the
+layout for fixed-point operations. As a general rule, the same registers and
+adder used for fixed-point arithmetic are used for processing the mantissas.
+The difference lies in the way the exponents are handled.
+
+The register organization for floating-point operations is shown in Fig.
+10-14. There are three registers, BR, AC, and QR. Each register is subdivided
+into two parts. The mantissa part has the same uppercase letter symbols as in
+fixed-point representation. The exponent part uses the corresponding lower-
+case letter symbol.
+
+It is assumed that each floating-point number has a mantissa in signed-
+magnitude representation and a biased exponent. Thus the AC has a mantissa
+
+Figure 10-14 Registers for floating-point arithmetic operations
+
+ 
+
+ 
+
+ 
+
+ 
+
+2, a ° BR
+Paralletadder
+E Paralleladder and comparator
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+o 2 @ oR
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

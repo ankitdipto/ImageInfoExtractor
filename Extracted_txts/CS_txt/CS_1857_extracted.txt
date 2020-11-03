@@ -1,0 +1,62 @@
+N
+a
+nv
+
+Chapter 9. Inference in First-Order Logic
+
+ 
+
+Missile(Ml) (9.24)
+
+Owns(Nono,x) A Missile(x) = Sells(West, Nono, x) (9.25)
+
+Missile(x)=> Weapon(x) (9.26)
+
+Enemy(x,America) => Hostile(x) (9.27)
+
+American( West) , (9.28)
+
+Nation(Nono) (9.29)
+
+Enemy(Nono,America) (9.30)
+
+Nation(America) (931) 4
+The proof involves just four steps. From (9.24) and (9.26) using Modus Ponens:
+
+Weapon(M1) (9.32)
+From (9.30) and (9.27) using Modus Ponens:
+
+Hostile(Nono) (9.33)
+From (9.23), (9.24), and (9.25) using Modus Ponens:
+
+Sells(West, Nono, M1) (9.34)
+From (9.28), (9.32), (9.29), (9.33), (9.34) and (9.22), using Modus Ponens:
+
+Criminal(West) (9.35)
+
+This proof shows how natural reasoning with Generalized Modus Ponens can be. (In fact, one
+might venture to say that it is not unlike the way in which a human might reason about the
+problem.) In the next section, we describe systematic reasoning algorithms using Modus Ponens.
+These algorithms form the basis for many large-scale applications of AI, which we describe in
+Chapter 10.
+
+94 FORWARD AND BACKWARD CHAINING
+
+FORWARD CHAINING
+
+BACKWARD
+CHANING
+
+Now that we have a reasonable language for representing knowledge, and a reasonable inference
+tule (Generalized Modus Ponens) for using that knowledge, we will study how a reasoning
+program is constructed. j
+
+The Generalized Modus Ponens rule can be used in two ways. We can start with the
+sentences in the knowledge base and generate new conclusions that in turn can allow more
+inferences to be made. This is called forward chaining. Forward chaining is usually used when
+a new fact is added to the database and we want to generate its consequences. Altematively,
+we can start with something we want to prove, find implication sentences that would allow us
+to conclude it, and then attempt to establish their premises in turn. This is called backward
+chaining, because it uses Modus Ponens backwards. Backward chaining is normally used when
+there is a goal to be proved.
+

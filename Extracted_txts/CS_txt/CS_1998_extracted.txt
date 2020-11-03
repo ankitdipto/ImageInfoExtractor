@@ -1,0 +1,50 @@
+12.9 NFS 441
+
+This recovery is all that is needed after a crash, eliminating all problems with
+consistency checking.
+
+A side benefit of using logging on disk metadata updates is that those
+updates proceed much faster than when they are applied directly to the on-disk
+data structures. The reason for this improvement is found in the performance
+advantage of sequential 1/O over random I/O. The costly synchronous ran-
+dom metadata writes are turned into much less costly synchronous sequential
+writes to the log-structured file systems logging area. Those changes in turn
+are replayed asynchronously via random writes to the appropriate structures.
+The overall result is a significant gain in performance of metadata-oriented
+operations, such as file creation and deletion.
+
+12.9 = NFS
+
+Network file systems are commonplace. They typically integrate with the
+overall directory structure and interface of the client system. NFS is a good
+example of a widely used, well-implemented client-server network file system.
+Here, we use it as an example to explore the implementation details of network
+file systems.
+
+NFS is both an implementation and a specification of a software system
+for accessing remote files across LANs (or even WANs). NFS is part of ONC+,
+which most UNIX vendors and some PC operating systems are supporting.
+The implementation described here is part of the Solaris operating system,
+which is a modified version of UNIX SVR4, running on Sun workstations and
+other hardware. It uses either the TCP or UDP/IP protocol (depending on
+the interconnecting network). The specification and the implementation are
+intertwined in our description of NFS. Whenever detail is needed, we refer to
+the Sun implementation; whenever the description is general, it applies to the
+specification also.
+
+12.9.1 Overview
+
+NES views a set of interconnected workstations as a set of independent
+machines with independent file systems. The goal is to allow some degree of
+sharing among these file systems (on explicit request) in a transparent manner.
+Sharing is based on a client-server relationship. A machine may be, and
+often is, both a client and a server. Sharing is allowed between any pair of
+machines, rather than with only dedicated server machines. To ensure machine
+independence, sharing of a remote file system affects only the client machine
+and no other machine.
+
+So that a remote directory will be accessible in a transparent manner from
+a particular machine—say, from M1—a client of that machine has to carry
+out a mount operation first. The semantics of the operation are that a remote
+directory is mounted over a directory of a local file system. Once the mount
+

@@ -1,0 +1,40 @@
+Chapter 9: Puppetting On Strings 331
+
+ 
+
+ptr = name ; /* store base address of string “/
+while ( “ptr != “\0')
+{
+
+printf ("%c", “ptr ) ;
+ptr++;
+
+}
+
+As with the integer array, by mentioning the name of the array we
+get the base address (address of the zeroth element) of the array.
+This base address is stored in the variable ptr using,
+
+ptr = name ;
+
+Once the base address is obtained in ptr, *ptr would yield the
+value at this address, which gets printed promptly through,
+
+printf ("%c", “ptr ) ;
+
+Then, ptr is incremented to point to the next character in the
+string. This derives from two facts: array elements are stored in
+contiguous memory locations and on incrementing a pointer it
+points to the immediately next location of its type. This process is
+carried out till ptr doesn’t point to the last character in the string,
+that is, ‘\0’.
+
+In fact, the character array elements can be accessed exactly in the
+same way as the elements of an integer array. Thus, all the
+following notations refer to the same element:
+
+name[i]
+“(name +i)
+“(i+name )
+i[name]
+

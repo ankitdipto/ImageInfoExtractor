@@ -1,0 +1,59 @@
+118 Chapter 4. Informed Search Methods
+
+ 
+
+ 
+
+EXERCISES
+
+41 Suppose that we run a greedy search algorithm with h(n) = —g(n). What sort of search will
+the greedy search emulate? .
+
+42 Come up with heuristics for the following problems. Explain whether they are admissible,
+and whether the state spaces contain local maxima with your heuristic:
+
+a. The general case of the chain problem (i.e., with an arbitrary goal state) from Exercise 3.15.
+b. Algebraic equation solving (e.g., "solve x?y° = 3 — xy for x”).
+
+c. Path planning in the plane with rectangular obstacles (see also Exercise 4.13).
+
+d. Maze problems, as defined in Chapter 3.
+
+43 Consider the problem of constructing crossword puzzles: fitting words into a grid of
+intersecting horizontal and vertical squares. Assume that a list of words (ie., a dictionary) is
+provided, and that the task is to fill in the squares using any subset of this list. Go through a
+complete goal and problem formulation for this domain, and choose a search strategy to solve it.
+Specify the heuristic function, if you think one is needed.
+
+44 Sometimes there is no good evaluation function for a problem, but there is a good comparison
+method: a way to tell if one node is better than another, without assigning numerical values to
+either. Show that this is enough to do a best-first search. What properties of best-first search do
+we give up ifwe only have a comparison method?
+
+4.5 We saw on page 95 that the straight-line distance heuristic is misleading on the problem of
+going from Iasi to Fagaras. However, the heuristic is perfect on the opposite problem: going from
+Fagaras to Iasi. Are there problems for which the heuristic is misleading in both directions?
+
+46 Invent a heuristic function for the 8-puzzle that sometimes overestimates, and show how it
+can lead to a suboptimal solution on a particular problem.
+
+4.7 Prove that ifthe heuristic function 4 obeys the triangle inequality, then the f-cost along any
+path in the search tree is nondecreasing. (The triangle inequality says that the sum of the costs
+from A to B and B to C must not be less than the cost from A to C directly.)
+
+48 We showed in the chapter that an admissible heuristic heuristic (when combined with
+pathmax) leads to monotonically nondecreasing f values along any path (i.e., f(successor(n))>
+f(n)). Does the implication go the other way? That is, does monotonicity inf imply admissibility
+of the associated A?
+
+49 We gave two simple heuristics for the 8-puzzle: Manhattan distance and misplaced tiles.
+Several heuristics in the literature purport to be better than either ofthese. (See, for example, Nils-
+son (1971) for additional improvements on Manhattan distance, and Mostow and Prieditis (1989)
+for heuristics derived by semimechanical methods.) Test these claims by implementing the
+heuristics and comparing the performance of the resulting algorithms.
+
+410 Would a bidirectional A* search be a good idea? Under what conditions would it be
+applicable? Describe how the algorithm would work
+
+ 
+

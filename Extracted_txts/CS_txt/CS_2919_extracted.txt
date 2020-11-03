@@ -1,0 +1,46 @@
+16.5 A task-scheduling problem as a matroid 445
+
+Lemma 16.12
+For any set of tasks A, the following statements are equivalent.
+
+1. The set A is independent.
+2. Fort =0,1,2,...,n, we have N;,(A) < t.
+
+3. If the tasks in A are scheduled in order of monotonically increasing deadlines,
+then no task is late.
+
+Proof To show that (1) implies (2), we prove the contrapositive: if N;(A) >t for
+some f, then there is no way to make a schedule with no late tasks for set A, because
+more than ¢ tasks must finish before time ¢. Therefore, (1) implies (2). If (2) holds,
+then (3) must follow: there is no way to “get stuck” when scheduling the tasks in
+order of monotonically increasing deadlines, since (2) implies that the ith largest
+deadline is at least 7. Finally, (3) trivially implies (1). .
+
+Using property 2 of Lemma 16.12, we can easily compute whether or not a given
+set of tasks is independent (see Exercise 16.5-2).
+
+The problem of minimizing the sum of the penalties of the late tasks is the same
+as the problem of maximizing the sum of the penalties of the early tasks. The
+following theorem thus ensures that we can use the greedy algorithm to find an
+independent set A of tasks with the maximum total penalty.
+
+Theorem 16.13
+If S is a set of unit-time tasks with deadlines, and J is the set of all independent
+sets of tasks, then the corresponding system (S, I) is a matroid.
+
+Proof Every subset of an independent set of tasks is certainly independent. To
+prove the exchange property, suppose that B and A are independent sets of tasks
+and that |B| > |A]. Letk be the largest ¢ such that N,;(B) < N,(A). (Such a value
+of t exists, since No(A) = No(B) = 0.) Since N,,(B) = |B| and N,,(A) = |A|,
+but |B| > |A], we must have that k < n and that N;j(B) > Nj(A) for all j in
+the range k + 1 < j <n. Therefore, B contains more tasks with deadline k + 1
+than A does. Let a; be a task in B — A with deadline k + 1. Let A! = A U {aj}.
+We now show that A’ must be independent by using property 2 of Lemma 16.12.
+For 0 < t < k, we have N,(A’) = N,(A) < f, since A is independent. For
+k <t <n, we have N,(A’) < N,(B) <t, since B is independent. Therefore, A’
+is independent, completing our proof that (S, I) is a matroid. .
+
+By Theorem 16.11, we can use a greedy algorithm to find a maximum-weight
+independent set of tasks A. We can then create an optimal schedule having the
+tasks in A as its early tasks. This method is an efficient algorithm for scheduling
+

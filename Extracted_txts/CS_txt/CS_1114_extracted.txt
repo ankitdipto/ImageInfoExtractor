@@ -1,0 +1,56 @@
+  
+
+Section 7.6.
+
+Representing Change in the World 205
+
+ 
+
+EFFECTAXIOMS:
+
+ 
+
+    
+  
+
+Forward
+
+Turn (Right)
+
+5,
+Forward
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 73 _ In situation calculus, the world is a sequence of situations linked by actions.
+
+ 
+
+ 
+
+Actions are described by stating their effects. That is, we specify the properties of the situation
+that results from doing the action. Suppose, for example, that the agent wants to keep track of
+whether it is holding the gold. The description should state that, in any situation, if gold is present
+and the agent does a grab, then it will be holding the gold in the resulting situation. We write this
+in such a way as to apply to any portable object:
+Portable(Gold)
+Vs AtGold(s) = Present(Gold,s)
+Vx,s Present(x, s) A Portable(x) => Holding(x, Result(Grab. s))
+A similar axiom says that the agent is not holding anything after a Release action:
+Vx, 8 >HoldingResult(Release. s))
+
+These axioms are called effect axioms. Unfortunately, they are not sufficient to keep track of
+whether the agent is holding the gold. We also need to say that ifthe agent is holding something
+
+a
+

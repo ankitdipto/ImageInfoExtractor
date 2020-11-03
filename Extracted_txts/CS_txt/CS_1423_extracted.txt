@@ -1,0 +1,42 @@
+Chapter 21: More Linux Programming 671
+
+ 
+
+Handling Multiple Signals
+
+Now that we know how to handle one signal, let us try to handle
+multiple signals. Here is the program to do this...
+
+# include <unistd.h>
+
+# include <sys/types.h>
+
+# include <signal.h>
+
+void inthandler ( int signum )
+
+printf ( "\nSIGINT Receivedin" ) ;
+
+}
+void termhandler (int signum )
+{
+printf ( "\nSIGTERM Receivedin" ) ;
+}
+
+void conthandler (int signum )
+
+printf ( "\nSIGCONT Receivedin" ) ;
+}
+
+int main()
+
+{
+signal ( SIGINT, inthandler ) ;
+signal ( SIGTERM, termhandler ) ;
+signal ( SIGCONT, conthandler ) ;
+
+while (1)
+printf ( "\Program Running" ) ;
+
+return 0 ;
+

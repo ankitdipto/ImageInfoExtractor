@@ -1,0 +1,50 @@
+Chapter 3: The Loop Control Structure 117
+
+ 
+
+Though it is simpler to program such a requirement using a do-
+while loop, the same functionality if required, can also be
+accomplished using for and while loops as shown below:
+
+I" odd loop using a for loop */
+
+main()
+
+{
+char another = 'y';
+int num ;
+for (; another == 'y' ; )
+{
+
+printf ("Enter a number ") ;
+
+scanf ("%d", &num ) ;
+
+printf (“square of %d is %d", num, num * num ) ;
+(’
+(
+
+printf ( "\nWant to enter another number y/n") ;
+scanf(" %c", &another ) ;
+
+}
+
+I" odd loop using a while loop */
+main()
+{
+
+char another = 'y';
+
+int num ;
+
+while ( another == 'y' )
+
+{
+printf ("Enter a number ") ;
+scanf ("%d", &num ) ;
+printf (“square of %d is %d", num, num * num ) ;
+printf ( "\nWant to enter another number y/n") ;
+scanf (" %c", &another ) ;
+
+}
+

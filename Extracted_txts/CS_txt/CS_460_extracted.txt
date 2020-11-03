@@ -1,0 +1,52 @@
+Notes for Chapter 32 1013
+
+b. Forany pattern P[1..m], let p*(P) be defined as max1<j<m P(P;). Prove that if
+the pattern P is chosen randomly from the set of all binary strings of length m,
+then the expected value of p*(P) is O(1).
+
+c. Argue that the following string-matching algorithm correctly finds all occur-
+rences of pattern P ina text T[1..n] in time O(p*(P)n +m):
+
+REPETITION-MATCHER (P, T)
+1 m= P.length
+
+2 n= T-length
+
+3 k=1+p*(P)
+
+4 q=0
+
+5 s=0
+
+6 whiles<n—m
+
+7 if T[s+q+4+ l)== Pilg +1]
+8
+
+9
+
+q=qtl
+
+if g ==m
+10 print “Pattern occurs with shift” s
+al ifg==morT[s+q+1]) 4 Plg+]]
+12 5s = s +max(1, [g/k])
+13 q=0
+
+This algorithm is due to Galil and Seiferas. By extending these ideas greatly,
+they obtained a linear-time string-matching algorithm that uses only O(1) stor-
+age beyond what is required for P and T.
+
+ 
+
+Chapter notes
+
+The relation of string matching to the theory of finite automata is discussed by
+Aho, Hopcroft, and Ullman [5]. The Knuth-Morris-Pratt algorithm [214] was
+invented independently by Knuth and Pratt and by Morris; they published their
+work jointly. Reingold, Urban, and Gries [294] give an alternative treatment of the
+Knuth-Morris-Pratt algorithm. The Rabin-Karp algorithm was proposed by Karp
+and Rabin [201]. Galil and Seiferas [126] give an interesting deterministic linear-
+time string-matching algorithm that uses only O(1) space beyond that required to
+store the pattern and text.
+

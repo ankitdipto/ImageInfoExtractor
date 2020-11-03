@@ -1,0 +1,101 @@
+826 Chapter 28 Matrix Operations
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1] 2 0 2 06 3) @ 5 4 2 3) @ 5 4 2
+¢ 3°03 4 2 2)°303 4 2 2| 06] 0 16 32
+3} @ 5 4 2 1] 2 0 2 06 1] 04] 2 04 -2
+4) 1 2 34 4 4] -1 -2 34 -1 4} 02) -1 42 -06
+(a) (b) (©)
+3} 5 5 4 2 3) 5s 5 4 2 3) 5 5 4 2
+c 2| 06] 0 16 32 1| 04[@ 04 02 1| 04|@ 04 02
+1| 04|@ 04 -02 2) 06/0 16 32 2| 06 0 ]16 32
+4} 02] -1 42 -06 4} -02|-1 42 -06 4} -02 05] 4 -05
+(d) (e) ®
+3 3
+1 1
+el? 0.6 4
+4} 02 2
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+oo10 2 0 2 06 1 0 0 0 5.5 4 2
+1000 303 4 -2 _ 04 1 0 0 0 -2 04 -0.2
+ooo 5 5 4 2 _ 0.2 05 1 0 0 0 4 -05
+0100 -1 —2 34 -1 06 #0 04 1 0 0 0 -3
+P A L U
+@
+
+Figure 28.2 The operation of LUP-DECOMPOSITION. (a) The input matrix A with the identity
+permutation of the rows on the left. The first step of the algorithm determines that the element 5
+in the black circle in the third row is the pivot for the first column. (b) Rows 1 and 3 are swapped
+and the permutation is updated. The shaded column and row represent v and w". (¢) The vector v
+is replaced by v/5, and the lower right of the matrix is updated with the Schur complement. Lines
+divide the matrix into three regions: elements of U (above), elements of L (left), and elements of the
+Schur complement (lower right). (d)-(f) The second step. (g}-(i) The third step. No further changes
+‘occur on the fourth (final) step. (j) The LUP decomposition PA = LU.
+

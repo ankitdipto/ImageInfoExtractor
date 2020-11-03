@@ -1,0 +1,52 @@
+24.3 Dijkstra’s algorithm 661
+
+to S. Edge (x,y) was relaxed at that time, and the claim follows from the
+convergence property.
+
+We can now obtain a contradiction to prove that u.d = 6(s,u). Because y
+appears before wu on a shortest path from s to u and all edge weights are non-
+negative (notably those on path p2), we have 6(s, y) < 5(s,u), and thus
+
+yd 4(s, y)
+
+5(s,u) (24.2)
+u.d (by the upper-bound property) .
+
+IA IA
+
+But because both vertices u and y were in V — S when u was chosen in line 5,
+we have u.d < y.d. Thus, the two inequalities in (24.2) are in fact equalities,
+giving
+
+y.d = &(s,y) = 5(s,u) = u.d.
+
+Consequently, u.d = 6(s,u), which contradicts our choice of u. We conclude
+that u.d = 5(s,u) when w is added to S, and that this equality is maintained at
+all times thereafter.
+
+Termination: At termination, Q = 9 which, along with our earlier invariant that
+Q = V—S, implies that S = V. Thus, u.d = 6(s,u) for all verticesu € V.
+
+Corollary 24.7
+
+If we run Dijkstra’s algorithm on a weighted, directed graph G = (V, E) with
+nonnegative weight function w and source s, then at termination, the predecessor
+subgraph G, is a shortest-paths tree rooted at s.
+
+Proof Immediate from Theorem 24.6 and the predecessor-subgraph property.
+
+Analysis
+
+How fast is Dijkstra’s algorithm? It maintains the min-priority queue Q by call-
+ing three priority-queue operations: INSERT (implicit in line 3), EXTRACT-MIN
+(line 5), and DECREASE-KEY (implicit in RELAX, which is called in line 8). The
+algorithm calls both INSERT and EXTRACT-MIN once per vertex. Because each
+vertex u € V is added to set S exactly once, each edge in the adjacency list Adj[u]
+is examined in the for loop of lines 7-8 exactly once during the course of the al-
+gorithm. Since the total number of edges in all the adjacency lists is |E|, this for
+loop iterates a total of | £| times, and thus the algorithm calls DECREASE-KEY at
+most | E| times overall. (Observe once again that we are using aggregate analysis.)
+
+The running time of Dijkstra’s algorithm depends on how we implement the
+min-priority queue. Consider first the case in which we maintain the min-priority
+

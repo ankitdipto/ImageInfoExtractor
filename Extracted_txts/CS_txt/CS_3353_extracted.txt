@@ -1,0 +1,69 @@
+Section 23.2.
+
+Efficient Parsing 699
+
+ 
+
+LEFT-CORNER
+
+ 
+
+function NONDETERMINISTIC-CHART-PARSE(string, grammar) returns chart
+
+INITIALIZER:
+chart —[0,0, S' — +S]
+
+while new edges can still be added do
+edge — choose [i,j, 4 — a » Sf] in chart
+choose one of the three methods that will succeed:
+
+PREDICTOR:
+choose (8B — +) in RULES[grammar]
+add [j,j, B — * 7] to chart
+COMPLETER:
+
+choose [j.k, B — F *] in chart
+add {i,k, 4 — aB Jj to chart
+SCANNER:
+ifsiring[j+ 1] is of category B then
+add [j,f+ 1, 4 — aS * 3] to chart
+end
+return chart
+
+ 
+
+ 
+
+Figure 23.2. Nondeterministic chart parsing algorithm. 5 is the start symbol and S’ is a new
+nonterminal symbol. The Greek letters match a string of zero or more symbols. The variable edge
+is an edge looking for a B. The predictor adds an edge that will form aB, the completer chooses
+a complete edge with B on the left-hand side and adds a new edge that is just like edge except the
+dot is advanced past B. The scanner advances the dot if the next word is of category B.
+
+ 
+
+ 
+
+ 
+
+An important feature of our chart-parsing algorithm is that it avoids building some edges
+that could not possibly be part of an S spanning the whole string. Consider the sentence "The
+tide the horse gave was wild." Some algorithms would parse "ride the horse" as a VP, and then
+discard it when it is found not to fit into a larger S. But if we assume that the grammar does
+not allow a VP to follow "the," then the chart-parsing algorithm will never predict a VP at that
+point, and thus will avoid wasting time building the VP constituent there. Algorithms that have
+this property are called Jeft-corner parsers, because they build up a parse tree that starts with the
+grammar's start symbol and extends down to the left-most word in the sentence (the left corner)
+An edge is added to the chart only ifit can serve to extend this parse tree. See Figure 23.5 for an
+example of this.
+
+Our algorithm has the constraint that the edges are added in left-to-right order. That is, if
+edge /i,j, A — B] is added before [/’,;’, C— Dj, then it must be that j < j’. Figure 23.6 shows
+a deterministic implementation that obeys this constraint. To get efficiency, we index edges in
+the chart by their ending vertex number. The notation chart[j)means the set of edges that end at
+vertexj. Additional indexing of edges may lead to further efficiency: the loop in SCANNER could
+be eliminated if we indexed edges at a vertex by the terminal symbol they are looking for, and
+the loop in COMPLETER could be eliminated ifwe indexed the complete edges at a vertex by their
+left-hand side. The algorithm also indexes rules so that REWRITES-FOR(X,G) retums all rules in
+G whose left-hand side is X.
+

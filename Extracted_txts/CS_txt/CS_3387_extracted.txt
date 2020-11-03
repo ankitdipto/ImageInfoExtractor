@@ -1,0 +1,87 @@
+Section 24.2.
+
+ 
+
+Image Formation 729
+
+ 
+
+LAMBERTIAN
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(a)
+
+ 
+
+ 
+
+ 
+
+Figure 244 (a) Magnified view of a 12 x 12 block of pixels from Figure 24.3. (b) The
+associated image brightness values.
+
+ 
+
+ 
+
+ 
+
+Photometry of image formation
+
+The brightness ofa pixel p in the image is proportional to the amount of light directed toward the
+camera by the surface patch S,, that projects to pixel p. This in turn depends on the reflectance
+properties of S,, the position and distribution of the light sources. There is also a dependence
+on the reflectance properties of the rest of the scene because other scene surfaces can serve as
+indirect light sources by reflecting light received by them onto Sp.
+
+The light reflected from an object is characterized as being either diffusely or specularly
+reflected. Diffusely reflected light is light that has penetrated below the surface ofan object, been
+absorbed, and then re-emitted. The surface appears equally bright to an observer in any direction.
+Lambert's cosine law is used to describe the reflection of light from a perfectly diffusing or
+
+Lambertian surface. The intensity £ of light reflected from a perfect diffuser is given by
+
+E = pEy cos9
+
+where Fp is the intensity of the light source; p is the albedo, which varies from 0 (for perfectly
+black surfaces) to 1 (for pure white surfaces); and 0 is the angle between the light direction and
+the surface normal.
+
+Specularly reflected light is reflected from the outer surface ofthe object. Here the energy
+of reflected light is concentrated primarily in a particular direction—the one where the reflected
+ray is in the same plane as the incident ray and satisfies the condition that the angle of reflection
+is equal to the angle of incidence. This is the behavior of a perfect mirror.
+
+Tn real life, surfaces exhibit a combination of diffuse and specular properties. Modelling
+this on the computer is the bread and butter of computer graphics. Rendering realistic images
+is usually done by ray tracing, which aims to simulate the physical process of light originating
+

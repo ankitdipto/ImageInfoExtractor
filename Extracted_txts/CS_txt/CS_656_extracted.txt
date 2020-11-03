@@ -1,0 +1,83 @@
+ 
+
+36 Let Us C
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Operator | Left Right Remark
+= a borb=| Left operand is
+3 unambiguous, Right is
+not
+= bora=b | 3 Right operand is
+unambiguous, Left is not
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 1.11
+
+Since both = have R to L associativity and only the second = has
+unambiguous right operand (necessary condition for R to L
+associativity) the second = is performed earlier.
+
+Consider yet another expression
+z=a*b+cld;
+
+Here * and / enjoys same priority and same associativity (Left to
+Right). Figure 1.12 shows for each operator which operand is
+unambiguous and which is not.
+
+ 
+
+ 
+
+Operator | Left | Right | Remark
+
+ 
+
+* a b Both operands are unambiguous
+
+ 
+
+/ c d Both operands are unambiguous
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 1.12
+
+Here since left operands for both operators are unambiguous
+Compiler is free to perform * or / operation as per its convenience
+

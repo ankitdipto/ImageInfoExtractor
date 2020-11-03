@@ -1,0 +1,56 @@
+conversion to RPN
+
+SECTION 83 Stack Organization 253
+
+isa * and its previous two operands are C and D, so we perform C *D and
+obtain an expression with two operands and one operator:
+
+(A*B)(C*D) +
+
+‘The next operator is + and the two operands to be added are the two products,
+so we add the two quantities to obtain the result.
+
+The conversion from infix notation to reverse Polish notation must take
+into consideration the operational hierarchy adopted for infix notation. This
+hierarchy dictates that we first perform all arithmeticinside inner parentheses,
+then inside outer parentheses, and do multiplication and division operations
+before addition and subtraction operations. Consider the expression
+
+ 
+
+(A+ B)*[C#(D +E) + F]
+
+To evaluate the expression we must first perform the arithmetic inside the
+parentheses (A + B) and (D + E). Next we must calculate the expression
+inside the square brackets. The multiplication of C*(D + E) must be done
+prior to the addition of F since multiplication has precedence over addition. The
+last operation is the multiplication of the two terms between the parentheses
+and brackets. The expression can be converted to reverse Polish notation,
+without the use of parentheses, by taking into consideration the operation
+hierarchy. The converted expression is
+
+ 
+
+AB+DE+C*F+*
+
+Proceeding from left to right, we first add A and B, then add Dand E. At this
+point we are left with
+
+(A+ BY(D+E)C#F+ «
+
+where (A + B) and (D + E) are each a single number obtained from the sum.
+The two operands for the next * are C and (D+E), These two numbers are
+multiplied and the product added to F. The final * causes the multiplication
+of the two terms.
+
+ 
+
+Evaluation of Arithmetic Expressions
+
+Reverse Polish notation, combined witha stack arrangement ofregisters, is the
+most efficient way known for evaluating arithmetic expressions. This proce-
+dure is employed in some electronic calculators and also in some computers.
+‘The stack is particularly useful for handling long, complex problemsinvolving,
+chain calculations. It is based on the fact that any arithmetic expression can be
+expressed in parentheses-free Polish notation.
+

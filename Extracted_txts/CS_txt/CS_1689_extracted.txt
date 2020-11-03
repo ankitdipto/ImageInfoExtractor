@@ -1,0 +1,52 @@
+184 Chapter 6 CPU Scheduling
+
+code. If an interrupt arrives that wakes up a real-time process while the kernel
+is already executing a system call on behalf of another process, the real-time
+process will just have to wait until the currently running system call completes
+or blocks.
+
+6.8 = Summary
+
+CPU scheduling is the task of selecting a waiting process from the ready queue
+and allocating the CPU to it. The CPU is allocated to the selected process by the
+dispatcher.
+
+First-come, first-served (FCFS) scheduling is the simplest scheduling algo-
+rithm, but it can cause short processes to wait for very long processes. Shortest-
+job-first (SJF) scheduling is provably optimal, providing the shortest average
+waiting time. Implementing SJF scheduling is difficult because predicting the
+length of the next CPU burst is difficult. The SJF algorithm is a special case of
+the general priority-scheduling algorithm, which simply allocates the CPU to
+the highest-priority process. Both priority and SJF scheduling may suffer from.
+starvation. Aging is a technique to prevent starvation.
+
+Round-robin (RR) scheduling is more appropriate for a time-shared (inter-
+active) system. RR scheduling allocates the CPU to the first process in the ready
+queue for q time units, where q is the time quantum. After q time units, if
+the process has not relinquished the CPU, it is preempted and the process is
+put at the tail of the ready queue. The major problem is the selection of the
+time quantum. If the quantum is too large, RR scheduling degenerates to FCFS
+scheduling; if the quantum is too small, scheduling overhead in the form of
+context-switch time becomes excessive.
+
+The FCFS algorithm is nonpreemptive; the RR algorithm is preemptive. The
+SJF and priority algorithms may be either preemptive or nonpreemptive.
+
+Multilevel queue algorithms allow different algorithms to be used for var-
+ious classes of processes. The most common is a foreground interactive queue,
+which uses RR scheduling, and a background batch queue, which uses FCFS
+scheduling. Multilevel feedback queues allow processes to move from one
+queue to another.
+
+Because such a wide variety of scheduling algorithms are available, we
+need methods to select among them. Analytic methods use mathematical anal-
+ysis to determine the performance of an algorithm. Simulation methods deter-
+mine performance by imitating the scheduling algorithm on a “representative”
+sample of processes, and computing the resulting performance.
+
+Operating systems supporting threads at the kernel level must schedule
+threads—not processes—for execution. This is the case with Solaris 2 and
+Windows 2000 where both systems schedule threads using preemptive, priority-
+based scheduling algorithms including support for real-time threads. The
+Linux process scheduler also uses a priority-based algorithm with real-time
+

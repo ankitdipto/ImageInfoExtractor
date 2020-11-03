@@ -1,0 +1,55 @@
+29.4 Duality 885
+
+that the solution is feasible for the dual problem. From inequalities (29.94) and
+equations (29.95), we have that c <0 forall j =1,2,..., n-+m. Hence, for any
+J=1.2,.... n, equations (29.101) imply that
+
+m
+i=l
+
+m
+
+Yai :
+
+i=l
+
+which satisfies the constraints (29.84) of the dual. Finally, since Cc < 0 for each
+Jj € NUB, when we set ¥ according to equation (29.91), we have that each y; > 0,
+and so the nonnegativity constraints are satisfied as well. .
+
+cq
+
+IA
+
+We have shown that, given a feasible linear program, if INITIALIZE-SIMPLEX
+returns a feasible solution, and if SIMPLEX terminates without returning “un-
+bounded,” then the solution returned is indeed an optimal solution. We have also
+shown how to construct an optimal solution to the dual linear program.
+
+Exercises
+
+29.4-1
+Formulate the dual of the linear program given in Exercise 29.3-5.
+
+29.4-2
+
+Suppose that we have a linear program that is not in standard form. We could
+produce the dual by first converting it to standard form, and then taking the dual.
+It would be more convenient, however, to be able to produce the dual directly.
+Explain how we can directly take the dual of an arbitrary linear program.
+
+29.4-3
+
+Write down the dual of the maximum-flow linear program, as given in lines
+(29.47)-(29.50) on page 860. Explain how to interpret this formulation as a
+minimum-cut problem.
+
+29.4-4
+
+Write down the dual of the minimum-cost-flow linear program, as given in lines
+(29.51)-(29.52) on page 862. Explain how to interpret this problem in terms of
+graphs and flows.
+
+29.4-5
+Show that the dual of the dual of a linear program is the primal linear program.
+

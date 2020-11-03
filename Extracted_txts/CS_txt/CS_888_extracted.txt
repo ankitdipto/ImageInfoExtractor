@@ -1,0 +1,45 @@
+224 Let Us C
+
+ 
+
+There are four storage classes in C:
+
+(a) Automatic storage class
+(b) Register storage class
+(c) Static storage class
+
+(d) External storage class
+
+Let us examine these storage classes one by one.
+
+Automatic Storage Class
+
+The features of a variable defined to have an automatic storage
+class are as under:
+
+Storage — Memory.
+
+Default initial value - An unpredictable value, which is often
+called a garbage value.
+
+Scope — Local to the block in which the variable
+is defined.
+
+Life — Till the control remains within the block
+
+in which the variable is defined.
+
+Following program shows how an automatic storage class variable
+is declared, and the fact that if the variable is not initialized it
+contains a garbage value.
+
+main()
+{
+auto int i, j ;
+printf ("\n%d_%d", i,j);
+The output of the above program could be...
+1211 221
+
+where, 1211 and 221 are garbage values of i and j. When you run
+this program you may get different values, since garbage values
+

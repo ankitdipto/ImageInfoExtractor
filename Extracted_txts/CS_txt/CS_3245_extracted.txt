@@ -1,0 +1,80 @@
+Section 20.2.
+
+ 
+
+ADAPTIVE DYNAMIC
+PROGRAMMING
+
+ADP
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Passive Learning in a Known Environment 603
+1; 06
+Os F
+2 5 2 ‘
+2 io.4 |
+Bok 2 2,
+3 ; - (2,3) - ae
+3 ab} 925i
+~.0s 7 GD z iA
+ap O1 pee
+al (4.2) 0
+0 200 400 600 +800 1000 0 200 400 600 800 |= 1000
+Number of epochs Number of epochs
+@ ()
+Figure204 The LMS leaming curves forthe 4 x 3 world shown in Figure 20. | . (a) The utility
+estimates of the states over time. (b) The RMS error compared to the correct values.
+
+ 
+
+ 
+
+Adaptive dynamic programming
+
+Programs that use knowledge of the structure of the environment usually learn much faster. In the
+example in Figure 20.5 (from (Sutton, 1988)), the agent already has a fair amount of experience
+with the three states on the right, and has learned the values indicated. However, the path followed
+from the new state reaches an unusually good terminal state. The LMS algorithm will assign a
+utility estimate of +1 to the new state, whereas itis clear that the new state is much less promising,
+because it has a transition to a state known to have utility + —0.8, and no other known transitions.
+
+Fortunately, this drawback can be fixed. Consider again the point concerning the constraints
+on neighboring utilities. Because, for now, we are assumigg that the transition probabilities
+are listed in the known table Mj, the reinforcement learning problem becomes a well-defined
+sequential decision problem (see Chapter 17) as soon as the agent has observed the rewards for all
+the states. In our 4 x 3 environment, this usually happens after a handful of training sequences,
+at which point the agent can compute the exact utility values for all states. The utilities are
+computed by solving the set of equations
+
+U@ = RU) + Y° MUG (20.1)
+i
+
+where R(i) is the reward associated with being in state i, and Mj is the probability that a transition
+will occur from state i to statej. This set of equations simply formalizes the basic point made in
+the previous subsection. Notice that because the agent is passive, no maximization over actions
+is involved (unlike Equation (17.3)). The process of solving the equations is therefore identical
+to a single value determination phase in the policy iteration algorithm. The exact utilities for
+the states in the 4 x 3 world are shown in Figure 20.1(c). Notice how the "safest" squares are
+those along the top row, away from the negative reward state.
+
+We will use the term adaptive dynamic programming (or ADP) to denote any reinforce-
+ment learning method that works by solving the utility equations with a dynamic programming
+algorithm. In terms of its ability to make good use of experience, ADP provides a standard
+

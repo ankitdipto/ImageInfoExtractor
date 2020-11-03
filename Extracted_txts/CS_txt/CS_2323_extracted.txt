@@ -1,0 +1,56 @@
+write-through
+
+‘write-back
+
+valid bit
+
+SECTION 126 Virtual Memory 469
+
+The simplest and most commonly used procedure is to update main
+memory with every memory write operation, with cache memory being up-
+dated in parallel if it contains the word at the specified address. This is called
+the write-through method. This method has the advantage that main memory
+always contains the same data as the cache. This characteristic is important in
+systems with direct memory access transfers. It ensures that the data residing
+in main memory are valid at all times so that an /O device communicating
+through DMA would receive the most recent updated data.
+
+The second procedureis called the write-back method. In this method only
+the cache location is updated during a write operation. The location is then
+marked by a flag so that later when the word is removed from the cache it is
+copied into main memory. The reason for the write-back method is that during
+the timea word resides in the cache, it may be updated several times; however,
+as long as the word remains in the cache, it does not matter whether the copy
+in main memory is out of date, since requests from the word are filled from
+the cache. Itis only when the word is displaced from the cache that an accurate
+copy need be rewritten into main memory. Analytical results indicate that the
+number of memory writes in a typical program ranges between 10 and 30
+percent of the total references to memory.
+
+Cache Initialization
+‘One more aspect of cache organization that must be taken into consideration
+is the problem of initialization. The cache is initialized when power is applied
+to the computer or when the main memory is loaded with a complete set of
+programs from auxiliary memory. After initialization the cache is considered
+to be empty, but in effect it contains some nonvalid data. It is customary to
+include with each word in cache a valid bit to indicate whether or not the word
+contains valid data.
+
+The cache is initialized by clearing all the valid bits to 0. The valid bit of
+a particular cache word is set to 1 the first time this word is loaded from main
+memory and stays set unless the cache has to be initialized again. The intro-
+duction of the valid bit means that a word in cache is not replaced by another
+word unless the valid bit is set to 1 and a mismatch of tags occurs If the valid
+bit happens to be 0, thenew word automatically replaces the invalid data. Thus
+the initialization condition has the effect of forcing misses from the cache until
+it fills with valid data.
+
+ 
+
+12-6 Virtual Memory
+
+Inamemory hierarchy system, programs and data are first stored in auxiliary
+memory. Portions ofa program or data are brought into main memory as they
+are needed by the CPU, Virtual memory is a concept used in some large
+computer systems that permit the user to construct programs as though alarge
+

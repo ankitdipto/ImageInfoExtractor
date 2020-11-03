@@ -1,0 +1,55 @@
+SECTION 11-3 Asynchronous Data Transfer 401
+
+ 
+
+ 
+
+RI R2 R3 RA
+bit Ait 4bit it
+register register register vegister
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11-9 Circuit diagram of 4 x 4 FIFO buffer.
+
+ 
+
+ 
+
+Data
+output
+
+Output
+ready
+
+Delete
+
+flip-flops F, i = 1,2, 3,4, one for each register. The FIFO can store four words
+of four bits each. The number of bits per word can be increased by increasing
+the number of bits in each register and the number of words can be increased
+by increasing the number of registers.
+
+A flip-flop Fiin the control register that is set to 1indicates that a 4-bit data
+word is stored in the corresponding register RI. A 0 in F; indicates that the
+corresponding register does not contain valid data. The control register directs
+

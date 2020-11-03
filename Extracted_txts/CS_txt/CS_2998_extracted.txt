@@ -1,0 +1,130 @@
+378
+
+UNIQUE MAIN
+‘SUBACTION.
+
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+   
+   
+
+Chapter 12. Practical Planning
+
+Figure 12.6 shows an example where the upward solution property does not hold. That is,
+the abstract solution is inconsistent, but there is a decomposition that solves the problem. The
+problem is taken from the O. Henry story The Gift ofthe Magi. A poor couple has only two prized
+possessions; he a gold watch and she her beautiful long hair. They each plan to buy presents to
+make the other happy. He decides to trade his watch to buy a fancy comb for her hair, and she
+decides to sell her hair to get a gold chain for his watch. As Figure 12.6(b) shows, the resulting
+abstract plan is inconsistent. However, it is still possible to decompose this inconsistent plan
+into a consistent solution, if the right decomposition methods are available. In Figure 12.6(c)
+we decompose the "Give Comb" step with an "installment plan" method. In the first step of the
+decomposition, the husband takes possession of the comb, and gives it to his wife, while agreeing
+to deliver the watch in payment at a later date. In the second step, the watch is handed over and
+the obligation is fulfilled. A similar method decomposes the "Give Chain" step. As long as both
+giving steps are ordered before the delivery steps, this decomposition solves the problem.
+
+One way to guarantee the upward solution property is to make sure that each decomposition
+method satisfies the unique main subaction condition: that there is one step of the decomposed
+plan to which all preconditions and effects of the abstract operator are attached. In the Magi 4
+example, the unique main subaction condition does not hold. It does not hold in Figure 123
+either, although it would be if Own Land were a precondition of the Pay Builder step. Sometimes
+
+ 
+
+—_——
+Watch” Giye | —Watch |
+zw Comb |Happy(She)
+
+ 
+
+ 
+
+Watch Happy(He)
+Start fatch 1D}
+
+—
+Hair Happy(She)
+
+ 
+
+Finish Stiart Finish
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ive |Happy(He)
+(a) Initiall Problem watch, Give |[Chehn
+Hair Chain | —Hair
+Shain
+
+ 
+
+(b) Abstract Inconsistent Plan
+
+ 
+
+Watch | Give Comb a en) Watch | Deliver | ~Watch
+A (Qn Credit) [nappyiShe) | Watch —e
+Start = _ Finish
+NI Give Chain | Chain Deliver “Hair
+
+Hair Owe (Hair) — ————w] f
+On Credit) Hair | -Owe/Hair)
+Warch| ( ) | Happy(He) Har (Hair)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(©) Decomposition of (b) into a Consistent Solution
+
+ 
+
+ 
+
+Figure 26 (a) The Gift of the Magi problem. (b) The partial plan is inconsistent, because
+there is no way to order the two abstract steps without a conflict. (¢) A decomposition that solves
+the problem. This violates the upward solution property, because the inconsistent plan in (b) now
+has a solution.
+
+ 
+
+ 
+
+ 
+
+ 
+

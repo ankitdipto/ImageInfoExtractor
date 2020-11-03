@@ -1,0 +1,47 @@
+Chapter 19: Interaction With Hardware 657
+
+ 
+
+}
+
+else
+
+{
+printf ( "In parent process\n" ) ;
+I" code to copy file */
+
+}
+
+}
+
+As we know, fork( ) creates a child process and duplicates the
+code of the parent process in the child process. There onwards the
+execution of the fork( ) function continues in both the processes.
+Thus the duplication code inside fork() is executed once, whereas
+the remaining code inside it is executed in both the parent as well
+as the child process. Hence control would come back from fork()
+twice, even though it is actually called only once. When control
+returns from fork( ) of the parent process it returns the PID of the
+child process, whereas when control returns from fork( ) of the
+child process it always returns a 0. This can be exploited by our
+program to segregate the code that we want to execute in the
+parent process from the code that we want to execute in the child
+process. We have done this in our program using an if statement.
+In the parent process the ‘else block’ would get executed, whereas
+in the child process the ‘if block’ would get executed.
+
+Let us now write one more program. This program would use the
+fork( ) call to create a child process. In the child process we would
+print the PID of child and its parent, whereas in the parent process
+we would print the PID of the parent and its child. Here is the
+program...
+
+# include <sys/types.h>
+
+int main()
+{
+int pid ;
+pid = fork() ;
+
+if (pid == 0)
+

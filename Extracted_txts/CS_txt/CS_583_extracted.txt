@@ -1,0 +1,54 @@
+35.2. The traveling-salesman problem 1113
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 35.2 The operation of APPROX-TSP-Tour. (a) A complete undirected graph. Vertices lie
+on intersections of integer grid lines. For example, f is one unit to the right and two units up from /.
+The cost function between two points is the ordinary euclidean distance. (b) A minimum spanning
+tree T of the complete graph, as computed by MST-PRIM. Vertex a is the root vertex. Only edges
+in the minimum spanning tree are shown. The vertices happen to be labeled in such a way that they
+are added to the main tree by MST-PRIM in alphabetical order. (c) A walk of T, starting at a. A
+full walk of the tree visits the vertices in the order a,b,c, b,h,b,a,d,e, f.e. g.e.d,a. A preorder
+walk of T lists a vertex just when it is first encountered, as indicated by the dot next to each vertex,
+yielding the ordering a,b,c, h,d.e, f.g. (d) A tour obtained by visiting the vertices in the order
+given by the preorder walk, which is the tour H returned by APPROX-TSP-TouR. Its total cost
+is approximately 19.074. (e) An optimal tour H* for the original complete graph. Its total cost is
+approximately 14.715.
+
+Recall from Section 12.1 that a preorder tree walk recursively visits every vertex
+in the tree, listing a vertex when it is first encountered, before visiting any of its
+children.
+
+Figure 35.2 illustrates the operation of APPROX-TSP-ToUR. Part (a) of the fig-
+ure shows a complete undirected graph, and part (b) shows the minimum spanning
+tree T grown from root vertex a by MST-PRIM. Part (c) shows how a preorder
+walk of T visits the vertices, and part (d) displays the corresponding tour, which is
+the tour returned by APPROX-TSP-Tour. Part (e) displays an optimal tour, which
+is about 23% shorter.
+

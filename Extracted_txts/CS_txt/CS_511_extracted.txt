@@ -1,0 +1,56 @@
+1056
+
+Chapter 34 NP-Completeness
+
+like the definition to be independent of any particular encoding. That is, the ef-
+ficiency of solving a problem should not depend on how the problem is encoded.
+Unfortunately, it depends quite heavily on the encoding. For example, suppose that
+an integer k is to be provided as the sole input to an algorithm, and suppose that
+the running time of the algorithm is @(k). If the integer k is provided in unary—a
+string of k 1s—then the running time of the algorithm is O(71) on length-n inputs,
+which is polynomial time. If we use the more natural binary representation of the
+integer k, however, then the input length isn = [lgk | + 1. Im this case, the run-
+ning time of the algorithm is @(k) = @(2”), which is exponential in the size of the
+input. Thus, depending on the encoding, the algorithm runs in either polynomial
+or superpolynomial time.
+
+How we encode an abstract problem matters quite a bit to how we understand
+polynomial time. We cannot really talk about solving an abstract problem without
+first specifying an encoding. Nevertheless, in practice, if we rule out “expensive”
+encodings such as unary ones, the actual encoding of a problem makes little dif-
+ference to whether the problem can be solved in polynomial time. For example,
+representing integers in base 3 instead of binary has no effect on whether a prob-
+lem is solvable in polynomial time, since we can convert an integer represented in
+base 3 to an integer represented in base 2 in polynomial time.
+
+We say that a function f : {0,1}* — {0,1}* is polynomial-time computable
+if there exists a polynomial-time algorithm A that, given any input x € {0,1}*,
+produces as output f(x). For some set J of problem instances, we say that two en-
+codings e; and e, are polynomially related if there exist two polynomial-time com-
+putable functions f;2 and f,; such that for any i € J, we have f,2(e:(i)) = e2(i)
+and fo(e2(i)) = e(i).> That is, a polynomial-time algorithm can compute the en-
+coding e,(i) from the encoding e; (i), and vice versa. If two encodings e; and e, of
+an abstract problem are polynomially related, whether the problem is polynomial-
+time solvable or not is independent of which encoding we use, as the following
+lemma shows.
+
+Lemma 34.1
+Let Q be an abstract decision problem on an instance set J, and let e; and ey be
+polynomially related encodings on 7. Then, e;(Q) € P if and only if e2(Q) € P.
+
+ 
+
+*Technically, we also require the functions f\2 and f21 to “map noninstances to noninstances.”
+A noninstance of an encoding ¢ is a string x € {0,1}* such that there is no instance i for which
+e(i) = x. We require that f12(x) = y for every noninstance x of encoding 1, where y is some non-
+instance of e2, and that f21 (x") for every noninstance x’ of e2, where y’ is some noninstance
+of e).
+
+ 
+
+ 
+
+y
+
+ 
+

@@ -1,0 +1,49 @@
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+58 Chapter 3. Solving Problems by Searching
+Knowledge and problem types
+Let us consider an environment somewhat different from Romania: the vacuum world from
+Exercises 2.5 to 2.11 in Chapter 2. We will simplify it even furtherfor the sake of exposition. Let
+the world contain just two locations. Each location may or may not contain dirt, and the agent
+may be in one location or the other. There are 8 possible world states, as shown in Figure 3.2
+The agent has three possible actions in this version of the vacuum world: Left,Right, and Suck.
+Assume, for the moment, that sucking is 100% effective. The goal is to clean up all the dirt. That
+is, the goal is equivalent to the state set {7,8}.
+[| | =
+‘ fe] | ae | A
+[| | | =
+| |
+Figure 32 The eight possible states of the simplified vacuum world.
+
+First, suppose that the agent's sensors give it enough information to tell exactly which state
+itis in (ie., the world is accessible); and suppose that it knows exactly what each of its actions
+does. Then it can calculate exactly which state it will be in after any sequence of actions. For
+example, if its initial state is 5, then it can calculate that the action sequence [Right,Suck]will get
+
+ANSRIATE to a goal state. This is the simplest case, which we call a single-state problem.
+
+MULTIPLE-STATE
+PROBLEM
+
+Second, suppose that the agent knows all the effects of its actions, but has limited access
+to the world state. For example, in the extreme case, it may have no sensors at all. In that case,
+it knows only that its initial state is one of the set {1,2,3,4,5,6,7,8}. One might suppose that
+the agent's predicament is hopeless, but in fact it can do quite well. Because it knows what its
+actions do, it can, for example, calculate that the action Right will cause it to be in one of the
+states {2,4,6,8}. In fact, the agent can discover that the action sequence [Right,Suck,Left,Suck]
+is guaranteed to reach a goal state no matter what the start state. To summarize: when the world
+is not fully accessible, the agent must reason about sets of states that it might get to, rather than
+single states. We call this a multiple-state problem.
+

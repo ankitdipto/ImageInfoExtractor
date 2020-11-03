@@ -1,0 +1,56 @@
+33.3 Finding the convex hull 1031
+
+and it eventually pops from the stack each point that is not a vertex of CH(Q).
+When the algorithm terminates, stack S contains exactly the vertices of CH(Q), in
+counterclockwise order of their appearance on the boundary.
+
+The procedure GRAHAM-SCAN takes as input a set Q of points, where |Q| > 3.
+It calls the functions Top(S), which returns the point on top of stack S without
+changing S, and NExT-To-Top(S), which returns the point one entry below the
+top of stack S without changing S. As we shall prove in a moment, the stack S
+returned by GRAHAM-SCAN contains, from bottom to top, exactly the vertices
+of CH(Q) in counterclockwise order.
+
+GRAHAM-SCAN(Q)
+
+1 let po be the point in Q with the minimum y-coordinate,
+or the leftmost such point in case of a tie
+
+2 let (pi. pr.---. Pm) be the remaining points in Q,
+sorted by polar angle in counterclockwise order around po
+(if more than one point has the same angle, remove all but
+the one that is farthest from po)
+
+3 let S be an empty stack
+
+4  PusH(po. S)
+
+5 PusH(pi, S)
+
+6 PUSH(p2, S)
+
+7 fori =3tom
+
+8 while the angle formed by points NExT-To-Top(S), Top(S),
+
+and p; makes a nonleft turn
+
+9 Pop(S)
+10 PusH(p;, S)
+
+11 return S
+
+Figure 33.7 illustrates the progress of GRAHAM-SCAN. Line | chooses point po
+as the point with the lowest y-coordinate, picking the leftmost such point in case
+of a tie. Since there is no point in Q that is below po and any other points with
+the same y-coordinate are to its right, po must be a vertex of CH(Q). Line 2
+sorts the remaining points of Q by polar angle relative to po, using the same
+method —comparing cross products—as in Exercise 33.1-3. If two or more points
+have the same polar angle relative to po, all but the farthest such point are convex
+combinations of po and the farthest point, and so we remove them entirely from
+consideration. We let m denote the number of points other than po that remain.
+The polar angle, measured in radians, of each point in Q relative to po is in the
+half-open interval [0, 77). Since the points are sorted according to polar angles,
+they are sorted in counterclockwise order relative to po. We designate this sorted
+sequence of points by (p;. P2..--. Pm). Note that points p; and p,, are vertices
+

@@ -1,0 +1,42 @@
+244 Let Us C
+
+ 
+
+(c) Conditional Compilation
+(d) Miscellaneous directives
+
+Let us understand these features of preprocessor one by one.
+
+Macro Expansion
+Have a look at the following program.
+
+#define UPPER 25
+main()
+{
+int i;
+for (i= 1;i <= UPPER ; i++)
+printf (“\n%d", i) ;
+}
+
+In this program instead of writing 25 in the for loop we are writing
+it in the form of UPPER, which has already been defined before
+main( ) through the statement,
+
+#define UPPER 25
+
+This statement is called ‘macro definition’ or more commonly, just
+a ‘macro’. What purpose does it serve? During preprocessing, the
+preprocessor replaces every occurrence of UPPER in the program
+with 25. Here is another example of macro definition.
+
+#define Pl 3.1415
+
+main()
+
+{
+float r= 6.25 ;
+float area ;
+area = PI*r*r;
+
+printf ( "\nArea of circle = %f", area ) ;
+

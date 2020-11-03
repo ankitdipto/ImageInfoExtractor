@@ -1,0 +1,49 @@
+30.1 Representing polynomials 903
+
+{0 Yo). (M1. Ya)eee es (Xn-1Yn-1)} »
+and for B,
+{Qo Yo) Or. Vydee ee nats Vp) }
+
+(note that A and B are evaluated at the same n points), then a point-value repre-
+sentation for C is
+
+£0. Yo + Yo) V1 + Vee nate Yn + Yn}
+
+Thus, the time to add two polynomials of degree-bound 7 in point-value form
+is O(n).
+
+Similarly, the point-value representation is convenient for multiplying polyno-
+mials. If C(x) = A(x) B(x), then C(x;,) = A(x;)B(xx) for any point xz, and
+we can pointwise multiply a point-value representation for A by a point-value rep-
+resentation for B to obtain a point-value representation for C. We must face the
+problem, however, that degree(C) = degree(A) + degree(B); if A and B are of
+degree-bound n, then C is of degree-bound 2n. A standard point-value represen-
+tation for A and B consists of n point-value pairs for each polynomial. When we
+multiply these together, we get  point-value pairs, but we need 27 pairs to interpo-
+late a unique polynomial C of degree-bound 2n. (See Exercise 30.1-4.) We must
+therefore begin with “extended” point-value representations for A and for B con-
+sisting of 2n point-value pairs each. Given an extended point-value representation
+for A,
+
+{(X0, Yo). 1. Vee (X2n—1, Yon-1)} +
+
+and a corresponding extended point-value representation for B,
+£0. Vo): rs Vee ants Von} +
+
+then a point-value representation for C is
+
+{(X0, YoY): 1 PY) pete (X2n=15 Yon-1V5y—1)} .
+
+Given two input polynomials in extended point-value form, we see that the time to
+multiply them to obtain the point-value form of the result is @(7), much less than
+the time required to multiply polynomials in coefficient form.
+
+Finally, we consider how to evaluate a polynomial given in point-value form at a
+new point. For this problem, we know of no simpler approach than converting the
+polynomial to coefficient form first, and then evaluating it at the new point.
+
+Fast multiplication of polynomials in coefficient form
+
+Can we use the linear-time multiplication method for polynomials in point-value
+form to expedite polynomial multiplication in coefficient form? The answer hinges
+

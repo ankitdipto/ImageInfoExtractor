@@ -1,0 +1,47 @@
+Problems for Chapter 31 981
+
+ 
+
+Problems
+
+31-1 Binary ged algorithm
+
+Most computers can perform the operations of subtraction, testing the parity (odd
+or even) of a binary integer, and halving more quickly than computing remainders.
+This problem investigates the binary gcd algorithm, which avoids the remainder
+computations used in Euclid’s algorithm.
+
+a. Prove that if a and b are both even, then ged(a,b) = 2+ gcd(a/2,b/2).
+b. Prove that if a is odd and b is even, then ged(a,b) = ged(a,b/2).
+c. Prove that if a and b are both odd, then ged(a,b) = ged((a — b)/2,b).
+
+d, Design an efficient binary ged algorithm for input integers a and b, where
+a > b, that runs in O(lga) time. Assume that each subtraction, parity test,
+and halving takes unit time.
+
+31-2 Analysis of bit operations in Euclid’s algorithm
+
+a. Consider the ordinary “paper and pencil” algorithm for long division: dividing
+a by b, which yields a quotient g and remainder r. Show that this method
+requires O((1 + 1gq) lg) bit operations.
+
+b. Define w(a,b) = (1 +1ga)(1 + 1gb). Show that the number of bit operations
+performed by EUCLID in reducing the problem of computing ged(a, b) to that
+of computing ged(b,a mod b) is at most c(jz(a, b) — 4(b,a mod b)) for some
+sufficiently large constant c > 0.
+
+c. Show that EuCLID(a,b) requires O(j(a,b)) bit operations in general and
+O(f?) bit operations when applied to two f-bit inputs.
+
+31-3 Three algorithms for Fibonacci numbers
+
+This problem compares the efficiency of three methods for computing the mth Fi-
+bonacci number F,,, given. Assume that the cost of adding, subtracting, or mul-
+tiplying two numbers is O(1), independent of the size of the numbers.
+
+a. Show that the running time of the straightforward recursive method for com-
+puting F,, based on recurrence (3.22) is exponential inn. (See, for example, the
+FIB procedure on page 775.)
+
+b. Show how to compute F;, in O(7) time using memoization.
+

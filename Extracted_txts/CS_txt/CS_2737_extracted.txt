@@ -1,0 +1,46 @@
+298
+
+Chapter 12 Binary Search Trees
+
+With the TRANSPLANT procedure in hand, here is the procedure that deletes
+node z from binary search tree T:
+
+TREE-DELETE(T, Z)
+1 if z.left == NIL
+2 TRANSPLANT(T, Z, Z.right)
+3 elseif z.right == NIL
+4 TRANSPLANT(T, Z, Z. left)
+5 else y = TREE-MINIMUM (z. right)
+6 ify pAz
+7 TRANSPLANT(T, y, y.right)
+8 y.right = z.right
+9
+
+y.right.p = y
+10 TRANSPLANT(T, Z, y)
+ll y.left = z.left
+12 y.left.p = y
+
+The TREE-DELETE procedure executes the four cases as follows. Lines 1-2
+handle the case in which node z has no left child, and lines 3-4 handle the case in
+which z has a left child but no right child. Lines 5-12 deal with the remaining two
+cases, in which z has two children. Line 5 finds node y, which is the successor
+of z. Because z has a nonempty right subtree, its successor must be the node in
+that subtree with the smallest key; hence the call to TREE-MINIMUM (Zz. right). As
+we noted before, y has no left child. We want to splice y out of its current location,
+and it should replace z in the tree. If y is z’s right child, then lines 10-12 replace z
+as a child of its parent by y and replace y’s left child by z’s left child. If y is
+not z’s left child, lines 7—9 replace y as a child of its parent by y’s right child and
+turn z’s right child into y’s right child, and then lines 10-12 replace z as a child of
+its parent by y and replace y’s left child by z’s left child.
+
+Each line of TREE-DELETE, including the calls to TRANSPLANT, takes constant
+time, except for the call to TREE-MINIMUM in line 5. Thus, TREE-DELETE runs
+in O(h) time on a tree of height h.
+
+In summary, we have proved the following theorem.
+
+Theorem 12.3
+We can implement the dynamic-set operations INSERT and DELETE so that each
+one runs in O(h) time on a binary search tree of height h. /
+

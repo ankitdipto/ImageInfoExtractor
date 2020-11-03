@@ -1,0 +1,50 @@
+16.2 Elements of the greedy strategy 427
+
+Eo) $80
+item 3 30] $120
++
+item 2 + 30] $120
+$100 20] $100
+1 0 + + +
+20] $100
+$60 $60 $60
+
+$60 $100 $120 knapsack = $220 = $160 = $180 = $240
+(a) (b) (o)
+
+   
+
+Figure 16.2 An example showing that the greedy strategy does not work for the 0-1 knapsack
+problem, (a) The thief must select a subset of the three items shown whose weight must not exceed
+50 pounds. (b) The optimal subset includes items 2 and 3. Any solution with item | is suboptimal,
+even though item I has the greatest value per pound. (c) For the fractional knapsack problem, taking
+the items in order of greatest value per pound yields an optimal solution.
+
+choice. The problem formulated in this way gives rise to many overlapping sub-
+problems—a hallmark of dynamic programming, and indeed, as Exercise 16.2-2
+asks you to show, we can use dynamic programming to solve the 0-1 problem.
+
+Exercises
+
+16.2-1
+Prove that the fractional knapsack problem has the greedy-choice property.
+
+16.2-2
+
+Give a dynamic-programming solution to the 0-1 knapsack problem that runs in
+O(n W) time, where n is the number of items and W is the maximum weight of
+items that the thief can put in his knapsack.
+
+16.2-3
+
+Suppose that in a 0-1 knapsack problem, the order of the items when sorted by
+increasing weight is the same as their order when sorted by decreasing value. Give
+an efficient algorithm to find an optimal solution to this variant of the knapsack
+problem, and argue that your algorithm is correct.
+
+16.2-4
+
+Professor Gekko has always dreamed of inline skating across North Dakota. He
+plans to cross the state on highway U.S. 2, which runs from Grand Forks, on the
+eastern border with Minnesota, to Williston, near the western border with Montana.
+

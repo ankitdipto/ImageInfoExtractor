@@ -1,0 +1,55 @@
+Section 20.5
+
+Exploration 609
+
+ 
+
+action, whereas one might suppose that because the outcome was a fluke, the agent should not
+worry about it too much. In fact, of course, the unlikely outcome will only occur infrequently in
+a large set of training sequences; hence in the long run its effects will be weighted proportionally
+to its probability, as we would hope. Once again, it can be shown that the TD algorithm will
+converge to the same values as ADP as the number of training sequences tends to infinity.
+
+20.5 EXPLORATION
+
+The only remaining issue to address for active reinforcement learning is the question of what
+actions the agent should take—thatis, what PERFORMANCE-ELEMENT should return. This turns
+out to be harder than one might imagine.
+
+One might suppose that the correct way for the agent to behave is to choose whichever
+action has the highest expected utility given the current utility estimates—afterall, that is all the
+agent has to go on. Butthis overlooks the contribution of action to learning. In essence, an action
+has two kinds of outcome:
+
++ It gains rewards on the current sequence.
++ It affects the percepts received, and hence the ability of the agent to learn—and receive
+rewards in future sequences
+
+An agent therefore must make a trade-offbetween its immediate good—as reflected in its current
+utility estimates—and its long-term well-being. An agent that simply chooses to maximize its
+rewards on the current sequence can easily get stuck in a rut. At the other extreme, continually
+acting to improve one's knowledge is of no use ifone never puts that knowledge into practice. In
+the real world, one constantly has to decide between continuing in a comfortable existence and
+striking out into the unknown in the hopes of discovering a new and better life
+
+In order to illustrate the dangers of the two extremes, we will need a suitable environment.
+We will use the stochastic version of the 4 x 3 world shown in Figure 17.1. In this world, the
+agent can attempt to move North, South, East, or West; each action achieves the intended effect
+with probability 0.8, but the rest of the time, the action moves the agent at right angles to the
+intended direction. As before, we assume a reward of —0.04 (i.e., a cost of 0.04) for each action
+that doesn't reach a terminal state. The optimal policy and utility values for this world are shown
+in Figure 17.2, and the object of the learning agent is to converge towards these.
+
+Let us consider two possible approaches that the learning agent might use for choosing
+what to do. The "wacky" approach acts randomly, in the hope that it will eventually explore
+the entire environment; and the "greedy" approach acts to maximize its utility using current
+estimates. As we see from Figure 20.10, the wacky approach succeeds in learning good utility
+estimates for all the states (top left). Unfortunately, its wacky policy means that it never actually
+gets better at reaching the positive reward (top right). The greedy agent, on the other hand, often
+finds a path to the +1 reward along the lower route via (2,1), (3,1), (3,2), and (3,3). Unfortunately,
+it then sticks to that path, never learning the utilities of the other states (bottom left). This means
+
+3 Notice the direct analogy to the theory of information value in Chapter 16
+
+ 
+

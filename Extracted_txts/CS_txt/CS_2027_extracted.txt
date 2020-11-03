@@ -1,0 +1,49 @@
+466 Chapter13 I/O Systems
+
+described are sufficient to understand many 1/O aspects of operating systems.
+Let’s review the main concepts:
+
+e Abus
+
+e Acontroller
+
+« An1/O port and its registers
+
+The handshaking relationship between the host and a device controller
+¢ The execution of this handshaking in a polling loop or via interrupts
+The offloading of this work to a DMA controller for large transfers
+
+We gave a basic example of the handshaking that takes place between a
+device controller and the host in Section 13.2. In reality, the wide variety of
+available devices poses a problem for operating-system implementers. Each
+kind of device has its own set of capabilities, control-bit definitions, and pro-
+tocol for interacting with the host—and they are all different. How can the
+operating system be designed so that new devices can be attached to the com-
+puter without the operating system being rewritten? Also, when the devices
+vary so widely, how can the operating system give a convenient, uniform I/O
+interface to applications?
+
+13.3 m= Application I/O Interface
+
+In this section, we discuss structuring techniques and interfaces for the oper-
+ating system that enable I/O devices to be treated in a standard, uniform way.
+We explain, for instance, how an application can open a file on a disk without
+knowing what kind of disk it is, and how new disks and other devices can be
+added to a computer without the operating system being disrupted.
+
+Like other complex software-engineering problems, the approach here
+involves abstraction, encapsulation, and software layering. Specifically, we
+can abstract away the detailed differences in I/O devices by identifying a few
+general kinds. Each general kind is accessed through a standardized set of
+functions—an interface. The differences are encapsulated in kernel modules
+called device drivers that internally are custom tailored to each device, but that
+export one of the standard interfaces. Figure 13.6 illustrates how the I/ ‘O-related
+portions of the kernel are structured in software layers.
+
+The purpose of the device-driver layer is to hide the differences among
+device controllers from the I/O subsystem of the kernel, much as the I/O system
+calls encapsulate the behavior of devices in a few generic classes that hide hard-
+ware differences from applications. Making the 1/O subsystem independent
+of the hardware simplifies the job of the operating-system developer. It also
+benefits the hardware manufacturers. They either design new devices to be
+

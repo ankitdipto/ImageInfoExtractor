@@ -1,0 +1,52 @@
+9.5 Segmentation 307
+
+and begins at location 4300. Thus, a reference to byte 53 of segment 2 is mapped
+onto location 4300 + 53 = 4353. A reference to segment 3, byte 852, is mapped to
+3200 (the base of segment 3) + 852 = 4052. A reference to byte 1222 of segment
+0 would result in a trap to the operating system, as this segment is only 1,000
+bytes long.
+
+9.5.3 Protection and Sharing
+
+A particular advantage of segmentation is the association of protection with
+the segments. Because the segments represent a semantically defined portion
+of the program, it is likely that all entries in the segment will be used the
+same way. Hence, some segments are instructions, whereas other segments
+are data. In a modern architecture, instructions are non-self-modifying, so
+instruction segments can be defined as read only or execute only. The memory-
+mapping hardware will check the protection bits associated with each segment-
+table entry to prevent illegal accesses to memory, such as attempts to write
+into a read-only segment, or to use an execute-only segment as data. By
+placing an array in its own segment, the memory-management hardware will
+automatically check that array indexes are legal and do not stray outside the
+array boundaries. Thus, many common program errors will be detected by the
+hardware before they can cause serious damage.
+
+Another advantage of segmentation involves the sharing of code or data.
+Each process has a segment table associated with it, which the dispatcher
+uses to define the hardware segment table when this process is given the
+CPU. Segments are shared when entries in the segment tables of two different
+processes point to the same physical location (Figure 9.20).
+
+The sharing occurs at the segment level. Thus, any information can be
+shared if it is defined to be a segment. Several segments can be shared, so a
+program composed of several segments can be shared.
+
+For example, consider the use of a text editor in a time-sharing system.
+A complete editor might be quite large, composed of many segments. These
+segments can be shared among all users, limiting the physical memory needed
+to support editing tasks. Rather than n copies of the editor, we need only one
+copy. For each user, we still need separate, unique segments to store local
+variables. These segments, of course, would not be shared.
+
+We can also share only parts of programs. For example, common subrou-
+tine packages can be shared among many users if they are defined as sharable,
+read-only segments. Two Fortran programs, for instance, may use the same Sqrt
+subroutine, but only one physical copy of the Sqrt routine would be needed.
+
+Although this sharing appears simple, there are subtle considerations.
+Code segments typically contain references to themselves. For example, a
+conditional jump normally has a transfer address, which consists of a segment
+number and offset. The segment number of the transfer address will be the
+segment number of the code segment. If we try to share this segment, all
+

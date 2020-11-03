@@ -1,0 +1,46 @@
+522
+
+Chapter 19 Fibonacci Heaps
+
+Thus, the amortized cost of FIB-HEAP-DECREASE-KEY is at most
+O(c) +4-c =O(1).
+
+since we can scale up the units of potential to dominate the constant hidden in O(c).
+
+You can now see why we defined the potential function to include a term that is
+twice the number of marked nodes. When a marked node y is cut by a cascading
+cut, its mark bit is cleared, which reduces the potential by 2. One unit of potential
+pays for the cut and the clearing of the mark bit, and the other unit compensates
+for the unit increase in potential due to node y becoming a root.
+
+Deleting a node
+
+The following pseudocode deletes a node from an n-node Fibonacci heap in
+O(D(n)) amortized time. We assume that there is no key value of —oo currently
+in the Fibonacci heap.
+
+FIB-HEAP-DELETE(H, x)
+
+1 Frp-HEAP-DECREASE-KEY (H, x, —00)
+2  FrBp-HEAP-EXTRACT-MIN(H)
+
+FiB-HEAP-DELETE makes x become the minimum node in the Fibonacci heap by
+giving it a uniquely small key of —oo. The FIB-HEAP-EXTRACT-MIN procedure
+then removes node x from the Fibonacci heap. The amortized time of FIB-HEAP-
+DELETE is the sum of the O(1) amortized time of FiB-HEAP-DECREASE-KEY
+and the O(D(n)) amortized time of FIB-HEAP-EXTRACT-MIN. Since we shall see
+in Section 19.4 that D(n) = O(1gn), the amortized time of FIB-HEAP-DELETE
+is O(lgn).
+
+Exercises
+
+193-1
+
+Suppose that a root x in a Fibonacci heap is marked. Explain how x came to be
+a marked root. Argue that it doesn’t matter to the analysis that x is marked, even
+though it is not a root that was first linked to another node and then lost one child.
+
+193-2
+Justify the O(1) amortized time of Fis -HEAP-DECREASE-KEY as an average cost
+per operation by using aggregate analysis.
+

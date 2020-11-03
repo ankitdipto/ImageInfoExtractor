@@ -1,0 +1,60 @@
+ 
+
+14.23
+
+14.24
+
+14.25
+
+14.26
+
+Exercises 533
+
+What would be the effects on cost and performance if tape storage had
+the same areal density as disk storage?
+
+If magnetic hard disks eventually have the same cost per gigabyte as do
+tapes, will tapes become obsolete, or will they still be needed? Explain
+your answer.
+
+You can use simple estimates to compare the cost and performance
+of a terabyte storage system made entirely from disks with one that
+incorporates tertiary storage. Suppose that magnetic disks each hold 10
+GB, cost $1,000, transfer 5 MB per second, and have an average access
+latency of 15 milliseconds. Suppose that a tape library costs $10 per
+gigabyte, transfers 10 MB per second, and has an average access latency
+of 20 seconds. Compute the total cost, the maximum total data rate,
+and the average waiting time for a pure disk system. If you make
+any assumptions about the workload, describe and justify them. Now,
+suppose that 5 percent of the data are frequently used, so they must
+reside on disk, but the other 95 percent are archived in the tape library.
+Further suppose that the disk system handles 95 percent of the requests,
+and the library handles the other 5 percent. What are the total cost,
+the maximum total data rate, and the average waiting time for this
+hierarchical storage system?
+
+It is sometimes said that tape is a sequential-access medium, whereas
+magnetic disk is a random-access medium. In fact, the suitability of
+a storage device for random access depends on the transfer size. The
+term streaming transfer rate denotes the data rate for a transfer underway,
+excluding the effect of access latency. By contrast, the effective transfer rate
+is the ratio of total bytes per total seconds, including overhead time such
+as the access latency.
+
+Suppose that, in a computer, the level-2 cache has an access latency
+of 8 nanoseconds and a streaming transfer rate of 800 MB per second, the
+main memory has an access latency of 60 nanoseconds and a streaming
+transfer rate of 80 MB per second, the magnetic disk has an access latency
+of 15 millisecond and a streaming transfer rate of 5 MB per second, and
+a tape drive has an access latency of 60 seconds and a streaming transfer
+rate of 2 MB per second.
+
+a. Random access causes the effective transfer rate of a device to
+decrease, because no data are transferred during the access time.
+For the disk described, what is the effective transfer rate if a stream-
+ing transfer of 512 bytes, 8 KB, 1 MB, and 16 MB follows an average
+access?
+
+b. The utilization of a device is the ratio of effective transfer rate to
+streaming transfer rate. Calculate the utilization of the disk drive
+

@@ -1,0 +1,66 @@
+section 24,
+
+Environments 47
+
+ 
+
+Figure 2.13 lists the properties ofa number of familiar environments. Note that the answers
+can change depending on how you conceptualize the environments and agents. For example,
+poker is deterministic if the agent can keep track of the order of cards in the deck, but it is
+nondeterministic if it cannot. Also, many environments are episodic at higher levels than the
+agent's individual actions. For example, a chess tournament consists of a sequence of games;
+each game is an episode, because (by and large) the contribution of the moves in one game to the
+agent's overall performance is not affected by the moves in its next game. On the other hand,
+moves within a single game certainly interact, so the agent needs to look ahead several moves.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Environment Accessible Deterministic Episodic Static Discrete
+Chess with a clock Yes Yes No Semi Yes
+Chess withouta clock Yes Yes No Yes Yes
+Poker No No No Yes Yes
+Backgammon ‘Yes No No ‘Yes Yes
+Taxi driving No No No No No
+Medical diagnosis system No No No No No
+Image-analysis system Yes Yes Yes Semi No
+Part-picking robot No No Yes No No
+Refinery controller No No No No No
+Interactive English tutor No No No No Yes
+Figure 213 Examples of environments and their characteristics.
+
+ 
+
+ 
+
+ 
+
+Environment programs
+
+The generic environment program in Figure 2.14 illustrates the basic relationship between agents
+and environments. In this book, we will find it convenient for many of the examples and exercises
+to use an environment simulator that follows this program structure. The simulator takes one or
+more agents as input and arranges to repeatedly give each agent the right percepts and receive back
+an action. The simulator then updates the environment based on the actions, and possibly other
+dynamic processes in the environment that are not considered to be agents (rain, for example).
+The environment is therefore defined by the initial state and the update function. Of course, an
+agent that works in a simulator ought also to work in a real environment that provides the same
+kinds of percepts and accepts the same kinds of actions
+
+The RUN-ENVIRONMENT procedure correctly exercises the agents in an environment. For
+some kinds of agents, such as those that engage in natural language dialogue, it may be sufficient
+simply to observe their behavior. To get more detailed information about agent performance, we
+insert some performance measurement code. The function RUN-EVAL-ENVIRONMENT, shown in
+Figure 2.15, does this; it applies a performance measure to each agent and returns a list of the
+resulting scores. The scores variable keeps track of each agent's score.
+
+In general, the performance measure can depend on the entire sequence of environment
+states generated during the operation of the program. Usually, however, the performance measure
+

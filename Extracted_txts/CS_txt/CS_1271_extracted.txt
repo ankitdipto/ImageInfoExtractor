@@ -1,0 +1,86 @@
+Chapter 16: C Under Windows 545
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+On execution
+. transfer control DOS OS
+main() to program.
+fun() ; DOS
+| _Interrupt_ Functions
+& CPU
+fun() Registers
+{ ¥
+Interrupt BIOS,
+—_ & CPU Function
+} Registers
+¥
+>| Hardware +
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Sequentially Executing
+DOS program
+
+ 
+
+ 
+
+ 
+
+Figure 16.2
+
+From the above discussion you can gather that there are several
+limitations in the DOS programming model. These have been
+listed below:
+
+No True Reuse
+
+The library functions that are called from each program become
+part of the executable file (EXE) for that program. Thus the same
+functions get replicated in several EXE files, thereby wasting
+precious disk space.
+

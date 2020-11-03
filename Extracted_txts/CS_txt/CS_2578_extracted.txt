@@ -1,0 +1,50 @@
+SECTION 3-1 Data Types 71
+
+Table 3-1 lists a few octal numbers and their representation in registers
+inbinary-coded form. The binary code is obtained by the procedure explained
+above. Each octal digit is assigned a3-bit code as specified by the entries of the
+first eight digits in the table. Similarly, Table 3-2 lists a few hexadecimal
+numbers and their representation in registers in binary-coded form. Here the
+binary code is obtained by assigning to each hexadecimal digit the 4-bit code
+listed in the first 16 entries of the table.
+
+‘Comparing the binary-coded octal and hexadecimal numbers with their
+binary number equivalent we find that the bit combination in all three repre-
+sentations is exactly the same. For example, decimal 99, when converted to
+binary, becomes 1100011. The binary-coded octal equivalent of decimal 99 is
+001 100 O11 and the binary-coded hexadecimal of decimal 99 is 0110 0011. If
+weneglect the leading zerosin these threebinary representations, wetfind that
+their bit combination is identical. This should be so because of the straightfor-
+ward conversion that exists between binary numbers and octal or hexadecimal.
+The point of all this is that a string of 1's and 0's stored in a register could
+represent abinary number, but this same string of bits may be interpreted as
+holding an octal numberin binary-coded form (if we divide the bits in groups
+of three) or as holding a hexadecimal number in binary-coded form (if we
+divide the bits in groups of four).
+
+TABLE 3-2 Binary-Coded Hexadecimal Numbers
+
+Hexadecimal Binary-coded Decimal
+
+number hexadecimal equivalent
+0 0000 0
+1 001 1
+2 on10 2
+3 oon 3
+4 100 4
+5 o101 5
+6 o110 6 Code
+7 out 7 for one
+8 1000 8 hexadecimal
+9 1001 9 digit
+A 1010 10
+B 1011 1
+c 1100 12
+D 1101 B
+E 110 14
+F mn 15
+14 (0001 0100 20
+32 011 0010 50
+a 110 0011 99
+FB 1111 1000 28
+

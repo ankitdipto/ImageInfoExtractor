@@ -1,0 +1,47 @@
+33.2 Determining whether any pair of segments intersects 1021
+
+the polygon, the set of points on the polygon itself forms its boundary, and the set
+of points surrounding the polygon forms its exterior. A simple polygon is convex
+if, given any two points on its boundary or in its interior, all points on the line
+segment drawn between them are contained in the polygon’s boundary or interior.
+A vertex of a convex polygon cannot be expressed as a convex combination of any
+two distinct points on the boundary or in the interior of the polygon.
+
+Professor Amundsen proposes the following method to determine whether a se-
+quence (po. P1..... Pn—1) of n points forms the consecutive vertices of a convex
+polygon. Output “yes” if the set {Zp; Pi+1Pi42 11 = 0.1,....n — 1}, where sub-
+script addition is performed modulo 7, does not contain both left turns and right
+turns; otherwise, output “no.” Show that although this method runs in linear time,
+it does not always produce the correct answer. Modify the professor’s method so
+that it always produces the correct answer in linear time.
+
+33.1-6
+
+Given a point py = (Xo. Vo), the right horizontal ray from po is the set of points
+{pi = (Xj. Yi) 1 X; = Xo and y; = yo}, that is, it is the set of points due right of po
+along with po itself. Show how to determine whether a given right horizontal ray
+from po intersects a line segment DP; P> in O(1) time by reducing the problem to
+that of determining whether two line segments intersect.
+
+33.1-7
+
+One way to determine whether a point po is in the interior of a simple, but not
+necessarily convex, polygon P is to look at any ray from po and check that the ray
+intersects the boundary of P an odd number of times but that po itself is not on
+the boundary of P. Show how to compute in ©() time whether a point po is in
+the interior of an n-vertex polygon P . (Hint: Use Exercise 33.1-6. Make sure your
+algorithm is correct when the ray intersects the polygon boundary at a vertex and
+when the ray overlaps a side of the polygon.)
+
+33.1-8
+Show how to compute the area of an n-vertex simple, but not necessarily convex,
+polygon in @(n) time. (See Exercise 33.1-5 for definitions pertaining to polygons.)
+
+ 
+
+33.2. Determining whether any pair of segments intersects
+
+This section presents an algorithm for determining whether any two line segments
+in a set of segments intersect. The algorithm uses a technique known as “‘sweep-
+ing,” which is common to many computational-geometry algorithms. Moreover, as
+

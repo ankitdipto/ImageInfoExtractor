@@ -1,0 +1,71 @@
+Chapter 19: Interaction With Hardware 629
+
+ 
+
+}
+
+The boot sector contains two parts—‘Boot Parameters’ and ‘Disk
+Bootstrap Program’. The Boot Parameters are useful while
+performing read/write operations on the disk. Figure 19.6 shows
+
+the break up of the boot parameters for a floppy disk.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Description Length Typical Values
+Jump instruction 3 EB3C90
+OEM name 8 MSWIN4.1
+Bytes per sector 2 512
+
+Sectors per cluster 1 1
+
+Reserved sectors 2 1
+
+Number of FAT copies 1 2
+
+Max. Root directory entries 2 224
+
+Total sectors 2 2880
+Media descriptor 1 FO
+
+Sectors per FAT 2 9
+
+Sectors per track 2 18
+
+No. Of sides 2 2
+
+Hidden sectors 4 0
+
+Huge sectors 4 0
+
+BIOS drive number 1 0
+
+Reserved sectors 1 0
+
+Boot signature 1 Al
+
+Volume ID 4 349778522
+Volume label 11 IcIT
+
+File system type 8 FAT12
+
+ 
+
+ 
+
+Figure 19.6
+
+ 
+

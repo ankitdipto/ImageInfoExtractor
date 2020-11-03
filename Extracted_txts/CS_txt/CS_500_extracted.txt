@@ -1,0 +1,35 @@
+Notes for Chapter 33 1047
+
+ 
+
+Chapter notes
+
+This chapter barely scratches the surface of computational-geometry algorithms
+and techniques. Books on computational geometry include those by Preparata and
+Shamos [282], Edelsbrunner [99], and O’Rourke [269].
+
+Although geometry has been studied since antiquity, the development of algo-
+rithms for geometric problems is relatively new. Preparata and Shamos note that
+the earliest notion of the complexity of a problem was given by E. Lemoine in 1902.
+He was studying euclidean constructions —those using a compass and a ruler—and
+devised a set of five primitives: placing one leg of the compass on a given point,
+placing one leg of the compass on a given line, drawing a circle, passing the ruler’s
+edge through a given point, and drawing a line. Lemoine was interested in the
+number of primitives needed to effect a given construction; he called this amount
+the “simplicity” of the construction.
+
+The algorithm of Section 33.2, which determines whether any segments inter-
+sect, is due to Shamos and Hoey [313].
+
+The original version of Graham’s scan is given by Graham [150]. The package-
+wrapping algorithm is due to Jarvis [189]. Using a decision-tree model of com-
+putation, Yao [359] proved a worst-case lower bound of Q(n1gn) for the running
+time of any convex-hull algorithm. When the number of vertices / of the con-
+vex hull is taken into account, the prune-and-search algorithm of Kirkpatrick and
+Seidel [206], which takes O(n lgh) time, is asymptotically optimal.
+
+The O(n lgn)-time divide-and-conquer algorithm for finding the closest pair of
+points is by Shamos and appears in Preparata and Shamos [282]. Preparata and
+Shamos also show that the algorithm is asymptotically optimal in a decision-tree
+model.
+

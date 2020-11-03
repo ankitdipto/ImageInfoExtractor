@@ -1,0 +1,44 @@
+13.4 Deletion 327
+
+Within the while loop, x always points to a nonroot doubly black node. We
+determine in line 2 whether x is a left child or a right child of its parent x.p. (We
+have given the code for the situation in which x is a left child; the situation in
+which x is a right child—line 22—is symmetric.) We maintain a pointer w to
+the sibling of x. Since node x is doubly black, node w cannot be T.nil, because
+otherwise, the number of blacks on the simple path from x.p to the (singly black)
+leaf w would be smaller than the number on the simple path from x.p to x.
+
+The four cases” in the code appear in Figure 13.7. Before examining each case
+in detail, let’s look more generally at how we can verify that the transformation
+in each of the cases preserves property 5. The key idea is that in each case, the
+transformation applied preserves the number of black nodes (including x’s extra
+black) from (and including) the root of the subtree shown to each of the subtrees
+a, B,..., ¢. Thus, if property 5 holds prior to the transformation, it continues to
+hold afterward. For example, in Figure 13.7(a), which illustrates case 1, the num-
+ber of black nodes from the root to either subtree @ or f is 3, both before and after
+the transformation. (Again, remember that node x adds an extra black.) Similarly,
+the number of black nodes from the root to any of y, 5, ¢, and € is 2, both be-
+fore and after the transformation. In Figure 13.7(b), the counting must involve the
+value c of the color attribute of the root of the subtree shown, which can be either
+RED or BLACK. If we define count(RED) = 0 and count(BLACK) = 1, then the
+number of black nodes from the root to @ is 2 + count(c), both before and after
+the transformation. In this case, after the transformation, the new node x has color
+attribute c, but this node is really either red-and-black (if c = RED) or doubly black
+(if c = BLACK). You can verify the other cases similarly (see Exercise 13.4-5).
+
+Case 1: x’s sibling w is red
+
+Case | (lines 5—8 of RB-DELETE-FIXup and Figure 13.7(a)) occurs when node w,
+the sibling of node x, is red. Since w must have black children, we can switch the
+colors of w and x.p and then perform a left-rotation on x.p without violating any
+of the red-black properties. The new sibling of x, which is one of w’s children
+prior to the rotation, is now black, and thus we have converted case | into case 2,
+3, or 4.
+
+Cases 2, 3, and 4 occur when node w is black; they are distinguished by the
+colors of w’s children.
+
+ 
+
+2As in RB-INSERT-FIXUP, the cases in RB-DELETE-FIXUP are not mutually exclusive.
+

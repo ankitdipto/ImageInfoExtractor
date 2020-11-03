@@ -1,0 +1,52 @@
+64  Chapter3 Operating-System Structures
+
+user for the names of the two files. In an interactive system, this approach will
+require a sequence of system calls, first to write a prompting message on the
+screen, and then to read from the keyboard the characters that define the two
+files. On mouse-based window-and-menu systems, a menu of file names is
+usually displayed in a window. The user can then use the mouse to select the
+source name, and a similar window can be opened for the destination name to
+be specified.
+
+Once the two file names are obtained, the program must open the input
+file and create the output file. Each of these operations requires another system
+call and may encounter possible error conditions. When the program tries to
+open the input file, it may find that no file of that name exists or that the file is
+protected against access. In these cases, the program should print a message on
+the console (another sequence of system calls), and then terminate abnormally
+(another system call). If the input file exists, then we must create a new output
+file. We may find an output file with the same name. This situation may cause
+the program to abort (a system call), or we may delete the existing file (another
+system call) and create a new one (another system call). In an interactive system,
+another option is to ask the user (a sequence of system calls to output the
+prompting message and to read the response from the keyboard) whether to
+replace the existing file or to abort the program.
+
+Now that both files are set up, we enter a loop that reads from the input
+file (a system call) and writes to the output file (another system call). Each
+read and write must return status information regarding various possible
+error conditions. On input, the program may find that the end of the file has
+been reached, or that a hardware failure occurred in the read (such as a parity
+error). On output, various errors may occur, depending on the output device
+(such as no more disk space, physical end of tape, printer out of paper).
+
+Finally, after the entire file is copied, the program may close both files
+(another system call), write a message to the console (more system calls), and
+finally terminate normally (the final system call). As we can see, even simple
+programs may make heavy use of the operating system.
+
+Most users never see this level of detail, however. The run-time support
+system (the set of functions built into libraries included with a compiler) for
+most programming languages provides a much simpler interface. For example,
+the count statement in C++ is probably compiled into a call to a run-time
+support routine that issues the necessary system calls, checks for errors, and
+finally returns to the user program. Thus, most of the details of the operating-
+system interface are hidden from the programmer by the compiler and by the
+run-time support package.
+
+System calls occur in different ways, depending on the computer in use.
+Often, more information is required than simply the identity of the desired
+system call. The exact type and amount of information vary according to the
+particular operating system and call. For example, to get input, we may need
+to specify the file or device to use as the source, and the address and length of
+

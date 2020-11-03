@@ -1,0 +1,54 @@
+140
+
+Chapter 5 Probabilistic Analysis and Randomized Algorithms
+
+ON-LINE-MAXIMUM (k, 11)
+1 bestscore = —0oo
+
+2 fori = 1tok
+
+3 if score(i) > bestscore
+
+4 bestscore = score(i)
+5 fori =k+lton
+
+6 if score(i) > bestscore
+
+7 return i
+
+8 returnn
+
+We wish to determine, for each possible value of k, the probability that we
+hire the most qualified applicant. We then choose the best possible k, and
+implement the strategy with that value. For the moment, assume that k is
+fixed. Let M(j) = max <j<; {score(i)} denote the maximum score among ap-
+plicants 1 through j. Let S be the event that we succeed in choosing the best-
+qualified applicant, and let S; be the event that we succeed when the best-qualified
+applicant is the ith one interviewed. Since the various S; are disjoint, we have
+that Pr {S} = )7?_, Pr{S;}. Noting that we never succeed when the best-qualified
+applicant is one of the first k, we have that Pr{S;} = 0 fori? = 1,2,.... k. Thus,
+we obtain
+
+n
+Pr{S}= > Pr{Si}. (5.12)
+
+i=k+1
+
+We now compute Pr {.S;}. In order to succeed when the best-qualified applicant
+is the ith one, two things must happen. First, the best-qualified applicant must be
+in position 7, an event which we denote by B;. Second, the algorithm must not
+select any of the applicants in positions k + 1 through i — 1, which happens only if,
+foreach j suchthatk+1 < j <i—1, we find that score(j) < bestscore in line 6.
+(Because scores are unique, we can ignore the possibility of score(j) = bestscore.)
+In other words, all of the values score(k + 1) through score(i — 1) must be less
+than M(k); if any are greater than M(x), we instead return the index of the first
+one that is greater. We use O; to denote the event that none of the applicants in
+position k + 1 through i — | are chosen. Fortunately, the two events B; and O;
+are independent. The event O; depends only on the relative ordering of the values
+in positions 1 through i — 1, whereas B; depends only on whether the value in
+position 7 is greater than the values in all other positions. The ordering of the
+values in positions | through 7 — 1 does not affect whether the value in position i
+is greater than all of them, and the value in position i does not affect the ordering
+of the values in positions | through i — 1. Thus we can apply equation (C.15) to
+obtain
+

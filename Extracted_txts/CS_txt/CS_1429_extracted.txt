@@ -1,0 +1,43 @@
+Chapter 21: More Linux Programming 675
+
+ 
+
+some other signals. Registering a common handler makes sense if
+we want to react to different signals in exactly the same way.
+
+Blocking Signals
+
+Sometimes we may want that flow of execution of a critical/time-
+critical portion of the program should not be hampered by the
+occurrence of one or more signals. In such a case we may decide
+to block the signal. Once we are through with the critical/time-
+critical code we can unblock the signals(s). Note that if a signal
+arrives when it is blocked it is simply queued into a signal queue.
+When the signals are unblocked the process immediately receives
+all the pending signals one after another. Thus blocking of signals
+defers the delivery of signals to a process till the execution of
+some critical/time-critical code is over. Instead of completely
+ignoring the signals or letting the signals interrupt the execution, it
+is preferable to block the signals for the moment and deliver them
+some time later. Let us now write a program to understand signal
+blocking. Here is the program...
+
+# include <unistd.h>
+
+# include <sys/types.h>
+# include <signal.h>
+
+# include <stdio.h>
+
+void sighandler (int signum )
+
+switch ( signum )
+{
+case SIGTERM :
+printf ("SIGTERM Received\n" ) ;
+break ;
+
+case SIGINT :
+printf ("SIGINT Receivedin" ) ;
+break ;
+

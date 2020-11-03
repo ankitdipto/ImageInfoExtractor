@@ -1,0 +1,37 @@
+ 
+
+22
+
+Elementary Graph Algorithms
+
+This chapter presents methods for representing a graph and for searching a graph.
+Searching a graph means systematically following the edges of the graph so as to
+visit the vertices of the graph. A graph-searching algorithm can discover much
+about the structure of a graph. Many algorithms begin by searching their input
+graph to obtain this structural information. Several other graph algorithms elabo-
+rate on basic graph searching. Techniques for searching a graph lie at the heart of
+the field of graph algorithms.
+
+Section 22.1 discusses the two most common computational representations of
+graphs: as adjacency lists and as adjacency matrices. Section 22.2 presents a sim-
+ple graph-searching algorithm called breadth-first search and shows how to cre-
+ate a breadth-first tree. Section 22.3 presents depth-first search and proves some
+standard results about the order in which depth-first search visits vertices. Sec-
+tion 22.4 provides our first real application of depth-first search: topologically sort-
+ing a directed acyclic graph. A second application of depth-first search, finding the
+strongly connected components of a directed graph, is the topic of Section 22.5.
+
+ 
+
+22.1 Representations of graphs
+
+We can choose between two standard ways to represent a graph G = (V, E):
+as a collection of adjacency lists or as an adjacency matrix. Either way applies
+to both directed and undirected graphs. Because the adjacency-list representation
+provides a compact way to represent sparse graphs—those for which |£| is much
+less than |V |? —it is usually the method of choice. Most of the graph algorithms
+presented in this book assume that an input graph is represented in adjacency-
+list form. We may prefer an adjacency-matrix representation, however, when the
+graph is dense—|E| is close to |V|* —or when we need to be able to tell quickly
+if there is an edge connecting two given vertices. For example, two of the all-pairs
+

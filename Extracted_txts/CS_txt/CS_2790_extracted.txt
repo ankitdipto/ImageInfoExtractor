@@ -1,0 +1,37 @@
+340
+
+ 
+
+Chapter 14 Augmenting Data Structures
+
+Figure 14.1 An order-statistic tree, which is an augmented red-black tree. Shaded nodes are red,
+and darkened nodes are black. In addition to its usual attributes, each node x has an attribute x. size,
+which is the number of nodes, other than the sentinel, in the subtree rooted at x.
+
+Figure 14.1 shows a data structure that can support fast order-statistic operations.
+An order-statistic tree T is simply a red-black tree with additional information
+stored in each node. Besides the usual red-black tree attributes x. key, x. color, X.p,
+x. left, and x.right in a node x, we have another attribute, x.size. This attribute
+contains the number of (internal) nodes in the subtree rooted at x (including x
+itself), that is, the size of the subtree. If we define the sentinel’s size to be 0—that
+is, we set T.nil. size to be O—then we have the identity
+
+X.size = X.left.size + x.right.size+1.
+
+We do not require keys to be distinct in an order-statistic tree. (For example, the
+tree in Figure 14.1 has two keys with value 14 and two keys with value 21.) In the
+presence of equal keys, the above notion of rank is not well defined. We remove
+this ambiguity for an order-statistic tree by defining the rank of an element as the
+position at which it would be printed in an inorder walk of the tree. In Figure 14.1,
+for example, the key 14 stored in a black node has rank 5, and the key 14 stored in
+a red node has rank 6.
+
+Retrieving an element with a given rank
+
+Before we show how to maintain this size information during insertion and dele-
+tion, let us examine the implementation of two order-statistic queries that use this
+additional information. We begin with an operation that retrieves an element with
+a given rank. The procedure OS-SELECT(x,/) returns a pointer to the node con-
+taining the ith smallest key in the subtree rooted at x. To find the node with the /th
+smallest key in an order-statistic tree T, we call OS-SELECT(T. root, i).
+

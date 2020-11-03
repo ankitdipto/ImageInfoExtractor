@@ -1,0 +1,78 @@
+serial input
+
+SECTION 2-5 Shift Registers 53
+
+With each clock pulse, the Dinput determines thenext state of theoutput. To
+leave the output unchanged, it is necessary to make the D input equal to the
+present value of the output.
+
+‘Note that the clock pulses are applied to the Cinputs atall times. Theload
+input determines whether the next pulse will accept new information or leave
+the information in the register intact. The transfer of information from the
+inputs into the register is done simultaneously with all four bits during asingle
+pulse transition.
+
+2-5 Shift Registers
+
+A register capable of shifting its binary information in one or both directions
+is called a shift register. The logical configuration of a shift register consists of
+a chain of flip-flops in cascade, with the output of one flip-flop connected to
+the input of the next flip-flop. All flip-flops receive common clock pulses that
+initiate the shift from one stage to the next.
+
+The simplest possible shift register is one that uses only flipflops, as
+shown in Fig. 2-8. The output of a given flip-flop is connected to the D input
+of the flip-flop atits right. The clock is common to all flip-flops. The serial input
+determines what goes into the leftmost position during the shift. The serial
+output is taken from the output of the rightmost flip-flop.
+
+Sometimes it is necessary to control the shift so that it occurs with certain
+lock pulses but not with others. This can be done by inhibiting the clock from
+the input of the register if we do not want it to shift. When the shift register
+of Fig 2-8is used, theshiftcan be controlled by connecting the clock to the input
+ofan AND gate, and a second input of the AND gate can then control the shift
+by inhibiting the clock. However, it is also possible to provide extra circuits to
+control the shift operation through the D inputs of the flip-flops rather than
+the clock input.
+
+Bidirectional Shift Register with Parallel Load
+
+Aregister capable of shifting inone direction only is called a unidirectional shift
+register. A register that can shift in both directions is called a bidirectional shift
+register. Some shift registers provide the necessary input and output terminals
+
+Figure 28 4-bit shift register.
+
+ 
+
+Serial
+input
+
+Serial
+courput
+
+ 
+
+—4> e@F+4> ef 4D efF+> @
+c c c c
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Clock
+

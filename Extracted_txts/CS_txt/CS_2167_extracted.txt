@@ -1,0 +1,75 @@
+complement and
+increment
+
+SECTION 102 Addition and Submactian 337
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+a Complementer ‘M (Mode control)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Input cary
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+a Aresisir J_— Load sum
+
+ 
+
+Figure 10-1 Hacdwore for signed-owgninude addition and subersction.
+
+the adder is equal to the sum A + B. When M = 1, the I’s complement of B
+is applied to the adder, the input carry is 1, and output S = A +B + 1. This
+is equal to A plus the 2's complement of B, which is equivalent to the subtrac-
+tion A - B.
+
+‘Hardware Algorithm
+‘The flowchart for the hardware algorithm is presented in Fig. 10-2. The two
+signs A, and B, are compared by an exclusive-OR gate. If the output of the gate
+is, the signsare identical ifitis1, the signs are different. Foran aidoperaton,
+identical signs dictate that the magnitudes be added. For a subtract operation,
+different signs dictate that the magnitudes be added. The magnitudes are
+added with a microoperation EA +A + B, where EA is a register that com-
+bines Eand A. The cairy in E after the addition constitutes an overflow if itis
+equal to 1. The value of Eis transfered into the add-averflow flip-flop AVF.
+‘The two magnitudes are subtracted if the signs are different for an add
+operation oF identical for a subtract operation. The magnitudes are subtracted
+by adding A to the2'scomplementof B. No overflow can oscur if the numbers
+are subtracted so AVF is cleared to0. A 1 in E indicates that A > B and the
+number in A is the correct result. If this number is zero. the sign A, must be
+made positive to avoid a negative zero. Ain E indicates that A < B. For this
+case it snecessaty to takethe 2's complement ofthe valueinA. This operation
+can be done with one microoperation A+ A + 1. However, we assume that
+the A register has circuits for cnicrooperations complement and increment, 90 the
+2's complement is obtained from these two microoperations. In other paths of
+the flowchart, the sign of the result is the same as the sign of A, so no change
+in A, istequired. However, when A <B, the sign of the result is the comple-
+ment of the original sign of A. It is then necessary to complement A, to obtain
+
+ 
+

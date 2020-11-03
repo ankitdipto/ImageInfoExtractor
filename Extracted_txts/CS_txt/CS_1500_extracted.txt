@@ -1,0 +1,48 @@
+30 Chapter 2 Computer-System Structures
+
+tures store the return address on the system stack. If the interrupt routine needs
+to modify the processor state—for instance, by modifying register values—it
+must explicitly save the current state and then restore that state before return-
+ing. After the interrupt is serviced, the saved return address is loaded into
+the program counter, and the interrupted computation resumes as though the
+interrupt had not occurred.
+
+A system call is invoked in a variety of ways, depending on the function-
+ality provided by the underlying processor. In all forms, it is the method used
+by a process to request action by the operating system. A system call usually
+takes the form of a trap to a specific location in the interrupt vector. This trap
+can be executed by a generic trap instruction, although some systems (such as
+the MIPS R2000 family) have a specific syscal11 instruction.
+
+2.2 = I/O Structure
+
+As we discussed in Section 2.1, a general-purpose computer system consists of a
+CPU and multiple device controllers that are connected through a common bus.
+Each device controller is in charge of a specific type of device. Depending on the
+controller, there may be more than one attached device. For instance, the small
+computer-systems interface (SCSI) controller can have seven or more devices
+attached to it. A device controller maintains some local buffer storage and a set
+of special-purpose registers. The device controller is responsible for moving the
+data between the peripheral devices that it controls and its local buffer storage.
+The size of the local buffer within a device controller varies from one controller
+to another, depending on the particular device being controlled. For example,
+the size of the buffer of a disk controller is the same as or a multiple of the size
+of the smallest addressable portion of a disk, called a sector, which is usually
+512 bytes.
+
+2.2.1 I/O Interrupts
+
+To start an I/O operation, the CPU loads the appropriate registers within the
+device controller. The device controller, in turn, examines the contents of these
+registers to determine what action to take. For example, if it finds a read request,
+the controller will start the transfer of data from the device to its local buffer.
+Once the transfer of data is complete, the device controller informs the CPU that
+it has finished its operation. It accomplishes this communication by triggering
+an interrupt.
+
+This situation will occur, in general, as the result of a user process request-
+ing I/O. Once the I/O is started, two courses of action are possible. In the
+simplest case, the I/O is started; then, at 1/0 completion, control is returned
+to the user process. This case is known as synchronous I/O. The other pos-
+sibility, called asynchronous I/O, returns control to the user program without
+

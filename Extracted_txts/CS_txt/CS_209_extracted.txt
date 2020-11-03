@@ -1,0 +1,50 @@
+810
+
+Chapter 27 Multithreaded Algorithms
+
+a stencil algorithm to compute a longest common subsequence, where the value in
+entry c[i, j] depends only on the values in c[i—1, j], ci, j —1], and c[i—1, 7-1],
+as well as the elements x; and y; within the two sequences given as inputs. The
+input sequences are fixed, but the algorithm fills in the two-dimensional array c so
+that it computes entry c[/, j] after computing all three entries c[i—1, j], c[i, 7 — 1],
+and c[i — 1, j — 1].
+
+In this problem, we examine how to use nested parallelism to multithread a
+simple stencil calculation on an n x n array A in which, of the values in A, the
+value placed into entry Afi, j] depends only on values in A[i’, ’], where i’ < i
+and j’ < j (and of course, i’ # i or j’ # j). In other words, the value in an
+entry depends only on values in entries that are above it and/or to its left, along
+with static information outside of the array. Furthermore, we assume throughout
+this problem that once we have filled in the entries upon which A[i, j'] depends, we
+can fill in Aff, j] in ©(1) time (as in the LCS-LENGTH procedure of Section 15.4).
+
+We can partition the 7 x n array A into four n/2 x n/2 subarrays as follows:
+
+Ai 1 A 12
+A= : 27.11
+( A Az @7.11)
+Observe now that we can fill in subarray A, recursively, since it does not depend
+on the entries of the other three subarrays. Once A; is complete, we can continue
+
+to fill in Aj2 and A>, recursively in parallel, because although they both depend
+on Aj, they do not depend on each other. Finally, we can fill in Az. recursively.
+
+a. Give multithreaded pseudocode that performs this simple stencil calculation
+using a divide-and-conquer algorithm SIMPLE-STENCIL based on the decom-
+position (27.11) and the discussion above. (Don’t worry about the details of the
+base case, which depends on the specific stencil.) Give and solve recurrences
+for the work and span of this algorithm in terms of n. What is the parallelism?
+
+b. Modify your solution to part (a) to divide ann x n array into nine n/3 x n/3
+subarrays, again recursing with as much parallelism as possible. Analyze this
+algorithm. How much more or less parallelism does this algorithm have com-
+pared with the algorithm from part (a)?
+
+c. Generalize your solutions to parts (a) and (b) as follows. Choose an integer
+b > 2. Divide an n xn array into b? subarrays, each of size n/bxn/b, recursing
+with as much parallelism as possible. In terms of n and b, what are the work,
+span, and parallelism of your algorithm? Argue that, using this approach, the
+parallelism must be 0 (7) for any choice of b > 2. (Hint: For this last argument,
+show that the exponent of 7 in the parallelism is strictly less than | for any
+choice of b > 2.)
+

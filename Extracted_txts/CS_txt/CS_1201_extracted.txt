@@ -1,0 +1,42 @@
+Chapter 13: More Issues In Input/Output 477
+
+ 
+
+Let's start at the very beginning,
+A very good place to start!
+
+We'll assume that using some text editor these lines have been
+placed in the file NEWPOEM.TXT. Now, we use the input
+redirection operator ‘<’ before the file, as shown below:
+
+C>UTIL.EXE < NEWPOEM.TXT
+Let's start at the very beginning,
+A very good place to start!
+
+C>
+
+The lines are printed on the screen with no further effort on our
+part. Using redirection we’ve made our program UTIL.C perform
+the work of the TYPE command.
+
+Both Ways at Once
+
+Redirection of input and output can be used together; the input for
+a program can come from a file via redirection, at the same time its
+output can be redirected to a file. Such a program is called a filter.
+The following command demonstrates this process.
+
+C>UTIL < NEWPOEM.TXT > POETRY.TXT
+
+In this case our program receives the redirected input from the file
+NEWPOEM. TXT and instead of sending the output to the screen it
+would redirect it to the file POETRY.TXT.
+
+Similarly to send the contents of the file NEWPOEM.TXT to the
+printer we can use the following command:
+
+C>UTIL < NEWPOEM.TXT > PRN
+
+While using such multiple redirections don’t try to send output to
+the same file from which you are receiving input. This is because
+

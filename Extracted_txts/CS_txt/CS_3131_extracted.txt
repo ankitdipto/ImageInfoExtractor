@@ -1,0 +1,60 @@
+Section 17.1
+
+TRANSITI
+
+Sequential Decision Problems 499
+
+ 
+
+(ON MODEL
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 17.1. A simple environment that presents the agent with a sequential decision problem.
+
+ 
+
+In the deterministic version of the problem, each action reliably moves one square in
+the intended direction, except that moving into a wall results in no change in position. In the
+stochastic version, the actions are unreliable. Each action achieves the intended effect with
+probability 0.8, but the rest of the time, the action moves the agent at right angles to the intended
+direction. For example, from the start square (1,1), the action North moves the agent to (1,2)
+with probability 0.8, but with probability 0.1, it moves East to (2,1), and with probability 0.1, it
+moves West, bumps into the wall, and stays in (1,1). We will use the term transition model (or
+just "model," where no confusion can arise) to refer to the set of probabilities associated with the
+possible transitions between states after any given action. The notation Mémeans the probability
+of reaching state; if action a is done in state i.
+
+The tricky part is the utility function. Other than the terminal states (the ones marked +1
+and —1), there is no indication of a state's utility. So we have to base the utility function on
+a sequence of states—an environment history—rather than on a single state. Let us suppose
+that the utility for a sequence will be the terminal state's value minus 1/25th the length of the
+sequence, so a sequence of length 6 that leads to the +1 box has utility 0.76.
+
+In the deterministic case, with knowledge of the initial state and the effects of actions, the
+problem can be solved directly by the search algorithms described in Chapter 3. This is true
+regardless of whether the environment is accessible or inaccessible. The agent knows exactly
+which state it will be in after any given action, so there is no need for sensing.
+
+In the more general, stochastic case, the agent will not know exactly which state it will
+reach after any given sequence of actions. For example, if the agent is in location (3,2), then the
+action sequence /North, East] might end up in any of five states (see Exercise 17.1), and reaches
+the +1 state at (4,3) with probability only 0.64
+
+One tempting way to deal with action sequences would be to consider sequences as long
+actions. Then one could simply apply the basic Maximum Expected Utility principle to sequences.
+The rational action would then be the first action of the optimal sequence. Now, although this
+approach is closely related to the way that search algorithms work, it has a fundamental flaw. It
+
+ 
+

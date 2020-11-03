@@ -1,0 +1,40 @@
+352 Let Us C
+
+ 
+
+{
+char *names[6] ;
+char n[50] ;
+int len, i;
+char “p;
+for (i=O;i<=5;i++)
+{
+printf ( “\nEnter name") ;
+scanf ("%s",n) ;
+len = strlen (n) ;
+p =malloc (len+ 1) ;
+strcpy (p,n);
+names[i] = p;
+}
+for (i=O;i<=5;i++)
+printf (“\n%s", namesfi] ) ;
+}
+
+Here we have first received a name using scanf( ) in a string nf J.
+Then we have found out its length using strlen( ) and allocated
+space for making a copy of this name. This memory allocation has
+been done using a standard library function called malloc( ). This
+function requires the number of bytes to be allocated and returns
+the base address of the chunk of memory that it allocates. The
+address returned by this function is always of the type void *.
+Hence it has been converted into char * using a feature called
+typecasting. Typecasting is discussed in detail in Chapter 15. The
+prototype of this function has been declared in the file ‘alloc.h’.
+Hence we have #included this file.
+
+But why did we not use array to allocate memory? This is because
+with arrays we have to commit to the size of the array at the time
+of writing the program. Moreover, there is no way to increase or
+decrease the array size during execution of the program. In other
+words, when we use arrays static memory allocation takes place.
+

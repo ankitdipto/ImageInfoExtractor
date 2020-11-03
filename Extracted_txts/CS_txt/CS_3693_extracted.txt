@@ -1,0 +1,48 @@
+Notes for Chapter 23 O41
+
+23-4 Alternative minimum-spanning-tree algorithms
+In this problem, we give pseudocode for three different algorithms. Each one takes
+aconnected graph and a weight function as input and returns a set of edges T. For
+each algorithm, either prove that T is a minimum spanning tree or prove that T is
+not a minimum spanning tree. Also describe the most efficient implementation of
+each algorithm, whether or not it computes a minimum spanning tree.
+a. MAYBE-MST-A(G, w)
+sort the edges into nonincreasing order of edge weights w
+T=E
+for each edge e, taken in nonincreasing order by weight
+
+if T — {e} is a connected graph
+
+T =T —{e}
+
+return T
+
+AnkhwWwNH
+
+b. MAYBE-MST-B(G, w)
+1 T=9%
+2 for each edge e, taken in arbitrary order
+3 if T U {e} has no cycles
+4 T =TU¢e}
+5 return T
+
+c. MAYBE-MST-C(G, w)
+1 T=9%
+2 for each edge e, taken in arbitrary order
+3 T=TU fe}
+4 if T has acycle c
+5 let e’ be a maximum-weight edge on c
+6 T=T-—{e'}
+7 return T
+
+ 
+
+Chapter notes
+
+Tarjan [330] surveys the minimum-spanning-tree problem and provides excellent
+advanced material. Graham and Hell [151] compiled a history of the minimum-
+spanning-tree problem.
+
+Tarjan attributes the first minimum-spanning-tree algorithm to a 1926 paper by
+O. Bortvka. Bortvka’s algorithm consists of running O(lg V) iterations of the
+

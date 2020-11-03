@@ -1,0 +1,52 @@
+10 port
+
+SECTION 112 Input-Output Interface 389
+
+In a memory-mapped V/O organization there are no specific input or
+output instructions. The CPU can manipulate VO data residing in interface
+registers with the same instructions that are used to manipulate memory
+words. Each interface is organized as a set of registers that respond toread and
+write requests in the normal address space. Typically, a segment of the total
+address space is reserved for interface registers, but in general, they can be
+locatedat any address as long asthereis not alsoa memory word that responds
+to the same address.
+
+‘Computers withmemory-mapped UO can use memory-type instructions
+toaccess/O data. Itallows the computer to use the same instructions for either
+input-output transfers or for memory transfers. The advantageis that the load
+and store instructions used for reading and writing from memory can be used
+to input and output data from UO registers. In a typical computer, there are
+more memory-reference instructions than /O instructions With memory-
+mapped UO all instructions that refer to memory are also available for VO.
+
+Example of V/O Interface
+
+Anexample ofan U/O interface unit is shown in block diagram form in Fig. 11-2.
+It consists of two data registers called ports, a control register, a status register,
+bus buffers, and timing and control circuits. The interface communicates with
+the CPU through the data bus. The chip select and register select inputs
+determine the address assigned to the interface. The UO read and writeare two
+control lines that specify an input or output, respectively. The four registers
+communicate directly with the UO device attached to the interface.
+
+The /O data to and from the device can be transferred into either port
+Aor port B. The interface may operate with an output device or with an input
+device, or with a device that requires both input and output. If the interface
+is connected to a printer, it will only output data, and if it services a character
+reader, it will only input data. A magnetic disk unit transfers data in both
+directions but not at the same time, so the interface can use bidirectional lines.
+‘A command is passed to the /O device by sending a word to the appropriate
+interface register. In a system like this, the function code in the LO bus is not
+needed because control is sent to the control register, status information is
+received from the status register, and data are transferred to and from ports
+‘A and B registers. Thus the transfer of data, control, and status information
+is always via the common data bus. The distinction between data, control, or
+status information is determined from the particular interface register with
+which the CPU communicates.
+
+The control register receives control information from the CPU. By load-
+ing appropriate bits into the control register, the interface and the /O device
+attached to it can be placed in a variety of operating modes. For example, port
+Amay be defined as an input port and port B as an output port. A magnetic
+tape unit may be instructed to rewind the tape or to start the tape moving in
+

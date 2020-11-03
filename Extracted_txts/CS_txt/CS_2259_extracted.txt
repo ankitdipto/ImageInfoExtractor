@@ -1,0 +1,57 @@
+ECL
+
+Mos
+
+cmos
+
+decoder
+
+SECTION 22 Decoders 43
+
+power supply voltage for TTL circuits is 5 volts, and the two logic levels are
+approximately 0 and 35 volts.
+
+The emitter-coupled logic (ECL) family provides the highest-speed digital
+Circuits in integrated form. ECL is used in systems such as supercomputersand
+signal processors where high speed is essential. The transistors in ECL gates
+operate in a nonsaturated state, a condition that allows the achievement of
+propagation delays of 1 to 2 nanoseconds.
+
+The metal-oxide semiconductor (MOS) is a unipolar transistor that
+depends on the flow of only one type of carrier, which may be electrons
+(m-channel) or holes (p-channel). This is in contrast to the bipolar transistor
+used in TL and ECL gates, where both carriers exist during normal operation.
+‘A p-channel MOS is referred to as PMOS and an n-channel as NMOS, NMOS
+is the one that is commonly used in circuits with only one type of MOS
+transistor. The complementary MOS (CMOS) technology uses PMOS and
+NMOS transistors connected in a complementary fashion in all circuits. The
+most importantadvantages of CMOS over bipolar are the high packing density
+of circuits, a simpler processing technique during fabrication, and a more
+economical operation because of low power consumption.
+
+Because of their many advantages, integrated circuits are used exclu-
+sively toprovide various digital components needed in the design of computer
+systems. Tounderstand the organization and design of digital computers it is
+very important to be familiar with the various components encountered in
+integrated circuits, For this reason, the most basic components are introduced
+in this chapter with an explanation of their logical properties. These compo-
+nents provide a catalog of elementary digital functional units commonly used
+as basic building blocks in the design of digital computers.
+
+2-2 Decoders
+
+Discrete quantities of information are represented in digital computers with
+binary codes. A binary code of nbits is capable of representing up to 2" distinct
+elements of the coded information. A decoder is a combinational circuit that
+converts binary information from the n coded inputs to a maximum of 2"
+unique outputs. If the n-bit coded information has unused bit combinations,
+the decoder may have less than 2" outputs.
+
+The decoders presented in this section are called n-to-m-line decoders,
+where m = 2". Their purpose is to generate the 2" (or fewer) binary combina-
+tions of the n input variables. A decoder has n inputs and m outputs and is also
+referred to as an n x m decoder.
+
+The logic diagram of a 3-to-8-line decoder is shown in Fig. 2-1. The three
+data inputs, Ao, Ay, and 42, are decoded into eight outputs, each output
+

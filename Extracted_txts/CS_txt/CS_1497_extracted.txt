@@ -1,0 +1,39 @@
+ 
+
+Chapter 2
+
+COMPUTER-
+SYSTEM
+STRUCTURES
+
+ 
+
+ 
+
+We need to have a general knowledge of the structure of a computer system
+before we can explore the details of system operation. In this chapter, we look
+at several disparate parts of this structure to round out our background knowl-
+edge. This chapter is mostly concerned with computer-system architecture, so
+you can skim or skip it if you already understand the concepts. The first topics
+covered here include system startup, I/O, and storage.
+
+The operating system must also ensure the correct operation of the com-
+puter system. To ensure that user programs will not interfere with the proper
+operation of the system, the hardware must provide appropriate mechanisms
+to ensure correct behavior. Later in this chapter, we describe the basic computer
+architecture that makes it possible to write a functional operating system. We
+conclude with a network architecture overview.
+
+2.1 = Computer-System Operation
+
+A modern, general-purpose computer system consists of a CPU and a number
+of device controllers that are connected through a common bus that provides
+access to shared memory (Figure 2.1). Each device controller is in charge
+of a specific type of device (for example, disk drives, audio devices, and
+video displays). The CPU and the device controllers can execute concurrently,
+competing for memory cycles. To ensure orderly access to the shared memory,
+amemory controller is provided whose function is to synchronize access to the
+memory.
+
+27
+

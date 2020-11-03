@@ -1,0 +1,49 @@
+1060
+
+Chapter 34 NP-Completeness
+
+polynomial-time algorithm A. We shall use a classic “simulation” argument to
+construct another polynomial-time algorithm A’ that decides L. Because A ac-
+cepts L in time O(n*) for some constant k, there also exists a constant ¢ such
+that A accepts L in at most cn* steps. For any input string x, the algorithm A’
+simulates cn* steps of A. After simulating cn* steps, algorithm A’ inspects the be-
+havior of A. If A has accepted x, then A’ accepts x by outputting a 1. If A has not
+accepted x, then A’ rejects x by outputting a 0. The overhead of A’ simulating A
+does not increase the running time by more than a polynomial factor, and thus A’
+is a polynomial-time algorithm that decides L. .
+
+Note that the proof of Theorem 34.2 is nonconstructive. For a given language
+L € P, we may not actually know a bound on the running time for the algorithm A
+that accepts L. Nevertheless, we know that such a bound exists, and therefore, that
+an algorithm A’ exists that can check the bound, even though we may not be able
+to find the algorithm A’ easily.
+
+Exercises
+
+34.1-1
+
+Define the optimization problem LONGEST-PATH-LENGTH as the relation that
+associates each instance of an undirected graph and two vertices with the num-
+ber of edges in a longest simple path between the two vertices. Define the de-
+cision problem LONGEST-PATH = {(G, u,v, k) : G = (V,E) is an undi-
+rected graph, u,v € V,k > 0 is an integer, and there exists a simple path
+from u to v in G consisting of at least k edges}. Show that the optimization prob-
+lem LONGEST-PATH-LENGTH can be solved in polynomial time if and only if
+LONGEST-PATH € P.
+
+34.1-2
+
+Give a formal definition for the problem of finding the longest simple cycle in an
+undirected graph. Give a related decision problem. Give the language correspond-
+ing to the decision problem.
+
+34.1-3
+
+Give a formal encoding of directed graphs as binary strings using an adjacency-
+matrix representation. Do the same using an adjacency-list representation. Argue
+that the two representations are polynomially related.
+
+34.14
+Is the dynamic-programming algorithm for the 0-1 knapsack problem that is asked
+for in Exercise 16.2-2 a polynomial-time algorithm? Explain your answer.
+

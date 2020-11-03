@@ -1,0 +1,45 @@
+Chapter 19: Interaction With Hardware 625
+
+ 
+
+Windows does not permit an application program to directly
+access any of the devices. Instead it provides several API functions
+to carry out the interaction. These functions have names so calling
+them is much easier than calling DOS/BIOS functions. When we
+call an API function to interact with a device, it in turn accesses
+the device driver program for the device. It is the device driver
+program that finally accesses the device. There is a standard way
+in which an application can communicate with the device driver. It
+is device driver’s responsibility to ensure that multiple requests
+coming from different applications are handled without causing
+any conflict. In the sections to follow we would see how to
+communicate with the device driver to be able to interact with the
+hardware.
+
+One last question—won’t the API change if a new device comes
+into existence? No it won’t. That is the beauty of the Windows
+architecture. All that would change is the device driver program
+for the new device. The API functions that we would need to
+interact with this new device driver would remain same. This is
+shown in Figure 19.4
+
+ 
+
+Windows API
+
+Device Driver
+
+ 
+
+ 
+
+Hardware
+
+ 
+
+ 
+
+ 
+
+Figure 19.4
+

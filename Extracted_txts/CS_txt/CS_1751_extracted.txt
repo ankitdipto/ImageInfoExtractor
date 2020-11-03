@@ -1,0 +1,53 @@
+710 Summary 235
+
+stamp order. The protocol ensures freedom from deadlock, because no transac-
+tion ever waits.
+
+7.10 = Summary
+
+Given a collection of cooperating sequential processes that share data, mutual
+exclusion must be provided. One solution is to ensure that a critical section of
+code is in use by only one process or thread at a time. Different algorithms exist
+for solving the critical-section problem, with the assumption that only storage
+interlock is available.
+
+The main disadvantage of these user-coded solutions is that they all require
+busy waiting. Semaphores overcome this difficulty. Semaphores can be used
+to solve various synchronization problems and can be implemented efficiently,
+especially if hardware support for atomic operations is available.
+
+Various different synchronization problems (such as the bounded-buffer
+problem, the readers-writers problem, and the dining-philosophers problem)
+are important mainly becauze they are examples of a large class of concurrency-
+control problems. These problems are used to test nearly every newly proposed
+synchronization scheme.
+
+The operating system must provide the means to guard against timing
+errors. Several language constructs have been proposed to deal with these
+problems. Critical regions can be used to implement mutual-exclusion and
+arbitrary- synchronization problems safely and efficiently. Monitors provide
+the synchronization mechanism for sharing abstract data types. A condition
+variable provides a method for a monitor procedure to block its execution until
+it is signaled to continue.
+
+Solaris 2 is an example of a modern operating system that implements a
+variety of locks to support multitasking, multithreading (including real-time
+threads), and multiprocessing. It uses adaptive mutexes for efficiency when
+protecting data from short code segments. Condition variables and readers—
+writers locks are used when longer sections of code need access to data. Solaris
+uses turnstiles to order the list of threads waiting to acquire an adaptive mutex
+or readers—writers lock.
+
+Windows 2000 supports realtime processes and multiprocessing. When the
+kernel attempts to access global resources on uniprocessor systems, interrupts
+that may also access the global resource are masked. On multiprocessor sys-
+tems, global resources are protected using spinlocks. Outside of the kernel,
+synchronization is provided using dispatcher objects. A dispatcher object may
+be used as a mutex, semaphore, or event. An event is a type of dispatcher object
+that behaves similar to condition variables.
+
+A transaction is a program unit that must be executed atomically; that is,
+either all the operations associated with it are executed to completion, or none
+are performed. To ensure atomicity despite system failure, we can use a write-
+ahead log. All updates are recorded on the log, which is kept in stable storage.
+

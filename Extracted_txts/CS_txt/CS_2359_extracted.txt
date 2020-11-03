@@ -1,0 +1,100 @@
+SECTION 13-2 Interconnection Structures 499.
+
+torefer to each node as having a processor, in effectit contains not only a CPU
+but also local memory and UO interface. Each processor has direct communi-
+cation paths to n other neighbor processors. These paths correspond to the
+edges of the cube. There are 2" distinct m-bit binary addresses that can be
+assigned to the processors. Each processor address differs from that of each
+of its n neighbors by exactly one bit position.
+
+Figure 13-9 shows the hypercube structure forn = 1,2, and3. Aone-cube
+structure has n = 1 and 2" = 2. It contains two processors interconnected by
+asingle path. A two-cube structure hasn = 2and 2" = 4. Itcontains four nodes
+interconnected as a square. A three-cube structure has eight nodes intercon-
+nected as a cube. An n-cube structure has 2" nodes with a processor residing
+in each node. Each node is assigned a binary address in such a way that the
+addresses of two neighbors differ in exactly one bit position. For example, the
+three neighbors of the node with address 100 in a three-cube structure are 000,
+110, and 101. Each of these binary numbers differs from address 100 by one
+bit value.
+
+Routing messages through an n-cube structure may take from one to 7
+links from a source node to a destination node. For example, in a three-cube
+structure, node 000 can communicate directly with node 001. It must cross at
+least two links to communicate with 011 (from 000 to 001 to O11 or from 000
+to010to 011). It is necessary to go through at least three links tocommunicate
+fromnode 000 tonode 111. A routing procedure can be developed by comput-
+ing the exclusive-OR of the source node address with the destination node
+address. The resulting binary value will have 1 bits corresponding to the axes
+on which the two nodes differ. The message is then sent along any one ofthe
+axes. For example, in a three-cube structure, a message at 010 going to 001
+producesan exclusive-OR of the two addresses equal to 011. The message can
+be sent along the second axis to 000 and then through the third axis to O01.
+
+   
+
+ 
+
+Figure 13-9 Hypercube structures for n =
+
+ 
+
+on m1
+
+ 
+
+ 
+
+ 
+
+ 
+
+of] oo n oof uo
+oo! Jo
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+One-cube ‘Two-cube Three-cube
+

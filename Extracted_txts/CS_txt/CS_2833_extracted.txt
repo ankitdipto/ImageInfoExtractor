@@ -1,0 +1,44 @@
+376
+
+Chapter 15 Dynamic Programming
+
+ 
+
+Figure 15.5 The m and s tables computed by MATRIX-CHAIN-ORDER for n = 6 and the follow-
+ing matrix dimensions:
+
+matrix | Ar Ay A3 Ag As A6
+dimension | 30x35) 35x15) 15x5 5x10 10x20 20x25
+
+ 
+
+The tables are rotated so that the main diagonal runs horizontally. The m table uses only the main
+diagonal and upper triangle, and the s table uses only the upper triangle. The minimum number of
+scalar multiplications to multiply the 6 matrices is m[1,6] = 15,125. Of the darker entries, the pairs
+that have the same shading are taken together in line 10 when computing
+
+m(2,2] + m[3, 5] + pip2ps = 0+25004 35-15-20 = 13,000,
+m2, 5] = min} m[2,3] + m[4,5] + pipsps = 2625 +1000 + 35-5-20 = 7125,
+
+m(2,4] + m[5, 5] + pipaps = 4375 +0 + 35-10-20 11,375
+= 7125.
+
+   
+
+The algorithm first computes m[i,i] = 0 fori = 1,2,...,n (the minimum
+costs for chains of length 1) in lines 3-4. It then uses recurrence (15.7) to compute
+m{i,i + 1] fori = 1,2,..., —1 (the minimum costs for chains of length / = 2)
+during the first execution of the for loop in lines 5—13. The second time through the
+loop, it computes m[i,i+2] fori = 1,2,...,n—2 (the minimum costs for chains of
+length / = 3), and so forth. At each step, the m[i, j] cost computed in lines 10-13
+depends only on table entries m[i, k] and m[k + 1, j] already computed.
+
+Figure 15.5 illustrates this procedure on a chain of n = 6 matrices. Since
+we have defined m[i, j] only for i < j, only the portion of the table m strictly
+above the main diagonal is used. The figure shows the table rotated to make the
+main diagonal run horizontally. The matrix chain is listed along the bottom. Us-
+ing this layout, we can find the minimum cost m[i, j] for multiplying a subchain
+A; Aj+1 +++ A; of matrices at the intersection of lines running northeast from A; and
+
+ 
+

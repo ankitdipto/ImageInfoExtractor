@@ -1,0 +1,40 @@
+Chapter 12: File Input/Output 427
+
+ 
+
+Operations possible - reading existing contents, writing new
+contents, modifying existing contents of the file.
+
+"wt" Searches file. If the file exists, its contents are overwritten.
+If the file doesn’t exist a new file is created. Returns NULL,
+if unable to open file.
+
+Operations possible - writing new contents, reading them
+back and modifying existing contents of the file.
+
+"at" Searches file. If the file is opened successfully fopen( )
+loads it into memory and sets up a pointer which points to
+the first character in it. If the file doesn’t exist, a new file is
+created. Returns NULL, if unable to open file.
+
+Operations possible - reading existing contents, appending
+new contents to end of file. Cannot modify existing
+contents.
+
+String (line) I/O in Files
+
+For many purposes, character I/O is just what is needed. However,
+in some situations the usage of functions that read or write entire
+strings might turn out to be more efficient.
+
+Reading or writing strings of characters from and to files is as easy
+as reading and writing individual characters. Here is a program
+that writes strings to a file using the function fputs().
+
+I" Receives strings from keyboard and writes them to file */
+#include "stdio.h"
+main()
+{
+FILE “fp;
+char s[80] ;
+

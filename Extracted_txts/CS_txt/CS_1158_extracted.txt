@@ -1,0 +1,65 @@
+Section 7.7
+
+‘SYNCHRONIC
+
+‘CAUSALRULES
+
+MODEL-BASED
+REASONNG
+
+DIAGNOSTIC RULES
+
+Deducing Hidden Properties of the World 209
+
+It is useful to know if aplace is breezy or smelly because we know that the wumpus and the pits
+cannot move about. Notice that neither Breezy nor Smelly needs a situation argument.
+
+Having discovered which places are breezy or smelly (and, very importantly, not smelly or
+not breezy), the agent can deduce where the pits are, and where the wumpus is. Furthermore, it
+can deduce which squares are safe to move to (we use the predicate OK to represent this), and
+can use this information to hunt for the gold.
+
+The axioms we will write to capture the necessary information for these deductions are
+called synchronic ("same time") rules, because they relate properties of a world state to other
+properties of the same world state. There are two main kinds of synchronic rules:
+
+< Causal rules:
+Causal rules reflect the assumed direction of causality in the world: some hidden property
+of the world causes certain percepts to be generated. For example, we might have rules
+stating that squares adjacent to wumpuses are smelly and squares adjacent to pits are
+breezy:
+
+Vii.b,s At(Wumpus,l),s) A Adjacent(,,h)=  Smelly(12)
+Vusb,s At(Pit,l,s) A Adjacent(h,b) > Breezy(2)
+Systems that reason with causal rules are called model-based reasoning systems.
+< Diagnostic rules:
+Diagnostic rules infer the presence of hidden properties directly from the percept-derived
+information. We have already seen two diagnostic rules:
+V/,s At(Agent, I, s) A Breeze(s) => Breezy(I)
+Vis At(Agent,1,s) A Stench(s) > Smelly(I)
+For deducing the presence of wumpuses, a diagnostic rule can only draw a weak conclusion,
+namely, that if a location is smelly, then the wumpus must either be in that location or in an
+adjacent location:
+Vij.s Smelly) >
+(Aly At(Wumpus,.h, s) A (b= 1\ V Adjacent(I\J2))
+Although diagnostic rules seem to provide the desired information more directly, it is very tricky
+
+to ensure that they derive the strongest possible conclusions from the available information. For
+example, the absence of stench or breeze implies that adjacent squares are OK:
+
+ 
+
+Vx.y. 8 u, ¢,8 Percept([None, None, g,u,c]t)\
+At(Agent,x, 5) A Adjacent(xy) => OK(y)
+
+But sometimes a square can be OK even when smells and breezes abound. The model-based rule
+Wax,t (SAt(Wumpus,x,1) \ >Pit(x))e  OK(x)
+
+is probably the best way to represent safety.
+
+The distinction between model-based and diagnostic reasoning is important in many areas
+of AI. Medical diagnosis in particular has been an active area ofresearch, where approaches based
+on direct associations between symptoms and diseases (a diagnostic approach) have gradually
+been replaced by approaches using an explicit model of the disease process and how it manifests
+itself in symptoms. The issues come up again in Chapter 14.
+

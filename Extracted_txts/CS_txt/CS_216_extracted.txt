@@ -1,0 +1,45 @@
+816
+
+Chapter 28 Matrix Operations
+
+for the unknown x by a method called “back substitution.” Because the permu-
+tation matrix P is invertible (Exercise D.2-3), multiplying both sides of equa-
+tion (28.4) by P~! gives P~! PA = P~'LU, so that
+
+A=P"LU. (28.7)
+Hence, the vector x is our solution to Ax = b:
+
+Ax P7'LUx (by equation (28.7))
+P'Ly (by equation (28.6))
+= P'Pb (by equation (28.5))
+
+= b.
+
+Our next step is to show how forward and back substitution work and then attack
+the problem of computing the LUP decomposition itself.
+
+Forward and back substitution
+
+Forward substitution can solve the lower-triangular system (28.5) in ©(n?) time,
+given L, P, and b. For convenience, we represent the permutation P compactly
+by an array z[1..n]. Fori = 1,2,..., n, the entry z[i] indicates that P;..{;) = 1
+and P;; = 0 for j # [i]. Thus, PA has azjj,; in row i and column j, and Pb
+has b,{;] as its ith element. Since L is unit lower-triangular, we can rewrite equa-
+tion (28.5) as
+
+vi = bry.
+Invi + yo = bap.
+Igivi + Iso + Ys = byt.
+IniY1 + In2¥2 + dnay3 +o + Yn = Dat -
+The first equation tells us that y; = bz[j. Knowing the value of y,, we can
+
+substitute it into the second equation, yielding
+
+y2= bata —lInyy.
+
+Now, we can substitute both y, and y, into the third equation, obtaining
+V3 = Dats — (lsiyi + Is2y2) -
+
+In general, we substitute y,, yo..... Ji-1 “forward” into the ith equation to solve
+for yj:
+

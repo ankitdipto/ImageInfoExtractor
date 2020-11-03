@@ -1,0 +1,55 @@
+hexadecimal code
+
+SECTION 62 Machine Language 177
+
+TABLE 6-3 Hexadecimal Program to Add Two Numbers
+
+ 
+
+Location Instruction
+
+000 2004
+01 1005
+002 3006
+003 7001
+04 0053
+005 FFE9
+006 ‘0000
+
+Writing 16 bits for each instruction is tedious because there are too many
+digits. We can reduce the number of digits per instruction if we write the octal
+equivalent of the binary code. This will require six digits per instruction. On
+the other hand, we can reduce each instruction to four digits if we write the
+equivalent hexadecimal code as shown in Table 6-3. The hexadecimal represen-
+
+tation is convenient to use; however, one must realize that each hexadecimal
+Reign muor ve Loven WU AD eyuIvalem DE MUIIDED WHEN Ie Program 1s
+
+entered into the computer. The advantage of writing binary programs in
+equivalent octal or hexadecimal form should be evident from this example.
+
+The programin Table 6-4 uses the symbolic names of instructions (listed
+in Table 6-1) instead of their binary or hexadecimal equivalent. The address
+parts of memory-reference instructions, as well as operands, remain in their
+hexadecimal vaiue. Note that location 005 has a negative operand because the
+sign bit in the leftmost position is 1. The inclusion of a column for comments
+provides some means forexplaining the function of each instruction. Symbolic
+programs are easier to handle, and as a consequence, it is preferable to write
+programs with symbols. These symbols can be converted to their binary code
+equivalent to produce the binary program.
+
+‘We can go one step further and replace each hexadecimal address by a
+
+TABLE 6-4 Program with Symbolic Operation Codes
+
+ 
+
+Location Instruction ‘Comments
+000 LDA 004 Load first operand into AC
+01 ADD 005 Add second operand to AC
+02 STA 006 Store sum in location 006
+003 HLT Halt computer
+008 0053 First operand
+005 FFE9 Second operand (negative)
+006 0000 Store sum here
+

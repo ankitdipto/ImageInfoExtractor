@@ -1,0 +1,79 @@
+   
+
+Section 17.3.
+
+Policy Iteration 505
+
+ 
+
+   
+   
+    
+  
+
+RMS ERROR
+
+POLICY LOSS
+
+POLICY ITERATION
+
+VALUE
+DETERMINATION
+
+How long should value iteration be allowed to run? Do we require the values to converge?
+These are nontrivial questions. There are two obvious ways to measure the progress of value
+iteration. The first uses the RMS error (RMS stands for "root mean square") of the utility values
+compared to the correct values. The second assumes that the estimated utility values are not in
+themselves important—what counts is the policy that they imply. The policy corresponding to
+an estimated utility function U, ig derived using Equation (17.2). We can measure the quality of
+a policy using the expected policy loss—the difference between the expected utility obtained by
+an agent using the policy, compared with an agent using the optimal policy. Figure 17.6 shows
+how both measures approach zero as the value iteration process proceeds. Notice that the policy
+(which is chosen from a discrete, finite set of possible policies) becomes exactly optimal long
+before the utility estimates have converged to their correct values.
+
+ 
+
+ 
+
+08 08
+1oe 20.65.
+aw a
+104 10.4
+
+02 02
+
+ 
+
+ 
+
+0 10 15 20 5 10 15 20
+Number of iterations Number of iterations
+©) (b)
+
+ 
+
+ 
+
+Figure 176 (a) The RMS (root mean square) error of the utility estimates compared to the
+correct values, as a function of iteration number during value iteration. (b) The expected policy
+loss compared to the optimal policy.
+
+ 
+
+ 
+
+ 
+
+173___POLICY ITERATION
+
+In the previous section, we observed that the optimal policy is often not very sensitive to the
+exact utility values. This insight suggests an alternative way to find optimal policies. The policy
+iteration algorithm works by picking a policy, then calculating the utility of each state given
+that policy. It then updates the policy at each state using the utilities of the successor states
+(Equation (17.2)), and repeats until the policy stabilizes. The step in which utility values are
+determined from a given policy is called value determination. The basic idea behind policy
+iteration, as compared to value iteration, is that value determination should be simpler than value
+iteration because the action in each state is fixed by the policy. The policy iteration algorithm is
+shown in Figure 17.7.
+

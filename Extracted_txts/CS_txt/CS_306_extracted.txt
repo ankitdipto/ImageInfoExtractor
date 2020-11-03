@@ -1,0 +1,49 @@
+29.5 The initial basic feasible solution 889
+
+value of this auxiliary linear program is negative, then the original linear program
+does not have a feasible solution.
+We write this linear program in slack form, obtaining
+
+id — Xo
+X3 = 2 — 2x, + xX. + Xo
+Xe = -4 — x + 5x2 + X%.-
+
+We are not out of the woods yet, because the basic solution, which would set
+X4 = —4, is not feasible for this auxiliary linear program. We can, however, with
+one call to PIVOT, convert this slack form into one in which the basic solution is
+feasible. As line 8 indicates, we choose Xo to be the entering variable. In line 6, we
+choose as the leaving variable x4, which is the basic variable whose value in the
+basic solution is most negative. After pivoting, we have the slack form
+
+Z = —-4 -— XM + 5X2 - XM
+Xo = 4 + % — SX. + Xa
+x = 6 — x, — 4x. + XX.
+
+The associated basic solution is (Xo, ¥1, ¥2,X3,%4) = (4,0,0,6,0), which is feasi-
+ble. We now repeatedly call Prvor until we obtain an optimal solution to Lay. In
+this case, one call to PrvoT with x2 entering and Xo leaving yields
+
+Z = —- Xp
+
+_ 4 xo x1 x4
+B= 57 5 tf 5 ts
+_ 14 4xo 9x, X4
+Sastry 7 ets
+
+This slack form is the final solution to the auxiliary problem. Since this solution
+has x9 = 0, we know that our initial problem was feasible. Furthermore, since
+Xo = 0, we can just remove it from the set of constraints. We then restore the
+original objective function, with appropriate substitutions made to include only
+nonbasic variables. In our example, we get the objective function
+
+4
+axy-m=In-(-342 =).
+
+5 5 5 5
+Setting x9 = 0 and simplifying, we get the objective function
+
+4. 9x, Xq
+
+5 5 5
+and the slack form
+

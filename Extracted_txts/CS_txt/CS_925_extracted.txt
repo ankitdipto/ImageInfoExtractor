@@ -1,0 +1,41 @@
+Chapter 7: The C Preprocessor 253
+
+ 
+
+the program, it would take the same amount of space in the
+program.
+
+But passing arguments to a function and getting back the returned
+value does take time and would therefore slow down the program.
+This gets avoided with macros since they have already been
+expanded and placed in the source code before compilation.
+
+Moral of the story is—if the macro is simple and sweet like in our
+examples, it makes nice shorthand and avoids the overheads
+associated with function calls. On the other hand, if we have a
+fairly large macro and it is used fairly often, perhaps we ought to
+replace it with a function.
+
+File Inclusion
+
+The second preprocessor directive we’ll explore in this chapter is
+file inclusion. This directive causes one file to be included in
+another. The preprocessor command for file inclusion looks like
+this:
+
+#include "filename"
+
+and it simply causes the entire contents of filename to be inserted
+into the source code at that point in the program. Of course this
+presumes that the file being included is existing. When and why
+this feature is used? It can be used in two cases:
+
+(a) If we have a very large program, the code is best divided into
+several different files, each containing a set of related
+functions. It is a good programming practice to keep different
+sections of a large program separate. These files are
+#included at the beginning of main program file.
+
+(b) There are some functions and some macro definitions that we
+need almost in all programs that we write. These commonly
+

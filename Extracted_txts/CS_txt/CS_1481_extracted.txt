@@ -1,0 +1,48 @@
+ 
+
+14 Multiprocessor Systems 13
+
+to the level of surviving hardware is called graceful degradation. Systems
+designed for graceful degradation are also called fault tolerant.
+
+Continued operation in the presence of failures requires a mechanism to
+allow the failure to be detected, diagnosed, and, if possible, corrected. The Tan-
+dem system uses both hardware and software duplication to ensure continued
+operation despite faults. The system consists of two identical processors, each
+with its own local memory. The processors are connected by a bus. One pro-
+cessor is the primary and the other is the backup. Two copies are kept of each
+process: one on the primary processor and the other on the backup. At fixed
+checkpoints in the execution of the system, the state information of each job—
+including a copy of the memory image—is copied from the primary machine to
+the backup. If a failure is detected, the backup copy is activated and is restarted
+from the most recent checkpoint. This solution is expensive, since it involves
+considerable hardware duplication.
+
+The most common multiple-processor systems now use symmetric mul-
+tiprocessing (SMP), in which each processor runs an identical copy of the
+operating system, and these copies communicate with one another as needed.
+Some systems use asymmetric multiprocessing, in which each processor is
+assigned a specific task. A master processor controls the system; the other pro-
+cessors either look to the master for instruction or have predefined tasks. This
+scheme defines a master-slave relationship. The master processor schedules
+and allocates work to the slave processors.
+
+SMP means that all processors are peers; no master-slave relationship exists
+between processors. Each processor concurrently runs a copy of the operating
+system. Figure 1.4 illustrates a typical SMP architecture. An example of the
+SMP system is Encore’s version of UNIX for the Multimax computer. This
+computer can be configured such that it employs dozens of processors, all
+running copies of UNIX. The benefit of this model is that many processes
+can run simultaneously—N processes can run if there are N CPUs—without
+causing a significant deterioration of performance. However, we must carefully
+control I/O to ensure that the data reach the appropriate processor. Also, since
+the CPUs are separate, one may be sitting idle while another is overloaded,
+resulting in inefficiencies. These inefficiencies can be avoided if the processors
+share certain data structures. A multiprocessor system of this form will allow
+
+ 
+
+ 
+
+Figure 1.4 Symmetric multiprocessing architecture.
+

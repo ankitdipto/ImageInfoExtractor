@@ -1,0 +1,61 @@
+272
+
+CHAPTER EIGHT Central Processing Unit
+
+shifts, arithmetic shifts, or rotate-type operations. In either case the shift may
+be to the right or to the left.
+
+Table 8-9 lists four types of shift instructions. The logical shift inserts 0
+to the end bit position. The end position is the leftmost bit for shift right and
+the rightmost bit position for the shift left. Arithmetic shifts usually con-
+form with the rules for signed-2’s complement numbers. These rules are given
+in Sec. 46, The arithmetic shift-right instruction must preserve the sign bit in
+the leftmost position. The sign bit is shifted to the right together with the rest
+of the number, but the sign bit itself remains unchanged. This is a shift-right
+operation with the end bit remaining the same. The arithmetic shift-left in-
+struction inserts 0 to the end position and is identical to the logical shift-left
+instruction. For this reason many computers do not provide a distinct arith-
+metic shift-eft instruction when the logical shift-left instruction is already
+available.
+
+The rotate instructions produce a circular shift. Bits shifted out at one end
+ofthe word are not lostas in a logical shift but are circulated back into the other
+end. The rotate through carry instruction treats a carry bit as an extension of
+the register whose word is being rotated. Thus a rotate left through carry
+instruction transfers the carry bit into the rightmost bit position of the register,
+transfers the leftmost bit position into the carry, and at the same time, shifts
+the entire register to the left.
+
+Some computers have a multiple-field format for the shift instructions,
+(One field contains the operation code and the others specify the type of shift
+and the number of times that an operand is to be shifted. A possible instruction.
+code format of a shift instruction may include five fields as follows:
+
+Op REG TYPE RL COUNT
+
+Here OP isthe operation code field; REGisa register address that specifies the
+location of the operand; TYPE is a 2-bit field specifying the four different types
+of shifts; RL is a 1-bit field specifying a shift right or left; and COUNT isa k-bit
+field specifying up to 2' - 1 shifts. With such a format, itis possible to specify
+the type of shift, the direction, and the number of shifts, all in one instruction.
+
+  
+
+  
+
+ 
+
+TABLE 8-9 Typical Shift Instructions
+
+Name ‘Mnemonic
+
+Logical shift right SHR
+Logical shift left SHL
+Arithmetic shift right SHRA
+‘Arithmetic shift left SHLA
+Rotate right ROR
+Rotate left ROL
+
+Rotate right through carry RORC
+Rotate left through carry ROLC
+

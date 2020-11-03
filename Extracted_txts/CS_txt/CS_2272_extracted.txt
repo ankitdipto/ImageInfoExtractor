@@ -1,0 +1,52 @@
+SECTION 11-7 Input-Output Processor 425
+
+receives one of these two instructions, it refers to memory location 72 for the
+address of the first channel command word (CCW). The format of the channel
+command word is shown in Fig. 11-21(0). The data address field specifies the
+first address of a memory buffer and the count field gives the number of bytes
+involved in the transfer. The command field specifies an /O operation and the
+flag bits provide additional information for the channel. The command field
+corresponds to an operation code that specifies one of six basic types of /O
+operations:
+
+1. Write. Transfer data from memory to VO device
+
+2. Read. Transfer data from V/O device to memory.
+
+3. Read backwards. Read magnetic tape with tape moving backward.
+
+4. Control. Used to initiate an operation notinvolving transferof data, such
+as rewinding of tape or positioning a disk-access mechanism.
+
+5. Sense. Informs the channel to transfer its channel status word to
+memory location 64.
+
+6. Transfer in channel. Used instead of a jump instruction. Here the data
+address field specifies the address of the next command word to be
+executed by the channel.
+
+‘An example of a channel program is shown in Table 11-3. It consists of
+three command words. The first causes a transfer into a magnetic tape of 60
+bytes from memory starting at address 4000. The next two command words
+perform a similar function with a different portion of memory and byte count.
+The six flags in each control word specify certain interrelations between the
+command words The first flag is set to 1 in the first command word to specify
+“data chaining.” It results in combining the 60 bytes from the first command
+word with the 20 bytes of its successor into one record of 80 bytes. The 80 bytes
+are written on tape without any separation or gaps even though two memory
+sections were used. The second flag is set to 1 in the second command word
+tospecify “command chaining.” It informs the channel that the next command
+word will use the same I/O device, in this case, the tape. The channel informs
+the tape unit to start inserting a record gap on the tape and proceeds to read
+the next command word from memory. The 40 bytes of the third command
+
+TABLE 11-3 IBM-370 Channel Program Example
+
+ 
+
+Command Address Flags.-— Count
+
+Write tape 400010000060
+Write tape 600001000020
+‘Write tape 300000000040
+

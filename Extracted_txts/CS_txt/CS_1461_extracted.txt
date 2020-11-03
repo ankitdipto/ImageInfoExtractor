@@ -1,0 +1,31 @@
+Appendix C: Chasing The Bugs 707
+
+ 
+
+[10] Leaving a blank space between the macro template and the
+macro expansion.
+
+#define ABS (a) (a=0 ?a:-a)
+Here, the space between ABS and (a) makes the preprocessor
+believe that you want to expand ABS into (a), which is
+certainly not what you want.
+[11] Using an expression that has side effects in a macro call.
+#define SUM (a) (a+a)
+main()
+{
+int w, b= 5;
+w= SUM(b++) ;
+printf ("\n%d", w) ;
+On preprocessing, the macro would be expanded to,
+w= (b++)+(b++);
+If you are wanting to first get sum of 5 and 5 and then
+
+increment b to 6, that would not happen using the above
+macro definition.
+
+[12] Confusing a character constant and a character string.
+In the statement
+ch='2';
+
+a single character is assigned to ch. In the statement
+

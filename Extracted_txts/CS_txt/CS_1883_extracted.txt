@@ -1,0 +1,53 @@
+10.5 Allocation of Frames 345
+
+frames from the free-frame list. When the free-frame list was exhausted, a page-
+replacement algorithm would be used to select one of the 93 in-memory pages
+to be replaced with the ninety-fourth, and so on. When the process terminated,
+the 93 frames would once again be placed on the free-frame list.
+
+There are many variations on this simple strategy. We can require that the
+operating system allocate all its buffer and table space from the free-frame list.
+When this space is not in use by the operating system, it can be used to support
+user paging. We can try to keep three free frames reserved on the free-frame list
+at all times. Thus, when a page fault occurs, there is a free frame available to
+page into. While the page swap is taking place, a replacement can be selected,
+which is then written to the disk as the user process continues to execute.
+
+Other variants are also possible, but the basic strategy is clear: The user
+process is allocated any free frame.
+
+A different problem arises when demand paging is combined with multi-
+programming. Multiprogramming puts two (or more) processes in memory at
+the same time.
+
+10.5.1 Minimum Number of Frames
+
+Our strategies for the allocations of frames are constrained in various ways. We
+cannot allocate more than the total number of available frames (unless there is
+page sharing). We must also allocate at least a minimum number of frames.
+Obviously, as the number of frames allocated to each process decreases, the
+page-fault-rate increases, slowing process execution.
+
+Besides the undesirable performance properties of allocating only a few
+frames, there is a minimum number of frames that must be allocated. This
+minimum number is defined by the instruction-set architecture. Remember
+that, when a page fault occurs before an executing instruction is complete, the
+instruction must be restarted. Consequently, we must have enough frames to
+hold all the different pages that any single instruction can reference.
+
+For example, consider a machine in which all memory-reference instruc-
+tions have only one memory address. Thus, we need at least one frame for
+the instruction and one frame for the memory reference. In addition, if one-
+level indirect addressing is allowed (for example, a load instruction on page
+16 can refer to an address on page 0, which is an indirect reference to page 23),
+then paging requires at least three frames per process. Think about what might
+happen if a process had only two frames.
+
+The minimum number of frames is defined by the given computer archi-
+tecture. For example, the move instruction for the PDP-11 is more than one
+word for some addressing modes, and thus the instruction itself may straddle
+two pages. In addition, each of its two operands may be indirect references,
+for a total of six frames. The worst case for the IBM 370 is probably the MVC
+instruction. Since the instruction is storage to storage, it takes 6 bytes and can
+straddle two pages. The block of characters to move and the area to be moved
+

@@ -1,0 +1,47 @@
+12.2 Querying a binary search tree 289
+
+Exercises
+
+12.1-1
+For the set of {1, 4,5, 10, 16, 17,21} of keys, draw binary search trees of heights 2,
+3, 4,5, and 6.
+
+12.1-2
+
+What is the difference between the binary-search-tree property and the min-heap
+property (see page 153)? Can the min-heap property be used to print out the keys
+of an n-node tree in sorted order in O(n) time? Show how, or explain why not.
+
+12.1-3
+
+Give a nonrecursive algorithm that performs an inorder tree walk. (Hint: An easy
+solution uses a stack as an auxiliary data structure. A more complicated, but ele-
+gant, solution uses no stack but assumes that we can test two pointers for equality.)
+
+12.1-4
+Give recursive algorithms that perform preorder and postorder tree walks in ©(n)
+time on a tree of 1 nodes.
+
+12.1-5
+
+Argue that since sorting n elements takes Q(nlgn) time in the worst case in
+the comparison model, any comparison-based algorithm for constructing a binary
+search tree from an arbitrary list of n elements takes Q(n lg) time in the worst
+case.
+
+ 
+
+12.2 Querying a binary search tree
+
+We often need to search for a key stored in a binary search tree. Besides the
+SEARCH operation, binary search trees can support such queries as MINIMUM,
+MAXIMUM, SUCCESSOR, and PREDECESSOR. In this section, we shall examine
+these operations and show how to support each one in time O(/) on any binary
+search tree of height h.
+
+Searching
+
+We use the following procedure to search for a node with a given key in a binary
+search tree. Given a pointer to the root of the tree and a key k, TREE-SEARCH
+retums a pointer to a node with key k if one exists; otherwise, it returns NIL.
+

@@ -1,0 +1,49 @@
+526
+
+Chapter 19 Fibonacci Heaps
+
+Corollary 19.5
+The maximum degree D(n) of any node in an n-node Fibonacci heap is O(lgn).
+
+Proof Let x be any node in an n-node Fibonacci heap, and let k = x.degree.
+By Lemma 19.4, we have n > size(x) > $*. Taking base-@ logarithms gives
+us k < logyn. (In fact, because k is an integer, k < [logy n|.) The maximum
+degree D(n) of any node is thus O(lgn). .
+
+Exercises
+
+194-1
+
+Professor Pinocchio claims that the height of an n-node Fibonacci heap is O(1g 7).
+Show that the professor is mistaken by exhibiting, for any positive integer n, a
+sequence of Fibonacci-heap operations that creates a Fibonacci heap consisting of
+just one tree that is a linear chain of 1 nodes.
+
+19.4-2
+
+Suppose we generalize the cascading-cut rule to cut a node x from its parent as
+soon as it loses its kth child, for some integer constant k. (The rule in Section 19.3
+uses k = 2.) For what values of k is D(n) = O(lgn)?
+
+ 
+
+Problems
+
+19-1 Alternative implementation of deletion
+
+Professor Pisano has proposed the following variant of the FIB-HEAP-DELETE
+procedure, claiming that it runs faster when the node being deleted is not the node
+pointed to by H.min.
+
+PISANO-DELETE (H, x)
+if x == H.min
+FIB-HEAP-EXTRACT-MIN(H1)
+else y = x.p
+if y A NIL
+CutT(H, x,y)
+CASCADING-CuT(H, y)
+add x’s child list to the root list of H
+remove X from the root list of H
+
+CIDARWNH
+

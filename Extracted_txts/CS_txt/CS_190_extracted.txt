@@ -1,0 +1,47 @@
+796
+
+Chapter 27 Multithreaded Algorithms
+
+3. Using the submatrices created in step 1 and the 10 matrices created in
+step 2, recursively spawn the computation of seven n/2 x n/2 matrix products
+Pi, Po,..., Py.
+
+4. Compute the desired submatrices C)1, C12. C21, C22 of the result matrix C by
+adding and subtracting various combinations of the P; matrices, once again
+using doubly nested parallel for loops. We can compute all four submatrices
+with ©(n?) work and @(1gn) span.
+
+To analyze this algorithm, we first observe that since the serialization is the
+same as the original serial algorithm, the work is just the running time of the
+serialization, namely, @(n'27). As for P-MATRIX-MULTIPLY-RECURSIVE, we
+can devise a recurrence for the span. In this case, seven recursive calls exe-
+cute in parallel, but since they all operate on matrices of the same size, we ob-
+tain the same recurrence (27.7) as we did for P- MATRIX-MULTIPLY-RECURSIVE,
+which has solution @(lg*n). Thus, the parallelism of multithreaded Strassen’s
+method is @(n'£7/1g?n), which is high, though slightly less than the parallelism
+of P-MATRIX-MULTIPLY-RECURSIVE.
+
+Exercises
+
+27.2-1
+
+Draw the computation dag for computing P-SQUARE-MATRIX-MULTIPLY on 2x2
+matrices, labeling how the vertices in your diagram correspond to strands in the
+execution of the algorithm. Use the convention that spawn and call edges point
+downward, continuation edges point horizontally to the right, and return edges
+point upward. Assuming that each strand takes unit time, analyze the work, span,
+and parallelism of this computation.
+
+27.2-2
+Repeat Exercise 27.2-1 for P-MATRIX-MULTIPLY-RECURSIVE.
+
+27.2-3
+Give pseudocode for a multithreaded algorithm that multiplies two n x n matrices
+with work ©(n) but span only @(lg). Analyze your algorithm.
+
+27.24
+
+Give pseudocode for an efficient multithreaded algorithm that multiplies a p x q
+matrix by aq x r matrix. Your algorithm should be highly parallel even if any of
+p,q, and r are 1. Analyze your algorithm.
+

@@ -1,0 +1,55 @@
+29.2. Formulating problems as linear programs 863
+
+allel edges. In addition, we are given k different commodities, Ki, K2,..., Kx,
+where we specify commodity i by the triple K; = (s;,t;,d;). Here, vertex s; is
+the source of commodity /, vertex ¢; is the sink of commodity i, and d; is the de-
+mand for commodity i, which is the desired flow value for the commodity from 5;
+to t;. We define a flow for commodity i, denoted by fj, (so that fjuy is the flow of
+commodity i from vertex u to vertex v) to be a real-valued function that satisfies
+the flow-conservation and capacity constraints. We now define fi, the aggregate
+flow, to be the sum of the various commodity flows, so that fy, = ye, Fiuy. The
+aggregate flow on edge (u,v) must be no more than the capacity of edge (u,v).
+We are not trying to minimize any objective function in this problem; we need
+only determine whether such a flow exists. Thus, we write a linear program with a
+“null” objective function:
+
+minimize 0
+
+subject to
+
+IA
+
+k
+DY fw
+
+i=l
+
+YS fiw =O fiw = 0 foreach i =1,2,..., k and
+
+c(u,v) foreachu,v eV,
+
+veV vev for each u € V — {5;,t;} .
+YD fisiw - YS fives = d; foreachi = 1,2,..., k,
+vev vev
+
+fiw = 0 for each u,v € V and
+
+foreachi = 1,2,..., k.
+
+The only known polynomial-time algorithm for this problem expresses it as a linear
+program and then solves it with a polynomial-time linear-programming algorithm.
+
+Exercises
+
+29.2-1
+Put the single-pair shortest-path linear program from (29.44)-(29.46) into standard
+form.
+
+29.2-2
+Write out explicitly the linear program corresponding to finding the shortest path
+from node s to node y in Figure 24.2(a).
+
+29.2-3
+In the single-source shortest-paths problem, we want to find the shortest-path
+weights from a source vertex s to all vertices v € V. Given a graph G, write a
+

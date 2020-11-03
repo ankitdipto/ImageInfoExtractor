@@ -1,0 +1,50 @@
+456 Chapter 13 I/O Systems
+
+variety of methods are needed to control them. These methods form the 1/O sub-
+system of the kernel, which separates the rest of the kernel from the complexity
+of managing I/O devices.
+
+1/O-device technology exhibits two conflicting trends. On one hand, we
+see increasing standardization of software and hardware interfaces. This trend
+helps us to incorporate improved device generations into existing computers
+and operating systems. On the other hand, we see an increasingly broad variety
+of I/O devices. Some new devices are so unlike previous devices that it is
+a challenge to incorporate them into our computers and operating systems.
+This challenge is met by a combination of hardware and software techniques.
+The basic I/O hardware elements, such as ports, buses, and device controllers,
+accommodate a wide variety of I/O devices. To encapsulate the details and
+oddities of different devices, the kernel of an operating system is structured
+to use device-driver modules. The device drivers present a uniform device-
+access interface to the I/O subsystem, much as system calls provide a standard
+interface between the application and the operating system.
+
+13.2 = I/O Hardware
+
+Computers operate a great many kinds of devices. Most fit into the general cat-
+egories of storage devices (disks, tapes), transmission devices (network cards,
+modems), and human-interface devices (screen, keyboard, mouse). Other
+devices are more specialized, such as the steering of a military fighter jet or
+a space shuttle. In these aircraft, a human gives input to the flight computer
+via a joystick, and the computer sends output commands that cause motors to
+move rudders, flaps, and thrusters.
+
+Despite the incredible variety of I/O devices, we need only a few concepts
+to understand how the devices are attached, and how the software can control
+the hardware.
+
+A device communicates with a computer system by sending signals over a
+cable or even through the air. The device communicates with the machine via
+a connection point (or port), for example, a serial port. If one or more devices
+use a common set of wires, the connection is called a bus. A bus is a set of wires
+and a rigidly defined protocol that specifies a set of messages that can be sent
+on the wires. In terms of the electronics, the messages are conveyed by patterns
+of electrical voltages applied to the wires with defined timings. When device
+A has a cable that plugs into device B, and device B has a cable that plugs into
+device C, and device C plugs into a port on the computer, this arrangement is
+called a daisy chain. A daisy chain usually operates as a bus.
+
+Buses are used widely in computer architecture. Figure 13.1 shows a typical
+PC bus structure. This figure shows a PCI bus (the common PC system bus)
+that connects the processor-memory subsystem to the fast devices, and an
+expansion bus that connects relatively slow devices such as the keyboard and
+

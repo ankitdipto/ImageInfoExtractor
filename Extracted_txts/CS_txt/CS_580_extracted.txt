@@ -1,0 +1,63 @@
+Section 6.3
+
+Representation, Reasoning, and Logic 157
+
+ 
+
+[2,2] (or the agent would have detected a stench when it was in [2,1]). Therefore, the agent can
+infer that the wumpus is in [1,3]. The notation W! indicates this. More interesting is that the
+lack of a Breeze percept in [1,2] means that there must be a pit in [3,1]. The reasoning is that no
+breeze in [1,2] means there can be no pit in [2,2]. But we already inferred that there must be a
+pit in either [2,2] or [3,1], so this means it must be in [3,1]. This is a fairly difficult inference,
+because it combines knowledge gained at different times in different places, and relies on the
+lack of a percept to make one crucial step. The inference is beyond the abilities of most animals,
+but it is typical of the kind of reasoning that a logical agent does.
+
+After these impressive deductions, there is only one known unvisited OK square left, [2,2],
+so the agent will move there. We will not show the agent's state of knowledge at [2,2]: we just
+assume the agent turns and moves to [2,3], giving us Figure 6.4(b). In [2,3], the agent detects a
+glitter, so it should grab the gold and head for home, making sure its return trip only goes through
+squares that are known to be OK.
+
+In the rest of this chapter, we describe how to build a logical agent that can represent beliefs
+such as "there is a pit in [2,2] or [3,1] and "there is no wumpus in [2,2],” and that can make all
+the inferences that were described in the preceding paragraphs
+
+  
+
+6.3 REPRESENTATION. REASONING. AND LOGIC
+
+KNOWLEDGE
+REPRESENTATION
+
+SYNTAX
+
+SEMANTICS
+
+In this section, we will discuss the nature of representation languages, and of logical languages
+in particular, and explain in detail the connection between the language and the reasoning
+mechanism that goes with it. Together, representation and reasoning support the operation of a
+knowledge-based agent.
+
+The object of knowledge representation is to express knowledge in computer-tractable
+form, such that it cai be used to help agents perform well. A knowledge representation language
+is defined by two aspects:
+
+© The syntax ofa language describes the possible configurations that can constitute sentences.
+Usually, we describe syntax in terms ofhow sentences are represented on the printed page,
+but the real representation is inside the computer: each sentence is implemented by a
+physical configuration or physical property of some part of the agent. For now, think of
+this as being a physical pattern of electrons in the computer's memory.
+
+The semantics determines the facts in the world to which the sentences refer. Without
+semantics, a sentence is just an arrangement of electrons or a collection of marks on a page.
+With semantics, each sentence makes a claim about the world. And with semantics, we
+can say that when a particular configuration exists within an agent, the agent believes the
+corresponding sentence.
+
+For example, the syntax of the language of arithmetic expressions says that ifx and y are
+expressions denoting numbers, then x > y is a sentence about numbers. The semantics of the
+language says thatx > y is false when y is a bigger number than x, and true otherwise
+
+ 
+

@@ -1,0 +1,57 @@
+indirect address
+
+SECTION $5 InstructionCycle 143,
+
+effective address from memory. The microoperation for the indirect address
+condition can be symbolized by the register transfer statement
+
+AR<MIAR]
+
+Initially, AR holds the address part of the instruction. This address is used
+during the memory read operation. The word at the address given by AR is
+read from memory and placed on the common bus. The LD input of ARis then
+enabled to receive the indirect address that resided in the 12 least significant
+bits of the memory word.
+
+The three instruction types are subdivided into four separate paths. The
+selected operation is activated with the clock transition associated with timing
+signal T; This can be symbolized as follows
+
+DsIT; AR<MIAR]
+
+DsI'Ts: Nothing
+
+DjI'Ts: Execute a register-reference instruction
+D;IT;: Execute an input-output instruction
+
+ 
+
+When a memory-reference instruction with I = 0 is encountered, it is not
+necessary to do anything since the effective addressis already in AR. However,
+the sequence counter SC must be incremented when DT; = 1, so that the
+execution of the memory-reference instruction can be continued with timing
+variable T,. A register-reference or input-output instruction can be executed
+with the clock associated with timing signal T;, After the instruction is executed,
+SC is cleared to 0 and control returns to the fetch phase with To = 1.
+
+Note that the sequence counter SCis either incremented or cleared to 0
+with every positive clock transition. We will adopt the convention that if SC
+is incremented, we will not write the statement SC «SC + 1, but it will be
+implied that the control goes to the next timing signal in sequence. When SC
+is to be cleared, we will include the statement SC-<-0.
+
+The register transfers needed for the execution of the register-reference
+instructions are presented in this section. The memory-reference instructions
+are explained in the next section. The input-output instructions are included in
+Sec. 5-7.
+
+Register-Reference Instructions
+Register-reference instructions are recognized by the control when D, = 1 and
+I = 0. These instructions use bits 0 through 11 of the instruction code to specify
+one of 12 instructions. These 12 bits are available in IR(0-11). They were also
+transferred to AR during time T:.
+
+The control functions and microoperations for the register-reference in-
+
+ 
+

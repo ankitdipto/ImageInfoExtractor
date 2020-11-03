@@ -1,0 +1,89 @@
+542 Let UsC
+
+ 
+
+its name suggests it is certainly not a real address. It is a number,
+which contains three parts. These parts when used in conjunction
+with a CPU register called CR3 and contents of two tables called
+Page Directory Table and Page Table leads to the actual physical
+address. This is shown in Figure 16.1.
+
+ 
+
+Page Dir. Index | Page Table Index| Page Byte Offset
+
+Page Directory
+
+    
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+soureLy oseg
+
+ 
+
+ 
+
+ 
+
+Page Directory
+Register
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+PEN 0}
+Physical Memory]
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 16.1
+
+The CR3 register holds the physical location of Page Directory
+Table. The left part of the 32-bit virtual address holds the index
+into the Page Directory Table. The value present at this index is
+the starting address of the Page Table. The middle part of the 32-
+bit virtual address holds the index into the Page Table. The value
+present at this index is the starting address of the physical page in
+memory. The right part of the 32-bit virtual address holds the byte
+

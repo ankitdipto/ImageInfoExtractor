@@ -1,0 +1,54 @@
+SECTION $7 Input-Output and Interrupt 153
+
+ 
+
+can be denoted by pB; for
+to 0 when p = D,ITs = 1.
+
+The INP instruction transfers the input information from INPR into the
+eight low-order bits of AC and also clears the input flag to 0 The OUT
+instruction transfers the eight least significantbits of AC into the output register
+OUTR and clears the output flag to 0. The next two instructions in Table 5-5
+check the status of the flags and cause a skip of the next instruction if the flag
+is 1 The instruction that is skipped will normally be a branch instruction to
+retum and check the flag again. The branch instruction is not skipped if the
+flag is 0. Ifthe flag is 1, the branch instruction is skipped and an input or output
+instruction is executed. (Examples of input and output programs are given
+in Sec. 68.) The last two instructions set and clear an interrupt enable flip-
+flop IEN. The purpose of JEN is explained in conjunction with the interrupt
+operation.
+
+6 though 11. The sequence counter SCiscleared
+
+Program Interrupt
+
+The process of communication just described is referred to as programmed
+control transfer. The computer keeps checking the flag bit, and when it finds
+it set, it initiates an information transfer. The difference of information flow
+rate between the computer and that of the input-output device makes this type
+of transfer inefficient. To see why this is inefficient, consider a computer that can
+g0 through an instruction cycle in 1 us. Assume that the input-output device can
+transfer information at a maximum rate of 10 characters per second. This is
+equivalent to one character every 100,000 1s. Two instructions are executed when
+the computer checks the flag bit and decides not to transfer the information. This
+means that at the maximum rate, the computer will check the flag 50,000 times
+between each transfer. The computer is wasting time while checking the flag
+instead of doing some other useful processing task.
+
+An alternative to the programmed controlled procedureis to let the external
+device inform the computer when itis ready for the transfer. In the meantime the
+computer can be busy with other tasks. This type of transfer uses the interrupt
+facility. While the computer is running a program, it does not check the flags.
+However, when a flag is set, the computer is momentarily interrupted from
+proceeding with the current program and is informed of the fact that a flag has,
+been set. The computer deviates momentarily from what it is doing to take care
+ofthe input or output transfer. It then returns to the current program to continue
+what it was doing before the interrupt.
+
+The interrupt enable flip-flop IEN can be set and cleared with two instruc-
+tions. When IEN is cleared to 0 (with the IOF instruction), the flags cannot,
+interrupt the computer. When IEN is set to 1 (with the ION instruction), the
+computer can be interrupted. These two instructions provide the programmer
+with the capability of making a decision as to whether or not to use the
+interrupt facility.
+

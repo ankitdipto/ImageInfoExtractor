@@ -1,0 +1,72 @@
+Section 16.5.
+
+Decision Networks 485
+
+ 
+
+DECISION NODES
+
+UTILITY NODES
+
+ACTi
+3louenury
+
+ 
+
+ 
+
+Airport Site
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 164 A simple decision network for the airport-siting problem.
+
+ 
+
+ 
+
+ 
+
+on the site chosen. Each chance node has associated with it a conditional probability table
+(CPT) that is indexed by the state of the parent nodes. In decision networks, the parent
+nodes can include decision nodes as well as chance nodes. Note that each of the current-
+state chance nodes could be part ofa large belief network for assessing construction costs,
+air traffic levels, or litigation potential. For simplicity, these are omitted.
+
+0 Decision nodes (rectangles) represent points where the decision-maker has a choice of
+actions. In this case, the AirportSite action can take on a different value for each site under
+consideration. The choice influences the cost, safety, and noise that will result. In this
+chapter, we will assume that we are dealing with a single decision node. Chapter 17 deals
+with cases where more than one decision must be made.
+
+} Utility nodes (diamonds) represent the agent's utility function.® The utility node has as
+parents all those variables describing the outcome state that directly affect utility. The table
+associated with a utility node is thus a straightforward tabulation of the agent's utility as a
+function of the attributes that determine it. As with canonical CPTs, multiattribute utility
+functions can be represented by a structured description rather than a simple tabulation.
+
+A simplified form is also used in many cases. The notation remains identical, but the
+chance nodes describing the outcome state are omitted. Instead, the utility node is connected
+directly to the current-state nodes and the decision node. In this case, rather than representing
+a utility function on states, the table associated with the utility node represents the expected
+utility associated with each action, as defined in Equation (16.1). We therefore call such tables
+action-utility tables. Figure 16,5 shows the action-utility representation of the airport problem.
+
+Notice that because the Noise, Deaths, and Cost chance nodes in Figure 164 refer to future
+states, they can never have their values set as evidence variables. Thus, the simplified version
+
+8 These nodes are often called value nodes in the literature. We prefer to maintain the distinction between utility and
+value functions, as discussed earlier, because the outcome state may represent a lottery.
+

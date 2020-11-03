@@ -1,0 +1,49 @@
+16.3 Huffman codes 433
+
+names x and y in the proof of correctness. Therefore, we find it convenient to
+leave them in.
+
+To analyze the running time of Huffman’s algorithm, we assume that Q is im-
+plemented as a binary min-heap (see Chapter 6). For a set C of n characters, we
+can initialize Q in line 2 in O(n) time using the BUILD-MIN-HEAP procedure dis-
+cussed in Section 6.3. The for loop in lines 3-8 executes exactly n — | times, and
+since each heap operation requires time O(1g 77), the loop contributes O(n lg n) to
+the running time. Thus, the total running time of HUFFMAN on a set of 7” charac-
+ters is O(nlgn). We can reduce the running time to O(n lglg) by replacing the
+binary min-heap with a van Emde Boas tree (see Chapter 20).
+
+Correctness of Huffman’s algorithm
+
+To prove that the greedy algorithm HUFFMAN is correct, we show that the prob-
+lem of determining an optimal prefix code exhibits the greedy-choice and optimal-
+substructure properties. The next lemma shows that the greedy-choice property
+holds.
+
+Lemma 16.2
+
+Let C be an alphabet in which each character c € C has frequency c.freg. Let
+x and y be two characters in C having the lowest frequencies. Then there exists
+an optimal prefix code for C in which the codewords for x and y have the same
+length and differ only in the last bit.
+
+Proof The idea of the proof is to take the tree T representing an arbitrary optimal
+prefix code and modify it to make a tree representing another optimal prefix code
+such that the characters x and y appear as sibling leaves of maximum depth in the
+new tree. If we can construct such a tree, then the codewords for x and y will have
+the same length and differ only in the last bit.
+
+Let a and b be two characters that are sibling leaves of maximum depth in T.
+Without loss of generality, we assume that a. freq < b. freq and x.freq < y.freq.
+Since x.freq and y.freq are the two lowest leaf frequencies, in order, and a.freq
+and b.freq are two arbitrary frequencies, in order, we have x. freq < a.freq and
+y.freq < b.freq.
+
+In the remainder of the proof, it is possible that we could have x. freq = a.freq
+or y.freq = b.freq. However, if we had x. freq = b. freq, then we would also have
+a.freq = b.freq = x. freq = y.freq (see Exercise 16.3-1), and the lemma would
+be trivially true. Thus, we will assume that x.freg # b. freq, which means that
+x Ab.
+
+As Figure 16.6 shows, we exchange the positions in T of a and x to produce a
+tree T’, and then we exchange the positions in T’ of b and y to produce a tree T”
+

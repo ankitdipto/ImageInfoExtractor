@@ -1,0 +1,48 @@
+106 Chapter4 Processes
+
+#include <stdio.h>
+
+void main(int argc, char *argv[])
+
+{
+
+int pid;
+
+/* fork another process */
+pid = fork();
+
+if (pid < 0) { /* error occurred */
+fprintf(stderr, "Fork Failed");
+exit(-1);
+
+else if (pid == 0) { /* child process */
+execlp("/bin/1s" ,"1s",NULL) ;
+
+else { /* parent process */
+/* parent will wait for the child to complete */
+wait (NULL) ;
+printf("Child Complete");
+exit (0);
+
+Figure 4.8 C program forking a separate process.
+
+Windows NT operating system supports both models: The parent's address
+space may be duplicated, or the parent may specify the name of a program
+for the operating system to load into the address space of the new process.
+
+4.3.2 Process Termination
+
+A process terminates when it finishes executing its final statement and asks the
+operating system to delete it by using the exit system call. At that point, the
+process may return data (output) to its parent process (via the wait system call).
+All the resources of the process—including physical and virtual memory, open
+files, and 1/O buffers—are deallocated by the operating system.
+
+Termination occurs under additional circumstances. A process can cause
+the termination of another process via an appropriate system call (for example,
+abort). Usually, only the parent of the process that is to be terminated can
+invoke such a system call. Otherwise, users could arbitrarily kill each other’s
+jobs. A parent therefore needs to know the identities of its children. Thus, when
+one process creates a new process, the identity of the newly created process is
+passed to the parent.
+

@@ -1,0 +1,49 @@
+268 cuarrer e10HT Central Processing Unit
+
+TABLE 86 Eight Addressing Modes for the Load Instruction
+
+‘Assembly
+Mode Convention Register Transfer
+Direct address LD ADR AC M[ADR}
+Indirect address LD @ADR = AC+- M[M[ADRD.
+Relative address LD SADR = AC MIPC + ADR)
+
+Immediate operand LD #NBR = AC+—NBR
+Index addressing © LD ADR(X)_ AC —— M[ADR + XR)
+
+Register LD RI AC RL
+Register indirect LD RD) AC — MIRI)
+
+Autoincrement LD(RI+ = AC— M[RI), RI R41
+
+Table 8-6 shows the recommended assembly language convention and the
+actual transfer accomplished in each case. ADR stands for an address, NBR is
+anumberor operand, X isan index register, R1 is a processor register, and AC
+is the accumulator register. The @ character symbolizes an indirect address.
+The $ character before an address makes the address relative to the program
+counter PC. The # character precedes the operand in an immediate-mode
+instruction. An indexed mode instruction is recognized by a register that is
+placed in parentheses after the symbolic address. The register mode is symbol-
+ized by giving the name of a processor register. In the register indirect mode,
+the name of the register that holds the memory address is enclosed in paren-
+theses. The autoincrement mode is distinguished from the register indirect
+mode by placing a plus after the parenthesized register. The autodecrement
+mode would use a minus instead. To be able to write assembly language
+programs for a computer, it is necessary to know the type of instructions
+available and also to be familiar with the addressing modes used in the partic-
+ular computer.
+
+Data Manipulation Instructions
+
+Data manipulation instructions perform operations on data and provide the
+computational capabilities for the computer. The data manipulation instruc-
+tions in a typical computer are usually divided into three basic types:
+
+1. Arithmetic instructions
+2. Logical and bit manipulation instructions
+3. Shift instructions
+
+A list of data manipulation instructions will look very much like the list of
+microoperations given in Chap. 4. It must be realized, however, that each
+instruction when executed in the computer must go through the fetch phase
+

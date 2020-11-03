@@ -1,0 +1,80 @@
+804 Chapter 25 Robotics
+
+ 
+
+  
+   
+    
+   
+  
+     
+
+initial
+configuration
+
+motion
+envelope
+
+=
+
+   
+
+ 
+
+ 
+
+Figure 25.19 A 2-D environment, velocity uncertainty cone, and envelope of possible robot
+motions. The intended velocity is v, but with uncertainty the actual velocity could be anywhere
+in Cy, resulting in a final configuration somewhere in the motion envelope, which means we
+
+wouldn't know ifwe hit the hole or not.
+Ai Cy
+
+J
+
+ 
+
+ 
+
+initial
+configuration
+
+motion
+envelope
+
+ 
+
+ 
+
+Figure 25.20 The first motion command and the resulting envelope of possible robot motions.
+No matter what the error, we know the final configuration will be to the left of the hole.
+
+ 
+
+ 
+
+SN
+
+Vv
+
+motion
+
+Lo envelope
+
+ 
+
+ 
+
+ 
+
+Figure 2521 The second motion command and the envelope of possible motions. Even with
+error, we will eventually get into the hole.
+
+ 
+
+ 
+
+ 
+
+ 
+

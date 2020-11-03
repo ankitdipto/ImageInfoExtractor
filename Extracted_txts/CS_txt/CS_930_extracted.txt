@@ -1,0 +1,42 @@
+258 Let Us C
+
+ 
+
+#endif
+code common to both the computers
+}
+
+(c) Suppose a function myfunc( ) is defined in a file ‘myfile.h’
+which is #included in a file ‘myfile]-h’. Now in your program
+file if you #include both ‘myfile-h’ and ‘myfilel.h’ the
+compiler flashes an error ‘Multiple declaration for myfunc’.
+This is because the same file ‘myfile.h’ gets included twice.
+To avoid this we can write following code in the header file.
+
+/* myfile.h */
+#ifndef __myfile_h
+#define __myfile_h
+
+myfunc()
+{
+
+}
+#endif
+
+I" some code */
+
+Furst time the file ‘myfile.h’ gets included the preprocessor
+checks whether a macro called __myfile_h has been defined
+or not. If it has not been then it gets defined and the rest of the
+code gets included. Next time we attempt to include the same
+file, the inclusion is prevented since __myfile_h already
+stands defined. Note that there is nothing special about
+__myfile_h. In its place we can use any other macro as well.
+
+#if and #elif Directives
+
+The #if directive can be used to test whether an expression
+evaluates to a nonzero value or not. If the result of the expression
+is nonzero, then subsequent lines upto a #else, #elif or #endif are
+compiled, otherwise they are skipped.
+

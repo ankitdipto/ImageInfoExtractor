@@ -1,0 +1,67 @@
+26 CHAPTER ONE Digital Logic Circuits
+
+master-slave
+
+flip-flop
+
+ 
+
+—j4>o o}— om ff \f \SJ/ \
+—te — Time
+
+rove $ Smt
+
+ 
+
+lock change
+wansition
+(a) Positive-edge-tiggered D flip-flop.
+
+ 
+
+ 
+
+D @ cor [| \_f \_J \
+
+ 
+
+ 
+
+ 
+
+—cd ec | Time
+‘Oupat
+Negative cannot
+clock change
+wwansition
+
+(b) Negative-edge-tiggered D flip-flop.
+
+Figure 1-23 Edge-triggered flip-flop.
+
+The effective positive clock transition includes a minimum timecalled the setup
+timein which the D input must remain at aconstant value before the transition,
+and a definite timecalled the hold time in which the D input must not change
+after the positive transition. The effective positive transition is usually a very
+small fraction of the total period of the clock pulse.
+
+Figure 1-2(b) shows the corresponding graphic symbol and timing dia-
+gram for a negative-edge-triggered D flip-flop. The graphic symbol includes a
+negation small circle in front of the dynamic indicator at the C input. This
+denotes a negative-edge-triggered behavior. In this case the flip-flop responds
+to a transition from the 1 level to the O level of the clock signal.
+
+‘Another type of flip-flop used in some systems is the master-slave flip-
+flop. This type of circuit consists of two flip-flops. The first is the master, which
+responds to the positive level of the clock, and the second is the slave, which
+responds to the negative level of the clock. The result is that the output changes
+during the 1-to-0 transition of the clock signal. The trend is away from the use
+of master-slave flip-flops and toward edge-triggered flip-flops.
+
+Flip-flops available in integrated circuit packages will sometimes provide
+special input terminals for setting or clearing the flip-flop asynchronously.
+These inputs are usually called “preset” and “clear.” They affect the flip-flop
+ona negative level of the input signal without the need of a clock pulse. These
+inputs are useful for bringing the flip-flops to an initial state prior to its clocked
+operation.
+

@@ -1,0 +1,59 @@
+20.3 The van Emde Boas tree SSI
+
+VEB-TREE-SUCCESSOR(V, x)
+
+ 
+
+1 :
+
+2 if x == 0 and V.max == 1
+
+3 return |
+
+4 else return NIL
+
+5 elseif V.min # NIL and x < V.min
+
+6 return V.min
+
+7 else max-low = VEB-TREE-MAXIMUM (V.cluster[high(x)])
+
+8 if max-low # NIL and low(x) < max-low
+
+9 offset = VEB-TREE-SUCCESSOR (V. cluster [high(x)], low(x))
+10 return index(high(x), offset)
+1 else succ-cluster = VEB-TREE-SUCCESSOR (V. summary, high(x))
+12 if succ-cluster == NIL
+13 return NIL
+14 else offset = VEB-TREE-MINIMUM (V. cluster[succ-cluster])
+15 return index(succ-cluster, offset)
+
+This procedure has six return statements and several cases. We start with the
+base case in lines 2-4, which returns | in line 3 if we are trying to find the successor
+of 0 and 1 is in the 2-element set; otherwise, the base case returns NIL in line 4.
+
+If we are not in the base case, we next check in line 5 whether x is strictly less
+than the minimum element. If so, then we simply return the minimum element in
+line 6.
+
+If we get to line 7, then we know that we are not in a base case and that x is
+greater than or equal to the minimum value in the vEB tree V. Line 7 assigns to
+max-low the maximum element in x’s cluster. If x’s cluster contains some element
+that is greater than x, then we know that x’s successor lies somewhere within x’s
+cluster. Line 8 tests for this condition. If x’s successor is within x’s cluster, then
+line 9 determines where in the cluster it is, and line 10 returns the successor in the
+same way as line 7 of PROTO-VEB-SUCCESSOR.
+
+We get to line 11 if x is greater than or equal to the greatest element in its
+cluster. In this case, lines 11-15 find x’s successor in the same way as lines 8-12
+of PROTO-VEB-SUCCESSOR.
+
+It is easy to see how recurrence (20.4) characterizes the running time of VEB-
+TREE-SUCCESSOR. Depending on the result of the test in line 7, the procedure
+calls itself recursively in either line 9 (on a vEB tree with universe size 4/1) or
+line 11 (on a VEB tree with universe size (/u). In either case, the one recursive
+call is on a vEB tree with universe size at most {/w. The remainder of the proce-
+dure, including the calls to VEB-TREE-MINIMUM and VEB-TREE-MAXIMUM,
+takes O(1) time. Hence, VEB-TREE-SUCCESSOR runs in O(lg1gu) worst-case
+time.
+

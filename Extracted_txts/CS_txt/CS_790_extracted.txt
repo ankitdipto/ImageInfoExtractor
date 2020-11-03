@@ -1,0 +1,44 @@
+144 Let Us C
+
+ 
+
+more so if there are multiple statements within each case of a
+switch.
+
+(bh) We can check the value of any expression in a switch. Thus
+the following switch statements are legal.
+
+switch (i+j*k)
+switch (23 + 45 %4*k)
+switch (a<4&&b>7)
+
+Expressions can also be used in cases provided they are
+constant expressions. Thus case 3 + 7 is correct, however,
+case a + b is incorrect.
+
+(i) The break statement when used in a switch takes the control
+outside the switch. However, use of continue will not take
+the control to the beginning of switch as one is likely to
+believe.
+
+Gj) In principle, a switch may occur within another, but in
+practice it is rarely done. Such statements would be called
+nested switch statements.
+
+(k) The switch statement is very useful while writing menu
+driven programs. This aspect of switch is discussed in the
+exercise at the end of this chapter.
+
+switch Versus if-else Ladder
+
+There are some things that you simply cannot do with a switch.
+These are:
+
+(a) A float expression cannot be tested using a switch
+
+(b) Cases can never have variable expressions (for example it is
+wrong to say case a +3: )
+
+(c) Multiple cases cannot use same expressions. Thus the
+following switch is illegal:
+

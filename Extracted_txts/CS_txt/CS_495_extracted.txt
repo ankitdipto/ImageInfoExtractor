@@ -1,0 +1,63 @@
+1042
+
+Chapter 33 Computational Geometry
+
+b> Pr
+Po
+
+.
+
+' '
+
+i¢ ; 8
+
+' .! bP,
+
+1 ' in
+j <— 26 —> Ph<|
+
+\ I oy 1 '
+
+‘ ws <— 6 5—
+ét AD PR! e —_t coincident points,
+YI { ene in Py,
+
+. 3 ; one in Pr
+
+' ' | 1
+
+“| | ' coincident points,
+
+$ —}  oneinP,
+
+' el) ' . ! l | one in Pr
+
+(a) )
+
+Figure 33.11 Key concepts in the proof that the closest-pair algorithm needs to check only 7 points
+following each point in the array Y’. (a) If pz € Pz and pp € Pp are less than 5 units apart, they
+must reside within a 5 x 26 rectangle centered at line /. (b) How 4 points that are pairwise at least 5
+units apart can all reside within a 5 x 6 square. On the left are 4 points in Pz, and on the right are 4
+points in Pr. The 5 x 26 rectangle can contain 8 points if the points shown on line / are actually
+pairs of coincident points with one point in Pz, and one in Pp.
+
+loss of generality that py precedes pr in array Y’. Then, even if pz occurs as early
+as possible in Y’ and pp occurs as late as possible, pz is in one of the 7 positions
+following py. Thus, we have shown the correctness of the closest-pair algorithm.
+
+Implementation and running time
+
+As we have noted, our goal is to have the recurrence for the running time be T(n) =
+2T (n/2) + O(n), where T(n) is the running time for a set of n points. The main
+difficulty comes from ensuring that the arrays Xz, Xr, Yr, and Yr, which are
+passed to recursive calls, are sorted by the proper coordinate and also that the
+array Y’ is sorted by y-coordinate. (Note that if the array X that is received by a
+recursive call is already sorted, then we can easily divide set P into Pz and Pr in
+linear time.)
+
+The key observation is that in each call, we wish to form a sorted subset of a
+sorted array. For example, a particular invocation receives the subset P and the
+array Y, sorted by y-coordinate. Having partitioned P into Py and Pa, it needs to
+form the arrays Yz and Yr, which are sorted by y-coordinate, in linear time. We
+can view the method as the opposite of the MERGE procedure from merge sort in
+

@@ -1,0 +1,47 @@
+5.3 Randomized algorithms 125
+
+PERMUTE-B y-SoRTING (A)
+n = A.length
+let P[1..n] be a new array
+fori = lton
+
+P{i] = RANDoM(1,n*)
+sort A, using P as sort keys
+
+UbwWNeE
+
+Line 4 chooses a random number between | and n>. We use a range of 1 to n>
+to make it likely that all the priorities in P are unique. (Exercise 5.3-5 asks you
+to prove that the probability that all entries are unique is at least 1 — 1/n, and
+Exercise 5.3-6 asks how to implement the algorithm even if two or more priorities
+are identical.) Let us assume that all the priorities are unique.
+
+The time-consuming step in this procedure is the sorting in line 5. As we shall
+see in Chapter 8, if we use a comparison sort, sorting takes Q(nlgn) time. We
+can achieve this lower bound, since we have seen that merge sort takes O(n lgn)
+time. (We shall see other comparison sorts that take ©(n lgm) time in Part IL
+Exercise 8.3-4 asks you to solve the very similar problem of sorting numbers in the
+range 0 to? — 1 in O(n) time.) After sorting, if P[/] is the jth smallest priority,
+then A[i] lies in position j of the output. In this manner we obtain a permutation. It
+remains to prove that the procedure produces a uniform random permutation, that
+is, that the procedure is equally likely to produce every permutation of the numbers
+1 through n.
+
+Lemma 5.4
+Procedure PERMUTE-BY-SORTING produces a uniform random permutation of the
+input, assuming that all priorities are distinct.
+
+Proof We start by considering the particular permutation in which each ele-
+ment A[i] receives the ith smallest priority. We shall show that this permutation
+occurs with probability exactly 1/n!. For i = 1,2,..., n, let E; be the event
+that element A[i] receives the ith smallest priority. Then we wish to compute the
+probability that for all 7, event EZ; occurs, which is
+
+Pr{E, NE, E30 +++ Epi En} «
+Using Exercise C.2-5, this probability is equal to
+Pr{£i}+ Pr{E2 | Ei} Pr{&3 | B20 Ei}- Pr{Ea| £3 £29 Ey}
+se Pr{Ej | Bi 0 Ej2 0 Ey} Pr{Ey | Ena Ey}
+
+We have that Pr{£;} = 1/n because it is the probability that one priority
+chosen randomly out of a set of n is the smallest priority. Next, we observe
+

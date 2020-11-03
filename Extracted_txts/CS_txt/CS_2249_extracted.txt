@@ -1,0 +1,52 @@
+402
+
+CHAPTER ELEVEN Input-Output Organization
+
+the movement of data through the registers. Whenever the F, bit of the control
+register is set (F, = 1) and the F,; bit is reset (F/.: = 1), a clock is generated.
+causing register R(I + 1) to accept the data from register RI. The same clock
+transition sets F., to 1 and resets F; to 0. This causes the control flag to move
+‘one position to the right together with the data. Data in the registers move
+down the FIFO toward the output as long as there are empty locations ahead
+fit. This ripple-through operation stops when the data reacha register RI with
+the next flip-flop F,., being set to 1, or at the last register R4. An overall master
+clear is used to initialize all control register flip-flops to 0.
+
+Data are inserted into the buffer provided that the input ready signal is
+enabled. This occurs when the first control flip-flop F; is reset, indicating that
+register Rl is empty. Data are loaded from the input lines by enabling the clock
+in RI through the insert control line. The same clock sets F,, which disables the
+input ready control, indicating that the FIFO is now busy and unable to accept
+more data. The ripple-through process begins provided that R2 is empty. The
+data in RI are transferred into R2 and F,is cleared. This enables the input realy
+line, indicating that the inputs are now available for another data word. If the
+FIFO is full, F, remains set and the input ready line stays in the 0 state. Note
+that the two control lines input readyand insert constitute a destination-initiated
+pair of handshake lines.
+
+The data falling through the registers stack up at the output end. The
+output ready control line is enabled when the last control flip-flop F, is set,
+indicating that there are valid data in the output register R4. The output data
+from R4 are accepted by a destination unit, which then enables the delete
+control signal. This resets F,, causing output rendy to disable, indicating that the
+data on the output are no longer valid. Only after the delete signal goes back
+to 0 can the data from R3 move into R4. If the FIFO is empty, there will be no
+data in R3 and F, will remain in the reset state. Note that the two control lines
+output ready and delete constitute a source-initiated pair of handshake lines.
+
+11-4 Modes of Transfer
+
+Binary information received from an external device is usually stored in mem-
+ory forlater processing. Information transferred from the central computer into
+an external device originates in the memory unit. The CPU merely executes the
+VO instructions and may accept the data temporarily, but the ultimate source
+or destination is the memory unit. Data transfer between the central computer
+and VO devices may be handled in a variety of modes. Some modes use the
+(CPUas an intermediate path; others transfer the data directly to and from the
+memory unit. Data transfer to and from peripherals may be handled in one of
+three possible modes:
+
+1. Programmed /O
+2. Interrupt-initiated VO
+3. Direct memory access (DMA)
+

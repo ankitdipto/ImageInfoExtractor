@@ -1,0 +1,61 @@
+Section 18.6.
+
+Why Learning Works: Computational Learning Theory 557
+
+ 
+
+IDENTIFICATION wv
+THE LMT
+
+ 
+
+test set
+
+Te atteC es
+
+ 
+
+0 20 40 60 80 100
+Training set size
+
+ 
+
+ 
+
+Figure 18.18 Graph showing the predictive performance of the DECISION-LIST-LEARNING
+algorithm on the restaurant data, as a function of the number of examples seen. The curve for
+
+DECISION-TREE-LEARNINGisshown for comparison.
+
+ 
+
+ 
+
+ 
+
+Discussion
+
+Computational learning theory has generated a new way of looking at the problem of learning
+In the early 1960s, the theory of learning focussed on the problem of identification in the limit.
+An identification algorithm must return a hypothesis that exactly matches the true function.
+The standard approach combines the current-best-hypothesis and version space methods: the
+current best hypothesis is the first consistent hypothesis in some fixed simplicity ordering of the
+hypothesis space. As examples arrive, the learner abandons simpler hypotheses as they become
+inconsistent. Once it reaches the true function, it will never abandon it. Unfortunately, in many
+hypothesis spaces, the number of examples and the computation time required to reach the true
+function is enormous. Computational learning theory does not insist that the leaming agent
+find the "one true law" goveming its environment, but instead that it find a hypothesis with a
+certain degree of predictive accuracy. It also brings sharply into focus the trade-off between the
+expressiveness of the hypothesis language and the complexity of leaming.
+
+The results we have shown are worst-case complexity results, and do not necessarily
+reflect the average-case sample complexity as measured by the learning curves we have shown.
+An average-case analysis must also make assumptions as to the distribution of examples and
+the distribution of true functions that the algorithm will have to learn. As these issues become
+better understood, computational learning theory is providing valuable guidance to machine
+learning researchers who are interested in predicting or modifying the learning ability of their
+algorithms. Besides decision lists, results have been obtained for almost all known subclasses
+of Boolean functions, for neural networks (see Chapter 19) and for sets of first-order logical
+sentences (see Chapter 21). The results show that the pure inductive learning problem, where the
+agent begins with no prior knowledge about the target function, is generally very hard. As we
+

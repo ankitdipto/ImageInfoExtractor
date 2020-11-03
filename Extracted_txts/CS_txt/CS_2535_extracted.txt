@@ -1,0 +1,53 @@
+ 
+
+Chapter 10. Logical Reasoning Systems
+
+Which of the indexing schemes $1-S5 following enable an efficient solution for which of the
+queries Q1-Q4 (assuming normal backward chaining)
+
+SI: an index for each atom in each position.
+
+0 $2: an index for each first argument.
+
+~ S3: an index for each predicate atom.
+
+< $4: an index for each combination of predicate and first argument.
+
+© S5: an index for each combination of predicate and second argument, and an index for +
+each first argument (nonstandard).
+
+0 QU: Age(443-44-4321,x)
+
+0 Q2: ResidesIn(x, Houston)
+
+0 Q3: Mother(x,y)
+
+0 Q4: Age(x, 34) A Residesin(x, TinyTownUSA)
+
+ 
+
+108 We wouldn't want a semantic network to contain both Age(Bill, 12) and Age(Bill, 10), but 3
+its fine if it contains both Friend(Bill, Opus) and Friend(Bill, Steve). Modify the functions in
+Figure 10.10 so that they make the distinction between logical functions and logical relations,
+and treat each properly.
+
+109 The code repository contains a logical reasoning system whose components can be replaced
+by other versions. Re-implement some or all of the following components, and make sure that
+the resulting system works using the circuit example from Chapter 8
+
+Basic data types and access functions for sentences and their components.
+
+. STORE and FETCH for atomic sentences (disregarding efficiency).
+
+. Efficient indexing mechanisms for STORE and FETCH.
+
+A unification algorithm.
+
+A forward-chaining algorithm.
+
+A backward-chaining algorithm using iterative deepening.
+
+meee oe
+
+ 
+

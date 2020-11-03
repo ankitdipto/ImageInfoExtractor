@@ -1,0 +1,54 @@
+4.6 Communication in Client - Server Systems 121
+
+Communication using sockets—although common and efficient—is con-
+sidered a low-level form of communication between distributed processes.
+One reason is that sockets allow only an unstructured stream of bytes to be
+exchanged between the communicating threads. It is the responsibility of the
+client or server application to impose a structure on the data. In the next two
+subsections, we look at two alternative, higher-level methods of communica-
+tion: remote procedure calls (RPCs) and remote method invocation (RMI).
+
+4.6.2 Remote Procedure Calls
+
+One of the most common forms of remote service is the RPC paradigm, which
+we discussed briefly in Section 4.5.4. The RPC was designed as a way to
+abstract the procedure-call mechanism for use between systems with network
+connections. It is similar in many respects to the IPC mechanism described in
+Section 4.5, and it is usually built on top of such a system. Because we are
+dealing with an environment in which the processes are executing on separate
+systems, we must use a message-based communication scheme to provide
+remote service. In contrast to the IPC facility, the messages exchanged for RPC
+communication are well structured and are thus no longer just packets of data.
+They are addressed to an RPC daemon listening to a port on the remote system,
+and contain an identifier of the function to execute and the parameters to pass
+to that function. The function is then executed as requested, and any output is
+sent back to the requester in a separate message.
+
+A port is simply a number included at the start of a message packet.
+Whereas a system normally has one network address, it can have many ports
+within that address to differentiate the many network services it supports. If a
+remote process needs a service, it addresses its messages to the proper port. For
+instance, if a system wished to allow other systems to be able to list the current
+users on it, it would have a daemon supporting such an RPC attached to a port
+—say, port 3027. Any remote system could obtain the needed information (that
+is, the list of current users) by sending an RPC message to port 3027 on the
+server; the data would be received in a reply message.
+
+The semantics of RPCs allow a client to invoke a procedure on a remote host
+as it would invoke a procedure locally. The RPC system hides the necessary
+details allowing the communication to take place. The RPC system does this by
+providing a stub on the client side. Typically, a separate stub exists for each
+separate remote procedure. When the client invokes a remote procedure, the
+RPC system calls the appropriate stub, passing it the parameters provided to
+the remote procedure. This stub locates the port on the server and marshalls
+the parameters. Parameter marshalling involves packaging the parameters into
+a form which may be transmitted over a network. The stub then transmits a
+message to the server using message passing. A similar stub on the server side
+receives this message and invokes the procedure on the server. If necessary,
+return values are passed back to the client using the same technique.
+
+|
+|
+
+ 
+

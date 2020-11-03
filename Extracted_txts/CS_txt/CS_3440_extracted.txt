@@ -1,0 +1,69 @@
+Section 3.5
+
+Search Strategies 81
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 3.17 A schematic view of a bidirectional breadth-first search that is about to succeed,
+when a branch from the start node meets a branch from the goal node.
+
+ 
+
+ 
+
+ 
+
+have a description of the set, it may be possible to figure out the possible descriptions of
+"sets of states that would generate the goal set," but this is a very tricky thing to do. For
+example, what are the states that are the predecessors of the checkmate goal in chess?
+
++ There must be an efficient way to check each new node to see if it already appears in the
+search tree of the other half of the search.
+
++ We need to decide what kind of search is going to take place in each half. For example,
+Figure 3.17 shows two breadth-first searches. Is this the best choice?
+
+The O(“”) complexity figure assumes that the process of testing for intersection of the two
+frontiers can be done in constant time (that is, is independent ofthe number of states). This often
+can be achieved with a hash table. In order for the two searches to meet at all, the nodes of at
+least one of them must all be retained in memory (as with breadth-first search). This means that
+the space complexity of uninformed bidirectional search is O(b*”).
+
+Comparing search strategies
+
+Figure 3,18 compares the six search strategies in terms ofthe four evaluation criteria set forth in
+Section 3.5.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2 Breadth-  Uniform- —_Depth- Depth- Iterative Bidirectional
+comien First Cost First Limited Deepening _(f applicable)
+Time bf of 2” b uf oe?
+Space of bf bm bl bd oe
+Optimal? Yes Yes No No Yes Yes
+Complete? Yes Yes No Yes, if! >d Yes Yes
+
+Figure 318 Evaluation of search strategies, b is the branching factor; dis the depth of solution;
+
+m is the maximum depth of the search tree; / is the depth limit.
+
+ 
+
+ 
+

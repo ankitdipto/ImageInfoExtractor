@@ -1,0 +1,47 @@
+438 Let Us C
+
+ 
+
+using fprintf( ), or reading them using fscanf( ), becomes
+quite clumsy.
+
+Let us now see a more efficient way of reading/writing records
+(structures). This makes use of two functions fread() and
+fwrite(). We will write two programs, first one would write
+records to the file and the second would read these records from
+the file and display them on the screen.
+
+/" Receives records from keyboard and writes them to a file in binary mode */
+#include "stdio.h"
+main()
+{
+FILE “fp;
+char another = 'Y' ;
+struct emp
+
+char name[40] ;
+int age ;
+float bs ;
+
+};
+
+struct emp e;
+
+fp = fopen ("EMP.DAT", "wb" ) ;
+
+if (fp == NULL)
+
+{
+puts ("Cannot open file” ) ;
+exit() ;
+
+}
+
+while ( another == 'Y')
+
+printf ( "\nEnter name, age and basic salary: " ) ;
+scant ("%s %d %f", e.name, &e.age, &e.bs ) ;
+fwrite ( &e, sizeof (e ), 1, fp);
+
+printf ( "Add another record (Y/N) ") ;
+

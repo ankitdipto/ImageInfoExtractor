@@ -1,0 +1,50 @@
+148 Chapter5 Threads
+
+5.2 Provide two programming examples of multithreading that do not
+improve performance over a single-threaded solution.
+
+5.3 What are two differences between user-level threads and kernel-level
+threads? Under what circumstances is one type better than the other?
+
+5.4 Describe the actions taken by a kernel to context switch between kernel-
+level threads.
+
+5.5 Describe the actions taken by a thread library to context switch between
+user-level threads.
+
+5.6 What resources are used when a thread is created? How do they differ
+from those used when a process is created?
+
+5.7 Assume an operating system maps user-level threads to the kernel using,
+the many-to-many model where the mapping is done through LWPs.
+Furthermore, the system allows the developers to create real-time threads.
+Is it necessary to bound a real-time thread to an LWP? Explain.
+
+5.8 Write a multithreaded Pthread or Java program that generates the
+Fibonacci series. This program should work as follows: The user will run
+the program and will enter on the command line the number of Fibonacci
+numbers that the program is to generate. The program will then create a
+separate thread that will generate the Fibonacci numbers.
+
+5.9 Write a multithreaded Pthread or Java program that outputs prime num-
+bers. This program should work as follows: The user will run the program
+and will enter a number on the command line. The program will then
+create a separate thread that outputs all the prime numbers less than or
+equal to the number that the user entered.
+
+Bibliographical Notes
+
+Thread performance issues were discussed by Anderson et al. [1989], who
+continued their work in Anderson et al. [1991] by evaluating the performance
+of user-level threads with kernel support. Marsh et al. [1991] discussed first-
+class user-level threads. Bershad et al. [1990] described combining threads
+with RPC. Draves et al. [1991] discussed the use of continuations to implement
+thread management and communication in operating systems. Engelschall
+[2000] discusses a technique for supporting user-level threads. An analysis of
+an optimal thread pool size can be found in Ling et al. [2000].
+
+The IBM OS/2 operating system is a multithreaded operating system that
+runs on personal computers (Kogan and Rawson [1988]). Peacock [1992] dis-
+cussed the multithreading of the file system in Solaris 2. Vahalia [1996] covers
+threading in several versions of UNIX. Mauro and McDougall [2001] describe
+

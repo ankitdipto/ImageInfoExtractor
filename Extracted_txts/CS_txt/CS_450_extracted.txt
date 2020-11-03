@@ -1,0 +1,51 @@
+1006
+
+Chapter 32 String Matching
+
+COMPUTE-PREFIX-FUNCTION (P)
+m = P.length
+let [1 ..m] be a new array
+x{l] = 0
+k=0
+for q = 2tom
+while k > 0 and P[k + 1] 4 Plq]
+k = nfk}
+if P[k +1] == Pla]
+k=k+l1
+nq] =k
+return 7
+
+FE SOCHMmIANAWNH
+
+These two procedures have much in common, because both match a string against
+the pattern P: KMP-MATCHER matches the text T against P , and COMPUTE-
+PREFIX-FUNCTION matches P against itself.
+
+We begin with an analysis of the running times of these procedures. Proving
+these procedures correct will be more complicated.
+
+Running-time analysis
+
+The running time of COMPUTE-PREFIX-FUNCTION is @(), which we show by
+using the aggregate method of amortized analysis (see Section 17.1). The only
+tricky part is showing that the while loop of lines 6-7 executes O(m) times alto-
+gether. We shall show that it makes at most m — 1 iterations. We start by making
+some observations about k. First, line 4 starts & at 0, and the only way that k
+increases is by the increment operation in line 9, which executes at most once per
+iteration of the for loop of lines 510. Thus, the total increase in k is at most m—1.
+Second, since k < g upon entering the for loop and each iteration of the loop in-
+crements q, we always have k < q. Therefore, the assignments in lines 3 and 10
+ensure that 2[g] < q for all g = 1,2,...,m, which means that each iteration of
+the while loop decreases k. Third, k never becomes negative. Putting these facts
+together, we see that the total decrease in k from the while loop is bounded from
+above by the total increase in k over all iterations of the for loop, which is m — 1.
+Thus, the while loop iterates at most m — | times in all, and COMPUTE-PREFIX-
+FUNCTION runs in time @(m).
+
+Exercise 32.4-4 asks you to show, by a similar aggregate analysis, that the match-
+ing time of KMP-MATCHER is ©(1).
+
+Compared with FINITE-AUTOMATON-MATCHER, by using z rather than 6, we
+have reduced the time for preprocessing the pattern from O(m |X|) to O(m), while
+keeping the actual matching time bounded by @(1).
+

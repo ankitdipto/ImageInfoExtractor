@@ -1,0 +1,77 @@
+466 © cuarrer TWELVE Memory Organization
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Memory Index
+address Memory data adéess Tag Data
+‘00000 1220 00 [00 1220
+00777 2340
+o1000/ 3.450
+orm 4560 mI 02 6710
+020005670
+(Cache memory
+oxn| 6710
+
+ 
+
+ 
+
+ 
+
+(@ Main memory
+
+Figure 12-13 Direct mapping cache organization.
+
+tag field of the CPU address is compared with the tag in the word read from
+the cache. If the two tags match, there is a hit and the desired data word is in
+cache. If there is no match, there is a miss and the required word is read from
+main memory. It is then stored in the cache together with the new tag,
+replacing the previous value. The disadvantage of direct mapping is that the
+hitratio can drop considerably if two or more words whose addresses have the
+same index but differenttags are accessed repeatedly. However, this possibility
+is minimized by the fact that such words are relatively far apart in the address
+range (multiples of 512 locations in this example.)
+
+To see how the direct-mapping organization operates, consider the nu-
+merical example shown in Fig. 12-13. The word at address zero is presently
+stored in the cache (index = 000, tag = 00, data = 1220). Suppose that the CPU
+now wants to access the word at address 02000. The index address is 000, so
+it is used to access the cache. The two tags are then compared. The cache tag
+is 00 but the address tag is 02, which does not produce a match. Therefore, the
+main memory is accessed and the data word 5670 is transferred to the CPU.
+The cache word at index address 000 is then replaced with a tag of 02 and data
+of 5670.
+
+The direct-mapping example just described uses a blocksize of one word.
+Thesame organization but using a block size of 8 wordsis shown in Fig, 12-14.
+
+ 
+

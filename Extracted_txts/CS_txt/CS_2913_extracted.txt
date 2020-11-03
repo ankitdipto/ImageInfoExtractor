@@ -1,0 +1,55 @@
+section 12.1
+
+Practical Planners 369
+
+ 
+
+‘OPTIMUM-AIV is based on the open planning architecture O-PLAN (Currie and Tate, 1991).
+O-PLAN is similar to the POP planner of Chapter | 1, except that it is augmented to accept a more
+expressive language that can represent time, resources, and hierarchical plans. It also accepts
+heuristics for guiding the search and records its reasons for each choice, which makes it easier
+to replan when necessary. O-PLAN has been applied to a variety of problems, including software
+procurement planning at Price Waterhouse, back axle assembly process planning at Jaguar Cars,
+and complete factory production planning at Hitachi.
+
+Job shop scheduling
+
+The problem that a factory solves is to take in raw materials and components, and assemble them
+into finished products. The problem can be divided into a planning task (deciding what assembly
+steps are going to be performed) and a scheduling task (deciding when and where each step will
+be performed). In many modem factories, the planning is done by hand and the scheduling is
+done with an automated tool.
+
+O-PLAN is being used by Hitachi forjob shop planning and scheduling in a system called
+TOSCA. A typical problem involves a product line of 350 different products, 35 assembly
+machines, and over 2000 different operations. The planner comes up with a 30-day schedule for
+three 8-hour shifts a day. In general, TOSCA follows the partial-order, least-commitment planning
+approach. It also allows for "low-commitment" decisions: choices that impose constraints on
+the plan or on a particular step. For example, the system might choose to schedule an action to
+be carried out on a class of machine without specifying any particular one.
+
+Factories with less diversity of products often follow a fixed plan, but still have a need for
+automated scheduling. The Isis system (Fox and Smith, 1984) was developed specifically for
+scheduling. It was first tested at the Westinghouse turbine component plant in Winston-Salem,
+NC. The plant makes thousands of different turbine blades, and for each one, there are one or
+more plans, called process routings. When an order comes in, one of the plans is chosen and a
+time for it is scheduled. The time depends on the criticality ofthe order: whether it is an urgent
+replacement for a failed blade in service, a scheduled maintenance part that has plenty of lead
+time but must arrive on time, orjust a stock order to build up the reserves.
+
+Traditional scheduling methods such as PERT are capable of finding a feasible ordering of
+steps subject to time constraints, but it turns out that human schedulers using PERT spend 80% to
+90% of their time communicating with other workers to discover what the real constraints are.
+A successful automated scheduler needs to be able to represent and reason with these additional
+constraints. Factors that are important include the cost of raw materials on hand, the value
+of finished but unshipped goods, accurate forecasts of future needs, and minimal disruption of
+existing procedures. ISIS uses a hierarchical, least-commitment search to find high-quality plans
+that satisfy all of these requirements.
+
+Scheduling for space missions
+
+Planning and scheduling systems have been used extensively in planning space missions as well
+as in constructing spacecraft. There are two main reasons for this. First, spacecraft are very
+
+ 
+

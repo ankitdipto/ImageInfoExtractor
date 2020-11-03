@@ -1,0 +1,48 @@
+Problems for Chapter 4 7
+
+ 
+
+Problems
+
+4-1 Recurrence examples
+
+Give asymptotic upper and lower bounds for T (1) in each of the following recur-
+rences. Assume that T(m) is constant form < 2. Make your bounds as tight as
+possible, and justify your answers.
+
+a. T(n) =2T(n/2) +n'.
+
+b. T(n) = T(7n/10) +n.
+
+c. T(n) = 16T(n/4) +77.
+
+d, T(n) = 7T(n/3) +n?.
+
+e. T(n) = 7T(n/2) +n’.
+
+fi. T(n) = 27 (n/4) + Ji.
+
+g. T(n) =T(n—2)4n?.
+
+4-2. Parameter-passing costs
+
+Throughout this book, we assume that parameter passing during procedure calls
+takes constant time, even if an N-element array is being passed. This assumption
+
+is valid in most systems because a pointer to the array is passed, not the array itself.
+This problem examines the implications of three parameter-passing strategies:
+
+1. An array is passed by pointer. Time = ©(1).
+2. An array is passed by copying. Time = @(N), where N is the size of the array.
+
+3. An array is passed by copying only the subrange that might be accessed by the
+called procedure. Time = ©(q — p + 1) if the subarray A[p . .q] is passed.
+
+a. Consider the recursive binary search algorithm for finding a number in a sorted
+array (see Exercise 2.3-5). Give recurrences for the worst-case running times
+of binary search when arrays are passed using each of the three methods above,
+and give good upper bounds on the solutions of the recurrences. Let N be the
+size of the original problem and n be the size of a subproblem.
+
+b. Redo part (a) for the MERGE-SorT algorithm from Section 2.3.1.
+

@@ -1,0 +1,58 @@
+448° curren TWELVE Memory Organization
+
+randomvaccess
+memory (RAM)
+
+read-only memory
+ron
+
+bootstrap loader
+
+computer startup
+
+program is to be executed, it is transferred to main memory to be executed by
+the CPU. Thus one may think of auxiliary memory as containing the totality
+of information stored in a computer system. It is the task of the operating
+system to maintain in main memory a portion of this information that is
+currently active. The part of the computer system that supervises the flow of
+information between auxiliary memory and main memory iscalled the memory
+management system. The hardware for a memory management system is pre-
+sented in Sec. 12-7.
+
+12-2 Main Memory
+
+The main memory is the central storage unit in a computer system. It is a
+relatively large and fast memory used to store programs and data during the
+computer operation. The principal technology used for the main memory is
+based on semiconductor integrated circuits. Integrated circuit RAM chips are
+available in two possible operating modes, static and dynamic. The static RAM
+consists essentially of internal flip-flops that store the binary information. The
+stored information remains valid as long as power is applied to the unit The
+dynamic RAMstores the binary information in the form of electric charges that
+are applied to capacitors. The capacitors are provided inside the chip by MOS
+transistors. The stored charge on the capacitors tend to discharge with timeand
+the capacitors must be periodically recharged by refreshing the dynamic mem-
+ory. Refreshing is done by cycling through the words every few milliseconds
+to restore the decaying charge. The dynamic RAM offers reduced power
+consumption and larger storage capacity in a single memory chip. The static
+RAM is easier to use and has shorter read and write cycles
+
+Most of the main memory in a general-purpose computer is made up of
+RAM integrated circuit chips, buta portion of the memory may be constructed
+with ROM chips. Originally, RAM was used to refer to a random-access
+memory, but now it is used to designate a read/write memory to distinguish
+itfromaread-only memory, although ROMis alsorandom access. RAMis used
+forstoring the bulk of the programs and data that are subject to change. ROM
+is used for storing programs that are permanently resident in the computer and
+for tables of constants that do not change in value once the production of the
+computer is completed.
+
+‘Among other things, the ROM portion of main memory is needed for
+storing an initial program called a bootstrap loader. The bootstrap loader is a
+program whose function is to start the computer software operating when
+power is turned on. Since RAM is volatile, its contents are destroyed when
+power is turned off. The contents of ROM remain unchanged after power is
+turned off and on again. The startup of a computer consists of tuning the
+power on and starting the execution of an initial program. Thus when power
+is turned on, the hardware of the computer sets the program counter to the
+

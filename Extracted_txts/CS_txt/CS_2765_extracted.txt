@@ -1,0 +1,35 @@
+320
+
+Chapter 13 Red-Black Trees
+
+ 
+
+Figure 13.5 Case 1 of the procedure RB-INSERT-FIXUP. Property 4 is violated, since z and its
+parent z.p are both red. We take the same action whether (a) z is a right child or (b) z is a left
+child. Each of the subtrees a, 8, y, 5, and € has a black root, and each has the same black-height.
+The code for case 1 changes the colors of some nodes, preserving property 5: all downward simple
+paths from a node to a leaf have the same number of blacks. The while loop continues with node z’s
+grandparent z.p.p as the new z. Any violation of property 4 can now occur only between the new z,
+which is red, and its parent, if it is red as well.
+
+If node z’ is the root at the start of the next iteration, then case 1 corrected
+the lone violation of property 4 in this iteration. Since z’ is red and it is the
+root, property 2 becomes the only one that is violated, and this violation is
+due to 2’.
+
+If node z’ is not the root at the start of the next iteration, then case 1 has
+not created a violation of property 2. Case | corrected the lone violation
+of property 4 that existed at the start of this iteration. It then made z’ red
+and left z’.p alone. If z’.p was black, there is no violation of property 4.
+If z’.p was red, coloring z’ red created one violation of property 4 between z’
+and z’.p.
+
+Case 2: z’s uncle y is black and z is a right child
+Case 3: z’s uncle y is black and z is a left child
+
+In cases 2 and 3, the color of z’s uncle y is black. We distinguish the two cases
+according to whether z is a right or left child of z.p. Lines 10-11 constitute
+case 2, which is shown in Figure 13.6 together with case 3. In case 2, node z
+is a right child of its parent. We immediately use a left rotation to transform
+the situation into case 3 (lines 12-14), in which node z is a left child. Because
+

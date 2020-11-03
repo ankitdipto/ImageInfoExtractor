@@ -1,0 +1,57 @@
+5.6 Window 2000 Threads 143
+
+process ip
+
+ 
+
+ 
+
+ 
+
+LWP, H LWP, How b-.
+
+Figure 5.7 Solaris 2 process.
+
+ 
+
+ 
+
+ 
+
+A kernel thread has only a small data structure and a stack. The data
+structure includes a copy of the kernel registers, a pointer to the LWP to
+which it is attached, and priority and scheduling information.
+
+Each process in Solaris 2 contains much of the information described in the
+process control block (PCB), which was discussed in Section 4.1.3. In particular,
+a Solaris 2 process contains a process ID (PID); memory map; list of open files;
+priority; and pointer to a list of kernel threads associated with the process
+(Figure 5.7).
+
+5.6 = Window 2000 Threads
+
+Windows 2000 implements the Win32 API. The Win32 API is the primary API for
+the family of Microsoft operating systems (Windows 95/98/NT and Windows
+2000). Indeed, much of what is mentioned in this section applies to this family
+of operating systems.
+
+A Windows application runs as a separate process where each process
+may contain one or more threads. Windows 2000 uses the one-to-one mapping
+described in Section 5.2.2 where each user-level thread maps to an associated
+kernel thread. However, Windows also provides support for a fiber library,
+which provides the functionality of the many-to-many model (Section 5.2.3).
+Every thread belonging to a process can access the virtual address space of the
+process.
+
+The general components of a thread include:
+
+¢ A thread ID uniquely identifying the thread.
+A register set representing the status of the processor.
+
+e A.user stack used when the thread is running is user mode. Similarly, each
+thread also has a kernel stack used when the thread is running in kernel
+mode.
+
+« A private storage area used by various run-time libraries and dynamic link
+libraries (DLLs).
+

@@ -1,0 +1,56 @@
+626
+
+Chapter 23 Minimum Spanning Trees
+
+tree. We call such an edge a safe edge for A, since we can add it safely to A while
+maintaining the invariant.
+
+GENERIC-MST(G, w)
+
+1 A=96
+
+2 while A does not form a spanning tree
+
+3 find an edge (u, v) that is safe for A
+4 A=AU{(u,v)}
+
+5 return A
+
+We use the loop invariant as follows:
+
+Initialization: After line 1, the set A trivially satisfies the loop invariant.
+
+Maintenance: The loop in lines 2-4 maintains the invariant by adding only safe
+edges.
+
+Termination: All edges added to A are in a minimum spanning tree, and so the
+set A returned in line 5 must be a minimum spanning tree.
+
+The tricky part is, of course, finding a safe edge in line 3. One must exist, since
+when line 3 is executed, the invariant dictates that there is a spanning tree T such
+that A C T. Within the while loop body, A must be a proper subset of T, and
+therefore there must be an edge (u,v) € T such that (u,v) ¢ A and (u,v) is safe
+for A.
+
+In the remainder of this section, we provide a rule (Theorem 23.1) for recogniz-
+ing safe edges. The next section describes two algorithms that use this rule to find
+safe edges efficiently.
+
+We first need some definitions. A cut (S,V — S) of an undirected graph G =
+(V, E) is a partition of V. Figure 23.2 illustrates this notion. We say that an edge
+(u,v) € E crosses the cut (S, V — S) if one of its endpoints is in S and the other
+is in V —S. We say that a cut respects a set A of edges if no edge in A crosses the
+cut. An edge is a light edge crossing a cut if its weight is the minimum of any edge
+crossing the cut. Note that there can be more than one light edge crossing a cut in
+the case of ties. More generally, we say that an edge is a light edge satisfying a
+given property if its weight is the minimum of any edge satisfying the property.
+
+Our rule for recognizing safe edges is given by the following theorem.
+
+Theorem 23.1
+
+Let G = (V, E) be a connected, undirected graph with a real-valued weight func-
+tion w defined on E. Let A be a subset of E that is included in some minimum
+spanning tree for G, let (S, V — S) be any cut of G that respects A, and let (u,v)
+be a light edge crossing (S, V — S). Then, edge (u,v) is safe for A.
+

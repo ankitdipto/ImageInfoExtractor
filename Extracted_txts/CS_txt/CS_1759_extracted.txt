@@ -1,0 +1,36 @@
+Chapter 8
+
+ 
+
+DEADLOCKS
+
+ 
+
+In a multiprogramming environment, several processes may compete for a
+finite number of resources. A process requests resources; if the resources are
+not available at that time, the process enters a wait state. Waiting processes may
+never again change state, because the resources they have requested are held by
+other waiting processes. This situation is called a deadlock. We have already
+discussed this issue briefly in Chapter 7, in connection with semaphores.
+
+Perhaps the best illustration of a deadlock can be drawn from a law passed
+by the Kansas legislature early in the 20th century. It said, in part: “When two
+trains approach each other at a crossing, both shall come to a full stop and
+neither shall start up again until the other has gone.”
+
+In this chapter, we describe methods that an operating system can use to
+prevent or deal with deadlocks. Most current operating systems do not provide
+deadlock-prevention facilities, but such features will probably be added soon.
+Deadlock problems can only become more common, given current trends,
+including larger numbers of processes, multithreaded programs, many more
+resources within a system, and the emphasis on long-lived file and database
+servers rather than batch systems.
+
+8.1 = System Model
+
+A system consists of a finite number of resources to be distributed among a
+number of competing processes. The resources are partitioned into several
+types, each of which consists of some number of identical instances. Memory
+
+243
+

@@ -1,0 +1,75 @@
+512
+
+SENSOR FUSION
+
+DATA FUSION
+
+Chapter 17. Making Complex Decisions
+
+ 
+
+NO
+
+Temperature
+
+    
+     
+
+Pressure
+Reading;
+
+ 
+   
+
+    
+
+Temperature
+Reading
+
+@ o)
+
+ 
+
+ 
+
+Figure 17.10 (a) Belief network fragment showing the general relationship between state
+variables and sensor variables. (b) An example with pressure and temperature gauges.
+
+ 
+
+ 
+
+ 
+
+that (somehow) measure Pressure/Temperature and Pressure x Temperature. Each of the two
+state nodes would have to be connected to both sensor nodes, resulting in large CPTs for the
+sensor models.
+
+Often, we will have several sensors that are measuring the same state variable. In Fig-
+ure 17.11,we show an example where two gauges are being used to measure the actual temperature
+of some object, perhaps a superconductor. The crucial thing to notice here is that the sensor
+values are conditionally independent ofeach other, given the actual value. The reasoning here is
+similar to the reasoning for the conditional independence of symptoms given a disease. Although
+the sensors are not unconditionally independent—in fact, they will usually display approximately
+the same reading—they are correlated only inasmuch as they depend on the actual temperature.
+When we have multiple sensors for the same state variables, the resulting inference process is
+called sensor fusion or data fusion. To see how important this can be, consider the situation
+when Gauge 1 reads 13.6°K, while Gauge 2 reads 14.4°K. If each gauge is accurate to within
+0.5°K, as represented in the sensor models, then the network will infer that the actual temperature
+is between 13.9°K and {4,1°K. Integrating the results of multiple sensors can provide greater
+accuracy than any one sensor on its own. This is true whether the sensors are similar, as in the |
+case of temperature gauges, or very different, as in the case of sonar and infrared distance sensors
+used in robotics. Detailed sensor models have been built for both sonar and infrared, which have
+somewhat complementary performance. Sonar has a long range, butis s.bject to "ghost" images
+caused by multiple reflections and specularities. Infrared is only accurate over short distances.
+By using sensor fusion, it is often possible to create an accurate model of the robot's environment
+in cases where the sensors used separately would be lost.
+
+Anyone with hands-on experience ofrobotics, computerized process control, or other forms
+of automatic sensing will readily testify to the fact that sensors fail. When a sensor fails, it does
+not necessarily send a signal saying, "Oh, by the way, the data I'm about to send you is a load of
+nonsense." Instead, it simply sends the nonsense. This can be dangerous if taken literally. For 4
+example, a robot's sonar distance sensor might start sending "infinity," meaning that no object
+
+ 
+

@@ -1,0 +1,61 @@
+Section 15.2.
+
+The Semantics of Belief Networks 439
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 15.2 A typical belief network with conditional probabilities. The letters B, E, 4, J, and
+M stand for Burglary, Earthquake, Alarm, JohnCalls, and MaryCalls, respectively. All variables
+(nodes) are Boolean, so the probability of, say, =P(A) in any row of its table is 1 — P(A).
+
+ 
+
+ 
+
+ 
+
+Representing the joint probability distribution
+
+A belief network provides a complete description of the domain. Every entry in the joint
+probability distribution can be calculated from the information in the network. A generic entry
+in the joint is the probability of a conjunction of particular assignments to each variable, such
+as P(X; =x, A... AX,=x,). We use the notation P(x, ,) as an abbreviation for this. The
+value of this entry is given by the following formula:
+
+ 
+
+POs etn) = | | Plai|Parents(X)) (15.1)
+i=l
+
+Thus, each entry in the joint is represented by the product of the appropriate elements of the
+conditional probability tables (CPTs) in the belief network. The CPTs therefore provide a
+decomposed representation of the joint.
+
+To illustrate this, we can calculate the probability of the event that the alarm has sounded
+but neither a burglary nor an earthquake has occurred, and both John and Mary call. We use
+single-letter names for the variables:
+
+PJAMAAA-BA-E)
+PU|A)P(M|A)P(A|>BA 7E)P(>B)P(>E)
+= 0.90 x 0.70 x 0.001 x 0.999 x 0.998 = 0.00062
+Section 14.3 explained that the joint distribution can be used to answer any query about
+the domain. Ifa belief network is a representation of the joint, then it too can be used to answer
+any query. Trivially, this can be done by first computing all the joint entries. We will see below
+that there are much better methods.
+
+ 
+

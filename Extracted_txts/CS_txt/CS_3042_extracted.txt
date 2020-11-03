@@ -1,0 +1,60 @@
+418
+
+Chapter 14. Uncertainty
+
+ 
+
+PREFERENCES
+
+UTILITY THEORY
+
+is true. Just as entailment status can change when more sentences are added to the knowledge
+base, probabilities can change when more evidence is acquired.*
+
+All probability statements must therefore indicate the evidence with respect to which the
+probability is being assessed. As the agent receives new percepts, its probability assessments
+are updated to reflect the new evidence. Before the evidence is obtained, we talk about prior or
+unconditional probability; after the evidence is obtained, we talk about posterior or conditional
+probability. In most cases, an agent will have some evidence from its percepts, and will be
+interested in computing the conditional probabilities of the outcomes it cares about given the
+evidence it has. In some cases, it will also need to compute conditional probabilities with respect
+to the evidence it has plus the evidence it expects to obtain during the course of executing some
+sequence of actions.
+
+Uncertainty and rational decisions
+
+The presence of uncertainty changes radically the way in which an agent makes decisions. A
+logical agent typically has a single (possibly conjunctive) goal, and executes any plan that is
+guaranteed to achieve it. An action can be selected or rejected on the basis of whether or not it
+achieves the goal, regardless of what other actions achieve. When uncertainty enters the picture,
+this is no longer the case. Consider again the Aoy plan for getting to the airport. Suppose it has a
+95% chance of succeeding. Does this mean it is a rational choice? Obviously, the answer is "Not
+necessarily." There might be other plans, such as A;>, with higher probabilities of success. Ifit
+is vital not to miss the flight, then it might be worth risking the longer wait at the airport. What
+about Aj44o, a plan that involves leaving home 24 hours in advance? In most circumstances, this
+is not a good choice, because although it almost guarantees getting there on time, it involves an
+intolerable wait.
+
+To make such choices, an agent must first have preferences between the different possible
+outcomes of the various plans. A particular outcome is a completely specified state, including
+such factors as whether or not the agent arrives in time, and the length of the wait at the airport.
+We will be using utility theory to represent and reason with preferences. The term utility is 1
+used here in the sense of "the quality of being useful," not in the sense of the electric company
+or water works. Utility theory says that every state has a degree of usefulness, or utility, to an 3
+agent, and that the agent will prefer states with higher utility. 3
+
+The utility ofa state is relative to the agent whose preferences the utility function is supposed
+to represent. For example, the payoff functions for games in Chapter 5 are utility functions. The
+utility ofa state in which White has won a game of chess is obviously high for the agent playing
+White, but low for the agent playing Black. Or again, some players (including the authors) might
+be happy with a draw against the world champion, whereas other players (including the former
+world champion) might not. There is no accounting for taste or preferences: you might think ‘
+that an agent who prefers jalapefio-bubble-gum ice cream to chocolate-chocolate-chip is odd or |
+even misguided, but you could not say the agent is irrational.
+
+4 This is quite different from a sentence becoming true or false as the world changes. Handling a changing world
+using probabilities requires the same kinds of mechanisms—situations, intervals and events—as we used in Chapter 8
+for logical representations
+
+ 
+

@@ -1,0 +1,149 @@
+Auxiliary memory
+
+ 
+
+ 
+
+Program 1
+
+ 
+
+Data 1,1
+
+ 
+
+Data 1,2
+
+ 
+
+Program?
+
+ 
+
+Data 2, 1
+
+ 
+
+ 
+
+ 
+
+ 
+
+‘Address space
+
+Ne
+
+1024K = 220
+
+SECTION 126 Virtual Memory 471
+
+Main memory
+
+ 
+
+ 
+
+ 
+
+ 
+
+Data 1,1
+
+ 
+
+ 
+
+ 
+
+‘Memory space
+Mm 32k #215
+
+Figure 12-16 Relation between address and memory space in a virtual
+‘memory system.
+
+efficient transfers, auxiliary storage moves an entire record to the main mem-
+ory.) A table is then needed, as shown in Fig. 12-17, to map a virtual address
+of 20bits toa physical address of 15 bits. The mapping is a dynamic operation,
+which means that every address is translated imunediately as a word is refer-
+
+enced by CPU.
+
+The mapping table may be stored in a separate memory as shown in
+Fig. 12-17 or in main memory. In the first case, an additional memory unit is
+required as well as one extra memory access time. In the second case, the table
+
+Figure 12-17 Memory table for mapping a virtual address
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Virtual address
+Virtual
+address Memory
+register [>] mapping
+20 bits) table
+Memory table
+
+ 
+
+buffer register
+
+ 
+
+ 
+
+ 
+
+ 
+
+Main memory
+address
+register
+5 bits)
+
+ 
+
+ 
+
+ 
+
+ 
+
+Main
+memory
+
+ 
+
+ 
+
+|
+
+ 
+
+ 
+
+ 
+
+Main memory
+buffer register
+
+ 
+
+ 
+

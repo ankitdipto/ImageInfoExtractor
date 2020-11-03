@@ -1,0 +1,63 @@
+604
+
+Chapter 20. Reinforcement Learning
+
+ 
+
+ 
+
+TEMPORAL
+DIFFERENCE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 20.5 An example where LMS does poorly. A new state is reached for the first time,
+and then follows the path marked by the dashed lines, reaching a terminal state with reward +1.
+
+ 
+
+ 
+
+ 
+
+against which to measure other reinforcement learning algorithms. It is, however, somewhat
+intractable for large state spaces. In backgammon, for example, it would involve solving roughly
+10% equations in 10° unknowns.
+
+Temporal difference learning
+
+Itis possible to have (almost) the best ofboth worlds—thatis, one can approximate the constraint
+equations shown earlier without solving them for all possible states. The key is to use the
+observed transitions to adjust the values of the observed states so that they agree with the
+constraint equations. Suppose that we observe a transition from state / to statej, where currently
+U(i= -0.5 and U(j) = +0.5. This suggests that we should consider increasing U(i)to make it
+agree better with its successor. This can be achieved using the following updating rule:
+
+UD— U+ a (RW)+ UG UD) (20.2)
+
+where a is the learning rate parameter. Because this update rule uses the difference in utilities
+between successive states, it is often called the temporal-difference, or TD, equation.
+
+The basic idea of all temporal-difference methods is to first define the conditions that
+hold locally when the utility estimates are correct; and then to write an update equation that
+moves the estimates toward this ideal "equilibrium" equation. In the case of passive learning,
+the equilibrium is given by Equation (20.1). Now Equation (20.2) does in fact cause the agent to
+reach the equilibrium given by Equation (20.1), but there is some subtlety involved. First, notice
+that the update only involves the actual successor, whereas the actual equilibrium conditions
+involve all possible next states. One might think that this causes an improperly large change in
+U(i) when a very rare transition occurs; but, in fact, because rare transitions occur only rarely,
+the average value of U(i)will converge to the correct value. Furthermore, ifwe change a from
+a fixed parameter to a function that decreases as the number of times a state has been visited
+increases, then U(i) itself will converge to the correct value (Dayan, 1992). This gives us the
+algorithm TD-UPDATE, shown in Figure 20.6. Figure 20.7 shows atypical run of the TD leaming
+algorithm on the world in Figure 20.1. Although TD generates noisier values, the RMS error is
+actually significantly less than that for LMS after 1000 iterations.
+

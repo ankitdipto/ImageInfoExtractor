@@ -1,0 +1,45 @@
+Problems for Chapter 8 205
+
+ 
+
+Problems
+
+8-1 Probabilistic lower bounds on comparison sorting
+
+In this problem, we prove a probabilistic Q(n 1g) lower bound on the running time
+of any deterministic or randomized comparison sort on 7 distinct input elements.
+We begin by examining a deterministic comparison sort A with decision tree T4.
+We assume that every permutation of A’s inputs is equally likely.
+
+a. Suppose that each leaf of T, is labeled with the probability that it is reached
+given a random input. Prove that exactly 7! leaves are labeled 1/n! and that the
+rest are labeled 0.
+
+b. Let D(T) denote the external path length of a decision tree T; that is, D(T)
+is the sum of the depths of all the leaves of T. Let T be a decision tree with
+k > 1 leaves, and let LT and RT be the left and right subtrees of T. Show that
+D(T) = D(LT) + D(RT) +k.
+
+c. Let d(k) be the minimum value of D(T) over all decision trees T with k > 1
+leaves. Show that d(k) = miny<j<x—-1 {d(i) + d(k —i) +k}. (Hint: Consider
+adecision tree T with k leaves that achieves the minimum. Let ip be the number
+of leaves in LT and k — ig the number of leaves in RT.)
+
+d. Prove that for a given value of k > 1 and i in the range 1 <i < k —1, the
+function i lgi + (k —i)lg(k —i) is minimized ati = k/2. Conclude that
+d(k) = Qk Igk).
+
+e. Prove that D(T4) = Q(n!lg(n!)), and conclude that the average-case time to
+sort n elements is Q(n Ign).
+
+Now, consider a randomized comparison sort B. We can extend the decision-
+tree model to handle randomization by incorporating two kinds of nodes: ordinary
+comparison nodes and “randomization” nodes. A randomization node models a
+random choice of the form RANDOM(1,r) made by algorithm B; the node has r
+children, each of which is equally likely to be chosen during an execution of the
+algorithm.
+
+Jf Show that for any randomized comparison sort B, there exists a deterministic
+comparison sort A whose expected number of comparisons is no more than
+those made by B.
+

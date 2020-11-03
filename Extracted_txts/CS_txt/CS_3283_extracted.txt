@@ -1,0 +1,56 @@
+Section 21.4.
+
+Inductive Logic Programming 637
+
+ 
+
+the research agenda in machine learning. This has happened for two reasons. First, it offers a
+rigorous approach to the general KBJL. problem mentioned in the introduction. Second, it offers
+complete algorithms for inducing general, first-order theories from examples, which can therefore
+learn successfully in domains where attribute-based algorithms fail completely. ILP is a highly
+technical field, relying on some fairly advanced material from the study of computational logic
+We therefore cover only the basic principles of the two major approaches, referring the reader to
+the literature for more details.*
+
+An example
+
+Recall from Equation (21.3) that the general knowledge-based induction problem is to "solve"
+the entailment constraint
+
+Background A Hypothesis A Descriptions — Classifications
+
+for the unknown Hypothesis, given the Background knowledge and examples described by
+Descriptions and Classifications. To illustrate this, we will use the problem of learning family
+relationships from examples. The observations will consist of an extended family tree, described
+in terms ofMother, Father, and Married relations, and Male and Female properties. The target
+predicates will be such things as Grandparent, BrotherInLaw, and Ancestor. We will use the
+family tree from Exercise 7.6, shown here in Figure 21.5. The example Descriptions include
+facts such as
+
+Father(Philip, Charles) Father(Philip, Anne)
+Mother(Mum, Margaret) Mother(Mum, Elizabeth)
+Married(Diana, Charles) Married(Elizabeth, Philip) ...
+Male(Philip) Male(Charles)
+Female(Beatrice) Female(Margaret)
+
+The sentences in Classifications depend on the target concept being learned. If Q is Grandparent,
+say, then the sentences in Classifications might include the following:
+
+Grandparent(Mum,Charles) Grandparent(Elizabeth Beatrice)
+<3Grandparent(Mum,Harry) | ~Grandparent(Spencer Peter)
+
+The object of an inductive learning program is to come up with a set of sentences for
+the Hypothesis such that the entailment constraint is satisfied. Suppose, for the moment, that
+the agent has no background knowledge: Background is empty. Then one possible solution for
+Hypothesis is the following:
+
+Grandparent(x,>*) <> [3z Mother(x,z) A Mother(z,y)}
+V [Sz Mother(x,z) A Father(z,y)
+vo [Bz Father(x,z) \ Mother(z,y)1
+Vo [Be Father(x,z) A Father(z, y)|
+
+ 
+
+3. We suggest that it mightbe appropriate at this point for the reader to refer back to Chapter 9 for some ofthe underlying
+concepts, including Horn clauses, conjunctive normal form, unification, and resolution.
+

@@ -1,0 +1,50 @@
+348 Let Us C
+
+ 
+
+ 
+
+ 
+
+216
+
+names[ ]
+
+ 
+
+182 189 195
+
+ 
+
+1 210 216
+65514 65516 65518 65520 65522 65524
+
+ 
+
+ 
+
+Figure 9.4
+
+In the two-dimensional array of characters, the strings occupied 60
+yytes. As against this, in array of pointers, the strings occupy only
+Al bytes—a net saving of 19 bytes. A substantial saving, you
+would agree. But realize that actually 19 bytes are not saved, since
+12 bytes are sacrificed for storing the addresses in the array
+names[ ]. Thus, one reason to store strings in an array of pointers
+is to make a more efficient use of available memory.
+
+ 
+
+Another reason to use an array of pointers to store strings is to
+obtain greater ease in manipulation of the strings. This is shown by
+the following programs. The first one uses a two-dimensional
+array of characters to store the names, whereas the second uses an
+array of pointers to strings. The purpose of both the programs is
+very simple. We want to exchange the position of the names
+“raman’” and “srinivas”.
+
+/" Exchange names using 2-D array of characters */
+main()
+
+char names ][10] = {
+

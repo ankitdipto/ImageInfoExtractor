@@ -1,0 +1,50 @@
+804
+
+Chapter 27 Multithreaded Algorithms
+
+PMS.(n) PMS,..(n/2) + PMoxo(n)
+
+PMS,..(n/2) + @(lg?n) . (27.10)
+
+As for recurrence (27.8), the master theorem does not apply to recurrence (27.10),
+but Exercise 4.6-2 does. The solution is PMS,.() = (1g? n), and so the span of
+P-MERGE-Sorrt is @(Ig* 71).
+
+Parallel merging gives P- MERGE-SoRT a significant parallelism advantage over
+MERGE-SorT’. Recall that the parallelism of MERGE-SorT’, which calls the se-
+tial MERGE procedure, is only @(1g). For P-MERGE-SoRrrT, the parallelism is
+
+PMS,(n)/PMSo(n) = O(nign)/@(Ign)
+= O(n/1g?n),
+
+which is much better both in theory and in practice. A good implementation in
+practice would sacrifice some parallelism by coarsening the base case in order to
+reduce the constants hidden by the asymptotic notation. The straightforward way
+to coarsen the base case is to switch to an ordinary serial sort, perhaps quicksort,
+when the size of the array is sufficiently small.
+
+Exercises
+
+273-1
+Explain how to coarsen the base case of P- MERGE.
+
+27.3-2
+
+Instead of finding a median element in the larger subarray, as P-MERGE does, con-
+sider a variant that finds a median element of all the elements in the two sorted
+subarrays using the result of Exercise 9.3-8. Give pseudocode for an efficient
+multithreaded merging procedure that uses this median-finding procedure. Ana-
+lyze your algorithm.
+
+27.3-3
+
+Give an efficient multithreaded algorithm for partitioning an array around a pivot,
+as is done by the PARTITION procedure on page 171. You need not partition the ar-
+ray in place. Make your algorithm as parallel as possible. Analyze your algorithm.
+(Hint: You may need an auxiliary array and may need to make more than one pass
+over the input elements.)
+
+27.3-4
+Give a multithreaded version of RECURSIVE-FFT on page 911. Make your imple-
+mentation as parallel as possible. Analyze your algorithm.
+

@@ -1,0 +1,46 @@
+758
+
+Chapter 26 Maximum Flow
+
+To see that no vertex preceding u in L has excess flow, we denote the vertex
+that will be u in the next iteration by u’. The vertices that will precede w’ in the
+next iteration include the current u (due to line 11) and either no other vertices
+(if u is relabeled) or the same vertices as before (if u is not relabeled). When u
+is discharged, it has no excess flow afterward. Thus, if u is relabeled during
+the discharge, no vertices preceding u’ have excess flow. If u is not relabeled
+during the discharge, no vertices before it on the list acquired excess flow during
+this discharge, because L remained topologically sorted at all times during the
+discharge (as just pointed out, admissible edges are created only by relabeling,
+not pushing), and so each push operation causes excess flow to move only to
+vertices further down the list (or to s or t). Again, no vertices preceding u’ have
+excess flow.
+
+Termination: When the loop terminates, u is just past the end of L, and so the
+loop invariant ensures that the excess of every vertex is 0. Thus, no basic oper-
+ations apply.
+
+Analysis
+
+We shall now show that RELABEL-TO-FRONT runs in O(V°*) time on any flow
+network G = (V,£). Since the algorithm is an implementation of the generic
+push-relabel algorithm, we shall take advantage of Corollary 26.21, which pro-
+vides an O(V) bound on the number of relabel operations executed per vertex and
+an O(V?) bound on the total number of relabel operations overall. In addition, Ex-
+ercise 26.4-3 provides an O(VE) bound on the total time spent performing relabel
+operations, and Lemma 26.22 provides an O(VE) bound on the total number of
+saturating push operations.
+
+Theorem 26.30
+The running time of RELABEL-TO-FRONT on any flow network G = (V, E)
+is O(V3).
+
+Proof Let us consider a “phase” of the relabel-to-front algorithm to be the time
+between two consecutive relabel operations. There are O(V) phases, since there
+are O(V?) relabel operations. Each phase consists of at most |V| calls to Dis-
+CHARGE, which we can see as follows. If DISCHARGE does not perform a re-
+label operation, then the next call to DISCHARGE is further down the list L, and
+the length of L is less than |V|. If DISCHARGE does perform a relabel, the next
+call to DISCHARGE belongs to a different phase. Since each phase contains at
+most |V| calls to DISCHARGE and there are O(V) phases, the number of times
+DISCHARGE is called in line 8 of RELABEL-TO-FRONT is O(V*). Thus, the total
+

@@ -1,0 +1,57 @@
+432 > charrer steven Input-Output Organization
+
+SYN character
+
+information. The purpose of a data link protocol is to establish and terminate
+a connection between two stations, to identify the sender and receiver, to
+ensure that all messages are passed correctly without errors, and to handle all
+control functions involved in a sequence of data transfers. Protocols are divided
+into two major categories according to the message-framing technique used.
+These are character-oriented protocol and bit-oriented protocol.
+
+Character-Oriented Protocol
+
+The character-oriented protocol is based on the binary code of a character set.
+The code most commonly used is ASCII (American Standard Code for Infor-
+mation Interchange). It is a 7-bit code with an eighth bit used for parity. The
+code has 128 characters, of which 95 are graphic characters and 33 are control
+characters. The graphic characters include the upper- and lowercase letters, the
+ten numerals, and a variety of special symbols. A list of the ASCII characters
+can be found in Table 11-1. The control characters are used for the purpose of
+routing data, arranging the test in a desired format, and for the layout of the
+Printed page. The characters that control the transmission are called communi-
+cation control characters. These characters are listed in Table 11-4. Each character
+has a 7-bit code and is referred to by a three-letter symbol. The role of each
+character in the control of data transmission is stated briefly in the function
+column of the table.
+
+‘The SYNcharacterservesas synchronizing agent between thetransmitter
+and receiver. When the 7-bit ASCII code is used with an odd-parity bit in the
+most significant position, the assigned SYN character has the S-bit code
+00010110 which has the property that, upon circular shifting, it repeats itself
+onlyaftera full 8-bit cycle. When the transmitterstarts sending 8-bit characters,
+it sends a few characters first and then sends the actual message. The initial
+continuous string of bits accepted by the receiver is checked for a SYN charac-
+ter. Inother words, with each clock pulse, the receiver checks the last eight bits
+
+ 
+
+TABLE 11-4 ASCII Communication Control Characters
+
+ 
+
+‘Code Symbol Meaning Function
+
+0010110 SYN Synchronous idle Establishes synchronism
+0000001 SOH Start of heading Heading of block message
+0000010 STX Start of text recedes block of text
+0000011 ETX End of text Terminates block of text
+0000100 EOT —_End of transmission Concludes transmission
+0000110 ACK =~ Acknowledge Affirmative acknowledgement
+0010101 = NAK —_ Negative acknowledge ‘Negative acknowledgement
+0000101 ENQ Inquiry Inquire if terminal is on
+
+0010111 ETB —_End of transmission block End of block of data
+
+0010000 = DLE —_Data link escape Special control character
+

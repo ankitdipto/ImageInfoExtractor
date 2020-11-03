@@ -1,0 +1,54 @@
+19.2 Mergeable-heap operations 517
+
+that we have processed has the same degree as x. We then set the appropriate entry
+of A to point to x, so that as we process roots later on, we have recorded that x is
+the unique root of its degree that we have already processed. When this for loop
+terminates, at most one root of each degree will remain, and the array A will point
+to each remaining root.
+
+The while loop of lines 7-13 repeatedly links the root x of the tree containing
+node w to another tree whose root has the same degree as x, until no other root has
+the same degree. This while loop maintains the following invariant:
+
+At the start of each iteration of the while loop, d = x.degree.
+We use this loop invariant as follows:
+
+Initialization: Line 6 ensures that the loop invariant holds the first time we enter
+the loop.
+
+Maintenance: In each iteration of the while loop, A[d] points to some root y.
+Because d = x.degree = y.degree, we want to link x and y. Whichever of
+x and y has the smaller key becomes the parent of the other as a result of the
+link operation, and so lines 9-10 exchange the pointers to x and y if necessary.
+Next, we link y to x by the call FriB-HEAP-LINK(H, y, x) in line 11. This
+call increments x.degree but leaves y.degree as d. Node y is no longer a root,
+and so line 12 removes the pointer to it in array A. Because the call of FIB-
+HEAP-LINK increments the value of x.degree, line 13 restores the invariant
+that d = x.degree.
+
+Termination: We repeat the while loop until A[d] = NIL, in which case there is
+no other root with the same degree as x.
+
+After the while loop terminates, we set A[d] to x in line 14 and perform the next
+iteration of the for loop.
+
+Figures 19.4(c)-(e) show the array A and the resulting trees after the first three
+iterations of the for loop of lines 4-14. In the next iteration of the for loop, three
+links occur; their results are shown in Figures 19.4(f)-(h). Figures 19.4(i)-(1) show
+the result of the next four iterations of the for loop.
+
+All that remains is to clean up. Once the for loop of lines 4-14 completes,
+line 15 empties the root list, and lines 16-23 reconstruct it from the array A. The
+resulting Fibonacci heap appears in Figure 19.4(m). After consolidating the root
+list, FIB-HEAP-EXTRACT-MIN finishes up by decrementing H.n in line 11 and
+returning a pointer to the deleted node z in line 12.
+
+We are now ready to show that the amortized cost of extracting the minimum
+node of an n-node Fibonacci heap is O(D(n)). Let H denote the Fibonacci heap
+just prior to the FIB-HEAP-EXTRACT-MIN operation.
+
+We start by accounting for the actual cost of extracting the minimum node.
+An O(D(n)) contribution comes from FIB-HEAP-EXTRACT-MIN processing at
+
+ 
+

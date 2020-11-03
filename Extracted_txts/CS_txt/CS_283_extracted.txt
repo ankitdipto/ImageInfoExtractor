@@ -1,0 +1,62 @@
+870
+
+Chapter 29 Linear Programming
+
+sets of nonbasic and basic variables. Line 21 returns the new slack form. As given,
+if die = 0, PIVOT would cause an error by dividing by 0, but as we shall see in the
+proofs of Lemmas 29.2 and 29.12, we call PrvoT only when die # 0.
+
+We now summarize the effect that PIvoT has on the values of the variables in
+the basic solution.
+
+Lemma 29.1
+Consider a call to PiVoT(N, B, A,b,c,v,1,e) in which aj, 4 0. Let the values
+returned from the call be (WV, B, 4,5, 2,5), and let ¥ denote the basic solution after
+
+the call. Then
+
+1. X; =0 for each j € N.
+
+2. Xe = bi/dte.
+
+3. ¥; = bj —Gjebe for eachi € B fe}.
+
+Proof The first statement is true because the basic solution always sets all non-
+basic variables to 0. When we set each nonbasic variable to 0 in a constraint
+
+xi =b->oa
+
+jeN
+
+ 
+
+we have that x; = b; for eachi € B. Since e € B, line 3 of PIVOT gives
+Fe = be = bi /die «
+
+which proves the second statement. Similarly, using line 9 for each i € Be {e},
+we have
+
+i = b; —diebe .
+
+which proves the third statement. .
+
+ 
+
+ 
+
+Xi =
+
+The formal simplex algorithm
+
+We are now ready to formalize the simplex algorithm, which we demonstrated by
+example. That example was a particularly nice one, and we could have had several
+other issues to address:
+
+* How do we determine whether a linear program is feasible?
+
+* What do we do if the linear program is feasible, but the initial basic solution is
+not feasible?
+
+* How do we determine whether a linear program is unbounded?
+* How do we choose the entering and leaving variables?
+

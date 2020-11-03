@@ -1,0 +1,41 @@
+430 Let Us C
+
+ 
+
+The Awkward Newline
+
+We had earlier written a program that counts the total number of
+characters present in a file. If we use that program to count the
+number of characters present in the above poem (stored in the file
+“POEM.TXT”), it would give us the character count as 101. The
+same file if seen in the directory, would be reported to contain 105
+characters.
+
+This discrepancy occurs because when we attempt to write a “\n”
+to the file using fputs( ), fputs( ) converts the \n to \r\n
+combination. Here \r stands for carriage return and \n for linefeed.
+If we read the same line back using fgets( ) the reverse conversion
+happens. Thus when we write the first line of the poem and a “\n”
+using two calls to fputs(), what gets written to the file is
+
+Shining and bright, they are forever,\r\n
+
+When the same line is read back into the array s[ ] using fgets( ),
+the array contains
+
+Shining and bright, they are forever,\n\0
+
+Thus conversion of \n to \r\n during writing and \r\n conversion to
+\n during reading is a feature of the standard library functions and
+not that of the OS. Hence the OS counts \r and \n as separate
+characters. In our poem there are four lines, therefore there is a
+discrepancy of four characters (105 - 101).
+
+Record I/O in Files
+
+So far we have dealt with reading and writing only characters and
+strings. What if we want to read or write numbers from/to file?
+Furthermore, what if we desire to read/write a combination of
+characters, strings and numbers? For this first we would organize
+this dissimilar data together in a structure and then use fprintf( )
+

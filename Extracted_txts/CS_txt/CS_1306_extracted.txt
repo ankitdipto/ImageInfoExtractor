@@ -1,0 +1,130 @@
+574 Let UsC
+
+ 
+
+ 
+
+START Execution
+
+Call InitInstance( )
+I
+Fill WNDCLASSEX structure to define window class
+Call RegisterCallEx( ) to register the window class with OS
+V
+
+Call CreateWindow( ) to create window in memory
+
+V
+
+Call ShowWindow( ) to display window on screen
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+OO
+
++
+
+Pick message from message queue — GetMessage( )
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Process the message — DispatchMessage( )
+
+|
+
+Call Window Procedure
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+Is the message
+WM_DESTRO)
+
+    
+
+Post WM_QUIT —
+PostQuitMessage(
+
+ 
+
+No
+
+ 
+
+¥
+Do default processing of
+message — DefWindowProc( )
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 17.5
+

@@ -1,0 +1,50 @@
+962
+
+Chapter 31 Number-Theoretic Algorithms
+
+then seal the document inside a paper envelope that is opened only by the intended
+recipient.
+
+The RSA cryptosystem
+
+In the RSA public-key cryptosystem, a participant creates his or her public and
+secret keys with the following procedure:
+
+1. Select at random two large prime numbers p and q such that p 4 q. The primes
+p and q might be, say, 1024 bits each.
+
+2. Compute n = pq.
+
+3. Select a small odd integer e that is relatively prime to ¢(m), which, by equa-
+tion (31.20), equals (p — 1)(g — 1).
+
+4. Compute d as the multiplicative inverse of e, modulo ¢(n). (Corollary 31.26
+guarantees that d exists and is uniquely defined. We can use the technique of
+Section 31.4 to compute d, given e and ¢(n).)
+
+5. Publish the pair P = (e,n) as the participant’s RSA public key.
+6. Keep secret the pair S = (d,n) as the participant’s RSA secret key.
+
+For this scheme, the domain JD is the set Z,. To transform a message M asso-
+ciated with a public key P = (e,n), compute
+
+P(M) = M* modn. (31.37)
+To transform a ciphertext C associated with a secret key S = (d,n), compute
+S(C) = C4 modn. (31.38)
+
+These equations apply to both encryption and signatures. To create a signature, the
+signer applies his or her secret key to the message to be signed, rather than to a
+ciphertext. To verify a signature, the public key of the signer is applied to it, rather
+than to a message to be encrypted.
+
+We can implement the public-key and secret-key operations using the procedure
+MODULAR-EXPONENTIATION described in Section 31.6. To analyze the running
+time of these operations, assume that the public key (e,/) and secret key (d,n)
+satisfy lge = O(1), lgd < B,andlgn < B. Then, applying a public key requires
+O(1) modular multiplications and uses O(67) bit operations. Applying a secret
+key requires O(8) modular multiplications, using O(A*) bit operations.
+
+Theorem 31.36 (Correctness of RSA)
+The RSA equations (31.37) and (31.38) define inverse transformations of Z,, satis-
+fying equations (31.35) and (31.36).
+

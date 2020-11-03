@@ -1,0 +1,78 @@
+Section 22.7
+
+Semantic Interpretation 675
+
+ 
+
+ 
+
+S(rel(obj)) — NP(obj) VP(rel)
+VP(rel(obj)) = Verb(rel) NP(obj)
+NP(obj) — Name(obj)
+
+Name(John) — John
+Name(Mary)— Mary
+Verb(Ax AyLoves(x, y)) — loves
+
+ 
+
+ 
+
+Figure 22.15 A grammar that can derive a parse tree and semantic interpretation for "John
+loves Mary" (and three other sentences).
+
+ 
+
+ 
+
+S(Loves(John,Mary))
+
+VP(A.x Loves(x,Mary)
+Lom
+NP(Joln) 4 NP(Mary}
+
+| 4
+
+Name(John) — Verb( kyhaLoves(s,y)) -Name(Mary)
+
+John loves Mary
+
+ 
+
+ 
+
+Figure 22.16 A parse tree with semantic interpretations for the string "John loves Mary”.
+
+ 
+
+ 
+
+ 
+
+The semantics of £,
+
+We had no problem with "John loves Mary,” but things get more complicated when we consider all
+off. Immediately we are faced with all the choices of Chapter 8 for our semantic representation;
+for example, how do we represent time, events, and substances? Our first choice will be to use
+the event calculus notation of Section 8.4. In this notation, the sentence "Every agent smells a
+wumpus” can be expressed as:
+
+Va Agent(a) > Jw Wumpus(w)d Je e & Perceive(a, w, Nose) A During(Now, e)
+
+We could have used a Smell predicate instead of Perceive, but we wanted to be able to emphasize
+the similarities between smelling, hearing, feeling, touching, and seeing.
+
+Our task is to build up our desired representation from the constituents of the sentence. We
+first break the sentence into NP and VP phrases, to which we can assign the following semantics:
+
+Every agent NP(W a Agent(a) > ...)
+
+smells a wampus VP(3 w Wumpus(w)A
+
+de (e e Perceive(... , w, Nose) \ During(Now,e))
+
+Right away there are two problems. First, the semantics of the entire sentence appears to be the
+
+semantics of the NP with the semantics ofthe VP filling in the ... part. That means that we cannot
+form the semantics of the sentence with rel(obj). We could do it with obj(rel),which seems a
+

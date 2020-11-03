@@ -1,0 +1,17 @@
+190 Chapter 7 Quicksort
+
+ 
+
+Chapter notes
+
+The quicksort procedure was invented by Hoare [170]; Hoare’s version appears in
+Problem 7-1. The PARTITION procedure given in Section 7.1 is due to N. Lomuto.
+The analysis in Section 7.4 is due to Avrim Blum. Sedgewick [305] and Bent-
+ley [43] provide a good reference on the details of implementation and how they
+matter.
+
+McIlroy [248] showed how to engineer a “killer adversary” that produces an
+array on which virtually any implementation of quicksort takes @(n7) time. If the
+implementation is randomized, the adversary produces the array after seeing the
+random choices of the quicksort algorithm.
+

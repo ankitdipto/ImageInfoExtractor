@@ -1,0 +1,51 @@
+5.4 Probabilistic analysis and further uses of indicator random variables 139
+
+this number is small (much less than 1), then we expect few streaks of length k to
+occur and the probability that one occurs is low. If k = clgn, for some positive
+constant c, we obtain
+n—clgn+1
+
+Qelen
+n—clgn+l1
+
+ne
+
+1 (clgn—1)/n
+no net
+
+= O(I/n).
+
+E[X]
+
+ 
+
+If c is large, the expected number of streaks of length c Ign is small, and we con-
+clude that they are unlikely to occur. On the other hand, if c = 1/2, then we obtain
+E[X] = @(1/n/2-!) = @(n'/”), and we expect that there are a large number
+of streaks of length (1/2) lg. Therefore, one streak of such a length is likely to
+occur. From these rough estimates alone, we can conclude that the expected length
+of the longest streak is O(1gn).
+
+5.4.4 The on-line hiring problem
+
+Asa final example, we consider a variant of the hiring problem. Suppose now that
+we do not wish to interview all the candidates in order to find the best one. We
+also do not wish to hire and fire as we find better and better applicants. Instead, we
+are willing to settle for a candidate who is close to the best, in exchange for hiring
+exactly once. We must obey one company requirement: after each interview we
+must either immediately offer the position to the applicant or immediately reject the
+applicant. What is the trade-off between minimizing the amount of interviewing
+and maximizing the quality of the candidate hired?
+
+We can model this problem in the following way. After meeting an applicant,
+we are able to give each one a score; let score(i) denote the score we give to the ith
+applicant, and assume that no two applicants receive the same score. After we have
+seen j applicants, we know which of the j has the highest score, but we do not
+know whether any of the remaining n—j applicants will receive a higher score. We
+decide to adopt the strategy of selecting a positive integer k <n, interviewing and
+then rejecting the first k applicants, and hiring the first applicant thereafter who has
+a higher score than all preceding applicants. If it turns out that the best-qualified
+applicant was among the first k interviewed, then we hire the nth applicant. We
+formalize this strategy in the procedure ON-LINE-MAXIMUM(k, 7), which returns
+the index of the candidate we wish to hire.
+

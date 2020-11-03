@@ -1,0 +1,121 @@
+Chapter 10. Logical Reasoning Systems
+
+ 
+
+ 
+
+Animals
+
+Rel(Alive,Animals,T)
+Rel(Flies,Animals,F)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Birds C Animals
+Mammals C Animals
+
+Rel(Flies, Birds,T)
+Rel(Legs,Birds,2)
+Rel(Legs,Mammals,4)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Penguins C Birds
+Cats C Mammals
+Bats C Mammals
+Rel(Flies,Penguins,F}
+Rel(Legs,Bats,2)
+Rel(Flies,Bats,T)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Opus G Penguins
+Bill Cats
+
+Pat 6 Bats
+Name(Opus,"Opus")
+Name(Bill, Bill")
+Name: Name: Bill Friend(Opus, Bill)
+Friend: Friend: Friend (Bill,Opus)
+Name(Pat."Pat")
+
+ 
+
+(a) A frame-based knowledge base (b) Translati
+
+ 
+
+into first-order logic
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 10.7 A frame-based network and a translation of the network into first-order logic.
+Boxed relation names in the network correspond to relations holding for all members of the set
+of objects.
+
+ 
+
+ 
+
+ 
+
+The semantics ofa simple semantic network language can be stated by providing first-order
+logical equivalents for assertions in the network language. We first define a version in which
+exceptions are not allowed. In addition to Sand “ember Jinks. we find that there is a need for
+at least three other kinds of links: one that says a relation R holds between two objects, A and 5;
+one that says R holds between every element of the class 4 and the object B; and one that says
+that R holds between every element of A and some element of B. The five standard link types
+are summarized in Figure 10,8,5 Notice that a theorem prover or logic programming language
+could take the logical translations of the links and do inheritance by ordinary logical inference. A
+semantic network system uses uses special-purpose algorithms for following links, and therefore
+can be faster than general logical inference
+
+8 Because assertions ofthe form L&] B are so common, we use the abbreviation Re/(R.4. B) as syntactic sugar in the
+logical translation (Figure 10.7)
+
+ 
+
+ 
+

@@ -1,0 +1,49 @@
+33.4 Finding the closest pair of points 1041
+
+1. Create an array Y’, which is the array Y with all points not in the 25-wide
+vertical strip removed. The array Y’ is sorted by y-coordinate, just as Y is.
+
+2. For each point p in the array Y’, try to find points in Y’ that are within 5
+units of p. As we shall see shortly, only the 7 points in Y’ that follow p need
+be considered. Compute the distance from p to each of these 7 points, and
+keep track of the closest-pair distance 6’ found over all pairs of points in Y’.
+
+3. If 5’ < 6, then the vertical strip does indeed contain a closer pair than the
+recursive calls found. Return this pair and its distance 5’. Otherwise, retum
+the closest pair and its distance 5 found by the recursive calls.
+
+The above description omits some implementation details that are necessary to
+achieve the O(n lg m) running time. After proving the correctness of the algorithm,
+we shall show how to implement the algorithm to achieve the desired time bound.
+
+Correctness
+
+The correctness of this closest-pair algorithm is obvious, except for two aspects.
+First, by bottoming out the recursion when |P| < 3, we ensure that we never try to
+solve a subproblem consisting of only one point. The second aspect is that we need
+only check the 7 points following each point p in array Y’; we shall now prove this
+property.
+
+Suppose that at some level of the recursion, the closest pair of points is pz € Pr,
+and pr € Pr. Thus, the distance 5’ between p; and pa is strictly less than 6.
+Point pz must be on or to the left of line / and less than 6 units away. Similarly, pz
+is on or to the right of / and less than 6 units away. Moreover, p; and pp are
+within 5 units of each other vertically. Thus, as Figure 33.11(a) shows, py and pr
+are within a 6 x 26 rectangle centered at line /. (There may be other points within
+this rectangle as well.)
+
+We next show that at most 8 points of P can reside within this 6 x 26 rectangle.
+Consider the 6 x 5 square forming the left half of this rectangle. Since all points
+within P;, are at least 6 units apart, at most 4 points can reside within this square;
+Figure 33.11(b) shows how. Similarly, at most 4 points in Pr can reside within
+the 5 x 5 square forming the right half of the rectangle. Thus, at most 8 points of P
+can reside within the 5 x 26 rectangle. (Note that since points on line / may be in
+either Py, or Pr, there may be up to 4 points on /. This limit is achieved if there are
+two pairs of coincident points such that each pair consists of one point from P;, and
+one point from Pa, one pair is at the intersection of / and the top of the rectangle,
+and the other pair is where / intersects the bottom of the rectangle.)
+
+Having shown that at most 8 points of P can reside within the rectangle, we
+can easily see why we need to check only the 7 points following each point in the
+array Y’. Still assuming that the closest pair is pz and pp, let us assume without
+

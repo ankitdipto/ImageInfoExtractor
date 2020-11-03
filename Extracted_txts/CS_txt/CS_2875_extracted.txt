@@ -1,0 +1,47 @@
+Problems for Chapter 15 409
+
+a restricted language. Each path in the graph starting from a distinguished ver-
+tex Vo € V corresponds to a possible sequence of sounds produced by the model.
+We define the label of a directed path to be the concatenation of the labels of the
+edges on that path.
+
+a. Describe an efficient algorithm that, given an edge-labeled graph G with dis-
+tinguished vertex Vp and a sequence s = (6), 03..... ox) of sounds from &,
+returns a path in G that begins at vp and has s as its label, if any such path exists.
+Otherwise, the algorithm should return NO-SUCH-PATH. Analyze the running
+time of your algorithm. (Hint: You may find concepts from Chapter 22 useful.)
+
+Now, suppose that every edge (u,v) € E has an associated nonnegative proba-
+bility p(u, v) of traversing the edge (u,v) from vertex u and thus producing the
+corresponding sound. The sum of the probabilities of the edges leaving any vertex
+equals 1. The probability of a path is defined to be the product of the probabil-
+ities of its edges. We can view the probability of a path beginning at vo as the
+probability that a “random walk” beginning at v9 will follow the specified path,
+where we randomly choose which edge to take leaving a vertex u according to the
+probabilities of the available edges leaving u.
+
+b. Extend your answer to part (a) so that if a path is returned, it is a most prob-
+able path starting at Vp and having label s. Analyze the running time of your
+algorithm.
+
+15-8 Image compression by seam carving
+
+We are given a color picture consisting of anm xn array A[1..m,1..n] of pixels,
+where each pixel specifies a triple of red, green, and blue (RGB) intensities. Sup-
+pose that we wish to compress this picture slightly. Specifically, we wish to remove
+one pixel from each of the m rows, so that the whole picture becomes one pixel
+narrower. To avoid disturbing visual effects, however, we require that the pixels
+removed in two adjacent rows be in the same or adjacent columns; the pixels re-
+moved form a “seam” from the top row to the bottom row where successive pixels
+in the seam are adjacent vertically or diagonally.
+
+a. Show that the number of such possible seams grows at least exponentially in m,
+assuming that n > 1.
+
+b. Suppose now that along with each pixel A[i, j], we have calculated a real-
+valued disruption measure d[i, j], indicating how disruptive it would be to
+remove pixel A[i, j]. Intuitively, the lower a pixel’s disruption measure, the
+more similar the pixel is to its neighbors. Suppose further that we define the
+disruption measure of a seam to be the sum of the disruption measures of its
+pixels.
+

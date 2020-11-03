@@ -1,0 +1,54 @@
+Chapter 25. Robotics
+
+ 
+
+GENERALIZED
+CONFIGURATION
+‘SPACE
+
+ASSEMBLY
+PLANNING.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 2511 (a) A workspace with a rotary two-link arm. The goal is to move from configu-
+ration c| to configuration C2. (b) The corresponding configuration space, showing the free space
+and a path that achieves the goal.
+
+ 
+
+ 
+
+ 
+
+Generalized configuration space
+
+The term generalized configuration space has been applied to systems where the state of
+other objects is included as part of the configuration. The other objects may be movable, and
+their shapes may vary. Shape variation occurs in objects such as scissors or staplers that have
+mechanical joints, and in deformable objects like string and paper. Generalized configuration
+spaces are especially useful in understanding tasks such as assembly planning in which the robot
+must move a set of objects into some desired arrangement.
+
+Let £ denote the space of all possible configurations of all possible objects in the world,
+other than the robot. Ifa given configuration can be defined by a finite set of parameters
+Q),...,@m, then £ will be an m-dimensional space. This will not work for objects like string and
+paper, whose shapes are not describable with finitely many parameters. These objects represent
+aconsiderable challenge for geometric modelling at this stage. But we can use £ as a conceptual
+tool even in those cases.
+
+Now consider W = C x £. W is the space of all possible configurations of the world, both
+robot and obstacles. In the two-link robot C described earlier, there was no variation in the object
+shapes, so £ was a single point and W and C were equivalent
+
+If all of the objects in the environment are robots under central control, then the situation
+is really the same as before. In this setting, it is best to cluster all the degrees of freedom of the
+robots together to create a single super-robot. The generalized configuration space is the space of
+all joint angles for all robots. Ilegal configurations now include those where two robots overlap
+

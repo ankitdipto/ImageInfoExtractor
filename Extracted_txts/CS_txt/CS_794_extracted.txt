@@ -1,0 +1,40 @@
+Chapter 4: The Case Control Structure 147
+
+ 
+
+}
+And here are two sample runs of the program...
+
+Enter the number of goals scored against India 3
+To err is human!
+
+Enter the number of goals scored against India 7
+About time soccer players learnt C
+
+and said goodbye! adieu! to soccer
+
+A few remarks about the program would make the things clearer.
+
+— Ifthe condition is satisfied the goto statement transfers control
+to the label ‘sos’, causing printf() following sos to be
+executed.
+
+— The label can be on a separate line or on the same line as the
+statement following it, as in,
+
+sos : printf ("To err is human!" ) ;
+— Any number of gotos can take the control to the same label.
+
+— The exit() function is a standard library function which
+terminates the execution of the program. It is necessary to use
+this function since we don't want the statement
+
+printf ("To err is human!" )
+
+to get executed after execution of the else block.
+
+— The only programming situation in favour of using goto is
+when we want to take the control out of the loop that is
+contained in several other loops. The following program
+illustrates this.
+

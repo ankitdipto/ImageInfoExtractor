@@ -1,0 +1,67 @@
+Chapter 4. Informed Search Methods
+
+ 
+
+ 
+
+    
+ 
+  
+    
+
+  
+
+Arad, @
+h=366
+Sibiu@ ~ Timisoara ® Zerind
+‘h=253 h=374
+Arad
+Timisoara @ Zerind
+h=329h=374
+Arad @ Oradea @ = Rimnicin@
+
+  
+  
+
+1=366 h=178 b=380 h=193
+
+  
+   
+
+Sibiu Zerind
+
+n=329-h=374
+
+ 
+
+ 
+
+Figure 43 Stages in a greedy search for Bucharest, using the straight-line distance to Bucharest
+as the heuristic function hsrp. Nodes are labelled with their h-values.
+
+ 
+
+ 
+
+ 
+
+Greedy search resembles depth-first search in the way it prefers to follow a single path all
+the way to the goal, but will back up when it hits a dead end. It suffers from the same defects
+as depth-first search—it is not optimal, and it is incomplete because it can start down an infinite
+path and never return to try other possibilities. The worst-case time complexity for greedy search
+is O(b"), where m is the maximum depth of the search space. Because greedy search retains
+all nodes in memory, its space complexity is the same as its time complexity. With a good
+heuristic function, the space and time complexity can be reduced substantially. The amount of
+the reduction depends on the particular problem and quality of the /: function.
+
+Minimizing the total path cost: A* search
+
+Greedy search minimizes the estimated cost to the goal, 4(), and thereby cuts the search cost
+considerably. Unfortunately, it is neither optimal nor complete. Uniform-cost search, on the
+other hand, minimizes the cost of the path so far, g(x); it is optimal and complete, but can be
+very inefficient. It would be nice if we could combine these two strategies to get the advantages
+of both. Fortunately, we can do exactly that, combining the two evaluation functions simply by
+summing them:
+
+S(n) = gn) + h(n).
+

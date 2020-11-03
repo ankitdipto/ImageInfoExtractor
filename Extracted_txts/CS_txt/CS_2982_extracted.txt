@@ -1,0 +1,52 @@
+18.2 Basic operations on B-trees 497
+
+correct one to descend to. (Note that there is no need for a DISK-READ(x.c;) after
+line 16 increments 7, since the recursion will descend in this case to a child that
+was just created by B-TREE-SPLIT-CHILD.) The net effect of lines 13-16 is thus
+to guarantee that the procedure never recurses to a full node. Line 17 then recurses
+to insert k into the appropriate subtree. Figure 18.7 illustrates the various cases of
+inserting into a B-tree.
+
+For a B-tree of height , B-TREE-INSERT performs O(/) disk accesses, since
+only O(1) DisK-READ and DISK-WRITE operations occur between calls to
+B-TREE-INSERT-NONFULL. The total CPU time used is O(th) = O(¢ log, 1).
+Since B-TREE-INSERT-NONFULL is tail-recursive, we can alternatively imple-
+ment it as a while loop, thereby demonstrating that the number of pages that need
+to be in main memory at any time is O(1).
+
+Exercises
+
+18.2-1
+
+Show the results of inserting the keys
+
+F,S,Q,K,C,L,H,.T.V.W.M, RN, P,A,B.X,¥,D,Z,E
+
+in order into an empty B-tree with minimum degree 2. Draw only the configura-
+
+tions of the tree just before some node must split, and also draw the final configu-
+ration.
+
+18.2-2
+
+Explain under what circumstances, if any, redundant DISK-READ or DISK-WRITE
+operations occur during the course of executing a call to B-TREE-INSERT. (A
+redundant DISK-READ is a DIsK-READ for a page that is already in memory.
+A redundant DISK-WRITE writes to disk a page of information that is identical to
+what is already stored there.)
+
+18.2-3
+Explain how to find the minimum key stored in a B-tree and how to find the prede-
+cessor of a given key stored in a B-tree.
+
+182-4 x
+Suppose that we insert the keys {1,2,.... n} into an empty B-tree with minimum
+degree 2. How many nodes does the final B-tree have?
+
+18.2-5
+
+Since leaf nodes require no pointers to children, they could conceivably use a dif-
+ferent (larger) ¢ value than internal nodes for the same disk page size. Show how
+to modify the procedures for creating and inserting into a B-tree to handle this
+variation.
+

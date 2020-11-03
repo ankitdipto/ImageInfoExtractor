@@ -1,0 +1,49 @@
+16.4 Matroids and greedy methods 437
+
+16.3-9
+
+Show that no compression scheme can expect to compress a file of randomly cho-
+sen 8-bit characters by even a single bit. (Hint: Compare the number of possible
+files with the number of possible encoded files.)
+
+ 
+
+* 16.4 Matroids and greedy methods
+
+In this section, we sketch a beautiful theory about greedy algorithms. This theory
+describes many situations in which the greedy method yields optimal solutions. It
+involves combinatorial structures known as “matroids.” Although this theory does
+not cover all cases for which a greedy method applies (for example, it does not
+cover the activity-selection problem of Section 16.1 or the Huffman-coding prob-
+lem of Section 16.3), it does cover many cases of practical interest. Furthermore,
+this theory has been extended to cover many applications; see the notes at the end
+of this chapter for references.
+
+Matroids
+A matroid is an ordered pair M = (S, I) satisfying the following conditions.
+
+1. S is a finite set.
+
+2. I is a nonempty family of subsets of S, called the independent subsets of S,
+such that if B € I and A C B, then A € I. We say that I is hereditary if it
+satisfies this property. Note that the empty set % is necessarily a member of I.
+
+3. If A € I, B € I, and |A| < |B], then there exists some element x € B— A
+such that A U {x} € I. We say that M satisfies the exchange property.
+
+The word “matroid” is due to Hassler Whitney. He was studying matric ma-
+troids, in which the elements of S are the rows of a given matrix and a set of rows is
+independent if they are linearly independent in the usual sense. As Exercise 16.4-2
+asks you to show, this structure defines a matroid.
+
+As another example of matroids, consider the graphic matroid Mg = (Sg. Ig)
+defined in terms of a given undirected graph G = (V, E) as follows:
+
+* The set Sg is defined to be E, the set of edges of G.
+
++ If A isasubset of E, then A € Ig if and only if A is acyclic. That is, a set of
+edges A is independent if and only if the subgraph G4 = (V, A) forms a forest.
+
+The graphic matroid Mg is closely related to the minimum-spanning-tree problem,
+which Chapter 23 covers in detail.
+

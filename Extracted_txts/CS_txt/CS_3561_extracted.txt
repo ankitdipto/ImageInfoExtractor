@@ -1,0 +1,50 @@
+534
+
+Chapter 20 van Emde Boas Trees
+
+* To find the successor of x, start at the leaf indexed by x, and head up toward the
+root until we enter a node from the left and this node has a 1 in its right child z.
+Then head down through node z, always taking the leftmost node containing
+a | (i.e., find the minimum value in the subtree rooted at the right child z).
+
+* To find the predecessor of x, start at the leaf indexed by x, and head up toward
+the root until we enter a node from the right and this node has a | in its left
+child z. Then head down through node z, always taking the rightmost node
+containing a | (i.e., find the maximum value in the subtree rooted at the left
+child z).
+
+Figure 20.1 shows the path taken to find the predecessor, 7, of the value 14.
+
+We also augment the INSERT and DELETE operations appropriately. When in-
+serting a value, we store a | in each node on the simple path from the appropriate
+leaf up to the root. When deleting a value, we go from the appropriate leaf up to
+the root, recomputing the bit in each internal node on the path as the logical-or of
+its two children.
+
+Since the height of the tree is lg and each of the above operations makes at
+most one pass up the tree and at most one pass down, each operation takes O(Ig u)
+time in the worst case.
+
+This approach is only marginally better than just using a red-black tree. We can
+still perform the MEMBER operation in O(1) time, whereas searching a red-black
+tree takes O(lg) time. Then again, if the number 7 of elements stored is much
+smaller than the size u of the universe, a red-black tree would be faster for all the
+other operations.
+
+Superimposing a tree of constant height
+
+What happens if we superimpose a tree with greater degree? Let us assume that
+the size of the universe is u = 27 for some integer k, so that /i is an integer.
+Instead of superimposing a binary tree on top of the bit vector, we superimpose a
+tree of degree \/w. Figure 20.2(a) shows such a tree for the same bit vector as in
+Figure 20.1. The height of the resulting tree is always 2.
+
+As before, each internal node stores the logical-or of the bits within its sub-
+tree, so that the ,/w internal nodes at depth 1 summarize each group of /w val-
+ues. As Figure 20.2(b) demonstrates, we can think of these nodes as an array
+summary[0.../u@ — 1], where summary[i] contains a 1 if and only if the subar-
+ray Afi /u..(i + 1),/u — 1] contains a 1. We call this /a-bit subarray of A
+the ith cluster. For a given value of x, the bit A[x] appears in cluster num-
+ber |x//wJ. Now INSERT becomes an O(1)-time operation: to insert x, set
+both A[x] and summary[|x/./i |] to 1. We can use the swnmary array to perform
+

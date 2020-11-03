@@ -1,0 +1,57 @@
+340) CHAPTER TEN Computer Arithmetic
+
+ 
+
+ 
+
+Subtract
+Minuend in AC
+Subtrahend in BR ‘Addend in BR
+1
+ACCAC+ BR +1 ACHAC + BR
+Vecoverflow Ve-overflow
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 10-4 Algorithm for adding and subtracting numbers in signed-2s
+complement representation.
+
+Comparing this algorithm with its signed-magnitude counterpart, we
+note that it is much simpler to add and subtract numbers if negative numbers
+are maintained insigned-2’s complement representation. For this reason most
+computersadopt thisrepresentation over the more familiar signed-magnitude.
+
+10-3 Multiplication Algorithms
+
+‘Multiplication of two fixed-pointbinary numbers in signed-magnitude repre-
+sentation is done with paper and pencil by a process of successive shift and
+add operations. This process is best illustrated with a numerical example.
+
+23 10111 Multiplicand
+19 x 10011 Multiplier
+
+10111
+
+10111
+
+00000 +
+
+00000
+
+10111
+437 110110101 Product
+
+The process consists of looking at successive bits of the multiplier, least signif-
+icant bit first. If the multiplier bit is a 1, the multiplicand is copied down;
+otherwise, zeros are copied down. The numbers copied down in successive
+lines are shifted one position to the left from the previous number. Finally, the
+numbers are added and their sum forms the product.
+

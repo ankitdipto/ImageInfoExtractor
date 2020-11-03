@@ -1,0 +1,58 @@
+492 Let Us C
+
+ 
+
+ 
+
+15 14 13 12 1110 9 8 7 6 5 4 3 2 1 «0
+
+ 
+
+ 
+
+ 
+
+0; 0 oO} 1} 1] O} 1] Of} Of 1
+. year +j— month —++—— day ——>|
+Left shifting by 7 gives,
+15 14 13 12 11 10 9 8 7 6 5 4 3 2 «21
+O; OJ 1] 1] Of 1] OF OF 1] OF OF OF 1] OF 1] 0
+
+ 
+
+‘“— month —|——_ day —
+
+Right shifting by 12 gives,
+15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 «0
+0} O| O} Of O| Of] Of Of OF OF OF OF OF OF IF 1
+
+JH month —
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 14.6
+
+Finally, for obtaining the day, left shift date by 11 and then right
+shift the result by 11. Left shiftmg by 11 gives
+0100100000000000. Right shiftng by ll gives
+0000000000001001.
+
+This entire logic can be put into a program as shown below:
+
+!" Decoding date field in directory entry using bitwise operators */
+main()
+{
+
+unsigned int d = 9, m = 3, y = 1990, year, month, day, date ;
+
+date = (y- 1980) *512+m*32+d;
+printf ("\nDate = %u", date ) ;
+

@@ -1,0 +1,41 @@
+Chapter 10: Structures 365
+
+ 
+
+be single character long. Let us begin with a program that uses
+arrays.
+
+main()
+
+{
+char name{3] ;
+float price[3] ;
+int pages[3}, i;
+
+printf ( "\nEnter names, prices and no. of pages of 3 books\n") ;
+
+for (i=0;i<=2; i++)
+scant ("%c %f %d", &nameli], &priceli], &pagesfi] );
+
+printf ( "\nAnd this is what you enteredin" ) ;
+for (i=0;i<=2; i++)
+printf ("%c %f %d\n", nameli], pricefi], pages|i] );
+}
+
+And here is the sample run...
+
+Enter names, prices and no. of pages of 3 books
+A 100.00 354
+C 256.50 682
+F 233.70 512
+
+And this is what you entered
+A 100.000000 354
+C 256.500000 682
+F 233.700000 512
+
+This approach no doubt allows you to store names, prices and
+number of pages. But as you must have realized, it is an unwieldy
+approach that obscures the fact that you are dealing with a group
+of characteristics related to a single entity—the book.
+

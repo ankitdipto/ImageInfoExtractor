@@ -1,0 +1,46 @@
+16.4 Matroids and greedy methods 41
+
+We now prove that GREEDY returns an optimal subset.
+
+Lemma 16.7 (Matroids exhibit the greedy-choice property)
+
+Suppose that M = (S, I) is a weighted matroid with weight function w and that S
+is sorted into monotonically decreasing order by weight. Let x be the first element
+of S such that {x} is independent, if any such x exists. If x exists, then there exists
+an optimal subset A of S that contains x.
+
+Proof If no such x exists, then the only independent subset is the empty set and
+the lemma is vacuously true. Otherwise, let B be any nonempty optimal subset.
+Assume that x ¢ B; otherwise, letting A = B gives an optimal subset of S that
+contains x.
+
+No element of B has weight greater than w(x). To see why, observe that y € B
+implies that {y} is independent, since B € I and I is hereditary. Our choice of x
+therefore ensures that w(x) > w(y) for any y € B.
+
+Construct the set A as follows. Begin with A = {x}. By the choice of x, set A is
+independent. Using the exchange property, repeatedly find a new element of B that
+we can add to A until |A| = |B], while preserving the independence of A. At that
+point, A and B are the same except that A has x and B has some other element y.
+That is, A = B —{y} U {x} for some y € B, and so
+
+w(A) = w(B)—w(y) + wx)
+> w(B).
+Because set B is optimal, set A, which contains x, must also be optimal. :
+
+We next show that if an element is not an option initially, then it cannot be an
+option later.
+
+Lemma 16.8
+Let M = (S, I) be any matroid. If x is an element of S that is an extension of
+some independent subset A of S, then x is also an extension of 9.
+
+Proof Since x is an extension of A, we have that A U {x} is independent. Since I
+is hereditary, {x} must be independent. Thus, x is an extension of 9. .
+
+Corollary 16.9
+Let M = (S, I) be any matroid. If x is an element of S such that x is not an
+extension of @, then x is not an extension of any independent subset A of S.
+
+Proof This corollary is simply the contrapositive of Lemma 16.8. .
+

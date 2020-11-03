@@ -1,0 +1,75 @@
+Section 134.
+
+Discussion and Extensions 407
+
+ 
+
+ 
+
+‘Ontabie(A)
+‘On(B.E)
+
+   
+
+- = 00(0.0)
+a init;
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 13.16 After Move(C,D)is executed and dropped from the plan, the remaining open
+condition On(C,D) is resolved by adding a causal link from the new START step. The plan is now
+completed.
+
+ 
+
+ 
+
+ 
+
+13.4 DISCUSSION AND ExTENSIONS
+
+We have arrived at an agent design that addresses many of the issues arising in real domains:
+
+The agent can use explicit domain descriptions and goals to control its behavior.
+
+By using partial-order planning, it can take advantage of problem decomposition to deal
+with complex domains without necessarily suffering exponential complexity.
+
+By using the techniques described in Chapter 12, it can handle domains involving condi-
+tional effects, universally quantified effects, object creation and deletion, and ramifications.
+It can also use "canned plans" to achieve subgoals.
+
+Itcan deal with errors in its domain description, and, by incorporating conditional planning,
+it can plan to obtain information when more is needed.
+
+It can deal with a dynamically changing world by incrementally fixing its plan as it detects
+errors and unfulfilled preconditions
+
+Clearly, this is progress. It is, however, a good idea to examine each advance in capabilities and
+try to see where it breaks down.
+
+Comparing conditional planning and replanning
+
+Looking at conditional planning, we see that almost all actions in the real world have a variety of
+possible outcomes besides the expected outcome. The number of possible conditions that must
+be planned for grows exponentially with the number of steps in the plan. Given that only one set
+of conditions will actually occur, this seems rather wasteful as well as impractical. Many of the
+events being planned for have only an infinitesimal chance of occurring.
+
+Looking at replanning, we see that the planner is basically assuming no action failures, and
+then fixing problems as they arise during execution. This too has its drawbacks. The planner may
+produce very "fragile" plans, which are very hard to fix if anything goes wrong. For example,
+the entire existence of "spare tires" is a result of conditional planning rather than replanning. If
+the agent does not plan for a puncture, then it will not see the need for a spare tire. Unfortunately,
+without a spare tire, even the most determined replanning agent might be faced with a long walk.
+
+ 
+

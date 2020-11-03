@@ -1,0 +1,44 @@
+34.3 NP-completeness and reducibility 1077
+
+system.) The circuit C consists of at most ¢ = O(n’) copies of M, and hence it
+has size polynomial in n. The reduction algorithm F can construct C from x in
+polynomial time, since each step of the construction takes polynomial time. .
+
+The language CIRCUIT-SAT is therefore at least as hard as any language in NP,
+and since it belongs to NP, it is NP-complete.
+
+Theorem 34.7
+The circuit-satisfiability problem is NP-complete.
+
+Proof Immediate from Lemmas 34.5 and 34.6 and from the definition of NP-
+completeness. .
+
+Exercises
+
+343-1
+Verify that the circuit in Figure 34.8(b) is unsatisfiable.
+
+34,3-2
+Show that the <p relation is a transitive relation on languages. That is, show that if
+Li Sp Lo and Lo <p L3, then Ly <p Ls.
+
+34,3-3 _ _
+Prove that L <p L if and only if L <p L.
+
+34,3-4
+Show that we could have used a satisfying assignment as a certificate in an alter-
+native proof of Lemma 34.5. Which certificate makes for an easier proof?
+
+34,3-5
+
+The proof of Lemma 34.6 assumes that the working storage for algorithm A occu-
+pies a contiguous region of polynomial size. Where in the proof do we exploit this
+assumption? Argue that this assumption does not involve any loss of generality.
+
+34.3-6
+
+A language L is complete for a language class C with respect to polynomial-time
+reductions if L € C and L’ <p L for all L’ € C. Show that @ and {0, 1}* are the
+only languages in P that are not complete for P with respect to polynomial-time
+reductions.
+

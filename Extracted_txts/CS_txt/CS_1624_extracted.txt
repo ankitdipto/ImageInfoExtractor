@@ -1,0 +1,101 @@
+Section 8.5.
+
+The Grocery Shopping World 251
+
+ 
+
+ 
+
+ 
+
+[1,1], 087, (Orange, With(White,Red), Bob
+| (021,092, [Re.natnui), Bob
+
+{1.919}, 07, [Orange], Round
+{1.8.1.3}, 09, White With(Biack), Rectangle,
+‘Words\(Oranges $75.)
+
+[1.9.1.4], 08, Orange], Round
+
+{171.7 .07, [Orange], Round
+
+ 
+
+ 
+
+ 
+
+[13,121 07, Red, Round
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Fruit
+a 5 114,13}, .06, [Red], Round
+3
+(a) Zoomed Out (b) Zoomed In at [3,6]
+
+ 
+
+ 
+
+Figure 89 The percepts for the shopping agent at [4,5]. (a) Camera zoomed out. (b) Camera
+zoomed in at [3,6]. Each percept is a series of object descriptions (one per line). Each description
+lists a relative position, a size, a color summary, a shape, and a character string (if any).
+
+ 
+
+ 
+
+ 
+
+form composite objects known as meals, and that an object can be recognized by its components.
+Our agent will be called upon to make two classes ofinference. First, from a list of parts it should
+induce the composite object that these parts make up. This is made difficult because the parts
+(the items on the shopping list) may make up several composite objects, and because not all the
+parts will be listed (some are already at home in the cupboard). Second, the agent should be able
+to decide how to replace an unavailable part to complete the intended composite object. This can
+be done at two levels: replacing one ingredient with another to complete a dish, and if that is
+not possible, replacing the whole dish with another to complete the meal. Some of the necessary
+knowledge will involve individual dishes, and some of it will be at a general level that will also
+be usefil for, say, replacing a faulty muffler in a car.
+
+The first step is to convert a shopping list—a list of words—into a parts list—a list of
+categories. A dictionary is used to associate words with their referents:
+
+Referent(“tomatoes”, Tomatoes)
+Referent(onions”, Onions)
+
+The next step is to describe objects in terms of their required and optional parts. If we
+wanted to actually prepare a dish, we would have to know more about the relations between the
+parts. But to do shopping, all we need is a list of the parts. We define RequiredParts so that
+RequiredParts({ Lettuce,Dressing}, GreenSalads) means that every object that is an element of
+GreenSalads has one RequiredPart that is an element of Lettuce, and another that is an element
+of Dressing. For lettuce to be a required part of green salads means that every element of green
+salads has an element of lettuce as one of its parts. Similar reasoning holds for OptionalParts,
+except that only some elements of a category have to manifest the optional parts.
+
+Vr,w RequiredParts(r,w) > Vp pé€r => RequiredPart(p,w)
+Vo,w OptionalParts(o,w) => Vp p £0 => OptionalPart(p,w)
+Vr, w RequiredPart(r,w) O Ve c€w = Ji 164A PartOf(i,c)
+Vo,w OptionalPart(o,wyO Ac c€w = Fi !€oA PartOffo, c)
+

@@ -1,0 +1,36 @@
+ 
+
+7 Quicksort
+
+The quicksort algorithm has a worst-case running time of @(n?) on an input array
+of n numbers. Despite this slow worst-case running time, quicksort is often the best
+practical choice for sorting because it is remarkably efficient on the average: its
+expected running time is @(7 1g 7), and the constant factors hidden in the O(n Ign)
+notation are quite small. It also has the advantage of sorting in place (see page 17),
+and it works well even in virtual-memory environments.
+
+Section 7.1 describes the algorithm and an important subroutine used by quick-
+sort for partitioning. Because the behavior of quicksort is complex, we start with
+an intuitive discussion of its performance in Section 7.2 and postpone its precise
+analysis to the end of the chapter. Section 7.3 presents a version of quicksort that
+uses random sampling. This algorithm has a good expected running time, and no
+particular input elicits its worst-case behavior. Section 7.4 analyzes the random-
+ized algorithm, showing that it runs in ©(n) time in the worst case and, assuming
+distinct elements, in expected O(n lg n) time.
+
+ 
+
+7.1 Description of quicksort
+
+Quicksort, like merge sort, applies the divide-and-conquer paradigm introduced
+in Section 2.3.1. Here is the three-step divide-and-conquer process for sorting a
+typical subarray A[p..r]:
+
+Divide: Partition (rearrange) the array A[p ..1] into two (possibly empty) subar-
+rays A[p..q—1] and A[q + 1..r] such that each element of A[p .. ¢ — 1] is
+less than or equal to A[q], which is, in turn, less than or equal to each element
+of A[g + 1..r]. Compute the index ¢ as part of this partitioning procedure.
+
+Conquer: Sort the two subarrays A[p..q—1] and A[g +1..r] by recursive calls
+to quicksort.
+

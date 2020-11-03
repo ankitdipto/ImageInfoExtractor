@@ -1,0 +1,47 @@
+5.4 Probabilistic analysis and further uses of indicator random variables 141
+
+Pr{S;} = Pr {By 1 O;} = Pr{Bi}Pr{O}} .
+
+The probability Pr{B;} is clearly 1/n, since the maximum is equally likely to
+be in any one of the 7 positions. For event O; to occur, the maximum value in
+positions | through i—1, which is equally likely to be in any of these i—1 positions,
+must be in one of the first k positions. Consequently, Pr{O;} = k/(i — 1) and
+Pr {S;} = k/(n(i — 1)). Using equation (5.12), we have
+
+n
+
+Pr{S} = > Pr{Si}
+
+isk+1
+
+ 
+
+We approximate by integrals to bound this summation from above and below. By
+the inequalities (A.12), we have
+
+n nl nl
+1 1
+—dx< -< [ —dx.
+
+[ x » i ka x
+Evaluating these definite integrals gives us the bounds
+
+k
+Kann —Ink) < Pr{S} < —(In(n — 1) —In(k —1)),
+
+n n
+
+which provide a rather tight bound for Pr {S}. Because we wish to maximize our
+probability of success, let us focus on choosing the value of k that maximizes the
+lower bound on Pr {5}. (Besides, the lower-bound expression is easier to maximize
+than the upper-bound expression.) Differentiating the expression (k/n)(Inn—Ink)
+with respect to k, we obtain
+
+dann —Ink—-1).
+n
+
+Setting this derivative equal to 0, we see that we maximize the lower bound on the
+probability when Ink = Inn —1 = In(n/e) or, equivalently, when k = n/e. Thus,
+if we implement our strategy with k = n/e, we succeed in hiring our best-qualified
+applicant with probability at least 1/e.
+

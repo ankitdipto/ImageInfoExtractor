@@ -1,0 +1,49 @@
+794
+
+Chapter 27 Multithreaded Algorithms
+
+this divide-and-conquer strategy using nested parallelism. Unlike the SQUARE-
+MATRIX-MULTIPLY-RECURSIVE procedure on which it is based, P-MATRIX-
+MULTIPLY-RECURSIVE takes the output matrix as a parameter to avoid allocating
+matrices unnecessarily.
+
+P-MATRIX-MULTIPLY-RECURSIVE(C, A, B)
+
+1 n= A.rows
+
+ 
+
+2 ifn==
+3 Cu = ayby
+4 else let T be anewn xn matrix
+5 partition A, B, C, and T into n/2 x n/2 submatrices
+Ani. Aiz, Azi, A22; Bir, Biz. Bar. Boos Cir, Cras Car. Cr2i
+and T\;, 7,2. To1. Tx2; respectively
+6 spawn P-MATRIX-MULTIPLY-RECURSIVE(Cj;, Aj;. Bi)
+7 spawn P-MATRIX-MULTIPLY-RECURSIVE (Cj, Aj. Biz)
+8 spawn P-MATRIX-MULTIPLY-RECURSIVE(C};, Az), Bi)
+9 spawn P-MATRIX-MULTIPLY-RECURSIVE (C22. Ao1. Biz)
+10 spawn P-MATRIX-MULTIPLY-RECURSIVE(7)1. A12. Bai)
+ll spawn P-MATRIX-MULTIPLY-RECURSIVE(7}2. A12. Boz)
+12 spawn P-MATRIX-MULTIPLY-RECURSIVE(7)1. Az2. Boi)
+13 P-MATRIX-MULTIPLY-RECURSIVE (722, Ao2, Bo2)
+14 syne
+15 parallel for i = 1 ton
+16 parallel for j = 1 ton
+17 Ci = Ci + Oj
+
+Line 3 handles the base case, where we are multiplying 1 x 1 matrices. We handle
+the recursive case in lines 4-17. We allocate a temporary matrix T in line 4, and
+line 5 partitions each of the matrices A, B, C, and T into n/2 x n/2 submatrices.
+(As with SQUARE-MATRIX-MULTIPLY-RECURSIVE on page 77, we gloss over
+the minor issue of how to use index calculations to represent submatrix sections
+of a matrix.) The recursive call in line 6 sets the submatrix C,; to the submatrix
+product A;; By;, so that C,; equals the first of the two terms that form its sum in
+equation (27.6). Similarly, lines 7-9 set Cj2, C21, and C22 to the first of the two
+terms that equal their sums in equation (27.6). Line 10 sets the submatrix 7); to
+the submatrix product A;>B 1, so that T,; equals the second of the two terms that
+form C;,’s sum. Lines 11-13 set T,, T>,, and T>, to the second of the two terms
+that form the sums of Cj», C2, and C2», respectively. The first seven recursive
+calls are spawned, and the last one runs in the main strand. The syne statement in
+line 14 ensures that all the submatrix products in lines 6-13 have been computed,
+

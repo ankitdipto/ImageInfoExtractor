@@ -1,0 +1,49 @@
+264
+
+CHAPTER EIGHT Central Processing Unit
+
+index register is a special CPU register that contains an index value. The
+address field of the instruction defines the beginning address of a data array
+in memory. Each operand in the array is stored in memory relative to the
+beginning address. The distance between the beginning address and the
+address of the operand is the index value stored in the index register. Any
+operand in the array can be accessed with the same instruction provided that
+the index register contains the correct index value. The index register can be
+incremented to facilitate access to consecutive operands. Note that if an index-
+type instruction does not include an address field in its format, the instruction
+converts to the register indirect mode of operation.
+
+Some computersdedicate one CPU register to function solely as an index
+register. This register is involved implicitly when the index-mode instruction
+is used. In computers with many processor registers, any one of the CPU
+registers can contain the index number. In such a case the register must be
+specified explicitly in a register field within the instruction format.
+
+Base Register Addressing Mode: In this mode the content of a base register
+is added to the address part of the instruction to obtain the effective address.
+This is similar to the indexed addressing mode except that the register is now
+called a base registerinstead of an index register. The difference between the
+two modes is in the way they are used rather than in the way that they are
+computed. An index register is assumed to hold an index number that is
+relative to the address part of the instruction. A base register is assumed to hold
+a base address and the address field of the instruction gives a displacement
+rélative to this base address. The base register addressing mode is used in
+computers to facilitate the relocation of programs in memory. When programs
+and data are moved from one segment of memory to another, as required in
+multiprogramming systems, the address values of instructions must reflect
+this change of position. With a base register, the displacement values of
+instructions do not have to change. Only the value of the base register requires
+updating to reflect the beginning of a new memory segment
+
+Numerical Example
+
+To show the differences between the various modes, we will show the effect
+of the addressing modes on the instruction defined in Fig. 8-7. The two-word
+instruction at address 200and 201 is a “load to AC” instruction with an address
+field equal to 500. The first word of the instruction specifies the operation code
+and mode, and the second word specifies the address part. PC has the value
+200 for fetching this instruction. The content of processor register R1 is 400,
+and the content of an index register XR is 100. AC receives the operand after
+the instruction is executed. The figure lists a few pertinent addresses and
+shows the memory content at each of these addresses.
+

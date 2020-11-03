@@ -1,0 +1,66 @@
+Section 19.4.
+
+Multilayer Feed-Forward Networks 583
+
+ 
+
+Notice that although the a; term in the first line represents a complex expression, it does not
+depend on W;,. Also, only one ofthe terms in the summation over j and j depends on a particular
+W;,,S0 all the other terms are treated as constants with respect to W;,; and will disappear when
+differentiated. Hence, when we differentiate the first line with respect to W,;,we obtain
+
+OE
+aw, = —a((T; — Og! (x» )
+
+= ~a(T; — O;)g'(in;) = —ajA;
+with A; defined as before. The derivation of the gradient with respect to W,,is slightly more
+complex, but has a similar result:
+dE
+
+OW
+To obtain the update rules for the weights, we have to remember that the object is to minimize
+the error, so we need to take a small step in the direction opposite to the gradient.
+
+There is one minor technical observation to make about these update rules. They require
+the derivative of the activation function g, so we cannot use the sign or step functions. Back-
+propagation networks usually use the sigmoid function, or some variant thereof. The sigmoid
+also has the convenient property that the derivative g’ = g(1 — g), so that little extra calculation
+is needed to find g'(in,).
+
+ 
+
+hA
+
+Discussion
+
+Let us stand back for a moment from the delightful mathematics and the fascinating biology,
+and ask whether back-propagation learning in multilayer networks is a good method for machine
+learning. We can examine the same set of issues that arose in Chapter 18:
+
+< Expressiveness: Neural networks are clearly an attribute-based representation, and do not
+have the expressive power of general logical representations. They are well-suited for
+continuous inputs and outputs, unlike most decision tree systems. The class of multilayer
+networks as a whole can represent any desired function of a set of attributes, but any
+particular network may have too few hidden units. It turns out that 2"/n hidden units are
+needed to represent all Boolean functions of n inputs. This should not be too surprising.
+Such a network has 0(2”) weights, and we need at least 2" bits to specify a Boolean
+function. In practice, most problems can be solved with many fewer weights. Designing a
+good topology is, however, a black art.
+
+© Computational efficiency: Computational efficiency depends on the amount of compu-
+tation time required to train the network to fit a given set of examples. If there are m
+examples, and |W| weights, each epoch takes O(m|W]) time. However, work in computa-
+tional learning theory has shown that the worst-case number of epochs can be exponential
+in n, the number of inputs. In practice, time to convergence is highly variable, and a vast
+array of techniques have been developed to try to speed up the process using an assortment
+of tunable parameters. Local minima in the error surface are also a problem. Networks
+quite often converge to give a constant "yes" or "no" output, whichever is most common.
+
+ 
+
+ 
+
+ 
+
+ 
+

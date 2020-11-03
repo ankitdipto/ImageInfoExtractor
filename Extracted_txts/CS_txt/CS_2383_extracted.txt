@@ -1,0 +1,45 @@
+LI Algorithms 9
+
+Not every problem solved by algorithms has an easily identified set of candidate
+solutions. For example, suppose we are given a set of numerical values represent-
+ing samples of a signal, and we want to compute the discrete Fourier transform of
+these samples. The discrete Fourier transform converts the time domain to the fre-
+quency domain, producing a set of numerical coefficients, so that we can determine
+the strength of various frequencies in the sampled signal. In addition to lying at
+the heart of signal processing, discrete Fourier transforms have applications in data
+compression and multiplying large polynomials and integers. Chapter 30 gives
+an efficient algorithm, the fast Fourier transform (commonly called the FFT), for
+this problem, and the chapter also sketches out the design of a hardware circuit to
+compute the FFT.
+
+Data structures
+
+This book also contains several data structures. A data structure is a way to store
+and organize data in order to facilitate access and modifications. No single data
+structure works well for all purposes, and so it is important to know the strengths
+and limitations of several of them.
+
+Technique
+
+Although you can use this book as a “cookbook” for algorithms, you may someday
+encounter a problem for which you cannot readily find a published algorithm (many
+of the exercises and problems in this book, for example). This book will teach you
+techniques of algorithm design and analysis so that you can develop algorithms on
+your own, show that they give the correct answer, and understand their efficiency.
+Different chapters address different aspects of algorithmic problem solving. Some
+chapters address specific problems, such as finding medians and order statistics in
+Chapter 9, computing minimum spanning trees in Chapter 23, and determining a
+maximum flow in a network in Chapter 26. Other chapters address techniques,
+such as divide-and-conquer in Chapter 4, dynamic programming in Chapter 15,
+and amortized analysis in Chapter 17.
+
+Hard problems
+
+Most of this book is about efficient algorithms. Our usual measure of efficiency
+is speed, i.e., how long an algorithm takes to produce its result. There are some
+problems, however, for which no efficient solution is known. Chapter 34 studies
+an interesting subset of these problems, which are known as NP-complete.
+
+Why are NP-complete problems interesting? First, although no efficient algo-
+rithm for an NP-complete problem has ever been found, nobody has ever proven
+

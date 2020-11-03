@@ -1,0 +1,51 @@
+Section 5.8.
+
+Summary 141
+
+ 
+
+in chess: it was capable of solving some chess problems requiring an 18-move combination. As
+yet, however, there is no good understanding of how to combine the two kinds of algorithm into
+a robust and efficient system. Such a system would be a significant achievement not just for
+game-playing research, but also for AI research in general, because it would be much more likely
+to apply to the problem faced by a general intelligent agent.
+
+5.8 SUMMARY
+
+Games are fascinating, and writing game-playing programs perhaps even more so. We might
+say that game playing is to AI as Grand Prix motor racing is to the car industry: although the
+specialized task and extreme competitive pressure lead one to design systems that do not look
+much like your garden-variety, general-purpose intelligent system, a lot of leading-edge concepts
+and engineering ideas come out of it. On the other hand, just as you would not expect a Grand
+Prix racing car to perform well on a bumpy dirt road, you should not expect advances in game
+playing to translate immediately into advances in less abstract domains.
+The most important ideas are as follows:
+
+A game can be defined by the initial state (how the board is set up), the operators (which
+define the legal moves), a terminal test (which says when the game is over), and a utility
+or payoff function (which says who won, and by how much)
+
+In two-player games with perfect information, the minimax algorithm can determine the
+best move for a player (assuming the opponent plays perfectly) by enumerating the entire
+game tree.
+
+The alpha-beta algorithm does the same calculation as minimax, but is more efficient
+because it prunes away branches of the search tree that it can prove are irrelevant to the
+final outcome.
+
+Usually, it is not feasible to consider the whole game tree (even with alpha-beta), so we
+need to cut off the search at some point and apply an evaluation function that gives an
+estimate of the utility of a state.
+
+Games of chance can be handled by an extension to the minimax algorithm that evaluates
+chance nodes by taking the average utility of all its children nodes, weighted by the
+probability ofthe child.
+
+BIBLIOGRAPHICAL AND HISTORICAL NOTES
+
+The early history of mechanical game playing was maired by numerous frauds. The most
+notorious of these was Baron Wolfgang von Kempelen's "Turk," exhibited in 1769, a supposed.
+chess-playing automaton whose cabinet actually concealed a diminutive human chess expert
+during play. The Turk is described in Harkness and Battell (1947). In 1846, Charles Babbage
+appears to have contributed the first serious discussion ofthe feasibility of computer game playing
+

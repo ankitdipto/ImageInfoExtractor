@@ -1,0 +1,52 @@
+142. Chapter5 Threads
+
+unbound by default. Solaris 8 also provides an alternate thread library that, by
+default, binds all threads with an associated LWP.
+
+Consider the system in operation: Any one process may have many user-
+level threads. These user-level threads may be scheduled and switched among
+the LWPs by the thread library without kernel intervention. User-level threads
+are extremely efficient because no kernel support is required for thread creation
+or destruction, or for the thread library to context switch from one user-level
+thread to another.
+
+Each LWP is connected to exactly one kernel-level thread, whereas each
+user-level thread is independent of the kernel. Many LWPs may be in a process,
+but they are needed only when the thread needs to communicate with the
+kernel. For instance, one LWP is needed for every thread that may block
+concurrently in system calls. Consider five different file-read requests that
+occur simultaneously. Then, five LWPs would be needed, because they could
+all be waiting for I/O completion in the kernel. If a task had only four LWPs,
+then the fifth request would have to wait for one of the LWPs to return from
+the kernel. Adding a sixth LWP would gain nothing if there were only enough
+work for five.
+
+The kernel threads are scheduled by the kernel’s scheduler and execute on
+the CPU or CPUs in the system. If a kernel thread blocks (such as while waiting
+for an I/O operation to complete), the processor is free to run another kernel
+thread. If the thread that blocked was running on behalf of an LWP, the LWP
+blocks as well. Up the chain, the user-level thread currently attached to the
+LWP also blocks. If a process has more than one LWP, the kernel can schedule
+another LWP.
+
+The thread library dynamically adjusts the number of LWPs in the pool
+to ensure the best performance for the application. For example, if all the
+LWPs in a process are blocked and other threads are able to run, the thread
+library automatically creates another LWP to be assigned to a waiting thread.
+A program is thus prevented from being blocked by a lack of unblocked LWPs.
+Also, LWPs are expensive kernel resources to maintain if they are not being
+used. The thread library “ages” LWPs and deletes them when they are unused
+for a long time, typically about 5 minutes.
+
+The developers used the following data structures to implement threads on
+Solaris 2:
+
+A user-level thread contains a thread ID; register set (including a pro-
+gram counter and stack pointer); stack; and priority (used by the thread
+library for scheduling purposes). None of these data structures are kernel
+resources; all exist within user space.
+
+« An LWP has a register set for the user-level thread it is running, as well as
+memory and accounting information. An LWP is a kernel data structure,
+and it resides in kernel space.
+

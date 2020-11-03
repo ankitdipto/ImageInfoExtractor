@@ -1,0 +1,52 @@
+704
+
+Chapter 25 All-Pairs Shortest Paths
+
+JOHNSON(G, w)
+1 compute G’, where G’.V = G.V U {s},
+G.E=G.EU{(s,v): € G.V}, and
+w(s,v) = 0 forallv € G.V
+2 if BELLMAN-FoRD(G’, w,s) == FALSE
+
+3 print “the input graph contains a negative-weight cycle”
+4 else for each vertex v € G'.V
+
+5 set h(v) to the value of 5(s, v)
+
+computed by the Bellman-Ford algorithm
+
+6 for each edge (u,v) € G.E
+
+7 W(u,v) = w(u,v) +h(u) —h(v)
+
+8 let D = (dy) be anew n x n matrix
+
+9 for each vertex u € G.V
+10 run DIKSTRA(G, ©, u) to compute Ku, v) forally € G.V
+11 for each vertex v € G.V
+12 dyy = 8(u,v) + h(v) — haw)
+13 return D
+
+This code simply performs the actions we specified earlier. Line 1 produces G’.
+Line 2 runs the Bellman-Ford algorithm on G’ with weight function w and source
+vertex s. If G’, and hence G, contains a negative-weight cycle, line 3 reports the
+problem. Lines 4-12 assume that G’ contains no negative-weight cycles. Lines 4-5
+set /i(v) to the shortest-path weight 5(s,v) computed by the Bellman-Ford algo-
+rithm for all v € V’. Lines 6-7 compute the new weights #. For each pair of ver-
+tices u,v € V, the for loop of lines 9-12 computes the shortest-path weight 5(u, v)
+by calling Dijkstra’s algorithm once from each vertex in V. Line 12 stores in
+matrix entry d,,, the correct shortest-path weight 5(u,v), calculated using equa-
+tion (25.10). Finally, line 13 returns the completed D matrix. Figure 25.6 depicts
+the execution of Johnson’s algorithm.
+
+If we implement the min-priority queue in Dijkstra’s algorithm by a Fibonacci
+heap, Johnson’s algorithm runs in O(V? lg V + VE) time. The simpler binary min-
+heap implementation yields a running time of O(VE lg V), which is still asymp-
+totically faster than the Floyd-Warshall algorithm if the graph is sparse.
+
+Exercises
+
+25.3-1
+Use Johnson’s algorithm to find the shortest paths between all pairs of vertices in
+the graph of Figure 25.2. Show the values of / and © computed by the algorithm.
+

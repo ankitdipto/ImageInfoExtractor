@@ -1,0 +1,50 @@
+6.7 Process Scheduling Models 177
+
+The major difficulty is the cost of this approach. The expense is incurred not
+only in coding the algorithm and modifying the operating system to support it
+as well as its required data structures, but also in the reaction of the users to a
+constantly changing operating system. Most users are not interested in building
+a better operating system; they merely want to get their processes executed
+and to use their results. A constantly changing operating system does not help
+the users to get their work done. A form of this method is used commonly
+for new computer installations. For instance, a new web facility may have
+simulated user loads generated against it before it “goes live”, to determine
+any bottlenecks in the facility and to estimate how many users the system can
+support.
+
+The other difficulty with any algorithm evaluation is that the environment
+in which the algorithm is used will change. The environment will change not
+only in the usual way, as new programs are written and the types of problems
+change, but also as a result of the performance of the scheduler. If short
+processes are given priority, then users may break larger processes into sets of
+smaller processes. If interactive processes are given priority over noninteractive
+processes, then users may switch to interactive use.
+
+For example, in DEC TOPS-20, the system classified interactive and nonin-
+teractive processes automatically by looking at the amount of terminal I/O. If
+a process did not input or output to the terminal in a 1-minute interval, the
+Process was classified as noninteractive and was moved to a lower-priority
+queue. This policy resulted in a situation where one programmer modified his
+programs to write an arbitrary character to the terminal at regular intervals of
+less than 1 minute. The system gave his Programs a high priority, even though
+the terminal output was completely meaningless.
+
+The most flexible scheduling algorithms can be altered by the system
+managers or by the users. During operating-system build time, boot time, or
+tun time, the variables used by the schedulers can be changed to reflect the
+expected future use of the system. The need for flexible scheduling is another
+instance where the separation of mechanism from policy is useful. For instance,
+if paychecks need to be processed and printed immediately, but are normally
+done as a low-priority batch job, the batch queue could be given a higher
+Priority temporarily. Unfortunately, few operating systems allow this type of
+tunable scheduling.
+
+6.7 = Process Scheduling Models
+
+In this section we will cover process scheduling in the Solaris 2, Windows 2000,
+and Linux operating systems. However, Prior to looking at these different
+scheduling models, we first relate threads to process scheduling.
+
+In Chapter 5, we introduced threads to the process model, thus allowing
+a single process to have multiple threads of control. Furthermore, we dis-
+

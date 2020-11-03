@@ -1,0 +1,80 @@
+Section 6.5.
+
+An Agent for the Wumpus World 175
+
+ 
+
+ 
+
+ 
+
+ 
+
+G = Glitter, Gold
+OK = Safe square
+
+ 
+
+P =Pit
+S =Stench
+Vo = Visited
+W = Wumpus
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 615 The agent's knowledge after the third move. The current percept is
+[Stench, None, None, None, None).
+
+ 
+
+ 
+
+ 
+
+can house a wumpus. The agent needs to know this for each square in the world, but here wejust
+show sentences for three relevant squares, labeling each sentence with a rule number:
+
+Res Si 4 = WW AW 2 AW)
+
+Rot Sz) = AW AWa1 A 2W22 AAW
+
+R32 S12 = AW ATW 2 ATW AW 3
+Another useful fact is that ifthere is a stench in [1,2], then there must be a wumpus in [1,2] or in
+one or more of the neighboring squares. This fact can be represented by the sentence
+
+Ras Siz => WisVWi2V Wo2V Wi
+
+Finding the wumpus
+Given these sentences, we will now show how an agent can mechanically conclude W, 3. All the
+agent has to do is construct the truth table for KB => W,, to show that this sentence is valid.
+There are 12 propositional symbols,'° so the truth table will have 2'? = 4096 rows, and every
+row in which the sentence KB is true also has W, 3 true. Rather than show all 4096 rows, we use
+inference rules instead, but it is important to recognize that we could have done it in one (long)
+step just by following the truth-table algorithm.
+First, we will show that the wumpus is not in one ofthe other squares, and then conclude
+by elimination that it must be in [1,3]:
+1. Applying Modus Ponens with —$,,, and the sentence labelled R;, we obtain
+AW A aWi2 AAW
+2. Applying And-Elimination to this, we obtain the three separate sentences
+Wi Wirz Wa
+
+10 The 12 symbols are 51,1, S21. Si.2+ Wii, Wi2. Wo, Wo2, W31, Wis. Bit. B21. Bia-
+
+ 
+

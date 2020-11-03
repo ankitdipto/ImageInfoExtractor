@@ -1,0 +1,65 @@
+Section 8.4.
+
+General Ontology 245
+
+ 
+
+ssywace THEORY
+STRINGS
+
+We will concentrate on what is called a syntactic theory of mental objects." In this
+approach, we represent mental objects with strings written in a representation language. (We
+will use first-order logic itselfas the representation language, but we are not required to.) A string
+is just a list of symbols, so the event F/ies(C/ark)can be represented by the string of characters
+[F.Live.s,(.C.La.r,k,)|,which we will abbreviate as “Flies(Clark)”. In this formulation,
+"Clark" #°Superman’ because they are two different strings consisting of different symbols. The
+idea is that a knowledge-based agent has a knowledge base consisting of strings that were added
+either via TLLL or through inference. The syntactic theory models the knowledge base and the
+strings that are in it.
+
+Now all we have to do is provide a syntax, semantics, and proof theory for the string
+representation language, just as we did in Chapter 6. The difference is that we have to define
+them all in first-order logic. We start by defining Den as the function that maps a string to the
+object that it denotes, and Name as a function that maps an object to a string that is the name of
+a constant that denotes the object. For example, the denotation of both "Clark" and "Superman"
+is the object referred to by the constant symbol ManOfsteel, and the name of that object could
+be either "Superman", “Clark”, or or some other constant, such as “K,:”.
+
+Den(“Clark”) - ManOfSteel A Den(“Superman”) = ManOfSteel
+Name(ManOfSteel) ="K\\"
+The next step is to define inference rules for logical agents. For example, we might want to say
+
+that a logical agent can do Modus Ponens: if it believes p and believes p = q then it will also
+believe g. The first attempt at writing this axiom is
+
+ 
+
+Va,p, q LogicalAgent(a)A Believes(a,p) A Believesta, "p= q") => Believes(a,q)
+
+But this is not right because the string “p =” contains the letters ‘p’ and ‘q’ but has nothing
+to do with the strings that are the values of the variables p and g. In fact, "py = q" is not even
+a syntactically correct sentence, because only variables can be lower-case letters. The correct
+formulation is:
+
+Va.p,q LogicalAgent(a)A Believes(a,p) A Believes(a, Concat(p>, q)
+=> Believes(a, @
+
+where Concat is a function on strings that concatenates their elements together. We will abbreviate
+Concat(p{°=>"|,Q as “p= q°. That is, an occurrence of. within a string means to substitute in
+the value of the variable x. Lisp programmers will recognize this as the backquote operator.
+
+Once we add in the other inference rules besides Modus Ponens, we will be able to
+answer questions of the form "given that a logical agent knows these premises, can it draw that
+conclusion?" Besides the normal inference rules, we need some rules that are specific to belief.
+For example, the following rule says that ifa logical agent believes something, then it believes
+that it believes it.
+
+ 
+
+Va,p LogicalAgent(a) A Believes(a,p) = Believes(a,“Believes(Name(a), p)”)
+
+Note that it would not do to have just a as part ofthe string, because a is an agent, not a description
+ofan agent. We use Name(a)to get a string that names the agent.
+
+|! An alternative based on modal logic is covered in the historical notes section.
+

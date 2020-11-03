@@ -1,0 +1,52 @@
+72 carrer THREE Data Representation.
+
+binary code
+
+The registers in a digital computer contain many bits. Specifying the
+content of registers by their binary values will require a long string of binary
+digits. It is more convenient to specify content of registers by their octal or
+hexadecimal equivalent The number of digits is reduced by one-third in the
+octal designationand by one-fourthin the hexadecimal designation For exam-
+ple, the binary number 1111 1111 1111 has 12 digits. It can be expressed in
+octals as 7777 (four digits) or in hexadecimal as FFF (three digits). Computer
+manuals invariably choose either the octal or the hexadecimal designation for
+specifying contents of registers.
+
+Decimal Representation
+
+The binary number system is the most natural system for a computer, but
+people are accustomed to the decimal system. One way to solve this conflict
+is to convert all input decimal numbers into binary numbers, let the computer
+performalllarithmeticoperations in binary and then convert the binary results
+back to decimal for the human user to understand. However, itis also possible
+for the computer to perform arithmetic operations directly with decimal num-
+bers provided they are placed in registers in a coded form Decimal numbers
+enter the computer usually as binary-coded alphanumeric characters. These
+codes, introduced later, may contain from six to eight bits for each decimal
+digit When decimal numbers are used for internal arithmetic computations,
+they are converted to a binary code with four bits per digit.
+
+A binary code is a group of n bits that assume up to 2" distinct combina-
+tions of 1's and 0's with each combination representing one element of the set
+that is being coded. For example, a set of four elements can be coded by a 2-bit
+code with each element assigned one of the following bit combinations; 00, 01,
+10, or 11. A set of eight elements requires a 3-bit code, a set of 16 elements
+requires a 4-bit code, and so on. Abinary code will have some unassigned bit
+combinations if the number of elements in the set is not a multiple power of
+2. The 10 decimal digits form such a set. A binary code that distinguishes
+among 10 elements must contain at least four bits, but six combinations will
+remain unassigned. Numerous different codes can be obtained by arranging
+four bits in 10 distinct combinations. The bit assignment most commonly
+for the decimal digits is the straight binary assignment listed in the first 10
+entries of Table 3-3. This particular code is called binary-coded decimal and is
+commonly referred to by its abbreviation BCD. Other decimal codes are some-
+times used and a few of them are given in Sec. 35.
+
+It is very important to understand the difference between the conversion.
+of decimal numbers into binary and the binary coding of decimal numbers, For
+example, when converted to a binary number, the decimal number 99 is repre-
+sented by the string of bits 1100011, but when represented in BCD, it becomes
+3001 1001. The only difference between a decimal number represented by the
+familiar digit symbols 0, 1, 2,..., 9and the BCD symbols 0001, 0010, ..., 1001
+isin the symbols used to represent the digits—the number itself is exactly the
+

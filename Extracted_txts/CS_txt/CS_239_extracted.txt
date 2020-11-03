@@ -1,0 +1,55 @@
+834
+
+Chapter 28 Matrix Operations
+
+We now turn to some essential properties of the Schur complement. Let A be
+a symmetric positive-definite matrix, and let Ay be a leading k x k submatrix
+of A. Partition A once again according to equation (28.14). We generalize equa-
+tion (28.9) to define the Schur complement S of A with respect to Ax as
+
+S =C—BA;'B". (28.15)
+
+(By Lemma 28.4, Ax is symmetric and positive-definite; therefore, Aj! exists by
+Lemma 28.3, and S is well defined.) Note that our earlier definition (28.9) of the
+Schur complement is consistent with equation (28.15), by letting k = 1.
+
+The next lemma shows that the Schur-complement matrices of symmetric posi-
+tive-definite matrices are themselves symmetric and positive-definite. We used this
+result in Theorem 28.2, and we need its corollary to prove the correctness of LU
+decomposition for symmetric positive-definite matrices.
+
+Lemma 28.5 (Schur complement lemma)
+
+If A is a symmetric positive-definite matrix and Ax is a leading k x k submatrix
+of A, then the Schur complement S of A with respect to Ag is symmetric and
+positive-definite.
+
+Proof Because A is symmetric, so is the submatrix C. By Exercise D.2-6, the
+product BA;' B" is symmetric, and by Exercise D.1-1, S is symmetric.
+
+It remains to show that S is positive-definite. Consider the partition of A given in
+equation (28.14). For any nonzero vector x, we have x7 Ax > 0 by the assumption
+that A is positive-definite. Let us break x into two subvectors y and z compatible
+with A, and C, respectively. Because Ay! exists, we have
+
+Ay BT\(y
+T ~T ke J
+Gy 2") ( BoC ( z
+Ay + BT
+
+T T ?
+On z i( By +Cz
+yAgy + y™B'z + 2°By +-2'Cz
+(y + Ag! Bz)" Ag(y + Ag! Bz) +. 27(C — BAZ" Bz, — (28.16)
+by matrix magic. (Verify by multiplying through.) This last equation amounts to
+“completing the square” of the quadratic form. (See Exercise 28.3-2.)
+
+Since x7Ax > 0 holds for any nonzero x, let us pick any nonzero z and then
+choose y = —A;'BTz, which causes the first term in equation (28.16) to vanish,
+leaving
+z(C — BA;'B")z = z'Sz
+as the value of the expression. For any z # 0, we therefore have z7Sz
+xTAx > 0, and thus S is positive-definite.
+
+XTAX
+

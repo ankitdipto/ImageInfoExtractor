@@ -1,0 +1,35 @@
+24.4 Difference constraints and shortest paths 667
+
+ 
+
+Figure 24.8 The constraint graph corresponding to the system (24.3)-(24.10) of difference con-
+straints. The value of 5(vo,v;) appears in each vertex v;. One feasible solution to the system is
+x = (-5,-3,0,-1,—-4).
+
+The constraint graph contains the additional vertex vp, as we shall see shortly, to
+guarantee that the graph has some vertex which can reach all other vertices. Thus,
+the vertex set V consists of a vertex v; for each unknown x;, plus an additional
+vertex Vo. The edge set E contains an edge for each difference constraint, plus
+an edge (vo, ¥;) for each unknown x;. If xj — x; < by is a difference constraint,
+then the weight of edge (v;, v;) is w(v;, vj) = bg. The weight of each edge leav-
+ing Vo is 0. Figure 24.8 shows the constraint graph for the system (24.3)-(24.10)
+of difference constraints.
+
+The following theorem shows that we can find a solution to a system of differ-
+ence constraints by finding shortest-path weights in the corresponding constraint
+graph.
+
+Theorem 24.9
+Given a system Ax < b of difference constraints, let G = (V, E) be the corre-
+sponding constraint graph. If G contains no negative-weight cycles, then
+
+X = (8(Vo, V1), (Vo, V2), 5(vo, V3), -+ + 5(Vo, Yn) (24.11)
+
+is a feasible solution for the system. If G contains a negative-weight cycle, then
+there is no feasible solution for the system.
+
+Proof We first show that if the constraint graph contains no negative-weight
+cycles, then equation (24.11) gives a feasible solution. Consider any edge
+(v;,v;) € E. By the triangle inequality, 5(vo,vj) < 5(vo.v)) + w(v;.v;) or,
+equivalently, 5(vo, vj) — 5(vo. vi) < w(v;. vj). Thus, letting xj = 5(vo, v;) and
+

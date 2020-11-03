@@ -1,0 +1,51 @@
+34.1 Polynomial time 1055
+
+Encodings
+
+In order for a computer program to solve an abstract problem, we must represent
+problem instances in a way that the program understands. An encoding of a set S
+of abstract objects is a mapping e from S to the set of binary strings.” For example,
+we are all familiar with encoding the natural numbers N = {0,1,2,3,4,...} as
+the strings {0,1,10,11,100,...}. Using this encoding, e(17) = 10001. If you
+have looked at computer representations of keyboard characters, you probably have
+seen the ASCII code, where, for example, the encoding of A is 1000001. We can
+encode a compound object as a binary string by combining the representations of
+its constituent parts. Polygons, graphs, functions, ordered pairs, programs—all can
+be encoded as binary strings.
+
+Thus, a computer algorithm that “solves” some abstract decision problem actu-
+ally takes an encoding of a problem instance as input. We call a problem whose
+instance set is the set of binary strings a concrete problem. We say that an algo-
+rithm solves a concrete problem in time O(7(n)) if, when it is provided a problem
+instance i of length n = |i|, the algorithm can produce the solution in O(T(n))
+time.* A concrete problem is polynomial-time solvable, therefore, if there exists
+an algorithm to solve it in time O(n*) for some constant k.
+
+We can now formally define the complexity class P as the set of concrete deci-
+sion problems that are polynomial-time solvable.
+
+We can use encodings to map abstract problems to concrete problems. Given
+an abstract decision problem Q mapping an instance set J to {0,1}, an encoding
+e: I — {0,1}* can induce a related concrete decision problem, which we denote
+by e(Q).* If the solution to an abstract-problem instance i € J is Q(i) € {0,1},
+then the solution to the concrete-problem instance e(i) € {0, 1}* is also Q(i). Asa
+technicality, some binary strings might represent no meaningful abstract-problem
+instance. For convenience, we shall assume that any such string maps arbitrarily
+to 0. Thus, the concrete problem produces the same solutions as the abstract prob-
+lem on binary-string instances that represent the encodings of abstract-problem
+instances.
+
+We would like to extend the definition of polynomial-time solvability from con-
+crete problems to abstract problems by using encodings as the bridge, but we would
+
+ 
+
+2The codomain of ¢ need not be binary strings; any set of strings over a finite alphabet having at
+least 2 symbols will do.
+
+3We assume that the algorithm’s output is separate from its input. Because it takes at least one time
+step to produce each bit of the output and the algorithm takes O(T(n)) time steps, the size of the
+output is O(T(n)).
+
+4We denote by {0, 1}* the set of all strings composed of symbols from the set {0, 1}.
+

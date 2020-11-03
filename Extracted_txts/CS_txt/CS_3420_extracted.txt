@@ -1,0 +1,65 @@
+Section 24.7.
+
+Speech Recognition 759
+
+ 
+
+VECTOR
+QUANTIZATION
+
+Other important features include overall energy in a frame, and the difference from the previous
+frame. Picking out features from a speech signal is like listening to an orchestra and saying “here
+the French horns are playing loud and the violins are playing softly." Breaking the sound down
+into components like this is much more useful than leaving it as a single undifferentiated sound
+source. Figure 24.33 shows frames with a vector of three features. Note that the frames overlap;
+this prevents us from losing information if an important acoustic event just happens to fall on a
+frame boundary.
+
+ 
+
+Analog acoustic signal:
+
+Sampled, quantized
+digital signal: uh
+
+Frames with features:
+
+Frames with vector | -—2__}
+
+quantization values: —
+
+ 
+
+ 
+
+ 
+
+Figure 24.33 Translating the acoustic signal into a sequence of vector quantization values.
+(Don't try to figure out the numbers; they were assigned arbitrarily.)
+
+ 
+
+ 
+
+ 
+
+The final step in many speech signal processing systems is vector quantization. If there
+are n features in a frame, we can think of this as an n-dimensional space containing many
+points. Vector quantization divides this n-dimensional space into, say, 256 regions labelled C1
+through C256. Each frame can then be represented with a single label rather than a vector of n
+numbers. So we end up with just one byte per frame, which is about a 100-foldimprovement
+over the original half megabyte per minute. Of course, some information is lost in going from a
+feature vector to a label that summarizes a whole neighborhood around the vector, but there are
+automated methods for choosing an optimal quantization of the feature vector space so that little
+or no inaccuracy is introduced (Jelinek, 1990).
+
+There are two points to this whole exercise. First, we end up with a representation of the
+speech signal that is compact. But more importantly, we have a representation that is likely to
+encode features of the signal that will be useful for word recognition. A given speech sound
+can be pronounced so many ways: loud or soft, fast or slow, high-pitched or low, against a
+background of silence or noise, and by any of millions of different speakers each with different
+accents and vocal tracts. Signal processing hopes to capture enough of the important features so
+that the commonalities that define the sound can be picked out from this backdrop of variation.
+(The dual problem, speaker identification, requires one to focus on the variation instead of the
+commonalities in order to decide who is speaking.
+

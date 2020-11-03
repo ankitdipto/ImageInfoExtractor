@@ -1,0 +1,50 @@
+6.3 Scheduling Algorithms 163
+
+127 (low) to 0 (high), we could decrement the priority of a waiting process by
+1 every 15 minutes. Eventually, even a process with an initial priority of 127
+would have the highest priority in the system and would be executed. In fact, it
+would take no more than 32 hours for a priority 127 process to age to a priority
+0 process.
+
+6.3.4 Round-Robin Scheduling
+
+The round-robin (RR) scheduling algorithm is designed especially for time-
+sharing systems. It is similar to FCFS scheduling, but preemption is added to
+switch between processes. A small unit of time, called a time quantum (or time
+slice), is defined. A time quantum is generally from 10 to 100 milliseconds. The
+ready queue is treated as a circular queue. The CPU scheduler goes around the
+ready queue, allocating the CPU to each process for a time interval of up to 1
+time quantum.
+
+To implement RR scheduling, we keep the ready queue as a FIFO queue of
+processes. New processes are added to the tail of the ready queue. The CPU
+scheduler picks the first process from the ready queue, sets a timer to interrupt
+after 1 time quantum, and dispatches the process.
+
+One of two things will then happen. The process may have a CPU burst of
+less than 1 time quantum. In this case, the process itself will release the CPU
+voluntarily. The scheduler will then proceed to the next process in the ready
+queue. Otherwise, if the CPU burst of the currently running process is longer
+than 1 time quantum, the timer will go off and will cause an interrupt to the
+operating system. A context switch will be executed, and the process will be
+put at the tail of the ready queue. The CPU scheduler will then select the next
+process in the ready queue.
+
+The average waiting time under the RR policy, however, is often quite long.
+Consider the following set of processes that arrive at time 0, with the length of
+the CPU-burst time given in milliseconds:
+
+Process Burst Time
+
+Py 24
+Py 3
+P3 3
+
+If we use a time quantum of 4 milliseconds, then process P; gets the first
+4 milliseconds. Since it requires another 20 milliseconds, it is preempted after
+the first time quantum, and the CPU is given to the next process in the queue,
+process P2. Since process P2 does not need 4 milliseconds, it quits before its time
+quantum expires. The CPU is then given to the next process, process P3. Once
+each process has received 1 time quantum, the CPU is returned to process P; for
+an additional time quantum. The resulting RR schedule is
+

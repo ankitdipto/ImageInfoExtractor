@@ -1,0 +1,44 @@
+554 Let UsC
+
+ 
+
+The First Windows Program
+
+To keep things simple we would begin with a program that merely
+displays a “Hello” message in a message box. Here is the
+program...
+
+#include <windows.h>
+
+int _stdcall WinMain ( HINSTANCE hinstance, HINSTANCE hPrevinstance,
+LPSTR IpszCmdline, int nCmdShow )
+
+{
+
+MessageBox ( 0, “Hello!”, “Title”, 0 ) ;
+return (0);
+}
+
+Naturally a question would come to your mind—how do I create
+and run this program and what output does it produce. Firstly take
+a look at the output that it produces. Here it is...
+
+ 
+
+Figure 16.6
+
+Let us now look at the steps that one needs to carry to create and
+execute this program:
+
+(a) Start VC++ from ‘Start | Programs | Microsoft Visual C++
+6.0’. The VC++ IDE window will get displayed.
+
+(b) From the File | New menu, select ‘Win32 Application’, and
+give a project name, say, ‘sample1’. Click on OK.
+
+(c) From the File | New menu, select ‘C++ Source File’, and give
+a suitable file name, say, ‘sample1’. Click on OK.
+
+(d) The ‘Win32 Application-Step 1 of 1’ window will appear.
+Select ‘An empty project’ option and click ‘Finish’ button.
+

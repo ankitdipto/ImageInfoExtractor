@@ -1,0 +1,54 @@
+flowchart for basic
+computer
+
+SECTION 5.9 Design of Basic Computer 157.
+
+5-8 Complete Computer Description
+
+The final flowchart of the instruction cycle, including the interrupt cycle for the
+basic computer, is shown in Fig. 5-15. The interrupt flip-flop R may be set at
+any time during the indirect orexecute phases. Controlreturns to timing signal
+Ty after SC is cleared to 0. If R = 1, the computer goes through an interrupt
+cycle. IFR = 0, the computer goes through an instruction cycle. If the instruc-
+tion is one of the memory-reference instructions, the computer first checks if
+there is an indirect address and then continues to execute the decoded instruc-
+tion according to the flowchart of Fig, 5-11. If the instruction is one of the
+register-reference instructions, it is executed with one of the microoperations
+listed in Table 5-3. If it is an input-output instruction, itis executed with one of,
+the microoperations listed in Table 5-5.
+
+Instead of using a flowchart, we can describe the operation of the computer
+with a list of register transfer statements. This is done by accumulating all the
+control functions and microoperations in one table. The entries in the table are
+taken from Figs 5-11 and 5-15, and Tables 5-3 and 5-5.
+
+The control functions and microoperations for the entire computer are
+summarized in Table 5-6, The register transfer statements in this table describe
+in a concise form the internal organization of the basic computer. They also give
+all the information necessary for the design of the logic circuits of the computer.
+The control functions and conditional control statements listed in the table
+formulate the Boolean functions for the gates in the control unit. The list of
+microoperations specifies the type of control inputs needed for the registers and
+memory. A register transferlanguage is useful not only for describing the internal
+organization of a digital system but also for specifying the logic circuits needed
+for its design.
+
+5-9 Design of Basic Computer
+The basic computer consists of the following hardware components:
+
+1. Amemory unit with 4096 words of 16 bits each
+
+2. Nine registers: AR, PC, DR, AC, IR, TR, OUTR, INPR, and SC
+
+3. Seven flip-flops: I, S, E, R, IEN, FGI, and FGO
+
+4. Two decoders: a 3 x 8 operation decoder and a 4 x 16 timing decoder
+5. A 16-bit common bus
+
+6. Control logic gates
+
+7. Adder and logic circuit connected to the input of AC
+
+The memory unit is a standard component that can be obtained readily
+from a commercial source. The registers are of the type shown in Fig. 2-11 and
+

@@ -1,0 +1,60 @@
+ 
+
+Section 9.6. Resolution: A Complete Inference Procedure 281
+Conversion to Normal Form
+So far, we have claimed that resolution is complete, but we have not shown it. In this section we
+show that any first-order logic sentence can be put into implicative (or conjunctive) normal form,
+and in the following section we will show that from a set of sentences in normal form we can
+prove that a given sentence follows from the set.
+
+We present the procedure for converting to normal form, step by step, showing that each
+step does not change the meaning; it should be fairly clear that all possible sentences are dealt
+with properly. You should understand why each of the steps in this procedure is valid, but few
+people actually manage to remember them all.
+
+> Eliminate implications: Recall that p + q is the same as sp Vg. So replace all
+implications by the corresponding disjunctions.
+
+<> Move — inwards: Negations are allowed only on atoms in conjunctive normal form, and
+not at all in implicative normal form. We eliminate negations with wide scope using de
+Morgan's laws (see Exercise 6.2), the quantifier equivalences and double negation:
+
+—(pVq becomes —pA-q
+
+-~(p Aq becomes pV -7q
+
+—¥ xp becomes 4x =p
+
+—Jx,p becomes Vx ap
+aap becomes p
+
+0 Standardize variables: For sentences like (¥x P(x)) V (4x @Q())that use the same
+variable name twice, change the name of one of the variables. This avoids confusion later
+when we drop the quantifiers.
+
+0 Move quantifiers left: The sentence is now in a form in which all the quantifiers can be
+moved to the left, in the order in which they appear, without changing the meaning of the
+sentence. It is tedious to prove this properly; it involves equivalences such as
+
+pV ‘x q becomes Vx pV q
+
+which is true because p here is guaranteed not to contain an x.
+
+SSKOLEMIZATION 0 Skolemize: Skolemization is the process of removing existential quantifiers by elimina-
+
+tion. In the simple case, it is just like the Existential Elimination rule of Section 9.1—
+translate Jx P(x) into P(4), where A is a constant that does not appear elsewhere in
+the KB. But there is the added complication that some of the existential quantifiers, even
+though moved left, may still be nested inside a universal quantifier. Consider "Everyone
+has a heart":
+
+Vx Person(x) => Jy Heart(y)A Has(x,y)
+If we just replaced y with a constant, H, we would get
+
+Vx Person(x) = Heart(H)A Has(x,H)
+which says that everyone has the same heart H. We need to say that the heart they have is
+not necessarily shared, that is, it can be found by applying to each person a function that
+maps from person to heart:
+
+Vx Person(x) => Heart(F(x))A Has(x, F(x))
+

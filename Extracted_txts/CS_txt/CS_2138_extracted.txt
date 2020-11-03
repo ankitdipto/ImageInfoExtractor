@@ -1,0 +1,53 @@
+SECTION 94 Instruction Pipeline 311
+
+1. Fetch the instruction from memory.
+2. Decode the instruction.
+
+3. Calculate the effective address.
+
+4, Fetch the operands from memory.
+5. Execute the instruction.
+
+6. Store the result in the proper place.
+
+There are certain difficulties that will prevent the instruction pipeline
+from operating at its maximum rate. Different segments may take different
+times to operate on the incoming information. Some segments are skipped for
+certain operations. For example, a register mode instruction does not need an
+effective address calculation Two or more segments may require memory
+access at the same time, causing one segment to wait until another is finished
+with the memory. Memory access conflicts are sometimes resolved by using
+twomemory buses foraccessinginstructionsand data in separate modules. In
+this way, an instruction word and adata word can be read simultaneously from
+two different modules.
+
+The design of an instruction pipeline will be most efficient if the instruc-
+tion cycle is divided into segments of equal duration The time that each step
+takes to fulfillits function depends on the instructionand the wayitisexecuted.
+
+Example: Four-Segment Instruction Pipeline
+
+‘Assume that the decoding of the instruction can be combined with the calcu-
+lation of the effective address into one segment. Assume further that most of
+the instructions place theresultinto a processor register so that the instruction
+execution and storing of the result can be combined into one segment. This
+reduces the instruction pipeline into four segments.
+
+Figure 9-7 shows how the instructioncycle in the CPU can be processed
+with a four-segment pipeline. While an instruction is being executed in seg-
+ment 4, the next instruction in sequence is busy fetching an operand from
+memory in segment 3. The effective address may be calculated in a separate
+arithmetic circuit for the third instruction, and whenever the memory is avail
+able, the fourth and all subsequent instructions can be fetched and placed in
+an instruction FIFO. Thus up to four suboperations in the instruction cycle can
+overlap and up to four different instructions can be in progress of being
+processed at the same time.
+
+‘Once ina while, an instruction in the sequence may be a program control
+type that causes a branch out of normal sequence. In that case the pending
+operations in the last two segments are completed and all information stored
+in the instruction buffer is deleted. The pipeline then restarts from the new
+address stored in the program counter. Similarly, an interrupt request, when
+acknowledged, will cause the pipeline to empty and start again from a new
+address value.
+

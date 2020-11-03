@@ -1,0 +1,50 @@
+32.3 String matching with finite automata 995
+
+32.2-4
+
+Alice has a copy of a long n-bit file A = (@n—1,dn—2.---. ao), and Bob similarly
+has an n-bit file B = (bp—1, bn-2...-. bo). Alice and Bob wish to know if their
+files are identical. To avoid transmitting all of A or B, they use the following fast
+probabilistic check. Together, they select a prime g > 1000n and randomly select
+an integer x from {0,1,..., q — 1}. Then, Alice evaluates
+
+nl
+A(x) = (Xe) mod q
+i=0
+and Bob similarly evaluates B(x). Prove that if A # B, there is at most one
+chance in 1000 that A(x) = B(x), whereas if the two files are the same, A(x) is
+necessarily the same as B(x). (Hint: See Exercise 31.4-4.)
+
+ 
+
+32.3 String matching with finite automata
+
+Many string-matching algorithms build a finite automaton—a simple machine for
+processing information—that scans the text string T for all occurrences of the pat-
+tern P. This section presents a method for building such an automaton. These
+string-matching automata are very efficient: they examine each text character ex-
+actly once, taking constant time per text character. The matching time used—after
+preprocessing the pattern to build the automaton—is therefore ©(). The time to
+build the automaton, however, can be large if is large. Section 32.4 describes a
+clever way around this problem.
+
+We begin this section with the definition of a finite automaton. We then examine
+a special string-matching automaton and show how to use it to find occurrences
+of a pattern in a text. Finally, we shall show how to construct the string-matching
+automaton for a given input pattern.
+
+Finite automata
+
+A finite automaton M, illustrated in Figure 32.6, is a S-tuple (Q,qo. A. U.4),
+where
+
+* Qisa finite set of states,
+
+* qo € Q is the start state,
+
+* AC Q isa distinguished set of accepting states,
+
+* Disa finite input alphabet,
+
++ 6isa function from Q x & into Q, called the transition function of M.
+

@@ -1,0 +1,61 @@
+590
+
+Chapter 19. Learning in Neural and BeliefNetworks
+
+ 
+
+ADAPTIVE
+PROBABILISTIC
+NETWORKS
+
+cases (although we do not rule this out). Second, networks with hidden variables can be more
+compact than the corresponding fully observable network. Figure 19.17 shows an example. If
+the underlying domain has significant local structure, then with hidden variables it is possible to
+take advantage of that structure to find a more concise representation for the joint distribution on
+the observable variables. This, in turn, makes it possible to learn from fewer examples.
+
+ 
+
+ 
+
+ 
+
+Figure 19.17 A network with a hidden variable (labelled H), and the corresponding fully
+observable network. If the variables are Boolean, then the hidden-variable network requires 17
+independent conditional probability values, whereas the fully observable network requires 27.
+
+ 
+
+ 
+
+ 
+
+If we are to approach this problem in Bayesian terms, then the "hypotheses" H; are the
+different possible complete assignments to all the conditional probability table (CPT) entries.
+We will assume that all possible assignments are equally likely a priori, which means that we are
+looking for a maximum likelihood hypothesis. That is, we wish to find the set of CPT entries
+that maximizes the probability of the data, P(D|H;).
+
+The method we will use to do this is quite similar to the gradient descent method for neural
+networks. We will write the probability of the data as a function of the CPT entries, and then
+calculate a gradient. As with neural networks, we will find that the gradient can be calculated
+locally by each node using information that is available in the normal course of belief network
+calculations. Thus, the CPT entries are analogous to the weights, and P(D|H;)is (inversely)
+analogous to the error Z. Belief network systems equipped with this kind of learning scheme are
+called adaptive probabilistic networks (APNs).
+
+Suppose we have a training set D = {D,,....D,,}, where each case Dj consists of an
+assignment of values to some subset of the variables in the network. We assume that each case 8
+drawn independently from some underlying distribution that we are trying to model. The problem
+is to adjust the conditional probabilities in the network in order to maximize the likelihood of
+the data. We will write this likelihood as P(D). The reader should bear in mind that here ()
+is really P,(-), that is, the probability according to a joint distribution specified by W. the set
+of all of the conditional probability values in the network. In order to construct a hill-climbing
+algorithm to maximize the likelihood, we need to calculate the derivative of the likelihood with
+respect to each ofthe conditional probability values w; in w.
+
+It turns out to be easiest to compute the derivative of the logarithm of the likelihood.
+Because the log-likelihood is monotonically related to the likelihood itself, a maximum on the
+
+ 
+

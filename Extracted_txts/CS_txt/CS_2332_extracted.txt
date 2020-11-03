@@ -1,0 +1,55 @@
+476
+
+FIFO
+
+(CHAPTER TWELVE Memory Organization.
+
+first-out (FIFO) and the least recently used (LRU). The FIFO algorithm selects for
+replacement the page that has been in memory the longest time. Each time a
+page is loaded into memory, its identification number is pushed into a FIFO
+stack. FIFO will be full whenever memory has no more empty blocks. When
+anew page must be loaded, the page least recently brought in is removed. The
+page to be removed is easily determined because its identification number is
+at the top of the FIFO stack. The FIFO replacement policy has the advantage
+of being easy to implement. It has the disad vantage that under certain circum-
+stances pages are removed and loaded from memory too frequently.
+
+The LRU policy is more difficult to implement but has been more attrac-
+tive on the assumption that the least recently used page is a better candidate
+for removal than the least recently loaded page as in FIFO. The LRU algorithm
+can be implemented by associating a counter with every page that is in main
+memory. When a page is referenced, its associated counter is set to zero. At
+fixed intervals of time, the counters associated with all pages presently in
+memory are incremented by 1. The least recently used page is the page with
+the highest count. The counters are often called aging registers, as their count
+indicates their age, that is, how long ago their associated pages have been
+referenced.
+
+12-7_Memory Management Hardware
+
+ 
+
+Ina multiprogramming environment where many programs reside in memory
+it becomes necessary to move programs and data around the memory, to vary
+the amount of memory in use by a given program, and to prevent a program
+from changing other programs. The demands on computer memory brought
+about by multiprogramming have created theneed fora memory management
+system. A memory management system is a collection of hardware and soft-
+ware procedures for managing the various programs residing in memory. The
+memory management software is part of an overall operating system available
+in many computers, Here we are concerned with the hardware unit associated
+with the memory management system.
+The basic components of a memory management unit are:
+
+1. A facility for dynamic storage relocation that maps logical memory
+references into physical memory addresses
+
+2. A provision for sharing common programs stored in memory by differ-
+ent users
+
+3. Protection of information against unauthorized access between users
+and preventing users from changing operating system functions
+
+‘The dynamic storage relocation hardware is a mapping process similar to
+the paging system described in Sec. 12-6. The fixed page size used in the virtual
+

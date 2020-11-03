@@ -1,0 +1,90 @@
+pipeline conflicts
+
+SECTION 94 Instruction Pipeline 313
+
+ 
+
+ 
+
+ 
+
+ 
+
+Step: rf2tstetsfolrfelsfolul[rls
+tosction 1 | 1 | pa] ro | ex
+2 Ft | pal Fo | ex
+(Brann) 3 Fi | pa| ro | ex
+4 | - | - | # [pa] ro | ex
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 9-8 Timing of instruction pipeline
+
+ofa branch instruction, each segment operates on different instructions. Thus,
+in step 4, instruction 1 is being executed in segment EX; the operand for
+instruction 2 is being fetched in segment FO; instruction 3 is being decoded in
+segment DA; and instruction 4 is being fetched from memory in segment FI.
+
+‘Assume now that instruction 3 is a branch instruction. As soon as this
+instruction is decoded in segment DA in step 4, the transfer from FI to DA of
+the other instructions is halted until the branch instruction is executed in step
+6. If the branch is taken, a new instruction is fetched in step 7. If the branch
+is not taken, the instruction fetched previously in step 4 can be used. The
+pipeline then continues until a new branch instruction is encountered.
+
+Another delay may occur in the pipeline if the EX segment needs tostore
+the result of the operation in the data memory while the FO segment needs
+to fetch an operand. In that case, segment FO must wait until segment EX has
+finished its operation.
+
+In general, there are three major difficulties that cause the instruction
+pipeline to deviate from its normal operation.
+
+1. Resource conflicts caused by access to memory by two segments at the
+same time. Most of these conflicts can be resolved by using separate
+instruction and data memories.
+
+2. Data dependency conflicts arise when an instruction depends on the
+result of a previous instruction, but this result is not yet available.
+
+3. Branch difficulties arise from branch and other instructions that change
+the value of PC.
+
+Data Dependency
+A difficulty that may caused a degradation of performance in an instruction
+pipeline is due to possible collision of data or address. A collision occurs when
+

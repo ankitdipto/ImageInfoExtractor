@@ -1,0 +1,50 @@
+SECTION 55 Instruction Cycle 139
+
+until the memory word is available. To facilitate the presentation, we will
+assume that a wait period is not necessary in the basic computer.
+
+To fully comprehend the operation of the computer, itis crucial that one
+understands the timing relationship between the clock transition and the
+timing signals. For example, the register transfer statement
+
+Tg AR < PC
+
+specifies a transfer of the content of PC into AR if timing signal To is active. Ty
+is active during an entire clock cycle interval. During this time the content of
+PC is placed onto the bus (with §,5,5 = 010) and the LD (load) input of AR
+is enabled. The actual transfer does not occur until the end of the clock cycle
+when the clock goes through a positive transition. This same positive clock
+transition increments the sequence counter SC from 0000 to 0001. The next
+lock cycle has T; active and Ty inactive.
+
+5-5 Instruction Cycle
+
+A programresiding in the memory unit of the computer consists of a sequence
+of instructions. The program is executed in the computer by going through a
+cycle for each instruction. Each instruction cycle in turn is subdivided into a
+sequence of subcycles or phases. In the basic computer each instruction cycle
+consists of the following phases:
+
+1. Fetch an instruction from memory.
+. Decode the instruction.
+
+3. Read the effective address from memory if the instruction has an indi-
+rect address.
+
+4, Execute the instruction.
+
+x
+
+Upon the completion of step 4, the control goes back to step 1 to fetch, decode,
+and execute the next instruction. This process continues indefinitely unless a
+HALT instruction is encountered.
+
+Fetch and Decode
+
+Initially, the program counter PC is loaded with the address of the first instruc-
+tion in the program. The sequence counter SC is cleared to 0, providing a
+decoded timing signal Ty. After each clock pulse, SC is incremented by one,
+so that the timing signals go through a sequence Ts, T;, Tz, and so on. The
+microoperations for the feich and decode phases can be specified by the
+following register transfer statements.
+

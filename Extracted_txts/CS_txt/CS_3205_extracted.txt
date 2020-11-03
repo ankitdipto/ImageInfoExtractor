@@ -1,0 +1,51 @@
+Section 19.2. Neural Networks 567
+
+ 
+
+19.2__NeuRAL NETWORKS
+
+UNS A neural network is composed of a number of nodes, or units, connected by links. Each link
+LINKS has a numeric weight associated with it. Weights are the primary means of long-term storage
+wacut in neural networks, and learning usually takes place by updating the weights. Some of the units
+
+are connected to the external environment, and can be designated as input or output units. The
+weights are modified so as to try to bring the network's input/output behavior more into line with
+that of the environment providing the inputs
+Each unit has a set of input links from other units, a set of output links to other units, a
+‘ACTIVATION LEVEL current activation level, and a means of computing the activation level at the next step in time,
+given its inputs and weights. The idea is that each unit does a local computation based on inputs
+from its neighbors, but without the need for any global control over the set of units as a whole
+In practice, most neural network implementations are in software and use synchronous control
+to update all the units in a fixed sequence.
+To build a neural network to perform some task, one must first decide how many units are
+to be used, what kind of units are appropriate, and how the units are to be connected to form a
+network. One then initializes the weights of the network, and trains the weights using a leaming
+algorithm applied to a set of training examples for the task.) The use of examples also implies
+that one must decide how to encode the examples in terms of inputs and outputs of the network.
+
+Notation
+
+Neural networks have lots of pieces, and to refer to them we will need to introduce a variety of
+mathematical notations. For convenience, these are summarized in Figure 19.3.
+
+Simple computing elements
+
+Figure 19.4 shows a typical unit. Each unit performs a simple computation: it receives signals
+from its input links and computes a new activation level that it sends along each of its output
+links. The computation of the activation level is based on the values of each input signal received
+from a neighboring node, and the weights on each input link. The computation is split into
+
+INPUT FUNCTION two components. First is a /inear component, called the input function, in;, that computes the
+weighted sum of the unit's input values. Second is a nonlinear component called the activation
+Aout function, g, that transforms the weighted sum into the final value that serves as the unit's activation
+
+value, a;. Usually, all units in a network use the same activation function. Exercise 19.3 explains
+why it is important to have a nonlinear component.
+The total weighted input is the sum of the input activations times their respective weights:
+
+in; = yi Wjiaj = Wi a
+7
+
+3 In this chapter, we will assume that all examples are labelled with the correct outputs. In Chapter 20, we will see how
+to relax this assumption.
+

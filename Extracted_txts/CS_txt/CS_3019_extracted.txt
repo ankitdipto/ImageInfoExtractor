@@ -1,0 +1,156 @@
+Section 13.1.
+
+Conditional Planning 397
+
+ 
+
+ 
+
+OPT 101)
+
+— AnvTirat
+Flat(Tire 1)
+
+[_ Start_}Fiat(Tire1) —— ‘ntated(Tret) | Finish
+Jnflated/Spare) ee
+
+(Intact(Tire ))
+
+ 
+
+ 
+
+Ba Tes) ——___—_
+Inflate(Tiret)
+rie!) dntan/Tvat
+eo (intact(Tire))
+
+ 
+
+heck(Tiret)
+
+Figure 13.4 The plan to inflate Tire\ will work provided that it is intact.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+-On(Tire1)
+-_ otic:
+
+[is Flat(Tire —
+Start _|Fiat(Tirer) Qe Infatea(Tvet) |_Finish
+Inllated(Spare) Fiat(Tret) ehtact(Tie1))
+xr inaction; L_tnflate(tiren)
+Check(Tiret)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(intactTiret))
+
+ 
+
+n(x), —___
+Infateo(x) |_Finish_|
+Olntact{Tiret,)
+
+ 
+
+ 
+
+Figure 135 We must now plan for the case where Tire, is not intact.
+
+ 
+
+ 
+
+ 
+
+exhaustive set of possibilities—for every possible outcome, there is a corresponding finish step,
+and a path to get to the finish step.
+
+Now we need to solve the goal when Tire; has a hole in it. Here the context is very useful.
+If we were to try to add the step /nflate(Tire;)to the plan, we would immediately see that the
+precondition /ntact(Tire))is inconsistent with the context >/ntact(Tire,). Thus, the only ways to
+satisfy the Jnflated(xyondition are to link it to the start step with the unifier {x/spare}or to add
+an Inflate step for the spare. Because the latter leads to a dead end (because the spare is not flat),
+we choose the former. This leads to the plan state in Figure 13.6.
+
+The steps Remove(Tire,) and PutOn(Spare) are now added to the plan to satisfy the con-
+dition On(Spare), using standard causal-link addition. Initially, the steps would have a True
+
+ 
+
+ 
+
+On(Tire1}
+otic
+
+Start |Flat(Tiret) Intiated( Tire) Finish
+iatedSpa%0) Frat(Tre detect Tire)
+innaren L_lntiateTirety__
+
+(intact(Tire)}
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+   
+ 
+
+ 
+
+tact
+
+ 
+
+‘Check(Tiret)
+
+ 
+
+ 
+
+On(Spare) ——_———
+Inflated(Spare)|_ Finish_|
+Cntact{Tire))
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 13.6 — When Tire, is not intact, we must use the spare instead.
+
+ 
+
+ 
+
+ 
+

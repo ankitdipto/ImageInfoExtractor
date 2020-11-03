@@ -1,0 +1,29 @@
+544 Let UsC
+
+ 
+
+out jobs like console I/O, file I/O, printing, ete. For other
+operations like generating graphics, carrying out serial
+communication, etc. the program has to call another set of
+functions called ROM-BIOS functions.
+
+Unfortunately the DOS functions and the BIOS functions do not
+have any names. Hence to call them the program had to use a
+mechanism called interrupts. This is a messy affair since the
+programmer has to remember interrupt numbers for calling
+different functions. Moreover, communication with these functions
+has to be done using CPU registers. This lead to lot of difficulties
+since different functions use different registers for communication.
+To an extent these difficulties are reduced by providing library
+functions that in tum call the DOS/BIOS functions using
+interrupts. But the library doesn’t have a parallel function for every
+DOS/BIOS function. DOS functions either call BIOS functions or
+directly access the hardware.
+
+At times the programs are needed to directly interact with the
+hardware. This has to be done because either there are no
+DOS/BIOS functions to do this, or if they are there their reach is
+limited.
+
+Figure 16.2 captures the essence of the DOS programming model.
+

@@ -1,0 +1,48 @@
+648
+
+ 
+
+y
+
+Chapter 24 Single-Source Shortest Paths
+
+  
+
+Figure 24.2 (a) A weighted, directed graph with shortest-path weights from source s. (b) The
+shaded edges form a shortest-paths tree rooted at the source s. (¢) Another shortest-paths tree with
+the same root.
+
+Shortest paths are not necessarily unique, and neither are shortest-paths trees. For
+example, Figure 24.2 shows a weighted, directed graph and two shortest-paths trees
+with the same root.
+
+Relaxation
+
+The algorithms in this chapter use the technique of relaxation. For each vertex
+v € V, we maintain an attribute v.d, which is an upper bound on the weight of
+a shortest path from source s to v. We call v.d a shortest-path estimate. We
+initialize the shortest-path estimates and predecessors by the following @(V)-time
+procedure:
+
+INITIALIZE-SINGLE-SOURCE(G, 5)
+1 for each vertex v € G.V
+
+2 v.d = 00
+3 v. = NIL
+4 sd=0
+
+After initialization, we have v.2 = NIL for all v € V,s.d = 0, and v.d = oo for
+veV —{s}.
+
+The process of relaxing an edge (u,v) consists of testing whether we can im-
+prove the shortest path to v found so far by going through wu and, if so, updat-
+ing v.d and v.z. A relaxation step! may decrease the value of the shortest-path
+
+ 
+
+1Tt may seem strange that the term “relaxation” is used for an operation that tightens an upper bound.
+The use of the term is historical. The outcome of a relaxation step can be viewed as a relaxation
+of the constraint v.d < u.d + w(w,v), which, by the triangle inequality (Lemma 24.10), must be
+satisfied if u.d = 8(s, u) and v.d = 8(s, v). That is, if v.d < u.d + w(w,v), there is no “pressure”
+to satisfy this constraint, so the constraint is “relaxed.”
+

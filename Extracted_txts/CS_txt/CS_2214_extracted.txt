@@ -1,0 +1,63 @@
+SECTION 10:7 Decimal Arithmetic Operations 375
+
+Divide
+
+Divisorin B
+Dividend in AQ
+
+ 
+
+ 
+
+Check for overflow
+
+|
+
+ 
+
+ 
+
+2+ 4,08,
+SCHKRB, +0
+
+ 
+
+ 
+
+ 
+
+    
+
+EATAtEY
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 10-23 Flowchart for decimal division.
+
+that A < B. In this case the divisor is added to restore the partial remainder
+and Q, stays at 0 (inserted there during the shift). If E = 1, it signifies that
+A = B. The quotient digit in Q, is incremented once and the divisor subtracted
+again. This process is repeated until the subtraction results in a negative
+difference which is recognized by E being 0. When this occurs, the quotient
+digit isnot incremented but the divisor is added to restore the positive remain-
+der. In this way, the quotient digit is made equal to the number of times that
+the partial remainder “goes” into the divisor.
+

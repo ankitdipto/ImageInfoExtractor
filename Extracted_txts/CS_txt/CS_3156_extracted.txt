@@ -1,0 +1,62 @@
+Section 17.7. Summary 521
+
+ 
+
+Dee SUE ERR EEE el
+
+EXERCISES
+
+17.1 For the stochastic version of the world shown in Figure 17.1, calculate which squares can
+be reached by the action sequence [Up, Righr],and with what probabilities.
+
+172 For a specific environment (which you can make up), construct a utility function on
+histories that is not separable. Explain how the concept of utility on states fails in this case.
+
+173 Consider the stochastic version of the environment shown in Figure 17.1.
+
+ 
+
+a. Implement an environment simulator for this environment, such that the specific geography
+of the environment is easily altered.
+
+b. Create a SIMPLE-POLICY-AGENT that uses policy iteration, and measure its performance in
+the environment simulator from various starting states.
+
+c. Experiment with increasing the size of the environment. How does the execution time per
+action vary with the size of the environment?
+
+d. Analyze the policy iteration algorithm to find its worst-case complexity, assuming that
+value determination is done using a standard equation-solving method.
+
+e. Does value iteration terminate if the utility values are required to converge exactly?
+
+174 For the environment shown in Figure 17.1, find all the threshold values for the cost of a
+step, such that the optimal policy changes when the threshold is crossed.
+
+ 
+
+175 Prove that the calculations in the prediction and estimation phases of the basic decision
+cycle (Equations (17.8) and (17.9)) do in fact yield the correct value for Bel(X,), given assump-
+tions (17.5), (17.6), and (17.7).
+
+176 In this exercise, we will consider part of the problem of building a robot that plays
+Ping-Pong.
+
+One of the things it will have to do is find out where the ball is and estimate its trajectory. Let
+us suppose for a moment that we have a vision system that can return an estimated instantaneous
+(x,y, z)position for the ball. This position estimate for time 1; will be used as an evidence node
+Oi in a belief network that infers the desired information. The idea is that nodes Xj and V; in
+the network represent the ball's instantaneous position and velocity. The trajectory of the ball is
+followed by having multiple copies of these nodes, one for each time step. In addition to these
+nodes, we also have nodes for the instantaneous friction force F; acting on the ball due to air
+resistance, which depends only on the current velocity. The times ¢, f2, 3, ... can be assumed to
+be separated by some small interval 61,
+
+a. Which ofthe beliefnetworks in Figure 17.17 correctly (but not necessarily efficiently) repre-
+sent the preceding information? (You may assume that second-order effects—proportional
+to §1°—are ignored.)
+
+b. Which is the best network?
+
+c. Which networks can be solved by local propagation algorithms?
+

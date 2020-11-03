@@ -1,0 +1,53 @@
+25.1 Shortest paths and matrix multiplication 689
+
+identity for +), we obtain the same @(n*)-time procedure for multiplying square
+matrices that we saw in Section 4.2:
+
+SQUARE-MATRIX-MULTIPLY (A, B)
+1 n= A.rows
+
+2 let C be anewn xn matrix
+
+3 fori = lton
+
+4 for j = lton
+
+5 cj = 0
+
+6 fork = 1ton
+
+7 Cig = Cig + ik + Dey
+8 return C
+
+Returning to the all-pairs shortest-paths problem, we compute the shortest-path
+weights by extending shortest paths edge by edge. Letting A- B denote the ma-
+trix “product” returned by EXTEND-SHORTEST-PATHS (A, B), we compute the se-
+quence of n — | matrices
+
+Lo = LO.w = W,
+
+L? = LO.w = w,
+
+Lo = L®.w = WwW,
+Leo = Lo-2) W=wre.,
+
+As we argued above, the matrix L- = W”~! contains the shortest-path weights.
+The following procedure computes this sequence in @(n*) time.
+
+SLOW-ALL-PAIRS-SHORTEST- PATHS (W)
+n = W.rows
+LO = Ww
+form = 2ton-—1
+let L™ be anew n x n matrix
+L™ = EXTEND-SHORTEST-PATHS (L“"-)), W)
+return L"—)
+
+Auswne
+
+Figure 25.1 shows a graph and the matrices L computed by the procedure
+SLOW-ALL-PAIRS-SHORTEST-PATHS.
+Improving the running time
+
+Our goal, however, is not to compute all the L®™ matrices: we are interested
+only in matrix L°~), Recall that in the absence of negative-weight cycles, equa-
+

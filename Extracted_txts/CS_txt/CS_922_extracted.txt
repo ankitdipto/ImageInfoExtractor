@@ -1,0 +1,44 @@
+Chapter 7: The C Preprocessor 251
+
+ 
+
+()
+
+@
+
+What went wrong? The macro was expanded into
+j=64/4*4;
+which yielded 64.
+
+Macros can be split into multiple lines, with a ‘\’ (back slash)
+present at the end of each line. Following program shows how
+we can define and use multiple line macros.
+
+#define HLINE for (i=0;i1<79;i++)\
+printf ("%c", 196 ) ;
+
+#define VLINE( X,Y) {\
+gotoxy (X,Y) ;\
+printf ("%c", 179) ;\
+
+}
+main()
+{
+inti, y;
+clrscr() ;
+
+gotoxy (1,12);
+HLINE
+
+for(y=1;y<25;y++)
+VLINE (39, y);
+}
+
+This program draws a vertical and a horizontal line in the
+center of the screen.
+
+If for any reason you are unable to debug a macro then you
+should view the expanded code of the program to see how the
+macros are getting expanded. If your source code is present in
+the file PR1.C then the expanded source code would be stored
+

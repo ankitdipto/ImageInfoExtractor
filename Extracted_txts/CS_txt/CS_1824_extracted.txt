@@ -1,0 +1,65 @@
+  
+
+Section 9.3
+
+Generalized Modus Ponens 269
+
+ 
+
+g.3__GENERALIZED MODUS PONENS
+
+PUrRALIZED
+fobUS Eons
+
+In this section, we introduce a generalization of the Modus Ponens inference rule that does in a
+single blow what required an And-Introduction, Universal Elimination, and Modus Ponens in the
+earlier proof. The idea is to be able to take a knowledge base containing, for example:
+
+Missile(M 1)
+
+Owns(Nono, M1)
+
+Vx Missile(x)A Owns(Nono, x)= Sells(West, Nono, x)
+and infer in one step the new sentence
+
+Sells( West, Nono,M1)
+
+Intuitively, this inference seems quite obvious. The key is to find some x in the knowledge base
+such that x is a missile and Nono owns x, and then infer that West sells this missile to Nono.
+More generally, ifthere is some substitution involving x that makes the premise ofthe implication
+identical to sentences already in the knowledge base, then we can assert the conclusion of the
+implication, after applying the substitution. In the preceding case, the substitution {x/M1}
+achieves this.
+
+We can actually make Modus Ponens do even more work. Suppose that instead ofknowing
+Owns(Nono, M |).we knew that everyone owns MI (a communal missile, as it were):
+
+Vy Owns(y,M1)
+Then we would still like to be able to conclude that Sells( West, Nono, M1). This inference could
+be carried out if we first applied Universal Elimination with the substitution {y/Nono}to get
+Owns(Nono, M1).The generalized version of Modus Ponens can do it in one step by finding a
+substitution for both the variables in the implication sentence and the variables in the sentences to
+be matched. In this case, applying the substitution {x/M1, y/Nono} to the premise Owns(Nono, x)
+and the sentence Owns(y, M1 )will make them identical. Ifthis can be done for all the premises
+of the implication, then we can infer the conclusion of the implication. The rule is as follows:
+
+© Generalized Modus Ponens: For atomic sentences pj, p;’, and g, where there is a substi-
+tution 0 such that SuBsT(4, p;’) = SuBsT(4, p;), for all i:
+
+Pils pry sees Po (Di App A... APn >)
+SuBST(6,@)
+There are n + 1 premises to this rule: the n atomic sentences p;’ and the one implication. There
+is one conclusion: the result of applying the substitution to the consequent g. For the example
+with West and the missile:
+
+Pt is Missile(M1) pr is Missile(x)
+‘po is Owns(y,M1) po is Owns(Nono, x)
+0 is {x/M1, y/Nono} q is Sells( West, Nono, x)
+
+SuBST(4, q) is Sells(West,Nono, M1)
+Generalized Modus Ponens is an efficient inference rule for three reasons:
+
+I. It takes bigger steps, combining several small inferences into one.
+
+ 
+

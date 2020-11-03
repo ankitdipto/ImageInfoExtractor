@@ -1,0 +1,69 @@
+132 cHarrer Five Basic Computer Organization and Design
+
+Instruction format
+
+ferring the content of DR through the adder and logic circuit into AC, and
+enabling the LD (load) input of AC, all during the same clock cycle. The two
+transfers occur upon the arrival of the clock puke transition at the end of the
+clock cycle.
+
+5-3 Computer Instructions
+
+The basic computer has three instruction code formats, as shown in Fig. 5-5.
+Each format has 16 bits. The operation code (opcode) part of the instruction
+contains three bits and the meaning of the remaining 13 bits depends on the
+operation code encountered. A memory-reference instruction uses 12 bits to
+specify an address and one bit to specify the addressing mode I. I is equal to
+0 for direct address and to 1 for indirect address (see Fig. 5-2). The register-
+reference instructions are recognized by the operation code 111 with a0 in the
+leftmost bit (bit 15) of the instruction. A register-reference instruction specifies,
+an operation on or a test of the AC register. An operand from memory is not
+needed; therefore, the other 12 bits are used to specify the operation or test to
+be executed. Similarly, an input-output instruction does not need a reference
+to memory and is recognized by the operation code 111 witha 1 in the leftmost
+bit of the instruction. The remaining 12 bits are used to specify the type of
+input-output operation or test performed.
+
+The type of instruction is recognized by the computer control from the four
+bits in positions 12 through 15 of the instruction. If the three opcode bits in
+positions 12 though 14 are not equal to 111, the instruction is a memory-reference
+type and the bit in position 15is taken asthe addressing mode I. If the 3-bit opcode
+is equal to 111, control then inspects the bit in position 15. If this bit is 0, the
+
+Figure 5-5 Basic computer instruction formats.
+
+Bi °
+1] opcose ‘Adaess ] cpcode = 000 trough 110)
+
+ 
+
+ 
+
+ 
+
+(2) Memory ~ reference instruction
+
+15 aun o
+
+ 
+
+ 
+
+0 1 1 1] Register operation | (Opcode =111, 1=0)
+
+ 
+
+(b) Register - reference instruction
+
+ 
+
+ 
+
+  
+
+WO operation
+
+ 
+
+(©) Input - output instruction
+

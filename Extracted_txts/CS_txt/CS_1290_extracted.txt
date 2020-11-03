@@ -1,0 +1,45 @@
+562 Let UsC
+
+ 
+
+hope Chapter 16 has been able to bring about this change.
+
+However this change would be bolstered by writing event
+driven programs. This is what this chapter intends to do. I am
+hopeful that by the time you reach the end of this chapter you
+would be so comfortable with it as if you have been using it all
+your life.
+
+| view driven programming requires a change in mind set. I
+
+The Role of a Message Box
+
+Often we are required to display certain results on the screen
+during the course of execution of a program. We do this to
+ascertain whether we are getting the results as per our
+expectations. In a sequential DOS based program we can easily
+achieve this using printf( ) statements. Under Windows screen is a
+shared resource. So you can imagine what chaos would it create if
+all running applications are permitted to write to the screen. You
+would not be able to make out which output is of what application.
+Hence no Windows program is permitted to write anything directly
+to the screen. That’s where a message box enters the scene. Using
+it we can display intermediate results during the course of
+execution of a program. It can be dismissed either by clicking the
+‘close button’ in its title bar or by clicking the OK button present
+in it. There are numerous variations that you can try with the
+MessageBox( ). Some of these are given below
+
+MessageBox (0, “Are you sure’, "Caption", MB_YESNO ) ;
+
+MessageBox ( 0, “Print to the Printer’, “Caption”, MB_YESNO CANCEL) ;
+
+MessageBox ( 0, “icon is all about style”, “Caption”, MB_OK |
+MB_ICONINFORMATION ) ;
+
+You can put the above statements within WinMain( ) and see the
+results for yourself. Though the above message boxes give you
+flexibility in displaying results, button, icons, there is a limit to
+which you can stretch them. What if we want to draw a free hand
+drawing or display an image, etc. in the message box. This would
+

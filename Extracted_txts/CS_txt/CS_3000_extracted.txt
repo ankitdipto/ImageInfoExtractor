@@ -1,0 +1,79 @@
+380
+
+  
+
+Chapter 12. Practical Planning
+
+ 
+
+APPROXIMATION.
+HIERARCHY
+
+‘CRITICALITY LEVEL
+
+   
+ 
+ 
+   
+ 
+   
+   
+ 
+ 
+ 
+   
+   
+ 
+    
+   
+ 
+   
+
+Decomposition versus approximation
+
+The literature on planning is confusing because authors have not agreed on their terminology.
+There are two completely separate ideas that have gone under the name hierarchical planning.
+Hierarchical decomposition, as we have seen, is the idea that an abstract, nonprimitive operator
+can be decomposed into a more complex network of steps. The abstraction here is on the
+granularity with which operators interact with the world. Second, abstraction hierarchies
+capture the idea that a single operator can be planned with at different levels of abstraction. At
+the primitive level, the operator has a full set of preconditions and effects; at higher levels, the
+planner ignores some of these details
+
+To avoid confusion, we will use the term approximation hierarchy for this kind of
+abstraction, because the "abstract" version of an operator is slightly incorrect, rather than merely
+abstract. An approximation hierarchy planner takes an operator and partitions its preconditions
+according to their criticality level, for example:
+
+Op( ACTION:Buy(x),
+
+EFFECT: Have(x) A >Have(Money),
+PRECOND: 1 :Sells(storex)A
+2: At(storeyA
+3: Have(Money))
+
+Conditions labelled with lower numbers are considered more critical. In the case of buying
+something, there is not much one can do if the store does not sell it, so it is vital to choose 4
+the right store. An approximation hierarchy planner first solves the problem using only the
+preconditions of criticality 1. The solution would be a plan that buys the right things at the right
+stores, but does not worry about how to travel between stores or how to pay for the goods. The
+idea is that it will be easy to find an abstract solution like this, because most of the pesky details
+are ignored. Once a solution is found, it can be expanded by considering the preconditions at
+criticality level 2. Then we get a plan that takes travel into consideration, but still does not worry
+about paying. We keep expanding the solution in this way until all the preconditions are satisfied.
+In the framework we have presented, we do not really need to change the language or
+the planner to support approximation hierarchy planning. All we have to do is provide the
+right decomposition methods and abstract operators. First, we define Buy,, which has just the
+precondition at criticality level 1, and has a single decomposition method to Buy'2, which has
+preconditions at criticality 1 and 2, and so on. Clearly, any domain generated this way has
+the unique main subaction property—the decomposition has only one step, and it has all the
+preconditions and effects ofthe abstract operator. Therefore, the upward solution property holds.
+Ifwe add a heuristic that causes the planning algorithm to backtrack to choice points involv-
+ing low-number preconditions first, then we get an approximation hierarchy planner using our
+standard hierarchical decomposition planner. Thus, the criticality levels used in approximation
+hierarchy planning can be seen as providing control information to guide the planning search.
+In this sense, criticality levels are a rather crude tool because they do not allow the criticality
+to depend on context. (For example, money might be a critical precondition if one is buying a
+house.) One promising approach is to replace criticality levels with descriptions of how likely
+the operator is to succeed in various combinations of circumstances.
+

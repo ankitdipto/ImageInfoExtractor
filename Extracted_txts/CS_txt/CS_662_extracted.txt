@@ -1,0 +1,126 @@
+SECTION 62 Machine Language 175
+
+TABLE 6-1 Computer Instructions
+
+ 
+
+‘Symbol
+
+AND
+ADD
+LDA
+STA
+BUN
+BSA
+ISZ
+
+CMA
+CME
+CIR
+cI
+INC
+SPA
+SNA
+SZA
+SZE
+HLT
+INP
+ouT
+SKI
+SKO
+ION
+IOF
+
+Hexadecimal
+
+code
+
+Oor8
+lord
+
+20rA
+30rB
+4orc
+SorD
+6orE
+
+7400
+7200
+7100
+7080
+7040
+7020
+7010
+7008
+
+7002
+7001
+
+F800
+F400
+F200
+F100
+F080,
+F049
+
+ 
+
+AND M to AC
+Add M to AG, carry to E
+
+Load AC from M_
+
+Store AC in M.
+
+Branch unconditionally to m
+Save return address in m and branch to m +1
+Increment M and skip if zero
+Clear AC
+
+Clear E
+
+Complement AC
+
+Complement E
+
+Circulate right E and AC
+Circulate left E and AC
+Increment AC,
+
+Skip if AC is positive
+
+Skip if AC is negative
+
+Skip if AC is zero
+
+Skip if Eis zero
+
+Halt computer
+
+Input information and clear flag
+Output information and clear flag
+Skip if input flag is on
+
+‘Skip if output flag is on
+
+Turn interrupt on
+
+Turn interrupt off
+
+written in any other language must be translated to the binary representation
+of instructions before they can be executed by the computer. Programs written
+for a computer may be in one of the following categories:
+
+1. Binary code. This is a sequence of instructions and operands in binary
+that list the exact representation of instructions as they appear in com-
+puter memory.
+
+2. Octal or hexadecimal code. This is an equivalent translation of the binary
+code to octal or hexadecimal representation.
+
+3. Symbolic code. The user employs symbols (letters, numerals, or special
+characters) for the operation part, the address part, and other parts of
+the instruction code. Each symbolic instruction can be translated into
+one binary coded instruction. This translation is done by a special
+program called an assembler. Because an assembler translates the sym-
+

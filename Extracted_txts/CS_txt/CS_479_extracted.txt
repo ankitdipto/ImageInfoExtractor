@@ -1,0 +1,40 @@
+33.3 Finding the convex hull 1029
+
+33.2-8
+Argue that ANY-SEGMENTS-INTERSECT works correctly even if three or more
+segments intersect at the same point.
+
+33.2-9
+
+Show that ANY-SEGMENTS-INTERSECT works correctly in the presence of verti-
+cal segments if we treat the bottom endpoint of a vertical segment as if it were a
+left endpoint and the top endpoint as if it were a right endpoint. How does your
+answer to Exercise 33.2-2 change if we allow vertical segments?
+
+ 
+
+33.3 Finding the convex hull
+
+The convex hull of a set Q of points, denoted by CH(Q), is the smallest convex
+polygon P for which each point in Q is either on the boundary of P or in its
+interior. (See Exercise 33.1-5 for a precise definition of a convex polygon.) We
+implicitly assume that all points in the set Q are unique and that Q contains at
+least three points which are not colinear. Intuitively, we can think of each point
+in Q as being a nail sticking out from a board. The convex hull is then the shape
+formed by a tight rubber band that surrounds all the nails. Figure 33.6 shows a set
+of points and its convex hull.
+
+In this section, we shall present two algorithms that compute the convex hull
+of a set of n points. Both algorithms output the vertices of the convex hull in
+counterclockwise order. The first, known as Graham’s scan, runs in O(n 1g 77) time.
+The second, called Jarvis’s march, runs in O(nh) time, where / is the number of
+vertices of the convex hull. As Figure 33.6 illustrates, every vertex of CH(Q) is a
+
+ 
+
+Po
+
+Figure 33.6 A set of points Q = {po, p1.---, P12} with its convex hull CH(Q) in gray.
+
+ 
+

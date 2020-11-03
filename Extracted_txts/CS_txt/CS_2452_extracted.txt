@@ -1,0 +1,53 @@
+66
+
+Chapter 4 Divide-and-Conquer
+
+of its value on smaller inputs. For example, in Section 2.3.2 we described the
+
+worst-case running time 7(n) of the MERGE-SoRT procedure by the recurrence
+
+Tin) =) OM ifn=1, (4.1)
+2T(n/2)+ O(n) ifn >1,
+
+whose solution we claimed to be T(n) = O(n lgn).
+
+Recurrences can take many forms. For example, a recursive algorithm might
+divide subproblems into unequal sizes, such as a 2/3-to-1/3 split. If the divide and
+combine steps take linear time, such an algorithm would give rise to the recurrence
+T(n) = T(2n/3) + T(n/3) + O(n).
+
+Subproblems are not necessarily constrained to being a constant fraction of
+the original problem size. For example, a recursive version of linear search
+(see Exercise 2.1-3) would create just one subproblem containing only one el-
+ement fewer than the original problem. Each recursive call would take con-
+stant time plus the time for the recursive calls it makes, yielding the recurrence
+T(n) =T(n—1) + @()).
+
+This chapter offers three methods for solving recurrences — that is, for obtaining
+asymptotic “©” or “O” bounds on the solution:
+
+ 
+
+* In the substitution method, we guess a bound and then use mathematical in-
+duction to prove our guess correct.
+
+* The recursion-tree method converts the recurrence into a tree whose nodes
+represent the costs incurred at various levels of the recursion. We use techniques
+for bounding summations to solve the recurrence.
+
+* The master method provides bounds for recurrences of the form
+T(n) =aT(n/b) + fm). (4.2)
+
+where a > 1, b > 1, and f(n) is a given function. Such recurrences arise
+frequently. A recurrence of the form in equation (4.2) characterizes a divide-
+and-conquer algorithm that creates a subproblems, each of which is 1/b the
+size of the original problem, and in which the divide and combine steps together
+take f(n) time.
+
+To use the master method, you will need to memorize three cases, but once
+you do that, you will easily be able to determine asymptotic bounds for many
+simple recurrences. We will use the master method to determine the running
+times of the divide-and-conquer algorithms for the maximum-subarray problem
+and for matrix multiplication, as well as for other algorithms based on divide-
+and-conquer elsewhere in this book.
+

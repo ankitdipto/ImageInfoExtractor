@@ -1,0 +1,63 @@
+is]
+
+Chapter 23. Practical Natural Language Processing
+
+ 
+
+NP using the 's ending. You will first have to decide if 's attaches to a noun or NP. To help you
+do this, consider at least the following examples:
+
+the Queen of England's speech
+
+the attorney general's decision
+
+the man I saw yesterday’s name
+
+the man and woman's house
+
+Russell and Norvig's text
+
+23.7 Collect some examples of time expressions, such as "two o'clock," "midnight," and
+"12:46." Also think up some examples that are ungrammatical, such as "thirteen o'clock" or
+“half past two fifteen." Write a grammar for the time language.
+
+238 In this exercise, you will write rules for noun phrases consisting of a noun with no
+determiner. Consider these examples:
+
+a. Dogs like bones.
+
+b. Late rice.
+
+c. Gold is valuable.
+
+d. I saw some gold in 2,2.
+e. I saw gold in 2,2.
+
+Write down the semantics for each ofthese sentences. Then use that to write down lexical entries
+for "gold" and "rice," and to write a rule (or rules) of the form NP — Noun.
+
+239 We said that 3 e,x e € Sleep(John,Past) A Name(x) = John was a plausible interpretation
+for "John slept." But it is not quite right, because it blurs the distinction between "John slept"
+and "Some person named John slept." The point is that the former sentence presupposes that
+speaker and hearer agree on which John is being talked about. Write grammar and lexical rules
+that will distinguish the two examples.
+
+23.10 Write grammar rules for the category Adjp, or adjective phrase, using reified categories
+Show how to derive 3g (g £ Fake(Guns) as the semantics of "a fake gun." An adjective phrase
+can be either a lone adjective (big), a conjunction (big and dumb), or an adjective phrase modified
+by an adjective or adverb (light green or very dumb).
+
+23.11 One way to define the task of spelling correction is this: given a misspelled word and a
+dictionary of correctly spelled words, find the word(s) in the dictionary that can be transformed
+into the misspelled word in one insertion, deletion, substitution, or transposition. Given a
+dictionary of w words and a misspelled word that is k letters long, give the average case time
+complexity of spelling correction for a dictionary implemented as (a) a hash table, (b) a b-tree,
+and (c) a trie.
+
+23.12 We forgot to mention that the title of the text in Exercise 23.1 is "Washing Clothes." Go
+back and reread the text, and answer the questions in Exercise 23.3. Did you do better this time?
+Bransford and Johnson (1973) used this text in a better-controlled experiment and found that the
+title helped significantly. What does this tell you about discourse comprehension?
+
+ 
+

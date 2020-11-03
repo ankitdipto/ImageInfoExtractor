@@ -1,0 +1,47 @@
+308 © cuarrennine Pipeline and Vector Processing
+
+A and B are two fractions that represent the mantissas and a and b are the
+exponents. The floating-point addition and subtraction can be performed in
+four segments, as shown in Fig. 9-6. The registers labeled R are placed between
+the segments to store intermediate results. The suboperations that are per-
+formed in the four segments are:
+
+1. Compare the exponents.
+2. Align the mantissas.
+3. Add or subtract the mantissas.
+4. Normalize the result.
+
+This follows theprocedureoutlined in the flowchart of Fig, 10-15 but withsome
+variations that are used to reduce the execution time of the suboperations. The
+exponents are compared by subtracting them to determine their difference.
+The larger exponent is chosen as the exponent of the result. The exponent
+difference determines how many times the mantissa associated with the
+smaller exponent must be shifted to the right. This produces an alignment of
+the two mantissas. It should be noted that the shift must be designed as a
+combinational circuit to reduce the shift time. The two mantissas are added or
+subtracted in segment 3. The result is normalized in segment 4. When an
+overflow occurs, the mantissa of the sum or difference is shifted right and the
+exponent incremented by one. Ifan underflow occurs, the number of leading
+zeros in the mantissa determines the number of left shiftsin the mantissa and
+the number that must be subtracted from the exponent.
+
+The following numerical example may clarify the suboperations per-
+formed in each segment. For simplicity, we use decimal numbers, although
+Fig. 94 refers to binary numbers. Consider the two normalized floating-point
+numbers:
+
+X = 0.9504 x 10°
+YY = 0.8200 x 10°
+
+The two exponents are subtracted in the first segment toobtain3 ~ 2 = 1. The
+larger exponent 3 is chosen as the exponent of the result. The next segment
+shifts the mantissa of Y to the right to obtain
+
+X = 09504 x 10°
+Y = 0.0820 x 10°
+
+This aligns the two mantissas under the same exponent. The addition of the
+two mantissas in segment 3 produces the sum
+
+Z = 1.0324 x 10°
+

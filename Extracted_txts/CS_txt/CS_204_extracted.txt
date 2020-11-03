@@ -1,0 +1,52 @@
+Problems for Chapter 27 807
+
+27-4 Multithreading reductions and prefix computations
+A @-reduction of an array x[1..n], where ® is an associative operator, is the value
+y = x[1] @ x22] @--- @x[n].
+
+The following procedure computes the @-reduction of a subarray x[i .. /] serially.
+
+REDUCE(x,i, j)
+
+1 y= xi]
+
+2 fork =i+ltoj
+3 y= y@xi{k]
+4 return y
+
+a. Use nested parallelism to implement a multithreaded algorithm P-REDUCE,
+which performs the same function with ©(n) work and ©(lg7) span. Analyze
+your algorithm.
+
+A related problem is that of computing a @-prefix computation, sometimes
+called a @-scan, on an array x[1..n], where @ is once again an associative op-
+erator. The @-scan produces the array y[1..7] given by
+yO] = xf].
+
+y[2] x1] @ x[2],
+yB] = xf] @ x[2] @x[3].
+
+yl] _ x[1] ®@ x[2] ® x[3] @--- @ x[n],
+
+that is, all prefixes of the array x “summed” using the ® operator. The following
+serial procedure SCAN performs a ®-prefix computation:
+
+SCAN(x)
+
+1 n=x.length
+
+2 let y[1..n] be a new array
+3 yf] = xf]
+
+4 fori = 2ton
+
+5 vl = yi -—N@ xf]
+6
+
+return y
+
+Unfortunately, multithreading SCAN is not straightforward. For example, changing
+the for loop to a parallel for loop would create races, since each iteration of the
+loop body depends on the previous iteration. The following procedure P-SCAN-1
+performs the ®-prefix computation in parallel, albeit inefficiently:
+

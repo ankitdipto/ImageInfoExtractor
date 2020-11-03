@@ -1,0 +1,51 @@
+Chapter 14: Operations On Bits 489
+
+ 
+
+5225 left shift 0 gives 0001010001101001
+5225 left shift 1 gives 0010100011010010
+5225 left shift 2 gives 0101000110100100
+5225 left shift 3 gives 1010001101001000
+5225 left shift 4 gives 0100011010010000
+
+Having acquainted ourselves with the left shift and right shift
+operators, let us now find out the practical utility of these
+operators.
+
+In DOS/Windows the date on which a file is created (or modified)
+is stored as a 2-byte entry in the 32 byte directory entry of that file.
+Similarly, a 2-byte entry is made of the time of creation or
+modification of the file. Remember that DOS/Windows doesn’t
+store the date (day, month, and year) of file creation as a 8 byte
+string, but as a codified 2 byte entry, thereby saving 6 bytes for
+each file entry in the directory. The bitwise distribution of year,
+month and date in the 2-byte entry is shown in Figure 14.3.
+
+ 
+
+15 14 13 12 1110 9 8 7 6 5 4 3 2 1 «0
+Y| Y| Y) YY} Y}| Y}| Y] M] M| M| M/ D/} D] D] D/| D
+| year '«— month day
+
+Figure 14.3
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DOS/Windows converts the actual date into a 2-byte value using
+the following formula:
+
+date = 512 * ( year - 1980 ) + 32 * month + day
+
+Suppose 09/03/1990 is the date, then on conversion the date will
+be,
+
+date = 512 * (1990 - 1980) + 32*3+9=5225
+

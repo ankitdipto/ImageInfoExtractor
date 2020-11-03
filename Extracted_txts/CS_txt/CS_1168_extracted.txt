@@ -1,0 +1,43 @@
+Chapter 12: File Input/Output 451
+
+ 
+
+O_CREAT - Creates a new file for writing (has no effect
+if file already exists)
+
+O_RDONLY  - Creates a new file for reading only
+
+O_RDWR - Creates a file for both reading and writing
+
+O_WRONLY - Creates a file for writing only
+
+O_BINARY _ - Creates a file in binary mode
+
+O_TEXT - Creates a file in text mode
+
+These ‘O-flags’ are defined in the file “fentl.h”. So this file must
+be included in the program while usng low level disk I/O. Note
+that the file “stdio.h” is not necessary for low level disk I/O. When
+two or more O-flags are used together, they are combined using
+the bitwise OR operator (|). Chapter 14 discusses bitwise
+operators in detail.
+
+The other statement used in our program to open the file is,
+
+outhandle = open ( target, O_CREAT | O_BINARY | O_WRONLY,
+S_IWRITE);
+
+Note that since the target file is not existing when it is being
+opened we have used the O_CREAT flag, and since we want to
+write to the file and not read from it, therefore we have used
+O_WRONLY. And finally, since we want to open the file in
+binary mode we have used O_BINARY.
+
+Whenever O_CREAT flag is used, another argument must be
+added to open( ) function to indicate the read/write status of the
+file to be created. This argument is called ‘permission argument’.
+Permission arguments could be any of the following:
+
+S_IWRITE - Writing to the file permitted
+S_TREAD - Reading from the file permitted
+

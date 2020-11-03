@@ -1,0 +1,87 @@
+Section 18.6
+
+Why Learning Works: Computational Learning Theory 555
+
+ 
+
+DECISION LIST
+
+Ko
+kor
+
+The dilemma we face, then, is that unless we restrict the space of functions the algorithm
+can consider, it will not be able to learn; but if we do restrict the space, we may eliminate the
+true function altogether. There are two ways to "escape" this dilemma. The first way is to insist
+that the algorithm returns not just any consistent hypothesis, but preferably the simplest one. The
+theoretical analysis of such algorithms is beyond the scope of this book, but in most cases, finding
+the simplest hypothesis is intractable. The second escape, which we pursue here, is to focus on
+learnable subsets of the entire set of Boolean functions. The idea is that in most cases we do
+not need the full expressive power of Boolean functions, and can get by with more restricted
+languages. We now examine one such restricted language in more detail.
+
+Learning decision lists
+
+A decision list is a logical expression of a restricted form. It consists of a series of tests, each
+of which is a conjunction of literals. If a test succeeds when applied to an example description,
+the decision list specifies the value to be retuned. If the test fails, processing continues with the
+next test in the list.'! Decision lists resemble decision trees, but their overall structure is simpler,
+whereas the individual tests are more complex. Figure 18.16 shows a decision list that represents
+the hypothesis Hyobtained by the earlier CURRENT-BEST-LEARNING algorithm:
+
+Vx WillWait(x) <= Patrons(x, Some) V (Patrons(x,Full) A FrilSat(x))
+
+ 
+
+ 
+
+ 
+
+ 
+
+Patrons(x, Some) Patrons(x,Full) A Fri/Sat(x)}—» No
+
+ia "
+
+Yes Yes
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 18.16 A decision list for the restaurant problem.
+
+ 
+
+ 
+
+ 
+
+If we allow tests of arbitrary size, then decision lists can represent any Boolean function
+(Exercise 18.13). On the other hand, if we restrict the size of each test to at most k literals,
+then it is possible for the learning algorithm to generalize successfully from a small number of
+examples. We call this language k-pt. The example in Figure 18.16 is in 2-DL. It is easy to
+show (Exercise 18.13) that k-pi includes as a subset the language &-pr, the set of all decision
+trees of depth at most &. It is important to remember that the particular language referred to by
+k-ox depends on the attributes used to describe the examples. We will use the notation & pi(7) to
+denote a k-pi language using 7 Boolean attributes.
+
+The first task is to show that A-DL is learnable— that is, any function in k-pL can be accurately
+approximated after seeing a reasonable number of examples. To do this, we need to calculate
+the number of hypotheses in the language. Let the language of tests — conjunctions of at most k
+literals using n attributes — be Conj(n,k). Because a decision list is constructed of tests, and each
+test can be attached to either a Yes or a No outcome or can be absent from the decision list, there
+
+11 A decision list is therefore identical in structure to a COND statement in Lisp.
+

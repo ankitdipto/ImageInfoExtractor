@@ -1,0 +1,45 @@
+24.5 Proofs of shortest-paths properties 671
+
+ 
+
+24.5 Proofs of shortest-paths properties
+
+Throughout this chapter, our correctness arguments have relied on the triangle
+inequality, upper-bound property, no-path property, convergence property, path-
+relaxation property, and predecessor-subgraph property. We stated these properties
+without proof at the beginning of this chapter. In this section, we prove them.
+
+The triangle inequality
+
+In studying breadth-first search (Section 22.2), we proved as Lemma 22.1 a sim-
+ple property of shortest distances in unweighted graphs. The triangle inequality
+generalizes the property to weighted graphs.
+
+Lemma 24.10 (Triangle inequality)
+Let G = (V, E) be a weighted, directed graph with weight function w : E > R
+and source vertex s. Then, for all edges (u,v) € E, we have
+
+5(s,v) < 5(s,u) + w(u,v) «
+
+Proof Suppose that p is a shortest path from source s to vertex v. Then p has
+no more weight than any other path from s to v. Specifically, path p has no more
+weight than the particular path that takes a shortest path from source s to vertex u
+and then takes edge (u,v).
+
+Exercise 24.5-3 asks you to handle the case in which there is no shortest path
+from s to v. /
+
+Effects of relaxation on shortest-path estimates
+
+The next group of lemmas describes how shortest-path estimates are affected when
+we execute a sequence of relaxation steps on the edges of a weighted, directed
+graph that has been initialized by INITIALIZE-SINGLE-SOURCE.
+
+Lemma 24.11 (Upper-bound property)
+
+Let G = (V, E) be a weighted, directed graph with weight function w : E > R.
+Let s € V be the source vertex, and let the graph be initialized by INITIALIZE-
+SINGLE-SOURCE(G,5). Then, v.d > 6(s,v) for all v € V, and this invariant is
+maintained over any sequence of relaxation steps on the edges of G. Moreover,
+once v.d achieves its lower bound 4(s, v), it never changes.
+

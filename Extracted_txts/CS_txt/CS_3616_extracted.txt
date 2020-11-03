@@ -1,0 +1,58 @@
+114 cuarren foun Register Transfer and Microoperations
+
+logical shift
+
+circular shift
+
+arithmetic shift
+
+446 Shift Microoperations
+
+Shift microoperations are used for serial transfer of data. They are also used
+in conjunction with arithmetic, logic, and other data-processing operations.
+The contents of a register can be shifted to the left or the right. At the same
+time that the bits are shifted, the first flip-flop receives its binary information
+from the serial input. During a shift-left operation the serial input transfers a
+bit into the rightmost position. During a shift-right operation the serial input
+transfers a bit into the leftmost position. The information transferred through
+the serial input determines the type of shift. There are three types of shifts:
+logical, circular, and arithmetic.
+
+A logical shiftis one that transfers 0 through the serial input. We will adopt
+the symbols shl and shr for logical shift-left and shift-right microoperations. For
+example:
+
+ 
+
+Rieshi RI
+R2<shr RZ
+
+are two microoperations that specify a 1-bit shift to the left of the content of
+register R1 and a1-bit shift to the right ofthe content of register R2 The register
+symbol must be the same on both sides of the arrow. The bit transferred to the
+end position through the serial input is assumed to be 0 during a logical shift.
+
+The circular shift (also known as a rotate operation) circulates the bits of
+the register around the two ends without loss of information. This is accom-
+plished by connecting the serial output of the shift register to its serial input.
+We will use the symbols cil and cir for the circular shift left and right, respec-
+tively. The symbolic notation for the shift microoperations is shown in Ta-
+ble £7.
+
+TABLE 4-7 Shift Microoperations
+
+ 
+
+‘Symbolic designation Description
+ReshlR Shifteft register R
+ReshrR Shiftright register R
+Real R Circular shift left epister R
+ReadrR Circular shift-right register R
+ReashlR Arithmetic shiftleft R
+ReashrR Arithmetic shift-right R
+
+An arithmetic shift is a microoperation that shifts a signed binary number
+to the left or right. An arithmetic shift-left multiplies a signed binary number
+by 2. Anarithmetic shift-right divides the number by 2. Arithmeticshifts must
+leave the sign bit unchanged because the sign of the number remains the same
+

@@ -1,0 +1,39 @@
+19
+
+Fibonacci Heaps
+
+The Fibonacci heap data structure serves a dual purpose. First, it supports a set of
+operations that constitutes what is known as a “mergeable heap.” Second, several
+Fibonacci-heap operations run in constant amortized time, which makes this data
+structure well suited for applications that invoke these operations frequently.
+
+Mergeable heaps
+
+A mergeable heap is any data structure that supports the following five operations,
+in which each element has a key:
+
+MAKE-HEAP() creates and returns a new heap containing no elements.
+INSERT (H, x) inserts element x, whose key has already been filled in, into heap H.
+MINIMUM (//) returns a pointer to the element in heap H whose key is minimum.
+
+EXTRACT-MIN(/7) deletes the element from heap H whose key is minimum, re-
+turning a pointer to the element.
+
+UNION(H;, H2) creates and returns a new heap that contains all the elements of
+heaps H, and H2. Heaps H; and H are “destroyed” by this operation.
+
+In addition to the mergeable-heap operations above, Fibonacci heaps also support
+the following two operations:
+
+DECREASE-KEY(H,x,k) assigns to element x within heap H the new key
+value k, which we assume to be no greater than its current key value.!
+
+DELETE(H, x) deletes element x from heap H.
+
+ 
+
+1As mentioned in the introduction to Part V, our default mergeable heaps are mergeable min-
+heaps, and so the operations MINIMUM, EXTRACT-MIN, and DECREASE-KEY apply. Alterna-
+tively, we could define a mergeable max-heap with the operations MAXIMUM, EXTRACT-MAX,
+and INCREASE-KEY.
+

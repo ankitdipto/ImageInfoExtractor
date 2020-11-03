@@ -1,0 +1,70 @@
+530
+
+Chapter 18. Learning from Observations
+
+ 
+
+ 
+
+ 
+
+° °
+° :
+°
+°°?
+©
+
+(a) (b) (d)
+
+ 
+
+ 
+
+Figure 182 —_ In (a) we have some example (input,output)pairs. In (b), (c), and (d) we have
+three hypotheses for functions from which these examples could be drawn.
+
+ 
+
+ 
+
+global examples— {}
+
+function REFLFX-PERFORMANCE-EI FMENT( percepf)retums an action
+
+if (percept, a) in examples then return a
+else
+h — INDUCE(examples)
+return h(percept)
+procedure REFI.EX-LEARNING-ELEMENT(percept, action)
+inputs: percept, feedback percept
+action, feedback action
+
+examples — examples U {(perceptaction)}
+
+ 
+
+ 
+
+Figure 183 Skeleton for a simple reflex learning agent. The learning elementjust stores each
+example percepvaction pair. The performance element either does whatever was done last time
+for a given percept, or it induces an action from similar percepts. The set of examples is a global
+
+ 
+
+ 
+
+variable that is shared by the leaming and performance elements.
+
+ 
+
+a new example arrives. Also, the agent might receive some feedback concerning the quality of
+the actions it chooses. These variants, and many others, are examined in this part.
+REFLEX-PERFORMANCE-ELEMENT makesno commitmentto the way im whichthe hypoth-
+esis is represented. Because of its expressiveness and well-understood semantics, logic has been
+intensively studied as the target language for learning algorithms. In this chapter, we discuss two
+approaches to learning logical sentences: decision tree methods, which use a restricted represen-
+tation of logical sentences specifically designed for learning, and the version-space approach,
+which is more general but often rather inefficient. In Chapter 19, we discuss neural networks,
+which are a general representation for nonlinear, numerical functions. The linear weighted poly-
+nomials used for game-playing evaluation functions are a special case of neural networks. The
+

@@ -1,0 +1,59 @@
+104. = Chapter4 Processes
+
+4.3.1 Process Creation
+
+A process may create several new processes, via a create~process system
+call, during the course of execution. The creating process is called a parent
+process, whereas the new processes are called the children of that process. Each
+of these new processes may in turn create other processes, forming a free of
+processes (Figure 4.7).
+
+In general, a process will need certain resources (such as CPU time, memory,
+files, I/O devices) to accomplish its task. When a process creates a subprocess,
+that subprocess may be able to obtain its resources directly from the operating
+system, or it may be constrained to a subset of the resources of the parent
+process. The parent may have to partition its resources among its children,
+or it may be able to share some resources (such as memory or files) among
+several of its children. Restricting a child process to a subset of the parent’s
+resources prevents any process from overloading the system by creating too
+many subprocesses.
+
+When a process is created it obtains, in addition to the various physical and
+logical resources, initialization data (or input) that may be passed along from
+the parent process to the child process. For example, consider a process whose
+function is to display the status of a file, say F;, on the screen of a terminal.
+When itis created, it will get, as an input from its parent process, the name of the
+file F,, and it will execute using that datum to obtain the desired information.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 4.7 A tree of processes on a typical UNIX system.
+
+ 
+

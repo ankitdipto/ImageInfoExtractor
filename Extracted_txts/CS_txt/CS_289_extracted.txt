@@ -1,0 +1,53 @@
+876
+
+Chapter 29 Linear Programming
+
+Lemma 29.3
+
+Let J be a set of indices. For each j € J, let aj and §; be real numbers, and let x;
+be a real-valued variable. Let y be any real number. Suppose that for any settings
+of the x;, we have
+
+Yoajxy =v + Yo Bix; - (29.78)
+
+jel jel
+Then a; = f; for each j € J, and y = 0.
+
+Proof Since equation (29.78) holds for any values of the x;, we can use particular
+values to draw conclusions about w, 6, and y. If we let xj = 0 for each j € J,
+we conclude that y = 0. Now pick an arbitrary index j € J, and set x; = 1 and
+Xx = 0 for all k # j. Then we must have a; = fj. Since we picked j as any
+index in J, we conclude that w; = Bj foreach j € I. /
+
+A particular linear program has many different slack forms; recall that each slack
+form has the same set of feasible and optimal solutions as the original linear pro-
+gram. We now show that the slack form of a linear program is uniquely determined
+by the set of basic variables. That is, given the set of basic variables, a unique slack
+form (unique set of coefficients and right-hand sides) is associated with those basic
+variables.
+
+Lemma 29.4
+Let (A, b,c) be a linear program in standard form. Given a set B of basic variables,
+the associated slack form is uniquely determined.
+
+Proof Assume for the purpose of contradiction that there are two different slack
+forms with the same set B of basic variables. The slack forms must also have
+
+identical sets N = {1,2,..., n +m} — B of nonbasic variables. We write the first
+
+slack form as
+
+z= vt Sexy (29.79)
+jeN
+
+xi = bi Yoayjx; forte B, (29.80)
+JEN
+
+and the second as
+
+2 = V+ Vejx; (29.81)
+jen
+x= bi — Yoaijx; fori eB. (29.82)
+
+JEN
+

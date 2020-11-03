@@ -1,0 +1,46 @@
+15.4 Longest common subsequence 393
+
+sive solution also has the overlapping-subproblems property, as we shall see in a
+moment.
+
+Step 2: A recursive solution
+
+Theorem 15.1 implies that we should examine either one or two subproblems when
+finding an LCS of X¥ = (x1, X2,..-, Xm) and Y = (yi, yo....5 Yn). If Xm = Yne
+we must find an LCS of X,,—; and Y,,_;. Appending x,, = y, to this LCS yields
+an LCS of X and Y. If x» 4 Yn, then we must solve two subproblems: finding an
+LCS of X—1 and Y and finding an LCS of X and Y,,_;. Whichever of these two
+LCSs is longer is an LCS of X and Y. Because these cases exhaust all possibilities,
+we know that one of the optimal subproblem solutions must appear within an LCS
+of X and Y.
+
+We can readily see the overlapping-subproblems property in the LCS problem.
+To find an LCS of X and Y, we may need to find the LCSs of X and Y,,_; and
+of X,,-; and Y. But each of these subproblems has the subsubproblem of finding
+an LCS of X,,—; and Y,,_;. Many other subproblems share subsubproblems.
+
+As in the matrix-chain multiplication problem, our recursive solution to the LCS
+problem involves establishing a recurrence for the value of an optimal solution.
+Let us define c[i, j] to be the length of an LCS of the sequences X; and Y;. If
+either i = 0 or j = 0, one of the sequences has length 0, and so the LCS has
+length 0. The optimal substructure of the LCS problem gives the recursive formula
+
+0 ifi =Oorj =0,
+cli, j] = 4 cfi-1.j—-M41 ifi,j >Oandx; =y;, (15.9)
+max(cli, j —1].cfi—1.j]) ifi. 7 > Oandx; A y;.
+
+Observe that in this recursive formulation, a condition in the problem restricts
+which subproblems we may consider. When x; = y;, we can and should consider
+the subproblem of finding an LCS of Xj; and Y;-;. Otherwise, we instead con-
+sider the two subproblems of finding an LCS of X; and ¥;_; and of X;_, and ¥;. In
+the previous dynamic-programming algorithms we have examined—for rod cutting
+and matrix-chain multiplication—we ruled out no subproblems due to conditions
+in the problem. Finding an LCS is not the only dynamic-programming algorithm
+that rules out subproblems based on conditions in the problem. For example, the
+edit-distance problem (see Problem 15-5) has this characteristic.
+
+Step 3: Computing the length of an LCS
+
+Based on equation (15.9), we could easily write an exponential-time recursive al-
+gorithm to compute the length of an LCS of two sequences. Since the LCS problem
+

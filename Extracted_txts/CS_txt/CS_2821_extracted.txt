@@ -1,0 +1,69 @@
+366
+
+Chapter 15 Dynamic Programming
+
+MEMOIZED-CUT-ROD-AUX(p, 1,1)
+1 ifr[n]>0
+
+2 return r[n]
+
+3 ifn ==0
+
+4 q=0
+
+5 elseg = —co
+
+6 fori = 1 ton
+
+7 q = max(q, p[i] + MEMOIZED-CuT-RoD-AUx(p,n —i,1))
+8 rnl=4
+
+9 return g
+
+Here, the main procedure MEMOIZED-CUT-ROD initializes a new auxiliary ar-
+ray r[0..n] with the value —oo, a convenient choice with which to denote “un-
+known.” (Known revenue values are always nonnegative.) It then calls its helper
+routine, MEMOIZED-CUT-ROD-AUx.
+
+The procedure MEMOIZED-CUT-ROD-AUX is just the memoized version of our
+previous procedure, CUT-ROD. It first checks in line 1 to see whether the desired
+value is already known and, if it is, then line 2 returns it. Otherwise, lines 3-7
+compute the desired value q in the usual manner, line 8 saves it in [7], and line 9
+retums it.
+
+The bottom-up version is even simpler:
+
+BoTTOM-Up-CuT-Rop(p,)
+1 let r[0..n] be a new array
+2 rd] =0
+3° for j
+
+4 gq = -00
+
+5 fori = ltoj
+
+6 q = max(q. pli] +r[j —i))
+7
+
+8
+
+ 
+
+ton
+
+ 
+
+rlil=4
+return r[n]
+
+For the bottom-up dynamic-programming approach, BOTTOM-Up-CuT-RoD
+uses the natural ordering of the subproblems: a problem of size i is “smaller”
+than a subproblem of size j if i < j. Thus, the procedure solves subproblems of
+sizes j = 0,1,...,n, in that order.
+
+Line 1 of procedure BOTTOM-UP-CUT-ROD creates a new array r[0..7] in
+which to save the results of the subproblems, and line 2 initializes r [0] to 0, since
+a rod of length 0 earns no revenue. Lines 3-6 solve each subproblem of size j , for
+J =1,2,..., n, in order of increasing size. The approach used to solve a problem
+of a particular size j is the same as that used by CUT-ROD, except that line 6 now
+

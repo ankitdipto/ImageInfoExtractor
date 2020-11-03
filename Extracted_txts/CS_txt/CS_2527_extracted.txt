@@ -1,0 +1,44 @@
+5.3 Randomized algorithms 127
+
+Lemma 5.5
+Procedure RANDOMIZE-IN-PLACE computes a uniform random permutation.
+
+Proof We use the following loop invariant:
+
+Just prior to the ith iteration of the for loop of lines 2-3, for each possible
+(i — 1)-permutation of the 7 elements, the subarray A[1..i — 1] contains
+this (i — 1)-permutation with probability (n —i + 1)!/n!.
+
+We need to show that this invariant is true prior to the first loop iteration, that each
+iteration of the loop maintains the invariant, and that the invariant provides a useful
+property to show correctness when the loop terminates.
+
+Initialization: Consider the situation just before the first loop iteration, so that
+i =1. The loop invariant says that for each possible 0-permutation, the sub-
+array A[1..0] contains this 0-permutation with probability (n —i + 1)!/n! =
+n!/n! = 1. The subarray A[1..0] is an empty subarray, and a 0-permutation
+has no elements. Thus, A[1 . . 0] contains any 0-permutation with probability 1,
+and the loop invariant holds prior to the first iteration.
+
+Maintenance: We assume that just before the ith iteration, each possible
+
+(i — 1)-permutation appears in the subarray A[1..i — 1] with probability
+(n —i + 1)!/n!, and we shall show that after the ith iteration, each possible
+i-permutation appears in the subarray A[l..i] with probability (n — i)!/n!.
+Incrementing i for the next iteration then maintains the loop invariant.
+Let us examine the /th iteration. Consider a particular i-permutation, and de-
+note the elements in it by (x), X%2..... x;). This permutation consists of an
+(i — 1)-permutation (x;...., X;-1) followed by the value x; that the algorithm
+places in A[i]. Let £, denote the event in which the first i — 1 iterations have
+created the particular (i — 1)-permutation (x;,...,x;-1) in A[1..i—1]. By the
+loop invariant, Pr {E,} = (n —i + 1)!/n!. Let E> be the event that ‘th iteration
+puts x; in position Afi]. The i-permutation (x;,...,x;) appears in A[] . . i] pre-
+cisely when both E, and E occur, and so we wish to compute Pr{£, Ej}.
+Using equation (C.14), we have
+
+Pr{E,N Ey} = Pr{ E> | Ey} Pr{Ei} .
+The probability Pr {£ | E,} equals 1/(n—i +1) because in line 3 the algorithm
+
+chooses x; randomly from the n —i + 1 values in positions A[i ..n]. Thus, we
+have
+

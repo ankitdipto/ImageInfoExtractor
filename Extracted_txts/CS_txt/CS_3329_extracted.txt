@@ -1,0 +1,67 @@
+section 3.4.
+
+Searching for Solutions 1
+
+ 
+
+<geanct TREE
+earch NODE
+
+It is helpfull to think of the search process as building up a search tree that is superimposed
+over the state space. The root of the search tree is a search node corresponding to the initial
+state. The leaf nodes of the tree correspond to states that do not have successors in the tree,
+either because they have not been expanded yet, or because they were expanded, but generated.
+the empty set. At each step, the search algorithm chooses one leaf node to expand. Figure 3.8
+shows some of the expansions in the search tree for route finding from Arad to Bucharest. The
+general search algorithm is described informally in Figure 3.9.
+
+It is important to distinguish between the state space and the search tree. For the route-
+finding problem, there are only 20 states in the state space, one for each city. But there are an
+
+ 
+
+(a) The initial state Arad
+
+(b) After expanding Arad Arad
+
+ 
+
+Timisoara Zerind
+(©) After expanding Sibiu Arad
+Timisoara Zerind
+
+ 
+
+Arad Fagaras Oradea Rimnicu Vilcea
+
+ 
+
+ 
+
+Figure 3.8 Partial search tree for route finding from Arad to Bucharest.
+
+ 
+
+ 
+
+function GENERAL-SEARCH( problem, strategy) returns a solution, or failure
+initialize the search tree using the initial state ofproblem
+loop do
+if there are no candidates for expansion then return failure
+choose a leaf node for expansion according to strategy
+if the node contains a goal state then return the corresponding solution
+else expand the node and add the resulting nodes to the search tree
+end
+
+ 
+
+ 
+
+ 
+
+Figure 3.9 An informal description of the general search algorithm.
+
+ 
+
+ 
+

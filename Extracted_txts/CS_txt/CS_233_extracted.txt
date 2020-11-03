@@ -1,0 +1,52 @@
+28.2. Inverting matrices 829
+
+I, A 0
+
+D=|0 I, B
+
+0 0 tT
+
+The inverse of D is
+I, —A AB
+D'={|0 I, -B
+0 0
+
+and thus we can compute the product AB by taking the upper right 7 x 7 submatrix
+of D*.
+
+We can construct matrix D in @(n7) time, which is O(/(1)) because we assume
+that J(n) = Q(n?), and we can invert D in O(/(3n)) = O(J(n)) time, by the
+regularity condition on J(n). We thus have M(n) = O(/(n)). .
+
+Note that /(7) satisfies the regularity condition whenever J(n) = ©(n° 1g! n)
+for any constants c > 0 andd > 0.
+
+The proof that matrix inversion is no harder than matrix multiplication relies
+on some properties of symmetric positive-definite matrices that we will prove in
+Section 28.3.
+
+Theorem 28.2 (Inversion is no harder than multiplication)
+
+Suppose we can multiply two n x n real matrices in time M(n), where M(n) =
+Q(n?) and M(n) satisfies the two regularity conditions M(n +k) = O(M(n)) for
+any k in the range 0 < k < n and M(n/2) < cM(n) for some constant c < 1/2.
+Then we can compute the inverse of any real nonsingular n x n matrix in time
+O(M(n)).
+
+Proof We prove the theorem here for real matrices. Exercise 28.2-6 asks you to
+generalize the proof for matrices whose entries are complex numbers.
+We can assume that 7 is an exact power of 2, since we have
+
+A 0\'_ (47 0
+0k) “Lo x
+
+for any k > 0. Thus, by choosing k such that n + k is a power of 2, we enlarge
+the matrix to a size that is the next power of 2 and obtain the desired answer A~!
+from the answer to the enlarged problem. The first regularity condition on M(n)
+ensures that this enlargement does not cause the running time to increase by more
+than a constant factor.
+
+For the moment, let us assume that the m x matrix A is symmetric and positive-
+definite. We partition each of A and its inverse A~! into four n/2 x n/2 submatri-
+ces:
+

@@ -1,0 +1,50 @@
+Chapter 11. Planning
+
+ 
+
+19
+
+rooms, and which locations they are At We leave this, and the specification of the operators, as
+an exercise.
+
+In conclusion, it is possible to represent simple domains with STRIPS operators, but it
+requires ingenuity in coming up with the right set of operators and predicates in order to stay
+within the syntactic restrictions that the language imposes.
+
+SUMMARY
+
+In this chapter, we have defined the planning problem and shown that situation calculus is
+expressive enough to deal with it. Unfortunately, situation calculus planning using a general-
+purpose theorem prover is very inefficient. Using a restricted language and special-purpose
+algorithms, planning systems can solve quite complex problems. Thus, planning comes down
+to an exercise in finding a language that is just expressive enough for the problems you want to j
+solve, but still admits a reasonably efficient algorithm. The points to remember are as follows:
+
+Planning agents use lookahead to come up with actions that will contribute to goal achieve-
+ment. They differ from problem-solving agents in their use ofmore flexible representations
+of states, actions, goals, and plans.
+
+The STRIPS language describes actions in terms of their preconditions and effects. It
+captures much of the expressive power of situation calculus, but not all domains and
+problems that can be described in the STRIPS language.
+
+It is not feasible to search through the space of situations in complex domains. Instead we
+search through the space of plans, starting with a minimal plan and extending it until we
+find a solution. For problems in which most subplans do not interfere with each other, this
+will be efficient.
+
+The principle of least commitment says that a planner (or any search algorithm) should
+avoid making decisions until there is a good reason to make a choice. Partial-ordering
+constraints and uninstantiated variables allow us to follow a least-commitment approach.
+
+The causal link is a useful data structure for recording the purposes for steps. Each causal
+link establishes a protection interval over which a condition should not be deleted by
+another step. Causal links allow early detection of unresolvable conflicts in a partial plan,
+thereby eliminating fruitless search.
+
+The POP algorithm is a sound and complete algorithm for planning using the STRIPS
+representation.
+
+The ability to handle partially instantiated operators in POP reduces the need to commit to
+concrete actions with fixed arguments, thereby improving efficiency.
+

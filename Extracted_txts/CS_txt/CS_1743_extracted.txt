@@ -1,0 +1,50 @@
+7.9 Atomic Transactions 229
+
+modify. Although redoing the data modifications will cause no harm (due
+to idempotency), it will nevertheless cause recovery to take longer.
+
+To reduce these types of overhead, we introduce the concept of check-
+points. During execution, the system maintains the write-ahead log. In addi-
+tion, the system periodically performs checkpoints that require the following
+sequence of actions to take place:
+
+1. Output all log records currently residing in volatile storage (usually main
+memory) onto stable storage.
+
+2. Output all modified data residing in volatile storage to the stable storage.
+
+3. Output a log record <checkpoint> onto stable storage.
+
+The presence of a <checkpoint> record in the log allows the system to
+streamline its recovery procedure. Consider a transaction T; that committed
+prior to the checkpoint. The < T; commits> record appears in the log before the
+<checkpoint> record. Any modifications made by T; must have been written
+to stable storage either prior to the checkpoint, or as part of the checkpoint itself.
+Thus, at recovery time, there is no need to perform a redo operation on T;.
+
+This observation allows us to refine our previous recovery algorithm. After
+a failure has occurred, the recovery routine examines the log to determine
+the most recent transaction T; that started executing before the most recent
+checkpoint took place. It finds such a transaction by searching the log backward
+to find the first <checkpoint> record, and then finding the subsequent < T;
+start> record.
+
+Once transaction T; has been identified, the redo and undo operations need
+to be applied to only transaction T; and all transactions T; that started executing
+after transaction T;. Let us denote these transactions by the set T. The remainder
+of the log can thus be ignored. The recovery operations that are required are as
+follows:
+
+For all transactions T; in T such that the record < T; commits> appears in
+the log, execute redo(T;).
+
+For all transactions T; in T that have no < T; commits> record in the log,
+execute undo(T;).
+
+7.9.4 Concurrent Atomic Transactions
+
+Because each transaction is atomic, the concurrent execution of transactions
+must be equivalent to the case where these transactions executed serially in
+some arbitrary order. This property, called serializability, can be maintained
+by simply executing each transaction within a critical section. That is, all
+

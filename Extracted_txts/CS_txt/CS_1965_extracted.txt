@@ -1,0 +1,49 @@
+414 Chapter 12 File-System Implementation
+
+section, we delve into the structures and operations used to implement file-
+system operations.
+
+12.2.1 Overview
+
+Several on-disk and in-memory structures are used to implement a file system.
+These vary depending on the operating system and the file system, but some
+general principles apply. On-disk, the file system may contain information
+about how to boot an operating system stored there, the total number of blocks,
+the number and location of free blocks, the directory structure, and individual
+files. Many of these structures are detailed throughout the remainder of this
+chapter.
+The on-disk structures include:
+
+A boot control block can contain information needed by the system to boot
+an operating from that partition. If the disk does not contain an operating
+system, this block can be empty. It is typically the first block of a partition.
+In UES, this is called the boot block; in NTFS, it is the partition boot sector.
+
+¢ A partition control block contains partition details, such as the number of
+blocks in the partition, size of the blocks, free-block count and free-block
+pointers, and free FCB count and FCB pointers. In UFS this is called a
+superblock; in NTFS, it is the Master File Table.
+
+A directory structure is used to organize the files
+
+¢ An FCB contains many of the file’s details, including file permissions,
+ownership, size, and location of the data blocks. In UFS this is called the
+inode. In NTES, this information is actually stored within the Master File
+Table, which uses a relational database structure, with a row per file.
+
+The in-memory information is used for both file-system management and
+performance improvement via caching. The structures can include:
+
+¢ Anin-memory partition table containing information about each mounted
+partition.
+
+« An in-memory directory structure that holds the directory information
+of recently accessed directories. (For directories at which partitions are
+mounted, it can contain a pointer to the partition table.)
+
+The system-wide open-file table contains a copy of the FCB of each open
+file, as well as other information.
+
+The per-process open-file table contains a pointer to the appropriate entry
+in the system-wide open-file table, as well as other information.
+

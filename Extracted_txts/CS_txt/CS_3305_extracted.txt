@@ -1,0 +1,73 @@
+658
+
+Chapter 22 Agents that Communicate
+
+ 
+
+ANALYSIS
+
+PARSING
+
+PARSE TREE
+
+SEMANTIC
+INTERPRETATION
+
+PRAGMATIC.
+INTERPRETATION
+
+DISAMBIGUATION
+
+INCORPORATION
+
+esoteric to being commonplace within the last five years. For the example, let us assume that the
+hearer perceives the sounds and recovers the spoken words perfectly. (In Chapter 24 we see how
+this might be done.)
+
+Analysis. We divide analysis into two main parts: syntactic interpretation (or parsing) and
+semantic interpretation. Semantic interpretation includes both understanding the meanings of
+words and incorporating knowledge of the current situation (also called pragmatic interpretation).
+
+The word parsing is derived from the the Latin phrase pars orationis, or "part of speech,"
+and refers to the process of assigning a part of speech (noun, verb, and so on) to each word ina
+sentence and grouping the words into phrases. One way of displaying the result of a syntactic
+analysis is with a parse tree, as shown in Figure 22.1. A parse tree is a tree in which interior
+nodes represents phrases, links represent applications of grammar rules, and leaf nodes represent
+words. We define the yield ofa node as the list of all the leaves below the node, in left-to-right
+order, then we can say that the meaning of a parse tree is that each node with label X asserts that
+the yield of the node is a phrase of category X.
+
+Semantic interpretation is the process of extracting the meaning of an utterance as an
+expression in some representation language. In Figure 22.1 we show two possible semantic
+interpretations: that the wumpus is not alive, and that it is tired (a colloquial meaning of dead)
+Utterances with several possible interpretations are said to be ambiguous. We use logic as the
+representation language, but other representations could be used. Pragmatic interpretation is
+the part of semantic interpretation that takes the current situation into account.” In the example,
+all that pragmatics does is replace the constant Now with the constant $3, which stands for the
+current situation.
+
+Disambiguation. Most speakers are not intentionally ambiguous, but most utterances have
+several legal interpretations. Communication works because the hearer does the work of figuring
+out which interpretation is the one the speaker probably meant to convey. Notice that this is the
+first time we have used the word probably, and disambiguation is the first process that depends
+heavily on uncertain reasoning. Analysis generates possible interpretations; if more than one
+interpretation is found, then disambiguation chooses the one that is best.
+
+Incorporation. A totally naive agent might believe everything it hears, but a sophisticated
+agent treats the words W and the derived interpretation P; as additional pieces of evidence that
+get considered along with all other evidence for and against P:.
+
+Note that it only makes sense to use language when there are agents to communicate
+with who (a) understand a common language, (b) have a shared context on which to base the
+conversation, and (c) are at least somewhat rational. Communication does not work when agents
+are completely irrational, because there is no way to predict how an irrational agent will react toa
+speech act. Interestingly, communication can work when agents are uncooperative. Even if you
+believe that another wumpus world explorer would lead you astray in order to get the gold all for
+itself, you can still communicate to help each other kill the wumpus or perform some other task
+that is helpful to both agents. Returning to Africa for another example, when an antelope sees a
+
+2 Thus, pragmatic interpretation associates meanings with uiterances made in specific contexts, whereas the rest of
+semantic interpretation associates meanings with sirings in isolation. This is controversiai, and other authors draw the
+line between semantics and pragmatics in different places, orjust group them together. Also, some authors use the term
+parsing to encompass all of what we call analysis.
+

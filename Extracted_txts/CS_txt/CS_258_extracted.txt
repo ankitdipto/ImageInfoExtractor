@@ -1,0 +1,62 @@
+Section 5.3
+
+Imperfect Decisions 127
+
+ 
+
+wren. VALUE
+
+Evaluation functions
+
+An evaluation function returns an estimate of the expected utility of the game from a given
+position. The idea was not new when Shannon proposed it. For centuries, chess players (and, of
+course, aficionados of other games) have developed ways ofjudging the winning chances ofeach
+side based on easily calculated features ofa position. For example, introductory chess books
+give an approximate material value for each piece: each pawn is worth 1, a knight or bishop
+is worth 3, a rook 5, and the queen 9. Other features such as "good pawn structure" and "king
+safety" might be worth half a pawn, say. All other things being equal, a side that has a secure
+material advantage of a pawn or more will probably win the game, and a 3-point advantage is
+sufficient for near-certain victory. Figure 5.4 shows four positions with their evaluations.
+
+It should be clear that the performance of a game-playing program is extremely dependent
+on the quality of its evaluation function. Ifit is inaccurate, then it will guide the program toward
+positions that are apparently "good," but in fact disastrous. How exactly do we measure quality?
+
+First, the evaluation function must agree with the utility function on terminal states. Second,
+it must not take too long! (As mentioned in Chapter 4, if we did not limit its complexity, then it
+could call minimax as a subroutine and calculate the exact value of the position.) Hence, there is
+a trade-offbetween the accuracy of the evaluation function and its time cost. Third, an evaluation
+function should accurately reflect the actual chances of winning
+
+One might well wonder about the phrase "chances of winning." After all, chess is not a
+game of chance. But ifwe have cut offthe search at a particular nonterminal state, then we do not
+know what will happen in subsequent moves. For concreteness, assume the evaluation function
+counts only material value. Then, in the opening position, the evaluation is 0, because both sides
+have the same material. All the positions up to the first capture will also have an evaluation of
+0. If MAX manages to capture a bishop without losing a piece, then the resulting position will
+have an evaluation value of 3. The important point is that a given evaluation value covers many
+different positions—all the positions where MAX is up by a bishop are grouped together into
+a category that is given the label "3." Now we can see how the word "chance" makes sense:
+the evaluation function should reflect the chance that a position chosen at random from such a
+category leads to a win (or draw or loss), based on previous experience
+
+This suggests that the evaluation function should be specified by the rules of probability:
+if position A has a 100% chance of winning, it should have the evaluation 1.00, and if position B
+has a 50% chance of winning, 25% of losing, and 25% of being a draw, its evaluation should be
++1 x 50+ —1 x .25+0x .25 = 25. But in fact, we need not be this precise; the actual numeric
+values of the evaluation function are not important, as long as A is rated higher than B.
+
+The material advantage evaluation function assumes that the value ofa piece can be judged
+independently ofthe other pieces present on the board. This kind of evaluation function is called
+a weighted linear function, because it can be expressed as
+
+wifi + Wafrs see + Wala
+
+where the w’s are the weights, and the f’s are the features of the particular position. The w's
+would be the values ofthe pieces (1 for pawn, 3 forbishop, etc.), and the f’s would be the numbers
+
+2 Techniques for automatically constructing evaluation functions with this property are discussed in Chapter 18, In
+assessing the value of a category, more normally occusring positions should be given more weight
+
+ 
+

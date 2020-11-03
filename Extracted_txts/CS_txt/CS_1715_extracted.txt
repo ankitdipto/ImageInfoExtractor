@@ -1,0 +1,49 @@
+7.4 Semaphores 205
+
+To illustrate this, we consider a system consisting of two processes, Py and
+P1, each accessing two semaphores, S and Q, set to the value 1:
+
+Po Py
+wait(S); wait(Q);
+
+wait(Q); wait (S);
+
+signal (S); signal(Q);
+signal(Q); signal(S);
+
+Suppose that Po executes wait (S), and then P; executes wait (Q). When
+Po executes wait (Q), it must wait until P, executes signal (Q). Similarly,
+when P; executes wait (S), it must wait until Pp executes signal (S). Since
+these signal operations cannot be executed, Pp and P; are deadlocked.
+
+We say that a set of processes is in a deadlock state when every process in
+the set is waiting for an event that can be caused only by another process in the
+set. The events with which we are mainly concerned here are resource acquisition
+and release. However, other types of events may result in deadlocks, as we shall
+show in Chapter 8. In that chapter, we shall describe various mechanisms for
+dealing with the deadlock problem.
+
+Another problem related to deadlocks is indefinite blocking or starvation,
+a situation where processes wait indefinitely within the semaphore. Indefinite
+blocking may occur if we add and remove processes from the list associated
+with a semaphore in LIFO order.
+
+7.4.4 Binary Semaphores
+
+The semaphore construct described in the previous sections is commonly
+known as a counting semaphore, since its integer value can range over an
+unrestricted domain. A binary semaphore is a semaphore with an integer
+value that can range only between 0 and 1. A binary semaphore can be sim-
+pler to implement than a counting semaphore, depending on the underlying
+hardware architecture. We will now show how a counting semaphore can be
+implemented using binary semaphores.
+
+Let S be a counting semaphore. To implement it in terms of binary
+semaphores we need the following data structures:
+
+binary-semaphore $1, S2;
+int C;
+
+Initially S1 = 1, S2 = 0, and the value of integer C is set to the initial value
+of the counting semaphore S.
+

@@ -1,0 +1,47 @@
+83 Radix sort 199
+
+Lemma 8.4
+
+Given n b-bit numbers and any positive integer 7 < b, RADIX-SoRT correctly sorts
+these numbers in @((b/r)(n + 2”)) time if the stable sort it uses takes O(n + k)
+time for inputs in the range 0 to k.
+
+Proof For avalue r < b, we view each key as having d = [b/r] digits of r bits
+each. Each digit is an integer in the range 0 to 2” — 1, so that we can use counting
+sort with k = 2”—1. (For example, we can view a 32-bit word as having four 8-bit
+digits, so that b = 32, r = 8,k = 2" —1 = 255,andd =b/r = 4.) Each pass of
+counting sort takes time O(n +k) = @(n +2’) and there are d passes, for a total
+running time of @(d(n + 2")) = O((b/r)(n + 2”). .
+
+For given values of n and b, we wish to choose the value of r, with r < b,
+that minimizes the expression (b/r)(n + 2”). If b < [Ign], then for any value
+of r < b, we have that (n + 2”) = @(n). Thus, choosing r = b yields a running
+time of (b/b)(n + 2°) = @(n), which is asymptotically optimal. If b > [Ign],
+then choosing r = [Ign] gives the best time to within a constant factor, which
+we can see as follows. Choosing r = [Ign] yields a running time of O(bn/ Ign).
+As we increase r above [lg J, the 2” term in the numerator increases faster than
+the 7 term in the denominator, and so increasing r above [lgn| yields a running
+time of Q(bn/ Ign). If instead we were to decrease r below [Ign], then the b/r
+term increases and the n + 2” term remains at O(n).
+
+Is radix sort preferable to a comparison-based sorting algorithm, such as quick-
+sort? If b = O(1gn), as is often the case, and we choose r ~ Ign, then radix sort’s
+running time is ©(”), which appears to be better than quicksort’s expected running
+time of @(n lg). The constant factors hidden in the @-notation differ, however.
+Although radix sort may make fewer passes than quicksort over the n keys, each
+pass of radix sort may take significantly longer. Which sorting algorithm we prefer
+depends on the characteristics of the implementations, of the underlying machine
+(e.g., quicksort often uses hardware caches more effectively than radix sort), and
+of the input data. Moreover, the version of radix sort that uses counting sort as the
+intermediate stable sort does not sort in place, which many of the O(n lg n)-time
+comparison sorts do. Thus, when primary memory storage is at a premium, we
+might prefer an in-place algorithm such as quicksort.
+
+Exercises
+
+8.3-1
+
+Using Figure 8.3 as a model, illustrate the operation of RADIX-SorRT on the fol-
+lowing list of English words: COW, DOG, SEA, RUG, ROW, MOB, BOX, TAB,
+BAR, EAR, TAR, DIG, BIG, TEA, NOW, FOX.
+

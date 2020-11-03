@@ -1,0 +1,48 @@
+31.1 Elementary number-theoretic notions 929
+
+Zn ={[a],:0<a<n-l}. 1.1)
+When you see the definition
+Zn = {0.1,.... n-l}, (31.2)
+
+you should read it as equivalent to equation (31.1) with the understanding that 0
+represents [0],,, 1 represents [1],,, and so on; each class is represented by its smallest
+nonnegative element. You should keep the underlying equivalence classes in mind,
+however. For example, if we refer to —1 as a member of Z,,, we are really referring
+to [n — 1], since —1 =n —1 (mod n).
+
+Common divisors and greatest common divisors
+
+If d is a divisor of a and d is also a divisor of b, then d is a common divisor of a
+and b. For example, the divisors of 30 are 1, 2, 3, 5, 6, 10, 15, and 30, and so the
+common divisors of 24 and 30 are 1, 2, 3, and 6. Note that | is a common divisor
+of any two integers.
+
+An important property of common divisors is that
+
+d|aandd |b implies d | (a+b) andd | (a—b). (31.3)
+More generally, we have that
+d|aandd |b implies d | (ax + by) (31.4)
+
+for any integers x and y. Also, if a | b, then either |a| < |b| or b = 0, which
+implies that
+
+a|bandb |a implies a = +b. (31.5)
+
+The greatest common divisor of two integers a and b, not both zero, is the
+largest of the common divisors of a and b; we denote it by gcd(a, b). For example,
+ged(24, 30) = 6, ged(5,7) = 1, and ged(0,9) = 9. If a and b are both nonzero,
+then ged(a,b) is an integer between | and min(|a|,|b|). We define gcd(0,0) to
+be 0; this definition is necessary to make standard properties of the ged function
+(such as equation (31.9) below) universally valid.
+
+The following are elementary properties of the gcd function:
+
+ged(a,b) = gced(b,a), (31.6)
+ged(a,b) = ged(—a,b), (31.7)
+ged(a.b) = ged(lal,.|b)). G18)
+ged(a,0) = fal. (31.9)
+ged(a,ka) = |a| foranyk €Z. (31.10)
+
+The following theorem provides an alternative and useful characterization of
+ged(a,b).
+

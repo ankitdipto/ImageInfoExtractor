@@ -1,0 +1,93 @@
+SECTION 8.5 Addressing Modes 265
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Address Memory
+PC =200 200 Lead AC [ Mode
+201 ‘Address = 500)
+Ri=400 02 Next instruction
+AR= 100
+399 450
+AC 400 700
+300 00
+600 900
+m2 325
+800 300
+
+ 
+
+ 
+
+ 
+
+Figure 8-7 Numerical example for addressing modes.
+
+‘The mode field of the instruction can specify any one of a number of
+modes. For each possible mode we calculate the effective address and the
+operand that must be loaded into AC. In the direct address mode the effective
+address is the address part of the instruction 500 and the operand to be loaded
+into AC is 800. In the immediate mode the second word of the instruction is
+taken as the operand rather than an address, so 500 is loaded into AC. (The
+effective address in this case is 201.) In the indirect mode the effective address
+is stored in memory at address 500. Therefore, the effective address is 800 and
+the operand is 300. In the relative mode the effective address is 500 + 202 =
+702 and the operand is 325, (Note that the value in PC after the fetch phase and
+during the execute phase is 202.) In the index mode the effective address is
+XR +500 = 100 + 500 = 600 and the operand is 900. In the register mode the
+operand is in R1 and 400 is loaded into AC. (There is no effective address in
+this case.) In the register indirect mode the effective address is 400, equal to
+the content of R1 and the operand loaded into AC is 700. The autoincrement
+mode is the same as the register indirect mode except that R1 is incremented
+to 401 after the execution of the instruction. The autodecrement mode decre-
+ments Rl to 399 prior to the execution of the instruction. The operand loaded
+into AC is now 450. Table 8-4 lists the values of the effective address and the
+operand loaded into AC for the nine addressing modes.
+

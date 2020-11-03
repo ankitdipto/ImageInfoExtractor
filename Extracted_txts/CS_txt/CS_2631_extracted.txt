@@ -1,0 +1,48 @@
+Notes for Chapter 8 2i1
+
+couple of definitions will help you apply the 0-1 sorting lemma. We say that an area
+of an array is clean if we know that it contains either all Os or all 1s. Otherwise,
+the area might contain mixed Os and Is, and it is dirty. From here on, assume that
+the input array contains only Os and 1s, and that we can treat it as an array with r
+rows and s columns.
+
+d. Prove that after steps 1—3, the array consists of some clean rows of Os at the top,
+some clean rows of Is at the bottom, and at most s dirty rows between them.
+
+e. Prove that after step 4, the array, read in column-major order, starts with a clean
+area of Os, ends with a clean area of 1s, and has a dirty area of at most Ss
+elements in the middle.
+
+J. Prove that steps 5-8 produce a fully sorted 0-1 output. Conclude that column-
+sort correctly sorts all inputs containing arbitrary values.
+
+g. Now suppose that s does not divide r. Prove that after steps 1-3, the array
+consists of some clean rows of Os at the top, some clean rows of Is at the
+bottom, and at most 2s — | dirty rows between them. How large must r be,
+compared with s, for columnsort to correctly sort when s does not divide r?
+
+h. Suggest a simple change to step 1 that allows us to maintain the requirement
+that r > 25? even when s does not divide r, and prove that with your change,
+columnsort correctly sorts.
+
+ 
+
+Chapter notes
+
+The decision-tree model for studying comparison sorts was introduced by Ford
+and Johnson [110]. Knuth’s comprehensive treatise on sorting [211] covers many
+variations on the sorting problem, including the information-theoretic lower bound
+on the complexity of sorting given here. Ben-Or [39] studied lower bounds for
+sorting using generalizations of the decision-tree model.
+
+Knuth credits H. H. Seward with inventing counting sort in 1954, as well as with
+the idea of combining counting sort with radix sort. Radix sorting starting with the
+least significant digit appears to be a folk algorithm widely used by operators of
+mechanical card-sorting machines. According to Knuth, the first published refer-
+ence to the method is a 1929 document by L. J. Comrie describing punched-card
+equipment. Bucket sorting has been in use since 1956, when the basic idea was
+proposed by E. J. Isaac and R. C. Singleton [188].
+
+Munro and Raman [263] give a stable sorting algorithm that performs O(n'**)
+comparisons in the worst case, where 0 < € < 1 is any fixed constant. Although
+

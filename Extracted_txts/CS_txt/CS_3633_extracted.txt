@@ -1,0 +1,50 @@
+592
+
+Chapter 22. Elementary Graph Algorithms
+
+cency matrices carry a further advantage for unweighted graphs: they require only
+one bit per entry.
+
+Representing attributes
+
+Most algorithms that operate on graphs need to maintain attributes for vertices
+and/or edges. We indicate these attributes using our usual notation, such as v.d
+for an attribute d of a vertex v. When we indicate edges as pairs of vertices, we
+use the same style of notation. For example, if edges have an attribute f, then we
+denote this attribute for edge (u,v) by (u, v).f. For the purpose of presenting and
+understanding algorithms, our attribute notation suffices.
+
+Implementing vertex and edge attributes in real programs can be another story
+entirely. There is no one best way to store and access vertex and edge attributes.
+For a given situation, your decision will likely depend on the programming lan-
+guage you are using, the algorithm you are implementing, and how the rest of your
+program uses the graph. If you represent a graph using adjacency lists, one design
+represents vertex attributes in additional arrays, such as an array d[1..|V|] that
+parallels the Adj array. If the vertices adjacent to u are in Adj[u], then what we call
+the attribute w.d would actually be stored in the array entry d [u]. Many other ways
+of implementing attributes are possible. For example, in an object-oriented pro-
+gramming language, vertex attributes might be represented as instance variables
+within a subclass of a Vertex class.
+
+Exercises
+
+22.1-1
+
+Given an adjacency-list representation of a directed graph, how long does it take
+to compute the out-degree of every vertex? How long does it take to compute the
+in-degrees?
+
+22.1-2
+
+Give an adjacency-list representation for a complete binary tree on 7 vertices. Give
+an equivalent adjacency-matrix representation. Assume that vertices are numbered
+from | to 7 as in a binary heap.
+
+22.1-3
+
+The transpose of a directed graph G = (V, E) is the graph G? = (V, E"), where
+E* = {(v,u) €V x V: (u,v) € E}. Thus, G" is G with all its edges reversed.
+Describe efficient algorithms for computing G" from G, for both the adjacency-
+list and adjacency-matrix representations of G. Analyze the running times of your
+algorithms.
+

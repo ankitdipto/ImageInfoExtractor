@@ -1,0 +1,62 @@
+846
+
+UP TIMALIIY
+
+Chapter 27. AI: Present and Future
+
+ofbounded optimality is feasible in principle, but no one said it was easy! One obvious difficulty
+is that the designer may not have a probability distribution over the kinds of environments in
+which the agent is expected to operate, and so may not be able to ascertain the bounded optimality
+ofa given design. In such cases, however, a suitably designed learning agent should be able
+to adapt to the initially unknown environment; analytical results on the bounded optimality of
+leaming agents can be obtained using computational learning theory (Chapter 18). One crucial
+open question is to what extent bounded optimal systems can be composed from bounded optimal
+subsystems, thereby providing a hierarchical design methodology.
+
+Although bounded optimality is a very general specification, it is no more general than the
+definition of calculative rationality on which much of past AI work has been based. The important
+thing is that by including resource constraints from the beginning, questions of efficiency and
+decision quality can be handled within the theory rather than by ad hoc system design. The
+two approaches only coincide if BO agents look something like calculatively rational agents
+with various efficiency improvements added on. Real environments are far more complex than
+anything that can be handled by a pure calculatively rational agent, however, so this would quite
+aradical assumption.
+
+As yet, little is known about bounded optimality. It is possible to construct bounded optimal
+programs for very simple machines and for somewhat restricted kinds of environments (Etzioni,
+1989; Russell and Subramanian, 1993), but as yet we have no idea what BO programs are like
+for large, general-purpose computers in complex environments. If there is to be a constructive
+theory of bounded optimality, we have to hope that the design of bounded optimal programs
+does not depend too strongly on the details of the computer being used. It would make scientific
+research very difficult if adding a few kilobytes of memory to a machine with 100 megabytes
+made a significant difference to the design of the BO program and to its performance in the
+environment. One way to make sure this cannot happen is to be slightly more relaxed about
+the criteria for bounded optimality. By analogy with asymptotic complexity (Appendix A), we
+can define asymptotic bounded optimality (ABO) as follows (Russell and Subramanian, 1993).
+Suppose a program P is bounded optimal for a machine M in a class of environments E (the
+complexity of environments in E is unbounded). Then program P’ is ABO for M in E if it
+can outperform P by running on a machine XM that is k times faster (or larger). Unless k were
+enormous, we would be happy with a program that was ABO for a nontrivial environment on a
+nontrivial architecture. There would be little point in putting enormous effort into finding BO
+rather than ABO programs, because the size and speed of available machines tends to increase
+by a constant factor in a fixed amount of time anyway.
+
+We can hazard a guess that BO or ABO programs for powerful computers in complex
+environments will not necessarily have a simple, elegant structure. We have already seen that
+general-purpose intelligence requires some reflex capability and some deliberative capability,
+a variety of forms of knowledge and decision making, learning and compilation mechanisms
+for all of those forms, methods for controlling reasoning, and a large store of domain-specific
+knowledge. A bounded optimal agent must adapt to the environment in which it finds itself, so
+that eventually its intemal organization may reflect optimizations that are specific to the particular
+environment. This is only to be expected, and is similar to the way in which racing cars restricted
+by weight and horsepower have evolved into extremely complex designs. We suspect that a
+science of artificial intelligence based on bounded optimality will involve a good deal of study of
+
+ 
+
+ 
+
+ 
+
+ 
+

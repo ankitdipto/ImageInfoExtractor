@@ -1,0 +1,39 @@
+120 Let Us C
+
+ 
+
+}
+
+In this program when j equals 150, break takes the control outside
+the inner while only, since it is placed inside the inner while.
+
+The continue Statement
+
+In some programming situations we want to take the control to the
+beginning of the loop, bypassing the statements inside the loop,
+which have not yet been executed. The keyword continue allows
+us to do this. When continue is encountered inside any loop,
+control automatically passes to the beginning of the loop.
+
+A continue is usually associated with an if. As an example, let's
+consider the following program.
+
+main()
+{
+int ij;
+for (i=1;i<=2;i++)
+{
+for (j=1;j<=2; j++)
+{
+if (i==j)
+continue ;
+printf ( “\n%d %d\n", i,j);
+}
+}
+
+}
+The output of the above program would be...
+
+12
+21
+

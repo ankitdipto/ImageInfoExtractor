@@ -1,0 +1,46 @@
+Chapter 9: Puppetting On Strings 341
+
+ 
+
+‘t="s;
+St+ |
+tet;
+
+}
+
+t="0';
+
+}
+
+By declaring char *s as const we are declaring that the source
+string should remain constant (should not change). Thus the const
+qualifier ensures that your program does not inadvertently alter a
+variable that you intended to be a constant. It also reminds
+anybody reading the program listing that the variable is not
+intended to change.
+
+We can use const in several situations. The following code
+fragment would help you to fix your ideas about const further.
+
+ 
+
+const char *q = "Hello" ; /* string is fixed pointer is not */
+“q= I error */
+q = "Bye"; /* works */
+
+char const *s = "Hello" ; /* string is fixed pointer is not */
+“s='M; I error */
+
+s = "Bye"; /* works */
+
+char * const t = "Hello" ; /* pointer is fixed string is not */
+“t='M; /* works */
+
+t= "Bye"; /* error */
+
+ 
+
+const char * const u = "Hello" ; /* string is fixed so is pointer “/
+“‘u='M; error “/
+u = "Bye" ; /* error */
+

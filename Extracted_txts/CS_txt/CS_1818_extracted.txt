@@ -1,0 +1,104 @@
+9.4 Paging 291
+
+sets, and main memory have become larger. Today, pages typically are between
+4 KB and 8 KB, and some systems support even larger page sizes. Some CPUs
+and kernels even support multiple page sizes. For instance, Solaris uses 8 KB
+and 4 MB page sizes, depending on the data stored by the pages. Researchers
+are now developing variable on-the-fly page-size support.
+
+Each page-table entry is usually 4 bytes long, but that size can vary as well.
+A 32-bit entry can point to one of 2°? physical page frames. If a frame is 4 KB,
+then a system with 4-byte entries can address 2°° bytes (or 64 GB) of physical
+memory.
+
+When a process arrives in the system to be executed, its size, expressed in
+pages, is examined. Each page of the process needs one frame. Thus, if the
+process requires n pages, at least n frames must be available in memory. If n
+frames are available, they are allocated to this arriving process. The first page
+of the process is loaded into one of the allocated frames, and the frame number
+is put in the page table for this process. The next page is loaded into another
+frame, and its frame number is put into the page table, and so on (Figure 9.9).
+
+An important aspect of paging is the clear separation between the user’s
+view of memory and the actual physical memory. The user program views
+that memory as one single contiguous space, containing only this one program.
+In fact, the user program is scattered throughout physical memory, which also
+holds other programs. The difference between the user’s view of memory and
+
+ 
+
+ 
+
+free-frame list free-frame list
+14 Ee 15
+13 13 | page 1
+18
+14|page 0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+16
+17
+18 |page 2
+of 14] 19
+1[ 13]
+2h) 20 | page 3}
+3[20
+2 new-process page table 21
+
+{a) (b)
+
+Figure 9.9 Free frames. (a) Before allocation. (b) After allocation.
+

@@ -1,0 +1,52 @@
+22.3 Depth-first search 603
+
+ 
+
+22.3. Depth-first search
+
+The strategy followed by depth-first search is, as its name implies, to search
+“deeper” in the graph whenever possible. Depth-first search explores edges out
+of the most recently discovered vertex v that still has unexplored edges leaving it.
+Once all of v’s edges have been explored, the search “backtracks” to explore edges
+leaving the vertex from which v was discovered. This process continues until we
+have discovered all the vertices that are reachable from the original source vertex.
+If any undiscovered vertices remain, then depth-first search selects one of them as
+anew source, and it repeats the search from that source. The algorithm repeats this
+entire process until it has discovered every vertex.>
+
+As in breadth-first search, whenever depth-first search discovers a vertex v dur-
+ing a scan of the adjacency list of an already discovered vertex u, it records this
+event by setting v’s predecessor attribute v.a to u. Unlike breadth-first search,
+whose predecessor subgraph forms a tree, the predecessor subgraph produced by
+a depth-first search may be composed of several trees, because the search may
+repeat from multiple sources. Therefore, we define the predecessor subgraph of
+a depth-first search slightly differently from that of a breadth-first search: we let
+Gz = (V, Ex), where
+
+ 
+
+E, = {(v.0,v):v eV andv.a # NIL} .
+
+The predecessor subgraph of a depth-first search forms a depth-first forest com-
+prising several depth-first trees. The edges in E,, are tree edges.
+
+As in breadth-first search, depth-first search colors vertices during the search to
+indicate their state. Each vertex is initially white, is grayed when it is discovered
+in the search, and is blackened when it is finished, that is, when its adjacency list
+has been examined completely. This technique guarantees that each vertex ends up
+in exactly one depth-first tree, so that these trees are disjoint.
+
+Besides creating a depth-first forest, depth-first search also timestamps each ver-
+tex. Each vertex v has two timestamps: the first timestamp v.d records when v
+is first discovered (and grayed), and the second timestamp v.f records when the
+search finishes examining v’s adjacency list (and blackens v). These timestamps
+
+ 
+
+31t may seem arbitrary that breadth-first search is limited to only one source whereas depth-first
+search may search from multiple sources. Although conceptually, breadth-first search could proceed
+from multiple sources and depth-first search could be limited to one source, our approach reflects how
+the results of these searches are typically used, Breadth-first search usually serves to find shortest-
+path distances (and the associated predecessor subgraph) from a given source. Depth-first search is
+often a subroutine in another algorithm, as we shall see later in this chapter.
+

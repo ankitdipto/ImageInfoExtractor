@@ -1,0 +1,49 @@
+11.6 Protection 405
+
+One difficulty in combining approaches comes in the user interface. Users
+must be able to tell when the optional ACL permissions are set on a file. In the
+Solaris example, a “+” appends the regular permissions, as in:
+
+19 -rw-r--r--+ 1 jim staff 130 May 25 22:13 file1
+
+A separate set of commands setfacl and getfacl are used to manage the
+ACLs. Another difficulty is assigning precedence when permission and ACLs
+conflict. For example, if Joe is in a file’s group, which has read permission, but
+the file has an ACL granting Joe read and write permissions, should a write
+by Joe be granted or denied? Solaris gives ACLs permission (as they are more
+fine-grained and are not assigned by default). This follows the general rule that
+specificity should have priority.
+
+11.6.3 Other Protection Approaches
+
+Another approach to the protection problem is to associate a password with
+each file. Just as access to the computer system is often controlled by a pass-
+word, access to each file can be controlled by a password. If the passwords
+are chosen randomly and changed often, this scheme may be effective in limit-
+ing access to a file to only those users who know the password. This scheme,
+however, has several disadvantages. First, the number of passwords that a user
+needs to remember may become large, making the scheme impractical. Sec-
+ondly, if only one password is used for all the files, then, once it is discovered,
+all files are accessible. Some systems (for example, TOPS-20) allow a user to
+associate a password with a subdirectory, rather than with an individual file,
+to deal with this problem. The IBM VM/CMS operating system allows three
+passwords for a minidisk—one each for read, write, and multiwrite access.
+Thirdly, commonly, only one password is associated with all of the user’s files.
+Thus, protection is on an all-or-nothing basis. To provide protection on a more
+detailed level, we must use multiple passwords.
+
+Limited file protection is also currently available on single user systems,
+such as MS-DOS and Macintosh operating system. These operating systems,
+when originally designed, essentially ignored the protection problem. How-
+ever, since these systems are now being placed on networks where file sharing
+and communication are necessary, protection mechanisms must be retrofitted
+into the operating system. Designing a feature into a new operating system is
+almost always easier than adding a feature to an existing one. Such updates are
+usually less effective and are not seamless.
+
+Ina multilevel directory structure, we need to protect not only individual
+files, but also collections of files in a subdirectory; that is, we need to provide
+a mechanism for directory protection. The directory operations that must be
+protected are somewhat different from the file operations. We want to control
+the creation and deletion of files in a directory. In addition, we probably want
+

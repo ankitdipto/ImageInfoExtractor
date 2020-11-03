@@ -1,0 +1,51 @@
+404 Chapter 11 File-System Interface
+
+The most common recent approach is to combine access control lists with
+the more general (and easier to implement) owner, group, and universe access-
+control scheme that was described above. For example, Solaris 2.6 and beyond
+uses the three categories of access by default, but allows access control lists to
+be added to specific files and directories when more fine-grained access control
+is desired.
+
+As an example, consider a person, Sara, who is writing a new book. She
+has hired three graduate students (Jim, Dawn, and Jill) to help with the project.
+The text of the book is kept in a file named book. The protection associated with
+this file is as follows:
+
+Sara should be able to invoke all operations on the file.
+
+e Jim, Dawn, and Jill should be able only to read and write the file; they
+should not be allowed to delete the file.
+
+« All other users should be able to read, but not write, the file. (Sara is
+interested in letting as many people as possible read the text so that she
+can obtain appropriate feedback.)
+
+To achieve such a protection, we must create a new group, say text, with
+members Jim, Dawn, and Jill. The name of the group fext must be then
+associated with the file book, and the access right must be set in accordance
+with the policy we have outlined.
+
+Now consider a visitor to whom Sara would like to grant temporary access
+to chapter 1. The visitor cannot be added to the text group because that grants to
+the vistor access to all chapters. Because files can only be in one group, another
+group cannot be added to chapter 1. With the addition of access-control-list
+functionality, the visitor can be added to the access control list of chapter 1.
+
+For this scheme to work properly, permissions and access lists must be
+controlled tightly. This control can be accomplished in several ways. For
+example, in the UNIX system, groups can be created and modified by only the
+manager of the facility (or by any superuser). Thus, this control is achieved
+through human interaction. In the VMS system, the owner of the file can create
+and modify this list. Access lists are discussed further in Section 18.4.2.
+
+With the more limited protection classification, only three fields are needed
+to define protection. Each field is often a collection of bits, each of which either
+allows or prevents the access associated with it. For example, the UNIX system
+defines three fields of 3 bits each—rwx, where r controls read access, w controls
+write access, and x controls execution. A separate field is kept for the file owner,
+for the file’s group, and for all other users. In this scheme, 9 bits per file are
+needed to record protection information. Thus, for our example, the protection
+fields for the file book are as follows: For the owner Sara, all 3 bits are set; for the
+group text, the r and w bits are set; and for the universe, only the r bit is set.
+

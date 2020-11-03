@@ -1,0 +1,90 @@
+Section 6.4.
+
+ 
+
+MONOTONICITY
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Propositional Logic: A Very Simple Logic 173
+a g 7 ave a8V7 avi
+False False False False True False
+False False True False True True
+False True False True False False
+False True ~ True True True True
+True False False True True True
+True False True True True True
+True True False True False True
+True True True True True True
+Figure 614 A truth table demonstrating the soundness of the resolution inference rule. We
+have underlined the rows where both premises are true.
+
+ 
+
+ 
+
+ 
+
+As we mentioned above, a logical proof consists of a sequence of applications of inference
+tules, starting with sentences initially in the KB, and culminating in the generation ofthe sentence
+whose proof is desired. To prove that P follows from (P V A) and —H, for example, we simply
+require one application of the resolution rule, with a as P, 3 as H, and 7 empty. The job of an
+inference procedure, then, is to construct proofs by finding appropriate sequences of applications
+of inference rules.
+
+Complexity of propositional inference
+
+The truth-table method of inference described on page 169 is complete, because it is always
+possible to enumerate the 2" rows of the table for any proof involving n proposition symbols.
+On the other hand, the computation time is exponential in n, and therefore impractical. One
+might wonder whether there is a polynomial-time proof procedure for propositional logic based
+on using the inference rules from Section 6.4.
+
+In fact, a version of this very problem was the first addressed by Cook (1971) in his theory
+of NP-completeness. (See also the appendix on complexity.) Cook showed that checking a set of
+sentences for satisfiability is NP-complete, and therefore unlikely to yield to a polynomial-time
+algorithm. However, this does not mean that all instances of propositional inference are going to
+take time proportional to 2". In many cases, the proof of a given sentence refers only to a small
+subset of the KB and can be found fairly quickly. In fact, as Exercise 6.15 shows, really hard
+problems are quite rare.
+
+The use of inference rules to draw conclusions from a knowledge base relies implicitly
+on a general property of certain logics (including propositional and first-order logic) called
+monotonicity. Suppose that a knowledge base KB entails some set of sentences. A logic is
+
+_monotonic if when we add some new sentences to the knowledge base, all the sentences entailed
+by the original KB are still entailed by the new larger knowledge base. Formally, we can state
+the property of monotonicity ofa logic as follows:
+
+ifKB, a then (KB\U KB2) ka
+
+This is true regardless of the contents of KB,—it can be irrelevant or even contradictory to KB.
+

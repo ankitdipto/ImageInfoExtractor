@@ -1,0 +1,39 @@
+ 
+
+446 Chapter 16 Greedy Algorithms
+Task
+
+aj 1 2 3 4 5 6 7
+dj 4 2 4 3 1 4 6
+wi 70 60 50 30 20 10
+Figure 16.7 An instance of the problem of scheduling unit-time tasks with deadlines and penalties
+for a single processor.
+unit-time tasks with deadlines and penalties for a single processor. The running
+time is O(n?) using GREEDY, since each of the O(n) independence checks made
+by that algorithm takes time O(n) (see Exercise 16.5-2). Problem 16-4 gives a
+faster implementation.
+
+Figure 16.7 demonstrates an example of the problem of scheduling unit-time
+tasks with deadlines and penalties for a single processor. In this example, the
+greedy algorithm selects, in order, tasks a1, 42, 3, and a4, then rejects as (because
+N4({a1.2.43.44,.ds}) = 5) and dg (because N4({d1.d2.43,d4,d6}) = 5), and
+finally accepts a7. The final optimal schedule is
+(d2.4,41,43,47,d5.d6) .
+which has a total penalty incurred of ws + W5 = 50.
+
+Exercises
+16.5-1
+Solve the instance of the scheduling problem given in Figure 16.7, but with each
+penalty w; replaced by 80 — w;.
+16.5-2
+Show how to use property 2 of Lemma 16.12 to determine in time O(|A|) whether
+or not a given set A of tasks is independent.
+Problems
+
+16-1 Coin changing
+Consider the problem of making change for 7 cents using the fewest number of
+coins. Assume that each coin’s value is an integer.
+
+a. Describe a greedy algorithm to make change consisting of quarters, dimes,
+nickels, and pennies. Prove that your algorithm yields an optimal solution.
+

@@ -1,0 +1,30 @@
+528
+
+Chapter 19 Fibonacci Heaps
+
+(a)
+
+(b)
+
+(©)
+
+ 
+
+Figure 19.6 (a) The recursive definition of the binomial tree By. Triangles represent rooted sub-
+trees. (b) The binomial trees Bo through By. Node depths in By are shown. (¢) Another way of
+looking at the binomial tree By.
+
+Suppose that we represent a binomial heap as follows. The left-child, right-
+sibling scheme of Section 10.4 represents each binomial tree within a binomial
+heap. Each node contains its key; pointers to its parent, to its leftmost child, and
+to the sibling immediately to its right (these pointers are NIL when appropriate);
+and its degree (as in Fibonacci heaps, how many children it has). The roots form a
+singly linked root list, ordered by the degrees of the roots (from low to high), and
+we access the binomial heap by a pointer to the first node on the root list.
+
+c. Complete the description of how to represent a binomial heap (i.e., name the
+attributes, describe when attributes have the value NIL, and define how the root
+list is organized), and show how to implement the same seven operations on
+binomial heaps as this chapter implemented on Fibonacci heaps. Each opera-
+tion should run in O(lgm) worst-case time, where n is the number of nodes in
+

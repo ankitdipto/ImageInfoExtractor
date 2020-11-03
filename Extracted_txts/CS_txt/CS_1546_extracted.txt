@@ -1,0 +1,64 @@
+244
+
+Chapter 8. Building a Knowledge Base
+
+ 
+
+PROPOSITIONAL
+ATTITUDES:
+
+REFERENTIAL,
+TRANSPARENCY
+
+‘OPAQUE
+
+‘multiagent domains, it becomes important for an agent to reason about the mental processes of
+the other agents. Suppose a shopper in a supermarket has the goal of buying some anchovies
+The agent deduces that a good plan is to go where the anchovies are, pick some up, and bring
+them to the checkout stand. A key step is for the shopper to realize that it cannot execute this plan
+until it knows where the anchovies are, and that it can come to know where they are by asking
+someone. The shopper should also deduce that it is better to ask a store employee than another
+customer, because the employee is more likely to know the answer. To do this kind of deduction,
+an agent needs to have a model of what other agents know, as well as some knowledge of its own
+knowledge, lack of knowledge, and inference procedures
+
+In effect, we want to have a model of the mental objects that are in someone's head (or
+something's knowledge base) and of the mental processes that manipulate those mental objects.
+The model should be faithful, but it does not have to be detailed. We do not have to be able to
+predict how many milliseconds it will take for a particular agent to make a deduction, nor do we
+have to predict what neurons will fire when an animal is faced with a particular visual stimulus
+But we do want an abstract model that says that if a logical agent believes P V Q and it learns
+oP, then it should come to believe Q.
+
+The first step is to ask how mental objects are represented. That is, if we have a relation
+Believes(Agent, x), What kind of thing is x? First of all, its clear that x cannot be a logical sentence.
+If Flies(Superman)is a logical sentence, we can't say Believes(Agent, Flies(Superman))because
+only terms (not sentences) can be arguments of relations. But if Flies(Superman)is reified as a §
+fluent, then it is a candidate for being a mental object, and Believes can be a relation that takes an
+agent and a propositional fluent that the agent believes in. We could define other relations such
+as Knows and Wants to express other relationships between agents and propositions. Relations
+of this kind are called propositional attitudes.
+
+This appears to give us what we want: the ability for an agent to reason about the beliefs
+of agents. Unfortunately, there is a problem with this approach. If Clark and Superman are one
+and the same (i.e, Clark = Superman) then Clark flying and Superman flying are one and the
+same event. Thus, if the object of propositional attitudes are reified events, we must conclude
+that if Lois believes that Superman can fly, she also believes that Clark can fly, even if she doesn't
+believe that Clark is Superman. That is,
+
+(Superman = Clark)
+(Believes(Lois.Flies(Superman)) <= Believes(Lois, Flies(Clark)))
+
+There is a sense in which this is right: Lois does believe ofa certain person, who happens to be
+called Clark sometimes, that that person can fly. But there is another sense in which this is wrong:
+if you asked Lois "Can Clark fly?" she would certainly say no. Reified objects and events work
+fine for the first sense of Believes, but for the second sense we need to reify descriptions of those
+objects and events, so that Clark and Superman can be different descriptions (even though they
+refer to the same object).
+
+Technically, the property of being able to freely substitute a term for an equal term is called
+referential transparency. In first-order logic, every relation is referentially transparent. We
+would like to define Believes (and the other propositional attitudes) as relations whose second
+argument is referentially opaque—that is, one cannot substitute an equal term for the second
+argument without changing the meaning.
+

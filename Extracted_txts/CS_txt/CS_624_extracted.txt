@@ -1,0 +1,58 @@
+Section 6.3
+
+Representation, Reasoning, and Logic 161
+
+ 
+
+INTERPRETATION
+
+programming languages do not offer any easy way to say "there is a pit in [2,2] or [3,1]” or
+“there is a wumpus in some square." The problem is that programming languages are designed to
+completely describe the state of the computer and how it changes as the program executes. But
+we would like our knowledge representation language to support the case where we do not have
+complete information—where we do not know for certain how things are, but only know some
+possibilities for how they might or might not be. A language that does not let us do this is not
+expressive enough.
+
+Natural languages (such as English or Spanish) are certainly expressive—we managed to
+write this whole book using natural language with only occasional lapses into other languages
+(including logic, mathematics, and the language ofdiagrams). But natural languages have evolved
+more to meet the needs of communication rather than representation. When a speaker points
+and says, "Look!" the listener comes to know that, say, Superman has finally appeared over the
+rooftops. But we would not want to say that the sentence "Look!" encoded that fact. Rather,
+the meaning ofthe sentence depends both on the sentence itself and on the context in which the
+sentence was spoken. A natural language is a good way for a speaker to get a listener to come
+to know something, but often this sharing of knowledge is done without explicit representation
+of the knowledge itself. Natural languages also suffer from ambiguity—in a phrase such as
+"small dogs and cats," it is not clear whether the cats are small. Contrast this to the programming
+language construct ““—d+ ¢.” where the precedence rules for the language tell us that the minus
+sign applies to d, not tod +c.
+
+A good knowledge representation language should combine the advantages of natural
+
+languages and formal languages. It should be expressive and concise so that we can say everything
+
+we need to say succinctly. It should be unambiguous and independent of context, so that what we
+say today will still be interpretable tomorrow. And it should be effective in the sense that there
+should be an inference procedure that can make new inferences from sentences in our language.
+
+Many representation languages have been designed to try to achieve these criteria. In
+this book, we concentrate on first-order logic as our representation language because it forms
+the basis of most representation schemes in AI. Just as it would be overoptimistic to believe
+that one can make real progress in physics without understanding and using equations, it is
+important to develop a talent for working with logical notation if one is to make progress in
+artificial intelligence. However, it is also important not to get too concemed with the specifics
+of logical notation—after all, there are literally dozens of different versions, some with x’s and
+>"s and exotic mathematical symbols, and some with rather visually appealing diagrams with
+arrows and bubbles. The main thing to keep hold of is how a precise, formal language can
+represent knowledge, and how mechanical procedures can operate on expressions in the language
+to perform reasoning. The fundamental concepts remain the same no matter what language is
+being used to represent the knowledge.
+
+Semantics
+
+Tn logic, the meaning ofa sentence is what it states about the world, that the world is this way and
+not that way. So how does a sentence get its meaning? How do we establish the correspondence
+between sentences and facts? Essentially, this is up to the person who wrote the sentence. In
+order to say what it means, the writer has to provide an interpretation for it; to say what fact
+

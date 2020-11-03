@@ -1,0 +1,54 @@
+opcode
+
+SECTION $1 Instruction Codes 125,
+
+ceived by computer designers who specify the architecture of the computer.
+In this chapter we choose a particular instruction code to explain the basic
+organization and design of digital computers.
+
+Stored Program Organization
+
+The simplest way to organize a computer is to have one processor register and
+an instruction code format with two parts. The first part specifies the operation
+to beperformed and the second specifiesan address. The memory address tells
+the control where to find an operand in memory. This operand is read from
+memory and used as the data to be operated on together with the data stored
+in the processor register.
+
+Figure 5-1 depicts this type of organization. Instructions are stored in one
+section of memory and data in another. For a memory unit with 4096 words
+‘we need 12bits to specify an address since 2 = 4096. if we store each instruc-
+tion code in one 16-bit memory word, we have available four bits for the
+operation code (abbreviated opcode) to specify one out of 16 possible opera-
+tions, and 12 bits to specify the address of an operand. The control reads a
+16-bit instruction from the program portion of memory. It uses the 12-bit
+address part of the instruction to read a 16-bit operand from the data portion
+of memory. It then executes the operation specified by the operation code.
+
+Figure 5-1 Stored program organization.
+
+Memory
+4096 16
+
+is o
+
+ 
+
+Instruction format
+
+15 o
+‘Binary operand
+
+ 
+
+ 
+
+ 
+
+ 
+
+Proessor register
+(accumulator oF A)
+
+ 
+

@@ -1,0 +1,55 @@
+    
+
+Section 11.9. Summary 363
+
+ 
+
+Coenen EE EEE
+BIBLIOGRAPHICAL AND HISTORICAL NOTES
+
+The roots of AI planning lie partly in problem solving through state-space search and associated
+techniques such as problem reduction and means-ends analysis, especially as embodied in
+Newell and Simon's GPS, and partly in theorem proving and situation calculus, especially as
+embodied in the QA3 theorem proving system (Green, 1969b). Planning has also been historically
+motivated by the needs of robotics. STRIPS (Fikes and Nilsson, 1971), the first major planning
+system, illustrates the interaction ofthese three influences. STRIPS was designed as the planning
+component of the software for the Shakey robot project at SRI International. Its overall control
+structure was modeled on that of GPS, and it used a version of QA3 as a subroutine for establishing
+preconditions for actions. Lifschitz (1986) offers careful criticism and formal analysis of the
+STRIPS system. Bylander (1992) shows simple planning in the fashion of STRIPS to be PSPACE-
+complete. Fikes and Nilsson (1993) give a historical retrospective on the STRIPS project and a
+survey of its relationship to more recent planning efforts.
+
+For several years, terminological confusion has reigned in the field of planning. Some
+authors (Genesereth and Nilsson, 1987) use the term linear to mean what we call totally ordered,
+and nonlinear for partially ordered. Sacerdoti (1975), who originated the term, used "linear" to
+refer to a property that we will call noninterleaved. Given a set of subgoals, a noninterleaved
+planner can find plans to solve each subgoal, but then it can only combine them by placing all
+the steps for one subplan before or after all the steps of the others. Many early planners of the
+1970s were noninterleaved, and thus were incomplete—they could not always find a solution
+when one exists. This was forcefully driven home by the Sussman Anomaly (see Exercise 11.4),
+found during experimentation with the HACKER system (Sussman, 1975). (The anomaly was
+actually found by Alien Brown, not by Sussman himself, who thought at the time that assuming
+linearity to begin with was often a workable approach.) HACKER introduced the idea ofprotecting
+subgoals, and was also an early example ofplan learning.
+
+Goal regression planning, in which steps in a totally ordered plan are reordered so as to avoid
+conflict between subgoals, was introduced by Waldinger { 1975) and also used by Warren's (1974)
+WARPLAN. WARPLAN is also notable in that it was the first planner to be written using a logic
+programming language (Prolog), and is one of the best examples of the remarkable economy
+that can sometimes be gained by using logic programming: WARPLAN is only 100 lines of
+code, a small fraction of the size of comparable planners of the time. INTERPLAN (Tate, 1975b;
+Tate, 1975a) also allowed arbitrary interleaving of plan steps to overcome the Sussman anomaly
+and related problems.
+
+The construction of partially ordered plans (then called task networks) was pioneered by
+the NOAH planner (Sacerdoti, 1975;Sacerdoti, 1977), and thoroughly investigated in Tate's (1977)
+NONLIN system, which also retained the clear conceptual structure of its predecessor INTERPLAN.
+INTERPLAN and NONLIN provide much of the grounding for the work described in this chapter and
+the next, particularly in the use of causal links to detect potential protection violations. NONLIN
+was also the first planner to use an explicit algorithm for determining the truth or falsity of
+conditions at various points in a partially specified plan.
+
+TWEAK (Chapman, 1987) formalizes a generic, partial-order planning system. Chapman
+provides detailed analysis, including proofs of completeness and intractability (NP-hardness and
+

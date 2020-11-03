@@ -1,0 +1,66 @@
+484
+
+umury
+INDEPENDENCE
+MUTUALLY UTILITY-
+
+INDEPENDENT
+
+MULTIPLICATIVE
+UTILITY FUNCTION
+
+165 _ DECISION NETWORKS
+
+INFLUENCE DIAGRAM
+DECISION NETWORK
+
+(CHANCE NODES
+
+Chapter 16. Making Simple Decisions
+
+Preferences with uncertainty
+
+When uncertainty is present in the domain, we will also need to consider the structure of
+preferences between lotteries and to understand the resulting properties of utility functions,
+rather thanjust value functions. The mathematics of this problem can become quite complicated,
+so we will give just one ofthe main results to give a flavor of what can be done. The reader is
+referred to Keeney and Raiffa (1976) for a thorough survey of the field.
+
+The basic notion of utility independence extends preference independence to cover lot-
+teries: a set of attributes X is utility-independent of a set of attributes Y ifpreferences between
+lotteries on the attributes in X are independent ofthe particular values of the attributes in Y. A set
+of attributes is mutually utility-independent (MUI) if each subset is utility-independent of the
+remaining attributes. Again, it seems reasonable to propose that the airport attributes are MUL
+
+MUI implies that the agent's behavior can be described using a multiplicative utility
+function (Keeney, 1974). The general form of a multiplicative utility function is best seen by
+looking at the case for three attributes. For simplicity, we will use U; to mean U;(X;(s)):
+
+U =k Uy + kg U2 + kg U st ky kU) Uz + ko kg UU + kk U3U, + ky kak3 UU2U3
+
+Although this does not look very simple, it contains three single-attribute utility functions and
+just three constants. In general, an n-attribute problem exhibiting MUI can be modelled using
+n single-attribute utilities and n con:tants. Each of the single-attribute utility functions can
+be developed independently of the other attributes, and this combination will be guaranteed to
+generate the correct overall preferences. Additional assumptions are required to obtain a purely
+additive utility function.
+
+Tn this section, we will look at a general mechanism for making rational decisions. The notation
+is often called a influence diagram (Howard and Matheson, 1984), but we will use the more
+descriptive term decision network. Decision networks combine belief networks with additional
+node types for actions and utilities. We will use the airport siting problem as an example.
+
+Representing a decision problem using decision networks
+
+In its most general form, a decision network represents information about the agent's current
+state, its possible actions, the state that will result from the agent's action, and the utility of that
+state. It therefore provides a substrate for implementing utility-based agents of the type first
+introduced in Section 2.3. Figure 164 shows a decision network for the airport siting problem.
+It illustrates the three types ofnodes used:
+
+0 Chance nodes (ovals) represent random variables, just as they do in beliefnets. The agent §
+may be uncertain about the construction cost, the level of air traffic and the potential for
+litigation, as well as the Deaths, Noise, and total Cost variables, each of which also depends 3
+
+ 
+

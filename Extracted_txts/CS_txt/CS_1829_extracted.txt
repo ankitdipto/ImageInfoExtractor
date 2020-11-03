@@ -1,0 +1,79 @@
+300  Chapter9 Memory Management
+
+ 
+
+ 
+
+ 
+
+physical
+logical address CoO address
+pld t [a -—
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+physical
+Gu) f+ uss] pit foes physical
+
+ 
+
+ 
+
+ 
+
+hash table
+Figure 9.14 Hashed page table.
+
+multiple physical-page frames. Clustered page tables are particularly useful
+for sparse address spaces where memory references are noncontiguous and
+scattered throughout the address space.
+
+9.4.4.3 Inverted Page Table
+
+Usually, each process has a page table associated with it. The page table has
+one entry for each page that the process is using (or one slot for each virtual
+address, regardless of the latter’s validity). This table representation is a natural
+one, since processes reference pages through the pages’ virtual addresses. The
+operating system must then translate this reference into a physical memory
+address. Since the table is sorted by virtual address, the operating system is
+able to calculate where in the table the associated physical-address entry is, and
+to use that value directly. One of the drawbacks of this method is that each
+page table may consist of millions of entries. These tables may consume large
+amounts of physical memory, which is required just to keep track of how the
+other physical memory is being used.
+
+To solve this problem, we can use an inverted page table. An inverted page
+table has one entry for each real page (or frame) of memory. Each entry consists
+of the virtual address of the page stored in that real memory location, with
+information about the process that owns that page. Thus, only one page table
+is in the system, and it has only one entry for each page of physical memory.
+Figure 9.15 shows the operation of an inverted page table. Compare it to Figure
+9.6, which depicts a standard page table in operation. Because only one page
+table is in the system yet there are usually several different address spaces
+mapping physical memory, inverted page tables often require an address-space
+identifier (Section 9.4.2) stored in each entry of the page table. Storing the
+

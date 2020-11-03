@@ -1,0 +1,50 @@
+11.5 File Sharing 397
+
+which permissions are applicable. The system then applies those permissions
+to the requested operation, and allows or denies it.
+
+The user information within a process can be used for other purposes as
+well. One process may attempt to interact with another process, and user
+information can dictate the result, based on the design of the operating system.
+For example, a process may attempt to terminate, background, or lower the
+priority of another process. If the owner of each process is the same, then the
+command may succeed, or else it may be denied. It may also be allowed to
+succeed if it is owned by the privileged user.
+
+Many systems have multiple local file systems, including partitions of a
+single disk or multiple partitions on multiple attached disks. In these cases, the
+ID checking and permission matching are straightforward, once the file systems
+are mounted.
+
+11.5.2 Remote File Systems
+
+The advent of networks (Chapter 15) allowed communication between remote
+computers. Networking allows the sharing of resources spread within a cam-
+pus or even around the world. One obvious resource to share is data, in the
+form of files. Through the evolution of network and file technology, file-sharing
+methods have changed. In the first implemented method, users manually trans-
+fer files between machines via programs like ftp. The second major method is
+a distributed file system (DFS) in which remote directories are visible from the
+local machine. In some ways, the third method, the World Wide Web, is a
+reversion to the first. A browser is needed to gain access to the remote files, and
+separate operations (essentially a wrapper for ftp) are used to transfer files.
+
+ftp is used for both anonymous and authenticated access. Anonymous
+access allows a user to transfer files without having an account on the remote
+system. The World Wide Web uses anonymous file exchange almost exclusively.
+DFS involve a much tighter integration between the machine that is accessing
+the remote files and the machine providing the files. This integration adds
+complexity, which we describe in this section.
+
+11.5.2.1 The Client-Server Model
+
+Remote file systems allow a computer to mount one or more file systems from
+one or more remote machines. In this case, the machine containing the files
+is the server, and the machine wanting access to the files is the client. The
+client-server relationship is common with networked machines. Generally, the
+server declares that a resource is available to clients and specifies exactly which
+resource (in this case, which files) and exactly which clients. Files are usually
+specified on a partition or subdirectory level. A server can serve multiple
+clients, and a client can use multiple servers, depending on the implementation
+details of a given client-server facility.
+

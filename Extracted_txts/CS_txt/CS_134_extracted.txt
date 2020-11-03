@@ -1,0 +1,46 @@
+26.5 The relabel-to-front algorithm 749
+
+The correctness and analysis of the relabel-to-front algorithm depend on the
+notion of “admissible” edges: those edges in the residual network through which
+flow can be pushed. After proving some properties about the network of admissible
+edges, we shall investigate the discharge operation and then present and analyze the
+relabel-to-front algorithm itself.
+
+Admissible edges and networks
+
+If G = (V, E) isa flow network with source s and sink ¢, f is a preflow in G, andh
+is a height function, then we say that (u,v) is an admissible edge if cy(u.v) > 0
+and (wu) = h(v) + 1. Otherwise, (u,v) is inadmissible. The admissible network
+is Grn = (V, Egn), where Ey is the set of admissible edges.
+
+The admissible network consists of those edges through which we can push flow.
+The following lemma shows that this network is a directed acyclic graph (dag).
+
+Lemma 26.26 (The admissible network is acyclic)
+If G = (V, E) is a flow network, f is a preflow in G, and /i is a height function
+on G, then the admissible network Gj, = (V, En) is acyclic.
+
+Proof The proof is by contradiction. Suppose that Gy; contains a cycle p =
+
+(V0. Vie. ees ve), Where Vo = vg and k > 0. Since each edge in p is admissible, we
+have /h(vj-1) = h(v;) + 1 fori = 1,2,...,&. Summing around the cycle gives
+k k
+Vr) = Lae) +
+i=1 i=l
+k
+= YA) +k.
+i=l
+
+Because each vertex in cycle p appears once in each of the summations, we derive
+the contradiction that 0 = k. .
+
+The next two lemmas show how push and relabel operations change the admis-
+sible network.
+
+Lemma 26.27
+
+Let G = (V, E) bea flow network, let f be a preflow in G, and suppose that the
+attribute /1 is a height function. If a vertex w is overflowing and (u,v) is an ad-
+missible edge, then PUSH(w,v) applies. The operation does not create any new
+admissible edges, but it may cause (uv, v) to become inadmissible.
+

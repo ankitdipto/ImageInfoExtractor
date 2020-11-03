@@ -1,0 +1,65 @@
+798
+
+Chapter 27 Multithreaded Algorithms
+
+Pi Pz qo 2
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+merge copy merge,
+
+A r3.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 27.6 The idea behind the multithreaded merging of two sorted subarrays T[p1 ..r1]
+and T[p2..r2] into the subarray A[p3 .. r3]. Letting x = T [qi] be the median of T[p1 .. ri] and q2
+be the place in T[p2..r2] such that x would fall between T[q2 — 1] and T[q2], every element in
+subarrays T[p} -.q1 — 1] and T[p2..q2 — 1] (lightly shaded) is less than or equal to x, and every
+element in the subarrays T[q1 +1 ...r1] and T [gz + 1..r2] (heavily shaded) is at least x. To merge,
+we compute the index q3 where x belongs in A[p3..13], copy x into A[qs], and then recursively
+merge T[p1 ..q1 — 1] with T[p2 ..q2 —1] into A[p3..q3 — I] and T[gi +1..11] with Tlq2-.r2]
+into A[g3 + 1..r3].
+
+which is the same as the serial running time of merge sort. Since the two recursive
+calls of MERGE-Sorr’ can run in parallel, the span MS'_, is given by the recurrence
+
+MS.) = MS,(n/2) + OM)
+= O(n).
+
+Thus, the parallelism of MERGE-SorT’ comes to MS{(n)/MS,,(n) = O(lgn),
+which is an unimpressive amount of parallelism. To sort 10 million elements, for
+example, it might achieve linear speedup on a few processors, but it would not
+scale up effectively to hundreds of processors.
+
+You probably have already figured out where the parallelism bottleneck is in
+this multithreaded merge sort: the serial MERGE procedure. Although merging
+might initially seem to be inherently serial, we can, in fact, fashion a multithreaded
+version of it by using nested parallelism.
+
+Our divide-and-conquer strategy for multithreaded merging, which is illus-
+trated in Figure 27.6, operates on subarrays of an array T. Suppose that we
+are merging the two sorted subarrays T[p1..11] of length ny = mr — pi + 1
+and T[p2..12] of length ng = rz — p2 + | into another subarray A[p3..13], of
+length n3 = 1r3 — p3 + | =, +2. Without loss of generality, we make the sim-
+plifying assumption that 2; > no.
+
+We first find the middle element x = T[qi] of the subarray T[p)..1ri],
+where g1 = |(pi+11)/2]. Because the subarray is sorted, x is a median
+of T[pi..ri]: every element in T[p; ..¢; — 1] is no more than x, and every el-
+ement in T[q; + 1..1)] is no less than x. We then use binary search to find the
+

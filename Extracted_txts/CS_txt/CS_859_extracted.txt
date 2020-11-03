@@ -1,0 +1,46 @@
+200 Let Us C
+
+ 
+
+@
+
+Compile the program using Alt F9. This would create the
+library file called ‘myfuncs.lib’.
+
+That’s it. The library now stands created. Now we have to use the
+functions defined in this library. Here is how it can be done.
+
+(a)
+
+()
+
+()
+
+@
+
+Create a file, say ‘sample.c’ and type the following code in it.
+
+#include "myfuncs.h"
+main()
+{
+int f, result ;
+f = factorial (5) ;
+result = prime (13) ;
+fibonacci (6 ) ;
+printf ("\n%d %d", f, result ) ;
+
+Note that the file ‘myfuncs.h’ should be in the same directory
+as the file ‘sample.c’. If not, then while including ‘myfuncs.h’
+mention the appropriate path.
+
+Go to the ‘Project’ menu and select ‘Open Project...’ option.
+On doing so a dialog would pop up. Give the name of the
+project, say ‘sample.prj’ and select OK.
+
+From the ‘Project’ menu select ‘Add Item’. On doing so a file
+dialog would appear. Select the file ‘sample.c’ and then select
+‘Add’. Also add the file ‘myfuncs.lib’ in the same manner.
+Finally select ‘Done’.
+
+Compile and execute the project using Ctrl F9.
+

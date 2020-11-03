@@ -1,0 +1,54 @@
+676
+
+Chapter 24 Single-Source Shortest Paths
+
+Lemma 24.17 (Predecessor-subgraph property)
+
+Let G = (V, E) be a weighted, directed graph with weight function w : E > R,
+let s € V be a source vertex, and assume that G contains no negative-weight cycles
+that are reachable from s. Let us call INITIALIZE-SINGLE-SOURCE(G, 5) and then
+execute any sequence of relaxation steps on edges of G that produces v.d = 6(s,v)
+for all v € V. Then, the predecessor subgraph G, is a shortest-paths tree rooted
+at s.
+
+Proof We must prove that the three properties of shortest-paths trees given on
+page 647 hold for G,. To show the first property, we must show that V,, is the set
+of vertices reachable from s. By definition, a shortest-path weight 5(s, v) is finite
+if and only if v is reachable from s, and thus the vertices that are reachable from s
+are exactly those with finite d values. But a vertex v € V — {s} has been assigned
+a finite value for v.d if and only if v.2 # NIL. Thus, the vertices in V,, are exactly
+those reachable from s.
+
+The second property follows directly from Lemma 24.16.
+
+It remains, therefore, to prove the last property of shortest-paths trees: for each
+vertex v € V,,, the unique simple path s 2. vy in Gz is a shortest path from s to v
+in G. Let p = (v0, V1. ..-. vg), Where V9 = s and yy = v. Fori = 1,2,..., k,
+we have both v;.d = 4(s,v;) and vj.d > vj-1.d + w(v;-1, v;), from which we
+conclude w(vj-1,v;) < 6(s,v;) — 5(s, vj-1). Summing the weights along path p
+yields
+
+k
+
+win v)
+
+i=1
+
+w(p)
+
+k
+< V6b.») - 86, vi)
+i=l
+= 8(s, v%) — 6(s, vo) (because the sum telescopes)
+= 4(s, ve) (because 6(s, vo) = 5(s,s) = 0) .
+Thus, w(p) < 5(s, vz). Since 5(s, vz) is a lower bound on the weight of any path
+
+from s to vg, we conclude that w(p) = 4(s, vg), and thus p is a shortest path
+from s tov = vx. .
+
+Exercises
+
+245-1
+Give two shortest-paths trees for the directed graph of Figure 24.2 (on page 648)
+other than the two shown.
+

@@ -1,0 +1,46 @@
+342° charrerTeN Computer Arithmetic
+
+least significant bit of A is shifted into the most significant position of Q, the
+bit from Eis shifted into the most significant position of A, and Ois shifted into
+E. After the shift, one bit of the partial product is shifted into Q, pushing the
+multiplier bits one position to the right. In this manner, the rightmost flip-flop
+in register Q, designated by Q,, will hold the bit of the multiplier, which must
+be inspected next.
+
+Hardware Algorithm
+
+Figure 10-6 is a flowchart of the hardware multiply algorithm. Initially, the
+multiplicand is in B and the multiplier in Q. Their corresponding signs are in
+B, and Q,, respectively. The signs are compared, and both A and Q are set to
+
+Figure 10-6 Flowchart for multiply operation.
+
+‘Multiply operation
+
+ 
+
+ 
+
+A, ~ 0,08,
+2, ~ 2,08,
+AW0,E<0
+Scon-1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

@@ -1,0 +1,89 @@
+Section 25.4.
+
+Architectures 789
+
+ 
+
+BEHAVIOR-BASED
+ROBOTICS
+
+ 
+
+State
+register
+
+     
+
+Sensor
+input
+
+Actions
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 259 The basic structure of Rosenschein’s situated automaton design. The shaded
+region on the left represents a Boolean circuit for updating the current state registers. The shaded
+region to the right represents a circuit for selecting actions based on the current state.
+
+ 
+
+ 
+
+ 
+
+of "physics" are given to the compiler. Thus, the robot "knows" a set of propositions about the
+environment, even though it has no explicit representation of the proposition.
+
+Rosenschein's basic design is shown in Figure 25.9. It relies on a theorem to the effect
+that any finite-state machine can be implemented as a state register together with a feedforward
+circuit that updates the state based on the sensor inputs and the current state, and another circuit
+that calculates the output given the state register. Because all the computation is carried out by
+fixed-depth, feedforward circuits, the execution time for each decision cycle is vanishingly small.
+Flakey, a robot based on situated automata theory, was able to navigate the halls of SRI, run
+errands, and even ask questions, all without the benefit of explicit representations.
+
+Rodney Brooks (1986) has advocated an approach to robot design that he calls behavior-
+based robotics. The idea is that the overall agent design can be decomposed, not into functional
+components such as perception, learning, and planning, but into behaviors such as obstacle
+avoidance, wall-following, and exploration. Each behavioral module accesses the sensor inputs
+independently to extract just the information it needs, and sends its own signals to the effectors.
+Behaviors are arranged into a prioritized hierarchy in which higher level behaviors can access
+the internal state of lower level behaviors and can modify or override their outputs. Figure 25.10
+shows a hierarchy of behaviors proposed for a mobile robot by Brooks (1986).
+
+The main aim of behavior-based robotics is to eliminate the reliance on a centralized,
+complete representation of the world state, which seems to be the most expensive aspect of the
+classical architecture. Internal state is needed only to keep track of those aspects of the world
+state that are inaccessible to the sensors and are required for action selection in each behavior.
+For tasks in which the appropriate action is largely determined by the sensor inputs, the slogan
+"The world is its own model" is quite appropriate. In some cases, only a few bits ofinternal state
+are needed even for quite complex tasks such as collecting empty soft drink cans. Similar results
+have been found in Rosenschein's designs, in which the state register can be surprisingly small.
+
+Behavior-based robotics has been quite successful in demonstrating that many basic com-
+petences in the physical world can be achieved using simple, inexpensive mechanisms. At
+

@@ -1,0 +1,49 @@
+SECTION 11-7 Input-Output Processor 423,
+
+responds by inserting a status word in memory fortheCPU to check. The bits,
+of the status word indicate the condition of the IOP and V/O device, such as
+IOP overload condition, device busy with another transfer, or device ready for
+VO transfer. The CPU refers to the status word in memory to decide what to
+do next. If all is in order, the CPU sends the instruction to start UO transfer.
+The memory address received with this instruction tells the IOP where to find
+its program.
+
+The CPU can now continue with another program while the IOP is busy
+with the JO program. Both programs refer to memory by means of DMA
+transfer. When the IOP terminates the execution of its program, it sends an
+interrupt request to the CPU. The CPU responds to the interrupt by issuing
+an instruction to read the status from the IOP. The IOP responds by placing
+the contents of its status report into a specified memory location. The status
+word indicates whether the transfer has been completed or if any errors
+occurred during the transfer. From inspection of the bits in the status word,
+the CPU determines if the I/O operation was completed satisfactorily without
+errors.
+
+The IOP takes care of all data transfers between several /O units and the
+memory while the CPU is processing another program. The IOP and CPU are
+competing for the use of memory, so the number of devices that can be in
+operation is limited by the access time of the memory. It is not possible to
+saturate the memory by /O devices in most systems, as the speed of most
+devices is much slower than the CPU. However, some very fast units, such as
+magnetic disks, can use an appreciable numberof the available memory cycles.
+In that case, the speed of the CPU may deteriorate because it will often have
+to wait for the IOP to conduct memory transfers.
+
+IBM 370 V/O Channel
+The VO processor in the IBM 370 computer is called a channel. A typical
+computer system configuration includes a number of channels with each
+channelattached to one or more /O devices. There are three types of channels:
+multiplexer, selector, and block-multiplexer. The multiplexer channel can be
+connected to a number of slow- and medium-speed devices and is capable of
+operating with a number of /O devices simultaneously. The selector channel
+is designed to handle one UO operation at a time and is normally used to
+control one high-speed device. The block-multiplexer channel combines the
+features of both the multiplexer and selector channels. It provides a connection
+toa number of high-speed devices, but all /O transfers are conducted with an
+entire block of data as compared to a multiplexer channel, which can transfer
+only one byte at a time
+
+The CPU communicates directly with the channels through dedicated
+control lines and indirectly through reserved storage areas in memory.
+Figure 11-21 shows the word formats associated with the channel operation.
+

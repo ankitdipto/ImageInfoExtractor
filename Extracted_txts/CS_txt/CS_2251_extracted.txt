@@ -1,0 +1,87 @@
+404
+
+CHAPTER ELEVEN Input-Output Organization
+
+Anexample of data transfer from an I/O device through an interface into
+the CPU is shown in Fig. 11-10. The device transfers bytes of data one at a time
+as they are available. When a byte of data is available, the device places it in
+the VO bus and enables its data valid line. The interface accepts the byte into
+its data register and enables the data accepted line. The interface sets a bit in
+the status register that we will refer to.as an For “flag” bit. The device can now
+disable the data valid line, but it will not transfer another byte until the data
+accepted line is disabled by the interface. This is according to the handshaking
+Procedure established in Fig. 11-5.
+
+‘A program is written for the computer to check the flag in the status
+register to determine if a byte has been placed in the data register by the /O
+device. This is done by reading the status register into a CPU register and
+checking the value of the flag bit. If the flag is equal to 1, the CPU reads the
+data from the data register. The flag bit is then cleared to 0 by either the CPU
+or the interface, depending on how the interface circuits are designed. Once
+the flag is cleared, the interface disables the data accepted line and the device
+can then transfer the next data byte
+
+A flowchart of the program that must be written for the CPU is shown
+in Fig. 11-11. It is assumed that the device is sending a sequence of bytes
+that must be stored in memory. The transfer of each byte requires three
+instructions:
+
+1; Read the status register.
+
+2. Check the status of the flag bit and branch to step 1 if not set or to step
+Sif set.
+
+3. Read the data register.
+Each byte is read into a CPU register and then transferred to memory with a
+
+store instruction. A common I/O programming task is to transfer a block of
+words from an I/O device and store them in a memory buffer. A program that
+
+Figure 11-10 Data transfer from UO device to CPU.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Interface
+Data bus |___1obus
+Address bus Data register
+Data valid 1
+ou Worad a
+WO write status :
+> register | ¥ Data accepted , |
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+F =Flag bit
+

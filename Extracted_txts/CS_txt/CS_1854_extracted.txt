@@ -1,0 +1,135 @@
+10.2 Demand Paging 321
+
+With this scheme, we need some form of hardware support to distinguish
+between those pages that are in memory and those pages that are on the disk.
+The valid—invalid bit scheme described in Section 9.4.4 can be used for this
+purpose. This time, however, when this bit is set to “valid,” this value indicates
+that the associated page is both legal and in memory. If the bit is set to “invalid,”
+this value indicates that the page either is not valid (that is, not in the logical
+address space of the process), or is valid but is currently on the disk. The
+page-table entry for a page that is brought into memory is set as usual, but the
+page-table entry for a page that is not currently in memory is simply marked
+invalid, or contains the address of the page on disk. This situation is depicted
+in Figure 10.3.
+
+Notice that marking a page invalid will have no effect if the process never
+attempts to access that page. Hence, if we guess right and page in all and only
+those pages that are actually needed, the process will run exactly as though we
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+0
+1
+2
+valid—invalid
+frame. bit 8
+/ 4 Hea
+0| 4 Iv
+1 i 5
+2| 6 |v 6 Cc
+3 i
+4{_fi 7
+5) 9 |v 8
+6 7
+6 i 9 fe
+7 7 i
+10
+logical page table
+memory "1
+12
+13
+14
+15
+
+ 
+
+ 
+
+ 
+
+physical memory
+
+Figure 10.3 Page table when some pages are not in main memory.
+

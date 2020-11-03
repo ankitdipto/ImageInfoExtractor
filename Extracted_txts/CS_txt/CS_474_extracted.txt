@@ -1,0 +1,52 @@
+33.2 Determining whether any pair of segments intersects 1025
+
+ANY-SEGMENTS-INTERSECT(S)
+
+1 T=9%
+
+2 sort the endpoints of the segments in S from left to right,
+breaking ties by putting left endpoints before right endpoints
+and breaking further ties by putting points with lower
+y-coordinates first
+
+3 for each point p in the sorted list of endpoints
+
+4 if p is the left endpoint of asegment s
+
+5 INSERT(T, 5)
+
+6 if (ABOVE(T, s) exists and intersects s)
+
+or (BELOW(T, 5) exists and intersects 5)
+
+7 return TRUE
+8 if p is the right endpoint of a segment 5
+9 if both ABOVE(T, s) and BELOW(T, 5) exist
+and ABOVE(T, s) intersects BELOW(T, 5)
+10 return TRUE
+11 DELETE(T, 5)
+
+12 return FALSE
+
+Figure 33.5 illustrates how the algorithm works. Line | initializes the total preorder
+to be empty. Line 2 determines the event-point schedule by sorting the 27 segment
+endpoints from left to right, breaking ties as described above. One way to perform
+line 2 is by lexicographically sorting the endpoints on (x,e, y), where x and y are
+the usual coordinates, e = 0 for a left endpoint, and e = | for a right endpoint.
+
+Each iteration of the for loop of lines 3-11 processes one event point p. If p is
+the left endpoint of a segment s, line 5 adds s to the total preorder, and lines 6-7
+return TRUE if s intersects either of the segments it is consecutive with in the total
+preorder defined by the sweep line passing through p. (A boundary condition
+occurs if p lies on another segment s’. In this case, we require only that s and s’
+be placed consecutively into T.) If p is the right endpoint of a segment s, then
+we need to delete s from the total preorder. But first, lines 9-10 return TRUE if
+there is an intersection between the segments surrounding s in the total preorder
+defined by the sweep line passing through p. If these segments do not intersect,
+line 11 deletes segment s from the total preorder. If the segments surrounding
+segment s intersect, they would have become consecutive after deleting s had the
+return statement in line 10 not prevented line 11 from executing. The correctness
+argument, which follows, will make it clear why it suffices to check the segments
+surrounding s. Finally, if we never find any intersections after having processed
+all 2n event points, line 12 returns FALSE.
+

@@ -1,0 +1,61 @@
+53
+
+Chapter 5. Game Playing
+
+Figure 5.3 shows a more formal description of the minimax algorithm. The top level func-
+tion, MINIMAX-DECISION, selects from the available moves, which are evaluated in turn by the
+MINIMAX-VALUE function.
+
+If the maximum depth of the tree is m, and there are b legal moves at each point, then
+the time complexity of the minimax algorithm is O(b”). The algorithm is a depth-first search
+(although here the implementation is through recursion rather than using a queue of nodes), so
+its space requirements are only linear in m and b. For real games, of course, the time cost is
+totally impractical, but this algorithm serves as the basis for more realistic methods and for the
+mathematical analysis of games.
+
+ 
+
+function MINIMAX-DECISION(game) returns an operator
+
+for each op in OPERATORS[game] do
+
+VALUE[op] — MINIMAX-VALUE(APPLY(op, game), game)
+end
+return the op with the highest VaLUE[op]
+
+function MINIMAX-VALUE(state, game) returns a utility value
+
+if TERMINAL-TEST[ game (state) then
+UTILITY| game] (state)
+else if MAX is to move in state then
+return the highest MiniMAXx-VALUE of SucccssorRs(state)
+else
+return the lowest MiNIMAX-VALUE of SUCCESSORS(state)
+
+ 
+
+ 
+
+ 
+
+Figure 53 An algorithm for calculating minimax decisions. It returns the operator that
+corresponding to the best possible move, that is, the move that leads to the outcome with the
+best utility, under the assumption that the opponent plays to minimize utility. The function
+MINIMAX-VALUE goes through the whole game tree, all the way to the leaves, to determine the
+backed-up value of a state.
+
+ 
+
+ 
+
+ 
+
+IMPERFECT DECISIONS
+
+The minimax algorithm assumes that the program has time to search all the way to terminal
+states, which is usually not practical. Shannon's original paper on chess proposed that instead of
+going all the way to terminal states and using the utility function, the program should cut off the
+search earlier and apply a heuristic evaluation function to the leaves of the tree. In other words,
+the suggestion is to alter minimax in two ways: the utility function is replaced by an evaluation
+function EVAL, and the terminal test is replaced by a cutoff test CUTOFF-TEST.
+

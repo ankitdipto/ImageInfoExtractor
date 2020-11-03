@@ -1,0 +1,64 @@
+462 Chapter13  1/O Systems
+
+handler to search all possible sources of interrupts to determine which one
+needs service. In practice, however, computers have more devices (and hence,
+interrupt handlers) than they have address elements in the interrupt vector.
+A common way to solve this problem is to use the technique of interrupt
+chaining, in which each element in the interrupt vector points to the head of
+a list of interrupt handlers. When an interrupt is raised, the handlers on the
+corresponding list are called one by one, until one is found that can service
+the request. This structure is a compromise between the overhead of a huge
+interrupt table and the inefficiency of a dispatching to a single interrupt handler.
+
+Figure 13.4 illustrates the design of the interrupt vector for the Intel Pen-
+tium processor. The events from 0 to 31, which are nonmaskable, are used to
+signal various error conditions. The events from 32 to 255, which are maskable,
+are used for purposes such as device-generated interrupts.
+
+The interrupt mechanism also implements a system. of interrupt priority
+levels. This mechanism enables the CPU to defer the handling of low-priority
+interrupts without masking off all interrupts, and makes it possible for a high-
+priority interrupt to preempt the execution of a low-priority interrupt.
+
+A modern operating system interacts with the interrupt mechanism in
+several ways. At boot time, the operating system probes the hardware buses
+to determine what devices are present, and installs the corresponding interrupt
+handlers into the interrupt vector. During 1/O, the various device controllers
+
+ 
+
+ 
+
+vector number description
+0 divide error
+1 debug exception
+2 null interrupt
+3 breakpoint
+4 INTO-detected overflow
+5 bound range exception
+6 invalid opcode
+7 device not available
+8 double fault
+9 coprocessor segment overrun (reserved)
+10 invalid task state segment
+"1 segment not present
+12 stack fault
+13 general protection
+14 page fault
+15 (Intel reserved, do not use)
+16 floating-point error
+17 alignment check
+18 machine check
+19-31 (Intel reserved, do not use)
+32-255 maskable interrupts
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 13.4 Intel Pentium processor event-vector table.
+

@@ -1,0 +1,55 @@
+16.1 An activity-selection problem 415
+
+this chapter and Chapter 23 independently of each other, you might find it useful
+to read them together.
+
+ 
+
+16.1 An activity-selection problem
+
+ 
+
+Our first example is the problem of scheduling several competing activities that re-
+quire exclusive use of acommon resource, with a goal of selecting a maximum-size
+set of mutually compatible activities. Suppose we have a set S = {d1,d2,...,dn}
+of n proposed activities that wish to use a resource, such as a lecture hall, which
+can serve only one activity at a time. Each activity a; has a start time s; and a finish
+time f;, where 0 < s; < fj < oo. If selected, activity a; takes place during the
+half-open time interval [s;, f;). Activities a; and a; are compatible if the intervals
+[s:. fi) and [s;. fj) do not overlap. That is, a; and a; are compatible if s; > fj
+or s; = fi. In the activity-selection problem, we wish to select a maximum-size
+subset of mutually compatible activities. We assume that the activities are sorted
+in monotonically increasing order of finish time:
+
+fishs hss hakdth- (16.1)
+
+(We shall see later the advantage that this assumption provides.) For example,
+consider the following set S of activities:
+i 1 394 5 6 7 8 9 10
+
+si {1 3 0 5 3 5 6 8 8 2
+fil4 5 6 7 9 9 10 11 12 14
+
+  
+
+ 
+
+ 
+
+For this example, the subset {@3, do, @11} consists of mutually compatible activities.
+It is not a maximum subset, however, since the subset {a),44,dg.d11} is larger. In
+fact, {a,,d4,dg.d11} is a largest subset of mutually compatible activities; another
+largest subset is {a2,d4,d9, 411}.
+
+We shall solve this problem in several steps. We start by thinking about a
+dynamic-programming solution, in which we consider several choices when deter-
+mining which subproblems to use in an optimal solution. We shall then observe that
+we need to consider only one choice—the greedy choice—and that when we make
+the greedy choice, only one subproblem remains. Based on these observations, we
+shall develop a recursive greedy algorithm to solve the activity-scheduling prob-
+lem. We shall complete the process of developing a greedy solution by converting
+the recursive algorithm to an iterative one. Although the steps we shall go through
+in this section are slightly more involved than is typical when developing a greedy
+algorithm, they illustrate the relationship between greedy algorithms and dynamic
+programming.
+

@@ -1,0 +1,69 @@
+incrementer
+
+SECTION 44 Arithmetic Microoperations 105
+
+A hom BOA ar)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+| t }
+
+Ce Ss S Ss
+
+om fom EY =e
+
+Pogue 47 {bit addes-cuberarsor.
+
+Z'scomplement of B. For unsigned numbers. this gives — BifA = Borthe
+2'scomplement of (B — A)if A < B. For signed numbers, the resultis A — B
+provided that there is no overflow.
+
+ 
+
+Binary Incrementer
+
+The increment microoperation adds one toa numberina register. Forexample,
+ifa bit register hasa binary value 0110, it will goto0111 after itis incremented,
+This microoperationiseasily implemented witha binary counter (see Fig. 2-10).
+Every time the count enable is active, the clock pulse transition increments the
+content of the register by one. There may be occasions when the increment
+microoperation must be done with a combinational cicuit independent of a
+particular register. This can be accomplished by means of half-adders (see
+Fig, 1-16) connected in cascade.
+
+The diagram of a 4bit combinational circuit incrementer is shown in
+Fig. 48. One of the inputs tothe least significant half-adder (HA)is connected
+to logic-1 and the other input is connected to the least significant bit of the
+number tobeincremented. The output ca:ry from one half-adderis connected
+to one of the inputs of the nest-higher-order half-adder. The circuit receives
+the four bits from Acthrough As, adds one to it, and generates the incremented
+output in So through 5s. The output carry C, will be 1 only after incrementing
+binary 1111. This also causes outputs So through 5; to go to 0.
+
+The circuit of Fig. 48 can be extended to an n-bit binary increreenter by
+extending the diagram to include n half-adders. The least significant bit must
+haveoneinput connected to logic-1. The other inputs receive the number to
+be incremented or the carry from the previous stage.
+
+ 
+

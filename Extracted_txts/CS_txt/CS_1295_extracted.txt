@@ -1,0 +1,39 @@
+Chapter 17: Windows Programming 565
+
+ 
+
+To actually create a window we need to call the API function
+CreateWindow( ). This function requires several parameters
+starting with the window class. The second parameter indicates the
+text that is going to appear on the button surface. The third
+parameter specifies the window style.
+WS_OVERLAPPEDWINDOW is a commonly used style. The
+next four parameters specify the window’s initial position and
+size—the x and y screen coordinates of the window’s top left
+corner and the window’s width and height in pixels. The next three
+parameters specify the handles to the parent window, the menu and
+the application instance respectively. The last parameter is the
+pointer to the window-creation data.
+
+We can easily devote a section of this book to CreateWindow( )
+and its parameters. But don’t get scared of it. Nobody is supposed
+to remember all the parameters, their meaning and their order. You
+can always use MSDN (Microsoft Developer Network) help to
+understand the minute details of each parameter. This help is
+available as part of VC++ 6.0 product. It is also available on the
+net at http:/Awww.msdn.microsoft.com/library.
+
+Note that CreateWindow( ) merely creates the window in
+memory. We still are to display it on the screen. This can be done
+using the ShowWindow( ) API function. CreateWindow( )
+returns handle of the created window. Our program uses this
+handle to refer to the window while calling ShowWindow( ). The
+second parameter passed to Show Window( ) signifies whether the
+window would appear minimized, maximized or normal. If the
+value of this parameter is SW_SHOWNORMAL we get a normal
+sized window, if it is SW_SHOWMINIMIZED we get a
+minimized window and if it is SW_SHOWMINIMIZED we get a
+maximized window. We have passed nCmdShow as the second
+parameter. This variable contains SW_SHOWNORMAL by
+default. Hence our program displays a normal sized window.
+

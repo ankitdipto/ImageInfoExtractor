@@ -1,0 +1,40 @@
+Chapter 13: More Issues In Input/Output 473
+
+ 
+
+fp = fopen (“poem.txt’, "r") ;
+if (fp == NULL)
+{
+
+printf ("Cannot open file” ) ;
+exit() ;
+}
+
+while ( (ch = fgetc (fp) ) != EOF )
+fputc (ch, stdprn ) ;
+
+fclose (fp) ;
+}
+
+The statement fputc (ch, stdprn ) writes a character read from the
+file to the printer. Note that although we opened the file on the
+disk we didn’t open stdprn, the printer. Standard files and their
+use in redirection have been dealt with in more details in the next
+section.
+
+Note that these standard file pointers have been defined in the file
+“stdio.h”. Therefore, it is necessary to include this file in the
+program that uses these standard file pointers.
+
+I/O Redirection
+
+Most operating systems incorporate a powerful feature that allows
+a program to read and write files, even when such a capability has
+not been incorporated in the program. This is done through a
+process called ‘redirection’.
+
+Normally a C program receives its input from the standard input
+device, which is assumed to be the keyboard, and sends its output
+to the standard output device, which is assumed to be the VDU. In
+other words, the OS makes certain assumptions about where input
+

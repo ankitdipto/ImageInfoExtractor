@@ -1,0 +1,48 @@
+442 Chapter 12 File-System Implementation
+
+Si: $2:
+
+usr
+
+  
+ 
+
+shared dir2
+
+ 
+
+Figure 12.14 Three independent file systems.
+
+operation is completed, the mounted directory looks like an integral subtree
+of the local file system, replacing the subtree descending from the local direc-
+tory. The local directory becomes the name of the root of the newly mounted
+directory. Specification of the remote directory as an argument for the mount
+operation is done in a non-transparent manner; the location (or host name) of
+the remote directory has to be provided. However, from then on, users on
+machine M1 can access files in the remote directory in a totally transparent
+manner. i
+
+To illustrate file mounting, consider the file system depicted in Figure 12.14,
+where the triangles represent subtrees of directories that are of interest. The
+figure shows three independent file systems of machines named U, S1, and $2.
+At this point, at each machine, only the local files can be accessed. In Figure
+12.15(a), the effects of the mounting of $1:/usr/shared over U:/usr/local are shown.
+This figure depicts the view users on U have of their file system. Observe that
+they can access any file within the dir] directory, for instance, using the prefix
+/usr/local/dirl on U after the mount is complete. The original directory /usrflocal
+on that machine is no longer visible.
+
+Subject to access-rights accreditation, potentially any file system, or any
+directory within a file system, can be mounted remotely on top of any local
+directory. Diskless workstations can even mount their own roots from servers.
+
+Cascading mounts are also permitted in some NFS implementations. That
+is, a file system can be mounted over another file system that is remotely
+mounted, not local. A machine is affected by only those mounts that it has
+itself invoked.
+
+By mounting a remote file system, the client does not gain access to other
+file systems that were, by chance, mounted over the former file system. Thus,
+the mount mechanism does not exhibit a transitivity property. In Figure
+12.15(b), we illustrate cascading mounts by continuing our previous example.
+

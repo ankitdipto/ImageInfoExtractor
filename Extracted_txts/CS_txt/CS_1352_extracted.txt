@@ -1,0 +1,43 @@
+Chapter 18: Graphics Under Windows 611
+
+ 
+
+The WM_CREATE message arrives whenever a new window is
+created. Since usually a window is created only once, the one-time
+activity that is to be carried out in a program is usually done in
+OnCreate( ) handler. In our program to make the ball move we
+need to display it at different places at different times. To do this it
+would be necessary to blit the ball image several times. However,
+we need to load the image only once. As this is a one-time activity
+it has been done in the handler function OnCreate( ).
+
+You are already familiar with the steps involved in preparing the
+image for blittng—loading the bitmap, creating a memory DC,
+making it compatible with screen DC and selecting the bitmap in
+the memory DC.
+
+Apart from preparing the image for blitting we have also done
+some intialialisations like setting up values in some variables to
+indicate the initial position of the ball. We have also called the
+SetTimer( ) function. This function tells Windows to post a
+message WM_TIMER into the message queue of our application
+every 50 milliseconds.
+
+WM_TIMER and OnTimer()
+
+If we are to perform an activity at regular intervals we have two
+choices:
+
+(a) Use a loop and monitor within the loop when is it time to
+perform that activity.
+
+(b) Use a Windows mechanism of timer. This mechanism when
+used posts a WM_TIMER message at regular intervals to our
+application.
+
+The first method would seriously hamper the responsiveness of the
+program. If the control is within the loop and a new message
+arrives the message would not get processed unless the control
+goes out of the loop. The second choice is better because it makes
+the program event driven. That is, whenever WM_TIMER arrives
+

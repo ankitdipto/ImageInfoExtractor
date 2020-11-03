@@ -1,0 +1,58 @@
+276
+
+CHAPTER EIGHT Central Processing Unit
+
+TABLE 8-11 Conditional Branch Instructions
+
+ 
+
+‘Mnemonic Branch condition Tested condition
+BZ Branch if zero Zz
+BNZ Branch if not zero Zz
+BC Branch if carry c
+BNC Branch if no carry c
+BP Branch if plus s
+BM Branch if minus Ss
+BY Branch if overflow v
+BNV Branch if no overflow v
+
+Unsigned compare conditions (A — B)
+BHI Branch if higher A>B
+BHE Branch if higher or equal ADB
+BLO Branch if lower A<B
+BLOE Branch if lower or equal ASB
+BE Branch if equal =B
+BNE Branch if not equal AaB
+
+‘Signed compare conditions (A — B)
+BGT Branch if greater than A>B
+BGE Branch if greater or equal ADB
+BLT Branch if less than A<B
+BLE Branch if less or equal ASB
+BE Branch if equal
+
+ 
+
+BNE Branch if not equal AaB
+
+inserted to define the 0 state. Thus BC is Branch on Carry, and BNC is Branch
+on No Carry. If the stated condition is true, program control is transferred to
+the address specified by the instruction. If not, control continues with the
+instruction that follows. The conditional instructions can be associated also
+with the jump, skip, call, or return type of program control instructions.
+
+The zero status bit is used for testing if the result of an ALU operation
+is equal to zero or not. The carry bit is used to check if there is a carry out of
+the most significant bit position of the ALU. Itis also used in conjunction with
+therotateinstructionsto check the bit shifted from the end position of a register
+into the carry position. The sign bit reflects the state of the most significant bit
+ofthe output from the ALU. S = 0 denotes a positive sign and $ = I, a negative
+sign. Therefore, a branch on plus checks for a sign bit of 0 and a branch on
+minus checks for a sign bit of 1. It must be realized, however, that these two
+conditional branch instructions can be used to check the value of the most
+significant bit whether it represents a sign or not. The overflow bit is used in
+conjunction with arithmetic operations done on signed numbers in 2's comple-
+ment representation.
+
+ 
+

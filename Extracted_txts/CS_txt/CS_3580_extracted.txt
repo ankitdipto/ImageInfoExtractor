@@ -1,0 +1,47 @@
+20.3 The van Emde Boas tree 549
+
+This recurrence looks similar to recurrence (20.2), and we will solve it in a similar
+fashion. Letting m = lg u, we rewrite it as
+
+72") < TA") +O).
+
+Noting that [m/2] < 2m/3 for all m > 2, we have
+T(2") < T(2"9) + O(1).
+
+Letting S(m) = T(2”), we rewrite this last recurrence as
+S(m) < S(2m/3) + O11).
+
+which, by case 2 of the master method, has the solution S(m) = O(lgm). (In
+terms of the asymptotic solution, the fraction 2/3 does not make any difference
+compared with the fraction 1/2, because when we apply the master method, we
+find that log,,, 1 = log, 1 = 0.) Thus, we have T(w) = T(2”") = S(m) =
+O(lgm) = O(lglgu).
+
+Before using a van Emde Boas tree, we must know the universe size u, so that
+we can create a van Emde Boas tree of the appropriate size that initially represents
+an empty set. As Problem 20-1 asks you to show, the total space requirement of
+a van Emde Boas tree is O(u), and it is straightforward to create an empty tree
+in O(u) time. In contrast, we can create an empty red-black tree in constant time.
+Therefore, we might not want to use a van Emde Boas tree when we perform only
+a small number of operations, since the time to create the data structure would
+exceed the time saved in the individual operations. This drawback is usually not
+significant, since we typically use a simple data structure, such as an array or linked
+list, to represent a set with only a few elements.
+
+20.3.2 Operations on a van Emde Boas tree
+
+We are now ready to see how to perform operations on a van Emde Boas tree. As
+we did for the proto van Emde Boas structure, we will consider the querying oper-
+ations first, and then INSERT and DELETE. Due to the slight asymmetry between
+the minimum and maximum elements in a VEB tree—when a vEB tree contains
+at least two elements, the minumum element does not appear within a cluster but
+the maximum element does—we will provide pseudocode for all five querying op-
+erations. As in the operations on proto van Emde Boas structures, the operations
+here that take parameters V and x, where V is a van Emde Boas tree and x is an
+element, assume that 0 < x < Viu.
+
+Finding the minimum and maximum elements
+
+Because we store the minimum and maximum in the attributes min and max, two
+of the operations are one-liners, taking constant time:
+

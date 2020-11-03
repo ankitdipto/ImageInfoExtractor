@@ -1,0 +1,98 @@
+504
+
+CHAPTER THIRTEEN Multiprocessors
+
+ 
+
+ 
+
+     
+   
+ 
+
+Bus Bus Bus
+arbiter 1 arbiter 2 arbiter 3
+
+Ack Req Ack Ack Req
+
+Bus
+arbiter 4
+
+Ack
+
+     
+
+     
+
+    
+
+Req
+
+  
+
+Req
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+     
+       
+ 
+
+ 
+
+Bus busy line
+
+ 
+
+4x2
+Priority encoder
+
+I
+
+2x4
+Decoder
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 13-11 Parallel arbitration.
+
+bus. The processor takes control of the bus if its acknowledge input line is
+enabled. The bus busy line provides an orderly transfer of control, as in the
+daisy-chaining case.
+
+Figure 13-11 shows the requestlines from four arbiters going into a4 x 2
+priority encoder. The output of the encoder generates a 2-bit code which
+represents the highest-priority unit among those requesting the bus. The truth
+table of the priority encoder can be found in Table 11-2 (Sec. 11-5). The 2-bit
+code from the encoder output drives a2 x 4 decoder which enables the proper
+acknowledge line to grant bus access to the highest-priority unit.
+
+‘We can now explain the function of the bus arbitration signals listed in
+Table 13-1. The bus priority-in BPRN and bus priority-out BPRO are used for
+a daisy-chain connection of bus arbitration circuits. The bus busy signal BUSY
+is an open-collector output used to instruct all arbiters when the bus is busy
+conducting a transfer. The common bus request CBRQ is also an open-collector
+output that serves to instruct the arbiter if there are any other arbiters of
+lower-priority requesting use of the system bus. The signals used to construct
+a parallel arbitration procedure are bus request BREQ and priority-in BPRN,
+

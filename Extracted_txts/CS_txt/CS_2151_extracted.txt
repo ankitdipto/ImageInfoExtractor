@@ -1,0 +1,63 @@
+322
+
+CHAPTER NINE Pipeline and Vector Processing
+
+loop. It allows operations to be specified witha single vector instruction of the
+form
+
+(1: 100) = A(1: 100) + BQ : 100)
+
+The vector instruction includes the initial address of the operands, the length
+ofthe vectors, and the operation to be performed, all in one composite instruc-
+tion The addition is done with a pipelined floating-point adder similar to the
+cone shown in Fig. 9-6.
+
+‘A possible instruction format fora vectorinstructionis shown in Fig. 9-11.
+This is essentially a three-address instruction with three fields specifying the
+base address of the operands and an additional field that gives the length of
+the data items in the vectors. This assumes that the vector operands reside in
+memary. It is also possible to design the processor with a large number of
+registers and storeall operands in registers prior to the addition operation. In
+that case the base address and length in the vector instruction specify a group
+of CPU registers.
+
+Matrix Multiplication
+
+Matrix multiplication is one of the most computational intensive operations
+performed in computers with vector processors. The multiplication of two
+1X n matrices consists of n? inner products or n° multiply-add operations. An
+1X m matrix of numbers has n rows and m columns and may be considered
+as constituting a set of n row vectors or a set of m column vectors. Consider,
+for example, the multiplication of two 3 x 3 matrices A and B.
+
+My a2 a3) [bx ba bis) [en cz cy
+% Ax x) X}bx bx bal =len Ca Cs
+As Ay Ass, by ba bys. fn Ca Cx.
+
+The product matrix C is a 3x 3 matrix whose elements are related to the
+elements of A and B by the inner product:
+
+Gj = Dain X by
+
+For example, the number in the first row and first column of matrix C is
+calculated by letting i = 1,j = 1, toobtain
+
+Cn = Anbu + dba + as
+
+ 
+
+Figure 9-11 Instruction formatfor vector processor.
+
+ 
+
+ 
+
+ 
+
+Operation Base address Base address Base address Vector
+code source | source 2 destination length
+
+ 
+
+ 
+

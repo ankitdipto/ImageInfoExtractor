@@ -1,0 +1,61 @@
+magnitude
+
+addition
+(subtraction)
+algorithm
+
+SECTION 102 Addition and Subtraction 335
+
+after the execution of the arithmetic operation It does not mean that comple-
+ment arithmetic may not be used in an intermediate step. For example, it is
+convenient to employ complement arithmetic when performing a subtraction
+operation with numbers in signed-magnitude representation. As long as the
+initial minuend and subtrahend, as well as the final difference, are in signed-
+‘magnitude form the fact that complements have been used in an intermediate
+step does not alter the fact that the representation is in signed-magnitude.
+
+Addition and Subtraction with Signed-Magnitude Data
+
+The representation of numbers in signed-magnitude is familiar because it is
+used in everyday arithmeticcalculations. The procedure for adding or subtract-
+ing two signed binary numbers with paper and pencil is simple and straight-
+forward. A review of this procedure will be helpful for deriving the hardware
+algorithm.
+
+‘We designate the magnitude of the two numbers by A and B. When the
+signed numbers are added or subtracted, we find that there are eight different
+conditions to consider, depending on the sign of the numbers and the opera-
+tion performed. These conditions are listed in the first column of Table 10-1.
+‘Theother columns in the table show the actual operation to be performed with
+the magnitude of the numbers. The last column is needed to prevent a negative
+zero. In other words, when two equal numbers are subtracted, the result
+should be +0 not -0.
+
+The algorithms for addition and subtraction are derived from the table
+and can be stated as follows (the words inside parentheses should be used for
+the subtraction algorithm):
+
+Addition (subtraction) algorithm: when the signs of A and B are identical
+(different), add the two magnitudes and attach the sign of Ato the result. When
+the signs of A and B are different (identical), compare the magnitudes and
+
+TABLE 10-1 Addition and Subtraction of Signed- Magnitude Numbers
+Subtract Magnitudes
+
+Add a
+Operation Magnitudes +=» When A>B WhenA<B = When A
+
+ 
+
+(+A) + (+B) (A +B)
+
+(+A) + (-B) +4-B) -B-A) +HA-B)
+(A) + (+B) -(A-B)  -+(B-A) +A)
+(-A) +(-B) (A+B)
+
+(+A) - (+8) +4-B) -B-A) +HA-B)
+
+Ga)- (8) HA +8)
+(-A)~ (+B) - +B)
+(A) - (-B) -(A-B) —-+(B-A) +(A- B)
+

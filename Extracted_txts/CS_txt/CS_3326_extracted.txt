@@ -1,0 +1,57 @@
+Section 22.7. Semantic Interpretation 677
+
+ 
+
+certain semantic type, then we know that everything in the category is of the same type.
+Otherwise, the compositionality would not work out right. See the middle of Figure 22.17
+for types and examples of all the lexical categories.
+
+4. Now consider phrase-at-a-time modifications to your example sentences (e.g., substituting
+“every stinking wumpus” for "I"). You should be able to determine examples and types for
+constituent phrases, as in the bottom of Figure 22.17. In Figure 22.18, we see the complete
+parse tree for a sentence.
+
+5. Once you know the type ofeach category, it is not too hard to attach semantic interpretation
+augmentations to the grammar rules. Some of the rules have only one right-hand side
+constituent and only need to copy up the semantics of that constituent:
+
+NP(sem) — Pronoun(sem)
+
+6. Other times, the right-hand side of a rule will contain a semantic interpretation that is a
+predicate (or function), and one or more that are objects. To get the semantics ofthe whole
+phrase, just apply the relation (or function) to the object(s):
+
+S(rel(obj)) —* NP(obj) VP(rel)
+
+7. Sometimes the semantics is built up by concatenating the semantics of the constituents,
+possibly with some connectors wrapped around them:
+
+NP([sem),semz]) > Digit(sem\) Digit(sem2)
+
+8. Finally, sometimes you need to take apart one of the constituents before putting the
+semantics of the whole phrase back together. Here is a complex example:
+
+VP(Xx rel,(x)A_rely(EVENT-VAR(rel;))) — VP(rel, )Adverb(rel2)
+
+The intent here is that the function EveNT-VAR picks out the event variable from the
+intermediate form expression re/\. The end result is that a verb phrase such as "saw me
+yesterday" gets the interpretation:
+
+\x 3e e€ Sees(x, Speaker) A After(Now.) A During(e, Yesterday)
+
+By following these steps, we arrive at the grammar in Figure 22.19. To actually use this grammar,
+we would augment it further with the case and subcategorization information that we worked out
+previously. There is no difficulty in combining such things with semantics, but the grammar is
+easier to understand when we look at one type of augmentation at a time.
+
+Converting quasi-logical form to logical form
+
+The final step of semantic interpretation is to convert the quasi-logical form into real first-order
+logic. For our quasi-logical form, that means turning quantified terms into real terms. This is
+done by a simple rule: For each quantified term /gx P(x)] within a quasi-logical form QLF,
+replace the quantified term with x, and replace OLF with gx P(x) op OLF, where op is =>
+when q is V, and is A when gq is 3 or 3!, For example, the sentence "Every dog has a day" has the
+quasi-logical form:
+
+Be e€Has([Vd Dog(d)], {A a Day(a)},Now)
+

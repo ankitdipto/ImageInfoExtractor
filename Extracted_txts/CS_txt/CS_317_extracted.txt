@@ -1,0 +1,48 @@
+146
+
+CHAPTER FIVE Basic Computer Organization and Design
+
+the operation is transferred to AC. The microoperations that execute this
+instruction are:
+
+Dj DR<—M[AR]
+DjTss AC@ACADR, SCHO
+
+The control function for this instruction uses the operation decoder D since
+this output of the decoder isactive when the instruction has an AND operation
+whose binary code value is 000. Two timing signals are needed to execute the
+instruction. The clock transition associated with timing signal T, transfers the
+operand from memory into DR. The clock transition associated with the next
+timing signal T; transfers to AC the result of the AND logic operation between
+the contents of DR and AC. The same clock transition clears SC to 0, transfer-
+ring control to timing signal Ty to start a new instruction cycle.
+
+ADD to AC
+
+Thisinstruction adds the content of the memory word specified by the effective
+address to the value of AC. The sum is transferred into AC and the output carry
+Cou is transferred to the E (extended accumulator) flip-flop. The microopera-
+tions needed to execute this instruction are
+
+DT, DR < M[AR]
+Dis AC — AC+DR, EC, SCH0
+
+The same two timing signals, T, and Ts, are used again but with operation
+decoder D, instead of Dy, which was used for the AND instruction. After the
+instruction is fetched from memory and decoded, only one output of the
+operation decoder will be active, and that output determines the sequence of
+microoperations that the control follows during the execution of a memory-ref-
+erence instruction.
+
+LDA: Load to AC
+
+This instruction transfers the memory word specified by the effective address
+to AC. The microoperations needed to execute this instruction are
+
+Dig DR < M[AR}
+DjTs: AC — DR, SC-0
+
+Looking back at the bus system shown in Fig. 5-4 we note that thereis no direct
+path fromthe bus into AC. The adder and logic circuit receive information from
+DR which can be transferred into AC. Therefore, it is necessary to read the
+

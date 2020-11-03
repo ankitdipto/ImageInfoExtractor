@@ -1,0 +1,52 @@
+66 Chapter 3. Solving Problems by Searching
+
+ 
+
+First, let us review the single-state case with complete information. We assume that the
+agent knows its location and the locations of all the pieces of dirt, and that the suction is still in
+good working order.
+
+~ States: one of the eight states shown in Figure 3.2 (or Figure 3.6).
+Operators: move left, move right, suck.
+
+© Goal test: no dirt left in any square.
+
+> Path cost: each action costs 1,
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 3.6 Diagram ofthe simplified vacuum state space. Arcs denote actions. L = move left,
+R= move right, $= suck.
+
+ 
+
+ 
+
+ 
+
+Figure 3.6 shows the complete state space showing all the possible paths. Solving the
+problem from any starting state is simply a matter of following arrows to a goal state. This is the
+case for all problems, of course, but in most, the state space is vastly larger and more tangled.
+
+Now let us consider the case where the agent has no sensors, but still has to clean up all
+the dirt. Because this is a multiple-state problem, we will have the following:
+
+0 State sets: subsets of states 1-8 shown in Figure 3.2 (or Figure 3.6).
+
+Operators: move left, move right, suck.
+
+0 Goal test: all states in state set have no dirt
+
+© Path cost: each action costs 1.
+The start state set is the set of all states, because the agent has no sensors. A solution is any
+sequence leading from the start state set to a set of states with no dirt (see Figure 3.7). Similar
+
+state set spaces can be constructed for the case of uncertainty about actions and uncertainty about
+both states and actions.
+

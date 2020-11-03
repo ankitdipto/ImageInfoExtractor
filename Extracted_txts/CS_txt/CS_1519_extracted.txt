@@ -1,0 +1,48 @@
+2.5 Hardware Protection 45
+
+resident
+monitor
+
+@
+
+trap to perform VO
+
+monitor
+
+ 
+
+@
+
+return
+to user
+
+user
+program
+
+ 
+
+Figure 2.8 Use of a system call to perform I/O.
+
+gain unauthorized control of the computer, modifying the interrupt service
+routines would probably disrupt the proper operation of the computer system
+and of its spooling and buffering.
+
+We see then that we must provide memory protection at least for the
+interrupt vector and the interrupt-service routines of the operating system. In
+general, we want to protect the operating system from access by user programs,
+and, in addition, to protect user programs from one another. This protection
+must be provided by the hardware. It can be implemented in several ways, as
+we describe in Chapter 9. Here, we outline one such possible implementation.
+
+To separate each program’s memory space, we need the ability to determine
+the range of legal addresses that the program may access, and to protect the
+memory outside that space. We can provide this protection by using two
+registers, usually a base and a limit, as illustrated in Figure 2.9. The base
+register holds the smallest legal physical memory address; the limit register
+contains the size of the range. For example, if the base register holds 300040
+and limit register is 120900, then the program can legally access all addresses
+from 300040 through 420940 inclusive.
+
+This protection is accomplished by the CPU hardware comparing every
+address generated in user mode with the registers. Any attempt by a program
+

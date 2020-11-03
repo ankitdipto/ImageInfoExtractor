@@ -1,0 +1,50 @@
+29.5 The initial basic feasible solution 887
+
+subject to
+
+maximize —Xo (29.106)
+Yaix; —Xxo < b fori=1,2,..., m, (29.107)
+j=l
+
+x; = 0 for j =0,1,..., n. (29.108)
+
+Then L is feasible if and only if the optimal objective value of Laux is 0.
+
+Proof Suppose that L has a feasible solution ¥ = (X1.X2..... X,). Then the
+solution X9 = 0 combined with X is a feasible solution to La. with objective
+value 0. Since x» > 0 is a constraint of La, and the objective function is to
+maximize —Xo, this solution must be optimal for Laux.
+
+Conversely, suppose that the optimal objective value of Lax is 0. Then ¥) = 0,
+and the remaining solution values of X satisfy the constraints of L. .
+
+We now describe our strategy to find an initial basic feasible solution for a linear
+
+program L in standard form:
+
+INITIALIZE-SIMPLEX (A, b,c)
+
+RwNe
+
+let k be the index of the minimum b;
+ifh, =>0 // is the initial basic solution feasible?
+return ({1,2,....2}.{n+1.n+2,..., n+m},A,b,c,0)
+form Laux by adding —Xp to the left-hand side of each constraint
+and setting the objective function to —Xo
+let (N, B, A, b,c, v) be the resulting slack form for Laux
+l=n+k
+1 Lux has n + 1 nonbasic variables and m basic variables.
+(N, B, A,b,c,v) = Pivot(N, B, A,b,c,v,1,0)
+// The basic solution is now feasible for Lux.
+iterate the while loop of lines 3-12 of SIMPLEX until an optimal solution
+to Laux is found
+if the optimal solution to Layx sets Xp to 0
+if Xo is basic
+perform one (degenerate) pivot to make it nonbasic
+from the final slack form of Laux, remove Xo from the constraints and
+restore the original objective function of L, but replace each basic
+variable in this objective function by the right-hand side of its
+associated constraint
+return the modified final slack form
+else return “infeasible”
+

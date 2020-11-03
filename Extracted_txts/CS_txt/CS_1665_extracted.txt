@@ -1,0 +1,38 @@
+166 Chapter6 CPU Scheduling
+
+On the other hand, if the time quantum is too large, RR scheduling degener-
+ates to FCFS policy. A rule of thumb is that 80 percent of the CPU bursts should
+be shorter than the time quantum.
+
+6.3.5 Multilevel Queue Scheduling
+
+Another class of scheduling algorithms has been created for situations in which
+processes are easily classified into different groups. For example, a common
+division is made between foreground (or interactive) processes and back-
+ground (or batch) processes. These two types of processes have different
+response-time requirements, and so might have different scheduling needs. In
+addition, foreground processes may have priority (or externally defined) over
+background processes.
+
+A multilevel queue-scheduling algorithm partitions the ready queue into
+several separate queues (Figure 6.6). The processes are permanently assigned
+to one queue, generally based on some property of the process, such as memory
+size, process priority, or process type. Each queue has its own scheduling
+algorithm. For example, separate queues might be used for foreground and
+background processes. The foreground queue might be scheduled by an RR
+algorithm, while the background queue is scheduled by an FCFS algorithm.
+
+In addition, there must be scheduling among the queues, which is com-
+monly implemented as fixed-priority preemptive scheduling. For example, the
+foreground queue may have absolute priority over the background queue.
+
+highest priority
+
+ 
+
+ce student processes aa
+
+lowest priority
+
+Figure 6.6 Multilevel queue scheduling.
+

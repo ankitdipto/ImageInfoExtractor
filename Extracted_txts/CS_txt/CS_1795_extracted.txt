@@ -1,0 +1,39 @@
+Chapter 9
+
+MEMORY
+MANAGEMENT
+
+ 
+
+ 
+
+In Chapter 6, we showed how the CPU can be shared by a set of processes. As
+a result of CPU scheduling, we can improve both the utilization of the CPU and
+the speed of the computer’s response to its users. To realize this increase in
+performance, however, we must keep several processes in memory; that is, we
+must share memory.
+
+In this chapter, we discuss various ways to manage memory. The memory-
+management algorithms vary from a primitive bare-machine approach to pag-
+ing and segmentation strategies. Each approach has its own advantages and
+disadvantages. Selection of a memory-management method for a specific sys-
+tem depends on many factors, especially on the hardware design of the system.
+As we shall see, many algorithms require hardware support, although recent
+designs have closely integrated the hardware and operating system.
+
+9.1 = Background
+
+As we saw in Chapter 1, memory is central to the operation of a modern
+computer system. Memory consists of a large array of words or bytes, each
+with its own address. The CPU fetches instructions from memory according
+to the value of the program counter. These instructions may cause additional
+loading from and storing to specific memory addresses.
+
+A typical instruction-execution cycle, for example, first fetches an instruc-
+tion from memory. The instruction is then decoded and may cause operands
+to be fetched from memory. After the instruction has been executed on the
+
+273
+
+ 
+

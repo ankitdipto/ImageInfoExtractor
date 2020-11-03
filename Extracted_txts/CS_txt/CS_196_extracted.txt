@@ -1,0 +1,59 @@
+800
+
+Chapter 27 Multithreaded Algorithms
+
+The call BINARY-SEARCH(x, T, p,1’) takes O(1g7) serial time in the worst case,
+where n = r — p + 1 is the size of the subarray on which it runs. (See Exer-
+cise 2.3-5.) Since BINARY-SEARCH is a serial procedure, its worst-case work and
+span are both (1g 77).
+
+We are now prepared to write pseudocode for the multithreaded merging pro-
+cedure itself. Like the MERGE procedure on page 31, the P-MERGE procedure
+assumes that the two subarrays to be merged lie within the same array. Un-
+like MERGE, however, P-MERGE does not assume that the two subarrays to
+be merged are adjacent within the array. (That is, P-MERGE does not require
+that p2 = r; +1.) Another difference between MERGE and P-MERGE is that
+P-MERGE takes as an argument an output subarray A into which the merged val-
+ues should be stored. The call P-MERGE(T, P1.1'1. P2.1'2. A, p3) merges the sorted
+subarrays T[p,..1;] and T[p...rz] into the subarray A[p3..13], where r3 =
+Pst(n- Pit +(%2—-pr2+V—-1 = p3+(ri— pi) + (12 — Po) + 1 and
+is not provided as an input.
+
+P-MERGE(T, P1.1'1, P2.1'2, A, P3)
+
+m=Mn—-ptl
+
+Ny =02— pot
+
+ifn, <n // ensure that ny > nz
+exchange p; with pz
+exchange 1; with rz
+exchange 7, with ny
+
+ifn, ==0 // both empty?
+return
+
+else q1 L(pi + 11)/2]
+
+10 g2 = BINARY-SEARCH(T [qi]. T, p2. 12)
+
+CHOIAWAwWHE
+
+i 93 = Ps +(qi— Pr) + (2— Pr)
+
+12 Alqs] = T[q]
+
+13 spawn P-MERGE(T, pi, 41 — 1, p2.g2 — 1, A, ps)
+14 P-MERGE(T, qi + 1.171.92.12, 4,93 + 1)
+
+15 syne
+
+The P-MERGE procedure works as follows. Lines 1-2 compute the lengths n,
+and 1» of the subarrays T[p;..r] and T[p2..r2], respectively. Lines 3-6 en-
+force the assumption that 2; > m2. Line 7 tests for the base case, where the
+subarray T[p,..1,] is empty (and hence so is T[p2..12]), in which case we sim-
+ply return. Lines 9-15 implement the divide-and-conquer strategy. Line 9 com-
+putes the midpoint of T[p, ..1;], and line 10 finds the point gy in T[p2 .. 2] such
+that all elements in T[p2..¢2 — 1] are less than T[q,] (which corresponds to x)
+and all the elements in T[q2 .. p2] are at least as large as T[q,]. Line 11 com-
+

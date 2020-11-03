@@ -1,0 +1,64 @@
+ 
+
+Section 10.7.
+
+Description Logics 323
+
+ 
+
+PARTITIONED
+‘SEMANTIC
+NETWORKS
+
+PROCEDURAL
+ATTACHMENT
+
+is likely that there are species of animals that are not represented in the knowledge base. Second,
+it may be that some nodes denote the same object. Perhaps Dog and Chien are two nodes with
+an equality link between them. Do these count as one or two? Finally, is Dog-With-Black-Ears
+a kind of animal? How about Dog-On-My-Block-Last-Thursday? It is easy to answer these
+questions based on what is stored in the knowledge base, but it is better to have a clear semantics
+so that the questions can be answered about the world, rather than about the current state of the
+internal representation.
+
+Expressiveness of semantic networks
+
+The networks we have discussed so far are extremely limited in their expressiveness. For example,
+it is not possible to represent negation (Opus does not ride a bicycle), disjunction (Opus appears
+in either the Times or the Dispatch), or quantification (all of Opus’ friends are cartoon characters).
+These constructs are essential in many domains.
+
+Some semantic networks extend the notation to allow all of first-order logic. Peirce's orig-
+inal existential graphs, partitioned semantic networks (Hendrix, 1975), and SNEPS (Shapiro,
+1979) all take this approach. A more common approach retains the limitations on expressiveness
+and uses procedural attachment to fill in the gaps. Procedural attachment is a technique where
+a function written in a programming language can be stored as the value of some relation, and
+used to answer ASK calls about that relation (and sometimes TELL calls as well).
+
+What do semantic networks provide in return for giving up expressiveness? We have
+already seen two advantages: they are able to capture inheritance information in a modular
+way, and their simplicity makes them easy to understand. Efficiency is often claimed as a third
+advantage: because inference is done by following links, rather than retrieving sentences from a
+knowledge base and performing unifications, it can operate with only a few machine cycles per
+inference step. But ifwe look at the kinds of computations done by compiled Prolog programs,
+we see there is not much difference. A compiled Prolog program for a set of subset and set-
+membership sentences, combined with general properties of categories, does almost the same
+computations as a semantic network.
+
+10.7_ DESCRIPTION LOGICS
+
+ 
+
+SUBSUMPTION
+Cuassiricarion
+
+The syntax of first-order logic is designed to make it easy to say things about objects. Description
+logics are designed to focus on categories and their definitions. They provide a reasonably
+sophisticated facility for defining categories in terms of existing relations, with much greater
+expressiveness than typical semantic network languages. The principal inference tasks are
+subsumption—checking if one category is a subset of another based on their definitions—and
+classification—checking if an object belongs to a category. In some description logics, objects
+are also viewed as categories defined by the object's description and (presumably) containing
+only one member. This way of looking at representation is a significant departure from the
+object-centered view that is most compatible with first-order logical syntax.
+

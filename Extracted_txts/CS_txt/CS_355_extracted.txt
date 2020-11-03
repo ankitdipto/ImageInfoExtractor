@@ -1,0 +1,50 @@
+SECTION $6 MemoryReference Instructions 149
+
+register or ina portion of memory called a stack. This is discussed in more detail
+in Sec. 8-7.
+
+Itis not possible to perform the operation of the BSA instruction in one
+clock cycle when we use the bus system of the basic computer. To use the
+memory and the bus properly, the BSA instruction must be executed with a
+sequence of two microoperations:
+
+DsTy: M[AR] — PC, AR < AR +1
+DsTs: PC — AR, SC 0
+
+Timing signal T, initiates a memory write operation, places the content of PC
+onto the bus, and enables the INR input of AR. The memory write operation
+is completed and AR is incremented by the time the next clock transition
+occurs. The bus is used at Ts to transfer the content of AR to PC.
+
+ISZ: Increment and Skip if Zero
+This instruction increments the word specified by the effective address, and
+if theincremented value is equal to0, PC is incremented by 1. The programmer
+usually stores a negative number (in2’s complement) in the memory word. As
+this negative number is repeatedly incremented by one, it eventually reaches
+the value of zero. At that time PC is incremented by one in order to skip the
+next instruction in the program.
+
+Since it is not possible to increment a word inside the memory, it is
+necessary to read the word into DR, increment DR, and store the word back
+into memory. This is done with the following sequence of microoperations:
+
+D.Te DR < MIAR]
+DJs DR <—DR+1
+D.Te M[AR] <— DR, if (DR =0) then (PC — PC +1), SC <0
+
+Control Flowchart
+
+A flowchart showing all microoperations for the execution of the seven mem-
+ory-reference instructions is shown in Fig. 5-11. The control functions are
+indicated on top of each box. The microoperations that are performed during
+time Ty, Ts, or T,depend on the operation code value. This is indicated in the
+flowchart by six different paths, one of which the control takes after the
+instruction is decoded. The sequence counter SC is cleared to 0 with the last
+timing signal in each case. This causes a transfer of control to timing signal Tp
+to start the next instruction cycle.
+
+Note that we need only seven timing signals to execute the longest
+instruction (ISZ). The computer can be designed with a 3-bit sequence counter.
+The reason for using a 4-bit counter for SC is to provide additional timing
+signals for other instructions that are presented in the problems section.
+

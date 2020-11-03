@@ -1,0 +1,51 @@
+3.6 Virtual Machines 83
+
+protected. For example, untrusted applications downloaded from the Internet
+could be run within a separate virtual machine. A disadvantage of this environ-
+ment is that there is no direct sharing of resources. Two approaches to provide
+sharing have been implemented. First, it is possible to share a minidisk. This
+scheme is modeled after a physical shared disk, but is implemented by soft-
+ware. With this technique, files can be shared. Second, it is possible to define
+a network of virtual machines, each of which can send information over the
+virtual communications network. Again, the network is modeled after physical
+communication networks, but it is implemented in software.
+
+Such a virtual-machine system is a perfect vehicle for operating-systems
+research and development. Normally, changing an operating system is a
+difficult task. Because operating systems are large and complex programs, a
+change in one part may cause obscure bugs in some other part. The power of
+the operating system makes this situation particularly dangerous. Because the
+operating system executes in monitor mode, a wrong change in a pointer could
+cause an error that would destroy the entire file system. Thus, it is necessary to
+test all changes to the operating system carefully.
+
+The operating system, however, runs on and controls the entire machine.
+Therefore, the current system must be stopped and taken out of use while
+changes are made and tested. This period is commonly called system-
+development time. Since it makes the system unavailable to users, system-
+development time is often scheduled late at night or on weekends, when system
+load is low.
+
+A virtual-machine system can eliminate much of this problem. System
+programmers are given their own virtual machine, and system development
+is done on the virtual machine instead of on the actual physical machine. Nor-
+mal system operation seldom needs to be disrupted for system development.
+Despite these advantages, little improvement on the technique had been made
+until recently.
+
+Virtual machines are increasing in popularity as a means of solving system
+compatibility problems. For instance, thousands of applications are available
+for Microsoft Windows on Intel CPU-based systems. Computer vendors such as
+Sun Microsystems use other, faster processors, but would like their customers
+to be able to run these Windows applications. The solution is to create a virtual
+Intel machine on top of the native processor. A Windows program is run in this
+environment, and its Intel instructions are translated into the native instruction
+set. Microsoft Windows is also run in this virtual machine, so the program
+can make its system calls as usual. The net result is a program that appears
+to be running on an Intel-based system but is really executing on a different
+processor. If the processor is sufficiently fast, the Windows program will run
+quickly, even though every instruction is being translated into several native
+instructions for execution. Similarly, the PowerPC-based Apple Macintosh
+includes a Motorola 68000 virtual machine to allow execution of binary codes
+that were written for the older 68000-based Macintosh. Unfortunately, the more
+

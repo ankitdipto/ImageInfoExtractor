@@ -1,0 +1,73 @@
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+S78 Chapter 19. Leaming in Neural and Belief Networks
+1 1
+09 ne 09
+g
+os gost « Perceptron ©
+& _ g : Decision tree —
+£07 « “ 2 07h
+Bo6- _. Perceptron 8 06 ee ° Vv
+& Decision tree = >
+05 05
+04 04
+0 10 20 3040 50 60 7% 80 9 IM 0 10 20 30 40 50 60 70 80 90 100
+Training set size Training set size
+(a) (b)
+Figure 19.12 Comparing the performance of perceptrons and decision trees, (a) Perceptrons
+are better at learning the majority function of | | inputs. (b) Decision trees are better at learning
+the WillWaitpredicate for the restaurant example.
+
+ 
+
+ 
+
+ 
+
+19.4 MULTILAYER FEED-FORWARD NETWORKS
+
+BACK-PROPAGATION
+
+Rosenblatt and others described multilayer feed-forward networks in the late 1950s, but concen-
+trated their research on single-layer perceptrons. This was mainly because of the difficulty of
+finding a sensible way to update the weights between the inputs and the hidden units; whereas
+an error signal can be calculated for the output units, it is harder to see what the eiror signal
+should be for the hidden units. When the book Perceptrons was published, Minsky and Papert
+(1969) stated that it was an "important research problem" to investigate multilayer networks more
+thoroughly, although they speculated that "there is no reason to suppose that any of the virtues
+[ofperceptrons] carry over to the many-layered version." In a sense, they were right. Leaming
+algorithms for multilayer networks are neither efficient nor guaranteed to converge to a global
+optimum. On the other hand, the results of computational learning theory tell us that learning
+general functions from examples is an intractable problem in the worst case, regardless of the
+method, so we should not be too dismayed.
+
+The most popular method for learning in multilayer networks is called back-propagation.
+It was first invented in 1969 by Bryson and Ho, but was more or less ignored until the mid-
+1980s. The reasons for this may be sociological, but may also have to do with the computational
+requirements of the algorithm on nontrivial problems.
+
+Back-Propagation Learning
+
+Suppose we want to construct a network for the restaurant problem. We have already seen
+that a perceptron is inadequate, so we will try a two-layer network. We have ten attributes
+
+ 
+

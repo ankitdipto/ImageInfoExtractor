@@ -1,0 +1,43 @@
+Chapter 9: Puppetting On Strings 351
+
+ 
+
+Limitation of Array of Pointers to Strings
+
+When we are using a two-dimensional array of characters we are
+at liberty to either initialize the strings where we are declaring the
+array, or receive the strings using scanf() function. However,
+when we are using an array of pointers to strings we can initialize
+the strings at the place where we are declaring the array, but we
+cannot receive the strings from keyboard using scanf(). Thus, the
+following program would never work out.
+
+main()
+
+{
+char “*names|6] ;
+int i;
+
+for (i=0;i<=5; i++)
+
+{
+printf ("\nEnter name " ) ;
+scanf ("%s", names|i] ) ;
+
+}
+
+The program doesn’t work because; when we are declaring the
+array it is containing garbage values. And it would be definitely
+wrong to send these garbage values to scanf() as the addresses
+where it should keep the strings received from the keyboard.
+
+Solution
+
+If we are bent upon receiving the strings from keyboard using
+scanf() and then storing their addresses in an array of pointers to
+strings we can do it in a slightly round about manner as shown
+below.
+
+#include "alloc.h"
+main()
+

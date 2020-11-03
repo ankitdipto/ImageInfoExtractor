@@ -1,0 +1,49 @@
+Exercises 487
+
+13.8 = Summary
+
+The basic hardware elements involved in I/O are buses, device controllers,
+and the devices themselves. The work of moving data between devices and
+main memory is performed by the CPU as programmed I/O, or is offloaded
+to a DMA controller. The kernel module that controls a device is a device
+driver. The system-call interface provided to applications is designed to handle
+several basic categories of hardware, including block devices, character devices,
+memory-mapped files, network sockets, and programmed interval timers. The
+system calls usually block the process that issues them, but nonblocking and
+asynchronous calls are used by the kernel itself, and by applications that must
+not sleep while waiting for an I/O operation to complete.
+
+The kernel’s I/O subsystem provides numerous services. Among these are
+I/O scheduling, buffering, spooling, error handling, and device reservation.
+Another service is name translation, to make the connection between hardware
+devices and the symbolic file names used by applications. It involves several
+levels of mapping that translate from a character string name to a specific device
+driver and device address, and then to physical addresses of I/O ports or bus
+controllers. This mapping may occur within the file-system name space, as it
+does in UNIX, or in a separate device-name space, as it does in MS-DOS.
+
+STREAMS is an implementation and methodology for making drivers
+reusable and easy to use. Through them, drivers can be stacked, with data
+passed through them sequentially and bidirectionally for processing.
+
+1/O system calls are costly in terms of CPU consumption, because of the
+many layers of software between a physical device and the application. These
+layers imply the overheads of context switching to cross the kernel’s protection
+boundary, of signal and interrupt handling to service the I/O devices, and of
+the load on the CPU and memory system to copy data between kernel buffers
+and application space.
+
+= Exercises
+13.1 State three advantages of placing functionality in a device controller,
+rather than in the kernel. State three disadvantages.
+13.2 Consider the following 1/O scenarios on a single-user PC.
+a. A mouse used with a graphical user interface
+
+b. A tape drive on a multitasking operating system (assume no device
+preallocation is available)
+
+c. A disk drive containing user files
+
+d. A graphics card with direct bus connection, accessible through
+memory-mapped I/O
+

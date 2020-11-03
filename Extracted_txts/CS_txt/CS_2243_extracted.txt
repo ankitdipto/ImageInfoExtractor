@@ -1,0 +1,55 @@
+398 CHAPTER LEVEN Input-Output Organization
+
+baud rate
+
+ofa start bit, eight information bits, and two stop bits, fora total of 11 bits. Ten
+characters per second means that each character takes 0.1 s for transfer. Since
+there are 11 bits to be transmitted, it follows that the bit time is 9.09 ms. The
+baud rate is defined as the rate at which serial information is transmitted and
+is equivalentto the data transferin bits per second. Tencharacters per second
+with an 11-bit format has a transfer rate of 110 baud.
+
+The terminal hasa keyboard and a printer. Every timeakey is depressed,
+the terminal sends 11 bits serially along a wire. To print a character in the
+printer, an 11-bit message must be received along another wire. The terminal
+interface consists of a transmitter and a receiver. The transmitter accepts an
+8-bitcharacterfrom thecomputer and proceeds to send a serial 11-bit message
+into the printer line. The receiver accepts a serial 11-bit message from the
+keyboard line and forwards the 8-bit character code into the computer. Inte-
+grated circuits are available which are specifically designed to provide the
+interface between computer and similar interactive terminals. Such a circuit is
+called an asynchronous communication interface or a universal asynchronous receiver-
+transmitter (UART).
+
+ 
+
+Asynchronous Communication Interface
+
+The block diagram of an asynchronous communication interface is shown in
+Fig. 11-8. It functions as both a transmitter and a receiver. The interface is
+initialized for a particular mode of transfer by means of a control byte that is
+loaded into its control register. The transmitter registeracceptsa data byte from
+the CPU through the data bus. This byte is transferred to a shift register for
+serial transmission The receiver portion receives serial information into an-
+other, shift register, and when a complete data byte is accumulated, it is
+transferred to the receiver register. The CPU can select the receiver register to
+read the byte through the data bus. The bits in the status register are used for
+input and output flags and for recording certain errors that may occur during
+the transmission. The CPU can read the status register to check the status of
+the flag bits and to determine if any errors have occurred. The chip select and
+the read and write control lines communicate with the CPU. The chip select
+(CS)input is used to select the interface through the address bus. The register
+select (RS) is associated with the read (RD) and write (WR) controls. Two
+registers are write-only and two are read-only. The register selected is a func-
+tion of the RS value and the RD and WR status, as listed in the table accom-
+panying the diagram.
+
+The operation of theasynchronous communication interface is initialized
+by the CPU by sending a byte to the control register. The initialization proce-
+dure places the interface in a specific mode of operation as it defines certain
+parameters such as the baud rate to use, how many bits are in each character,
+whether to generate and check parity, and how many stop bits are appended
+to each character. Two bits in the status register are used as flags. One bit is
+
+ 
+

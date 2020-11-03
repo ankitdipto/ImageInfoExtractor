@@ -1,0 +1,64 @@
+no
+
+Chapter 4. Informed Search Methods
+
+ 
+
+In this case, there is enough memory for the shallowest optimal solution path. IfJ had had a cost
+of 19 instead of 24, however, SMA* still would not have been able to find it because the solution
+path contains four nodes. In this case, SMA* would have returned D, which would be the best
+reachable solution. Itis a simple matter to have the algorithm signal that the solution found may
+not be optimal. ,
+
+A rough sketch of SMA* is shown in Figure 4.12. In the actual program, some gymnastics
+are necessary to deal with the fact that nodes sometimes end up with some successors in memory
+and some forgotten. When we need to check for repeated nodes, things get even more complicated.
+SMA* is the most complicated search algorithm we have seen yet.
+
+ 
+
+function SMA*(problemyeturns a solution sequence
+inputs: problem, aproblem
+static: Queue, a queue of nodes ordered by f-cost
+
+Queue — MAKE-QUEUE({ MAKE-NODE(INITIAL-STATE[problem))})
+loop do
+if Queue is empty then return failure
+n— deepest least-f-cost node in Queue
+if GOAL-TEST(1) then return success
+SS — NEXT-SUCCESSOR(11)
+if s is not a goal and is at maximum depth then
+f(s) - x
+else
+f(s) — MAx(f(7), g(s)+h(s))
+if all of n’s successors have been generated then
+update 1's f-cost and those of its ancestors if necessary
+if SuCCEssoRs() all in memory then remove n from Queue
+if memory is full then
+delete shallowest, highest-f-cost node in Queue
+remove it from its parent's successor list
+insert its parent on Queue if necessary
+insert s on Queue
+end
+
+ 
+
+ 
+
+Figure 4.12 Sketch ofthe SMA* algorithm. Note that numerous details have been omitted in
+the interests of clarity.
+
+ 
+
+ 
+
+ 
+
+Given a reasonable amount ofmemory, SMA* can solve significantly more difficult prob-
+lems than A* without incurring significant overhead in terms ofextra nodes generated. It performs
+well on problems with highly connected state spaces and real-valued heuristics, on which IDA*
+has difficulty. On very hard problems, however, it will often be the case that SMA* is forced
+to continually switch back and forth between a set of candidate solution paths. Then the extra
+time required for repeated regeneration of the same nodes means that problems that would be
+practically solvable by A*, given unlimited memory, become intractable for SMA*. That is to
+

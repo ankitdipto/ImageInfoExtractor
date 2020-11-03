@@ -1,0 +1,39 @@
+Chapter 5: Functions & Pointers 187
+
+ 
+
+x= 20y=10
+a=10b=20
+
+Note that values of a and b remain unchanged even after
+exchanging the values of x and y.
+
+In the second method (call by reference) the addresses of actual
+arguments in the calling function are copied into formal arguments
+of the called function. This means that using these addresses we
+would have an access to the actual arguments and hence we would
+be able to manipulate them. The following program illustrates this
+fact.
+
+main()
+{
+int a= 10, b= 20;
+
+swapr ( &, &b ) ;
+printf ( "\na = %d b = %d", a, b) ;
+
+}
+swapr( int *x, int *y)
+{
+int t;
+t="x;
+‘Me’y:
+"y=t;
+}
+
+The output of the above program would be:
+a=20b=10
+
+Note that this program manages to exchange the values of a and b
+using their addresses stored in x and y.
+

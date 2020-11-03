@@ -1,0 +1,72 @@
+Section 9.7
+
+Completeness of resolution 289
+
+ 
+
+GROUND
+RESOLUTION
+THEOREM
+
+UFTING LEMMA
+
+ 
+
+entirely from members of As, T must be finite because only a finite number of distinct clauses
+can be constructed from a finite vocabulary of atomic sentences. To illustrate these definitions,
+we will use a slimmed-down example:
+S' = { P(A), P(A) = QUA), QA) = False }
+As = {P(A), Q(A), False}
+T = { P(A), P(A) = Q(A), Q(A) = False, Q(A), P(A) = False, False }
+Now we can state a completeness theorem for resolution on ground clauses. This is called the
+ground resolution theorem:
+Ifa set of ground clauses is unsatisfiable, then the resolution closure of those clauses
+
+contains the clause False.
+We prove this theorem by showing its contrapositive: if the closure T does not contain False,
+then S’ is satisfiable; in fact, we can construct a satisfying assignment for the atomic sentences in
+S''. The construction procedure is as follows:
+
+Pick an assignment (True or False) for each atomic sentence in Ay in some fixed order
+
+Aj. Ak
+
+- If there is a clause in T containing the literal —A;, such that all its other literals are
+false under the assignment chosen for Aj,. . . ,Aj_1, then assign A, to be False.
+- Otherwise, assign A; to be True.
+
+It is easy to show that the assignment so constructed will satisfy S’, provided T is closed under
+resolution and does not contain the clause False (Exercise 9.10).
+
+Now we have established that there is always a resolution proof involving some finite
+subset of the Herbrand base of S. The next step is to show that there is a resolution proof using
+the clauses of S itself, which are not necessarily ground clauses. We start by considering a single
+application of the resolution rule. Robinson's basic lemma implies the following fact:
+
+Let C, and C) be two clauses with no shared variables, and let C; and C’, be ground
+
+instances of C\ and C). If C’ is a resolvent of C} and C5, then there exists a clause
+
+C such that (1) C is a resolvent of C\ and C:, and (2) C’ is a ground instance of C.
+
+This is called a lifting lemma, because it lifts a proof step from ground clauses up to general
+first-order clauses. In order to prove his basic lifting lemma, Robinson had to invent unification
+and derive all of the properties of most general unifiers. Rather than repeat the proofhere, we
+simply illustrate the lemma:
+
+C1 = P(x. FXA))A Q(x,A) => R(x, B)
+
+Cr = N(GQ),2) = PCHQ).<
+
+C= PCH(B), F(H(B),A)) \ Q(H(B),A=>  R(H(B), By
+
+Cc N(G(B), F(H(B),A)) = P(H(B), F(H(B).A))
+
+c N(G(B), F(H(B),A)) A Q(H(B), A= R(H(B), B)
+
+C = NG), F(HQ),A)) A Q(HQ),A=> R(H(),B)
+We see that indeed C’ is a ground instance of C. In general, for C/ and C’, to have any resolvents,
+they must be constructed by first applying to C, and C, the most general unifier of a pair of
+
+ 
+

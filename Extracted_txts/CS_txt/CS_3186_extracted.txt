@@ -1,0 +1,77 @@
+  
+
+Section 18.5.
+
+Learning General Logical Descriptions 549
+
+ 
+
+      
+
+VERSION SPACE
+
+‘CANDIDATE
+ELIMINATION
+
+BOUNDARY SET
+
+Least-commitment search
+
+Backtracking arises because the current-best-hypothesis approach has to choose a particular
+hypothesis as its best guess even though it does not have enough data yet to be sure of the choice.
+What we can do instead is to keep around all and only those hypotheses that are consistent with
+all the data so far. Each new instance will either have no effect or will get rid of some of the
+hypotheses. Recall that the original hypothesis space can be viewed as a disjunctive sentence
+Ay VH2V Hy... V Hy
+
+As various hypotheses are found to be inconsistent with the examples, this disjunction shrinks,
+retaining only those hypotheses notruled out. Assuming that the original hypothesis space does in
+fact contain the right answer, the reduced disjunction must still contain the right answer because
+only incorrect hypotheses have been removed. The set of hypotheses remaining is called the
+
+version space, and the learning algorithm (sketched in Figure 18.12) is called the version space
+learning algorithm (also the candidate elimination algorithm)
+
+ 
+
+function VERSION-SPACE-LEARNING(examples) returns a version space
+local variables: V, the version space: the set ofall hypotheses
+
+V—the set of all hypotheses
+for each example e in examples do
+if Vis not empty then V—VeERSION-SPACE-UPpaTH V, e)
+end
+return V
+
+function VERSION-SpACE-UppaTE(V.e) returns an updated version space
+V—{h G V: his consistent with ¢}
+
+ 
+
+ 
+
+Figure 18.12 The version space learning algorithm. It finds a subset of V that is consistent
+with the examples.
+
+ 
+
+ 
+
+ 
+
+One important property of this approach is that it is incremental: one never has to go back
+and reexamine the old examples. All remaining hypotheses are guaranteed to be consistent with
+them anyway. It is also a least-commitment algorithm because it makes no arbitrary choices
+(cf. the partial-order planning algorithm in Chapter 11). But there is an obvious problem. We
+already said that the hypothesis space is enormous, so how can we possibly write down this
+enormous disjunction?
+
+The following simple analogy is very helpful. How do you represent all the real numbers
+between 1 and 2? After all, there is an infinite number of them! The answer is to use an interval
+representation that just specifies the boundaries of the set: [1,2]. It works because we have an
+ordering on the real numbers
+
+We also have an ordering on the hypothesis space, namely, generalization/specialization.
+This is a partial ordering, which means that each boundary will not be a point but rather a set
+of hypotheses called a boundary set. The great thing is that we can represent the entire version
+

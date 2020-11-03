@@ -1,0 +1,43 @@
+Chapter 8: Arrays 281
+
+ 
+
+()
+
+ 
+
+int i= 4,‘ *k;
+jai
+
+Subtraction of one pointer from another.
+
+One pointer variable can be subtracted from another provided
+both variables point to elements of the same array. The
+resulting value indicates the number of bytes separating the
+corresponding array elements. This is illustrated in the
+following program.
+
+main()
+{
+int arr[] = { 10, 20, 30, 45, 67, 56, 74};
+int “i,j;
+i= gar];
+j= &arr[5] ;
+
+printf ("%d %d", j-i, *j-*i);
+}
+
+Here i and j have been declared as integer pointers holding
+addresses of first and fifth element of the array respectively.
+
+Suppose the array begins at location 65502, then the elements
+arr[1] and arr[5] would be present at locations 65504 and
+65512 respectively, since each integer in the array occupies
+two bytes in memory. The expression j - i would print a value
+4 and not 8. This is because j and i are pointing to locations
+that are 4 integers apart. What would be the result of the
+expression *j - *i? 36, since *j and *i return the values
+present at addresses contained in the pointers j and i.
+
+(d) Comparison of two pointer variables
+

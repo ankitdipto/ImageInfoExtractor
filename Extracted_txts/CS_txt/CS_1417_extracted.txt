@@ -1,0 +1,58 @@
+664 Let UsC
+
+ 
+
+Summary
+
+(a) Linux is a free OS whose kernel was built by Linus Trovalds
+and friends.
+
+(b) A Linux distribution consists of the kernel with source code
+along with a large collection of applications, libraries, scripts,
+etc.
+
+(c) C programs under Linux can be compiled using the popular
+gcc compiler.
+
+(d) Basic scheduling unit in Linux is a ‘Process’. Processes are
+scheduled by a special program called ‘Scheduler’.
+
+(e) fork() library function can be used to create child processes.
+
+(f) Init process is the father of all processes.
+
+(g) execl( ) library function is used to execute another program
+from within a running program,.
+
+(h) execl( ) function overwrites the image (code and data) of the
+calling process.
+
+(i) execl() and fork() usually go hand in hand.
+
+(j) ps command can be used to get a list of all processes.
+
+(k)_ kill command can be used to terminate a process.
+
+() A ‘Zombie’ is a child process that has terminated but its
+parent is running and has not called a function to get the exit
+code of the child process.
+
+(m) An ‘Orphan’ is a child process whose parent has terminated.
+
+(n) Orphaned processes are adopted by init process
+automatically.
+
+(0) A parent process can avoid creation of a Zombie and Orphan
+processes using waitpid( ) function.
+
+Exercise
+
+[A] State True or False:
+
+(a) We can modify the kernel of Linux OS.
+
+(b) All distributions of Linux contain the same collection of
+applications, libraries and installation scripts.
+
+(c) Basic scheduling unit in Linux is a file.
+

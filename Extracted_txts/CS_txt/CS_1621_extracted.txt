@@ -1,0 +1,35 @@
+Chapter 5
+
+ 
+
+THREADS
+
+ 
+
+The process model introduced in Chapter 4 assumed that a process was an
+executing program with a single thread of control. Many modern operating
+systems now provide features for a process to contain multiple threads of
+control. This chapter introduces many concepts associated with multithreaded
+computer systems, including a discussion of the Pthread API and Java threads.
+We will look at many issues related to multithreaded programming and how
+it affects the design of operating systems. Finally, we will explore how several
+modern operating systems support threads at the kernel level.
+
+5.1 = Overview
+
+A thread, sometimes called a lightweight process (LWP), is a basic unit of CPU
+utilization; it comprises a thread ID, a program counter, a register set, and
+a stack. It shares with other threads belonging to the same process its code
+section, data section, and other operating-system resources, such as open files
+and signals. A traditional (or heavyweight) process has a single thread of
+control. If the process has multiple threads of control, it can do more than
+one task at a time. Figure 5.1 illustrates the difference between a traditional
+single-threaded process and a multithreaded process.
+
+5.1.1 Motivation
+
+Many software packages that run on modern desktop PCs are multithreaded.
+An application typically is implemented as a separate process with several
+
+129
+

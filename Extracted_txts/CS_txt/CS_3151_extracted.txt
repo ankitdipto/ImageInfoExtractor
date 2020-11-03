@@ -1,0 +1,57 @@
+Section 17.6.
+
+Dynamic Decision Networks 517
+
+Lane Lane
+Posttion.t Position.tet
+
+ 
+
+  
+    
+
+‘Sensor
+Fai
+
+Figure 1715 A two-slice fragment ofa dynamic belief network for continuous monitoring of
+the lane positioning of an automated vehicle. Evidence variables are shaded.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+current and future time steps, notice that the network also contains the previous decision, D,_ \,
+as an evidence node. It is treated as evidence because it has already happened.
+
+The evaluation algorithm for DDNs is essentially the same as that for ordinary decision
+networks. In the worst case, the DDN calculates the expected utility ofeach decision sequence
+by fixing the decision nodes and applying probabilistic inference to calculate the final state. As
+in our discussion of sequential decision problems earlier in the chapter, we must also be careful
+to take into account the fact that, for each future decision, the agent does not currently know what
+information will be available at the time the future decision is made. That is, for decision D,.i,
+the agent will have available percepts E,,,, ..., E,.;; but currently, it does not know what those
+percepts will be. For example, an autonomous vehicle might be contemplating a lane change at
+time f + i, but it will not know until then ifthere is another car blocking its path.
+
+In our earlier discussion, we handled this by iteratively computing a policy that associates
+a decision with each state. With DDNs, we do not have this option because the states are
+represented implicitly by the set of state variables. Furthermore, in inaccessible environments,
+the agent will not know what state it is in anyway. What we must do instead is consider each
+possible instantiation of the future sensor variables as well as each possible instantiation of the
+future decision variables. The expected utility of each decision sequence is then the weighted
+sum of the utilities computed using each possible percept sequence, where the weight is the
+probability of the percept sequence given the decision sequence. Thus, the DDN provides
+approximate solutions for partially observable Markov decision problems, where the degree of
+approximation depends on the amount of lookahead.
+
+The preceding paragraph boils down to this: in evaluating an action, one must consider
+not only its effect on the environment, but also its effect on the internal state of the agent via the
+percepts it generates (see also Section 16.6). In still plainer terms: such considerations allow the
+agent to see the value of (actively) looking before leaping, to hunt for lost keys, and so on.
+

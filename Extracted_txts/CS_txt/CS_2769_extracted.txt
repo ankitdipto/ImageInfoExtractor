@@ -1,0 +1,44 @@
+13.4 Deletion 323
+
+ 
+
+13.4 Deletion
+
+Like the other basic operations on an n-node red-black tree, deletion of a node takes
+time O(lg 7). Deleting a node from a red-black tree is a bit more complicated than
+inserting a node.
+
+The procedure for deleting a node from a red-black tree is based on the TREE-
+DELETE procedure (Section 12.3). First, we need to customize the TRANSPLANT
+subroutine that TREE-DELETE calls so that it applies to a red-black tree:
+
+RB-TRANSPLANT(T, u,v)
+if u.p == T.nil
+
+T.root = v
+elseif u == u.p.left
+
+u.p.left = v
+else u.p.right = v
+
+vV.p=uU.p
+
+AnNkwWnNe
+
+The procedure RB-TRANSPLANT differs from TRANSPLANT in two ways. First,
+line 1 references the sentinel T.nil instead of NIL. Second, the assignment to v.p in
+line 6 occurs unconditionally: we can assign to v.p even if v points to the sentinel.
+In fact, we shall exploit the ability to assign to v.p when v = T.nil.
+
+The procedure RB-DELETE is like the TREE-DELETE procedure, but with ad-
+ditional lines of pseudocode. Some of the additional lines keep track of a node y
+that might cause violations of the red-black properties. When we want to delete
+node z and z has fewer than two children, then z is removed from the tree, and we
+want y to be z. When z has two children, then y should be z’s successor, and y
+moves into Z’s position in the tree. We also remember y’s color before it is re-
+moved from or moved within the tree, and we keep track of the node x that moves
+into y’s original position in the tree, because node x might also cause violations
+of the red-black properties. After deleting node z, RB-DELETE calls an auxiliary
+procedure RB-DELETE-FIXuP, which changes colors and performs rotations to
+restore the red-black properties.
+

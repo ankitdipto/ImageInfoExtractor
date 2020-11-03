@@ -1,0 +1,54 @@
+common bus
+
+SECTION 43 Bus and Memory Transfers 97
+
+in the timing diagram, P is activated in the control section by the rising edge
+of a clock pulse at time t. The next positive transition of the clock at time ¢ + 1
+finds the load input active and the data inputs of R2 are then loaded into the
+register in parallel P may go back to Oat time t + 1; otherwise, the transfer
+will occur with every clock pulse transition while P remains active.
+
+‘Note that the clock is not included as a variable in the register transfer
+statements. Itis assumed that ll transfers occur during a clock edge transition.
+Even though the control condition such as P becomes active just after time t,
+the actual transfer does not occur until the register is triggered by the next
+positive transition of the clock at time f + 1.
+
+The basic symbols f the register transfer notation are listed in Table 4.
+Registers are denoted by capital letters, and numerals may follow the letters.
+Parentheses are used to denote a part of a register by specifying the range of
+bits or by givinga symbol name to a portion of a register. The arrow denotes
+a transfer of information and the direction of transfer. A comma is used to
+separate two or more operations that are executed at the same time. The
+statement
+
+ 
+
+T: R2< Rl, R1@ R2
+
+denotes an operation that exchanges the contents of two registers during one
+common clock pulse provided that T= 1. This simultaneous operation is
+possible with registers that have edge-triggered flip-flops.
+
+TABLE 4-1 Basic Symbols for Register Transfers
+
+ 
+
+Symbol Description Examples
+Letters Denotes a register MAR, R2
+
+(and numerals)
+Parentheses ( ) Denotes a part of a register 20-7), RAL)
+Arrow = Denotes transfer of information R2 < R1
+Comma Separates two microoperations R2 + Ri, Rl « R2
+
+4-3__Bus and Memory Transfers
+
+A typical digital computer has many registers, and paths must be provided to
+transfer information from one register to another. The number of wires will be
+excessive if separate lines are used between each register and all other registers
+in the system. A more efficient scheme for transferring information between
+registers in a multiple-register configuration is a common bus system. A bus
+structure consists of a set of common lines, one for each bit of a register,
+through which binary information is transferred one ata time. Control signals
+

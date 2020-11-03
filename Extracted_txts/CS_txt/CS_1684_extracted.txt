@@ -1,0 +1,62 @@
+6.7 Process Scheduling Models 181
+
+¢ ABOVE.NORMAL
+« NORMAL
+
+e¢ BELOW.NORMAL
+«@ LOWEST
+
+e IDLE
+
+The priority of each thread is based upon the priority class it belongs to and the
+relative priority within the class. This relationship is shown in Figure 6.11. The
+values of each priority class appear in the top row. The left column contains the
+values for the different relative priorities. For example, if the relative priority
+of a thread in the ABOVE.NORMAL.PRIORITY-CLASS is NORMAL, the numeric
+priority of that thread is 10.
+
+Furthermore, each thread has a base priority representing a value in the
+priority range for the class the thread belongs to. By default, the base priority
+is the value of the NORMAL relative priority for that specific class. The base
+priorities for each priority class are:
+
+@ REALTIME PRIORITY.CLASS—24.
+HIGH PRIORITY_CLASS—13.
+
+ABOVE_NORMAL PRIORITY-CLASS—10.
+
+@ NORMAL PRIORITY_CLASS—8.
+« BELOW_NORMAL PRIORITY-CLASS—6.
+
+e IDLE PRIORITY.CLASS—4.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 6.11 Windows 2000 priorities.
+

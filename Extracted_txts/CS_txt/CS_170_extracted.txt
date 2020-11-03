@@ -1,0 +1,56 @@
+134 © cuarrer ive Basic Computer Organization and Design
+
+hexadecimal code
+
+programmers and users. The hexadecimal code is equal to the equivalent hexa-
+decimal number of the binary code used for the instruction. By using the
+hexadecimal equivalent we reduced the 16 bitsof an instruction code to four digits
+with each hexadecimal digit being equivalent to four bits. A memory-reference
+instruction has an address part of 12 bits. The address part is denoted by three
+x's and stand for the three hexadecimal digits corresponding to the 12-bit address.
+The hast bit of the instruction is designated by the symbol J. When I = 0, the last
+fourbits of an instruction havea hexadecimaldigitequivalentfrom 0 to 6 since
+the last bit is 0. When I = 1, the hexadecimal digit equivalent of the last four
+bits of the instruction ranges from 8 to E since the last bit is 1
+
+ter-reference instructions use 16 bits to specify an operation. The
+leftmost four bits are always 0111, which is equivalent to hexadecimal 7. The
+other three hexadecimal digits give the binary equivalent of the remaining 12
+bits. The input-output instructions also use all 16 bits to specify an operation.
+The last four bits are always 1111, equivalent to hexadecimal F.
+
+ 
+
+ 
+
+Instruction Set Completeness
+
+Before investigating the operations performed by the instructions, let us dis-
+cuss the type of instructions that must be included in a computer. A computer
+should have a set of instructions so that the user can construct machine
+language programs to evaluate any function that is known to be computable.
+The set of instructions are said to be complete if the computer includes a
+sufficient number of instructions in each of the following categories:
+
+1. Arithmetic, logical, and shift instructions
+
+2. Instructions for moving information to and from memory and processor
+registers
+
+3. Program control instructions together with instructions that check
+status conditions
+
+4. Input and output instructions
+
+Arithmetic, logical, and shift instructions provide computational capabil-
+ities for processing the type of data that the user may wish toemploy. The bulk
+of the binary information in a digital computer is stored in memory, but all
+computations are done in processor registers. Therefore, the user must have
+the capability of moving information between these two units Decision-
+making capabilities are an important aspect of digital computers. For example,
+two numbers can be compared, and if the first is greater than the second, it
+may be necessary to proceed differently than if the second is greater than the
+first. Program control instructions such as branch instructions are used to
+change the sequence in which the program is executed. Input and output
+instructions are needed for communication between the computer and the
+

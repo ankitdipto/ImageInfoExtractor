@@ -1,0 +1,57 @@
+Section 7.1.
+
+Syntax and Semantics 191
+
+ 
+
+this would be equivalent to
+
+Cat(Spot) A Mammal(Spot)A
+Cat(Rebecca)A Mammal(Rebecca)A
+Cat(Felix) A Mammal(Felix)A
+Cat(Richard)A Mammal(Richard) A
+Cat(John)A Mammal(John)A
+
+ 
+
+Obviously, this does not capture what we want, because it says that Richard the Lionheart is both
+a cat and a mammal.
+
+Existential quantification (3)
+
+Universal quantification makes statements about every object. Similarly, we can make a statement
+about some object in the universe without naming it, by using an existential quantifier. To say,
+for example, that Spot has a sister who is a cat, we write
+
+3x Sister(x, Spot) A Cat(x)
+
+ 
+
+3 is pronounced "There exists . In general, 3x P is true if P is true for some object in the
+universe. It therefore can be thought of as equivalent to the disjunction (ie., the V) of all the
+sentences obtained by substituting the name of an object forthe variable x. Doing the substitution
+for the above sentence, we would get
+
+(Sister(Spot Spot) A. Cat(Spot))V
+(Sister(Rebecca,Spot) A Cat(Rebecca))V
+(Sister(Felix, Spot) A Cat(Felix))V
+(Sister(Richard,Spot) A Cat(Richard))V
+(Sister(JohnSpot) A Cat(John)yV
+
+The existentially quantified sentence is true just in case at least one of these disjuncts is true. If
+Spot had two sisters who were cats, then two of the disjuncts would be true, making the whole
+disjunction true also. This is entirely consistent with the original sentence "Spot has a sister who
+is acat’*
+
+Just as = appears to be the natural connective to use with V, A is the natural connective
+to use with 3. Using A as the main connective with V led to.an overly strong statement in the
+example in the previous section; using => with 3 usually leads to a very weak statement indeed.
+Consider the following representation: oS
+
+ 
+
+Sax Sister(x,Spot) = Cat(x)
+
+4 There is a variant ofthe existential quantifier, usually written 3! or 3!, that means "There exists exactly one ...”. The
+same meaning can be expressed using equality statements, as we show in Section 7.1.
+

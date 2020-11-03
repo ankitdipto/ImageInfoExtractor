@@ -1,0 +1,50 @@
+440 Chapter 12 File-System Implementation
+
+Recall that on-disk file-system data structures—such as the directory struc-
+tures, free-block pointers, free FCB pointers—can become inconsistent due to
+a system crash. Before the use of log-based techniques in operating systems,
+changes were usually applied to these structures in place. A typical operation,
+such as file create, can involve many structural changes within the file system
+on the disk. Directory structures are modified, FCBs are allocated, data blocks
+are allocated, and the free counts for all of these blocks are decreased. Those
+changes can be interrupted by a crash, with the result that the structures are
+inconsistent. For example, the free FCB count might indicate that an FCB had
+been allocated, but the directory structure might not point to the FCB. The FCB
+would be lost were it not for the consistency-check phase.
+
+There are several problems with the approach of allowing the structures to
+break and repairing them on recovery. One is that the inconsistency may be
+irreparable. The consistency check may not be able to recover the structures,
+with the resulting loss of files and even entire directories. Consistency checking
+can require human intervention to resolve conflicts, and that is inconvenient if
+no human is available. The system can remain unavailable until the human tells
+the system how to proceed. Consistency checking also takes system and clock
+time. Terabytes of data can take hours of clock time to check.
+
+The solution to this problem is to apply log-based-recovery techniques to
+filesystem metadata updates. NTFS and the Veritas File System both use this
+method, and it is an option to UFS on Solaris 7 and beyond. In fat, it is
+becoming common on many operating systems.
+
+Fundamentally, all metadata changes are written sequentially to a log.
+Each set of operations that perform a specific task is a transaction. Once
+the changes are written to this log, they are considered to be committed,
+and the system call can return to the user process, allowing it to continue
+execution. Meanwhile, these log entries are replayed across the actual file-
+system structures. As the changes are made, a pointer is updated to indicate
+which actions have completed and which are still incomplete. When an entire
+committed transaction is completed, it is removed from the log file, which is
+actually a circular buffer. The log may be ina separate section of the file system,
+or could even be on a separate disk spindle. It is more efficient, but more
+complex, to have it under separate read/write heads, thereby decreasing head
+contention and seek times.
+
+If the system crashes, there will zero or more transactions in the log file.
+Those transactions were never completed to the file system even though they
+were committed by the operating system, so they must be completed. The
+transactions can be executed from the pointer until the work is complete, and
+the file-system structures remain consistent. The only problem occurs when a
+transaction has been aborted. That is, it was not committed before the system
+crashed. Any changes from those transactions that were applied to the file
+system must be undone, again preserving the consistency of the file system.
+

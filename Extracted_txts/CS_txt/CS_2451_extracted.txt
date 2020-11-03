@@ -1,0 +1,38 @@
+4
+
+Divide-and-Conquer
+
+In Section 2.3.1, we saw how merge sort serves as an example of the divide-and-
+conquer paradigm. Recall that in divide-and-conquer, we solve a problem recur-
+sively, applying three steps at each level of the recursion:
+
+Divide the problem into a number of subproblems that are smaller instances of the
+same problem.
+
+Conquer the subproblems by solving them recursively. If the subproblem sizes are
+small enough, however, just solve the subproblems in a straightforward manner.
+
+Combine the solutions to the subproblems into the solution for the original prob-
+lem.
+
+When the subproblems are large enough to solve recursively, we call that the recur-
+sive case. Once the subproblems become small enough that we no longer recurse,
+we say that the recursion “bottoms out” and that we have gotten down to the base
+case. Sometimes, in addition to subproblems that are smaller instances of the same
+problem, we have to solve subproblems that are not quite the same as the original
+problem. We consider solving such subproblems as part of the combine step.
+
+In this chapter, we shall see more algorithms based on divide-and-conquer. The
+first one solves the maximum-subarray problem: it takes as input an array of num-
+bers, and it determines the contiguous subarray whose values have the greatest sum.
+Then we shall see two divide-and-conquer algorithms for multiplying n x n matri-
+ces. One runs in @(n°) time, which is no better than the straightforward method of
+multiplying square matrices. But the other, Strassen’s algorithm, runs in O(n?°!)
+time, which beats the straightforward method asymptotically.
+
+Recurrences
+
+Recurrences go hand in hand with the divide-and-conquer paradigm, because they
+give us a natural way to characterize the running times of divide-and-conquer algo-
+rithms. A recurrence is an equation or inequality that describes a function in terms
+

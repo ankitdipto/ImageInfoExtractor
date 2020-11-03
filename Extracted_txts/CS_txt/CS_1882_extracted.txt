@@ -1,0 +1,52 @@
+ 
+
+344 Chapter 10 Virtual Memory
+
+As you might expect, neither MFU nor LEU replacement is common. The
+implementation of these algorithms is expensive, and they do not approximate
+OPT replacement well.
+
+0.4.7 Page-Buffering Algorithm
+
+Other procedures are often used in addition to a specific page-replacement
+algorithm. For example, systems commonly keep a pool of free frames. When
+a page fault occurs, a victim frame is chosen as before. However, the desired
+page is read into a free frame from the pool before the victim is written out. This
+procedure allows the process to restart as soon as possible, without waiting for
+the victim page to be written out. When the victim is later written out, its frame
+is added to the free-frame pool.
+
+An expansion of this idea is to maintain a list of modified pages. Whenever
+
+the paging device is idle, a modified page is selected and is written to the disk.
+Its modify bit is then reset. This scheme increases the probability that a page
+will be clean when it is selected for replacement, and will not need to be written
+out.
+‘Another modification is to keep a pool of free frames, but to remember
+which page was in each frame. Since the frame contents are not modified when
+a frame is written to the disk, the old page can be reused directly from the
+free-frame pool if it is needed before that frame is reused. No I/O is needed in
+this case. When a page fault occurs, we first check whether the desired page is
+in the free-frame pool. If it is not, we must select a free frame and read into it.
+
+This technique is used in the VAX/VMS system, with a FIFO replacement
+algorithm. When the FIFO replacement algorithm mistakenly replaces a page
+that is still in active use, that page is quickly retrieved from the free-frame
+buffer, and no 1/O is necessary. The free-frame buffer provides protection
+against the relatively poor, but simple, FIFO replacement algorithm. This
+method is necessary because the early versions of the VAX did not implement
+the reference bit correctly.
+
+10.5 = Allocation of Frames
+
+How do we allocate the fixed amount of free memory among the various
+processes? If we have 93 free frames and two processes, how many frames
+does each process get?
+
+The simplest case of virtual memory is the single-user system. Consider a
+single-user system with 128 KB memory composed of pages of size 1 KB. Thus,
+there are 128 frames. The operating system may take 35 KB, leaving 93 frames
+for the user process. Under pure demand paging, all 93 frames would initially
+be put on the free-frame list. When a user process started execution, it would
+generate a sequence of page faults. The first 93 page faults would all get free
+

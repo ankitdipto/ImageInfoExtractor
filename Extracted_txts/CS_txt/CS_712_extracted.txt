@@ -1,0 +1,51 @@
+symbolic address
+
+SECTION 63 Assembly Language 179
+
+instructions that form the sum. Thus a compiler program translates the sym-
+bols of the Fortran program into the binary values listed in the program of
+Table 6-2.
+
+6-3 Assembly Language
+
+A programming language is defined by a set of rules. Users must conform with
+all format rules of the language if they want their programs to be translated
+correctly. Almost every commercial computer has its own particular assembly
+language The rules for writing assembly language programs are documented
+and published in manuals which are usually available from the computer
+manufacturer.
+
+The basic unit of an assembly language program isa line of code. The
+specific language is defined by a set of rules that specify the symbols that can
+be used and how they may be combined to form a line of code. We will now
+formulate the rules of an assembly language for writing symbolic programs for
+the basic computer.
+
+Rules of the Language
+
+Each line of an assembly language program is arranged in three columns called
+fields. The fields specify the following information.
+
+1. The label field may be empty or it may specify a symbolic address.
+
+2. The instruction field specifies a machine instruction or a pseudoin-
+struction .
+
+3. The comment field may be empty or it may include a comment.
+
+Asymbolicaddressconsists of one, two, orthree, but notmore than three
+alphanumeric characters. The first character must be a letter; the next two may
+be letters or numerals, The symbol can be chosen arbitrarily by the pro-
+grammer. A symbolic address in the label field is terminated by a comma so
+that it will be recognized as a label by the assembler.
+
+The instruction field in an assembly language program may specify one
+of the following items:
+
+1. A memory-reference instruction (MRI)
+2. A register-reference or input-output instruction (non-MRI)
+3. A pseudoinstruction with or without an operand
+
+Amemory-reference instruction occupies two or three symbols separated
+by spaces. The first must be a three-letter symbol defining an MRI operation
+

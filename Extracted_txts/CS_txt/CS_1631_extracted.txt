@@ -1,0 +1,47 @@
+5.3 Threading Issues 137
+
+Every signal has a default signal handler that is run by the kernel when
+handling the signal. This default action may be overridden by a user-defined
+signal handler function. In this instance, the user-defined function is called
+to handle the signal rather than the default action. Both synchronous and
+asynchronous signals may be handled in different ways. Some signals may be
+simply ignored (such as changing the size of a window); others may be handled
+by terminating the program (such as an illegal memory access).
+
+Handling signals in single-threaded programs is straightforward; signals
+are always delivered to a process. However, delivering signals is more compli-
+cated in multithreaded programs, as a process may have several threads. Where
+then should a signal be delivered?
+
+In general, the following options exist:
+
+1. Deliver the signal to the thread to which the signal applies.
+2. Deliver the signal to every thread in the process.
+3. Deliver the signal to certain threads in the process.
+
+4. Assign a specific thread to receive all signals for the process.
+
+The method for delivering a signal depends upon the type of signal gen-
+erated. For example, synchronous signals need to be delivered to the thread
+that generated the signal and not to other threads in the process. However, the
+situation with asynchronous signals is not as clear. Some asynchronous signals
+—such as a signal that terminates a process (<control><C>, for example)
+—should be sent to all threads. Some multithreaded versions of UNIX allow a
+thread to specify which signals it will accept and which it will block. Therefore,
+some asynchronous signals may be delivered to only those threads that are not
+blocking the signal. However, because signals need to be handled only once,
+typically a signal is delivered only to the first thread found in a process that
+is not blocking the signal. Solaris 2 implements the fourth option: it creates a
+specific thread within each process solely for signal handling. When an asyn-
+chronous signal is sent to a process, it is sent to this special thread, which then
+delivers the signal to the first thread that is not blocking the signal.
+
+Although Windows 2000 does not explicitly provide support for signals,
+they can be emulated using asynchronous procedure calls (APCs). The APC
+facility allows a user thread to specify a function that is to be called when the
+user thread receives notification of a particular event. As indicated by its name,
+an APC is roughly equivalent to an asynchronous signal in UNIX. However,
+whereas UNIX must contend with how to deal with signals in a multithreaded
+environment, the APC facility is more straightforward as an APC is delivered to
+a particular thread rather than process.
+

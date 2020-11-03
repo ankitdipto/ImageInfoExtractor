@@ -1,0 +1,54 @@
+364 Chapter 11. Planning
+
+ 
+
+undecidability) of various formulations of the planning problem and its subcomponents. The
+POP algorithm described in the chapter is based on the SNLP algorithm (Soderland and Weld,
+1991), which is an implementation of the planner described by McAllester and Rosenblitt (1991),
+Weld contributed several useful suggestions to the presentation in this chapter.
+
+A number of important papers on planning were presented at the Timberline workshop in
+1986, and its proceedings (Georgeff and Lansky, 1986) are an important source. Readings in
+Planning (Alien el al., 1990) is a comprehensive anthology of many of the best articles in the
+field, including several good survey articles. Planning and Control (Dean and Wellman, 1991)
+is a good general introductory textbook on planning, and is particularly remarkable because it
+makes a particular effort to integrate classical Al planning techniques with classical and modern ;
+control theory, metareasoning, and reactive planning and execution monitoring. Weld (1994),
+provides an excellent survey of modem planning algorithms.
+
+Planning research has been central to AI since its inception, and papers on planning are
+a staple of mainstream AI journals and conferences, but there are also specialized conferences
+devoted exclusively to planning, like the Timberline workshop, the 1990 DARPA Workshop on
+Innovative Approaches to Planning, Scheduling, and Control, or the International Conferences
+on AI Planning Systems.
+
+   
+    
+   
+
+ 
+
+EXERCISES
+
+11.1 Define the operator schemata for the problem of putting on shoes and socks and a hat and 4
+coat, assuming that there are no preconditions for putting on the hat and coat. Give a partial-order.
+plan that is a solution, and show that there are 180 different linearizations of this solution.
+
+11.2 Let us consider a version of the milk/banana/drill shopping problem in which money is
+included, at least in a simple way.
+a. Let CC denote a credit card that the agent can use to buy any object. Modify the description]
+of Buy so that the agent has to have its credit card in order to buy anything.
+b. Write a PickUp operator that enables the agent to Have an object if it is portable and at the
+same location as the agent. 4
+c. Assume that the credit card is at home, but Have(CC)is initially false. Construct a partially,
+ordered plan that achieves the goal, showing both ordering constraints and causal links.
+d. Explain in detail what happens during the planning process when the agent explores @
+partial plan in which it leaves home without the card.
+
+11.3. There are many ways to characterize planners. For each of the following dichotomies,
+explain what they mean, and how the choice between them affects the efficiency and completeness
+
+ofa planner.
+a. Situation space vs. plan space.
+b. Progressive vs. regressive.
+

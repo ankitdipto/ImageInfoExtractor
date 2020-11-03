@@ -1,0 +1,39 @@
+22.3 Depth-first search oll
+
+ 
+
+Figure 22.6 A directed graph for use in Exercises 22.3-2 and 22.5-2.
+
+22,3-3
+Show the parenthesis structure of the depth-first search of Figure 22.4.
+
+22.3-4
+
+Show that using a single bit to store each vertex color suffices by arguing that
+the DFS procedure would produce the same result if line 3 of DFS-VisIT was
+removed.
+
+22.3-5
+Show that edge (u,v) is
+
+a. atree edge or forward edge if and only if u.d < v.d<v.f<uf,
+b. aback edge if and only if v.d <u.d <u.f <v.f, and
+
+c. across edge if and only ifv.d <v.f <u.d<uf.
+
+22.3-6
+
+Show that in an undirected graph, classifying an edge (w, v) as a tree edge or a back
+edge according to whether (1, v) or (v,u) is encountered first during the depth-first
+search is equivalent to classifying it according to the ordering of the four types in
+the classification scheme.
+
+22.3-7
+Rewrite the procedure DFS, using a stack to eliminate recursion.
+
+22.3-8
+
+Give a counterexample to the conjecture that if a directed graph G contains a path
+from u to v, and if u.d < v.d ina depth-first search of G, then v is a descendant
+of u in the depth-first forest produced.
+

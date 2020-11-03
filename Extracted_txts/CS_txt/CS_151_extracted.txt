@@ -1,0 +1,48 @@
+Problems for Chapter 26 763
+
+We can use the following modification of FORD-FULKERSON-METHOD to com-
+pute a maximum flow in G:
+
+MAX-FLOW-ByY-SCALING(G, 5, t)
+
+LC = max(usyex c(u.v)
+2 initialize flow f to0
+
+3° K =i]
+
+4 while K > 1
+
+5 while there exists an augmenting path p of capacity at least K
+6 augment flow f along p
+
+7 K=K/2
+
+8 return f
+
+c. Argue that MAX-FLOW-B yY-SCALING returns a maximum flow.
+
+d. Show that the capacity of a minimum cut of the residual network Gy is at most
+2K |E| each time line 4 is executed.
+
+e. Argue that the inner while loop of lines 5-6 executes O(£) times for each value
+of K.
+
+f. Conclude that MAX-FLOw-By-SCALING can be implemented so that it runs
+in O(E? lg C) time.
+
+26-6 The Hopcroft-Karp bipartite matching algorithm
+In this problem, we describe a faster algorithm, due to Hopcroft and Karp, for
+finding a maximum matching in a bipartite graph. The algorithm runs in O(./V E)
+time. Given an undirected, bipartite graph G = (V, E), where V = L U R and
+all edges have exactly one endpoint in L, let M be a matching in G. We say that
+a simple path P in G is an augmenting path with respect to M if it starts at an
+unmatched vertex in L, ends at an unmatched vertex in R, and its edges belong
+alternately to M and E — M. (This definition of an augmenting path is related
+to, but different from, an augmenting path in a flow network.) In this problem,
+we treat a path as a sequence of edges, rather than as a sequence of vertices. A
+shortest augmenting path with respect to a matching M is an augmenting path
+with a minimum number of edges.
+
+Given two sets A and B, the symmetric difference A @ B is defined as (A—B)U
+(B — A), that is, the elements that are in exactly one of the two sets.
+

@@ -1,0 +1,53 @@
+1120
+
+Chapter 35 Approximation Algorithms
+
+To show that GREEDY-SET-COVER is a p(/)-approximation algorithm, we as-
+sign a cost of | to each set selected by the algorithm, distribute this cost over
+the elements covered for the first time, and then use these costs to derive the de-
+sired relationship between the size of an optimal set cover €* and the size of the
+set cover € returned by the algorithm. Let S; denote the ith subset selected by
+GREEDY-SET-CoveR; the algorithm incurs a cost of 1 when it adds S; to €. We
+spread this cost of selecting S; evenly among the elements covered for the first time
+by S;. Let cx denote the cost allocated to element x, for each x € X. Each element
+is assigned a cost only once, when it is covered for the first time. If x is covered
+for the first time by S;, then
+_ 1
+
+|S; = (S) US, Us US;-)| ”
+
+Each step of the algorithm assigns 1 unit of cost, and so
+
+je|= >» Cy. (35.9)
+xeX
+
+Each element x € X is in at least one set in the optimal cover €*, and so we have
+
+> Ve > Ve . (35.10)
+
+Se€* xeS xeX
+
+Combining equation (35.9) and inequality (35.10), we have that
+
+els Vo Yee. (35.11)
+Se€* xeS
+
+The remainder of the proof rests on the following key inequality, which we shall
+prove shortly. For any set S belonging to the family ¥,
+
+Yes < ACSI). (35.12)
+xeS
+From inequalities (35.11) and (35.12), it follows that
+lel <= Yo AGS)
+See*
+< e*|- A(max {|S|: S € F}).
+thus proving the theorem.
+
+All that remains is to prove inequality (35.12). Consider any set S € ¥ and any
+i=1,2,..., ||, and let
+u; = |S —(S; US, U---US;)|
+be the number of elements in S that remain uncovered after the algorithm has
+selected sets $,,53,..., S;. We define uy = |S| to be the number of elements
+
+Cx
+

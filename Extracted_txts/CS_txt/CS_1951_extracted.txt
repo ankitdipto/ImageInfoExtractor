@@ -1,0 +1,54 @@
+11.5 File Sharing 401
+
+slow transfer rates of disks and networks. For example, performing an atomic
+transaction to a remote disk could involve several network communications or
+several disk reads and writes, or both. Systems that attempt such a full set of
+functionalities tend to perform poorly. A successful implementation of complex
+sharing semantics can be found in the Andrew File System.
+
+For the following discussion, we assume that a series of file accesses (that
+is, reads and writes) attempted by a user to the same file is always enclosed
+between the open and close operations. The series of accesses between the
+open and close operations isa file session. To illustrate the concept, we sketch
+several prominent examples of consistency semantics.
+
+11.5.4 UNIX Semantics
+The UNIX file system (Chapter 16) uses the following consistency semantics:
+
+¢ Writes to an open file by a user are visible immediately to other users that
+have this file open at the same time.
+
+¢ One mode of sharing allows users to share the pointer of current location
+
+into the file. Thus, the advancing of the pointer by one user affects all
+
+sharing users. Here, a file has a single image that interleaves all accesses,
+regardless of their origin.
+
+In the UNIX semantics a file is associated with a single physical image that is
+
+accessed as an exclusive resource. Contention for this single image results in
+user processes being delayed.
+
+11.5.5 Session Semantics
+
+The Andrew file system (AFS) (Chapter 16) uses the following consistency
+semantics:
+
+Writes to an open file by a user are not visible immediately to other users
+that have the same file open simultaneously.
+
+* Once a file is closed, the changes made to it are visible only in sessions
+starting later. Already open instances of the file do not reflect these changes.
+
+According to these semantics, a file may be associated temporarily with several
+(possibly different) images at the same time. Consequently, multiple users are
+allowed to perform both read and write accesses concurrently on their image
+of the file, without delay. Almost no constraints are enforced on scheduling
+accesses,
+
+11.5.6 Immutable-Shared-Files Semantics
+
+A unique approach is that of immutable shared files. Once a file is declared
+as shared by its creator, it cannot be modified. An immutable file has two
+

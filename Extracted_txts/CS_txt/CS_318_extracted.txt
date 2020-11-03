@@ -1,0 +1,52 @@
+Chapter 30 Polynomials and the FFT 399
+
+mial C(x), also of degree-bound n, such that C(x) = A(x) + B(x) for all x in the
+underlying field. That is, if
+
+nol
+A(x) = Yoajx!
+j=0
+and
+n-l .
+B(x) = Do bjx!,
+j=0
+then
+
+n-l
+Cx) = Yoejx!,
+j=0
+
+where cj = aj + bj for j = 0,1,..., n—1. For example, if we have the
+polynomials A(x) = 6x3 + 7x? — 10x + 9 and B(x) = —2x3 + 4x — 5, then
+C(x) = 4x3 + 7x? —6x +4.
+
+For polynomial multiplication, if A(x) and B(x) are polynomials of degree-
+bound n, their product C(x) is a polynomial of degree-bound 2n — 1 such that
+C(x) = A(x)B(x) for all x in the underlying field. You probably have multi-
+plied polynomials before, by multiplying each term in A(x) by each term in B(x)
+and then combining terms with equal powers. For example, we can multiply
+A(x) = 6x3 + 7x? — 10x +9 and B(x) = —2x3 + 4x — 5 as follows:
+
+6x3 + 7x? — 10x + 9
+— 2x3 + 4x -— 5
+— 30x? — 35x? + 50x — 45
+
+24x4 + 28x3 — 40x? + 36x
+— 12x® — 14x5 + 20x4 — 18x3
+
+— 12x® — 14x° + 44x4 — 20x3 — 75x? + 86x — 45
+
+ 
+
+Another way to express the product C(x) is
+
+2n-2
+C(x) = > jx! , (30.1)
+j=0
+
+where
+
+i
+cj = Danby. (30.2)
+k=0
+

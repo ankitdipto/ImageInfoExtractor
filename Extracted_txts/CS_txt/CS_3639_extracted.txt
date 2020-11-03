@@ -1,0 +1,50 @@
+598
+
+Chapter 22. Elementary Graph Algorithms
+
+Lemma 22.1
+Let G = (V, E) be a directed or undirected graph, and let s € V be an arbitrary
+vertex. Then, for any edge (u,v) € E,
+
+5(s,v) < 5(s,u) +1.
+
+Proof If u is reachable from s, then so is v. In this case, the shortest path from s
+to v cannot be longer than the shortest path from s to u followed by the edge (u,v),
+and thus the inequality holds. If w is not reachable from s, then 6(s, 1) = oo, and
+the inequality holds. .
+
+We want to show that BFS properly computes v.d = 4(s,v) for each ver-
+tex v € V. We first show that v.d bounds 4(s, v) from above.
+
+Lemma 22.2
+
+Let G = (V, E) be a directed or undirected graph, and suppose that BFS is run
+on G from a given source vertex s € V. Then upon termination, for each ver-
+tex v € V, the value v.d computed by BFS satisfies v.d > 8(s, v).
+
+Proof We use induction on the number of ENQUEUE operations. Our inductive
+hypothesis is that v.d > (s, v) for all v € V.
+
+The basis of the induction is the situation immediately after enqueuing s in line 9
+of BFS. The inductive hypothesis holds here, because s.d = 0 = 6(s,s) and
+v.d = 00 = &(s, v) forall v € V — {s}.
+
+For the inductive step, consider a white vertex v that is discovered during the
+search from a vertex wu. The inductive hypothesis implies that u.d > 5(s,u). From
+the assignment performed by line 15 and from Lemma 22.1, we obtain
+
+vd = ud+l1
+
+5(s,u) +1
+5(s,v).
+
+IV Iv
+
+Vertex v is then enqueued, and it is never enqueued again because it is also grayed
+and the then clause of lines 14-17 is executed only for white vertices. Thus, the
+value of v.d never changes again, and the inductive hypothesis is maintained. =
+
+To prove that v.d = 5(s, v), we must first show more precisely how the queue Q
+operates during the course of BFS. The next lemma shows that at all times, the
+queue holds at most two distinct d values.
+

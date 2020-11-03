@@ -1,0 +1,40 @@
+654 Let UsC
+
+ 
+
+Linux permit execution of several tasks simultaneously. Hence
+these OSs are aptly called ‘Multitasking’ OSs.
+
+In Linux each running task is known as a ‘process’. Even though it
+may appear that several processes are being executed by the
+microprocessor simultaneously, in actuality it is not so. What
+happens is that the microprocessor divides the execution time
+equally among all the running processes. Thus each process gets
+the microprocessor’s attention in a round robin manner. Once the
+time-slice allocated for a process expires the operation that it is
+currently executing is put on hold and the microprocessor now
+directs its attention to the next process. Thus at any given moment
+if we take the snapshot of memory only one process is being
+executed by the microprocessor. The switching of processes
+happens so fast that we get a false impression that the processor is
+executing several processes simultaneously.
+
+The scheduling of processes is done by a program called
+‘Scheduler’ which is a vital component of the Linux OS. This
+scheduler program is fairly complex. Before switching over to the
+next thread it stores the information about the current process. This
+includes current values of CPU registers, contents of System Stack
+and Application Stack, etc. When this process again gets the time
+slot these values are restored. This process of shifting over from
+one thread to another is often called a Context Switch. Note that
+Linux uses preemptive scheduling, meaning thereby that the
+context switch is performed as soon as the time slot allocated to
+the process is over, no matter whether the process has completed
+its job or not.
+
+Kernel assigns each process running in memory a unique ID to
+distinguish it from other running processes. This ID is often known
+as processes ID or simply PID. It is very simple to print the PID of
+a running process programmatically. Here is the program that
+achieves this...
+

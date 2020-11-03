@@ -1,0 +1,47 @@
+24.4 Difference constraints and shortest paths 665
+
+can cast a given problem as a polynomial-sized linear-programming problem, then
+we immediately have a polynomial-time algorithm to solve the problem. Second,
+faster algorithms exist for many special cases of linear programming. For exam-
+ple, the single-pair shortest-path problem (Exercise 24.4-4) and the maximum-flow
+problem (Exercise 26.1-5) are special cases of linear programming.
+
+Sometimes we don’t really care about the objective function; we just wish to find
+any feasible solution, that is, any vector x that satisfies Ax < b, or to determine
+that no feasible solution exists. We shall focus on one such feasibility problem.
+
+Systems of difference constraints
+
+Ina system of difference constraints, each row of the linear-programming matrix A
+contains one | and one —1, and all other entries of A are 0. Thus, the constraints
+given by Ax < b are a set of m difference constraints involving n unknowns, in
+which each constraint is a simple linear inequality of the form
+
+Xj— Xi Sde,
+
+where 1 <i, j <n,i A j,and1<k <m.
+For example, consider the problem of finding a 5-vector x = (x;) that satisfies
+
+1-1 0 0 0 0
+1 0 0 0-1 -l
+0 1 0 0-1 “ 1
+
+-1 0 1 0 0 ~ 5
+
+-1 0 0 1 0 “PS 4
+0 0-1 1 0 “4 -l
+0 0-1 0 1 *s 3
+0 0 0-1 1 3
+
+This problem is equivalent to finding values for the unknowns x), X2.X3..X4,Xs,
+satisfying the following 8 difference constraints:
+
+M-X. =< 0, (24.3)
+X-Xs5 < -l, (24.4)
+Xy—-Xs < 1, (24.5)
+x3-X, < 5, (24.6)
+Xy—-X, < 4, (24.7)
+Xy—X3 < -l, (24.8)
+Xs—-X3 < -3, (24.9)
+Xs—-X4 < 3. (24.10)
+

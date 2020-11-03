@@ -1,0 +1,81 @@
+15.4 Longest common subsequence 395
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+9 * {ol of of of of of 0
+1A tT) Th TIN IN
+— ol 0 Le Ll
+
+2 Blo HL ale
+
+t
+3 ©) of 1 Plea 2
+tT} tT) Tt
+
+4@ ofS 2| 2 3
+tT tT) 7 tT
+pects
+6 AT of if 2 BS; a
+7 2B \ tT) Th TIN t
+ol ‘if 2] 2} 3} “ala
+
+ 
+
+Figure 15.8 The c and tables computed by LCS-LENGTH on the sequences X = (A, B,C, B,
+D,A,B) and ¥ = (B,D,C, A, B, A). The square in row i and column j contains the value of [i,j]
+and the appropriate arrow for the value of b[i, j]. The entry 4 in c[7, 6] —the lower right-hand corner
+of the table—is the length of an LCS (B, C, B, A) of X and Y. For i, j > 0, entry c[i, j] depends
+only on whether x; = y; and the values in entries c[i —1, j], cli, j — 1], and c[i — 1, j — 1], which
+are computed before cli, j]. To reconstruct the elements of an LCS, follow the b[f, j] arrows from
+the lower right-hand corner; the sequence is shaded. Each “*\.” on the shaded sequence corresponds
+to an entry (highlighted) for which x; = y; is a member of an LCS.
+
+found. With this method, we encounter the elements of this LCS in reverse order.
+The following recursive procedure prints out an LCS of X and Y in the proper,
+forward order. The initial call is PRINT-LCS(b, X, X. length, Y.length).
+
+PRINT-LCS(b, X, i, j)
+ifi ==Oor j ==0
+return
+if bf, j] =="N”
+PRINT-LCS(b, X,i —1, 7 —))
+print x;
+elseif b[i, j] ==“t”
+PRINT-LCS(b, X,i — 1, j)
+else PRINT-LCS (b, X,i, j — 1)
+
+CIDARWNH
+
+For the b table in Figure 15.8, this procedure prints BCBA. The procedure takes
+time O(m +n), since it decrements at least one of i and j in each recursive call.
+

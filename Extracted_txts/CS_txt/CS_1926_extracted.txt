@@ -1,0 +1,49 @@
+11.2 Access Methods 379
+
+the Macintosh operating system provides tools to allow modification of the
+data in the resource fork. The data fork contains program code or data: the
+traditional file contents. To accomplish the same task on a UNIX or MS-DOS
+system, the programmer would need to change and recompile the source code,
+unless she created her own user-changeable data file. Clearly, it is useful for
+an operating system to support structures that will be used frequently, and
+that will save the programmer substantial effort. Too few structures make
+programming inconvenient, whereas too many cause operating-system bloat
+and programmer confusion.
+
+11.1.5 Internal File Structure
+
+Internally, locating an offset within a file can be complicated for the operating
+system. Recall from Chapter 2 that disk systems typically have a well-defined
+block size determined by the size of a sector. All disk I/O is performed in units
+of one block (physical record), and all blocks are the same size. It is unlikely
+that the physical record size will exactly match the length of the desired logical
+record. Logical records may even vary in length. Packing a number of logical
+records into physical blocks is a common solution to this problem.
+
+For example, the UNIX operating system defines all files to be simply a
+stream of bytes. Each byte is individually addressable by its offset from the
+beginning (or end) of the file. In this case, the logical record is 1 byte. The file
+system automatically packs and unpacks bytes into physical disk blocks—say,
+512 bytes per block—as necessary.
+
+The logical record size, physical block size, and packing technique deter-
+mine how many logical records are in each physical block. The packing can be
+done either by the user’s application program or by the operating system.
+
+In either case, the file may be considered to be a sequence of blocks. All
+the basic I/O functions operate in terms of blocks. The conversion from logical
+records to physical blocks is a relatively simple software problem.
+
+Because disk space is always allocated in blocks, some portion of the last
+block of each file is generally wasted. If each block were 512 bytes, then a file of
+1,949 bytes would be allocated four blocks (2,048 bytes); the last 99 bytes would
+be wasted. The wasted bytes allocated to keep everything in units of blocks
+(instead of bytes) is internal fragmentation. All file systems suffer from internal
+fragmentation; the larger the block size, the greater the internal fragmentation.
+
+11.2 = Access Methods
+
+Files store information. When it is used, this information must be accessed and
+read into computer memory, The information in the file can be accessed in
+several ways. Some systems provide only one access method for files. Other
+

@@ -1,0 +1,48 @@
+12 Chapter1 Introduction
+
+Other design decisions still apply. For example, file protection was, at first,
+not necessary on a personal machine. However, these computers are now often
+tied into other computers over local-area networks or other Internet connec-
+tions. When other computers and other users can access the files on a PC, file
+protection again becomes a necessary feature of the operating system. The lack
+of such protection has made it easy for malicious programs to destroy data on
+systems such as MS-DOS and the Macintosh operating system. These programs
+may be self-replicating, and may spread rapidly via worm or virus mechanisms
+and disrupt entire companies or even worldwide networks. Advanced time-
+sharing features such as protected memory and file permissions are not enough,
+on their own, to safeguard a system from attack. Recent security breaches have
+shown that time and again. These topics are discussed in Chapters 18 and 19.
+
+14 = Multiprocessor Systems
+
+Most systems to date are single-processor systems; that is, they have only one
+main CPU. However, multiprocessor systems (also known as parallel systems
+or tightly coupled systems) are growing in importance. Such systems have
+more than one processor in close communication, sharing the computer bus,
+the clock, and sometimes memory and peripheral devices.
+
+Multiprocessor systems have three main advantages.
+
+1. Increased throughput. By increasing the number of processors, we hope
+to get more work done in less time. The speed-up ratio with N processors
+is not N; rather, it is less than N. When multiple processors cooperate on
+a task, a certain amount of overhead is incurred in keeping all the parts
+working correctly. This overhead, plus contention for shared resources,
+lowers the expected gain from additional processors. Similarly, a group
+of N programmers working closely together does not result in N times the
+amount of work being accomplished.
+
+2. Economy of scale. Multiprocessor systems can save more money than
+multiple single-processor systems, because they can share peripherals,
+mass storage, and power supplies. If several programs operate on the same
+set of data, it is cheaper to store those data on one disk and to have all the
+processors share them, than to have many computers with local disks and
+many copies of the data.
+
+3. Increased reliablility. If functions can be distributed properly among
+several processors, then the failure of one processor will not halt the system,
+only slow it down. If we have ten processors and one fails, then each of the
+remaining nine processors must pick up a share of the work of the failed
+processor. Thus, the entire system runs only 10 percent slower, rather than
+failing altogether. This ability to continue providing service proportional
+

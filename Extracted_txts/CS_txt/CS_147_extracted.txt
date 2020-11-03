@@ -1,0 +1,61 @@
+Section 4.5.
+
+Summary 7
+
+ 
+
+TABU SEARCH
+
+PARALLEL SEARCH
+
+generated problems almost "instantaneously," despite the NP-completeness of the associated
+problem classes, has prompted an intensive investigation. It turns out that almost all randomly
+generated problems are either trivially easy or have no solutions. Only if the parameters of the
+problem generator are set in a certain narrow range, within which roughly half of the problems
+are solvable, do we find "hard" problem instances (Kirkpatrick and Selman, 1994).
+
+Because computers in the late 1950s and early 1960s had at most a few thousand words
+of main memory, memory-bounded heuristic search was an early research topic. Doran and
+Michie's (1966) Graph Traverser, one of the earliest search programs, commits to an operator
+after searching best-first up to the memory limit. As with other "staged search" algorithms,
+optimality cannot be ensured because until the best path has been found the optimality of the
+first step remains in doubt. IDA* was the first widely used optimal, memory-bounded, heuristic
+search algorithm, and a large number of variants have been developed. The first reasonably public
+paper dealing specifically with IDA* was Korf's (1985b), although Korf credits the initial idea
+to a personal communication from Judea Pearl and also mentions Berliner and Goetsch's (1984)
+technical report describing their implementation of IDA* concurrently with Korf's own work.
+A more comprehensive exposition of IDA* can be found in Korf(1985a). A thorough analysis
+of the efficiency of IDA*, and its difficulties with real-valued heuristics, appears in Patrick
+et al. (1992). The SMA* algorithm described in the text was based on an earlier algorithm
+called MA* (Chakrabarti ef al, 1989), and first appeared in Russell (1992). The latter paper
+also introduced the "contour" representation of search spaces. Kaindl and Khorsand (1994)
+apply SMA* to produce a bidirectional search algorithm that exhibits significant performance
+improvements over previous algorithms.
+
+Three other memory-bounded algorithms deserve mention. RBFS (Korf, 1993) and
+TE (Russell, 1992) are two very similar algorithms that use linear space and a simple recur-
+sive formulation, like IDA*, but retain information from pruned branches to improve efficiency.
+Particularly in tree-structured search spaces with discrete-valued heuristics, they appear to be
+competitive with SMA* because of their reduced overhead. RBFS is also able to carry out a
+best-first search when the heuristic is inadmissible. Finally, tabu search algorithms (Glover,
+1989), which maintain a bounded list of states that must not be revisited, have proved effective
+for optimization problems in operations research.
+
+Simulated annealing was first described by Kirkpatrick, Gelatt, and Vecchi (1983), who
+borrowed the algorithm directly from the Metropolis algorithm used to simulate complex
+systems in statistical physics (Metropolis et al., 1953). Simulated annealing is now a subfieldin
+itself, with several hundred papers published every year.
+
+The topic of parallel search algorithms was not covered in the chapter, partly because it
+requires a lengthy discussion of parallel architectures. As parallel computers are becoming widely
+available, parallel search is becoming an important topic in both Al and theoretical computer
+science. A brief introduction to the AI literature can be found in Mahanti and Daniels (1993).
+
+By far the most comprehensive source on heuristic search algorithms is Pearl's (1984)
+Heuristics text. This book provides especially good coverage of the wide variety of offshoots and
+variations of A*, including rigorous proofs of their formal properties. Kanal and Kumar (1988)
+present an anthology of substantive and important articles on heuristic search. New results on
+search algorithms appear regularly in the journal Artificial Intelligence.
+
+ 
+

@@ -1,0 +1,35 @@
+23.1 Growing a minimum spanning tree 627
+
+ 
+
+Figure 23.2. Two ways of viewing a cut (S,V — S) of the graph from Figure 23.1. (a) Black
+vertices are in the set S, and white vertices are in V — S. The edges crossing the cut are those
+connecting white vertices with black vertices. The edge (d,c) is the unique light edge crossing the
+cut. A subset A of the edges is shaded; note that the cut (S, V — S) respects A, since no edge of A
+crosses the cut. (b) The same graph with the vertices in the set S on the left and the vertices in the
+set V — S on the right. An edge crosses the cut if it connects a vertex on the left with a vertex on the
+right.
+
+Proof Let T be a minimum spanning tree that includes A, and assume that T
+does not contain the light edge (u,v), since if it does, we are done. We shall
+construct another minimum spanning tree 7’ that includes A U {(u, v)} by using a
+cut-and-paste technique, thereby showing that (wu, v) is a safe edge for A.
+
+The edge (u,v) forms a cycle with the edges on the simple path p from u
+to v in T, as Figure 23.3 illustrates. Since u and v are on opposite sides of the
+cut (S,V — S), at least one edge in T lies on the simple path p and also crosses
+the cut. Let (x,y) be any such edge. The edge (x, ) is not in A, because the cut
+respects A. Since (x,y) is on the unique simple path from wu to v in T, remov-
+ing (x, y) breaks T into two components. Adding (u,v) reconnects them to form
+a new spanning tree T’ = T — {(x, y)} U {(u. v)}.
+
+We next show that 7’ is a minimum spanning tree. Since (u, v) is a light edge
+crossing (S, V —S) and (x, y) also crosses this cut, w(u,v) < w(x, y). Therefore,
+
+w(T’)
+
+w(T) — w(x, y) + w(u,v)
+w(T).
+
+IA
+

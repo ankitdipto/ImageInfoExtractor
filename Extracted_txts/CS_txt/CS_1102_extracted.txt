@@ -1,0 +1,44 @@
+Chapter 11: Console Input/Output 397
+
+ 
+
+(c) Escape sequences that begin with a \ sign
+
+For example, look at the following program:
+
+main()
+{
+
+int avg = 346 ;
+
+float per = 69.2 ;
+
+printf ( "Average = %d\nPercentage = %f", avg, per ) ;
+}
+
+The output of the program would be...
+
+Average = 346
+Percentage = 69.200000
+
+How does printf() function interpret the contents of the format
+string. For this it examines the format string from left to right. So
+long as it doesn’t come across either a % or a \ it continues to
+dump the characters that it encounters, on to the screen. In this
+example Average = is dumped on the screen. The moment it
+comes across a conversion specification in the format string it
+picks up the first variable in the list of variables and prints its value
+in the specified format. In this example, the moment %d is met the
+variable avg is picked up and its value is printed. Similarly, when
+an escape sequence is met it takes the appropriate action. In this
+example, the moment \n is met it places the cursor at the beginning
+of the next line. This process continues till the end of format string
+is not reached.
+
+Format Specifications
+
+The %d and %f used in the printf() are called format specifiers.
+They tell printf() to print the value of avg as a decimal integer
+and the value of per as a float. Following is the list of format
+specifiers that can be used with the printf() function.
+

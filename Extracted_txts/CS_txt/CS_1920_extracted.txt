@@ -1,0 +1,51 @@
+11.1 File Concept 375
+
+to the entry in the open-file table. This pointer, not the actual file name, is
+used in all I/O operations, avoiding any further searching and simplifying the
+system-call interface.
+
+The implementation of the open and close operations in a multiuser
+environment, such as UNIX, is more complicated. In such a system, several
+users may open the file at the same time. Typically, the operating system uses
+two levels of internal tables: a per-process table and a system-wide table. The
+per-process table tracks all files that a process has open. Stored in this table is
+information regarding the use of the file by the process. For instance, the current
+file pointer for each file is found here, indicating the location in the file that the
+next read or write call will affect. Access rights to the file and accounting
+information can also be included.
+
+Each entry in the per-process table in turn points to a system-wide open-file
+table. The system-wide table contains process-independent information, such
+as the location of the file on disk, access dates, and file size. Once a file is opened
+by one process, another process executing an open call simply results in a new
+entry being added to the process’ open-file table, pointing to the appropriate
+entry in the system-wide table. Typically, the open-file table also has an open
+count associated with each file, indicating the number of processes that have
+the file open. Each close decreases this count, and when the open count reaches
+zero, the file is no longer in use, and the file’s entry is removed from the open
+file table. In summary, several pieces of information are associated with an open
+file.
+
+File pointer: On systems that do not include a file offset as part of the read
+and write system calls, the system must track the last read-write location
+as a current-file-position pointer. This pointer is unique to each process
+operating on the file, and therefore must be kept separate from the on-disk
+file attributes.
+
+File open count: As files are closed, the operating system must reuse its
+open-file table entries, or it could run out of space in the table. Because
+multiple processes may open a file, the system must wait for the last file
+to close before removing the open-file table entry. This counter tracks the
+number of opens and closes and reaches zero on the last close. The system
+can then remove the entry.
+
+© Disk location of the file: Most file operations require the system to modify
+data within the file. The information needed to locate the file on disk is kept
+in memory to avoid having to read it from disk for each operation.
+
+Access rights: Each process opens a file in an access mode. This informa-
+tion is stored on the per-process table so the operating system can allow or
+deny subsequent I/O requests.
+
+ 
+

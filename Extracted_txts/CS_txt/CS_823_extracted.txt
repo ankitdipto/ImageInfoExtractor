@@ -1,0 +1,53 @@
+188 canrrer six Programming the Basic Computer
+
+error diagnostics
+
+scribed in the flowchart of Fig, 6-2. LCis initially set to 0. Lines of code are then
+analyzed one at a time. Labels are neglected during the second pass, so the
+assembler goes immediately to the instruction field and proceeds to check the
+first symbol encountered. It first checks the pseudoinstruction table. A match
+with ORG sends the assembler to a subroutine that sets LC to an initial value.
+A match with END terminates the translation process. An operand pseudo-
+instruction causes a conversion of the operand into binary. This operand is
+placed in the memory location specified by the content of LC. The location
+counter is then incremented by 1 and the assembler continues to analyze the
+next line of code.
+
+If the symbol encountered is not a pseudoinstruction, the assembler
+refers to the MRI table. If the symbol is not found in this table, the assembler
+refers to the non-MRI table. A symbol found in the non-MRI table corresponds
+to a register reference or input-output instruction. The assembler stores the
+16-bit instruction code into the memory word specified by LC. The location
+counter is incremented and a new line analyzed.
+
+When a symbol is found in the MRI table, the assembler extracts its
+equivalent 3-bit code and inserts it in bits 2 through 4 of a word. A memory
+reference instruction is specified by two or three symbols. The second symbol
+isa symbolic address and the third, which may or may not be present, is the
+letter I The symbolic address is converted to binary by searching the address
+symbol table. The first bit of the instruction is set to 0 or 1, depending on
+whether the letter lis absent or present. The three parts of the binary instruc-
+tion code are assembled and then stored in the memory location specified by
+the content of LC. The location counter is incremented and the assembler
+continues to process the next line.
+
+One important task of an assembler is to check for possible errors in the
+symbolic program. This is called error diagnostics. One such error may be an
+invalid machine code symbol which is detected by its being absent in the MRI
+and non-MRI tables. The assembler cannot translate such a symbol because it
+does not know its binary equivalent value. In such a case, the assembler prints.
+an error message to inform the programmer that his symbolic program has an
+error at a specificline of code. Another possible error may occur if the program
+has asymbolicaddress thatdid not appearalsoasa label. The assembler cannot
+translate the line of code properly because the binary equivalent of the symbol
+will not be found in the address symbol table generated during the first pass.
+Other errors may occur and a practical assembler should detect all such errors
+and print an error message for each.
+
+It should be emphasized that a practical assembler is much more compli-
+cated than the one explained here. Most computers give the programmer more
+flexibility in writing assembly language programs. For example, the user may
+be allowed to use either a number or a symbol to specify an address. Many
+assemblers allow the user to specify an address by an arithmetic expression.
+Many more pseudoinstructions may be specified to facilitatethe programming
+

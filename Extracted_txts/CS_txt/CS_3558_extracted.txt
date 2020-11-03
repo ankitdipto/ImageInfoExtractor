@@ -1,0 +1,38 @@
+20
+
+van Emde Boas Trees
+
+In previous chapters, we saw data structures that support the operations of a priority
+queue—binary heaps in Chapter 6, red-black trees in Chapter 13,' and Fibonacci
+heaps in Chapter 19. In each of these data structures, at least one important op-
+eration took O(lgn) time, either worst case or amortized. In fact, because each
+of these data structures bases its decisions on comparing keys, the Q(n1gn) lower
+bound for sorting in Section 8.1 tells us that at least one operation will have to
+take Q(1g7) time. Why? If we could perform both the INSERT and EXTRACT-MIN
+operations in o(Ig 7) time, then we could sort 7 keys in o( lg) time by first per-
+forming ” INSERT operations, followed by n EXTRACT-MIN operations.
+
+We saw in Chapter 8, however, that sometimes we can exploit additional infor-
+mation about the keys to sort in o(n lg) time. In particular, with counting sort
+we can sort 1 keys, each an integer in the range 0 to k, in time ©(n + k), which
+is O(n) when k = O(n).
+
+Since we can circumvent the Q(n 1g) lower bound for sorting when the keys are
+integers in a bounded range, you might wonder whether we can perform each of the
+priority-queue operations in o(lg 7) time in a similar scenario. In this chapter, we
+shall see that we can: van Emde Boas trees support the priority-queue operations,
+and a few others, each in O(lglgm) worst-case time. The hitch is that the keys
+must be integers in the range 0 to n — 1, with no duplicates allowed.
+
+Specifically, van Emde Boas trees support each of the dynamic set operations
+listed on page 230—SEARCH, INSERT, DELETE, MINIMUM, MAXIMUM, Suc-
+CESSOR, and PREDECESSOR—in O(lglgn) time. In this chapter, we will omit
+discussion of satellite data and focus only on storing keys. Because we concentrate
+on keys and disallow duplicate keys to be stored, instead of describing the SEARCH
+
+ 
+
+!Chapter 13 does not explicitly discuss how to implement EXTRACT-MIN and DECREASE-KEY, but
+we can easily build these operations for any data structure that supports MINIMUM, DELETE, and
+INSERT.
+

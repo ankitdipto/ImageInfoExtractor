@@ -1,0 +1,45 @@
+Chapter 2: The Decision Control Structure 77
+
+ 
+
+(a) It’s not necessary that the conditional operators should be
+used only in arithmetic statements. This is illustrated in the
+following examples:
+
+Ex. int i;
+scanf ("%d", &i) ;
+(i== 17? printf ("Amit") : printf (“All and sundry" ) ) ;
+
+Ex.:
+
+ 
+
+,(a>='a'?a:l));
+(b) The conditional operators can be nested as shown below.
+
+int big, a,b, c;
+big=(a>b?(a>c?3:4):(b>c?6:8));
+(c) Check out the following conditional expression:
+
+a>b?g=a:g=b;
+
+This will give you an error ‘Lvalue Required’. The error can
+be overcome by enclosing the statement in the : part within a
+pair of parenthesis. This is shown below:
+
+a>b?g=a:(g=b);
+
+In absence of parentheses the compiler believes that b is being
+assigned to the result of the expression to the left of second =.
+Hence it reports an error.
+
+The limitation of the conditional operators is that after the ? or
+after the : only one C statement can occur. In practice rarely is this
+the requirement. Therefore, in serious C programming conditional
+operators aren’t as frequently used as the if-else.
+
+Summary
+
+(a) There are three ways for taking decisions in a program. First
+way is to use the if-else statement, second way is to use the
+

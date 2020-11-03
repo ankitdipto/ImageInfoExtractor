@@ -1,0 +1,117 @@
+Section 12.2.
+
+Hierarchical Decomposition 373
+
+ 
+
+ 
+
+ 
+
+Build
+House
+
+i decomposes to
+
+. Pay
+Construction -—» Builder
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+Obtain
+Permit
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Hire
+Builder
+
+ 
+
+ 
+
+ 
+
+ 
+
+decomposes to
+
+ 
+
+ 
+
+Build Build
+Foundation Interior
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 12.1. Hierarchical decomposition of the operator Build House into a partial-order plan.
+
+ 
+
+ 
+
+ 
+
+say that a plan p correctly implements an operator o if it is a complete and consistent plan for the
+problem of achieving the effects of o given the preconditions of 0:
+
+1. p must be consistent. (There is no contradiction in the ordering or variable binding
+constraints ofp.)
+
+2. Every effect of o must be asserted by at least one step ofp (and is not denied by some
+other, later step ofp).
+
+3. Every precondition of the steps in p must be achieved by a step in p or be one of the
+preconditions of o.
+
+This guarantees that it is possible to replace a nonprimitive operator with its decomposition and
+have everything hook up properly. Although one will need to check for possible threats arising
+from interactions between the newly introduced steps and conditions and the existing steps and
+conditions, there is no need to worry about interactions among the steps of the decomposition
+itself. Provided there is not too much interaction between the different parts of the plan, hierar-
+chical planning allows very complex plans to be built up cumulatively from simpler subplans. It
+also allows plans to be generated, saved away, and then re-used in later planning problems
+

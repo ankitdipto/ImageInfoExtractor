@@ -1,0 +1,58 @@
+196
+
+‘iarreR Six Programming the Basic Computer
+
+initialized, the program may run with incorrect data. The program itself is
+straightforward and follows the steps listed in the flowchart. The comments
+may help in following the step-by-step procedure.
+
+This example has shown that if a computer does not have a machine
+instruction for a required operation, the operation can be programmed by a
+sequence of machine instructions. Thus we have demonstrated the software
+implementation of the multiplication operation. The corresponding hardware
+implementation is presented in Sec. 10-3.
+
+Double-Precision Addition
+
+When two 16-bit unsigned numbers are multiplied, the result is a 32-bit
+product that must be stored in two memory words. A number stored in two
+memory words is said to have double precision When a partial product is
+computed, it is necessary that a double-precision number be added to the
+shifted multiplicand, which is also a double-precision number. For greater
+accuracy, the programmer may wish to employ double-precision numbers and
+perform arithmetic with operands that occupy two memory words. We now
+develop a program that adds two double-precision numbers.
+
+(One of the double-precision numbers is placed in two consecutive mem-
+ory locations, AL and AH, with AL holding the 16 low-order bits. The other
+number is placed in BL and BH. The program is listed in Table 6-15. The two
+low-order portions are added and the carry transferred into E. The AC is
+cleared and the bit in E iscirculated into the least significant position of the AC.
+The two high-order portions are then added to the carry and the double-
+precision sum is stored in CL and CH.
+
+ 
+
+TABLE 6-15 Program to Add Two Double Precision Numbers
+
+LDAAL Load A low
+
+ADD BL —/Add B low, carry in E
+
+STACL Store in C low
+
+CLA ‘lear AC
+
+cL [Circulate to bring carry into AC(16)
+ADD AH /Add A high and carry
+
+ADD BH = /Add B high
+
+STACH Store in C high
+
+HLT
+
+‘Location of operands
+
+RPEPRP
+

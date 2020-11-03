@@ -1,0 +1,48 @@
+746
+
+Chapter 26 Maximum Flow
+
+Lemma 26.23 (Bound on nonsaturating pushes)
+During the execution of GENERIC-PUSH-RELABEL on any flow network G =
+(V, E), the number of nonsaturating pushes is less than 4|V|? (|V| + |E])-
+
+Proof Define a potential function ® = 5°,..¢).9 V-/. Initially, @ = 0, and the
+value of ® may change after each relabeling, saturating push, and nonsaturating
+push. We will bound the amount that saturating pushes and relabelings can con-
+tribute to the increase of ®. Then we will show that each nonsaturating push must
+decrease ® by at least 1, and will use these bounds to derive an upper bound on the
+number of nonsaturating pushes.
+
+Let us examine the two ways in which ® might increase. First, relabeling a
+vertex u increases ® by less than 2 |V |, since the set over which the sum is taken is
+the same and the relabeling cannot increase u’s height by more than its maximum
+possible height, which, by Lemma 26.20, is at most 2|V| — 1. Second, a saturating
+push from a vertex u to a vertex v increases ® by less than 2|V|, since no heights
+change and only vertex v, whose height is at most 2|V| — 1, can possibly become
+overflowing.
+
+Now we show that a nonsaturating push from u to v decreases ® by at least 1.
+Why? Before the nonsaturating push, wu was overflowing, and v may or may not
+have been overflowing. By Lemma 26.13, u is no longer overflowing after the
+push. In addition, unless v is the source, it may or may not be overflowing after
+the push. Therefore, the potential function ® has decreased by exactly u./, and it
+has increased by either 0 or v.h. Since u.h — v.h = 1, the net effect is that the
+potential function has decreased by at least 1.
+
+Thus, during the course of the algorithm, the total amount of increase in ® is
+due to relabelings and saturated pushes, and Corollary 26.21 and Lemma 26.22
+constrain the increase to be less than (2|V|)(2|V|?) + Q|VI(Q|V||E)) =
+4|V|? (\V| + |E)). Since © > 0, the total amount of decrease, and therefore the
+total number of nonsaturating pushes, is less than 4|V|? (|V| + |E]). /
+
+Having bounded the number of relabelings, saturating pushes, and nonsatu-
+rating push, we have set the stage for the following analysis of the GENERIC-
+PuUSH-RELABEL procedure, and hence of any algorithm based on the push-relabel
+method.
+
+Theorem 26.24
+During the execution of GENERIC-PUSH-RELABEL on any flow network G =
+(V, E), the number of basic operations is O(V? E).
+
+Proof Immediate from Corollary 26.21 and Lemmas 26.22 and 26.23. .
+

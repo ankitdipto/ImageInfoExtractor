@@ -1,0 +1,48 @@
+156 Chapter 6 Heapsort
+
+The solution to this recurrence, by case 2 of the master theorem (Theorem 4.1),
+is T(n) = O(lgn). Alternatively, we can characterize the running time of MAX-
+HEAPIFY on a node of height / as O(h).
+
+Exercises
+
+6.2-1
+Using Figure 6.2 as a model, illustrate the operation of MAX-HEAPIFY (A, 3) on
+the array A = (27, 17,3, 16, 13, 10, 1, 5,7, 12, 4,8, 9,0).
+
+6.2-2
+
+Starting with the procedure MAX-HEAPIFY, write pseudocode for the procedure
+Min-HeEaPiry (A, i), which performs the corresponding manipulation on a min-
+heap. How does the running time of MIN-HEAPIFY compare to that of MAX-
+HEAPIFY?
+
+6.2-3
+What is the effect of calling MAX-HEAPIFY(A,i) when the element A[/] is larger
+than its children?
+
+6.2-4
+What is the effect of calling MAX-HEAPIFY(A,i) for i > A.heap-size/2?
+
+6.2-5
+
+The code for MAX-HEAPIFY is quite efficient in terms of constant factors, except
+possibly for the recursive call in line 10, which might cause some compilers to
+produce inefficient code. Write an efficient MAX-HEAPIFY that uses an iterative
+control construct (a loop) instead of recursion.
+
+6.2-6
+
+Show that the worst-case running time of MAX-HEAPIFY on a heap of size n
+is Q(lgn). (Hint: For a heap with n nodes, give node values that cause MAX-
+HEAPIFY to be called recursively at every node on a simple path from the root
+down to a leaf.)
+
+ 
+
+6.3 Building a heap
+
+We can use the procedure MAX-HEAPIFY in a bottom-up manner to convert an
+array A[l..n], where n = A.length, into a max-heap. By Exercise 6.1-7, the
+elements in the subarray A[(|/2] +1) ..n] are all leaves of the tree, and so each is
+

@@ -1,0 +1,52 @@
+866
+
+Chapter 29 Linear Programming
+
+2 = 3x, + X2 + 2x3 (29.58)
+Xy = 30 -— xX -— XxX. — 3x3 (29.59)
+Xs = 24 — 2x, -— 2x. — 5x3 (29.60)
+Xe = 36 — 4x, -— XxX. — 2x3. (29.61)
+
+The system of constraints (29.59)-(29.61) has 3 equations and 6 variables. Any
+setting of the variables x;, %2, and x3 defines values for x4, x5, and x6; therefore,
+we have an infinite number of solutions to this system of equations. A solution is
+feasible if all of x1,X2...., X@ are nonnegative, and there can be an infinite num-
+ber of feasible solutions as well. The infinite number of possible solutions to a
+system such as this one will be useful in later proofs. We focus on the basic solu-
+tion: set all the (nonbasic) variables on the right-hand side to 0 and then compute
+the values of the (basic) variables on the left-hand side. In this example, the ba-
+sic solution is (%),X%2...., X5) = (0,0, 0,30, 24,36) and it has objective value
+z = (3-0)+ (1-0) + (2-0) =0. Observe that this basic solution sets ¥; = bj
+for each i € B. An iteration of the simplex algorithm rewrites the set of equations
+and the objective function so as to put a different set of variables on the right-
+hand side. Thus, a different basic solution is associated with the rewritten problem.
+We emphasize that the rewrite does not in any way change the underlying linear-
+programming problem; the problem at one iteration has the identical set of feasible
+solutions as the problem at the previous iteration. The problem does, however,
+have a different basic solution than that of the previous iteration.
+
+If a basic solution is also feasible, we call it a basic feasible solution. As we run
+the simplex algorithm, the basic solution is almost always a basic feasible solution.
+We shall see in Section 29.5, however, that for the first few iterations of the simplex
+algorithm, the basic solution might not be feasible.
+
+Our goal, in each iteration, is to reformulate the linear program so that the basic
+solution has a greater objective value. We select a nonbasic variable x~ whose
+coefficient in the objective function is positive, and we increase the value of X¢ as
+much as possible without violating any of the constraints. The variable x, becomes
+basic, and some other variable x; becomes nonbasic. The values of other basic
+variables and of the objective function may also change.
+
+To continue the example, let’s think about increasing the value of x;. As we
+increase x), the values of x4, x5, and X¢ all decrease. Because we have a nonnega-
+tivity constraint for each variable, we cannot allow any of them to become negative.
+If x; increases above 30, then x4 becomes negative, and x; and x5 become nega-
+tive when x, increases above 12 and 9, respectively. The third constraint (29.61) is
+the tightest constraint, and it limits how much we can increase x;. Therefore, we
+switch the roles of x, and x5. We solve equation (29.61) for x; and obtain
+
+x2 %3 Xo
+
+a9 233 x5 29.62
+MS 9- TOT (29.62)
+

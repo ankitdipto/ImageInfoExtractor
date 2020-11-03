@@ -1,0 +1,43 @@
+674 Let UsC
+
+ 
+
+printf ("SIGINT Receivedin" ) ;
+break ;
+
+case SIGTERM :
+printf ( "SIGTERM Received\n" ) ;
+break ;
+
+case SIGCONT :
+printf ("SIGCONT Received\n" ) ;
+break ;
+
+}
+
+int main()
+
+{
+signal (SIGINT, sighandler ) ;
+signal (SIGTERM, sighandler ) ;
+signal ( SIGCONT, sighandler ) ;
+
+while (1)
+printf ( "\rProgram running") ;
+
+return 0;
+}
+
+In this program during each call to the signal( ) function we have
+specified the address of a common signal handler named
+sighandler( ). Thus the same signal handler function would get
+called when one of the three signals are received. This does not
+lead to a problem since the sighandler( ) we can figure out inside
+the signal ID using the first parameter of the function. In our
+program we have made use of the switch-case construct to print a
+different message for each of the three signals.
+
+Note that we can easily afford to mix the two methods of
+registering signals in a program. That is, we can register separate
+signal handlers for some of the signals and a common handler for
+

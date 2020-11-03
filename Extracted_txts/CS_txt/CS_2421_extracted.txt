@@ -1,0 +1,48 @@
+Problems for Chapter 2 4
+
+d. What is the worst-case running time of bubblesort? How does it compare to the
+running time of insertion sort?
+
+2-3 Correctness of Horner’s rule
+The following code fragment implements Horner’s rule for evaluating a polynomial
+
+P(x) = Yoaex*
+k=0
+
+= dg $X(Gy +X (dy +++ + X(Aq-1 + Xn) +++))
+
+given the coefficients dp,a,,....d, anda value for x:
+
+1 y=0
+for i = n downto 0
+3 y=at+x-y
+
+a. In terms of @-notation, what is the running time of this code fragment for
+Horner’s rule?
+
+b. Write pseudocode to implement the naive polynomial-evaluation algorithm that
+computes each term of the polynomial from scratch. What is the running time
+of this algorithm? How does it compare to Horner’s rule?
+
+c. Consider the following loop invariant:
+
+At the start of each iteration of the for loop of lines 2-3,
+n—(i+1)
+
+_ A
+y= > Ak+itiX” -
+k=0
+
+Interpret a summation with no terms as equaling 0. Following the structure of
+the loop invariant proof presented in this chapter, use this loop invariant to show
+that, at termination, y = Vio ax",
+
+d. Conclude by arguing that the given code fragment correctly evaluates a poly-
+nomial characterized by the coefficients do, d1...-.4n-
+
+2-4 Inversions
+Let A[1..n] be an array of n distinct numbers. If i < j and A[i] > A[/], then the
+pair (i, j) is called an inversion of A.
+
+a. List the five inversions of the array (2,3, 8, 6, 1).
+

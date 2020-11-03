@@ -1,0 +1,49 @@
+224 Chapter7 Process Synchronization
+
+containing threads blocked on a lock. For example, if one thread currently
+owns the lock for a synchronized object, all other threads trying to acquire
+the lock will block and enter the turnstile for that lock. When the lock is
+released, the kernel selects a thread from the turnstile as the next owner of
+the lock. Each synchronized object with at least one thread blocked on the
+object’s lock requires a separate turnstile. However, rather than associating
+a turnstile with each synchronized object, Solaris 2 gives each kernel thread
+its own turnstile. The turnstile for the first thread to block on a synchronized
+object becomes the turnstile for the object itself. Subsequent threads blocking
+on the lock will be added to this turnstile. When the initial thread ultimately
+releases the lock, it gains a new turnstile from a list of free turnstiles the kernel
+maintains. To prevent a priority inversion, turnstiles are organized according
+to a priority inheritance protocol (Section 6.5). This means that if a lower-
+priority thread currently holds a lock that a higher-priority thread is blocked
+on, the thread with the lower priority will temporarily inherit the priority of
+the higher-priority thread. Upon releasing the lock, the thread will revert to its
+original priority.
+
+Note that the locking mechanisms used by the kernel are implemented
+for user-level threads as well, so the same types of locks are available inside
+and outside the kernel. A crucial implementation difference is the priority-
+inheritance protocol. Kernel-locking routines adhere to the kernel priority-
+inheritance methods used by the scheduler, as described in Section 6.5; user-
+level thread-locking mechanisms do not provide this functionality.
+
+Because locks are used frequently, and typically are used for crucial kernel
+functions, fine-tuning their implementation and use can provide great perfor-
+mance gains. To optimize Solaris 2 performance, developers continually refine
+the locking methods.
+
+7.8.2 Synchronization in Windows 2000
+
+The Windows 2000 operating system is a multithreaded kernel that also pro-
+vides support for real-time applications and multiple processors. When the
+Windows 2000 kernel accesses a global resource on a uniprocessor system, it
+temporarily masks interrupts for all interrupt handlers that may also access
+the global resource. On a multiprocessor system, Windows 2000 protects access
+to global resources using spinlocks. Just as in Solaris 2, the kernel only uses
+spinlocks only to protect short code segments. Furthermore, for reasons of effi-
+ciency, the kernel ensures that a thread will never be preempted while holding
+aspinlock. For thread synchronization outside of the kernel, Windows 2000 pro-
+vides dispatcher objects. Using a dispatcher object, a thread can synchronize
+according to several different mechanisms including mutexes, semaphores, and
+events. Shared data can be protected by requiring a thread to gain ownership of
+a mutex to access the data and to release ownership when it is finished. Events
+are a synchronization mechanism that may be used much as are condition
+

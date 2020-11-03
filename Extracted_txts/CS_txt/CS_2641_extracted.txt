@@ -1,0 +1,57 @@
+9.2 Selection in expected linear time 219
+
+ 
+
+_ 2 (es (in/2| = 1) |n/2I L) 4am
+n 2
+
+7 2c ((n—1)n _ a/2— 2)(n/2—1)
+
+~ 7 (“" 2 )r
+
+_ 2¢ (n= Ww /4~ 3n/2+2
+
+= a(S 2 2 mee) tan
+c (3? on
+
+= <(=+ a 2) ban
+
+= (4! 2) Lan
+~ 4 2 =n
+
+Ss 3en +5 4an
+~ 4 2
+cn oe
+on (Sa)
+
+In order to complete the proof, we need to show that for sufficiently large n, this
+last expression is at most cn or, equivalently, that cn/4 — c/2—an > 0. If we
+add c/2 to both sides and factor out n, we get n(c/4 — a) > c/2. As long as we
+choose the constant ¢ so that c/4—a > 0, ie., c > 4a, we can divide both sides
+by c/4—a, giving
+
+c/2 2c
+
+> = :
+
+~¢c/4—a_ c—4a
+Thus, if we assume that T(m) = O(1) forn < 2c/(c—4a), then E[T(n)] = O(n).
+We conclude that we can find any order statistic, and in particular the median, in
+expected linear time, assuming that the elements are distinct.
+
+ 
+
+ 
+
+Exercises
+
+9.2-1
+Show that RANDOMIZED-SELECT never makes a recursive call to a 0-length array.
+
+9.22
+Argue that the indicator random variable X; and the value T(max(k — 1, — k))
+are independent.
+
+9.2-3
+Write an iterative version of RANDOMIZED-SELECT.
+

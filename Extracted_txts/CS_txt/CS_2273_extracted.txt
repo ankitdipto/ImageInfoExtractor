@@ -1,0 +1,44 @@
+426 HAPTER ELEVEN Input-Output Organization
+
+word are then writtenon tape as aseparate record. When all the flags are equal
+to zero, it signifies the end of UO operations for the particular /O device.
+A memory map showing all pertinent information for /O processing is
+illustrated in Fig, 11-22. The operation begins when the CPU program encoun-
+tersa start /O instruction. The IOP then goes to memory location 72 to obtain
+a channel address word. This word contains the starting address of the JO
+channel program. The channel then proceeds to execute the program specified
+by the channel command words. The channel constructs a status word during
+
+Figure 11-22 Location of information in memory for UO operations in the
+IBM 370.
+
+Memory unit
+
+ 
+
+Chamelstatusword [64
+
+— | Channel address word [72
+
+ 
+
++l channel command word 1
+
+ 
+
+ 
+
+Channel command word 2 | } MO channel
+Program
+(Channel command word 3
+Start 1/0 instruction au
+rogram
+
+ 
+
+ 
+
+ 
+
+SSID
+

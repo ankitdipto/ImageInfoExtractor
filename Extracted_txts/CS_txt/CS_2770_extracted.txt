@@ -1,0 +1,64 @@
+324 Chapter 13 Red-Black Trees
+
+RB-DELETE(T, z)
+1 y=z
+
+2 y-original-color = y.color
+
+3 if z.left == T.nil
+
+4 X = Z.right
+
+5 RB-TRANSPLANT(T, Z, Z.right)
+6 elseif z.right == T.nil
+
+7 xX = Z.left
+
+8 RB-TRANSPLANT(T, Z, Z. left)
+9 else y = TREE-MINIMUM (z. right)
+10 y-original-color = y.color
+ll xX = y.right
+12 if y.p==z
+13
+14
+15
+16
+17
+18
+19
+
+ 
+
+ 
+
+xp=y
+else RB-TRANSPLANT(T, y, y.right)
+y.right = z.right
+y.right.p = y
+RB-TRANSPLANT(T, z, y)
+y.left = z.left
+y.left.p =y
+20 y.color = Z.color
+21 if y-original-color == BLACK
+22 RB-DELETE-FIxuP(T, x)
+
+Although RB-DELETE contains almost twice as many lines of pseudocode as
+TREE-DELETE, the two procedures have the same basic structure. You can find
+each line of TREE-DELETE within RB-DELETE (with the changes of replacing
+NIL by T.nil and replacing calls to TRANSPLANT by calls to RB-TRANSPLANT),
+executed under the same conditions.
+
+Here are the other differences between the two procedures:
+
+* We maintain node y as the node either removed from the tree or moved within
+the tree. Line | sets y to point to node z when z has fewer than two children
+and is therefore removed. When z has two children, line 9 sets y to point to z’s
+successor, just as in TREE-DELETE, and y will move into z’s position in the
+tree.
+
+* Because node y’s color might change, the variable y-original-color stores y’s
+color before any changes occur. Lines 2 and 10 set this variable immediately
+after assignments to y. When z has two children, then y # z and node y
+moves into node Z’s original position in the red-black tree; line 20 gives y the
+same color as Zz. We need to save y’s original color in order to test it at the
+

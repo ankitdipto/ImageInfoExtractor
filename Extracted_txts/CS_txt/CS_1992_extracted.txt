@@ -1,0 +1,64 @@
+ 
+
+436. Chapter12 File-System Implementation
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 12.12 1/0 using a unified buffer cache.
+
+Regardless of whether we are caching disk blocks or pages, LRU seems a
+reasonable general-purpose algorithm for block or page replacement. However,
+the evolution of the Solaris page-caching, algorithms reveals the difficulty in
+choosing an algorithm. Solaris allows processes and the page cache to share
+unused memory. Prior to Solaris 2.5.1, there was no distinction between allocat-
+ing pages to a process or the page cache. Asa result, a system performing many
+1/O operations uses most of the available memory for caching pages. Because
+of the high rates of 1/0, the page scanner (Section 40.7.2) reclaims pages from
+processes—rather than the page cache—when free memory runs low. Solaris
+2.6 and Solaris 7 optionally implemented priority paging, in which the page scan”
+ner gives priority to process pages cover the page cache. Solaris 8 added a fixed
+limit between process pages and file-system page cache, preventing either from
+forcing the other out of memory.
+
+The page cache, the file system, and the disk drivers have some interesting
+interactions. When data are written to a disk file, the pages are buffered in
+the cache, and the disk driver sorts its output queue according to disk address.
+These two actions allow the disk driver to minimize disk-head seeks and to
+write data at times optimized for disk rotation. Unless synchronous writes are
+required, a process writing to disk simply writes into the cache, and the system
+asynchronously writes the data to disk when convenient. The user process sees
+very fast writes. When data are read from a disk file, the block I/O system. does
+some read-ahead; however, writes are much nearer to asynchronous than are
+reads. Thus, output to the disk through the file system is often faster than is
+input for large transfers, counter to intuition.
+
+Synchronous writes occur in the order in which the disk subsystem
+receives them, and the writes are not buffered. Thus the calling routine must
+wait for the data to reach the disk drive before it can proceed. Asynchronous
+writes are done the majority of the time. In an asynchronous write the data is
+stored in the cache and returns control to the caller. Metadata writes, among
+

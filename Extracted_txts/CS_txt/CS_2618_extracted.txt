@@ -1,0 +1,111 @@
+8.4 Bucket sort 201
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+A B
+1 |.78) o|7
+2/17 1 >|.12| >I
+3 |.39| 2) 41.21], 41.23] 4126/7
+4 |.26| 3 | 4>(39[7
+5 |.72| 4/7
+6 |.94) 5|4
+7/21 6 | + >.68| 7
+8 |.12| 1) 4.21287
+9 |.23 87
+10 |.68| 9| => lz
+(a) (b)
+
+Figure 8.4 The operation of BUCKET-SorT for n = 10. (a) The input array A[1.. 10]. (b) The
+array B[0..9] of sorted lists (buckets) after line 8 of the algorithm. Bucket i holds values in the
+half-open interval [7/10, (i + 1)/10). The sorted output consists of a concatenation in order of the
+lists B[O], B[1],.... B[9].
+
+BUCKET-SorRT(A)
+
+let B[O..n — 1] be a new array
+n = A.length
+fori = 0ton—1
+make B{i] an empty list
+fori = lton
+insert A[/] into list B[ [7 A[f] |]
+fori = 0ton—1
+sort list B[] with insertion sort
+concatenate the lists B[0], B[1]..... B[n — 1] together in order
+
+CHOIDAWAWNHE
+
+Figure 8.4 shows the operation of bucket sort on an input array of 10 numbers.
+
+To see that this algorithm works, consider two elements A[i] and A[j]. Assume
+without loss of generality that A[i] < A[j]. Since [nA[i]} < |nA[j]], either
+element A[i] goes into the same bucket as A[//] or it goes into a bucket with a lower
+index. If A[i] and A[j] go into the same bucket, then the for loop of lines 7-8 puts
+them into the proper order. If A[i] and A[j] go into different buckets, then line 9
+puts them into the proper order. Therefore, bucket sort works correctly.
+
+To analyze the running time, observe that all lines except line 8 take O(n) time
+in the worst case. We need to analyze the total time taken by the 71 calls to insertion
+sort in line 8.
+

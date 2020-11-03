@@ -1,0 +1,70 @@
+Section 19.4.
+
+Multilayer Feed-Forward Networks 579
+
+ 
+
+ 
+
+ 
+
+ 
+
+Output units 9,
+
+W,
+
+‘ji
+
+Hidden units a;
+
+Wa
+
+Input units I,
+
+ 
+
+ 
+
+ 
+
+Figure 19.13 A two-layer feed-forward network for the restaurant problem.
+
+ 
+
+ 
+
+ 
+
+describing each example, so we will need ten input units. How many hidden units are needed?
+In Figure 19.13, we show a network with four hidden units. This turns out to be about right for
+this problem. The problem of choosing the right number of hidden units in advance is still not
+well-understood. We cover what is known on page 572.
+
+Learning in such a network proceeds the same way as for pérceptrons: example inputs are
+presented to the network, and if the network computes an output vector that matches the target,
+nothing is done. If there is an error (a difference between the output and target), then the weights
+are adjusted to reduce this error. The trick is to assess the blamefor an error and divide it among
+the contributing weights. In perceptrons, this is easy, because there is only one weight between
+each input and the output. But in multilayer networks, there are many weights connecting each
+input to an output, and each of these weights contributes to more than one output.
+
+The back-propagation algorithm is a sensible approach to dividing the contribution ofeach
+weight. As in the perceptron learning algorithm, we try to minimize the error between each target
+output and the output actually computed by the network.’ At the output layer, the weight update
+tule is very similar to the rule for the perceptron. There are two differences: the activation of the
+hidden unit a; is used instead of the input value; and the rule contains a term for the gradient of
+the activation function. If Err; is the error (T;- O;) at the output node, then the weight update
+tule for the link from unit j to unit i is
+
+Wye Wii ta x aX Err; x (inj)
+where g’ is the derivative of the activation function g. We will find it convenient to define a new
+error term A;, which for output nodes is defined as A: = Errig’(in;). The update rule then becomes
+Wii Wit a x aj x Ai (19.3)
+
+For updating the connections between the input units and the hidden units, we need to define
+a quantity analogous to the eiror term for output nodes. Here is where we do the error back-
+propagation. The idea is that hidden node/ is "responsible" for some fraction of the error A; in
+
+4 Actually, we minimize the square of the error; Section 194 explains why, but the result is almost the same.
+

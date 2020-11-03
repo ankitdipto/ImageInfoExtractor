@@ -1,0 +1,74 @@
+238
+
+Chapter 8. Building a Knowledge Base
+
+ 
+
+Thus, And(p,q) is the category of composite “p-q-events,” where a p-q-event is an event in which
+both ap and ag occur. If you think ofa p-event as a piece of "videotape" of ap happening, and
+a q-event as a "videotape" of a g happening, then the p-q-event is like having the two pieces of.
+tape spliced together in parallel (see Figure 8.4(a)).
+
+ 
+
+ 
+
+- e ~ ~« e ~
+
+P 2 oe
+
+4 eeees Sk See
+) ©
+
+ 
+
+ 
+
+ 
+
+Figure 8.4 A depiction of complex events. (a) T(pA q, e) (b) Tipvqe) (0) TipV g, &)
+
+ 
+
+ 
+
+ 
+
+Once a method for conjoining event categories is defined, it is convenient to extend the
+syntax to allow regular infix connective symbols to be used in place of the function name:
+
+Tip Nq.e) TiAnd(p,q).e Tp, e) AT(q, &
+
+This is fine as long as you remember that in T(pA q, 5), the expression p A q is aterm denoting a
+category of events, not a sentence
+
+One might think that we can just go ahead and define similar functions for disjunctive
+and negated events. In fact, because the T predicate is essentially a conjunction (over all the
+subintervals of the interval in question), it can interact in two different ways with disjunction and
+negation. For example, consider the English sentence "One ofthe two shops was open all day on
+Sunday." This could mean, "Either the first shop was open all day on Sunday, or the second shop
+was open all day on Sunday" (Figure 8.4(b)), or it could mean, "At any given time on Sunday, at
+least one of the two shops was open" (Figure 8.4(c)). Both of these meanings are useful sorts of
+things to say, so we will need a concise representation for each. There are no accepted notations
+in this case, so we will make some up. Let V be used for the first kind of disjunctive event, and
+V be used for the second. For the first, we have the following definition:
+
+T(p¥q.e) <> T(p,e) V T(q.e)
+
+We leave the second as an exercise, along with the definitions for negated events.
+
+Times, intervals, and actions
+
+In this section, we flesh out the vocabulary of time intervals. Because it is a limited domain, we
+can be more complete in deciding on a vocabulary and encoding general rules. Time intervals
+are partitioned into moments and extended intervals. The distinction is that only moments have §
+zero duratio
+
+ 
+
+Partition'{Moments, Extendedintervats} Intervals)
+Vi i€Intervals = ( G Moments < Duration(i\=0)
+
+Now we invent a time scale and associate points on that scale with moments, giving us absolute
+times. The time scale is arbitrary; we will measure it in seconds and say that the moment at
+

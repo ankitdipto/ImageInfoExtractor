@@ -1,0 +1,73 @@
+82
+
+Chapter 3. Solving Problems by Searching
+
+ 
+
+ 
+
+3.6 AVO
+
+ 
+
+ 
+
+JING REPEATED STATES
+
+ 
+
+ 
+
+Up to this point, we have all but ignored one of the most important complications to the search
+process: the possibility of wasting time by expanding states that have already been encountered
+and expanded before on some other path. For some problems, this possibility never comes up;
+each state can only be reached one way. The efficient formulation of the 8-queens problem is
+efficient in large part because of this—each state can only be derived through one path.
+
+For many problems, repeated states are unavoidable. This includes all problems where
+the operators are reversible, such as route-finding problems and the missionaries and cannibals
+problem. The search trees for these problems are infinite, but if we prune some of the repeated
+states, we can cut the search tree down to finite size, generating only the portion of the tree that
+spans the state space graph. Even when the tree is finite, avoiding repeated states can yield an
+exponential reduction in search cost. The classic example is shown in Figure 3,19. The space
+contains only m+ 1 states, where m is the maximum depth. Because the tree includes each
+possible path through the space, it has 2” branches.
+
+There are three ways to deal with repeated states, in increasing order of effectiveness and
+computational overhead:
+
+* Do not return to the state you just came from. Have the expand function (or the operator
+set) refuse to generate any successor that is the same state as the node's parent.
+
++ Do not create paths with cycles in them. Have the expand function (or the operator set)
+refuse to generate any successor of a node that is the same as any of the node's ancestors.
+
++ Do not generate any state that was ever generated before. This requires every state that is
+generated to be kept in memory, resulting in a space complexity of O(b“),potentially. It is
+better to think of this as O(s), where s is the number of states in the entire state space.
+
+To implement this last option, search algorithms often make use of a hash table that stores all
+the nodes that are generated. This makes checking for repeated states reasonably efficient. The
+trade-off between the cost of storing and checking and the cost of extra search depends on the
+problem: the “loopier” the state space, the more likely it is that checking will pay off.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 3.19 A state space that generates an exponentially larger search tree. The left-hand
+side shows the state space, in which there are two possible actions leading from A to B, two from
+B to C, and so on. The right-hand side shows the corresponding search tree.
+
+ 
+
+ 
+
+ 
+

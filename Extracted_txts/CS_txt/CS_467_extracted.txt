@@ -1,0 +1,52 @@
+33.1 Line-segment properties 1019
+
+(P1-P3) X (Pas) <0 2 Ps (Pi-Ps) X (Paps) <0 fe Ps
+
+  
+  
+
+Al (PsPi) X (Pr-P1) <0 a (Pa-P1) X (Pp) <0
+
+(Px-P3) X (Pa-P3) <0
+Pr
+
+(PsP) * PrP) >9 (pxP,) X Py-p) >0
+%
+
+Ps (px-P3) X (P-P3) > 0 Pp
+(a) (b)
+Ps Ps
+Py Pr
+P3
+Pr Pp
+Ps
+(©) (d)
+
+Figure 33.3 Cases in the procedure SEGMENTS-INTERSECT. (a) The segments Py pz and P3p4
+straddle each other’s lines. Because P3pq straddles the line containing PyPa, the signs of the cross
+products (p3 — p1) x (p2 — p1) and (p4— p1) x (p2 — p1) differ. Because P7Pa straddles the line
+containing D3pq, the signs of the cross products (p1 — p3) x (pa — p3) and (p2 — p3) x (pa — p3)
+differ. (b) Segment D377 straddles the line containing Drps, but PrPs does not straddle the line
+containing P3pq. The signs of the cross products (p1 — p3) x (p4— p3) and (p2 — p3) x (pa— p3)
+are the same. (c) Point p3 is colinear with Pypz and is between py and py. (d) Point p3 is colinear
+with Py Pa, but it is not between p; and pz. The segments do not intersect.
+
+ 
+
+ 
+
+each other’s lines, although a boundary case may apply. If all the relative orienta-
+tions are nonzero, no boundary case applies. All the tests against 0 in lines 7-13
+then fail, and SEGMENTS-INTERSECT returns FALSE in line 15. Figure 33.3(b)
+shows this case.
+
+A boundary case occurs if any relative orientation dx is 0. Here, we know that px
+is colinear with the other segment. It is directly on the other segment if and only
+if it is between the endpoints of the other segment. The procedure ON-SEGMENT
+returns whether px is between the endpoints of segment };P;, which will be the
+other segment when called in lines 7-13; the procedure assumes that px is colinear
+with segment Pj Pj. Figures 33.3(c) and (d) show cases with colinear points. In
+Figure 33.3(c), p3 is on Py Pz, and so SEGMENTS-INTERSECT returns TRUE in
+line 12. No endpoints are on other segments in Figure 33.3(d), and so SEGMENTS-
+INTERSECT returns FALSE in line 15.
+

@@ -1,0 +1,28 @@
+256  Chapter8 Deadlocks
+
+Figure 8.5 Resource-allocation graph for deadlock avoidance.
+
+If no cycle exists, then the allocation of the resource will leave the system
+in a safe state. If a cycle is found, then the allocation will put the system in
+an unsafe state. Therefore, process P; will have to wait for its requests to be
+satisfied.
+
+To illustrate this algorithm, we consider the resource-allocation graph of
+Figure 8.5. Suppose that P2 requests R2. Although Rz is currently free, we
+cannot allocate it to P2, since this action will create a cycle in the graph (Figure
+8.6). A cycle indicates that the system is in an unsafe state. If P, requests Ro,
+and P2 requests R;, then a deadlock will occur.
+
+8.5.3 Banker’s Algorithm
+
+The resource-allocation graph algorithm is not applicable to a resource-
+allocation system with multiple instances of each resource type. The
+deadlock-avoidance algorithm that we describe next is applicable to such
+a system, but is less efficient than the resource-allocation graph scheme. This
+algorithm is commonly known as the banker's algorithm. The name was chosen
+because this algorithm could be used in a banking system to ensure that the
+
+ 
+
+Figure 8.6 An unsafe state in a resource-allocation graph.
+

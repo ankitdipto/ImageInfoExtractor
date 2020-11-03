@@ -1,0 +1,107 @@
+ 
+
+13.4 Kernel /O Subsystem 477
+
+table structure from Section 12.1. The kernel uses many similar structures to
+track network connections, character-device communications, and other 1/O
+activities.
+
+UNIX provides file-system access to a variety of entities, such as user files,
+raw devices, and the address spaces of processes. Although each of these
+entities supports a read() operation, the semantics differ. For instance, to
+read a user file, the kernel needs to probe the buffer cache before deciding
+whether to perform a disk I/O. To read a raw disk, the kernel needs to ensure
+that the request size is a multiple of the disk sector size, and is aligned on a
+sector boundary. To read a process image, it is merely necessary to copy data
+from memory. UNIX encapsulates these differences within a uniform structure
+by using an object-oriented technique. The open-file record, shown in Figure
+13.9, contains a dispatch table that holds pointers to the appropriate routines,
+depending on the type of file.
+
+Some operating systems use object-oriented methods even more exten-
+sively. For instance, Windows NT uses a message-passing implementation for
+1/0. An I/O request is converted into a message that is sent through the kernel
+to the I/O manager and then to the device driver, each of which may change the
+message contents. For output, the message contains the data to be written. For
+input, the message contains a buffer to receive the data. The message-passing
+approach can add overhead, by comparison with procedural techniques that
+use shared data structures, but it simplifies the structure and design of the I/O
+system, and adds flexibility.
+
+system-wide open-file table
+
+ 
+
+active-inode table ||
+
+file-system record
+
+inode pointer
+pointer to read and write functions
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+}| | pointer to select function
+Per-process | pf pointer to ioctl function
+file descriptor fp] _oPerfile table pointer to close function
+:
+2 =| _ network-
+networking (socket) record F | information table |
+
+pointer to network info
+pointer to read and write functions | |
+pointer to select function
+
+pointer to ioctl function
+pointer to close function
+
+ 
+
+ 
+
+user-process memory
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+TS
+
+ae eee
+
+ 
+
+Figure 13.9 UNIX 1/O kernel structure.
+

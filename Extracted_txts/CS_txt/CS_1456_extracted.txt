@@ -1,0 +1,46 @@
+Appendix C: Chasing The Bugs 703
+
+ 
+
+22]
+
+B]
+
+Using the operator = instead of the operator = =.
+
+What do you think will be the output of the following
+program:
+
+main()
+
+{
+int i= 10;
+while (i= 10)
+{
+
+printf (“got to get out" ) ;
+itt;
+}
+}
+
+At first glance it appears the message will be printed once and
+the control will come out of the loop since i becomes 11. But,
+actually we have fallen in an indefinite loop. This is because
+the = used in the condition always assigns the value 10 to i,
+and since i is non-zero the condition is satisfied and the body
+of the loop is executed over and over again.
+
+Ending a loop with a semicolon.
+Observe the following program.
+
+main()
+{
+int j=1;
+
+while (j <= 100) ;
+{
+printf ( "\nCompguara” ) ;
+jets
+}
+}
+

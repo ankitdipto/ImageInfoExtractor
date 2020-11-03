@@ -1,0 +1,51 @@
+ 
+
+ 
+
+18 LEARNING FROM
+
+OBSERVATIONS
+
+ 
+
+ 
+
+ 
+
+In which we describe agents that can improve their behavior through diligent study
+oftheir own experiences.
+
+The idea behind learning is that percepts should be used not only for acting, but also for improving
+the agent's ability to act in the future. Learning takes place as a result of the interaction between.
+the agent and the world, and from observation by the agent ofits own decision-making processes.
+
+Learning can range from trivial memorization of experience, as exhibited by the wumpus agent
+in Chapter 7, to the creation of entire scientific theories, as exhibited by Albert Einstein. This
+chapter starts with the design of general learning agents, and describes inductive learning—
+constructing a description ofa function from a set of input/output examples. We then give several
+algorithms for inductive learning in logical agents and a theoretical analysis that explains why
+learning works.
+
+18.1 A GENERAL MODEL OF LEARNING AGENTS
+
+LEARNING ELEMENT
+
+BEREO
+ewe Ne
+
+A learning agent can be divided into four conceptual components, as shown in Figure 18.1. The
+most important distinction is between the learning element, which is responsible for making
+improvements, and the performance element, which is responsible for selecting external actions.
+The performance element is what we have previously considered to be the entire agent: it takes in
+percepts and decides on actions. The learning element takes some knowledge about the learning
+element and some feedback on how the agent is doing, and determines how the performance
+element should be modified to (hopefully) do better in the future. The design of the leaming
+element depends very much on the design of the performance element. When trying to design an
+agent that leams a certain capability, the first question is not "How am I going to get it to learn
+this?” but "What kind of performance element will my agent need to do this once it has learned
+how?" For example, the learning algorithms for producing rules for logical systems are quite
+different from the learning algorithms for producing belief networks. We will see, however, that
+the principles behind the learning algorithms are much the same.
+
+525
+

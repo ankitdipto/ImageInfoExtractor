@@ -1,0 +1,44 @@
+Chapter 5: Functions & Pointers 185
+
+ 
+
+Value of i = 3
+Value of i = 3
+Value of i = 3
+Value of i = 3
+
+Figure 5.3 would help you in tracing out how the program prints
+the above output.
+
+Remember that when you run this program the addresses that get
+printed might turn out to be something different than the ones
+shown in the figure. However, with these addresses too the
+relationship between i, j and k can be easily established.
+
+ 
+
+ 
+
+65524 65522 65520
+
+ 
+
+ 
+
+ 
+
+Figure 5.3
+Observe how the variables j and k have been declared,
+int i,j. “k;
+
+Here, i is an ordinary int, j is a pointer to an int (often called an
+integer pointer), whereas k is a pointer to an integer pointer. We
+can extend the above program still further by creating a pointer to
+a pointer to an integer pointer. In principle, you would agree that
+likewise there could exist a pointer to a pointer to a pointer to a
+pointer to a pointer. There is no limit on how far can we go on
+extending this definition. Possibly, till the pomt we can
+comprehend it. And that point of comprehension is usually a
+pointer to a pointer. Beyond this one rarely requires to extend the
+definition of a pointer. But just in case...
+

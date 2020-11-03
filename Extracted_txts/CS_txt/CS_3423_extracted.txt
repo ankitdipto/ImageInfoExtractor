@@ -1,0 +1,66 @@
+Chapter 24. Perception
+
+ 
+
+MARKOV MODEL
+
+‘COARTICULATION
+
+HIDDEN MARKOV
+MODEL
+
+Hu
+
+The acoustic model: P(signallwords)
+
+The acoustic model is responsible for saying what sounds will be produced when a given string of
+words is uttered. We divide the model into two parts. First, we show how each word is described
+as a sequence of phones, and then we show how each phone relates to the vector quantization
+values extracted from the acoustic signal.
+
+Some words have very simple pronunciation models. The word "cat," for example, is
+always pronounced with the three phones fk a? t]. There are, however, two sources of phonetic
+variation. First, different dialects have different pronunciations. The top of Figure 24.35 gives
+an example of this: for "tomato," you say [tow mey tow] and I say [tow maa tow]. The
+alternative pronunciations are specified as a Markov model. In general, a Markov model is a
+way of describing a process that goes through a series of states. The model describes all the
+possible paths through the state space and assigns a probability to each one. The probability of
+transitioning from the current state to another one depends only on the current state, not on any
+prior part of the path. (This is the Markov property mentioned in Chapter 17.)
+
+The top of Figure 24.35 is a Markov model with seven states (circles), each corresponding
+to the production of a phone. The arrows denote allowable transitions between states, and each
+transition has a probability associated with it. There are only two possible paths through the
+model, one corresponding to the phone sequence [t ow m ey t ow] and the other to [t ow m aa
+tow]. The probability ofa path is the product of the probabilities on the arcs that make up the
+path. In this case, most of the arc probabilities are 1 and we have
+
+P([towmeytow]tomato”) = P([trowmaatow]{ tomato”) = 0.5
+
+The second source of phonetic variation is coarticulation. Remember that speech sounds are
+produced by moving the tongue and jaw and forcing air through the vocal tract. When the speaker
+is talking slowly and deliberately, there is time to place the tongue in just the right spot before
+producing a phone. But when the speaker is talking quickly (or sometimes even at a normal
+pace), the movements slur together. For example, the [t] phone is produced with the tongue at
+the top of the mouth, whereas the [ow] has the tongue near the bottom. When spoken quickly,
+the tongue often goes to an intermediate position, and we get [tah] rather than [tow]. The bottom.
+half of Figure 24.35 gives a more complicated pronunciation model for "tomato" that takes this
+coarticulation effect into account. In this model there are four distinct paths and we have
+
+P([towmeytow]|tomato!)= P([towmaatow] |“*tomato”) = 0.1
+P({tahmeytow]|"tomato!)= P({tahmaatow]|*tomato”) = 0.4
+
+Similar models would be constructed for every word we want to be able to recognize. Now ifthe
+speech signal were a list of phones, then we would be done with the acoustic model. We could
+take a given input signal (e.g., [towmeytow]) and compute P(signal|words) for various word
+strings (e.g., "tomato," "toe may tow," and so on). We could then combine these with P(words)
+values taken from the language model to arrive at the words that maximize P(words|signal).
+Unfortunately, signal processing does not give us a string of phones. So all we can do
+so far is maximize P(words|phones). Figure 24.36 shows how we can compute P(signal|phone)
+using a model called a hidden Markov model or HMM. The model is for a particular phone,
+
+3 Arcs with probability I are unlabelled in Figure 24.35. The 05 numbers are estimates based on the two authors’
+preferred pronunciations
+
+ 
+

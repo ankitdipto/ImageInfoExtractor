@@ -1,0 +1,47 @@
+15.3. Elements of dynamic programming 381
+
+problem are the edges incident to that subproblem. Recall that in rod cutting,
+the subproblem graph had 7 vertices and at most 1 edges per vertex, yielding an
+O(n?) running time. For matrix-chain multiplication, if we were to draw the sub-
+problem graph, it would have @(n7) vertices and each vertex would have degree at
+most n — 1, giving a total of O(n?) vertices and edges.
+
+Dynamic programming often uses optimal substructure in a bottom-up fashion.
+That is, we first find optimal solutions to subproblems and, having solved the sub-
+problems, we find an optimal solution to the problem. Finding an optimal solu-
+tion to the problem entails making a choice among subproblems as to which we
+will use in solving the problem. The cost of the problem solution is usually the
+subproblem costs plus a cost that is directly attributable to the choice itself. In
+rod cutting, for example, first we solved the subproblems of determining optimal
+ways to cut up rods of length i fori = 0,1,...,1 —1, and then we determined
+which such subproblem yielded an optimal solution for a rod of length 1, using
+equation (15.2). The cost attributable to the choice itself is the term p; in equa-
+tion (15.2). In matrix-chain multiplication, we determined optimal parenthesiza-
+tions of subchains of A; Aj +1 --- A;, and then we chose the matrix A, at which to
+split the product. The cost attributable to the choice itself is the term pj) Px P;-
+
+In Chapter 16, we shall examine “greedy algorithms,” which have many similar-
+ities to dynamic programming. In particular, problems to which greedy algorithms
+apply have optimal substructure. One major difference between greedy algorithms
+and dynamic programming is that instead of first finding optimal solutions to sub-
+problems and then making an informed choice, greedy algorithms first make a
+“greedy” choice—the choice that looks best at the time —and then solve a resulting
+subproblem, without bothering to solve all possible related smaller subproblems.
+Surprisingly, in some cases this strategy works!
+
+Subtleties
+
+You should be careful not to assume that optimal substructure applies when it does
+not. Consider the following two problems in which we are given a directed graph
+G =(V, E) and vertices u,v € V.
+
+Unweighted shortest path:> Find a path from u to v consisting of the fewest
+edges. Such a path must be simple, since removing a cycle from a path pro-
+duces a path with fewer edges.
+
+ 
+
+3We use the term “unweighted” to distinguish this problem from that of finding shortest paths with
+weighted edges, which we shall see in Chapters 24 and 25. We can use the breadth-first search
+technique of Chapter 22 to solve the unweighted problem.
+

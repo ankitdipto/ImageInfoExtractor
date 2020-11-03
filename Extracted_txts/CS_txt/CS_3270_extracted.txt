@@ -1,0 +1,48 @@
+ 
+
+KNOWLEDGE IN
+
+LEARNING
+
+ 
+
+ 
+
+ 
+
+ 
+
+In which we examine the problem oflearning when you already know something.
+
+In all of the approaches to learning described in the previous three chapters, the idea is to construct
+a program that has the input/output behavior observed in the data. We have seen how this general
+problem can be solved for simple logical representations, for neural networks, and for belief
+networks. In each case, the learning methods can be understood as searching a hypothesis space
+to find a suitable program. The learning methods also made few assumptions, if any, concerning
+the nature of the correct program. In this chapter, we go beyond these approaches to study
+
+PRIORKNOWLEDGE © learning methods that can take advantage of prior knowledge about the environment. We also
+examine learning algorithms that can learn general first-order logical theories. These are essential
+steps toward a truly autonomous intelligent agent.
+
+21.1 KNOWLEDGE IN LEARNING
+
+We begin by examining the ways in which prior knowledge can get into the act. In order to
+do this, it will help to have a general Jogical formulation of the learning problem, as opposed
+to thefunction-learning characterization of pure inductive inference given in Section 18.2. The
+reason that a logical characterization is helpful is that it provides a very natural way to specify
+partial information about the function to be learned. This is analogous to the distinction between
+problem solving (which uses a "black-box" functional view of states and goals) and planning
+(which opens up the black boxes and uses logical descriptions of states and actions).
+
+Recall from Section 18.5 that examples are composed of descriptions and classifications.
+The object of inductive learning in the logical setting is to find a hypothesis that explains the
+classifications of the examples, given their descriptions. We can make this logically precise as
+follows. If we use Descriptions to denote the conjunction of all the example descriptions, and
+Classifications to denote the conjunction of all the example classifications, then the Hypothesis
+must satisfy the following property:
+
+Hypothesis A Descriptions |: Classifications 21.1)
+
+625
+

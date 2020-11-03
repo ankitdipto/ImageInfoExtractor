@@ -1,0 +1,45 @@
+304 Let Us C
+
+ 
+
+How would you refer to the array element 1 in the above array?
+The first subscript should be [2], since the element is in third two-
+dimensional array; the second subscript should be [3] since the
+element is in fourth row of the two-dimensional array; and the
+third subscript should be [1] since the element is in second position
+in the one-dimensional array. We can therefore say that the
+element 1 can be referred as arr[2][3][1]. It may be noted here that
+the counting of array elements even for a 3-D array begins with
+zero. Can we not refer to this element using pointer notation? Of
+course, yes. For example, the following two expressions refer to
+the same element in the 3-D array:
+
+arr[2][3][1]
+“(*(*(arr+2)+3)+1)
+
+Summary
+
+(a) An array is similar to an ordinary variable except that it can
+store multiple elements of similar type.
+
+(b) Compiler doesn’t perform bounds checking on an array.
+
+(c) The array variable acts as a pointer to the zeroth element of
+the array. In a 1-D array, zeroth element is a single value,
+whereas, in a 2-D array this element is a 1-D array.
+
+(d) On incrementing a pointer it points to the next location of its
+type.
+
+(e) Array elements are stored in contiguous memory locations
+and so they can be accessed using pointers.
+
+(f) Only limited arithmetic can be done on pointers.
+
+Exercise
+Simple arrays
+
+[A] What would be the output of the following programs:
+
+(a) main()
+

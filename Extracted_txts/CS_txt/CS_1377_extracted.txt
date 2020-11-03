@@ -1,0 +1,41 @@
+632 Let UsC
+
+ 
+
+the file already exists. When using CreateFile() for device access
+we must always specify this parameter as OPEN_EXISTING.
+Since the floppy disk file was already opened by the OS a long
+time back during the booting. The remaining two parameters are
+not used when using CreateFile( ) API function for device access.
+Hence we have passed a 0 value for them. If the call to
+CreateFile() succeeds then we obtain a handle to the file (device).
+
+The device file mechanism allows us to read from the file (device)
+by setting the file pointer using the SetFilePointer() API function
+and then reading the file using the ReadFile( ) API function. Since
+every sector is 512 bytes long, to read from the n® sector we need
+to set the file pointer to the 512 * n bytes from the start of the file.
+The first parameter to SetFilePointer() is the handle of the device
+file that we obtained by calling the CreateFile( ) function. The
+second parameter is the byte offset from where the reading is to
+begin. This second parameter is relative to the third parameter. We
+have specified the third parameter as FILE_BEGIN which means
+the byte offset is relative to the start of the file.
+
+To actually read from the device file we have made a call to the
+ReadFile() API function. The ReadFile( ) function is very easy to
+use. The first parameter is the handle of the file (device), the
+second parameter is the address of a buffer where the read contents
+should be dumped. The third parameter is the count of bytes that
+have to be read. We have specified the value as 512 * num so as to
+read num sectors. The fourth parameter to ReadFile( ) is the
+address of an unsigned int variable which is set up with the count
+of bytes that the function was successfully able to read. Lastly,
+once our work with the device is over we should close the file
+(device) using the CloseHandle( ) API function.
+
+Though ReadSector( ) doesn’t need it, there does exist a
+counterpart of the ReadFile( ) function. Its name is WriteFile( ).
+This API function can be used to write to the file (device). The
+parameters of WriteFile( ) are same as that of ReadFile( ). Note
+

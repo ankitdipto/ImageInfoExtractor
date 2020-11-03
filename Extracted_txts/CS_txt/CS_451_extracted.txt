@@ -1,0 +1,51 @@
+32.4 The Knuth-Morris-Pratt algorithm 1007
+
+Correctness of the prefix-function computation
+
+We shall see a little later that the prefix function z helps us simulate the transition
+function 6 in a string-matching automaton. But first, we need to prove that the
+procedure COMPUTE-PREFIX-FUNCTION does indeed compute the prefix func-
+tion correctly. In order to do so, we will need to find all prefixes P; that are proper
+suffixes of a given prefix P,. The value of z[q] gives us the longest such prefix, but
+the following lemma, illustrated in Figure 32.11, shows that by iterating the prefix
+function 7, we can indeed enumerate all the prefixes P; that are proper suffixes
+of Py. Let
+
+mq] = (lg). lg). lg)... lal}
+
+where 7 [q] is defined in terms of functional iteration, so that 7 [q] = q and
+alg] = a[x [ql] for i > 1, and where the sequence in 2*[q] stops upon
+reaching 1 [q] =
+
+ 
+
+Lemma 32.5 (Prefix-function iteration lemma)
+Let P be a pattern of length m with prefix function 7. Then, for g = 1,2,...,m
+we have *[q] = {k :k <q and Py 3 Pj}.
+
+Proof We first prove that x*[q] S {k : k <q and Py 3 P,} or, equivalently,
+i € x*[q] implies Pj 3 P; . (32.7)
+
+If i € 2*[q], then i = 2 [q] for some u > 0. We prove equation (32.7) by
+induction on wu. For u = 1, we have i = z[g], and the claim follows since i < q¢
+and Pz{g) 3 Pg by the definition of 7. Using the relations [i] < i and Pry 3 Pi
+and the transitivity of < and — establishes the claim for all i in 2*[q]. Therefore,
+w*lq] C {kk <qand Py 3 Py}.
+
+We now prove that {k :k <q and Py 3 Py} © 2*[q] by contradiction. Sup-
+pose to the contrary that the set {k :k <q and Py 4 Pz} —x*[q] is nonempty,
+and let j be the largest number in the set. Because z[q] is the largest value in
+{kk <qand Py 5 Pz} and x[q] € 2*[q], we must have j < z[q], and so we
+let j’ denote the smallest integer in 2*[g] that is greater than j. (We can choose
+j' = 1[q] if no other number in 2*[q] is gi greater than j.) We have P; 4 Pg because
+Jj €{k:k <qand Py 5 Pz}, and from j’ € x*{q] and equation (32. 7), we have
+Pj, 3 Pg. Thus, P; 3 Pj, by Lemma 32.1, and j is the largest value less than j’
+with this property. ‘Therefore, we must have z[j’] = j and, since j’ € 1*[q], we
+must have j € 2*[q] as well. This contradiction proves the lemma. 7
+
+ 
+
+The algorithm COMPUTE-PREFIX-FUNCTION computes z[q], in order, for ¢ =
+1,2,...,m. Setting [1] to 0 in line 3 of COMPUTE-PREFIX-FUNCTION is cer-
+tainly correct, since [gq] < q for all g. We shall use the following lemma and
+

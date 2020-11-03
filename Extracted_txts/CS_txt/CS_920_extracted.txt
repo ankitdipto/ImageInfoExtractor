@@ -1,0 +1,43 @@
+250 Let Us C
+
+ 
+
+}
+
+Here are some important points to remember while writing macros
+with arguments:
+
+(a)
+
+()
+
+Be careful not to leave a blank between the macro template
+and its argument while defining the macro. For example, there
+should be no blank between AREA and (x) in the definition,
+#define AREA(x) (3.14 *x*x)
+
+If we were to write AREA (x) instead of AREA(s), the (x)
+would become a part of macro expansion, which we certainly
+don’t want. What would happen is, the template would be
+expanded to
+
+(11) (3.14 *r1*11)
+which won’t run. Not at all what we wanted.
+
+The entire macro expansion should be enclosed within
+parentheses. Here is an example of what would happen if we
+fail to enclose the macro expansion within parentheses.
+
+#define SQUARE(n) n*n
+main()
+{
+int j;
+j=64/ SQUARE (4);
+printf ("j= %d", j) ;
+}
+
+The output of the above program would be:
+j=64
+
+whereas, what we expected was j = 4.
+

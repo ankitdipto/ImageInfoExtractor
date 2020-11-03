@@ -1,0 +1,51 @@
+232 Chapter7 Process Synchronization
+
+7.9.4.2 Locking Protocol
+
+One way to ensure serializability is to associate with each data item a lock, and
+to require that each transaction follow a locking protocol that governs how
+locks are acquired and released. There are various modes in which a data item
+can be locked. In this section, we restrict our attention to two modes:
+
+« Shared: If a transaction T; has obtained a shared-mode lock (denoted by S)
+on data item Q, then T; can read this item, but cannot write Q.
+
+« Exclusive: If a transaction T; has obtained an exclusive-mode lock (denoted
+by X) on data item Q, then T; can both read and write Q.
+
+We require that every transaction request a lock in an appropriate mode on
+data item Q, depending on the type of operations it will perform on Q.
+
+To access a data item Q, transaction T; must first lock Q in the appropriate
+mode. If Q is not currently locked, then the lock is granted, and Tj can now
+access it. However, if the data item Q is currently locked by some other
+transaction, then T; may have to wait. More specifically, suppose that T;
+requests an exclusive lock on Q. In this case, T; must wait until the lock on Q is
+released. If T; requests a shared lock on Q, then T; must wait if Q is locked in
+exclusive mode. Otherwise, it can obtain the lock and access Q. Notice that this
+scheme is quite similar to the readers—writers algorithm discussed in Section
+7.5.2.
+
+A transaction may unlock a data item that it had locked at an earlier point.
+It must, however, hold a lock on a data item as long as it accesses that item.
+Moreover, it is not always desirable for a transaction to unlock a data item
+immediately after its last access of that data item, because serializability may
+not be ensured.
+
+One protocol that ensures serializability is the two-phase locking protocol.
+This protocol requires that each transaction issue lock and unlock requests in
+two phases:
+
+« Growing Phase: A transaction may obtain locks, but may not release any
+lock.
+
+Shrinking Phase: A transaction may release locks, but may not obtain any
+new locks.
+
+Initially, a transaction is in the growing phase. The transaction acquires
+locks as needed. Once the transaction releases a lock, it enters the shrinking
+phase, and no more lock requests can be issued.
+
+The two-phase locking protocol ensures conflict serializability (Exercise
+7.23). It does not, however, ensure freedom from deadlock. We note that it
+

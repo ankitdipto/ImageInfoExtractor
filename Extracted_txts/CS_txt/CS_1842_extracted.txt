@@ -1,0 +1,107 @@
+9.6 Segmentation with Paging 311
+
+consisting of 20 bits, and a page offset consisting of 12 bits. Since we page
+the page table, the page number is further divided into a 10-bit page directory
+pointer and a 10-bit page table pointer. The logical address is as follows:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+page number page offset
+Pi P2
+10 10 12
+
+The address-translation scheme for this architecture is similar to the scheme
+shown in Figure 9.13, The Intel address translation is shown in more detail in
+Figure 9.21. To improve the efficiency of physical-memory use, Intel 386 page
+tables can be swapped to disk. In this case, an invalid bit is used in the page-
+directory entry to indicate whether the table to which the entry is pointing is
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+logical address selector offset
+descriptor table
+segment descriptor
+linear address | directory | page | offset page frame
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+L physical address
+page directory page table
+
+directory entry page table entry
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+page directory
+base register
+
+ 
+
+Figure 9.21 Intel 80386 address translation.
+

@@ -1,0 +1,55 @@
+8.2 Deadlock Characterization 247
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 8.1 Resource-allocation graph.
+
+© Process states:
+
+© Process P; is holding an instance of resource type R2, and is waiting for
+an instance of resource type Rj.
+
+© Process P2 is holding an instance of R; and R2, and is waiting for an
+instance of resource type R3.
+
+© Process P3 is holding an instance of R3.
+
+Given the definition of a resource-allocation graph, it can be shown that, if
+the graph contains no cycles, then no process in the system is deadlocked. If the
+graph does contain a cycle, then a deadlock may exist.
+
+If each resource type has exactly one instance, then a cycle implies that a
+deadlock has occurred. If the cycle involves only a set of resource types, each
+of which has only a single instance, then a deadlock has occurred. Each process
+involved in the cycle is deadlocked. In this case, a cycle in the graph is both a
+necessary and a sufficient condition for the existence of deadlock.
+
+If each resource type has several instances, then a cycle does not necessarily
+imply that a deadlock has occurred. In this case, a cycle in the graph is a
+necessary but not a sufficient condition for the existence of deadlock.
+
+To illustrate this concept, let us return to the resource-allocation graph
+depicted in Figure 8,1. Suppose that process P3 requests an instance of resource
+type Ro. Since no resource instance is currently available, a request edge P3 >
+R; is added to the graph (Figure 8.2). At this point, two minimal cycles exist in
+the system:
+
+Py RP, R3> P3 > R> Py
+Py R3— P3— Ro Pr
+
+|
+|
+|
+
+ 
+

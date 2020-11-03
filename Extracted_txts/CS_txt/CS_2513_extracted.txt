@@ -1,0 +1,55 @@
+332 Chapter 10. Logical Reasoning Systems
+
+ 
+
+tractable. Hector Levesque and Ron Brachman (1987) showed that certain logical constructs,
+notably certain uses of disjunction and negation, were primarily responsible for the intractability %
+of logical inference. Building on the KL-ONE system (Schmolze and Lipkis, 1983), a number
+of systems have been developed whose designs incorporate the results of theoretical complexity
+analysis, most notably KRYPTON (Brachman er al., 1983) and Classic (Borgidaer al., 1989). The }
+result has been a marked increase in the speed of inference, and a much better understanding
+of the interaction between complexity and expressiveness in reasoning systems. On the other
+hand, as Doyle and Patil (1991) argue, restricting the expressiveness of a language either makes “4
+it impossible to solve certain problems, or encourages the user to circumvent the language
+restrictions using nonlogical means
+
+The study of truth maintenance systems began with the TMS (Doyle, 1979) and RUP |
+(McAllester, 1980) systems, both of which were essentially JTMSs. The ATMS approach was
+described in a series of papers by Johan de Kleer (1986c; 1986a; 1986b). Building Problem §
+Solvers (Forbus and de Kleer, 1993) explains in depth how TMSs can be used in AI applications.
+
+ 
+
+EXERCISES
+
+10.1 Recall that inheritance information in semantic networks can be captured logically by
+suitable implication sentences. In this exercise, we will consider the efficiency of using such
+sentences for inheritance.
+
+a. Consider the information content in a used-car catalogue such as Kelly's "Blue Book": §
+that, for example, 1973 Dodge Vans are worth $575. Suppose all this information (for
+11,000 models) is encoded as logical rules, as suggested in the chapter. Write down three
+such rules, including that for 1973 Dodge Vans. How would you use the rules to find the |
+value ofa particular car (¢.g., JB, which is a 1973 Dodge Van) given a backward-chaining
+theorem prover such as Prolog?
+
+b. Compare the time efficiency of the backward-chaining method for solving this problem
+with the inheritance method used in semantic nets
+
+c. Explain how forward chaining allows a logic-based system to solve the same problem.
+efficiently, assuming that the KB contains only the 11,000rules about price
+
+d. Describe a situation in which neither forward nor backward chaining on the rules will allow
+the price query for an individual car to be handled efficiently.
+
+e. Can you suggest a solution enabling this type of query to be solved efficiently in all cases in
+logic systems? (Hint: Remember that two cars of the same category have the same price.)
+
+10.2 The following Prolog code defines a relation R.
+R([],X,X).
+R({A|X],¥, [A|Z]) = R(X, ¥,2Z)
+a. Show the proof tree and solution obtained for the queries
+R( [1,2] ,L, [1,2,3.4]) and R(L,M, [1,2,3,4])
+
+ 
+

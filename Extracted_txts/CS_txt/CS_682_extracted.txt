@@ -1,0 +1,43 @@
+56 Let Us C
+
+ 
+
+if ( expression )
+
+statement ;
+Here the expression can be any valid expression including a
+relational expression. We can even use arithmetic expressions in
+
+the if statement. For example all the following if statements are
+valid
+
+if(3+2%5)
+printf (“This works" ) ;
+
+if(a=10)
+printf ("Even this works" ) ;
+
+if(-5)
+printf ("Surprisingly even this works" ) ;
+
+Note that in C a non-zero value is considered to be true, whereas a
+0 is considered to be false. In the first if, the expression evaluates
+to 5 and since 5 is non-zero it is considered to be true. Hence the
+printf() gets executed.
+
+In the second if, 10 gets assigned to a so the if is now reduced to if
+(a ) or if ( 10 ). Since 10 is non-zero, it is true hence again
+printf() goes to work.
+
+In the third if, -5 is a non-zero number, hence true. So again
+printf() goes to work. In place of -5 even if a float like 3.14 were
+used it would be considered to be true. So the issue is not whether
+the number is integer or float, or whether it is positive or negative.
+Issue is whether it is zero or non-zero.
+
+Multiple Statements within if
+
+It may so happen that in a program we want more than one
+statement to be executed if the expression following if is satisfied.
+If such multiple statements are to be executed then they must be
+

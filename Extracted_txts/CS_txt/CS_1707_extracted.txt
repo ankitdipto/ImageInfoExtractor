@@ -1,0 +1,73 @@
+7.3. Synchronization Hardware 199
+
+void Swap(boolean ka, boolean &b) {
+boolean temp = a;
+a=b;
+b = temp;
+
+}
+
+Figure 7.8 The definition of the Swap instruction.
+
+If the machine supports the TestAndSet instruction, then we can imple-
+ment mutual exclusion by declaring a Boolean variable lock, initialized to
+false. The structure of process P; is shown in Figure 7.7.
+
+The Swap instruction, defined as shown in Figure 7.8, operates on the con-
+tents of two words; like the Test AndSet instruction, it is executed atomically.
+
+If the machine supports the Swap instruction, then mutual exclusion can
+be provided as follows. A global Boolean variable lock is declared and is
+initialized to false. In addition, each process also has a local Boolean variable
+key. The structure of process P; is shown in Figure 7.9.
+
+These algorithms do not satisfy the bounded-waiting requirement. We
+present an algorithm that uses the TestAndSet instruction in Figure 7.10.
+This algorithm satisfies all the critical-section requirements. The common data
+structures are
+
+boolean waiting[n] ;
+boolean lock;
+
+These data structures are initialized to false. To prove that the mutual-
+exclusion requirement is met, we note that process P; can enter its critical section
+
+do {
+
+ 
+
+key = true;
+while (key == true)
+Swap (lock, key) ;
+
+ 
+
+ 
+
+critical section
+
+ 
+
+ 
+
+lock = false;
+
+ 
+
+ 
+
+remainder section
+} while (1);
+
+Figure 7.9 Mutual-exclusion implementation with the Swap instruction.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

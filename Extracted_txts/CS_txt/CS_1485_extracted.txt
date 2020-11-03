@@ -1,0 +1,51 @@
+1.7 Real-Time Systems 17
+
+machine can take ownership of its storage, and restart the application(s) that
+were running on the failed machine. The failed machine can remain down, but
+the users and clients of the application would only see a brief interruption of
+service.
+
+In asymmetric clustering, one machine is in hot standby mode while
+the other is running the applications. The hot standby host (machine) does
+nothing but monitor the active server. If that server fails, the hot standby host
+becomes the active server. In symmetric mode, two or more hosts are running
+applications, and they are monitoring each other. This mode is obviously more
+efficient, as it uses all of the available hardware. It does require that more than
+one application be available to run.
+
+Other forms of clusters include parallel clusters and clustering over a WAN.
+Parallel clusters allow multiple hosts to access the same data on the shared
+storage. Because most operating systems lack support for this simultaneous
+data access by multiple hosts, parallel clusters are usually accomplished by
+special versions of software and special releases of applications. For example,
+Oracle Parallel Server is a version of Oracle’s database that has been designed
+to run on parallel clusters. Each machine runs Oracle, and a layer of software
+tracks access to the shared disk. Each machine has full access to all data in the
+database.
+
+In spite of improvements in distributed computing, most systems do not
+offer general-purpose distributed file systems. Therefore, most clusters do
+not allow shared access to data on the disk. For this, distributed file systems
+must provide access control and locking to the files to ensure no conflicting
+operations occur. This type of service is commonly known asa distributed lock
+manager (DLM). Work is ongoing for general-purpose distributed file systems,
+with vendors like Sun Microsystems announcing roadmaps for delivery of a
+DLM within the operating system.
+
+Cluster technology is rapidly changing. Cluster directions include global
+clusters, in which the machines could be anywhere in the world (or anywhere a
+WAN reaches). Such projects are still the subject of research and development.
+
+Clustered system use and features should expand greatly as storage-area
+networks (SANs), as described in Section 14.6.3, become prevalent. SANs allow
+easy attachment of multiple hosts to multiple storage units. Current clusters
+are usually limited to two or four hosts due to the complexity of connecting the
+hosts to shared storage.
+
+1.7 = Real-Time Systems
+
+Another form of a special-purpose operating system is the real-time system. A
+real-time system is used when rigid time requirements have been placed on the
+operation of a processor or the flow of data; thus, it is often used as a control
+device in a dedicated application. Sensors bring data to the computer. The com-
+

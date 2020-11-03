@@ -1,0 +1,44 @@
+Chapter 2: The Decision Control Structure 69
+
+ 
+
+if (age > 30)
+
+printf ( "Driver is insured” ) ;
+else
+
+printf ( "Driver is not insured” ) ;
+
+else
+if (age > 25)
+printf ( "Driver is insured” ) ;
+else
+printf ( "Driver is not insured” ) ;
+}
+
+}
+
+From the program it is evident that we are required to match
+several ifs and elses and several pairs of braces. In a more real-life
+situation there would be more conditions to check leading to the
+program creeping to the right. Let us now see how to avoid these
+problems by using logical operators.
+
+As mentioned above, in this example we expect the answer to be
+either ‘Driver is insured’ or ‘Driver is not insured’. If we list down
+all those cases in which the driver is insured, then they would be:
+
+(a) Driver is married.
+(b) Driver is an unmarried male above 30 years of age.
+(c) Driver is an unmarried female above 25 years of age.
+
+Since all these cases lead to the driver being insured, they can be
+combined together using && and || as shown in the program
+below:
+
+/" Insurance of driver - using logical operators */
+main()
+{
+
+char sex, ms ;
+

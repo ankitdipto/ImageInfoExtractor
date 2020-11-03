@@ -1,0 +1,49 @@
+16.3 Huffman codes 435
+
+The next lemma shows that the problem of constructing optimal prefix codes has
+the optimal-substructure property.
+
+Lemma 16.3
+
+Let C be a given alphabet with frequency c.freq defined for each character c € C.
+Let x and y be two characters in C with minimum frequency. Let C’ be the
+alphabet C with the characters x and y removed and a new character z added,
+so that C'’ = C — {x,y} U {z}. Define f for C’ as for C, except that
+z.freq = x.freq + y.freq. Let T’ be any tree representing an optimal prefix code
+for the alphabet C’. Then the tree 7’, obtained from T’ by replacing the leaf node
+for z with an internal node having x and y as children, represents an optimal prefix
+code for the alphabet C.
+
+Proof We first show how to express the cost B(T) of tree T in terms of the
+cost B(T’) of tree T’, by considering the component costs in equation (16.4).
+For each character c € C — {x,y}, we have that d7(c) = d7-(c), and hence
+c. freq: dr(c) = c. freq + dp(c). Since dr(x) = dr(y) = dr(z) + 1, we have
+x.freq: dr(x) + y.freq: dr(y) (x.freq + y.freq)(dr(z) + 1)
+
+= Z.freq-dr(z) + (x.freq + y.freq) .
+
+from which we conclude that
+B(T) = B(T') + x.freq + y.freq
+or, equivalently,
+B(T') = B(T) —x.freq— y.freq .
+
+We now prove the lemma by contradiction. Suppose that T does not repre-
+sent an optimal prefix code for C. Then there exists an optimal tree 7” such that
+B(T") < B(T). Without loss of generality (by Lemma 16.2), T” has x and y as
+
+siblings. Let T’” be the tree T” with the common parent of x and y replaced by a
+leaf z with frequency z.freq = x.freq + y.freq. Then
+
+BIT”) = B(T")—x.freq—y.freq
+
+< B(T)—x.freq—y.freq
+
+= BT).
+yielding a contradiction to the assumption that 7’ represents an optimal prefix code
+for C’. Thus, T must represent an optimal prefix code for the alphabet C. .
+Theorem 16.4
+
+Procedure HUFFMAN produces an optimal prefix code.
+
+Proof Immediate from Lemmas 16.2 and 16.3. .
+

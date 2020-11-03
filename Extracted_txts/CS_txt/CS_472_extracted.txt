@@ -1,0 +1,40 @@
+33.2 Determining whether any pair of segments intersects 1023
+
+ 
+
+Figure 33.4 The ordering among line segments at various vertical sweep lines. (a) Wehave a =r c,
+a >t b,b = c,a =; c, and b y c. Segment d is comparable with no other segment shown.
+(b) When segments e and /f intersect, they reverse their orders: we have e =y f but f =w e. Any
+sweep line (such as z) that passes through the shaded region has e and f consecutive in the ordering
+given by the relation =z.
+
+also reflexive, but neither symmetric nor antisymmetric.) The total preorder may
+differ for differing values of x, however, as segments enter and leave the ordering.
+A segment enters the ordering when its left endpoint is encountered by the sweep,
+and it leaves the ordering when its right endpoint is encountered.
+
+What happens when the sweep line passes through the intersection of two seg-
+ments? As Figure 33.4(b) shows, the segments reverse their positions in the total
+preorder. Sweep lines v and w are to the left and right, respectively, of the point
+of intersection of segments e and f, and we have e >, f and f >y e. Note
+that because we assume that no three segments intersect at the same point, there
+must be some vertical sweep line x for which intersecting segments e and f are
+consecutive in the total preorder >. Any sweep line that passes through the shaded
+region of Figure 33.4(b), such as z, has e and f consecutive in its total preorder.
+
+Moving the sweep line
+Sweeping algorithms typically manage two sets of data:
+
+1. The sweep-line status gives the relationships among the objects that the sweep
+line intersects.
+
+2. The event-point schedule is a sequence of points, called event points, which
+we order from left to right according to their x-coordinates. As the sweep
+progresses from left to right, whenever the sweep line reaches the x-coordinate
+of an event point, the sweep halts, processes the event point, and then resumes.
+Changes to the sweep-line status occur only at event points.
+
+For some algorithms (the algorithm asked for in Exercise 33.2-7, for example),
+the event-point schedule develops dynamically as the algorithm progresses. The al-
+gorithm at hand, however, determines all the event points before the sweep, based
+

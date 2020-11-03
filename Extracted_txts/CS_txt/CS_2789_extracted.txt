@@ -1,0 +1,36 @@
+14
+
+Augmenting Data Structures
+
+Some engineering situations require no more than a “textbook” data struc-
+ture—such as a doubly linked list, a hash table, or a binary search tree—but many
+others require a dash of creativity. Only in rare situations will you need to cre-
+ate an entirely new type of data structure, though. More often, it will suffice to
+augment a textbook data structure by storing additional information in it. You can
+then program new operations for the data structure to support the desired applica-
+tion. Augmenting a data structure is not always straightforward, however, since the
+added information must be updated and maintained by the ordinary operations on
+the data structure.
+
+This chapter discusses two data structures that we construct by augmenting red-
+black trees. Section 14.1 describes a data structure that supports general order-
+statistic operations on a dynamic set. We can then quickly find the ith smallest
+number in a set or the rank of a given element in the total ordering of the set.
+Section 14.2 abstracts the process of augmenting a data structure and provides a
+theorem that can simplify the process of augmenting red-black trees. Section 14.3
+uses this theorem to help design a data structure for maintaining a dynamic set of
+intervals, such as time intervals. Given a query interval, we can then quickly find
+an interval in the set that overlaps it.
+
+ 
+
+14.1 Dynamic order statistics
+
+Chapter 9 introduced the notion of an order statistic. Specifically, the ith order
+statistic of a set of n elements, where i € {1,2,...,7}, is simply the element in the
+set with the ith smallest key. We saw how to determine any order statistic in O(n)
+time from an unordered set. In this section, we shall see how to modify red-black
+trees so that we can determine any order statistic for a dynamic set in O(1g/) time.
+We shall also see how to compute the rank of an element—its position in the linear
+order of the set—in O(lg) time.
+

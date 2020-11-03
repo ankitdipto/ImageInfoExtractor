@@ -1,0 +1,55 @@
+section 4.1
+
+Best-First Search 99
+
+ 
+
+OPTMALLY
+EFFICIENT,
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 45 Map of Romania showing contours at f = 380,f = 400 and / = 420, with Arad as
+the start state. Nodes inside a given contour have f-costs lower than the contour value.
+
+ 
+
+ 
+
+ 
+
+increasing f, we must eventually reach a band where f is equal to the cost of the path to a goal
+state. We will turn these intuitions into proofs in the next subsection.
+
+One final observation is that among optimal algorithms of this type—algorithms that extend
+search paths from the root—A” is optimally efficient for any given heuristic function. That is,
+no other optimal algorithm is guaranteed to expand fewer nodes than A*. We can explain this
+as follows: any algorithm that does not expand all nodes in the contours between the root and
+the goal contour runs the risk of missing the optimal solution. A long and detailed proof of this
+result appears in Dechter and Pearl (1985)
+
+Proof of the optimality of A*
+
+Let G be an optimal goal state, with path cost f*. Let Gz be a suboptimal goal state, that is, a
+goal state with path cost 9(G2) > f*. The situation we imagine is that A* has selected Gz from
+the queue. Because G; is a goal state, this would terminate the search with a suboptimal solution
+(Figure 4.6). We will show that this is not possible.
+
+Consider a node n that is currently a leaf node on an optimal path to G (there must be some
+such node, unless the path has been completely expanded—in which case the algorithm would
+have returned G). Because h is admissible, we must have
+
+T =f.
+Furthermore, ifn is not chosen for expansion over G2, we must have
+
+fin) 2 HG).
+Combining these two together, we get
+
+T > f(G).
+

@@ -1,0 +1,54 @@
+Section 21.2. Explanation-Based Learning 629
+
+ 
+
+1.2 EXPLANATION-BASED LEARNING
+
+As we explained in the introduction to this chapter, explanation-based learning is a method for
+extracting general rules from individual observations. As an example, consider the problem
+of differentiating and simplifying algebraic expressions (Exercise 10.4). If we differentiate an
+expression such as X* with respect to X, we obtain 2X. (Notice that we use a capital letter for
+the arithmetic unknown X, to distinguish it from the logical variable x.) In a logical reasoning
+system, the goal might be expressed as ASK(Derivative(X2X) =d, KB), with solution d = 2X.
+
+We can see this solution "by inspection" because we have many years of practice in
+solving such problems. A student encountering such problems for the first time, or a program
+with no experience, will have a much more difficult job. Application of the standard rules of
+differentiation eventually yields the expression 1 x (2 x (X@7)), and eventually this simplifies
+to 2X In the authors’ logic programming implementation, this takes 136 proof steps, of which
+99 are on dead-end branches in the proof. After such an experience, we would like the program
+to solve the same problem much more quickly the next time.
+
+MEMOIZATION The technique of memoization has long been used in computer science to speed up
+programs by saving the results of computation. The basic idea of memo functions is to accumulate
+a database of input/output pairs; when the function is called, it first checks the database to see if
+it can avoid solving the problem from scratch. Explanation-based learning takes this a good deal
+further, by creating general rules that cover an entire class of cases. In the case of differentiation,
+memoization would remember that the derivative ofX? with respect to XY is 2X, but would leave
+the agent to calculate the derivative ofZ’ with respect to Z from scratch. We would like to be able
+to extract the general rule! that for any arithmetic unknown w, the derivative of u? with respect to
+u is 2u. In logical terms, this is expressed by the rule
+
+ArithmeticUnknown(u) = Derivative(u*, u)= 2u
+
+If the knowledge base contains such a rule, then any new case that is an instance of this rule can
+be solved immediately.
+
+This is, ofcourse, merely a trivial example ofa very general phenomenon. Once something
+is understood, it can be generalized and reused in other circumstances. It becomes an "obvious"
+step, and can then be used as a building block in solving still more complex problems. Alfred
+North Whitehead (1911), co-author with Bertrand Russell of Principia Mathematica, wrote that
+
+"Civilization advances by extending the number of important operations that we can do without
+thinking about them," perhaps himself applying EBL to his understanding of events such as
+Thag’s discovery. Ifyou have understood the basic idea of the differentiation example, then your
+brain is already busily trying to extract the general principles of explanation-based learning from
+it. Notice that unless you are a good deal smarter than the authors, you hadn't already invented
+EBL before we showed you an example of it. Like the cavemen watching Thag, you (and we)
+needed an example before we could generate the basic principles. This is because explaining
+why something is a good idea is much easier than coming up with the idea in the first place.
+
+ 
+
+1 Ofcourse, a general rule for u" can also be produced, but the current example suffices to make the point.
+

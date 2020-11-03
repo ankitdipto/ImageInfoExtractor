@@ -1,0 +1,57 @@
+818
+
+Chapter 28 Matrix Operations
+
+Procedure LUP-SOLVE solves for y using forward substitution in lines 3-4, and
+then it solves for x using backward substitution in lines 5—6. Since the summation
+within each of the for loops includes an implicit loop, the running time is O(n).
+
+As an example of these methods, consider the system of linear equations defined
+by
+
+120 3
+3.4 4]}x=] 7].
+5 6 3 8
+where
+120
+34 4],
+5 6 3
+3
+b= 7).
+8
+
+and we wish to solve for the unknown x. The LUP decomposition is
+
+A
+
+1 00
+Le= 0.2 #1 °0
+0.6 0.5 1
+5 6 3
+U = 0 0.8 —0.6
+0 0 25
+P
+
+I
+—
+ono
+Hoo
+oot
+wn’
+
+(You might want to verify that PA = LU.) Using forward substitution, we solve
+Ly = Pb for y:
+
+1 0 0\/y 8
+02 1 0}, )=/ 3).
+0.6 05 1) \y5 7
+
+obtaining
+
+8
+y=] 14
+1.5
+
+by computing first y;, then y>, and finally y3. Using back substitution, we solve
+Ux = y for x:
+

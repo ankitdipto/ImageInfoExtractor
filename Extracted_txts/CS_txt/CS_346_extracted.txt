@@ -1,0 +1,48 @@
+Problems for Chapter 30 921
+
+c. Show how to multiply two n-bit integers in O(n'83) steps, where each step
+operates on at most a constant number of | -bit values.
+
+30-2 Toeplitz matrices
+A Toeplitz matrix is an n x n matrix A = (a;;) such that aj; = dj—1,;-1 for
+i=2,3,....nand j =2,3,....n.
+
+a. Is the sum of two Toeplitz matrices necessarily Toeplitz? What about the prod-
+uct?
+
+b. Describe how to represent a Toeplitz matrix so that you can add two n x n
+Toeplitz matrices in O(n) time.
+
+ce. Give an O(n lg n)-time algorithm for multiplying an 1 x n Toeplitz matrix by a
+vector of length n. Use your representation from part (b).
+
+d. Give an efficient algorithm for multiplying two nxn Toeplitz matrices. Analyze
+its running time.
+
+30-3 Multidimensional fast Fourier transform
+
+We can generalize the 1-dimensional discrete Fourier transform defined by equa-
+tion (30.8) to d dimensions. The input is a d-dimensional array A = (4j,,j,..., j,)
+whose dimensions are 1;,17,...,q, Where NjNz++-Ng = n. We define the
+d-dimensional discrete Fourier transform by the equation
+
+m-Im-1— ng-l
+
+= ayltki ginko jaka
+Vr ovekis = DY Dy DY Giriaoenta Oa OR 0
+
+A=0 jo=0 — ja=0
+
+for 0 < ky <m,0 <ky <m2,...,0< ka <a.
+
+a. Show that we can compute a d-dimensional DFT by computing 1-dimensional
+DFTs on each dimension in turn. That is, we first compute n/n, separate
+1-dimensional DFTs along dimension 1. Then, using the result of the DFTs
+along dimension | as the input, we compute n/n separate 1-dimensional DFTs
+along dimension 2. Using this result as the input, we compute n/n3 separate
+1-dimensional DFTs along dimension 3, and so on, through dimension d.
+
+b. Show that the ordering of dimensions does not matter, so that we can compute
+a d-dimensional DFT by computing the |-dimensional DFTs in any order of
+the d dimensions.
+

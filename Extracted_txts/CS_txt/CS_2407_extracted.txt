@@ -1,0 +1,47 @@
+2.3 Designing algorithms 29
+
+order of growth. But for large enough inputs, a (7) algorithm, for example, will
+run more quickly in the worst case than a @(3) algorithm.
+
+Exercises
+
+2.2-1
+Express the function 13/1000 — 100n? — 100n + 3 in terms of ©-notation.
+
+2.2-2
+
+Consider sorting 1 numbers stored in array A by first finding the smallest element
+of A and exchanging it with the element in A[1]. Then find the second smallest
+element of A, and exchange it with A[2]. Continue in this manner for the first n — 1
+elements of A. Write pseudocode for this algorithm, which is known as selection
+sort. What loop invariant does this algorithm maintain? Why does it need to run
+for only the first 7 — 1 elements, rather than for all n elements? Give the best-case
+and worst-case running times of selection sort in ©-notation.
+
+2.2-3
+
+Consider linear search again (see Exercise 2.1-3). How many elements of the in-
+put sequence need to be checked on the average, assuming that the element being
+searched for is equally likely to be any element in the array? How about in the
+worst case? What are the average-case and worst-case running times of linear
+search in ©-notation? Justify your answers.
+
+2.24
+How can we modify almost any algorithm to have a good best-case running time?
+
+ 
+
+2.3 Designing algorithms
+
+We can choose from a wide range of algorithm design techniques. For insertion
+sort, we used an incremental approach: having sorted the subarray A[1.. j — 1],
+we inserted the single element A[j] into its proper place, yielding the sorted
+subarray A[1.. j].
+
+In this section, we examine an alternative design approach, known as “divide-
+and-conquer,” which we shall explore in more detail in Chapter 4. We’ll use divide-
+and-conquer to design a sorting algorithm whose worst-case running time is much
+less than that of insertion sort. One advantage of divide-and-conquer algorithms is
+that their running times are often easily determined using techniques that we will
+see in Chapter 4.
+

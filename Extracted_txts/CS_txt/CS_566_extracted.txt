@@ -1,0 +1,49 @@
+1100
+
+Chapter 34 NP-Completeness
+
+respond to literals with the value | in the satisfying assignment. Having included
+either v; or v/, but not both, for all 7, and having put 0 in the digits labeled by
+variables in all s; and Sj we see that for each variable-labeled digit, the sum of the
+values of S’ must be 1, which matches those digits of the target t. Because each
+clause is satisfied, the clause contains some literal with the value 1. Therefore,
+each digit labeled by a clause has at least one 1 contributed to its sum by a v; or v;
+value in S’. In fact, 1, 2, or 3 literals may be 1 in each clause, and so each clause-
+labeled digit has a sum of 1, 2, or 3 from the v; and v; values in S’. In Figure 34.19
+for example, literals =x, +2, and x3 have the value | in a satisfying assignment.
+Each of clauses C, and C, contains exactly one of these literals, and so together v{,,
+v3, and v3 contribute | to the sum in the digits for C, and C4. Clause C, contains
+two of these literals, and v}, v5, and v3 contribute 2 to the sum in the digit for C).
+Clause C3 contains all three of these literals, and v}, v3, and v3 contribute 3 to the
+sum in the digit for C3. We achieve the target of 4 in each digit labeled by clause C;
+by including in S’ the appropriate nonempty subset of slack variables {s,s}. In
+Figure 34.19, S’ includes 51, 51,55, 53, 54, and s/,. Since we have matched the target
+in all digits of the sum, and no carries can occur, the values of S’ sum to ¢.
+
+Now, suppose that there is a subset S’ C S that sums to ¢. The subset S’ must
+
+include exactly one of v; and v; for each i = 1,2,..., n, for otherwise the digits
+labeled by variables would not sum to 1. If v; € S’, we set x; = 1. Otherwise,
+v; € S’, and we set x; = 0. We claim that every clause Cj, for j = 1,2,..., kis
+
+satisfied by this assignment. To prove this claim, note that to achieve a sum of 4 in
+the digit labeled by C;, the subset S’ must include at least one v; or vj value that
+has a 1 in the digit labeled by C;, since the contributions of the slack variables 5;
+and s’ together sum to at most 3. If S’ includes a v; that has a | in C;’s position,
+then the literal x; appears in clause Cj. Since we have set x; = 1 when v; € S’,
+clause C; is satisfied. If S’ includes a vj that has a | in that position, then the
+literal +x; appears in C;. Since we have set x; = 0 when v/ € S’, clause C; is
+again satisfied. Thus, all clauses of ¢ are satisfied, which completes the proof. =
+
+Exercises
+
+34.5-1
+
+The subgraph-isomorphism problem takes two undirected graphs G; and G2, and
+it asks whether G; is isomorphic to a subgraph of G2. Show that the subgraph-
+isomorphism problem is NP-complete.
+
+34.5-2
+Given an integer m x n matrix A and an integer m-vector b, the 0-1 integer-
+programming problem asks whether there exists an integer n-vector x with ele-
+

@@ -1,0 +1,40 @@
+26.2. The Ford-Fulkerson method 721
+
+ 
+
+Figure 26.5 A cut (S,7) in the flow network of Figure 26.1(b), where S = {s,v1,v2} and
+T ={v3,v4,t}. The vertices in S are black, and the vertices in T are white. The net flow
+across (S, T) is f(S, T) = 19, and the capacity is c(S, 7) = 26.
+
+The capacity of the cut (S,T) is
+c(S.T) = > Yo etu.v). (26.10)
+
+ues veT
+A minimum cut of a network is a cut whose capacity is minimum over all cuts of
+the network.
+
+The asymmetry between the definitions of flow and capacity of a cut is inten-
+tional and important. For capacity, we count only the capacities of edges going
+from S to T, ignoring edges in the reverse direction. For flow, we consider the
+flow going from S to T minus the flow going in the reverse direction from T to S.
+The reason for this difference will become clear later in this section.
+
+Figure 26.5 shows the cut ({s,v1.V2}.{¥3.V4.f}) in the flow network of Fig-
+ure 26.1(b). The net flow across this cut is
+
+F (V1.3) + fv2,¥4) — f (3,2) = 124+11-4
+19,
+and the capacity of this cut is
+
+12+ 14
+26.
+
+(V1, V3) + C(V2, V4)
+
+The following lemma shows that, for a given flow /’, the net flow across any cut
+is the same, and it equals | f|, the value of the flow.
+
+Lemma 26.4
+Let f be a flow in a flow network G with source s and sink f, and let (S, 7) be any
+cut of G. Then the net flow across (S,T) is f(S.T) = |f|-
+

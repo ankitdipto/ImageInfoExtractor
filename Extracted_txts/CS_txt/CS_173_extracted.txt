@@ -1,0 +1,47 @@
+27.1 The basics of dynamic multithreading 781
+
+the span law implies that the speedup satisfies T,/Tp < T1/To. < P. Moreover,
+if the number P of processors in the ideal parallel computer greatly exceeds the
+parallelism—that is, if P >> T;/T..—then T;/Tp « P, so that the speedup is
+much less than the number of processors. In other words, the more processors we
+use beyond the parallelism, the less perfect the speedup.
+
+As an example, consider the computation P-F1B(4) in Figure 27.2, and assume
+that each strand takes unit time. Since the work is 7; = 17 and the span is T,. = 8,
+the parallelism is T;/T.. = 17/8 = 2.125. Consequently, achieving much more
+than double the speedup is impossible, no matter how many processors we em-
+ploy to execute the computation. For larger input sizes, however, we shall see that
+P-FIB(1) exhibits substantial parallelism.
+
+We define the (parallel) slackness of a multithreaded computation executed
+on an ideal parallel computer with P processors to be the ratio (7/Ts.)/P =
+T;/(PT,.), which is the factor by which the parallelism of the computation ex-
+ceeds the number of processors in the machine. Thus, if the slackness is less than 1,
+we cannot hope to achieve perfect linear speedup, because T;/(PT,,) < 1 and the
+span law imply that the speedup on P processors satisfies T,/Tp < T/T < P.
+Indeed, as the slackness decreases from 1 toward 0, the speedup of the computation
+diverges further and further from perfect linear speedup. If the slackness is greater
+than 1, however, the work per processor is the limiting constraint. As we shall see,
+as the slackness increases from 1, a good scheduler can achieve closer and closer
+to perfect linear speedup.
+
+Scheduling
+
+Good performance depends on more than just minimizing the work and span. The
+strands must also be scheduled efficiently onto the processors of the parallel ma-
+chine. Our multithreaded programming model provides no way to specify which
+strands to execute on which processors. Instead, we rely on the concurrency plat-
+form’s scheduler to map the dynamically unfolding computation to individual pro-
+cessors. In practice, the scheduler maps the strands to static threads, and the op-
+erating system schedules the threads on the processors themselves, but this extra
+level of indirection is unnecessary for our understanding of scheduling. We can
+just imagine that the concurrency platform’s scheduler maps strands to processors
+directly.
+
+A multithreaded scheduler must schedule the computation with no advance
+knowledge of when strands will be spawned or when they will complete —it must
+operate on-line. Moreover, a good scheduler operates in a distributed fashion,
+where the threads implementing the scheduler cooperate to load-balance the com-
+putation. Provably good on-line, distributed schedulers exist, but analyzing them
+is complicated.
+

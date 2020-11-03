@@ -1,0 +1,58 @@
+Section 13.4.
+
+COERCION
+
+AGGREGATION
+
+Discussion and Extensions 409
+
+Conditional planning and replanning are really two extremes of a continuous spectrum.
+One way to construct intermediate systems is to specify disjunctive outcomes for actions where
+more than one outcome is reasonably likely. Then the agent can insert a sensing action to see
+which outcome occurred and construct a conditional plan accordingly. Other contingencies are
+dealt with by replanning. Although this approach has its merits, it requires the agent designer
+to decide which outcomes need tb be considered. This also means that the decision must be
+made once for each action schema, rather than depending on the particular context of the action.
+In the case of the provision of spare tires, for example, it is clear that the decision as to which
+contingencies to plan for depends notjust on the likelihood of occurrence—afterall, punctures are
+quite rare—but also on the cost of an action failure. An unlikely condition needs to be taken into
+account ifit would result in catastrophe (e.g., a puncture when driving across a remote desert).
+Even ifa conditional plan can be constructed, it might be better to plan around the suspect action
+altogether (e.g., by bringing two spare tires or crossing the desert by camel).
+
+What all this suggests is that when faced with a complex domain and incomplete and
+incorrect information, the agent needs a way to assess the likelihoods and costs of various
+outcomes. Given this information, it should construct a plan that maximizes the probability of
+success and minimizes costs, while ignoring contingencies that are unlikely or are easy to deal
+with. Part V of this book deals with these issues in depth.
+
+Coercion and abstraction
+
+Although incomplete and incorrect information is the normal situation in real domains, there are
+techniques that still allow an agent to make quite complex, long-range plans without requiring
+the full apparatus of reasoning about likelihoods
+
+The first method an agent can apply is coercion, which reduces uncertainty about the world
+by forcing it into a known state regardless of the initial state. A simple example is provided by
+the table-painting problem. Suppose that some aspects of the world are permanently inaccessible
+to the agent's senses—forexample, it may have only a black and white camera. In this case, the
+agent can pick up a can of paint and paint both the chair and the table from the same can. This
+achieves the goal and reduces uncertainty. Furthermore, ifthe agent can read the label on the
+can, it will even know the color of the chair and table.
+
+A second technique is abstraction. Although we have discussed abstraction as a tool for
+handling complexity (see Chapter 12), it also allows the agent to ignore details ofa problem about
+which it may not have exact and complete knowledge. For example, if the agent is currently in
+London and plans to spend a week in Paris, it has a choice as to whether to plan the trip at an
+abstract level (fly out on Sunday, return the following Saturday) or a detailed level (take flight BA
+216 and then taxi number 13471 via the Boulevard Peripherique). At the abstract level, the agent
+has actions such as Fly(London,Paris) that are reasonably certain to work. Even with delays,
+oversold flights, and so on, the agent will still get to Paris. At the detailed level, there is missing
+information (flight schedules, which taxi will turn up, Paris traffic conditions) and the possibility
+of unexpected situations developing that would lead to a particular flight being missed.
+
+Aggregation is another useful form of abstraction for dealing with large numbers of
+objects. For example, in planning its cash flows, the U.S. Government assumes a certain number
+
+ 
+

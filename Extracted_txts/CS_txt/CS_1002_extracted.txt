@@ -1,0 +1,65 @@
+Section 72
+
+Extensions and Notational Variations 195
+
+ 
+
+HIGHER-ORDER
+Logic
+
+A EXPRESSION
+
+Higher-order logic
+
+First-order logic gets its name from the fact that one can quantify over objects (the first-order
+entities that actually exist in the world) but not over relations or functions on those objects.
+Higher-order logic allows us to quantify over relations and functions as well as over objects. For
+example, in higher-order logic we.can say that two objects are equal if and only if all properties
+applied to them are equivalent:
+
+Vuy &=y) & WppP® & pO)
+
+Or we could say that two functions are equal if and only if they have the same value for all
+arguments:
+
+Vig (Fs) & Wx fQ)=g0))
+
+Higher-order logics have strictly more expressive power than first-order logic. As yet, however,
+logicians have little understanding of how to reason effectively with sentences in higher-order
+logic, and the general problem is known tobe undecidable. In this book, we will stick to first-order
+logic, which is much better understood and still very expressive
+
+Functional and predicate expressions using the A operator
+
+It is often useful to be able to construct complex predicates and functions from simpler compo-
+nents, just as we can construct complex sentences from simpler components (eg., PA Q), or
+complex terms from simpler ones (e.g., x° +y?), To turn the term.” - 7” into a function, we need
+to say what its arguments are: is it the function where you square the first argument and subtract
+the square of the second argument, or vice versa? The operator A (the Greek letter lambda) is
+traditionally used for this purpose. The function that takes the difference of the squares ofits first
+and second argument is written as
+
+Axy x? = y?
+
+ 
+
+This A-expression® can then be applied to arguments to yield a logical term in the same way that
+an ordinary, named function can:
+
+(x,y 2? - y?)(25,24)=25? - 24? = 49
+We will also find it useful (in Chapter 22) to generate A-expressions for predicates. For example,
+the two-place predicate "are of differing gender and of the same address" can be written
+
+\wy Gender(x)#Gender(y)A Address(x) = Address(y)
+
+As one would expect, the application of a predicate A-expression to an appropriate number of
+arguments yields a logical sentence. Notice that the use of A in this way does not increase the
+formal expressive power of first-order logic, because any sentence that includes a A-expression
+can be rewritten by "plugging in" its arguments to yield a standard term or sentence
+
+© The same terminology is used in Lisp, where lambda plays exactly the same role as the A operator
+
+ 
+
+ 
+

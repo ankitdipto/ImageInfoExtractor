@@ -1,0 +1,115 @@
+13.2 I/O Hardware 465
+
+ 
+
+1. device driver is told to
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+   
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+transfer disk data to
+buffer at address X cPU
+5. DMA controller transfers 2. device driver tells disk
+bytes to buffer X, controller to transfer C I
+increasing memory bytes from disk to buffer cache
+address and decreasing _at address X
+C until C =0
+6. when C = 0, DMA DMA/bus/interrupt x
+interrupts CPU to signal controller memory | buffer
+transfer completion
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+3. disk controller initiates
+DMA transfer
+
+4. disk controller sends
+each byte to DMA
+controller
+
+IDE disk controller
+
+=)
+Co) Ge)
+
+Figure 13.5 Steps ina DMA transfer.
+
+ 
+
+ 
+
+ 
+
+memory bus, the CPU is momentarily prevented from accessing main memory,
+although it can still access data items in its primary and secondary cache.
+Although this cycle stealing can slow down the CPU computation, offloading
+the data-transfer work to a DMA controller generally improves the total system
+performance. Some computer architectures use physical memory addresses
+for DMA, but others perform direct virtual-memory access (DVMA), using
+virtual addresses that undergo virtual- to physical-memory address translation.
+DVMA can perform a transfer between two memory-mapped devices without
+the intervention of the CPU or the use of main memory.
+
+On protected-mode kernels, the operating system generally prevents pro-
+cesses from issuing device commands directly. This discipline protects data
+from access-control violations, and also protects the system from erroneous use
+of device controllers that could cause a system crash. Instead, the operating
+system exports functions that a sufficiently privileged process can use to access
+low-level operations on the underlying hardware. On kernels without memory
+protection, processes can access device controllers directly. This direct access
+can be used to obtain high performance, since it can avoid kernel communica-
+tion, context switches, and layers of kernel software. Unfortunately, it interferes
+with system security and stability. The trend in general-purpose operating sys-
+tems is to protect memory and devices, so that the system can try to guard
+against erroneous or malicious applications.
+
+Although the hardware aspects of I/O are complex when considered at the
+level of detail of electronics-hardware designers, the concepts that we have just
+
+ 
+
+ 
+
+ 
+

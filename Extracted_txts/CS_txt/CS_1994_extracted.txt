@@ -1,0 +1,72 @@
+438 Chapter 12 File-System Implementation
+
+ 
+
+ 
+
+ 
+
+ 
+
+cI
+
+CPU
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+controller
+
+ 
+
+ 
+
+ 
+
+ 
+
+main memory
+Figure 12.13 Various disk-caching locations.
+
+memory is generally more up to date than is the corresponding information
+on the disk, because the write of cached directory information to disk does not
+necessarily occur as soon as the update takes place.
+
+Consider the possible effect of a computer crash. In this case, the table
+of opened files is generally lost, and with it any changes in the directories
+of opened files. This event can leave the file system in an inconsistent state:
+The actual state of some files is not as described in the directory structure.
+Frequently, a special program is run at reboot time to check for and correct disk
+inconsistencies.
+
+The consistency checker compares the data in the directory structure with
+the data blocks on disk, and tries to fix any inconsistencies it finds. The allo-
+cation and free-space-management algorithms dictate what types of problems
+the checker can find, and how successful it will be in fixing them. For instance,
+if linked allocation is used and there is a link from any block to its next block,
+then the entire file can be reconstructed from the data blocks, and the directory
+structure can be recreated. The loss of a directory entry on an indexed alloca-
+tion system could be disastrous, because the data blocks have no knowledge of
+one another. For this reason, UNIX caches directory entries for reads, but any
+data write that results in space allocation, or other metadata changes, is done
+synchronously, before the corresponding data blocks are written.
+
+12.7.2 Backup and Restore
+
+Because magnetic disks sometimes fail, care must be taken to ensure that the
+data are not lost forever. To this end, system programs can be used to back up
+data from disk to another storage device, such as a floppy disk, magnetic tape,
+or optical disk. Recovery from the loss of an individual file, or of an entire disk,
+may then be a matter of restoring the data from backup.
+
+To minimize the copying needed, we can use information from each file’s
+directory entry. For instance, if the backup program knows when the last
+backup of a file was done, and the file’s last write date in the directory indicates
+

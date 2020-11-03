@@ -1,0 +1,50 @@
+306 — cuarrernme Pipeline and Vector Processing
+
+‘As the number of tasks increases, n becomes much larger than k ~ 1, and
+k + n—1 approaches the value of n. Under this condition, the speedup
+becomes
+
+ 
+
+If we assume that the time it takes to process a task is the same in the pipeline
+and nonpipeline circuits, we will have t, = kt,, Including this assumption, the
+speedup reduces to
+
+=k
+
+ 
+
+This shows that the theoretical maximum speedup thata pipeline can provide
+is k, where k is the number of segments in the pipeline.
+
+To clarify the meaning of the speedup ratio, consider the following
+numerical example. Let the time it takes to process a suboperation in each
+segment be equal to t, = 20 ns. Assume that the pipeline has k = 4 seg-
+ments and executes n = 100 tasks in sequence. The pipeline system will take
+(k + = 1)f, = 4 + 99) x 20 = 2060 ns to complete. Assuming that f=
+it, = 4 x 20 = 80ns,anonpipelinesystem requires nit, = 100 x 80 = 8000ns
+to complete the 100 tasks. The speedup ratio is equal to 8000/2060 = 3.88. As
+the number of tasks increases, the speedup will approach 4, which is equal to
+the number of segments in the pipeline If we assume that t, = 60 ns, the
+speedup becomes 60/20 = 3.
+
+To duplicate the theoretical speed advantage of a pipeline process by
+means of multiple functional units, itis necessary to construct k identical units
+that will be operating in parallel. The implication is that a k-segment pipeline
+processor can be expected to equal the performance of k copies of an equivalent
+nonpipeline circuit under equal operating conditions. This is illustrated in
+Fig. 9-5, where four identical circuits are connected in parallel. Each P circuit
+performs the same task of an equivalent pipeline circuit. Instead of operating
+with the input data in sequence as in a pipeline, the parallel circuits acceptfour
+input data items simultaneously and perform four tasks at the same time.
+‘As far as the speed of operation is concerned, this is equivalent to a four
+segment pipeline. Note that the four-unit circuit of Fig 9-5 constitutes a
+single-instruction multiple-data GIMD) organization since the same instruc-
+tion is used to operate on multiple data in parallel.
+
+There are various reasons why the pipeline cannot operate at its maxi-
+mum theoretical rate. Different segments may take differenttimes to complete
+their suboperation. The clock cycle must be chosen to equal the time delay of
+the segment with the maximum propagation time. This causes all other seg-
+ments to wastetime while waiting for the next clock. Moreover, itisnotalways
+

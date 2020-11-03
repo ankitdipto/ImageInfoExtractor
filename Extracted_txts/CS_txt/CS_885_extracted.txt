@@ -1,0 +1,66 @@
+Chapter 6: Data Types Revisited
+
+221
+
+ 
+
+}
+
+The essence of all the data types that we have learnt
+een captured in Figure 6.2.
+
+so far has
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Data Type Range Bytes | Format
+signed char -128 to+ 127 1 %e
+unsigned char 0 to 255 1 Yc
+short signed int -32768 to +32767 2 %d
+short unsigned int | 0 to 65535 2 Yu
+signed int -32768 to +32767 2 %d
+unsigned int 0 to 65535 2 Yu
+long signed int -2147483648 to +2147483647 | 4 %ld
+long unsigned int | 0 to 4294967295 4 %lu
+float -3.4e38 to +3.4e38 4 %E
+double -1.7e308 to +1.7€308 8 “lt
+long double -1.7e4932 to +1.7e4932 10 %LE
+
+ 
+
+ 
+
+ 
+
+ 
+
+Note: The sizes and ranges of int, short and long are compiler
+dependent. Sizes in this figure are for 16-bit compiler.
+
+ 
+
+ 
+
+ 
+
+Figure 6.2
+
+A Few More Issues...
+
+Having seen all the variations of the primary types let us take a
+look at some more related issues.
+
+(a) We saw earlier that size of an integer is compiler dependent.
+This is even true in case of chars and floats. Also, depending
+upon the microprocessor for which the compiler targets its
+code the accuracy of floating point calculations may change.
+For example, the result of 22.0/7.0 would be reported more
+

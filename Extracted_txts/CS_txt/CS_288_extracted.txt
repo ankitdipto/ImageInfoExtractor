@@ -1,0 +1,51 @@
+29.3 The simplex algorithm 875
+
+The assignment in line 14 of Pivot, ) = v+ Cebes changes the objective value.
+Since SIMPLEX calls PrvoT only when c, > 0, the only way for the objective
+value to remain unchanged (i.e., ) = v) is for be to be 0. This value is assigned
+as be = by/dje in line 3 of PIVOT. Since we always call PIVOT with aje 4 0, we
+see that for be to equal 0, and hence the objective value to be unchanged, we must
+have b; = 0.
+
+Indeed, this situation can occur. Consider the linear program
+
+l= Xp + X22 + X3
+XM = 8 —~— x4 -— XX
+Xs = X2 — x3.
+
+Suppose that we choose x, as the entering variable and x4 as the leaving variable.
+After pivoting, we obtain
+
+z = 8 + X3 — X4
+4 = 8 -— x — X4
+Xs = XxX.  — X3
+
+At this point, our only choice is to pivot with x3 entering and x5 leaving. Since
+bs = 0, the objective value of 8 remains unchanged after pivoting:
+
+Z = 8 + xX -— Xe - Xs
+XM = 8 -— xX -— xX
+83 = X2 — Xs.
+
+The objective value has not changed, but our slack form has. Fortunately, if we
+pivot again, with x2 entering and x leaving, the objective value increases (to 16),
+and the simplex algorithm can continue.
+
+Degeneracy can prevent the simplex algorithm from terminating, because it can
+lead to a phenomenon known as cycling: the slack forms at two different itera-
+tions of SIMPLEX are identical. Because of degeneracy, SIMPLEX could choose a
+sequence of pivot operations that leave the objective value unchanged but repeat
+a slack form within the sequence. Since SIMPLEX is a deterministic algorithm, if
+it cycles, then it will cycle through the same series of slack forms forever, never
+terminating.
+
+Cycling is the only reason that SIMPLEX might not terminate. To show this fact,
+we must first develop some additional machinery.
+
+At each iteration, SIMPLEX maintains A, b, c, and v in addition to the sets
+N and B. Although we need to explicitly maintain A, b, c, and v in order to
+implement the simplex algorithm efficiently, we can get by without maintaining
+them. In other words, the sets of basic and nonbasic variables suffice to uniquely
+determine the slack form. Before proving this fact, we prove a useful algebraic
+lemma.
+

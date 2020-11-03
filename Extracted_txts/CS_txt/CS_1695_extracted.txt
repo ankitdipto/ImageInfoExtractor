@@ -1,0 +1,36 @@
+Chapter 7
+
+  
+
+PROCESS
+SYNCHRONIZATION
+
+ 
+
+A cooperating process is one that can affect or be affected by other processes
+executing in the system. Cooperating processes may either directly share a
+logical address space (that is, both code and data), or be allowed to share data
+only through files. The former case is achieved through the use of lightweight
+processes or threads, which we discussed in Section 5. Concurrent access to
+shared data may result in data inconsistency. In this chapter, we discuss various
+mechanisms to ensure the orderly execution of cooperating processes that share
+a logical address space, so that data consistency is maintained.
+
+7.1 = Background
+
+In Chapter 4, we developed a model of a system consisting of a number of
+cooperating sequential processes, all running asynchronously and possibly
+sharing data. We illustrated this model with the bounded-buffer scheme, which
+is representative of operating systems.
+
+Let us return to the shared-memory solution to the bounded-buffer prob-
+lem that we presented in Section 4.4. As we pointed out, our solution allows
+at most BUFFER_SIZE — 1 items in the buffer at the same time. Suppose that
+we want to modify the algorithm to remedy this deficiency. One possibility is
+to add an integer variable counter, initialized to 0. counter is incremented
+every time we add a new item to the buffer, and is decremented every time
+we remove one item from the buffer. The code for the producer process can be
+modified as follows:
+
+189
+

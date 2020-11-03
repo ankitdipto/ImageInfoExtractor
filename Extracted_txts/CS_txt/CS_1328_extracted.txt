@@ -1,0 +1,34 @@
+592 Let UsC
+
+ 
+
+Ley
+
+ 
+
+ 
+
+Figure 18.3
+
+A new pen can be created using the CreatePen( ) API function.
+This function needs three parameters—pen style, pen thickness
+and pen color. Different macros like PS_SOLID, PS_DOT, etc.
+have been defined in ‘windows.h’ to represent different pen styles.
+Note that for pen styles other than PS_SOLID the pen thickness
+has to be 1 pixel.
+
+Types of Brushes
+
+The way we can create different types of pens, we can also create
+three different types of brushes. These are—solid brush, hatch
+brush and pattern brush. Let us now write a program that shows
+how to build these brushes and then use them to fill rectangles.
+Here is the OnPaint( ) handler which achieves this.
+
+void OnPaint ( HWND hWnd )
+{
+HDC hdc ;
+PAINTSTRUCT ps ;
+
+HBRUSH hbr ;
+

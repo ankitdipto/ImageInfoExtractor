@@ -1,0 +1,46 @@
+Chapter 4 Divide-and-Conquer 67
+
+Occasionally, we shall see recurrences that are not equalities but rather inequal-
+ities, such as T(n) < 2T(n/2) + O(n). Because such a recurrence states only
+an upper bound on 7(m), we will couch its solution using O-notation rather than
+©-notation. Similarly, if the inequality were reversed to T(n) > 2T(n/2) + O(n),
+then because the recurrence gives only a lower bound on T(n), we would use
+Q-notation in its solution.
+
+Technicalities in recurrences
+
+In practice, we neglect certain technical details when we state and solve recur-
+rences. For example, if we call MERGE-SoRT on 7 elements when n is odd, we
+end up with subproblems of size [n/2] and [n/2]. Neither size is actually n/2,
+because 1/2 is not an integer when n is odd. Technically, the recurrence describing
+the worst-case running time of MERGE-SORT is really
+
+e(1) ifn =1,
+
+T@) = T([n/2]) + T(|n/2]) + O(n) ifn >1.
+
+(4.3)
+
+Boundary conditions represent another class of details that we typically ignore.
+Since the running time of an algorithm on a constant-sized input is a constant,
+the recurrences that arise from the running times of algorithms generally have
+T(n) = (1) for sufficiently small n. Consequently, for convenience, we shall
+generally omit statements of the boundary conditions of recurrences and assume
+that 7(n) is constant for small n. For example, we normally state recurrence (4.1)
+as
+
+T(n) = 2T(n/2) + O(n), (4.4)
+
+without explicitly giving values for small n. The reason is that although changing
+the value of T(1) changes the exact solution to the recurrence, the solution typi-
+cally doesn’t change by more than a constant factor, and so the order of growth is
+unchanged.
+
+When we state and solve recurrences, we often omit floors, ceilings, and bound-
+ary conditions. We forge ahead without these details and later determine whether
+or not they matter. They usually do not, but you should know when they do. Ex-
+perience helps, and so do some theorems stating that these details do not affect the
+asymptotic bounds of many recurrences characterizing divide-and-conquer algo-
+rithms (see Theorem 4.1). In this chapter, however, we shall address some of these
+details and illustrate the fine points of recurrence solution methods.
+

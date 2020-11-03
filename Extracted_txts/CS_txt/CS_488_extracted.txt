@@ -1,0 +1,36 @@
+33.3 Finding the convex hull 1037
+
+left chain / right chain
+an ee
+
+   
+
+| Po
+——
+left chain ‘right chain
+
+Figure 33.9 The operation of Jarvis’s march, We choose the first vertex as the lowest point po.
+The next vertex, p1, has the smallest polar angle of any point with respect to po. Then, pz has the
+smallest polar angle with respect to p1. The right chain goes as high as the highest point p3. Then,
+we construct the left chain by finding smallest polar angles with respect to the negative x-axis.
+
+Jarvis’s march
+
+Jarvis’s march computes the convex hull of a set Q of points by a technique known
+as package wrapping (or gift wrapping). The algorithm runs in time O(n/h),
+where / is the number of vertices of CH(Q). When hi is o(Ig 1), Jarvis’s march is
+asymptotically faster than Graham’s scan.
+
+Intuitively, Jarvis’s march simulates wrapping a taut piece of paper around the
+set QO. We start by taping the end of the paper to the lowest point in the set, that is,
+to the same point po with which we start Graham’s scan. We know that this point
+must be a vertex of the convex hull. We pull the paper to the right to make it taut,
+and then we pull it higher until it touches a point. This point must also be a vertex
+of the convex hull. Keeping the paper taut, we continue in this way around the set
+of vertices until we come back to our original point po.
+
+More formally, Jarvis’s march builds a sequence H = (po. P1.....Ph—1) of the
+vertices of CH(Q). We start with po. As Figure 33.9 shows, the next vertex p;
+in the convex hull has the smallest polar angle with respect to po. (In case of ties,
+we choose the point farthest from po.) Similarly, p2 has the smallest polar angle
+

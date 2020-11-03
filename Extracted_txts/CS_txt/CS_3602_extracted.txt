@@ -1,0 +1,50 @@
+21.2 Linked-list representation of disjoint sets 567
+
+Proof Because each UNION operation unites two disjoint sets, we perform at
+most 1 — 1 UNION operations over all. We now bound the total time taken by these
+UNION operations. We start by determining, for each object, an upper bound on the
+number of times the object’s pointer back to its set object is updated. Consider a
+particular object x. We know that each time x’s pointer was updated, x must have
+started in the smaller set. The first time x’s pointer was updated, therefore, the
+resulting set must have had at least 2 members. Similarly, the next time x’s pointer
+was updated, the resulting set must have had at least 4 members. Continuing on,
+we observe that for any k < n, after x’s pointer has been updated [lg k] times,
+the resulting set must have at least k members. Since the largest set has at most 7
+members, each object’s pointer is updated at most [lg] times over all the UNION
+operations. Thus the total time spent updating object pointers over all UNION
+operations is O(nlgn). We must also account for updating the sail pointers and
+the list lengths, which take only @(1) time per UNION operation. The total time
+spent in all UNION operations is thus O(n lg).
+
+The time for the entire sequence of m operations follows easily. Each MAKE-
+SET and FIND-SET operation takes O(1) time, and there are O(m) of them. The
+total time for the entire sequence is thus O(m + nlgn). .
+
+Exercises
+
+21.2-1
+
+Write pseudocode for MAKE-SET, FIND-SET, and UNION using the linked-list
+representation and the weighted-union heuristic. Make sure to specify the attributes
+that you assume for set objects and list objects.
+
+21.2-2
+
+Show the data structure that results and the answers returned by the FIND-SET
+operations in the following program. Use the linked-list representation with the
+weighted-union heuristic.
+
+fori = 1 to 16
+MAKE-SET(xX;)
+for i = 1 to 15 by2
+UNION(X;, Xi-41)
+for i = 1 to 13 by 4
+UNION(X;, X;42)
+UNION(X1, X5)
+UNION(%11,.%13)
+UNION(*;, X10)
+FIND-SET (x2)
+FIND-SET(X9)
+
+FSeCHmrAWswne
+

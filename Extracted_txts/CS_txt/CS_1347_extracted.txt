@@ -1,0 +1,53 @@
+226
+
+Chapter 8. Building a Knowledge Base
+
+ 
+
+coiRcuT
+VERIFICATION
+
+Then, the connections between them:
+Connected(Out(1,X\),In(1,X2)) Connected(In(1,C\), In, X1))
+Connected(Out(1,X;),In(2,A2))_ Connected(In(1, C}), n(1,A1))
+Connected(Out(1,A2), In, O4)) — ConnectedUn(2, C1), In(2, Xy)y /
+Connected(Out(1,A)), In(2,0;))  Connected(In(2,CO, In(2, Ay))/
+Connected(Out(1,Xz),Out(1, CO) — Connected(In(3,C)), In(2, X2))
+_ Connected(Out(1,00, Our(2,CO) Connected In(3,C\), n(1,A2))_,
+
+Pose queries to the inference procedure
+
+What combinations of inputs would cause the first output of C, (the sum bit) to be off and the
+second output of C\ (the carry bit) to be on?
+3 ij.i2,13 SignalUn(l,C\)) =i\ A SignalUn(2, C\)F tz A signal(In3,C0) = 13
+A Signal(Out(1, CO)=OffA Signal(Out(2,CO)=On
+The answer is
+G=On Ah =On An =Off)V
+(i= On A 1) = Off Als =On) V
+(i, = Off A ix = On A ix = On)
+What are the possible sets of values of all the terminals for the adder circuit?
+Fij,t2.13, 01,02 Signaldn(, C))F il A Signaldn(2,CO) =i
+A Signal(In(3,, Ft A Signal(Our(, CO) =01 A Signal(Out(2,CO)=02
+This final query will return a complete input/output table for the device, which can be used to
+check that it does in fact add its inputs correctly. This is a simple example of circuit verification.
+We can also use the definition of the circuit to build larger digital systems, for which the same
+kind of verification procedure can be carried out (see Exercises 8,1 and 8.3). Many domains are
+amenable to the same kind of structured knowledge-base development, in which more complex
+concepts are defined on top of simpler concepts.
+
+ 
+
+84 GENERAL ONTOLOGY
+
+This section is about a general ontology that incorporates decisions about how to represent a
+broad selection of objects and relations. It is encoded within first-order logic, but makes many
+ontological commitments that first-order logic does not make. A general ontology is rather more
+demanding to construct, but once done has many advantages over special-purpose ontologies.
+Consider again the ontology for circuits in the previous section. It makes a large number of
+simplifying assumptions. For example, time is omitted completely. Signals are fixed, and there is
+no propagation of signals. The structure of the circuit remains constant. Now we could take a step
+toward generality by considering signals at particular times, and including the wire lengths and
+propagation delays in wires and devices. This would allow us to simulate the timing properties
+
+ 
+

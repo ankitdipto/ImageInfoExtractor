@@ -1,0 +1,45 @@
+686 Chapter 25 All-Pairs Shortest Paths
+
+Chapter outline
+
+Section 25.1 presents a dynamic-programming algorithm based on matrix multi-
+plication to solve the all-pairs shortest-paths problem. Using the technique of “re-
+peated squaring,” we can achieve a running time of ©(V? lg V). Section 25.2 gives
+another dynamic-programming algorithm, the Floyd-Warshall algorithm, which
+runs in time ©(V3). Section 25.2 also covers the problem of finding the tran-
+sitive closure of a directed graph, which is related to the all-pairs shortest-paths
+problem. Finally, Section 25.3 presents Johnson’s algorithm, which solves the all-
+pairs shortest-paths problem in O(V? lg V + VE) time and is a good choice for
+large, sparse graphs.
+
+Before proceeding, we need to establish some conventions for adjacency-matrix
+representations. First, we shall generally assume that the input graph G = (V, E)
+has n vertices, so that n = |V|. Second, we shall use the convention of denoting
+matrices by uppercase letters, such as W, L, or D, and their individual elements
+by subscripted lowercase letters, such as wjj, /i;, or dij. Some matrices will have
+parenthesized superscripts, as in L® = (1) or D™ = (4°), to indicate
+iterates. Finally, for a given n x n matrix A, we shall assume that the value of 77 is
+stored in the attribute A.rows.
+
+ 
+
+25.1 Shortest paths and matrix multiplication
+
+This section presents a dynamic-programming algorithm for the all-pairs shortest-
+paths problem on a directed graph G = (V, E). Each major loop of the dynamic
+program will invoke an operation that is very similar to matrix multiplication, so
+that the algorithm will look like repeated matrix multiplication. We shall start by
+developing a ©(V*)-time algorithm for the all-pairs shortest-paths problem and
+then improve its running time to O(V? Ig V).
+
+Before proceeding, let us briefly recap the steps given in Chapter 15 for devel-
+oping a dynamic-programming algorithm.
+
+1. Characterize the structure of an optimal solution.
+2. Recursively define the value of an optimal solution.
+
+3. Compute the value of an optimal solution in a bottom-up fashion.
+
+We reserve the fourth step—constructing an optimal solution from computed in-
+formation—for the exercises.
+

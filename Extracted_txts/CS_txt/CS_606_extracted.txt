@@ -1,0 +1,62 @@
+1132
+
+Chapter 35 Approximation Algorithms
+
+The algorithm returns z* = 302 as its answer, which is well within « = 40% of
+the optimal answer 307 = 104 + 102 + 101; in fact, it is within 2%.
+
+Theorem 35.8
+APPROX-SUBSET-SUM is a fully polynomial-time approximation scheme for the
+subset-sum problem.
+
+Proof The operations of trimming L; in line 5 and removing from L; every ele-
+ment that is greater than ft maintain the property that every element of L; is also a
+member of P;. Therefore, the value z* returned in line 8 is indeed the sum of some
+subset of S. Let y* € P,, denote an optimal solution to the subset-sum problem.
+Then, from line 6, we know that z* < y*. By inequality (35.1), we need to show
+that y*/z* < 1+. We must also show that the running time of this algorithm is
+polynomial in both 1/e and the size of the input.
+
+As Exercise 35.5-2 asks you to show, for every element y in P; that is at most ¢,
+there exists an element z € L; such that
+
+y
+—____ <z <<). 35.26
+(+ e/any =* >? (35.26)
+Inequality (35.26) must hold for y* € P,,, and therefore there exists an element
+z € Ly, such that
+
+*
+
+y
+
+———___ <:<y
+(+ /any =* >?
+
+and thus
+
+y* n
+
+= 1+—). 35.27
+Zz =( +5) ( )
+
+Since there exists an element z € L, fulfilling inequality (35.27), the inequality
+must hold for z*, which is the largest value in L,,; that is,
+
+*
+
+  
+
+e\n
+<(l+—). 35.28
+~ ( + a) ( )
+
+Now, we show that y*/z* < 1 + €. We do so by showing that (1 + €/2n)" <
+1 +. By equation (3.14), we have lim,—+o0(1 + €/2n)” = e*/?. Exercise 35.5-3
+asks you to show that
+
+< (1 + =) >0. (35.29)
+
+Therefore, the function (1 + €/2n)” increases with n as it approaches its limit
+of e“/2, and we have
+

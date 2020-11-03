@@ -1,0 +1,44 @@
+394  Chapter11 File-System Interface
+
+sue jane
+yp N
+py N
+prog
+
+doc
+
+ 
+
+(a) (b)
+Figure 11.11 File system. (a) Existing. (6) Unmounted partition.
+
+the file system (or mount point). Typically, a mount point is an empty directory
+at which the mounted file system will be attached. For instance, on a UNIX
+system, a file system containing user’s home directories might be mounted as
+/nome; then, to access the directory structure within that file system, one could
+precede the directory names with /home, as in /home/jane. Mounting that file
+system under /users would result in the path name /users/jane to reach the same
+directory.
+
+Next, the operating system verifies that the device contains a valid file
+system. It does so by asking the device driver to read the device directory
+and verifying that the directory has the expected format. Finally, the operating
+system notes in its directory structure that a file system is mounted at the
+specified mount point. This scheme enables the operating system to traverse
+its directory structure, switching among file systems as appropriate.
+
+To illustrate file mounting, consider the file system depicted in Figure 11.11,
+where the triangles represent subtrees of directories that are of interest. In
+Figure 11.11(a), an existing file system is shown, while in Figure 11.11(b), an
+unmounted partition residing on /device/dsk is shown. At this point, only the
+files on the existing file system can be accessed. In Figure 11.12, the effects of
+the mounting of the partition residing on /device/dsk over /users are shown. If
+the partition is unmounted, the file system is restored to the situation depicted
+in Figure 11.11.
+
+Systems impose semantics to clarify functionality. For example, a system
+may disallow a mount over a directory that contains files, or make the mounted
+file system available at that directory and obscure the directory’s existing files
+until the file system is unmounted, terminating the use of the file system and
+allowing access to the original files in that directory. As another example, a
+

@@ -1,0 +1,52 @@
+808
+
+Chapter 25. Robotics
+
+ 
+
+COMPETITIVE RATIO
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 25.24 A two-dimensional environment, robot, and goal.
+
+ 
+
+ 
+
+ 
+
+2. If the robot encounters an obstacle before it reaches the goal, it stops and records its
+current position Q. The robot then walks around the obstacle clockwise (the direction is
+not important) back to Q. During this walk, the robot records points where it crosses the
+line /, and how far it has walked to reach them. After the walk, let Po be the closest such
+point to the goal.
+
+3. The robot then walks around the obstacle from Q to Po. Because it knows how far it
+walked to reach Pp, it can decide whether it will get to Py faster by going clockwise
+or counterclockwise. Once it reaches Po, it starts moving toward the goal along /, and
+continues until it reaches another obstacle (in which case, it executes step 2 again) or until
+it reaches the goal.
+
+Online algorithms such as this are usually very fast in terms of computation time, but almost
+always give up any guarantee of finding the shortest path. Their efficiency is often measured
+using a competitive ratio. In the case of robot motion, one typically uses the worst-case ratio
+between the actual length of the path found, and the shortest path. For example, the preceding
+algorithm has a competitive ratio of at most 1 + 1.5B/|/|, where B is the sum of the lengths ofall
+the obstacle boundaries and \/\ is the length of the line / from start to goal.
+
+It is fairly easy to see that this ratio can be very bad in some cases. For example, if an
+enormous obstacle protrudes just a teeny bit into the straight-line path, and the robot happens to
+start walking around it the wrong way, then the ratio can be unbounded. For some special cases,
+there are algorithms with competitive ratios bounded by a constant (Exercise 25.12), but there
+are some environments for which no algorithm has a finite competitive ratio. Fortunately for
+humans, these do not occur often in practice.
+
+ 
+

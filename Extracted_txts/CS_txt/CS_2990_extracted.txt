@@ -1,0 +1,68 @@
+376
+
+Chapter 12. Practical Planning
+
+ 
+
+ABSTRACT
+‘SOLUTION
+
+DOWNWARD
+SOLUTION
+
+UPWARD SOLUTION
+
+Suppose that there is a way to string four abstract operators together to build a house—for
+example, the four operators shown in Figure 12.1. We will call this an abstract solution—a plan
+that contains abstract operators, but is consistent and complete. Finding a small abstract solution,
+if one exists, should not be too expensive. Continuing this process, we should be able to obtain
+a primitive plan without too much backtracking
+
+This assumes, however, that in finding an abstract solution, and in rejecting other abstract
+plans as inconsistent, one is doing useful work. One would like the following properties to hold:
+
++ Ifp is an abstract solution, then there is a primitive solution of which p is an abstraction.
+If this property holds, then once an abstract solution is found we can prune away all other
+abstract plans from the search tree. This property is the downward solution property. 4
+
++ If an abstract plan is inconsistent, then there is no primitive solution of which it is an
+abstraction. If this property holds, then we can prune away all the descendants of any
+inconsistent abstract plan. This is called the upward solution property because it also
+means that all complete abstractions of primitive solutions are abstract solutions.
+
+Figure 12.4 illustrates these two notions graphically. Each box represents an entire plan (notjust
+astep), and each arc represents a decomposition step in which an abstract operator is expanded. 4
+At the top is a very abstract plan, and at the bottom are plans with only primitive steps. The
+boxes with bold outlines are (possibly abstract) solutions, and the ones with dotted outlines are
+inconsistent. Plans marked with an "X" need not be examined by the planning algorithm. (The
+figure shows only complete or inconsistent plans, leaving out consistent but incomplete plans and {
+the achievement steps that are applied to them.)
+
+To get a more quantitative feel for how these properties affect the search, we need a
+simplified model of the search space. Assume that there is at least one solution with n primitive
+steps, and that the time to resolve threats and handle constraints is negligible: all we will be
+concerned with is the time it takes to choose the right set of steps. Figure 12.5 defines the search
+space in terms of the parameters b, s, and d.
+
+ 
+
+ 
+
+ 
+
+(a) Downward Solution Property (b) Upward Solution Property
+
+ 
+
+ 
+
+Figure 12.4 The upward and downward solution properties in plan space (abstract plans on top,
+primitive plans on the bottom). Bold outlined boxes are solutions, dotted outlines are inconsistent,
+and boxes marked with an "X" can be pruned away in a left-to-right search.
+
+ 
+
+ 
+
+ 
+

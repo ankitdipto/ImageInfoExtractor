@@ -1,0 +1,53 @@
+27.3 Multithreaded merge sort 801
+
+putes the index g3 of the element that divides the output subarray A[p3..13] into
+Al[p3..q3 — lJ and A[g3+1..1r3], and then line 12 copies T[q,] directly into A[q3].
+
+Then, we recurse using nested parallelism. Line 13 spawns the first subproblem,
+while line 14 calls the second subproblem in parallel. The syne statement in line 15
+ensures that the subproblems have completed before the procedure returns. (Since
+every procedure implicitly executes a syne before returning, we could have omitted
+the syne statement in line 15, but including it is good coding practice.) There
+is some clevemess in the coding to ensure that when the subarray T [po .. 12] is
+empty, the code operates correctly. The way it works is that on each recursive call,
+a median element of T[p1 ..'] is placed into the output subarray, until T[p, ..1]
+itself finally becomes empty, triggering the base case.
+
+Analysis of multithreaded merging
+
+We first derive a recurrence for the span PM,,(n) of P-MERGE, where the two
+subarrays contain a total of n = n,;+n elements. Because the spawn in line 13 and
+the call in line 14 operate logically in parallel, we need examine only the costlier of
+the two calls. The key is to understand that in the worst case, the maximum number
+of elements in either of the recursive calls can be at most 3/4, which we see as
+follows. Because lines 3-6 ensure that nz < m,, it follows that ny = 2n2/2 <
+(n, + )/2 = n/2. In the worst case, one of the two recursive calls merges
+[n,/2] elements of T[p, ..1] with all nz elements of T[p2..1r2], and hence the
+number of elements involved in the call is
+
+m/2)+n2 Sm /2+n2/2+n2/2
+= (ms +12)/2 +102/2
+
+n/2+n/4
+
+3n/4.
+
+Adding in the @(1gm) cost of the call to BINARY-SEARCH in line 10, we obtain
+the following recurrence for the worst-case span:
+
+PM,.(n) = PM(3n/4) + Ollgn) « (27.8)
+
+(For the base case, the span is @(1), since lines 1-8 execute in constant time.)
+This recurrence does not fall under any of the cases of the master theorem, but it
+meets the condition of Exercise 4.6-2. Therefore, the solution to recurrence (27.8)
+is PM..(n) = O(Ig? n).
+
+We now analyze the work PM, (n) of P-MERGE on n elements, which turns out
+to be @(). Since each of the n elements must be copied from array T to array A,
+we have PM,(n) = Q(n). Thus, it remains only to show that PM,(n) = O(n).
+
+We shall first derive a recurrence for the worst-case work. The binary search in
+line 10 costs @(lgm) in the worst case, which dominates the other work outside
+
+IA
+

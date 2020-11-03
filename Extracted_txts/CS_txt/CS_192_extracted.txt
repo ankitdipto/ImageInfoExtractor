@@ -1,0 +1,48 @@
+27.3 Multithreaded merge sort 797
+
+27.2-5
+
+Give pseudocode for an efficient multithreaded algorithm that transposes ann x 1
+matrix in place by using divide-and-conquer to divide the matrix recursively into
+four n/2 x n/2 submatrices. Analyze your algorithm.
+
+27.2-6
+
+Give pseudocode for an efficient multithreaded implementation of the Floyd-
+Warshall algorithm (see Section 25.2), which computes shortest paths between all
+pairs of vertices in an edge-weighted graph. Analyze your algorithm.
+
+ 
+
+27.3, Multithreaded merge sort
+
+We first saw serial merge sort in Section 2.3.1, and in Section 2.3.2 we analyzed its
+running time and showed it to be O(n lg). Because merge sort already uses the
+divide-and-conquer paradigm, it seems like a terrific candidate for multithreading
+using nested parallelism. We can easily modify the pseudocode so that the first
+recursive call is spawned:
+
+MERGE-Sorr’ (A, p,r)
+
+ifp<r
+q =p +r)/2)
+spawn MERGE-Sort (A, p,q)
+MERGE-SorT’(A,qg + 1,1)
+syne
+MERGE(A, p,q.)
+
+AnkhwWNe
+
+Like its serial counterpart, MERGE-SorT’ sorts the subarray A[p..r]. After the
+two recursive subroutines in lines 3 and 4 have completed, which is ensured by the
+sync statement in line 5, MERGE-SorRT’ calls the same MERGE procedure as on
+page 31.
+
+Let us analyze MERGE-SoRT’. To do so, we first need to analyze MERGE. Re-
+call that its serial running time to merge n elements is @(). Because MERGE is
+serial, both its work and its span are @(7). Thus, the following recurrence charac-
+terizes the work MS{,(n) of MERGE-SoRT’ on nt elements:
+
+MS,(n) = 2MS,(n/2) + @(n)
+= O(nign),
+

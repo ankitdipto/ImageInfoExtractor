@@ -1,0 +1,57 @@
+234 Chapter7 Process Synchronization
+
+The timestamp-ordering protocol ensures that any conflicting read and
+write operations are executed in timestamp order. This protocol operates as
+follows:
+
+¢ Suppose that transaction T; issues read(Q):
+
+o If TS(T;) < W-timestamp(), then this state implies that T; needs to read a
+value of Q that was already overwritten. Hence, the read operation is
+rejected, and T; is rolled back.
+
+o If TS(T;) > W-timestamp(Q), then the read operation is executed, and
+R-timestamp(Q) is set to the maximum of R-timestamp(Q) and TS(T;).
+
+« Suppose that transaction T; issues write(Q):
+
+o If TS(T;) < R-timestamp(Q), then this state implies that the value of Q
+that T; is producing was needed previously and T; assumed that this
+value would never be produced. Hence, the write operation is rejected,
+and T; is rolled back.
+
+o If TS(T;) < W-timestamp(Q), then this state implies that T; is attempting
+to write an obsolete value of Q. Hence, this write operation is rejected,
+and T; is rolled back.
+
+o Otherwise, the write operation is executed.
+
+A transaction T7, that is rolled back by the concurrency-control scheme as
+a result of the issuing of either a read or write operation is assigned a new
+timestamp and is restarted.
+
+To illustrate this protocol, we consider schedule 3 of Figure 7.26 with
+transactions T) and T3. We assume that a transaction is assigned a timestamp
+immediately before its first instruction. Thus, in schedule 3, TS(T2) < TS(Ts),
+and the schedule is possible under the timestamp protocol.
+
+This execution can also be produced by the two-phase locking protocol.
+However, some schedules are possible under the two-phase locking protocol
+but not under the timestamp protocol, and vice versa (Exercise 7.24).
+
+The timestamp-ordering protocol ensures conflict serializability. This capa-
+bility follows from the fact that conflicting operations are processed in time-
+
+   
+
+read(B)
+
+write(B)
+read(A)
+
+read(A)
+
+write(A)
+
+Figure 7.26 Schedule 3: A schedule possible under the timestamp protocol.
+

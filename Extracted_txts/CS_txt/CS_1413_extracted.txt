@@ -1,0 +1,64 @@
+232 Chapter 8. Building a Knowledge Base
+
+ 
+
+NATURAL KINDS
+
+Some categories have strict definitions: an object is a triangle if and only if it is a
+polygon with three sides. On the other hand, most categories in the shopping world
+and in the real world are natural kind categories with no clear-cut definition. We
+know, for example, that tomatoes tend to be a dull scarlet, roughly spherical, with an
+indentation at top where the stem was, about three to four inches in diameter, with a
+thin but tough skin and with flesh, seeds, and juice inside. We also know that there is
+variation: unripe tomatoes are green, some are smaller or larger than average, cherry
+tomatoes are uniformly small. Rather than having a complete definition of tomatoes,
+we have a set of features that serves to identify objects that are clearly typical tomatoes,
+but may not be able to decide for other objects. (Could there be a square tomato? a
+yellow one? a tomato three feet across?)
+
+This poses a problem for a logical agent. The agent cannot be sure that an object
+it has perceived is a tomato, and even ifit was sure, it could not be certain which ofthe
+properties oftypical tomatoes this one has. This problem is an inevitable consequence
+of operating in inaccessible environments. The following mechanism provides a way
+to deal with natural kinds within a logical system.
+
+The key idea is to separate what is true ofall instances of a category from what is
+true only of typical instances ofa category. So in addition to the category Tomatoes,
+we will also have the category Typical(Tomatoes).Here Typical is a function that maps
+a category to the subclass of that category that contains only the typical instances:
+
+ 
+
+Ve Typical(ciC c¢
+Most of the knowledge about natural kinds will actually be about the typical instances:
+Vx x6 Typical(Tomatoes) > Red(x) A Spherical(x)
+
+In this way, we can still write down useful facts about categories without providing
+exact definitions.
+
+The difficulty of providing exact definitions for most natural categories was
+explained in depth by Wittgenstein (1953), in his book Philosophical Investigations.
+He used the example of games to show that members of a category shared "family
+resemblances" rather than necessary and sufficient characteristics. The Investigations
+also revolutionized our understanding of language, as we discuss further in Chapter 22.
+
+The utility of the notion of strict definition was also challenged by Quine (1953).
+He pointed out that even the definition of "bachelor" given before is suspect; one might,
+for example, question a statement such as "the Pope is a bachelor." The category
+"pachelor" still plays a useful role in natural language and in formal knowledge
+representation, because it simplifies many sentences and inferences.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

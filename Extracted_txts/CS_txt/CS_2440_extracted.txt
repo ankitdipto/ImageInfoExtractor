@@ -1,0 +1,48 @@
+3.2 Standard notations and common functions 57
+
+By equation (3.15), changing the base of a logarithm from one constant to an-
+other changes the value of the logarithm by only a constant factor, and so we shall
+often use the notation “Ig” when we don’t care about constant factors, such as in
+O-notation. Computer scientists find 2 to be the most natural base for logarithms
+because so many algorithms and data structures involve splitting a problem into
+two parts.
+
+There is a simple series expansion for In(1 + x) when |x| < 1:
+
+x? x8 xt XS
+In( exy-LyU0-L 4h -...,
+n(I+x)=x-S+ So p+s
+
+We also have the following inequalities for x > —1:
+
+x
+— < In(l+x) <x. 3.17
+l+x 7 (+x s G17)
+where equality holds only for x = 0.
+
+We say that a function (7) is polylogarithmically bounded if f(n) = O(\g* n)
+for some constant k. We can relate the growth of polynomials and polylogarithms
+by substituting lg” for n and 2° for a in equation (3.10), yielding
+
+1g” 1g?
+ST = jim 5" <0.
+
+nso (24)E" noo ne
+From this limit, we can conclude that
+Ig? n=o(n*)
+for any constant a > 0. Thus, any positive polynomial function grows faster than
+any polylogarithmic function.
+Factorials
+The notation 7! (read “n factorial”) is defined for integers n > 0 as
+1 ifn =0,
+n=
+n-(n—1)! ifn >0.
+
+Thus, n! = 1-2-3---n.
+A weak upper bound on the factorial function is n! < n”, since each of the n
+terms in the factorial product is at most n. Stirling’s approximation,
+
+n= Vian (*)" (1+0(;)) . (.18)
+
+n
+

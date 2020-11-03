@@ -1,0 +1,60 @@
+236
+
+PLACES
+
+MINIMIZATION
+
+Chapter 8. Building a Knowledge Base
+
+Like any other sort of object, events can be grouped into categories. For example,
+WorldWarl/belongs to the category Wars. To say that a war occurred in the Middle East in
+1967, we would say
+
+3w wé Wars A SubEvent(w, AD 1967) A PartOf(Location(w)MiddleEast)
+
+To say that Shankar travelled from New York to New Delhi yesterday, we might use the category
+Journeys, as follows:
+Sj j E Journeys A Origin(NewYork,j)A Destination(NewDelhi,})
+A Traveller(Shankar,j)A SubEvent(j, Yesterday)
+
+This notation can get a little tedious, particularly because we are often interested more in the
+event's properties than in the event itself. We can simplify the descriptions by using complex terms
+to name event categories. For example, Go(Shankar,New York, NewDelhi)names the category of
+events in which Shankar travels from New York to New Delhi. The function symbol Go can be
+defined by the following sentence:
+Ve,x,0,d e€Golt,0,d) >
+ee Journeys A Traveller(x.e) A Origin(o, e) A Destination(d, e)
+
+Finally, we use the notation £(c, i) to say that an event of category c is a subevent of the event (or |
+interval) i:
+
+Voi Ec.i) + 3e eec A SubEvent(e, i)
+Thus, we have
+E(Go(Shankar, NewYork, NewDethi), Yesterday)
+
+which means "there was an event that was a going by Shankar from New York to New Delhi that
+took place sometime yesterday."
+
+Places
+
+Places, like intervals, are special kinds of space-time chunks. A place can be thought of as a
+constant piece of space, extended through time.'” New York and the Middle East are places, at
+least as far as recent history is concerned. We use the predicate Jn to denote the special kind of j
+subevent relation that holds between places; for example:
+
+In(New York, USA)
+Places come in different varieties; for example, NewYork is an Area, whereas the SolarSystemis
+
+a Volume. The Location function, which we used earlier, maps an object to the smallest place |
+that contains it:
+
+Vx,/ Location(x) =1 <>
+At, D AW Iz AX) = In(l,b)
+
+This last sentence is an example ofa standard logical construction called minimization.
+
+10 We will not worry about local inertial coordinate frames and other things that physicists need to pin down exactly
+what this means. Places that change over time are dealt with in a later section.
+
+ 
+

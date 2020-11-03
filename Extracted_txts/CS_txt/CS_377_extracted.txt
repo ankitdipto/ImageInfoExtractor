@@ -1,0 +1,48 @@
+314 Solving modular linear equations 947
+
+Theorem 31.20
+For any positive integers a and n, if d = gcd(a,n), then
+(a) = (d) = {0,d,2d,...,((n/d) —1)d} (31.26)
+
+in Z,, and thus
+
+(a)| =n/d.
+
+Proof We begin by showing that d € (a). Recall that EXTENDED-EUCLID (a, n)
+produces integers x’ and y’ such that ax’ + ny’ = d. Thus, ax’ =d (mod n), so
+that d € (a). In other words, d is a multiple of a in Zn.
+
+Since d € (a), it follows that every multiple of d belongs to (a), because any
+multiple of a multiple of a is itself a multiple of a. Thus, (a) contains every element
+in {0,d,2d,..., ((n/d) — 1)d}. That is, (d) € (a).
+
+We now show that (a) € (d). If m € (a), then m = ax modn for some
+integer x, and som = ax + ny for some integer y. However, d | a and d | n, and
+so d | m by equation (31.4). Therefore, m € (d).
+
+Combining these results, we have that (a) = (d). To see that |(a)| = n/d,
+observe that there are exactly n/d multiples of d between 0 and n—1, inclusive. =
+
+Corollary 31.21
+The equation ax = b (mod n) is solvable for the unknown x if and only if d | b,
+where d = gcd(a,n).
+
+Proof The equation ax = b (mod n) is solvable if and only if [b] € (a), which
+is the same as saying
+
+(b mod n) € {0,d.2d,....((n/d) — 1d}
+
+by Theorem 31.20. If 0 < b <n, then b € (a) if and only if d | b, since the
+members of (a) are precisely the multiples of d. If b < 0 or b > n, the corollary
+then follows from the observation that d | b if and only if d | (b mod n), since b
+and b mod n differ by a multiple of n, which is itself a multiple of d. /
+
+Corollary 31.22
+The equation ax = b (mod n) either has d distinct solutions modulo 1, where
+d = gcd(a,n), or it has no solutions.
+
+Proof If ax = b (mod n) has a solution, then b € (a). By Theorem 31.17,
+ord(a) = |(a)|, and so Corollary 31.18 and Theorem 31.20 imply that the sequence
+ai mod n, fori = 0, 1,..., is periodic with period | (a)| = n/d. If b € (a), then b
+appears exactly d times in the sequence ai mod n, fori = 0,1,..., n —1, since
+

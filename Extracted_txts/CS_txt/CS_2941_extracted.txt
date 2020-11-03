@@ -1,0 +1,47 @@
+17.4 Dynamic tables 463
+
+17.3-6
+Show how to implement a queue with two ordinary stacks (Exercise 10.1-6) so that
+the amortized cost of each ENQUEUE and each DEQUEUE operation is O(1).
+
+a a data structure to support the following two operations for a dynamic
+multiset S of integers, which allows duplicate values:
+
+INSERT(S, x) inserts x into S.
+
+DELETE-LARGER-HALF(S) deletes the largest [|S| /2] elements from S.
+Explain how to implement this data structure so that any sequence of m INSERT
+
+and DELETE-LARGER-HALF operations runs in O(m) time. Your implementation
+should also include a way to output the elements of S in O(|S|) time.
+
+ 
+
+17.4 Dynamic tables
+
+We do not always know in advance how many objects some applications will store
+in a table. We might allocate space for a table, only to find out later that it is not
+enough. We must then reallocate the table with a larger size and copy all objects
+stored in the original table over into the new, larger table. Similarly, if many objects
+have been deleted from the table, it may be worthwhile to reallocate the table with
+a smaller size. In this section, we study this problem of dynamically expanding and
+contracting a table. Using amortized analysis, we shall show that the amortized cost
+of insertion and deletion is only O(1), even though the actual cost of an operation
+is large when it triggers an expansion or a contraction. Moreover, we shall see how
+to guarantee that the unused space in a dynamic table never exceeds a constant
+fraction of the total space.
+
+We assume that the dynamic table supports the operations TABLE-INSERT and
+TABLE-DELETE. TABLE-INSERT inserts into the table an item that occupies a sin-
+gle slot, that is, a space for one item. Likewise, TABLE-DELETE removes an item
+from the table, thereby freeing a slot. The details of the data-structuring method
+used to organize the table are unimportant; we might use a stack (Section 10.1),
+a heap (Chapter 6), or a hash table (Chapter 11). We might also use an array or
+collection of arrays to implement object storage, as we did in Section 10.3.
+
+We shall find it convenient to use a concept introduced in our analysis of hashing
+(Chapter 11). We define the load factor a(T) of a nonempty table T to be the
+number of items stored in the table divided by the size (number of slots) of the
+table. We assign an empty table (one with no items) size 0, and we define its load
+factor to be 1. If the load factor of a dynamic table is bounded below by a constant,
+

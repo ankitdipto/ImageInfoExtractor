@@ -1,0 +1,65 @@
+412 Chapter 13. Planning and Acting
+
+ee
+
+EXERCISES
+
+13.1 Consider how one might use a planning system to play chess.
+
+a. Write action schemata for legal moves. Make sure to include in the state description some
+way to indicate whose move it is. Will basic STRIPS actions suffice?
+
+b. Explain how the opponent's moves can be handled by conditional steps.
+
+c. Explain how the planner would represent and achieve the goal of winning the game.
+
+d. How might we use the planner to do a finite-horizon lookahead and pick the best move,
+rather than planning for outright victory?
+
+e. How would a replanning approach to chess work? What might be an appropriate way to
+combine conditional planning and replanning for chess?
+
+13.2 Discuss the application of conditional planning and replanning techniques to the vacuum
+world and wumpus world.
+
+13.3 Represent the actions for the flat-tire domain in the appropriate format, formulate the
+initial and goal state descriptions, and use the POP algorithm to solve the problem.
+
+ 
+
+13.4 This exercise involves the use of POP to actually fix a flat tire (in simulation)
+
+ 
+
+a. Build an environment simulator for the flat-tire world. Your simulator should be able to |
+update the state of the environment according to the actions taken by the agent. The easiest
+way to do this is to take the postconditions directly from the operator descriptions and use
+TELL and RETRACT to update a logical knowledge base representing the world state.
+
+b. Implement a planning agent for your environment, and show that it fixes the tire.
+
+13.5 In this exercise, we will add nondeterminism to the environment from Exercise 13.4.
+a. Modify your environment so that with probability 0.1, an action fails—that is, one of the
+effects does not occur. Show an example ofa plan not working because of an action failure.
+b. Modify your planning agent to include a simple replanning capability. It should call POP
+to construct a repair plan to get back to the desired state along the solution path, execute
+the repair plan (calling itself recursively, of course, if the repair plan fails), and then
+
+continue executing the original plan from there. (You may wish to start by having failed
+actions do nothing at all, so that this recursive repair method automatically results in a
+
+“Joop-until-success” behavior; this will probably be easier to debug!)
+c. Show that your agent can fix the tire in this new environment.
+
+ 
+
+13.6 Softbots construct and execute plans in software environments. One typical task for
+softbots is to find copies of technical reports that have been published at some other institution.
+Suppose that the softbot is given the task "Get me the most recent report by X on topic Ye
+Relevant actions include logging on to a library information system and issuing queries, using
+an Internet directory to find X's institution, sending email to X; comnecting to X's institution
+by £tp, and so on. Write down formal representations for a representative set of actions, and
+discuss what sort of planning and execution algorithms would be needed.
+
+ 
+

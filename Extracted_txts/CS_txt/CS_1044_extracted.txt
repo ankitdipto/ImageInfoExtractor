@@ -1,0 +1,55 @@
+206
+
+CHAPTER Six Programming the Basic Computer
+
+the flags. The interrupt facility is useful in a multiprogram environment when
+two or more programs reside in memory at the same time
+
+Only one program can be executed at any given time even though two
+or more programs may reside in memory. The program currently being exe-
+cuted is referred to as the running program. The other programs are usually
+waiting forinput or output data. The function of the interrupt facility is to take
+care of the data transfer of one (or more) program while another program is
+currently being executed. The running program must include an ION instruc-
+tion to turn the interrupt on. If the interrupt facility is not used, the program
+must include an IOF instruction to tum it off. (The start switch of the computer
+should also turn the interrupt off.)
+
+The interrupt facility allows the running program to proceed until the
+input or output device sets its ready flag. Whenever a flag is set to 1, the
+computer completes the execution of the instruction in progress and then
+acknowledges the interrupt. The result of this action is that the return address
+is stored in location 0. The instruction in location 1 is then performed; this
+initiates a service routine for the input or output transfer. The service routine
+can be stored anywhere in memory provided a branch to the start of the routine
+is stored in location 1 The service routine must have instructions to perform
+the following tasks:
+
+1 Save contents of processor registers.
+
+2. Check which flag is set.
+
+3. Service the device whose flag is set.
+
+4. Restore contents of processor registers.
+5. Tum the interrupt facility on.
+
+6. Retum to the running program.
+
+The contents of processor registers before the interrupt and after the
+return to the running program must be the same; otherwise, the running
+program may be in error. Since the service routine may use these registers, it
+is necessary to save their contents at the beginning of the routine and restore
+them at the end. The sequence by which the flags are checked dictates the
+priority assigned to each device. Even though two or more flags may be set at
+the same time, the devices nevertheless are serviced one at a time. The device
+with higher priority is serviced first followed by the one with lower priority.
+
+The occurrence of an interrupt disables the facility from further inter-
+rupts. The service routine must tum the interrupt on before the return to the
+running program. This will enable further interrupts while the computer is
+executing the running program. The interrupt facility should not be tumed on
+until after the retum address is inserted into the program counter.
+
+Anexample of a program that servicesan interruptis listed in Table 6-23.
+

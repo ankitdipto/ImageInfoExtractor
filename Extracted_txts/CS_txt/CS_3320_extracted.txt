@@ -1,0 +1,59 @@
+Section 22.6.
+
+Augmenting a Grammar 671
+
+ 
+
+ADJUNCTS:
+
+RULE SCHEMA
+
+To integrate verb subcategorization into the grammar, we do three things. The first step is
+to augment the category VP to take a subcategorization argument that indicates the complements
+that are needed to form a complete VP. For example, "give" can be made into a complete VP by
+adding /NP,PP], "give the zold” can be made complete by adding /PP/, and "give the gold to
+me" is already complete; its subcategorization list is []. That gives us these rules:
+
+VP(subcat) —  VP(\NP|subcat\NP(Objective)
+| VP([Adjective|subcat]) Adjective
+| VP(LPP|subcar}) PP
+| Verb(subcat)
+
+The first line can be read as "A VP with a given subcat list, swbcat, can be formed by a VP
+followed by a NP in the objective case, as long as that VP has a subcat list that starts with the
+symbol NP and is followed by the elements of the list subcat.”
+
+The second step is to change the rule for S to say that it requires a verb phrase that has all
+its complements, and thus has a subcat list of []. This means that "He died" is a legal sentence,
+but "You give" is not. The new rule,
+
+5 — NP(Subjective) VP([])
+
+can be read as "A sentence can be composed of a NP in the subjective case, followed by a VP
+which has a null subcat list." Figure 22.12 shows a parse tree using this grammar.
+
+The third step is to remember that in addition to complements, verb phrases (and other
+phrases) can also take adjuncts, which are phrases that are not licensed by the individual verb but
+rather may appear in any verb phrase. Phrases representing time and place are adjuncts, because
+almost any action or event can have a time or place. For example, the adverb "now" in "I smell
+a wumpus now" and the PP "on Tuesday" in "give me the gold on Tuesday" are adjuncts. Here
+are two rules to allow adjuncts:
+
+VP(subcat) — VP(subcat) PP
+| VP(subcat)Adverb
+
+Notice that we now have two rules with VP PP on the right-hand side, one as an adjunct and
+one as a complement. This can lead to ambiguities. For example, "I walked Sunday" is usually
+interpreted as an intransitive VP followed by a time adjunct meaning "I moved myself with my
+feet on Sunday." But if Sunday is the name ofa dog, then Sunday is an NP complement, and the
+meaning is that I took the dog for a walk at some unspecified time.
+
+Generative Capacity of Augmented Grammars
+
+The generative capacity of augmented grammars depends on the number of values for the
+augmentations. If there is a finite number, then the augmented grammar is equivalent to a
+context-free grammar. To see this, consider each augmented rule as a rule schema, which stands
+for a set ofrules, one for each possible combination of values for the augmented constituents. If we
+replace each rule schema with the complete set of rules, we end up with a finite (although perhaps
+exponentially large) set of context-free rules. But in the general case, augmented grammars go
+

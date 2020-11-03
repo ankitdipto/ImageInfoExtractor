@@ -1,0 +1,52 @@
+9.4 Paging 287
+
+9.3.3 Fragmentation
+
+Memory fragmentation can be internal as well as external. Consider a multiple-
+partition allocation scheme with a hole of 18,464 bytes. Suppose that the next
+process requests 18,462 bytes. If we allocate exactly the requested block, we
+are left with a hole of 2 bytes. The overhead to keep track of this hole will be
+substantially larger than the hole itself. The general approach is to break the
+physical memory into fixed-sized blocks, and allocate memory in unit of block
+sizes. With this approach, the memory allocated to a process may be slightly
+larger than the requested memory. The difference between these two numbers
+is internal fragmentation—memory that is internal to a partition but is not
+being used.
+
+One solution to the problem of external fragmentation is compaction. The
+goal is to shuffle the memory contents to place all free memory together in one
+Jarge block. Compaction is not always possible. If relocation is static and is done
+at assembly or load time, compaction cannot be done; compaction is possible
+only if relocation is dynamic, and is done at execution time. If addresses are
+relocated dynamically, relocation requires only moving the program and data,
+and then changing the base register to reflect the new base address. When
+compaction is possible, we must determine its cost. The simplest compaction
+algorithm is simply to move all processes toward one end of memory; all holes
+move in the other direction, producing one large hole of available memory. This
+scheme can be expensive.
+
+Another possible solution to the external-fragmentation problem is to per-
+mit the logical-address space of a process to be noncontiguous, thus allowing
+a process to be allocated physical memory wherever the latter is available.
+Two complementary techniques achieve this solution: paging (Section 9.4) and
+segmentation (Section 9.5). These techniques can also be combined (Section 9.6).
+
+94 m Paging
+
+Paging is a memory-management scheme that permits the physical-address
+space of a process to be noncontiguous. Paging avoids the considerable prob-
+lem of fitting the varying-sized memory chunks onto the backing store, from
+which most of the previous memory-management schemes suffered. When
+some code fragments or data residing in main memory need to be swapped
+out, space must be found on the backing store. The fragmentation problems
+discussed in connection with main memory are also prevalent with backing
+store, except that access is much slower, so compaction is impossible. Because
+of its advantages over the previous methods, paging in its various forms is
+commonly used in most operating systems.
+
+Traditionally, support for paging has been handled by hardware. However,
+recent designs have implemented paging by closely integrating the hardware
+and operating system, especially on 64-bit microprocessors.
+
+ 
+

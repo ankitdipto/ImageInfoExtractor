@@ -1,0 +1,66 @@
+Section 24.4.
+
+Extracting 3-D Information Using Vision TAS
+
+ 
+
+INTEGRABILITY
+
+REFLECTANCE MAP
+
+LUNE LABELLING
+
+LNELABELS
+
+The first observation to make is that the problem of determining n, given the brightness / at
+a given pixel (x,y), is underdetermined locally. We can compute the angle that n makes with the
+light source vector, but that only constrains it to lie on a certain cone of directions with axis s and
+apex angle 0 = cos~'{i/k). To proceed further, note that n cannot vary arbitrarily from pixel to
+pixel. It corresponds to the normal vector of a smooth surface patch and consequently must also
+vary in a smooth fashion—the technical term for the constraint is integrability. Several different
+techniques have been developed to exploit this insight. One technique is simply to rewrite n in
+tems of the partial derivatives Z, and Z, of the depth Z(x, y). This results in a partial differential
+equation for Z that can be solved to yield the depth Z/x, y), given appropriate boundary conditions
+
+One can generalize the approach somewhat. It is not necessary for the surface to be
+Lambertian nor for the light source to be a point source. As long as one is able to determine
+
+the reflectance map R(n), which specifies the brightness of a surface patch as a function of its
+surface normal n, essentially the same kind of techniques can be used.
+
+The real difficulty comes in dealing with interreflections. If we consider a typical indoor
+scene, such as the objects inside an office, surfaces are illuminated not only by the light sources,
+but also by the light reflected from other surfaces in the scene that effectively serve as secondary
+light sources. These mutual illumination effects are quite significant. The reflectance map
+formalism completely fails in this situation—image brightness depends not just on the surface
+normal, but also on the complex spatial relationships among the different surfaces in the scene
+
+Humans clearly do get some perception of shape from shading, so this remains an interesting
+problem in spite of all these difficulties.
+
+Contour
+
+When we look at a line drawing, such as Figure 24.19, we get a vivid perception of 3-D shape
+and layout. How? After all, we saw earlier that there is an infinity of scene configurations that
+can give rise to the same line drawing. Note that we get even a perception of surface slant and
+tilt. It could be due to a combination of high-level knowledge about typical shapes as well as
+some low-level constraints.
+
+We will consider the qualitative knowledge available from a line drawing. As discussed
+earlier, lines ina drawing can have multiple significances (see Figure 24.6 and the accompanying
+text). The task of determining the actual significance of each line in an image is called line
+labelling, and was one of the first tasks studied in computer vision. For now, let us deal witha
+simplified model of the world where the objects have no surface marks and where the lines due
+to illumination discontinuities like shadow edges and specularities have been removed in some
+preprocessing step, enabling us to limit our attention to line drawings where each line corresponds
+either to a depth or orientation discontinuity.
+
+Each line then can be classified as either the projection of a limb (the locus of points on
+the surface where the line of sight is tangent to the surface) or as an edge (a surface normal
+discontinuity). Additionally, each edge can be classified as a convex, concave, or occluding edge
+For occluding edges and limbs, we would like to determine which of the two surfaces bordering
+the curve in the line drawing is nearer in the scene. These inferences can be represented by giving
+each line one of 6 possible line labels as illustrated in Figure 2
+
+ 
+

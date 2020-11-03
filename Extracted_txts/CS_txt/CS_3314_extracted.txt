@@ -1,0 +1,74 @@
+666
+
+Chapter 22 Agents that Communicate
+
+forest that match the right-hand side ofone of the grammar rules. It then replaces the subsequence
+with a single parse tree whose category is the left-hand side of the mle, and whose children are
+the nodes in the original subsequence. In Figure 22.8, we show a trace of the execution in parsing
+the string "the wumpus is dead." Every choice is a good one, so there is no backtracking.
+
+There are many possible parsing algorithms. Some operate top-down, starting with an S
+and expanding it according to the grammar rules to match the words in the string. Some use
+a combination of top-down and bottom-up, and some use dynamic programming techniques to
+avoid the inefficiencies ofbacktracking. We cover one efficient algorithm for parsing context-free
+grammars in Section 23.2. But first, we will show how the parsing problem can be interpreted as
+a logical inference problem, and thus can be handled by general inference algorithms.
+
+ 
+
+function BOTTOM-UP-PARSE(words, grammar) returns a parse tree
+
+forest — words
+loop do
+if LENGTH(forest)= 1 and CATEGORY(forest{1 ]) = START(grammar) then
+return forest\ 1}
+else
+i choose from {1.,.LENGTH(forest)}
+rule — choose from RULES(grammar)
+a” — LENGTH(RULE-RHS(rule))
+subsequence — SUBSEQUENCE(forest,!", i+n-\)
+if MaTCH(subsequence,RULE-RHS(rule)) then
+forest[i...i+n-1]— [MAKF-NODE(RULE-LHS (rule). subsequence)|
+else fail
+end
+
+ 
+
+ 
+
+Figure 22.7 Nondeterministic bottom-up parsing algorithm for context-free grammars. It
+picks one parse to return. Each node in a parse tree has two fields: CATEGORY and CHILDREN.
+
+ 
+
+ 
+
+ 
+
+forest subsequence rule
+
+The wumpus is dead The Article — the
+Article wumpus is dead wumpus Noun — wumpus
+Article Noun is dead Article No/in NP — Article Noun
+NP is dead is Verb — is
+
+NP Verb dead dead Adjective — + dead
+NP Verb Adjective Verb VP — Verb
+
+NP VP Adjective VP. Adjective VP — VP Adjective
+NP VP NP VP S — NP VP
+
+Ss
+
+ 
+
+Figure 22.8 Trace of BOTTOM-UP-PARSE on the string "The wumpus is dead."
+
+ 
+
+ 
+
+ 
+
+ 
+

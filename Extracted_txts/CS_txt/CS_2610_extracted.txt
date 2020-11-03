@@ -1,0 +1,150 @@
+8.2 Counting sort 195
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+o/2[3]o[3 a 5
+
+304055 1212/41 7)718 ol 45
+3[o|1 c[2]|2]4[e]7[8
+(a) (b) (©)
+
+12 4 5 67 8
+4s a 5 5 Blolo]2]2]3[3]3[s5
+6|7|8 clif2[4]s[7[s8
+@ (e) ()
+
+Figure 8.2. The operation of COUNTING-SorT on an input array A[1 ..8], where each element
+of A is a nonnegative integer no larger than k = 5. (a) The array A and the auxiliary array C after
+line 5. (b) The array C after line 8. (c)-(e) The output array B and the auxiliary array C after one,
+two, and three iterations of the loop in lines 10-12, respectively. Only the lightly shaded elements of
+array B have been filled in. (f) The final sorted output array B.
+
+CounTING-Sort (A, B,k)
+let C[O..k] be a new array
+fori = Otok
+Cli] =0
+for j = 1 to A.length
+cat] = C4] +1
+// C{i] now contains the number of elements equal to i.
+fori = ltok
+Cli] = Cli]+ cli -1
+// C{i] now contains the number of elements less than or equal to i.
+10 for j = A.length downto 1
+a BIC{AL/]]] = Als]
+12 cla] = cl4U]]-1
+
+CHOIDAWAWNHE
+
+Figure 8.2 illustrates counting sort. After the for loop of lines 2-3 initializes the
+array C to all zeros, the for loop of lines 4—5 inspects each input element. If the
+value of an input element is i, we increment C [i]. Thus, after line 5, C [i] holds
+the number of input elements equal toi for each integer i = 0,1,..., k. Lines 7-8
+determine for each i = 0,1,..., how many input elements are less than or equal
+to i by keeping a running sum of the array C.
+

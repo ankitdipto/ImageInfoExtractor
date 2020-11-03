@@ -1,0 +1,48 @@
+SECTION 8.5 Addressing Modes. 263
+
+type instruction. It is the address where control branches in response to a
+branch-type instruction. We have already defined two addressing modes in
+Chap. 5. They are summarized here for reference.
+
+Direct Address Mode: In this mode the effective address is equal to the
+address part of the instruction. The operand resides in memory and its address
+is given directly by the address field of the instruction. In a branch-type
+instruction the address field specifies the actual branch address.
+
+Indirect Address Mode: In this mode the address field of the instruction
+gives the address where the effective address is stored in memory. Control
+fetches the instruction from memory and uses its address part to access mem-
+ory again to read the effective address. The indirect address mode is also
+explained in Sec. 5-1 in conjunction with Fig. 5-2
+
+‘A fewaddressing modes require that the address field of the instruction
+be added to the content ofa specific register in the CPU. The effective address
+in these modes is obtained from the following computation:
+
+effective address = address part of instruction + content of CPU register
+
+‘The CPU register used in the computation may be the program counter, an
+index register, or a base register. In either case we have a different addressing
+mode which is used for a different application.
+
+Relative Address Mode: _In this mode the content of the program counter is
+added to the address part of the instruction in order to obtain the effective
+address. The address part of the instruction is usually a signed number (in 2's
+complement representation) which can be either positive or negative. When
+this number is added to the content of the program counter, the result pro-
+duces an effective address whose position in memory isrelative to the address
+of the next instruction. To clarify with an example, assume that the program
+counter contains the number 825 and the address part of the instruction
+contains the number 24. The instruction at location 825 is read from memory
+during the fetch phase and the program counter is then incremented by one
+to 826. The effective address computation for the relative address mode is
+826 + 24 = 850. This is 24 memory locations forward from the address of the
+next instruction. Relative addressing is often used with branch-type instruc-
+tions when the branch address is in the area surrounding the instruction word
+itself. It results in a shorter address field in the instruction format since the
+relative address can be specified with a smaller number of bits compared to the
+number of bits required to designate the entire memory address.
+
+Indexed Addressing Mode: _In this mode the content of an index registeris
+added to the address part of the instruction to obtain the effective address. The
+

@@ -1,0 +1,78 @@
+1000
+
+Chapter 32 String Matching
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+~
+L—a2—a
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 32.9 An illustration for the proof of Lemma 32.3. The figure shows that r = o(Pya),
+where q = o(x) and r = o(xa).
+
+dropping the a from the end of P, and from the end of xa. Therefore, r—1 < o(x),
+since o (x) is the largest k such that P; 3 x, and thus o(xa) =r <o(x)+1. @
+
+Lemma 32.3 (Suffix-function recursion lemma)
+For any string x and character a, if ¢ = o (x), then o (xa) = o( Pa).
+
+Proof From the definition of o, we have Py 3 x. As Figure 32.9 shows, we
+also have Pa 3 xa. If we let r = o(xa), then P, 3 xa and, by Lemma 32.2,
+r <q +1. Thus, we have |P,| =r <q +1 =|P,a|. Since Ppa 3 xa, P, 3 xa,
+and |P,| < |Pga|, Lemma 32.1 implies that P, 3 Pya. Therefore, r < o(Pya),
+that is, o(va) < o(P,a). But we also have o(Pya) < o(xa), since Pga 3 xa.
+Thus, o (xa) = o(P,a). .
+
+We are now ready to prove our main theorem characterizing the behavior of a
+string-matching automaton on a given input text. As noted above, this theorem
+shows that the automaton is merely keeping track, at each step, of the longest
+prefix of the pattern that is a suffix of what has been read so far. In other words,
+the automaton maintains the invariant (32.5).
+
+Theorem 32.4
+If @ is the final-state function of a string-matching automaton for a given pattern P
+and T[1..7] is an input text for the automaton, then
+
+oT) =o(T)
+
+fori =0.1,.... n.
+
+Proof The proof is by induction on i. For i = 0, the theorem is trivially true,
+since Ty = €. Thus, (To) = 0 = o(To).
+

@@ -1,0 +1,51 @@
+10.9 Summary 363
+
+10.8.7 Real-Time Processing
+
+The discussions in this chapter have concentrated on providing the best overall
+utilization of a computer system by optimizing the use of memory. By using
+memory for active data and moving inactive data to disk, we increase overall
+system throughput. However, individual processes may suffer as a result,
+because they now may take additional page faults during their execution.
+
+Consider a real-time process or thread, as described in Chapter 4. Such
+a process expects to gain control of the CPU, and to run to completion with a
+minimum of delays. Virtual memory is the antithesis of real-time computing,
+because it can introduce unexpected long-term delays in the execution of a
+process while pages are brought into memory. Therefore, real-time systems
+almost never have virtual memory.
+
+In the case of Solaris 2, the developers at Sun Microsystems wanted to allow
+both time-sharing and real-time computing within a system. To solve the page-
+fault problem, Solaris 2 allows a process to tell it which pages are important to
+that process. In addition to allowing “hints” on page use, the operating system
+allows privileged users to require pages to be locked into memory. If abused,
+this mechanism could lock all other processes out of the system. It is necessary
+to allow real-time processes to have bounded and low-dispatch latency.
+
+10.9 = Summary
+
+It is desirable to be able to execute a process whose logical address space is
+larger than the available physical address space. The programmer can make
+such a process executable by restructuring it using overlays, but doing so is
+generally a difficult programming task. Virtual memory is a technique to allow
+a large logical address space to be mapped onto a smaller physical memory.
+Virtual memory allows extremely large processes to be run, and also allows the
+degree of multiprogramming to be raised, increasing CPU utilization. Further,
+it frees application programmers from worrying about memory availability.
+
+Pure demand paging never brings in a page until that page is referenced.
+The first reference causes a page fault to the operating-system resident monitor.
+The operating system consults an internal table to determine where the page
+is located on the backing store. It then finds a free frame and reads the page
+in from the backing store. The page table is updated to reflect this change,
+and the instruction that caused the page fault is restarted. This approach
+allows a process to run even though its entire memory image is not in main
+memory at once. As long as the page-fault rate is reasonably low, performance
+is acceptable.
+
+We can use demand paging to reduce the number of frames allocated to
+a process. This arrangement can increase the degree of multiprogramming
+{allowing more processes to be available for execution at one time) and—in
+theory, at least—the CPU utilization of the system. It also allows processes to be
+

@@ -1,0 +1,73 @@
+676
+
+Chapter 22. Agents that Communicate
+
+ 
+
+INTERVEDIATE FORM
+
+‘QUASHLOGICAL
+FORM
+
+(QUANTIFED TERM
+
+little odd (at least at first glance). The second problem is that we need to get the variable a as
+an argument to the relation Perceive. In other words, the semantics of the sentence is formed by
+plugging the semantics ofthe VP into the right argument slot of the NP, while also plugging the
+variable a from the NP into the right argument slot of the semantics of the VP. It looks as ifwe
+need two functional compositions, and promises to be rather confusing. The complexity stems
+from the fact that the semantic structure is very different from the syntactic structure.
+
+To avoid this confusion, many modern grammars take a different tack. They define an
+intermediate form to mediate between syntax and semantics. The intermediate form has two
+key properties. First, itis structurally similar to the syntax ofthe sentence, and thus can be easily
+constructed through compositional means. Second, it contains enough information so that it can
+be translated into a regular first-order logical sentence. Because it sits between the syntactic
+and logical forms, it is sometimes called a quasitogical form.* In this chapter, we will use a
+quasi-logical form that includes all of first-order logic and is augmented by lambda expressions
+and one new construction, which we will call a quantified term. The quantified term that is the
+semantic interpretation of "every agent" is written
+
+[V a Agent(a)]
+This looks like a logical sentence, but it is used in the same way that a logical term is used. ]
+
+In the following example, we see quantified terms as arguments to the relation Perceive in the
+interpretation of "Every agent smells a wumpus”:
+
+3.e (e6 Perceive(|¥ a Agent(a)], [3 w Wumpus(w)] Nose) A During(Now,e))
+
+We will write our grammar so that it generates this quasi-logical form. In Section 22.7 we will
+see how to translate this into regular first-order logic.
+
+It can be difficult to write a complex grammar that always comes up with the right se-
+mantic interpretation, and everyone has their own way of attacking the problem. We suggest a
+methodology based on these steps:
+
+1. Decide on the logical or quasi-logical form you want to generate. Write down some
+example sentences and their corresponding logical forms. One such example sentence is
+at the top of Figure 22.17.
+
+Make one-word-at-a-time modifications to your example sentences, and study the corre-
+
+sponding logical forms. For example, the semantics of "Every agent smelled a wum-
+
+pus" is the same as our example sentence, except that During(Now,e) is replaced with
+
+After(Nowg). This suggests that During is part of the semantics of "smells" and Afier is
+
+part of the semantics of "smelled." Similarly, changing the word "every" to "an" might
+
+result in a change of V to 3 in the logical form. This gives you a hint about the semantic
+interpretation of "an" and "every."
+
+3. Eventually you should be able to write down the basic logical type ofeach lexical category
+(noun, verb, and so on), along with some word/logical form pairs. This is motivated in
+part by example sentences and in part by your intuitions. For example, it seems clear
+enough that the pronoun "I" should denote the object Speaker (which happens to be a
+fluent, dependent on the situation). Once we decide that one word in a category is of a
+
+Nn
+
+8 Some quasi-logical forms have the third property that they can succinctly represent ambiguities that could only be
+represented in logical form by a long disjunction.
+

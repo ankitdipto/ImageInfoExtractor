@@ -1,0 +1,67 @@
+7.11
+
+7.12
+
+7.13
+
+7.14
+
+7.15
+
+7.16
+
+7.17
+
+7.18
+
+Exercises 239
+
+Write a bounded-buffer monitor in which the buffers (portions) are
+embedded within the monitor itself.
+
+The strict mutual exclusion within a monitor makes the bounded-buffer
+monitor of Exercise 7.11 mainly suitable for small portions.
+
+a. Explain why this assertion is true.
+
+b. Design a new scheme that is suitable for larger portions.
+
+Suppose that the signal statement can appear as only the last statement
+in a monitor procedure. Suggest how the implementation described in
+Section 7.7 can be simplified.
+
+Consider a system consisting of processes Pj, P2, ..., P,, each of which has
+a unique priority number. Write a monitor that allocates three identical
+line printers to these processes, using the priority numbers for deciding
+the order of allocation.
+
+A file is to be shared among different processes, each of which has a
+unique number. The file can be accessed simultaneously by several pro-
+cesses, subject to the following constraint: The sum of all unique numbers
+associated with all the processes currently accessing the file must be less
+than n. Write a monitor to coordinate access to the file.
+
+Suppose that we replace the wait and signal operations of monitors
+with a single construct await (B), where B is a general Boolean expression
+that causes the process executing it to wait until B becomes true.
+
+a. Write a monitor using this scheme to implement the readers—writers
+problem.
+
+b. Explain why, in general, this construct cannot be implemented effi-
+ciently.
+
+c. What restrictions need to be put on the await statement so that it
+can be implemented efficiently? (Hint: Restrict the generality of B;
+see Kessels [1977].)
+
+Write a monitor that implements an alarm clock that enables a calling pro-
+gram to delay itself for a specified number of time units (ticks). You may
+assume the existence of a real hardware clock that invokes a procedure tick
+in your monitor at regular intervals.
+
+Why does Solaris 2 implement multiple locking mechanisms? Under
+what circumstances does it use spinlocks, semaphores, adaptive mutexes,
+conditional variables, and readers—writers locks? Why does it use each
+mechanism? What is the purpose of turnstiles?
+

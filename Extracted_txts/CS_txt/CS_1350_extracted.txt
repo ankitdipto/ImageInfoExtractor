@@ -1,0 +1,52 @@
+Chapter 18: Graphics Under Windows 609
+
+ 
+
+}
+
+hmemdc = CreateCompatibleDC ( hdc) ;
+holdbmp = SelectObject ( hmemdc, hbmp ) ;
+
+ReleaseDC ( hWnd, hdc ) ;
+srand (time ( NULL) );
+GetClientRect (hWnd, &r) ;
+
+x =rand() % r.right - 22 ;
+y =rand() % r.bottom - 22 ;
+
+SetTimer ( hWnd, 1, 50, NULL ) ;
+
+void OnDestroy ( HWND hWnd )
+
+{
+
+}
+
+KillTimer ( hWnd, 1) ;
+
+SelectObject (hmemdc, holdbmp ) ;
+DeleteDC (hmemdc) ;
+DeleteObject ( hbmp ) ;
+PostQuitMessage (0) ;
+
+void OnTimer ( HWND hWnd )
+
+{
+
+HDC hdc ;
+RECTr;
+const int wd = 22, ht = 22;
+static int dx = 10, dy = 10;
+
+ 
+
+hdc = GetDC ( hWnd) ;
+BitBIt ( hdc, x, y, wd, ht, hmemdc, 0, 0, WHITENESS ) ;
+GetClientRect (hWnd, &r) ;
+
+ 
+
+X+= dX;
+if (x<0)
+{
+

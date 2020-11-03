@@ -1,0 +1,47 @@
+294 Let Us C
+
+ 
+
+each one-dimensional arrays starts 4 bytes further along than the
+last one, as can be seen in the memory map of the array shown
+elow.
+
+ 
+
+s(0][0] sfO}[1} s[1][0] s{1J01} s[2]00] s{2]01) s[3)00] s(3]0)
+1234 | 56 | 1212 | 33 | 1434] 80 | 1312 | 78
+
+ 
+
+65508 65510 65512 65514 65516 65518 65520 65522
+
+ 
+
+ 
+
+ 
+
+Figure 8.6
+
+We know that the expressions s[0] and s[1] would yield the
+addresses of the zeroth and first one-dimensional array
+respectively. From Figure 8.6 these addresses turn out to be 65508
+and 65512.
+
+Now, we have been able to reach each one-dimensional array.
+What remains is to be able to refer to individual elements of a one-
+dimensional array. Suppose we want to refer to the element s[2][1]
+using pointers. We know (from the above program) that s[2] would
+give the address 65516, the address of the second one-dimensional
+array. Obviously ( 65516 + 1 ) would give the address 65518. Or
+(s[2] + 1 ) would give the address 65518. And the value at this
+address can be obtained by using the value at address operator,
+saying *(s[2] + 1). But, we have already studied while learning
+one-dimensional arrays that num[i] is same as *( num + i ).
+Similarly, *(s[2] + 1) is same as, *( *(s +2) +1). Thus, all the
+following expressions refer to the same element,
+
+sl]
+*(s[2]+1)
+“("(s+2)41)
+

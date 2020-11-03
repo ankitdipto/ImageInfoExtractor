@@ -1,0 +1,50 @@
+25.2. The Floyd-Warshall algorithm 697
+
+choose the same predecessor of j that we chose on a shortest path from i with all
+
+intermediate vertices in the set {1,2,..., k — 1}. Formally, for k > 1,
+7) = mi 1) if d¢- 1) < ai 1) +k, os
+(k—1) ik De i 1) —1) .
+yj ifdj > dy +g.
+
+We leave the incorporation of the II matrix computations into the FLOYD-
+WARSHALL procedure as Exercise 25.2-3. Figure 25.4 shows the sequence of 1
+matrices that the resulting algorithm computes for the graph of Figure 25.1. The
+exercise also asks for the more difficult task of proving that the predecessor sub-
+graph G,,; is a shortest-paths tree with root i. Exercise 25.2-7 asks for yet another
+way to reconstruct shortest paths.
+
+Transitive closure of a directed graph
+
+Given a directed graph G = (V, E) with vertex set V = {1,2...., nj, we might
+wish to determine whether G contains a path from i to j for all vertex pairs
+i, j € V. We define the transitive closure of G as the graph G* = (V, E*), where
+
+* = {(i, j) : there is a path from vertex j to vertex j in G} .
+
+One way to compute the transitive closure of a graph in ©(n3) time is to assign
+a weight of | to each edge of E and run the Floyd-Warshall algorithm. If there is a
+path from vertex i to vertex j, we get dj; <n. Otherwise, we get dij =O.
+
+There is another, similar way to compute the transitive closure of G in @(n3)
+time that can save time and space in practice. This method substitutes the logical
+operations V (logical OR) and A (logical AND) for the arithmetic operations min
+and + in the Floyd-Warshall algorithm. For i, j,k = 1,2,..., n, we define 1? to
+be 1 if there exists a path in graph G from vertex i to vertex j with all intermediate
+vertices in the set {1,2,..., k}, and 0 otherwise. We construct the transitive closure
+
+G* = (V, E*) by putting edge (i, j) into E* if and only if a = 1. A recursive
+
+definition of it analogous to recurrence (25.5), is
+
+ 
+
+1 §0 iA Jad) gE,
+
+a 1 ifi=jorGi.j)ek.
+and for k > 1,
+(= if Dv (ke D nite Dy, (25.8)
+
+As in the Floyd-Warshall algorithm, we compute the matrices TH = () in
+order of increasing k.
+

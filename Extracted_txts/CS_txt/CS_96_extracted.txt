@@ -1,0 +1,57 @@
+128 —cuarren Ave Basic Computer Organization and Design
+
+rogram
+‘counter (PC)
+
+code afterit is read from memory. The computer needs processor registers for
+manipulating data and a register for holding a memory address. These require-
+ments dictate the register configuration shown in Fig. 5-3. The registers arealso
+listed in Table 5-1 together with a brief description of their function and the
+number of bits that they contain.
+
+The memory unit has a capacity of 4096 words and each word contains
+16 bits. Twelve bits of an instruction word are needed to specify the address
+of an operand. This leaves three bits for the operation part of the instruction
+and a bit to specify a direct or indirect address. The data register (DR) holds
+the operand read from memory. The accumulator (AC) register is a general-
+purpose processing register. The instruction read from memory is placed inthe
+instruction register (IR). The temporary register (TR) is used for holding tem-
+porary data during the processing.
+
+TABLE 5-1 List of Registers for the Basic Computer
+
+ 
+
+Register Number
+
+symbol of bits Register name Function
+
+DR 16 Data register Holds memory operand
+
+AR 12 Address register Holds address for memory
+AC 16 Accumulator Processor register
+
+IR 16 Instruction register Holds instruction code
+
+PC 12 Program counter Holds address of instruction
+TR 16 Temporary register Holds temporary data
+INPR 8 Input register Holds input character
+OUTR 8 Output register Holds output character
+
+The memory address register (AR) has 12 bits since this is the width of
+a memory address. The program counter (PC) also has 12 bits and it holds the
+address of the next instruction to be read from memory after the current
+instructionis executed. The PC goes through a counting sequence and causes
+the computer to read sequential instructions previously stored in memory.
+Instruction words are read and executed in sequence unless a branch instruc-
+tion is encountered. A branch instruction calls for a transfer to a nonconsecu-
+tive instruction in the program. The address part of a branch instruction is
+transferred to PC to become the address of the next instruction. To read an
+instruction, the content of PC istaken as the address formemory and amemory
+read cycleiis initiated, PC is then incremented by one, so it holds the address
+of the next instruction in sequence.
+
+Two registers are used for input and output. The input register (INPR)
+receives an &-bit character from an input device. The output register (OUTR)
+holds an 8-bit character for an output device.
+

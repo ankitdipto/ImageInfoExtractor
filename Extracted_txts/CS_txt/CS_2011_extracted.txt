@@ -1,0 +1,42 @@
+Bibliographical Notes 451
+
+12.14 Consider the following backup scheme:
+¢ Day 1: Copy to a backup medium all files from the disk.
+¢ Day 2: Copy to another medium all files changed since day 1.
+¢ Day 3: Copy to another medium all files changed since day 1.
+
+This contrasts to the schedule given in Section 12.7.2 by having all sub-
+sequent backups copy all files modified since the first full backup. What
+are the benefits of this system over the one in Section 12.7.2? What are
+the drawbacks? Are restore operations made easier or more difficult?
+Explain your answer.
+
+Bibliographical Notes
+
+The Apple Macintosh disk-space management scheme was discussed in Apple
+[1987] and Apple [1991]. The MS-DOS FAT system was explained in Norton and
+Wilton [1988], and the O$/2 description is found in Iacobucci [1988]. These
+operating systems use the Motorola MC68000 family (Motorola [1989a]) and
+the Intel 8086 (Intel [1985b], Intel [1985a], Intel [1986], Intel [1990]) CPUs,
+respectively. IBM allocation methods were described in Deitel [1990]. The
+internals of the BSD UNIX system were covered in full in McKusick et al. [1996].
+McVoy and Kleiman [1991] presented optimizations to these methods made in
+SunOs.
+
+Disk file allocation based on the buddy system was discussed by Koch
+[1987]. A file-organization scheme that guarantees retrieval in one access was
+discussed by Larson and Kajla [1984].
+
+Disk caching was discussed by McKeon [1985] and Smith [1985]. Caching in
+the experimental Sprite operating system was described in Nelson et al. [1988].
+General discussions concerning mass-storage technology were offered by Chi
+[1982] and Hoagland [1985]. Folk and Zoellick [1987] covered the gamut of file
+structures. Silvers [2000] discusses implementing the page cache in the NetBSD
+operating system.
+
+The Network File System (NFS) is discussed in Sandberg et al. [1985],
+Sandberg [1987], Sun [1990], and Callaghan [2000]. NFS and the UNIX File
+System (UFS) are described in Vahalia [1996] and Mauro and McDougall [2001].
+The Windows NT file system, NTFS, is described in Solomon [1998]. The Ext2
+file system used in Linux is described in Bovet and Cesati [2001].
+

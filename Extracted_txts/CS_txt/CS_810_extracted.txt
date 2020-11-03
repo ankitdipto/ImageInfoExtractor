@@ -1,0 +1,55 @@
+table-lookup
+
+SECTION 64 The Assembler 187
+
+TABLE 6-12 Address Symbol Table for Program in Table 68
+
+ 
+
+Memory Symbol Hexadecimal
+
+word or (LC)* code Binary representation
+1 MI 4D 49 100 1101 0100 1001
+2 N, 4E 2C 0100 1110 0010 1100
+3 “oO 01 06 (0000 0001 0000 0110
+4 sU 53.55 101 Oo11 0101 O101
+5 B, 42 2C 0100 0010 0010 1100
+6 “o ao (0000 0001 0000 0111
+7 DI 4 49 0100 0100 0100 1001
+8 F, 46 2C 0100 0110 0010 1100
+9 (Le) a1 08 ‘0000 0001 0000 1000
+
+*(LC) designates content of location counter.
+
+respectively. The address symbol table occupies three words for each label
+symbolencountered andconstitutes the output data that the assembler gener-
+ates during the first pass.
+
+Second Pass
+
+Machineinstructions are translated during the second pass by means of table-
+lookup procedures. A table-lookup procedure is a search of table entries to
+determine whether a specific item matches one of the items stored in the table.
+Theassembler uses four tables. Any symbol thatis encountered in the program
+must be available as an entry in one of these tables; otherwise, the symbol
+cannot be interpreted. We assign the following names to the four tables:
+
+1. Pseudoinstruction table.
+2. MRI table.
+
+3. Non-MRI table.
+
+4. Address symbol table.
+
+The entries of the pseudoinstruction table are the four symbols ORG,
+END, DEC, and HEX. Each entry refers the assembler to a subroutine that
+processes the pseudoinstruction when encountered in the program. The MRI
+fable contains the seven symbols of the memory-reference instructions and
+their 3-bit operation code equivalent. The non-MRItablecontains the symbols
+for the 18 register-reference and input-output instructions and their 16-bit
+binary code equivalent. The address symbol tableis generated during the first
+pass of the assembly process. The assembler searches these tables to find the
+symbol that it is currently processing in order to determine its binary value.
+
+The tasks performed by the assembler during the second pass are de-
+

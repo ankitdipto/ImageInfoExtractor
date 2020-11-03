@@ -1,0 +1,49 @@
+34.1 Polynomial time 1059
+
+algorithm A accepts x in time O(n"). A language L is decided in polynomial
+time by an algorithm A if there exists a constant k such that for any length-n string
+x € {0, 1}*, the algorithm correctly decides whether x € L in time O(n"). Thus,
+to accept a language, an algorithm need only produce an answer when provided a
+string in L, but to decide a language, it must correctly accept or reject every string
+in {0, 1}*.
+
+As an example, the language PATH can be accepted in polynomial time. One
+polynomial-time accepting algorithm verifies that G encodes an undirected graph,
+verifies that u and v are vertices in G, uses breadth-first search to compute a short-
+est path from u to v in G, and then compares the number of edges on the shortest
+path obtained with k. If G encodes an undirected graph and the path found from u
+to v has at most k edges, the algorithm outputs | and halts. Otherwise, the algo-
+rithm runs forever. This algorithm does not decide PATH, however, since it does
+not explicitly output 0 for instances in which a shortest path has more than k edges.
+A decision algorithm for PATH must explicitly reject binary strings that do not be-
+long to PATH. For a decision problem such as PATH, such a decision algorithm is
+easy to design: instead of running forever when there is not a path from u to v with
+at most k edges, it outputs 0 and halts. (It must also output 0 and halt if the input
+encoding is faulty.) For other problems, such as Turing’s Halting Problem, there
+exists an accepting algorithm, but no decision algorithm exists.
+
+We can informally define a complexity class as a set of languages, membership
+in which is determined by a complexity measure, such as running time, of an
+algorithm that determines whether a given string x belongs to language L. The
+actual definition of a complexity class is somewhat more technical.°
+
+Using this language-theoretic framework, we can provide an alternative defini-
+tion of the complexity class P:
+
+P= {LC {0,1}* : there exists an algorithm A that decides L
+in polynomial time} .
+
+In fact, P is also the class of languages that can be accepted in polynomial time.
+
+Theorem 34.2
+P = {L: L is accepted by a polynomial-time algorithm} .
+
+Proof Because the class of languages decided by polynomial-time algorithms is
+a subset of the class of languages accepted by polynomial-time algorithms, we
+need only show that if L is accepted by a polynomial-time algorithm, it is de-
+cided by a polynomial-time algorithm. Let L be the language accepted by some
+
+ 
+
+©For more on complexity classes, see the seminal paper by Hartmanis and Stearns [162].
+

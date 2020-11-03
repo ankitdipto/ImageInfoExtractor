@@ -1,0 +1,71 @@
+408
+
+114
+
+15
+
+11.6
+
+17
+11.8
+
+11.9
+
+11.10
+
+11.11
+
+11.12
+
+Chapter 11 File-System Interface
+
+systems keep all files unless the user explicitly deletes them. Discuss the
+relative merits of each approach.
+
+Why do some systems keep track of the type of a file, while others leave
+it to the user or simply do not implement multiple file types? Which
+system is “better”?
+
+Similarly, some systems support many types of structures for a file’s data,
+while others simply support a stream of bytes. What are the advantages
+and disadvantages?
+
+What are the advantages and disadvantages of recording the name of the
+creating program with the file’s attributes (as is done in the Macintosh
+operating system)?
+
+Could you simulate a multilevel directory structure with a single-level
+directory structure in which arbitrarily long names can be used? If your
+answer is yes, explain how you can do so, and contrast this scheme
+with the multilevel directory scheme. If your answer is no, explain what
+prevents your simulation’s success. How would your answer change if
+file names were limited to seven characters?
+
+Explain the purpose of the open and close operations.
+
+Some systems automatically open a file when it is referenced for the first
+time, and close the file when the job terminates. Discuss the advantages
+and disadvantages of this scheme as compared to the more traditional
+one, where the user has to open and close the file explicitly.
+
+Give an example of an application in which data in a file should be
+accessed in the following order:
+
+a. Sequentially
+b. Randomly
+
+Some systems provide file sharing by maintaining a single copy of a file;
+other systems maintain several copies, one for each of the users sharing
+the file. Discuss the relative merits of each approach.
+
+In some systems, a subdirectory can be read and written by an authorized
+user, just as ordinary files can be.
+
+a. Describe the protection problems that could arise.
+
+b. Suggest a scheme for dealing with each of the protection problems
+you named in part a.
+
+Consider a system that supports 5000 users. Suppose that you want to
+allow 4990 of these users to be able to access one file.
+

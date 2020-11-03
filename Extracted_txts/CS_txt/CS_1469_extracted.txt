@@ -1,0 +1,72 @@
+ 
+
+Section 84.
+
+General Ontology 237
+
+ 
+
+       
+
+IISORETE EVENTS
+
+PROCESS
+ovio EVENT
+
+STATES
+
+Processes
+
+ 
+
+The events we have seen so far have been what we call discrete events—they have a definite
+structure. Shankar's trip has a beginning, middle, and end. If interrupted halfway, the event i
+would be different—itwould not be a trip from New York to New Delhi, but instead a trip from
+New York to somewhere in the Eastern Mediterranean. On the other hand, the category of events
+denoted by Flying(Shankarhaas a different quality. Ifwe take a small interval of Shankar's flight,
+say, the third twenty-minute segment (while he waits anxiously fora second bag of honey-roasted
+peanuts), that event is still a member of Flying(Shankar).In fact, this is true for any subinterval.
+
+Categories of events with this property are called process categories or liquid event
+categories. Any subinterval ofa process is also a member of the same process category. We can
+use the same notation used for discrete events to say that, for example, Shankar was flying at
+some time yesterday:
+
+E(Flying(Shankar), Yesterday)
+
+We often want to say that some process was going on throughout some interval, rather than just
+in some subinterval of it. To do this, we use the predicate T:
+
+T( Working(Stuart), TodayLunchFbur)
+
+T(c.i) means that some event of type ¢ occurred over exactly the interval i—that is, the event
+begins and ends at the same time as the interval. Exercise 8.6 asks you to define T formally.
+
+As well as describing processes ofcontinuous change, liquid events can describe processes
+of continuous non-change. These are often called states. For example, "Mary being in the local
+supermarket" is a category ofstates that we might denote by Jn(Mary.Supermarket,). To say she
+was in the supermarket all this afternoon, we would write
+
+T(In(Mary, Supermarket,), ThisAfternoon)
+
+An interval can also be a discontinuous sequence of times; we can represent the fact that the
+supermarket is closed every Sunday with
+
+T(Closed(Supermarket,), BunchOf(Sundays))
+
+Special notation for combining propositions
+It is tempting to write something like
+T((At(Agent, Loc,) A At(Tomato,, Loc,)), 13)
+
+but technically this is nonsense, because a sentence appears as the first argument ofthe predicate 7,
+and all arguments to predicates must be terms, not sentences. This is easily fixed by introducing
+a function called And that takes two event categories as arguments and returns a category of
+composite events of the appropriate kind:
+
+T(And(At(AgentLoc,), At(Tomato |, Loc,}), E)
+We can define the function 4nd with the axiom
+
+Yp.qe TiAnd(p,q),.e)4> T(p.e) A T(q, &)
+
+ 
+

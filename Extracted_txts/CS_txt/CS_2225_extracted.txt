@@ -1,0 +1,60 @@
+Section 10.3.
+
+Logic Programming Systems 305
+
+ 
+
+ 
+
+As an example, here is a Prolog program for the Member relaticn, given both in normal first-order
+logic notation and in the format actually used by Prolog:
+
+Vx, 1 Member(x,[x\!]) member (X, [X|L]).
+Vx.y,1 Member(x,l) > member (X, [Y|L]) :-
+Member(x, [y|I]) . member (X,L).
+
+As we mentioned in Chapter 7, the Prolog representation has the consequent, or head, on the left-
+hand side, and the antecedents, or body, on the right. A Prolog clause is often read as "To prove
+(the head), prove (the body).” To preserve this intuitive reading along with our logical notation,
+we will compromise and write Prolog clauses using a leftward implication. For example, the
+second clause of the Member definition becomes
+
+Member(x, [y|/]) <= Member(x, 2)
+
+The definition of Member can be used to answer several kinds of queries. It can be used to
+confirm that Member(2,[1,2,3]) is true. It can also enumerate the three values ofx that make
+Member(x,[1,2,3]) true. It can be used to find the value ofx such that Member(2, [1,x,3]) is
+true. It even can be used to enumerate the lists for which Member({, list) is true.
+
+Implementation
+
+The designers of Prolog made a number of implementation decisions designed to provide a
+simple, fast execution model:
+
++ All inferences are done by backward chaining, with depth-first search. That means that
+whenever there is a dead end in the attempt to prove a sentence, Prolog backs up to the
+most recent step that has alternatives.
+
++ The order of search through the conjuncts of an antecedent is strictly left to right, and
+clauses in the knowledge base are applied in first-to-last order.
+
++ The occur-check is omitted from the unification routine
+
+The omission of the occur-check makes Prolog inference unsound, but actual errors happen very
+seldom in practice. The use of depth-first search makes Prolog incomplete, because of infinite
+paths created by circular sentences (but see page 311 for another approach). Programmers must
+therefore keep termination in mind when writing recursive sentences. Despite these caveats, one
+good point of Prolog is that the execution model is simple enough that a trainedprogrammer can
+add control information to yield an efficient program.
+
+Like ourBACK-CHAIN algorithm (page 275), Prolog enumerates all the solutions to a query,
+but it does not gather them into a set. Instead, it is up to the user's program to do what it will
+with each solution as it is enumerated. The most common thing to do is to print the answers. In
+fact, Prolog's top level does this automatically. A query such as
+
+member (loc(X,X), [loc(1,1),loc(2,1),1loc(2,2)])?
+
+results in the user seeing two pieces of output, "xX = 1" and "x = 2".
+The execution of a Prolog program can happen in two modes: interpreted and compiled.
+Compilation is discussed in the next subsection. Interpretation essentially amounts to running
+

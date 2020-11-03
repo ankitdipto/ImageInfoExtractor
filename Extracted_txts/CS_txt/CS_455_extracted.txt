@@ -1,0 +1,46 @@
+32.4 The Knuth-Morris-Pratt algorithm 1009
+
+We now finish the proof that COMPUTE-PREFIX-FUNCTION computes 7 cor-
+rectly. In the procedure COMPUTE-PREFIX-FUNCTION, at the start of each iter-
+ation of the for loop of lines 5-10, we have that k = a[q — 1]. This condition
+is enforced by lines 3 and 4 when the loop is first entered, and it remains true in
+each successive iteration because of line 10. Lines 6-9 adjust k so that it becomes
+the correct value of 2[g]. The while loop of lines 6-7 searches through all values
+k € x*[q — 1] until it finds a value of k for which P[k + 1] = P[g]; at that point,
+k is the largest value in the set Ey—, so that, by Corollary 32.7, we can set z[q]
+to k + 1. If the while loop cannot find ak € m*[q—1] such that P[k + 1] = Pq],
+then k equals 0 at line 8. If P [1] = P[g], then we should set both k and z[g] to 1;
+otherwise we should leave k alone and set z[q] to 0. Lines 8-10 set k and z[q]
+correctly in either case. This completes our proof of the correctness of COMPUTE-
+PREFIX-FUNCTION.
+
+Correctness of the Knuth-Morris-Pratt algorithm
+
+We can think of the procedure KMP-MATCHER as a reimplemented version of
+the procedure FINITE-AUTOMATON-MATCHER, but using the prefix function 7
+to compute state transitions. Specifically, we shall prove that in the /th iteration of
+the for loops of both KMP-MATCHER and FINITE-AUTOMATON-MATCHER, the
+state q has the same value when we test for equality with m (at line 10 in KMP-
+MATCHER and at line 5 in FINITE-AUTOMATON-MATCHER). Once we have
+argued that KMP-MATCHER simulates the behavior of FINITE-AUTOMATON-
+MATCHER, the correctness of KMP-MATCHER follows from the correctness of
+FINITE-AUTOMATON-MATCHER (though we shall see a little later why line 12 in
+KMP-MATCHER is necessary).
+
+Before we formally prove that KMP-MATCHER correctly simulates FINITE-
+AUTOMATON-MATCHER, let’s take a moment to understand how the prefix func-
+tion z replaces the 6 transition function. Recall that when a string-matching
+automaton is in state g and it scans a character a = T[i], it moves to a new
+state 5(q,a). If a = P[q + 1], so that a continues to match the pattern, then
+5(q.a) = q +1. Otherwise, a 4 P[q + 1], so that a does not continue to match
+the pattern, and 0 < 6(q,a) < q. In the first case, when a continues to match,
+KMP-MATCHER moves to state ¢ + 1 without referring to the 7 function: the
+while loop test in line 6 comes up false the first time, the test in line 8 comes up
+true, and line 9 increments q.
+
+The z function comes into play when the character a does not continue to match
+the pattern, so that the new state 5(¢, a) is either ¢ or to the left of q along the spine
+of the automaton. The while loop of lines 6-7 in KMP-MATCHER iterates through
+the states in 2*[q], stopping either when it arrives in a state, say g’, such that a
+matches P [q’ + 1] or q’ has gone all the way down to 0. If a matches P[q’ + 1],
+

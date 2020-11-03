@@ -1,0 +1,52 @@
+520. Chapter14 Mass-Storage Structure
+
+For most kinds of tape drives, it is possible to locate to any block that has
+been written on a tape. Ina partly filled tape, however, it is not possible to
+locate into the empty space beyond the written area, because most tape drives
+manage their physical space differently from disk drives. For a disk drive, the
+sectors have a fixed size, and the formatting process must be used to place
+empty sectors in their final positions before any data can be written. Most tape
+drives have a variable block size, and the size of each block is determined on
+the fly, when that block is written. If an area of defective tape is encountered
+during writing, the bad area is skipped and the block is written again. This
+operation explains why it is not possible to locate into the empty space beyond
+the written area—the positions and numbers of the logical blocks have not yet
+been determined.
+
+Most tape drives have a read position operation that returns the logical
+block number where the tape head is. Many tape drives also support a space
+operation for relative motion. So, for example, the operation space -2 would
+locate backward over two logical blocks.
+
+For most kinds of tape drives, writing a block has the side effect of logically
+erasing everything beyond the position of the write. In practice, this side effect
+means that most tape drives are append-only devices, because updating a block
+in the middle of the tape also effectively erases everything beyond that block.
+The tape drive implements this appending by placing an end-of-tape (EOT)
+mark after a block that is written. The drive refuses to locate past the EOT
+mark, but it is possible to locate to the EOT and then to start writing. Doing
+so overwrites the old EOT mark, and places a new one at the end of the new
+blocks just written.
+
+In principle, a file system can be implemented on a tape. But many of the
+file-system data structures and algorithms would be different from those used
+for disks, because of the append-only property of tape.
+
+14.8.2.2 File Naming
+
+Another question that the operating system needs to handle is how to name
+files on removable media. For a fixed disk, naming is not difficult. On a PC, the
+file name consists of a drive letter followed by a path name. In UNIX, the file
+name does not contain a drive letter, but the mount table enables the operating
+system to discover on what drive the file is located. But if the disk is removable,
+knowing a drive that contained the cartridge at some time in the past does not
+mean knowing how to find the file. If every removable cartridge in the world
+had a different serial number, the name of a file on a removable device could
+be prefixed with the serial number, but to ensure that no two serial numbers
+are the same would require each one to be about 12 digits in length. Who could
+remember the names of her files if she had to memorize a 12-digit serial number
+for each one?
+
+The problem becomes even more difficult when we want to write data
+on a removable cartridge on one computer, and then use the cartridge in
+

@@ -1,0 +1,50 @@
+36 carrer one Digital Logic Circuits
+
+have no effect; that is, the state of the flip-flops will not change. Thus when
+x = 0,allfour inputs of the flip-flops are equal to and the state of the flip-flops
+remains unchanged even though clock pulses are applied continuously.
+
+Design Procedure
+
+The design of sequential circuits follows the outline described in the preceding
+example. The behavior of the circuits first formulated in a state diagram. The
+number of flip-flops needed for the circuit is determined from the number of
+bits listed within the circles of the state diagram. The number of inputs for the
+Circuits specified along the directed lines between the circles. We then assign
+letters to designate all flip-flops and input and output variables and proceed
+to obtain the state table.
+
+For m flip-flops and n inputs, the state table will consist of m columns for
+the present state, n columns for the inputs, and m columns for the next state.
+‘The number of rows in the table will be up to 2"**, one row for each binary
+combination of present state and inputs For each row we list the next state as
+specified by the state diagram. Next, the flip-flop type to be used in the circuit
+is chosen. The state table is then extended into an excitation table by including
+columns for each input of each flip-flop. The excitation table for the type of
+flip-flop in use can be found in Table 1-3. From the informationavailablein this
+table and by inspecting presentstate-to-nextstate transitionsin the state table,
+wwe obtain the information for the flop-flop input conditions in the excitation
+table.
+
+The truth table for the combinational circuit part of the sequential circuit
+is available in the excitation table. The present-state and input columns consti-
+tute the inputs in the truth table. The flip-flop input conditions constitute the
+outputs in the truth table. By means of map simplification we obtain a set of
+flip-flop input equations for the combinational circuit Each flip-flop input
+equation specifies a logic diagram whose output must be connected to one of
+the flip-flop inputs. The combinational circuit so obtained, together with the
+flip-flops, constitutes the sequential circuit.
+
+The outputs of flip-flops are often considered to be part of the outputs
+of the sequential circuit. However, the combinational circuit may also contain
+external outputs. In such a case the Boolean functions for the external outputs
+are derived from the state table by combinational circuit design techniques.
+
+Asset of flip-flop input equations specifies a sequentialcircuit in algebraic
+form. The procedure for obtaining the logic diagram from a setof flip-flop input
+equations is a straightforward process. First draw the flip-flops and label all
+their inputs and outputs. Then draw the combinational circuit from the
+Boolean expressions given by the flip-flop input equations. Finally, connect
+outputs of flip-flops to inputs in the combinational circuit and outputs of the
+combinational circuit to flip-flop inputs.
+

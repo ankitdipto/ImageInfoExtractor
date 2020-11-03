@@ -1,0 +1,67 @@
+12.2 File-System Implementation
+
+ 
+
+file-system interface
+
+ 
+
+|
+
+ 
+
+ 
+
+ 
+
+ 
+
+419
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+VES interface
+local file system local file system remote file system
+type 3 type 2 type 1
+
+ 
+
+4
+
+network
+
+Figure 12.4 Schematic view of a virtual file system.
+
+1. It separates file-system-generic operations from their implementation by
+defining a clean VFS interface. Several implementations for the VFS inter-
+face may coexist on the same machine, allowing transparent access to
+
+different types of file systems mounted locally.
+
+2. The VFS is based on a file-representation structure, called a vnode, that
+contains a numerical designator for a network-wide unique file. (UNIX
+inodes are unique within only a single file system.) This network-wide
+uniqueness is required for support of network file systems. The kernel
+maintains one vnode structure for each active node (file or directory).
+
+Thus, the VFS distinguishes local files from remote ones, and local files are
+
+further distinguished according to their file-system types.
+
+The VFS activates file-system-specific operations to handle local requests
+according to their file-system types, and even calls the NFS protocol procedures
+for remote requests. File handles are constructed from the relevant vnodes
+and are passed as arguments to these procedures. The layer implementing
+the file-system type, or remote file system protocol, is the bottom layer of the
+architecture. An illustration of VFS operation is found in Section 12.9.
+

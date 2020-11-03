@@ -1,0 +1,70 @@
+268
+
+Chapter 9. Inference in First-Order Logic
+
+ 
+
+From (9.12), (9.13), and Modus Ponens:
+Weapon(M 1)
+From (9.3) and Universal Elimination:
+Owns(Nono, M1)A Missile(M1)=> Sells(West, Nono,M1)
+From (9.15), (9.10), and Modus Ponens:
+Sells( West, Nono,M 1)
+From (9.1) and Universal Elimination (three times):
+American(West) A. Weapon(M1)A Nation(Nono)A Hostile(Nono)
+A Sells(West, Nono,M1)=> Criminal(West)
+From (9.5) and Universal Elimination:
+Enemy(Nono, America) => Hostile(Nono)
+From (9.8), (9.18), and Modus Ponens:
+Hostile(Nono)
+From (9.6), (9.7), (9.14), (9.16), (9.19), and And-Introduction:
+American(West) A Weapon(M1)A Nation(Nono)
+A Hostile(Nono)A Sells(West,Nono, M1)
+From (9.17), (9.20), and Modus Ponens:
+Criminal(West)
+
+(9.14)
+(9.15)
+
+(9.16)
+
+(9.17)
+
+(9.18)
+
+(9.19)
+
+(9.20) |
+
+(9.21)
+
+If we formulate the process of finding a proof as a search process, then obviously this proofis the
+solution to the search problem, and equally obviously it would have to be a pretty smart program
+to find the proof without following any wrong paths. As a search problem, we would have
+
+Initial state = KB (sentences 9.1-9.9)
+Operators = applicable inference rules
+
+Goal test = KB containing Criminal(West)
+This example illustrates some important characteristics:
+The proofis 14 steps long.
+
+inference rules combine existing facts.
+
+replace the variable by any ground term.
+
+rules to match, and then applying Modus Ponens.
+
+The branching factor increases as the knowledge base grows; this is because some of the
+Universal Elimination can have an enormous branching factor on its own, because we can
+
+We spent a lot of time combining atomic sentences into conjunctions, instantiating universal |
+
+Thus, we have a serious difficulty, in the form of a collection of operators that give long proofs 4
+and a large branching factor, and hence a potentially explosive search problem. We also have
+an opportunity, in the form of an identifiable pattem of application of the operators (combining jj
+atomic sentences, instantiating universal rules, and then applying Modus Ponens). If we can
+define a better search space in which a single operator takes these three steps, then we can find
+
+proofs more efficiently,
+

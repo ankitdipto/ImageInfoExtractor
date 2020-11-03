@@ -1,0 +1,46 @@
+Chapter 24 Single-Source Shortest Paths 645
+
+Lemma 24.1 (Subpaths of shortest paths are shortest paths)
+
+Given a weighted, directed graph G = (V, E) with weight function w : E > R,
+let p = (Vo.V1..--. vx) be a shortest path from vertex Vo to vertex vg and, for any
+i and j such thatO0 <i <j <k, let piy = (vi. Visi... vj) be the subpath of p
+from vertex v; to vertex v;. Then, pj; is a shortest path from v; to v;.
+
+Proof If we decompose path p into vo Roy, Ry vj Xs vz, then we have that
+w(p) = w(Poi) + w(pij) + w(pjx). Now, assume that there is a path p/; from v;
+
+Pi .
+to v; with weight w(pi;) < w(pij). Then, vo Ry, AL vj id vx is a path from vo
+to ve Whose weight w(po;) + w(p};) + w(pjx) is less than w(p), which contradicts
+the assumption that p is a shortest path from vo to vg. .
+
+Negative-weight edges
+
+Some instances of the single-source shortest-paths problem may include edges
+whose weights are negative. If the graph G = (V,£) contains no negative-
+weight cycles reachable from the source s, then for all v € V, the shortest-path
+weight 6(s,v) remains well defined, even if it has a negative value. If the graph
+contains a negative-weight cycle reachable from s, however, shortest-path weights
+are not well defined. No path from s to a vertex on the cycle can be a short-
+est path—we can always find a path with lower weight by following the proposed
+“shortest” path and then traversing the negative-weight cycle. If there is a negative-
+weight cycle on some path from s to v, we define 6(s, v) = —oo.
+
+Figure 24.1 illustrates the effect of negative weights and negative-weight cy-
+cles on shortest-path weights. Because there is only one path from s to a (the
+path (s,a)), we have 5(s,a) = w(s,a) = 3. Similarly, there is only one path
+from s to b, and so 5(s,b) = w(s,a) + w(a,b) = 3 + (—4) = -1. There are
+infinitely many paths from s to c: (s,c), (s.c,d.c), (s.c,d,c, d,c), and so on.
+Because the cycle (c,d,c) has weight 6 + (—3) = 3 > 0, the shortest path from s
+toc is (s,c), with weight 5(s,c) = w(s,c) = 5. Similarly, the shortest path from s
+to d is (s,c,d), with weight 5(s,d) = w(s,c)+w(c,d) = 11. Analogously, there
+are infinitely many paths from s to e: (s, e), (s,e. fie), (8,e, fie. fie), and so
+on. Because the cycle (e, f, e) has weight 3 + (—6) = —3 < 0, however, there
+is no shortest path from s to e. By traversing the negative-weight cycle (e, f. e)
+arbitrarily many times, we can find paths from s to e with arbitrarily large negative
+weights, and so 6(s,e) = —oo. Similarly, 5(s, f) = —oo. Because g is reachable
+from f, we can also find paths with arbitrarily large negative weights from s to g,
+and so (s, g) = —oo. Vertices h, i, and j also forma negative-weight cycle. They
+are not reachable from s, however, and so 6(s,h) = 8(s,i) = 5(s, j) = 00.
+

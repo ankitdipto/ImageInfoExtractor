@@ -1,0 +1,43 @@
+Chapter 16: C Under Windows 547
+
+ 
+
+Moreover the DOS programmer has to write lot of code to detect
+the hardware on which his program is running and suitably make
+use of the relevant interrupts and registers. Not only does this
+make the program lengthy, the programmer has to understand a lot
+of technical details of the hardware. As a result the programmer
+has to spend more time in understanding the hardware than in the
+actual application programming.
+
+Windows Programming Model
+
+From the perspective of the user the shift from MS-DOS to
+Windows OS involves switching over to a Graphical User
+Interface from the typical Text Interface that MS-DOS offers.
+Another change that the user may feel and appreciate is the ability
+of Windows OS to execute several programs simultaneously,
+switching effortlessly from one to another by pointing at windows
+and clicking them with the mouse. Mastering this new GUI
+environment and getting comfortable with the multitasking feature
+is at the most a matter of a week or so. However, from the
+programmer’s point of view programming for Windows is a whole
+new ball game!
+
+Windows programming model is designed with a view to:
+
+(a) Eliminate the messy calling mechanism of DOS
+(b) Permit true reuse of commonly used functions
+
+(c) Provide consistent look and feel for all applications
+(d) Eliminate hardware dependency
+
+Let us discuss how Windows programming model achieves this.
+
+Better Calling Mechanism
+
+Instead of calling functions using Interrupt numbers and registers
+Windows provides functions within itself which can be called
+using names. These functions are called API (Application
+Programming Interface) functions. There are literally hundreds of
+

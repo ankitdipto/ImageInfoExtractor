@@ -1,0 +1,89 @@
+278
+
+Chapter 11 Hash Tables
+
+ag_by
+
+ 
+
+ 
+
+abo %
+0 np VAVAA)
+304 5 6 7 8
+
+as_bs 2
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ay by °
+2388
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+9 1 tM 12 1314 15
+
+ 
+
+ 
+
+       
+
+Figure 11.6 Using perfect hashing to store the set K = {10,22, 37, 40,52, 60, 70,72, 75}. The
+outer hash function is h(k) = ((ak + b) mod p) mod m, where a = 3, b = 42, p = 101, and
+m = 9. For example, (75) = 2, and so key 75 hashes to slot 2 of table T. A secondary hash
+table Sj stores all keys hashing to slot j. The size of hash table S; is mj = n?, and the associated
+hash function is h (k) = ((ajk +.bj) mod p) mod m;. Since hz (75) = 7, key 75 is stored in slot 7
+of secondary hash table $2. No collisions occur in any of the secondary hash tables, and so searching
+takes constant time in the worst case.
+
+call a hashing technique perfect hashing if O(1) memory accesses are required to
+perform a search in the worst case.
+
+To create a perfect hashing scheme, we use two levels of hashing, with universal
+hashing at each level. Figure 11.6 illustrates the approach.
+
+The first level is essentially the same as for hashing with chaining: we hash
+the 7 keys into m slots using a hash function / carefully selected from a family of
+universal hash functions.
+
+Instead of making a linked list of the keys hashing to slot j, however, we use a
+small secondary hash table S; with an associated hash function h;. By choosing
+the hash functions /; carefully, we can guarantee that there are no collisions at the
+secondary level.
+
+In order to guarantee that there are no collisions at the secondary level, however,
+we will need to let the size m; of hash table S; be the square of the number 1; of
+keys hashing to slot 7. Although you might think that the quadratic dependence
+of mj; on nj; may seem likely to cause the overall storage requirement to be exces-
+sive, we shall show that by choosing the first-level hash function well, we can limit
+the expected total amount of space used to O(n).
+
+We use hash functions chosen from the universal classes of hash functions of
+Section 11.3.3. The first-level hash function comes from the class Hp», Where as
+in Section 11.3.3, p is a prime number greater than any key value. Those keys
+

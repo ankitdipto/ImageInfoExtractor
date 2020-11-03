@@ -1,0 +1,48 @@
+10.3 Implementing pointers and objects 241
+
+10.2-6
+
+The dynamic-set operation UNION takes two disjoint sets S; and S as input, and
+it returns a set S = S; U S> consisting of all the elements of S; and S2. The
+sets S; and S> are usually destroyed by the operation. Show how to support UNION
+in O(1) time using a suitable list data structure.
+
+10.2-7
+
+Give a @(n)-time nonrecursive procedure that reverses a singly linked list of n
+elements. The procedure should use no more than constant storage beyond that
+needed for the list itself.
+
+10.2-8 x
+
+Explain how to implement doubly linked lists using only one pointer value x.np per
+item instead of the usual two (next and prev). Assume that all pointer values can be
+interpreted as k-bit integers, and define x.np to be x.np = x.next XOR x.prev,
+the k-bit “exclusive-or” of x.next and x.prev. (The value NIL is represented by 0.)
+Be sure to describe what information you need to access the head of the list. Show
+how to implement the SEARCH, INSERT, and DELETE operations on such a list.
+Also show how to reverse such a list in O(1) time.
+
+ 
+
+10.3. Implementing pointers and objects
+
+How do we implement pointers and objects in languages that do not provide them?
+In this section, we shall see two ways of implementing linked data structures with-
+out an explicit pointer data type. We shall synthesize objects and pointers from
+arrays and array indices.
+
+A multiple-array representation of objects
+
+We can represent a collection of objects that have the same attributes by using an
+array for each attribute. As an example, Figure 10.5 shows how we can implement
+the linked list of Figure 10.3(a) with three arrays. The array key holds the values
+of the keys currently in the dynamic set, and the pointers reside in the arrays next
+and prev. For a given array index x, the array entries key[x], next[x], and prev [x]
+represent an object in the linked list. Under this interpretation, a pointer x is simply
+a common index into the key, next, and prev arrays.
+
+In Figure 10.3(a), the object with key 4 follows the object with key 16 in the
+linked list. In Figure 10.5, key 4 appears in key[2], and key 16 appears in key[5],
+and so next[5] = 2 and prev[2] = 5. Although the constant NIL appears in the next
+

@@ -1,0 +1,62 @@
+426
+
+Chapter 14. Uncertainty
+
+ 
+
+144 BAYES' RULE AND ITS USE
+
+payes RULE
+
+Recall the two forms of the product rule:
+P(A AB) = P(A|B)P(B) *
+P(A AB) = P(B|A)P(A)
+Equating the two right-hand sides and dividing by P(A), we get
+P(A|B)P(B)
+P(A)
+This equation is known as Bayes’ rule (also Bayes’ law or Bayes’ theorem).’ This simple
+equation underlies all modern AI systems for probabilistic inference. The more general case of
+multivalued variables can be written using the P notation as follows:
+P(X|Y)P(Y)
+PX)
+where again this is to be taken as representing a set of equations relating corresponding elements
+of the tables. We will also have occasion to use a more general version conditionalized on some
+background evidence E:
+P(X|Y, EP(Y|E)
+PAIL)
+The proof of this form is left as an exercise.
+
+P(B\A) = (14.3)
+
+P(Y|X) =
+
+P(Y|X,E) = (4.4)
+
+Applying Bayes’ rule: The simple case
+
+On the surface, Bayes’ rule does not seem very useful. It requires three terms—a conditional
+probability and two unconditional probabilities—justto compute one conditional probability.
+
+Bayes” rule is useful in practice because there are many cases where we do have good
+probability estimates for these three numbers and need to compute the fourth. In a task such §
+as medical diagnosis, we often have conditional probabilities on causal relationships and want
+to derive a diagnosis. A doctor knows that the disease meningitis causes the patient to have a
+stiff neck, say, 50% of the time. The doctor also knows some unconditional facts: the prior
+probability of a patient having meningitis is 1/50,000, and the prior probability of any patient
+having a stiffneck is 1/20. Letting S be the proposition that the patient has a stiff neck and M be
+the proposition that the patient has meningitis, we have
+
+P(S|M) = 05
+P(M) = 1/50000
+P(S) =1/20
+
+P(S\M)P(M) _ 0.5 x 1/0000
+P(S) ~ 1/20
+
+7 According to rule 1 on page 1 of Strunk and White's The Elements ofStyle, it should be Bayes's rather than Bayes’-
+The latter is, however, more commonly used
+
+P(M|S) = = 0.0002
+
+ 
+

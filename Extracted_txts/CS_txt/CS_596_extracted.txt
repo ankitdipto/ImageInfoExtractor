@@ -1,0 +1,50 @@
+1124
+
+Chapter 35 Approximation Algorithms
+
+Theorem 35.6
+
+Given an instance of MAX-3-CNF satisfiability with n variables x;,X2,..., Xn
+and m clauses, the randomized algorithm that independently sets each vari-
+able to 1 with probability 1/2 and to 0 with probability 1/2 is a randomized
+8/7-approximation algorithm.
+
+Proof Suppose that we have independently set each variable to | with probabil-
+ity 1/2 and to 0 with probability 1/2. For i = 1,2,...,m, we define the indicator
+random variable
+
+Y; = I {clause i is satisfied} ,
+
+so that Y; = 1 as long as we have set at least one of the literals in the ith clause
+to 1. Since no literal appears more than once in the same clause, and since we have
+assumed that no variable and its negation appear in the same clause, the settings of
+the three literals in each clause are independent. A clause is not satisfied only if all
+three of its literals are set to 0, and so Pr {clause i is not satisfied} = (1/2)? = 1/8.
+Thus, we have Pr {clause i is satisfied} = 1 — 1/8 = 7/8, and by Lemma 5.1,
+we have E[Y;] = 7/8. Let Y be the number of satisfied clauses overall, so that
+Y =Y¥, + Yo +-+++ Ym. Then, we have
+
+i=l
+= > E[Y;] (by linearity of expectation)
+i=l
+
+= 07/8
+
+= 7/8.
+
+EY]
+
+Clearly, m is an upper bound on the number of satisfied clauses, and hence the
+approximation ratio is at most m/(7m/8) = 8/7. /
+
+Approximating weighted vertex cover using linear programming
+
+In the minimum-weight vertex-cover problem, we are given an undirected graph
+G = (V, E) in which each vertex v € V has an associated positive weight w(v).
+For any vertex cover V’ C V, we define the weight of the vertex cover w(V’) =
+Dvev WV). The goal is to find a vertex cover of minimum weight.
+
+We cannot apply the algorithm used for unweighted vertex cover, nor can we use
+a random solution; both methods may return solutions that are far from optimal.
+We shall, however, compute a lower bound on the weight of the minimum-weight
+

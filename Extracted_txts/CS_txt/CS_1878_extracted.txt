@@ -1,0 +1,50 @@
+10.4 Page Replacement 341
+
+replacement algorithms (such as a FIFO algorithm) must be used. Many systems
+provide some help, however, in the form of a reference bit. The reference bit
+for a page is set, by the hardware, whenever that page is referenced (either a
+read or a write to any byte in the page). Reference bits are associated with each
+entry in the page table.
+
+Initially, all bits are cleared (to 0) by the operating system. As a user
+process executes, the bit associated with each page referenced is set (to 1) by
+the hardware. After some time, we can determine which pages have been used
+and which have not been used by examining the reference bits. We do not know
+the order of use, but we know which pages were used and which were not used.
+This partial ordering information leads to many page-replacement algorithms
+that approximate LRU replacement.
+
+10.4.5.1 Additional-Reference-Bits Algorithm
+
+We can gain additional ordering information by recording the reference bits at
+regular intervals. We can keep an 8-bit byte for each page in a table in memory.
+At regular intervals (say, every 100 milliseconds), a timer interrupt transfers
+control to the operating system. The operating system shifts the reference bit
+for each page into the high-order bit of its 8-bit byte, shifting the other bits right
+1 bit, discarding the low-order bit. These 8-bit shift registers contain the history
+of page use for the last eight time periods. If the shift register contains 00000000,
+then the page has not been used for eight time periods; a page that is used at
+least once each period would have a shift register value of 11111111.
+
+A page with a history register value of 11000100 has been used more
+recently than has one with 01110111. If we interpret these 8-bit bytes as unsigned
+integers, the page with the lowest number is the LRU page, and it can be
+replaced. Notice that the numbers are not guaranteed to be unique, however.
+We can either replace (swap out) all pages with the smallest value, or use a FIFO
+selection among them.
+
+The number of bits of history can be varied, of course, and would be
+selected (depending on the hardware available) to make the updating as fast
+as possible. In the extreme case, the number can be reduced to zero, leaving
+only the reference bit itself. This algorithm is called the second-chance page-
+replacement algorithm.
+
+10.4.5.2 Second-Chance Algorithm
+
+The basic algorithm of second-chance replacement is a FIFO replacement algo-
+rithm. When a page has been selected, however, we inspect its reference bit.
+If the value is 0, we proceed to replace this page. If the reference bit is set to
+1, however, we give that page a second chance and move on to select the next
+FIFO page. When a page gets a second chance, its reference bit is cleared and
+its arrival time is reset to the current time. Thus, a page that is given a second
+

@@ -1,0 +1,43 @@
+74 Let Us C
+
+ 
+
+main()
+{
+int i;
+
+printf (“Enter value of i") ;
+scanf ("%d", &i);
+if (i= 5)
+printf ( "You entered 5") ;
+else
+printf ( "You entered something other than 5" ) ;
+}
+
+And here is the output of two runs of this program...
+
+Enter value of i 200
+You entered 5
+
+Enter value of i 9999
+You entered 5
+
+Surprising? You have entered 200 and 9999, and still you find in
+either case the output is ‘You entered 5’. This is because we have
+written the condition wrongly. We have used the assignment
+operator = instead of the relational operator ==. As a result, the
+condition gets reduced to if (5 ), nrespective of what you supply
+as the value of i. And remember that in C ‘truth’ is always non-
+zero, whereas ‘falsity’ is always zero. Therefore, if (5 ) always
+evaluates to true and hence the result.
+
+Another common mistake while using the if statement is to write a
+semicolon (;) after the condition, as shown below:
+
+main()
+{
+int i;
+
+printf (“Enter value of i") ;
+scanf ("%d", &i);
+

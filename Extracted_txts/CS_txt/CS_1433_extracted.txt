@@ -1,0 +1,26 @@
+Chapter 21: More Linux Programming 679
+
+ 
+
+We need to compile this program as follows:
+
+gcc mywindow.c ‘pkg-config gtk+-2.0 - -cflags - -libs”
+
+Here we are compiling the program ‘mywindow.c’ and then
+linking it with the necessary libraries from GTK toolkit. Note the
+
+quotes that we have used in the command.
+
+Here is the output of the program...
+
+Sample Window
+
+ 
+
+Figure 21.1
+
+The GTK library provides a large number of functions that makes
+it very easy for us to create GUI programs. Every window under
+GTK is known as a widget. To create a simple window we have to
+carry out the following steps:
+

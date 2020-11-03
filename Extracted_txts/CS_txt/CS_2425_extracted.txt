@@ -1,0 +1,48 @@
+44
+
+Chapter 3 Growth of Functions
+
+riety of ways. For example, we might extend the notation to the domain of real
+numbers or, alternatively, restrict it to a subset of the natural numbers. We should
+make sure, however, to understand the precise meaning of the notation so that when
+we abuse, we do not misuse it. This section defines the basic asymptotic notations
+and also introduces some common abuses.
+
+Asymptotic notation, functions, and running times
+
+We will use asymptotic notation primarily to describe the running times of algo-
+rithms, as when we wrote that insertion sort’s worst-case running time is O(n 2),
+Asymptotic notation actually applies to functions, however. Recall that we charac-
+terized insertion sort’s worst-case running time as an? + bn +c, for some constants
+a, b, and c. By writing that insertion sort’s running time is @(n?), we abstracted
+away some details of this function. Because asymptotic notation applies to func-
+tions, what we were writing as @(n7) was the function an? + bn + c, which in
+that case happened to characterize the worst-case running time of insertion sort.
+
+In this book, the functions to which we apply asymptotic notation will usually
+characterize the running times of algorithms. But asymptotic notation can apply to
+functions that characterize some other aspect of algorithms (the amount of space
+they use, for example), or even to functions that have nothing whatsoever to do
+with algorithms.
+
+Even when we use asymptotic notation to apply to the running time of an al-
+gorithm, we need to understand which running time we mean. Sometimes we are
+interested in the worst-case running time. Often, however, we wish to characterize
+the running time no matter what the input. In other words, we often wish to make
+a blanket statement that covers all inputs, not just the worst case. We shall see
+asymptotic notations that are well suited to characterizing running times no matter
+what the input.
+
+@-notation
+
+In Chapter 2, we found that the worst-case running time of insertion sort is
+T(n) = O(n’). Let us define what this notation means. For a given function g(1),
+we denote by ©(g(n)) the set of functions
+
+©(g(n)) = {f(n) : there exist positive constants ¢;, C2, and Mg such that
+0 Scan) < f(n) < cog (n) for all n > no} .'
+
+ 
+
+1 Within set notation, a colon means “such that.”
+

@@ -1,0 +1,51 @@
+248
+
+Chapter 10 Elementary Data Structures
+
+Other tree representations
+
+We sometimes represent rooted trees in other ways. In Chapter 6, for example,
+we represented a heap, which is based on a complete binary tree, by a single array
+plus the index of the last node in the heap. The trees that appear in Chapter 21 are
+traversed only toward the root, and so only the parent pointers are present; there
+are no pointers to children. Many other schemes are possible. Which scheme is
+best depends on the application.
+
+Exercises
+
+104-1
+Draw the binary tree rooted at index 6 that is represented by the following at-
+tributes:
+
+index key left right
+
+1 12 7 3
+
+2 15 8 NIL.
+3 4 10 NIL
+4 10 5 9
+5 20 NIL NIL
+6 18 1 4
+7 7 NIL NIL
+8 14 6 2
+9 21) NIL NIL
+10 5 NIL NIL
+10.4-2
+
+Write an O(n)-time recursive procedure that, given an -node binary tree, prints
+out the key of each node in the tree.
+
+104-3
+Write an O(n)-time nonrecursive procedure that, given an n-node binary tree,
+prints out the key of each node in the tree. Use a stack as an auxiliary data structure.
+
+1044
+
+Write an O(1)-time procedure that prints all the keys of an arbitrary rooted tree
+with 1 nodes, where the tree is stored using the left-child, right-sibling representa-
+tion.
+
+104-5 &
+Write an O(n)-time nonrecursive procedure that, given an n-node binary tree,
+prints out the key of each node. Use no more than constant extra space outside
+

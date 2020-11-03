@@ -1,0 +1,52 @@
+start bit
+
+stop bit
+
+SECTION 11-3 Asynchronous Data Tranger 397
+
+at the I-state when no characters are transmitted. The first bit, called the start
+bit, is always a 0 and is used to indicate the beginning of a character. The last
+bit called the stop bit is always a 1. An example of this format is shown in
+Fig. 11-7.
+
+A transmitted character can be detected by the receiver from knowledge
+of the transmission rules:
+
+1. When a character is not being sent, the line is kept in the I-state.
+
+2. The initiation of a character transmission is detected from the start bit,
+which is always 0.
+
+3. The character bits always follow the start bit.
+
+4. After the last bit of the character is transmitted, a stop bit is detected
+when the line returns to the I-state for at least one bit time.
+
+Using these rules, the receiver can detect the start bit when the line goes from
+1to 0. A clock in the receiver examines the line at proper bit times. The receiver
+knows the transfer rate of the bits and the number of character bits to accept.
+After the character bits are transmitted, one or two stop bits are sent. The stop
+bits are always in the I-state and frame the end of the character to signify the
+idle or wait state.
+
+At the end of the character the line is held at the 1-state for a period of
+at least one or two bit times so that both the transmitter and receiver can
+resynchronize. The length of time that the line stays in this state depends on
+the amount of time required for the equipment to resynchronize. Some older
+electromechanical terminals use two stop bits, but newer terminals use one
+stop bit. The line remains in the 1-state until another character is transmitted.
+The stop time ensures that a new character will not follow for one or two bit
+times.
+
+‘As an illustration, consider the serial transmission of a terminal whose
+transfer rate is 10 characters per second. Each transmitted character consists
+
+Figure 11-7 Asynchronous serial transmission.
+
+LE
+
+Start Stop_,|
+tit oo Character bs +} Stop
+
+ 
+

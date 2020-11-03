@@ -1,0 +1,56 @@
+256
+
+CHAPTER EIGHT Central Processing Unit
+
+registers RO through R15 will have a register address field of four bits. The
+binary number 0101, for example, will designate register R5.
+
+‘Computers may have instructions of several different lengths containing
+varying number of addresses. The number of address fields in the instruction
+formatofa computer depends on the internal organization ofits registers. Most
+computers fall into one of three types of CPU organizations:
+
+1. Single accumulator organization.
+2. General register organization.
+3. Stack organization.
+
+‘An example of an accumulator-type organization is the basic computer
+presented in Chap. 5. All operations are performed with an implied accumu-
+lator register. The instruction format in this type of computer usesone address
+field. For example, the instruction that specifies an arithmetic addition is
+defined by an assembly language instruction as
+
+ADD Xx
+
+where X is the address of the operand. The ADD instruction in this case results
+in the operation AC —AC + M[X]. AC is the accumulator register and M[X]
+symbolizes the memory word located at address X.
+
+An example of a general register type of organization was presented in
+Fig. 7-1. The instruction format in this type of computer needs three register
+address fields. Thus the instruction for an arithmetic addition may be written
+in an assembly language as
+
+ADD RL, R2, RF
+
+todenote the operation R1-R2 + R3. The number of address fields in the
+instruction can be reduced from three to two if the destination register is the
+same as one of the source registers. Thus the instruction
+
+ADD RL, Re
+would denote the operation R1—R1 + R2. Only register addresses for Rl and
+R2 need be specified in this instruction.
+
+‘Computers with multiple processor registers use the move instruction
+
+with a mnemonic MOV to symbolize a transfer instruction. Thus the instruc-
+tion
+
+MOV RL, Re
+
+denotes the transfer R1—R2 (or R2<-R1, depending on the particular com-
+puter), Thus transfer-type instructions need two address fields to specify the
+source and the destination.
+
+General register-type computers employ two or three address fields in
+

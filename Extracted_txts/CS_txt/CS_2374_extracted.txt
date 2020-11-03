@@ -1,0 +1,59 @@
+S12 Charen nuRTEN Muliqnowsnn
+
+restricts the type of data stored in caches and introduces an extra software
+overhead that may degradate
+
+A scheme tat allows wnitable data to exist in at least one cache is a
+method that employs a azntralized global table in its compiler. The status of
+memory blocks is stored in the certral global table. Each block is identified as
+read-only (RO) oF read and write (RW). All caches can have copies of blocks
+identified as RO. Only one cache can have a copy of an RW block. Thus if the
+data are updated in the cache with an RW block, the other caches are not
+affected because they do not have a copy of this block.
+
+The cache coherence problem can be solved by means of a cumbination
+of software and hardware or by means of hardware-only schemes. The two
+methods mentioned previously use software-based proceduresthat require the
+ability to tag information in order to disable caching of shared writable data.
+Hardware-only solutions are handied by the hardware automatically and have
+the advantage of higher speed and program transparency. in the hardware
+solution, the cache controlleris speciay designed toaliow it tomonitor all bus
+requests from CPUs and 1OPs. Als caches attached to the bus constantly
+monitor the network for possible wnite operations. Depending on the method
+used, they must then either update or invalidate their own cache copies when
+a match is detected. The bus controller that maru'tors this action is referred to
+
+‘snoopy cache as a eroopy cache controtier, This is basically a hardware unit designed to main-
+‘controller tain a bus-watching mechanism over ali the caches attached tothe bus.
+
+Various schemes have been proposed to solve the cache coherence prob-
+Jem by maans of snoopy cache protocol. The simplest method is to adopt a
+write.through policy and use the following procedure. All the snoopy con-
+trollers watch the bus for memory store operations. When a word in a cache
+is updated by writing into it, the corresponding location in main memory is
+also updated. The local snoopy controllers in ai} other caches check their
+memory to determine if they have a copy of the word that has been overwritten.
+fa copy exists in a remote cache, that location is marked invalid. Because all
+caches snoop on all bus writes, whenever a word is written, the net effect
+is to update it in the original cache and main memory and remove it from
+all other caches. If at some future time a processor accexses the invalid
+item from ite cache, the response is equivalent toa cache miss, and the updated
+itemis transferred from main memory. Inthis way, inconsistent versions are
+prevented.
+
+ 
+
+ 
+
+PROBLEMS
+
+ 
+
+ 
+
+ 
+
+134. Discuss the difference between tightly coupled multipranssors and loasely
+coupled multiproe-ears from the Viewpoint of hard ware anganization and
+progremuning techniques.
+

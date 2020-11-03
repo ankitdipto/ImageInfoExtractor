@@ -1,0 +1,56 @@
+SECTION 103 Multiplication Algorithms 347
+
+at once. This is a fast way of multiplying two numbers since all it takes is the
+time for the signals to propagate through the gates that form the multiplication
+array. However, an array multiplier requires a large number of gates, and for
+this reason it was not economical until the development of integrated circuits.
+
+Tosee how an array multipliercan be implemented with acombinational
+circuit, consider the multiplication of two 2-bit numbers as shown in Fig. 10-9.
+The multiplicand bits are b, and by, the multiplier bits are a, and ao, and the
+product iscs¢2cicy The first partial product is formed by multiplying a by b; bs
+The multiplication of two bits such as a) and by produces a 1 if bothbitsare 1;
+otherwise, it produces a 0. This is identical to an AND operation and canbe
+implemented with an AND gate. As shown in the diagram, the first partial
+product is formed by means of two AND gates. The second partial product is
+formed by multiplying a, by b; by and is shifted one position to theleft. The two
+partial products are added with twohalf-adder (HA) circuits. Usually, thereare
+more bits in the partial products and it will be necessary to use full-adders to
+produce thesum. Note that the least significant bit of the product does not have
+to go through an adder since itis formed by the output of the first AND gate.
+
+‘A combinational circuit binary multiplier with more bits can be con-
+structed in a similar fashion. A bit of the multiplier is ANDed with each bit of
+the multiplicandin as many levels as there are bitsin the multiplier. The binary
+output in each level of AND gates is added in parallel with the partial product
+of the previous level to form a new partial product. The last level produces the
+product. For multiplier bits and k multiplicand bits we need j x k AND gates
+and (j — 1) k-bit adders to produce a product of j + k bits.
+
+‘Asa second example, considera multiplier circuit that multiplies a binary
+number of four bits with a number of three bits. Let the multiplicand be
+
+Figure 10-9. 2-bit by 2-bit array multiplier.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ee 1 e
+

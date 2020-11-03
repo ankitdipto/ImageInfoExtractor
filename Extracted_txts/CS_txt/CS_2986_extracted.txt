@@ -1,0 +1,63 @@
+500
+
+Chapter 18 B-Trees
+
+(a) initial tree
+
+(b) F deleted: case 1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 18.8 Deleting keys from a B-tree, The minimum degree for this B-tree is t = 3, so a node
+(other than the root) cannot have fewer than 2 keys. Nodes that are modified are lightly shaded.
+(a) The B-tree of Figure 18.7(e). (b) Deletion of F. This is case 1: simple deletion from a leaf.
+(c) Deletion of M. This is case 2a: the predecessor L of M moves up to take M’s position. (d) Dele-
+tion of G. This is case 2c: we push G down to make node DEGJK and then delete G from this leaf
+(case 1).
+
+We sketch how deletion works instead of presenting the pseudocode. Figure 18.8
+illustrates the various cases of deleting keys from a B-tree.
+
+1. If the key k is in node x and x isa leaf, delete the key k from x.
+2. If the key k is in node x and x is an internal node, do the following:
+

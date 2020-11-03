@@ -1,0 +1,57 @@
+290
+
+Chapter 9. Inference in First-Order Logic
+
+ 
+
+98
+
+complementary literals in C\ and C:. From the lifting lemma, it is easy to derive a similar
+statement about any sequence of applications of the resolution rule:
+
+For any clause C’ in the resolution closure of S’, there is a clause C in the resolution
+closure of S, such that C’ is a ground instance of C and the derivation of C is the
+same length as the derivation of C’,
+
+From this fact, it follows that ifthe clause False appears in the resolution closure of S’, it must
+also appear in the resolution closure of S. This is because False cannot be a ground instance
+of any other clause. To recap: we have shown that if 5 is unsatisfiable, then there is a finite
+derivation of the clause False using the resolution rule
+
+The lifting of theorem proving from ground clauses to first-order clauses provided a vast
+increase in power. This derives from the fact that the first-order proof need instantiate variables
+only as far as necessary for the proof, whereas the ground-clause methods were required to
+examine a huge number of arbitrary instantiations.
+
+SUMMARY
+
+ 
+
+We have presented an analysis of logical inference in first-order logic, and a number of algorithms
+for doing it.
+
++ A simple extension of the propositional inference rules allows the construction of proofs
+for first-order logic. Unfortunately, the branching factor for the quantifier is huge.
+
+The use of unification to identify appropriate substitutions for variables eliminates the 5
+instantiation step in first-order proofs, making the process much more efficient
+
+A generalized version of Modus Ponens uses unification to provide a natural and powerful
+inference rule, which can be used in a backward-chaining or forward-chaining algorithm.
+
+The canonical form for Modus Ponens is Horn form:
+p\A...Ap, => q where p; and g are atoms.
+
+This form cannot represent all sentences, and Modus Ponens is not a complete proofsystem-
+
+The generalized resolution inference rule provides a complete system for proof by refuta-
+tion. It requires a normal form, but any sentence can be put into the form
+
+Resolution can work with either conjunctive normal form—each sentence is a disjunction
+of literals—or implicative normal form—each sentence is of the form
+
+P\A... Apn = Q\ V...V dm, Where p; and g; are atoms.
+
+Several strategies exist for reducing the search space of a resolution system without com-
+promising completeness.
+

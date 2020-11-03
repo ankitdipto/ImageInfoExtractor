@@ -1,0 +1,62 @@
+ 
+
+Section 15.3. Inference in Belief Networks 447
+In both of these problems, the reasoning is diagnostic. But belief networks are not limited
+to diagnostic reasoning and in fact can make four distinct kinds of inference:
+RRSNOSES, 0 Diagnostic inferences (from effects to causes).
+Given that JohnCalls, infer that P(Burglary|JohnCalls)= 0.016.
+GSEs 0 Causal inferences (from causes to effects).
+Given Burglary, P(JohnCalls|Burglary)= 0.86 and P(MaryCalls|Burglary= 0.67.
+INFERENCES > Intercausal inferences (between causes of a common effect).
+
+EXPLAINING AWAY
+MINED INFERENCES
+
+SENSITVITY
+ANALYSS
+
+SINGLY CONNECTED
+
+ 
+
+Given Alarm, we have P(Burglary|Alarm) = 0.376. But if we add the evidence that
+
+Earthquake is true, then P(Burglary|AlarmA Earthquake) goes down to 0.003. Even
+
+though burglaries and earthquakes are independent, the presence of one makes the other
+
+less likely. This pattern of reasoning is also known as explaining away.*
+
+0 Mixed inferences (combining two or more of the above).
+Setting the effect JohnCalls to true and the cause Earthquake to false gives
+P(AlarmVohnCalls A >Earthquake) = 0.03
+This is a simultaneous use of diagnostic and causal inference. Also,
+P(Burglary|JohnCallsA. >Earthquake) - 0.017
+
+This is a combination of intercausal and diagnostic inference
+These four patterns are depicted in Figure 15.6. Besides calculating the beliefin query variables
+given definite values for evidence variables, belief networks can also be used for the following:
+Making decisions based on probabilities in the network and on the agent's utilities.
+Deciding which additional evidence variables should be observed in order to gain useful
+information.
+Performing sensitivity analysis to understand which aspects ofthe model have the greatest
+impact on the probabilities of the query variables (and therefore must be accurate).
+Explaining the results of probabilistic inference to the user.
+These tasks are discussed further in Chapter 16. In this chapter, we focus on computing posterior
+probabilities of query variables. In Chapter 18, we show how belief networks can be learned
+from example cases.
+
+An algorithm for answering queries
+
+In this section, we will derive an algorithm for BELIEF-NET-ASK. This is a rather technical
+section, and some of the mathematics and notation are unavoidably intricate. The algorithm itself,
+however, is very simple. Our version will work rather like the backward-chaining algorithm in
+Chapter 9, in that it begins at the query variable and chains along the paths from that node until
+it reaches evidence nodes. Because of the complications that may arise when two different paths
+converge on the same node, we will derive an algorithm that works only on singly connected
+
+3 To get this effect, we do not have to know that Earthquake is true, we just need some evidence for it. When one of the
+authors first moved to Califomia, he lived in a rickety house that shook when large trucks went by. After one particularly
+large shake, he tumed on the radio, heard the Carole King song / Feel the Earth Move, and considered this strong evidence
+that a large truck had not gone by.
+

@@ -1,0 +1,42 @@
+248 Let Us C
+
+ 
+
+A #define directive could be used to replace even an entire C
+statement. This is shown below.
+
+#define FOUND printf ("The Yankee Doodle Virus" ) ;
+main()
+
+char signature ;
+
+if (signature == 'Y' )
+FOUND
+else
+printf ( “Safe... as yet !") ;
+}
+
+Macros with Arguments
+The macros that we have used so far are called simple macros.
+Macros can have arguments, just as functions can. Here is an
+
+example that illustrates this fact.
+
+#define AREA(x) (3.14 *x * x)
+
+main()
+
+{
+float r1 = 6.25, 12 = 2.5, a;
+a=AREA(r1);
+printf ( "\nArea of circle = %f", a) ;
+a=AREA(12);
+
+printf ("\nArea of circle = %f", a ) ;
+}
+
+Here’s the output of the program...
+
+Area of circle = 122.656250
+Area of circle = 19.625000
+

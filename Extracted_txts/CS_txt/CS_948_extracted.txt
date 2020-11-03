@@ -1,0 +1,41 @@
+Chapter 8: Arrays 271
+
+ 
+
+(a) Construct 100 variables to store percentage marks obtained by
+100 different students, ie. each variable containing one
+student’s marks.
+
+(b) Construct one variable (called array or subscripted variable)
+capable of storing or holding all the hundred values.
+
+Obviously, the second alternative is better. A simple reason for
+this is, it would be much easier to handle one variable than
+handling 100 different variables. Moreover, there are certain logics
+that cannot be dealt with, without the use of an array. Now a
+formal definition of an array—An array is a collective name given
+to a group of ‘similar quantities’. These similar quantities could be
+percentage marks of 100 students, or salaries of 300 employees, or
+ages of 50 employees. What is important is that the quantities must
+be ‘similar’. Each member in the group is referred to by its
+position in the group. For example, assume the following group of
+numbers, which represent percentage marks obtained by five
+students.
+
+per = { 48, 88, 34, 23, 96}
+
+If we want to refer to the second number of the group, the usual
+notation used is per. Similarly, the fourth number of the group is
+referred as pers. However, in C, the fourth number is referred as
+per[3]. This is because in C the counting of elements begins with 0
+and not with 1. Thus, in this example per[3] refers to 23 and
+per[4] refers to 96. In general, the notation would be per[i],
+where, i can take a value 0, 1, 2, 3, or 4, depending on the position
+of the element being referred. Here per is the subscripted variable
+(array), whereas i is its subscript.
+
+Thus, an array is a collection of similar elements. These similar
+elements could be all ints, or all floats, or all chars, etc. Usually,
+the array of characters is called a ‘string’, whereas an array of ints
+or floats is called simply an array. Remember that all elements of
+

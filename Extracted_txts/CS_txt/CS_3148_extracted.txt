@@ -1,0 +1,91 @@
+514
+
+17.5_DYNAMIC BELIEF NETWORKS
+
+STATE EVOLUTION
+MODEL
+
+MARKOV CHAIN,
+
+DYNAMIC BELIEF
+NETWORK
+
+PROBABILISTIC
+PROJECTION
+
+Chapter 17.
+
+Lane
+Position
+oct
+%7 Position ~y
+
+‘Sensor 7
+Sensor SLA?
+Accuracy
+Sensor
+<>
+
+A model of a lane-position sensor for an automated vehicle.
+
+Making Complex Decisions
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 17.12
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+We now consider the evolution of the state of the environment over time, and how this can be
+represented in a dynamic belief network. As we said earlier, the evolution of the environment
+is modelled by the conditional probability distribution P(X, X,—;,A;—1), which describes how
+the state depends on the previous state and the action of the agent. As with the sensor model,
+we make a stationarity assumption: the conditional probabilities are the same for all ¢ In this
+section, we will cover the case where the agent is passively monitoring and predicting a changing
+environment, rather than acting on it. The agent is thus concerned with a sequence of X, values,
+where each one is determined solely by the previous one: P(X, X,_;). This sequence is called
+a state evolution model or Markov chain. Monitoring and prediction is important in its own
+right, and it also makes the explanation simpler. In the next section, we will show how an agent
+can use the X, to make decisions and take action.
+
+In principle, we want to build a belief network with one node for each state and sensor
+variable, for each time step. A network of this kind is called a dynamic belief network (DBN).
+The generic structure of a DBN is shown in Figure 17.13. (In a real network for a specific
+problem, the state and percept nodes would be replaced by several nodes each, with appropriate
+connections. Notice also the resemblance to Figure 7.3.) Ift is the current time step, then we
+have have evidence for the percept nodes up to and including time ¢. The task of the network 18
+then to calculate the probability distribution for the state at time ¢. One may also want to know
+how the state will evolve into the future—the probability distributions for State;,; and so on.
+This task is called probabilistic projection. Both tasks can be carried out using the standard
+algorithms from Chapter 15.
+
+A little thought reveals that although the previous sentence is true, it may not be very
+useful. A dynamic belief network of the kind shown in Figure 17.13 could be extremely large,
+so the belief net algorithms could be extremely inefficient. Now we will see the benefit of all
+the work that went into Equations (17.8) and (17.9) (for Bel and Bel). We can implement the
+prediction and estimation phases as operations on the beliefnetwork. Furthermore, we need only
+
+ 
+

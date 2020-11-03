@@ -1,0 +1,62 @@
+202 Chapter 7 Process Synchronization
+
+do {
+
+ 
+
+wait (mutex) ;
+
+ 
+
+ 
+
+critical section
+
+ 
+
+ 
+
+signal (mutex) ;
+
+ 
+
+remainder section
+} while (1);
+Figure 7.11 Mutual-exclusion implementation with semaphores.
+
+in process P,, and the statements
+
+wait (synch) ;
+Sai
+
+in process P2. Because synch is initialized to 0, Pz will execute S2 only after P;
+has invoked signal (synch), which is after 5).
+
+7.4.2 Implementation
+
+The main disadvantage of the mutual-exclusion solutions of Section 7.2, and
+of the semaphore definition given here, is that they all require busy waiting.
+While a process is in its critical section, any other process that tries to enter its
+critical section must loop continuously in the entry code. This continual looping
+is clearly a problem ina real multiprogramming system, where a single CPU is
+shared among many processes. Busy waiting wastes CPU cycles that some other
+process might be able to use productively. This type of semaphore is also called
+a spinlock (because the process “spins” while waiting for the lock). Spinlocks
+are useful in multiprocessor systems. The advantage of a spinlock is that no
+context switch is required when a process must wait on a lock, and a context
+switch may take considerable time. Thus, when locks are expected to be held
+for short times, spinlocks are useful.
+
+To overcome the need for busy waiting, we can modify the definition of
+the wait and signal semaphore operations. When a process executes the
+wait operation and finds that the semaphore value is not positive, it must
+wait. However, rather than busy waiting, the process can block itself. The block
+operation places a process into a waiting queue associated with the semaphore,
+and the state of the process is switched to the waiting state. Then, control is
+transferred to the CPU scheduler, which selects another process to execute.
+
+A process that is blocked, waiting on a semaphore S, should be restarted
+when some other process executes a signal operation. The process is restarted
+
+  
+

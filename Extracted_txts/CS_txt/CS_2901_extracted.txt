@@ -1,0 +1,105 @@
+430
+
+Chapter 16 Greedy Algorithms
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(a) (b)
+
+Figure 16.4 Trees corresponding to the coding schemes in Figure 16.3. Each leaf is labeled with
+a character and its frequency of occurrence. Each internal node is labeled with the sum of the fre-
+quencies of the leaves in its subtree. (a) The tree corresponding to the fixed-length code a =000, ...,
+£ = 101. (b) The tree corresponding to the optimal prefix code a =0, b= 101, ..., £= 1100.
+
+acter, and repeat the decoding process on the remainder of the encoded file. In our
+example, the string 001011101 parses uniquely as 0-0- 101 - 1101, which decodes
+to aabe.
+
+The decoding process needs a convenient representation for the prefix code so
+that we can easily pick off the initial codeword. A binary tree whose leaves are
+the given characters provides one such representation. We interpret the binary
+codeword for a character as the simple path from the root to that character, where 0
+means “go to the left child” and 1 means “go to the right child.” Figure 16.4 shows
+the trees for the two codes of our example. Note that these are not binary search
+trees, since the leaves need not appear in sorted order and internal nodes do not
+contain character keys.
+
+An optimal code for a file is always represented by a full binary tree, in which
+every nonleaf node has two children (see Exercise 16.3-2). The fixed-length code
+in our example is not optimal since its tree, shown in Figure 16.4(a), is not a full bi-
+nary tree: it contains codewords beginning 10..., but none beginning 11.... Since
+we can now restrict our attention to full binary trees, we can say that if C is the
+alphabet from which the characters are drawn and all character frequencies are pos-
+itive, then the tree for an optimal prefix code has exactly |C| leaves, one for each
+letter of the alphabet, and exactly |C | — 1 internal nodes (see Exercise B.5-3).
+
+Given a tree T corresponding to a prefix code, we can easily compute the number
+of bits required to encode a file. For each character c in the alphabet C, let the
+attribute c freq denote the frequency of c in the file and let d7(c) denote the depth
+

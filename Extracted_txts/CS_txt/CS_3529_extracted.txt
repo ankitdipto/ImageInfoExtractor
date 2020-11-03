@@ -1,0 +1,69 @@
+section 3.8
+
+Summary 89
+
+ 
+
+ 
+
+ 
+
+ 
+
+38 Given a pathless search algorithm such as the one called for in Exercise 3.7, explain how
+you can modify the operators to keep track of the paths as part of the information in a state. Show
+the operators needed to solve the route-finding and touring problems.
+
+3.9 Describe a search space in which iterative deepening se
+depth-first search. ,
+
+ 
+
+rch performs much worse than
+
+3.10 Figure 3.17 shows a schematic view of bidirectional search. Why do you think we chose
+to show trees growing outward from the start and goal states, rather than two search trees growing
+horizontally toward each other?
+
+3.11 Write down the algorithm for bidirectional search, in pseudo-code or in a programming
+language. Assume that each search will be a breadth-first search, and that the forward and
+backward searches take turns expanding a node at a time. Be careful to avoid checking each node
+in the forward search against each node in the backward search!
+
+3.12 Give the time complexity of bidirectional search when the test for connecting the two
+searches is done by comparing a newly generated state in the forward direction against all the
+states generated in the backward direction, one at a time.
+
+3.13 We said that at least one direction ofa bidirectional search must be a breadth-first search.
+What would be a good choice for the other direction? Why?
+
+3.14 Consider the following operator for the 8-queens problem: place a queen in the column
+with the fewest unattacked squares, in such a way that it does not attack any other queens. How
+many nodes does this expand before it finds a solution? (You may wish to have a program
+calculate this for you.)
+
+3.15 The chain problem (Figure 3.20) consists of various lengths of chain that must be recon-
+figured into new arrangements. Operators can open one link and close one link. In the standard
+form of the problem, the initial state contains four chains, each with three links. The goal state
+consists of a single chain of 12 links in a circle. Set this up as a formal search problem and find
+the shortest solution.
+
+ 
+
+ 
+
+Start state Goal state
+
+ 
+
+ 
+
+Figure 320 The chain problem. Operators can open, remove, reattach, and close a single link
+at a time.
+
+ 
+
+ 
+
+ 
+

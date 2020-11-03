@@ -1,0 +1,53 @@
+9.1 Background 279
+
+9.1.5 Overlays
+
+To enable a process to be larger than the amount of memory allocated to
+it, we can use overlays. The idea of overlays is to keep in memory only
+those instructions and data that are needed at any given time. When other
+instructions are needed, they are loaded into space occupied previously by
+instructions that are no longer needed.
+
+As an example, consider a two-pass assembler. During pass 1, it constructs
+a symbol table; then, during pass 2, it generates machine-language code. We
+may be able to partition such an assembler into pass 1 code, pass 2 code, the
+symbol table, and common support routines used by both pass 1 and pass 2.
+Assume that the sizes of these components are as follows:
+
+Pass 1 70 KB
+Pass 2 80 KB
+Symbol table 20 KB
+Common routines 30 KB
+
+To load everything at once, we would require 200 KB of memory. If only 150
+KBis available, we cannot run our process. However, notice that pass 1 and pass
+2 do not need to be in memory at the same time. We thus define two overlays:
+Overlay A is the symbol table, common routines, and pass 1, and overlay B is
+the symbol table, common routines, and pass 2.
+
+We add an overlay driver (10 KB) and start with overlay A in memory.
+When we finish pass 1, we jump to the overlay driver, which reads overlay
+B into memory, overwriting overlay A, and then transfers control to pass
+2. Overlay A needs only 120 KB, whereas overlay B needs 130 KB (Figure
+9.3). We can now run our assembler in the 150 KB of memory. It will load
+somewhat faster because fewer data need to be transferred before execution
+starts. However, it will run somewhat slower, due to the extra I/O to read the
+code for overlay B over the code for overlay A.
+
+The code for overlay A and the code for overlay B are kept on disk as
+absolute memory images, and are read by the overlay driver as needed. Special
+relocation and linking algorithms are needed to construct the overlays.
+
+As in dynamic loading, overlays do not require any special support from
+the operating system. They can be implemented completely by the user with
+simple file structures, reading from the files into memory and then jumping to
+that memory and executing the newly read instructions. The operating system
+notices only that there is more I/O than usual.
+
+The programmer, on the other hand, must design and program the overlay
+structure properly. This task can be a major undertaking, requiring complete
+knowledge of the structure of the program, its code, and its data structures.
+Because the program is, by definition, large—small programs do not need to be
+overlaid —obtaining a sufficient understanding of the program may be difficult.
+For these reasons, the use of overlays is currently limited to microcomputer
+

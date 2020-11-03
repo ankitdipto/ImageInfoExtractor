@@ -1,0 +1,60 @@
+section 3.3.
+
+Example Problems 65
+
+ 
+
+0 States: arrangements of 0 to 8 queens with none attacked.
+
+0 Operators: place a queen in the left-most empty column such that it is not attacked by any
+other queen.
+
+It is easy to see that the actions given can generate only states with no attacks; but sometimes
+no actions will be possible. For example, after making the first seven choices (left-to-right) in
+Figure 3.5, there is no action available in this formulation. The search process must try another
+choice. A quick calculation shows that there are only 2057 possible sequences to investigate. The
+rightformulation makes a big difference to the size ofthe search space. Similar considerations
+apply for a complete-state formulation. For example, we could set the problem up as follows:
+
+0 States: arrangements of 8 queens, one in each column.
+Operators: move any attacked queen to another square in the same column.
+
+This formulation would allow the algorithm to find a solution eventually, but it would be better
+to move to an unattacked square ifpossible.
+
+Cryptarithmetic
+
+In cryptarithmetic problems, letters stand for digits and the aim is to find a substitution of digits
+for letters such that the resulting sum is arithmetically correct. Usually, each letter must stand
+for a different digit. The following is a well-known example:
+
+ 
+
+FORTY Solution: 29786 F=2, 0=9, etc
++ TEN 850
++ TEN 850
+
+SIXTY 31486
+
+The following formulation is probably the simplest:
+
+States: a cryptarithmetic puzzle with some letters replaced by digits
+
+0 Operators: replace all occurrences of a letter with a digit not already appearing in the
+puzzle.
+
+~ Goal test: puzzle contains only digits, and represents a correct sum.
+
+~ Path cost: zero. All solutions equally valid.
+
+A moment's thought shows that replacing E by 6 then F by 7 is the same thing as replacing F by
+7 then E by 6—order does not matter to correctness, so we want to avoid trying permutations of
+the same substitutions. One way to do this is to adopt a fixed order, e.g., alphabetical order. A
+better choice is to do whichever is the most constrained substitution, that is, the letter that has
+the fewest legal possibilities given the constraints of the puzzle.
+
+The vacuum world
+
+Here we will define the simplified vacuum world from Figure 3.2, rather than the full version
+from Chapter 2. The latter is dealt with in Exercise 3.17.
+

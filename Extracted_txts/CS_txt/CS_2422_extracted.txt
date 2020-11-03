@@ -1,0 +1,45 @@
+42
+
+Chapter 2. Getting Started
+b. What array with elements from the set {1,2,..., n} has the most inversions?
+How many does it have?
+
+c. What is the relationship between the running time of insertion sort and the
+number of inversions in the input array? Justify your answer.
+
+d. Give an algorithm that determines the number of inversions in any permutation
+onv elements in @(n lg n) worst-case time. (Hint: Modify merge sort.)
+
+ 
+
+Chapter notes
+
+In 1968, Knuth published the first of three volumes with the general title The Art of
+Computer Programming [209, 210, 211]. The first volume ushered in the modern
+study of computer algorithms with a focus on the analysis of running time, and the
+full series remains an engaging and worthwhile reference for many of the topics
+presented here. According to Knuth, the word “algorithm” is derived from the
+name “al-Khowarizmi,” a ninth-century Persian mathematician.
+
+Aho, Hopcroft, and Ullman [5] advocated the asymptotic analysis of algo-
+rithms—using notations that Chapter 3 introduces, including ©-notation—as a
+means of comparing relative performance. They also popularized the use of re-
+currence relations to describe the running times of recursive algorithms.
+
+Knuth [211] provides an encyclopedic treatment of many sorting algorithms. His
+comparison of sorting algorithms (page 38 1) includes exact step-counting analyses,
+like the one we performed here for insertion sort. Knuth’s discussion of insertion
+sort encompasses several variations of the algorithm. The most important of these
+is Shell’s sort, introduced by D. L. Shell, which uses insertion sort on periodic
+subsequences of the input to produce a faster sorting algorithm.
+
+Merge sort is also described by Knuth. He mentions that a mechanical colla-
+tor capable of merging two decks of punched cards in a single pass was invented
+in 1938. J. von Neumann, one of the pioneers of computer science, apparently
+wrote a program for merge sort on the EDVAC computer in 1945.
+
+The early history of proving programs correct is described by Gries [153], who
+credits P. Naur with the first article in this field. Gries attributes loop invariants to
+R. W. Floyd. The textbook by Mitchell [256] describes more recent progress in
+proving programs correct.
+

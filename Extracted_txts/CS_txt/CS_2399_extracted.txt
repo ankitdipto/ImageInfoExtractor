@@ -1,0 +1,47 @@
+2.2. Analyzing algorithms 23
+
+an (n + 1)-element array C. State the problem formally and write pseudocode for
+adding the two integers.
+
+ 
+
+2.2. Analyzing algorithms
+
+Analyzing an algorithm has come to mean predicting the resources that the algo-
+rithm requires. Occasionally, resources such as memory, communication band-
+width, or computer hardware are of primary concern, but most often it is compu-
+tational time that we want to measure. Generally, by analyzing several candidate
+algorithms for a problem, we can identify a most efficient one. Such analysis may
+indicate more than one viable candidate, but we can often discard several inferior
+algorithms in the process.
+
+Before we can analyze an algorithm, we must have a model of the implemen-
+tation technology that we will use, including a model for the resources of that
+technology and their costs. For most of this book, we shall assume a generic one-
+processor, random-access machine (RAM) model of computation as our imple-
+mentation technology and understand that our algorithms will be implemented as
+computer programs. In the RAM model, instructions are executed one after an-
+other, with no concurrent operations.
+
+Strictly speaking, we should precisely define the instructions of the RAM model
+and their costs. To do so, however, would be tedious and would yield little insight
+into algorithm design and analysis. Yet we must be careful not to abuse the RAM
+model. For example, what if a RAM had an instruction that sorts? Then we could
+sort in just one instruction. Such a RAM would be unrealistic, since real computers
+do not have such instructions. Our guide, therefore, is how real computers are de-
+signed. The RAM model contains instructions commonly found in real computers:
+arithmetic (such as add, subtract, multiply, divide, remainder, floor, ceiling), data
+movement (load, store, copy), and control (conditional and unconditional branch,
+subroutine call and return). Each such instruction takes a constant amount of time.
+
+The data types in the RAM model are integer and floating point (for storing real
+numbers). Although we typically do not concern ourselves with precision in this
+book, in some applications precision is crucial. We also assume a limit on the size
+of each word of data. For example, when working with inputs of size n, we typ-
+ically assume that integers are represented by c lg bits for some constant c > 1.
+We require c > | so that each word can hold the value of 7, enabling us to index the
+individual input elements, and we restrict c to be a constant so that the word size
+does not grow arbitrarily. (If the word size could grow arbitrarily, we could store
+huge amounts of data in one word and operate on it all in constant time—clearly
+an unrealistic scenario.)
+

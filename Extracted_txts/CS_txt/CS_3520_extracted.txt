@@ -1,0 +1,65 @@
+ 
+
+ 
+
+COMPLEXITY ANALYSIS
+AND O() NOTATION
+
+ 
+
+ 
+
+ 
+
+BENCHMARKING
+
+Computer scientists are often faced with the task of comparing two algorithms to see which runs
+faster or takes less memory. There are two approaches to this task. The first is benchmarking—
+running the two algorithms on a computer and measuring which is faster (or which uses less
+memory). Ultimately, this is what really matters, but a benchmark can be unsatisfactory because
+it is so specific: it measures the performance of a particular program written in a particular
+language running on a particular computer with a particular compiler and particular input data.
+From the single result that the benchmark provides, it can be difficult to predict how well
+the algorithm would do on a different compiler, computer, or data set. A useful variant of
+benchmarking is to count the number of operations performed of a particular kind: for example,
+in testing a numerical sorting algorithm we might count the number of “greater-than” tests.
+
+A.1__ ASYMPTOTIC ANALYSIS
+
+ANALYSIS OF
+ALGORITHMS
+
+The second approach relies on a mathematical analysis of algorithms, independent of the
+particular implementation and input. We will discuss the approach with the following example,
+a program to compute the sum ofa sequence of numbers:
+
+ 
+
+function SUMMATION(sequenceyeturns a number
+sum—0
+for i— 1 to LENGTH(sequence)
+sum — sum + sequence(i}
+end
+return sum
+
+ 
+
+ 
+
+ 
+
+The first step in the analysis is to abstract over the input, to find some parameter or parameters that
+characterize the size of the input. In this example, the input can be characterized by the length
+of the sequence, which we will call n. The second step is to abstract over the implementation, to
+find some measure that reflects the running time of the algorithm, but is not tied to a particular
+
+PTs
+
+ 
+
+ 
+
+ 
+
+ 
+

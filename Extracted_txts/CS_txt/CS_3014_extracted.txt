@@ -1,0 +1,53 @@
+Section 13.1.
+
+Conditional Planning 393
+
+ 
+
+DEFERRING
+
+at a simple replanning agent that implements this strategy. Section 13.3 elaborates on this
+design to provide a full integration of planning and execution.
+
+Execution monitoring is related to conditional planning in the following way. An agent that
+builds a plan and then executes it while watching for errors is, in a sense, taking into account
+the possible conditions that constitute execution errors. Unlike a conditional planner, however,
+the execution monitoring agent is actually deferring the job of dealing with those conditions
+until they actually arise. The two approaches of course can be combined by planning for some
+contingencies and leaving others to be dealt with later if they occur. In Section 13.4, we will
+discuss when one might prefer to use one or the other approach.
+
+13.1 CONDITIONAL PLANNING
+
+We begin by looking at the nature of conditional plans and how an agent executes them. This
+will help to clarify the relationship between sensing actions in the plan and their effects on the
+agent's knowledge base. We then explain how to construct conditional plans.
+
+The nature of conditional plans
+
+Let us consider the problem of fixing a flat tire. Suppose we have the following three action
+schemata:
+Op(ACTION:Remoye(x),
+PRECOND:On(x),
+EFFECT. Off(x)\. ClearHub(x)A —On(x))
+Op( ACTION: PutOn(x),
+PRECOND:Off(x)A ClearHub(x),
+EFFECT: On(x) A +ClearHub(x)A ~Off())
+Op( ACTION :Inflate(x),
+PRECOND:Intact(x)A Flat(x),
+Errect; Inflated(x)A —Flat(x))
+If our goal is to have an inflated tire on the wheel:
+On(x) A Inflated(x)
+and the initial conditions are
+Inflated(Spare\& Intact(Spare)A Of(Spare)A On(Tire,) A Flat(Tire,)
+
+then any of the standard planners described in the previous chapters would be able to come up
+with the following plan:
+
+[Remove(Tire,), PutOn(Spare)]
+
+If the absence of Intact(Tire;) in the initial state really means that the tire is not intact (as the
+standard planners assume), then this is all well and good. But suppose we have incomplete
+
+ 
+

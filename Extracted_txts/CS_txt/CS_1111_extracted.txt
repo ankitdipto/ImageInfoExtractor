@@ -1,0 +1,43 @@
+Chapter 11: Console Input/Output 405
+
+ 
+
+int i= 10;
+char ch =A’;
+float a = 3.14;
+
+char str[20] ;
+
+printf (“\n%d %c %f", i, ch, a) ;
+sprintf (str, "%d %c %f", i, ch, a) ;
+printf ( “\n%s", str ) ;
+
+}
+
+In this program the printf( ) prints out the values of i, ch and a on
+the screen, whereas sprintf( ) stores these values in the character
+array str. Since the string str is present in memory what is written
+into str using sprintf( ) doesn’t get displayed on the screen. Once
+str has been built, its contents can be displayed on the screen. In
+our program this was achieved by the second printf() statement.
+
+The counterpart of sprintf( ) is the sscanf( ) function. It allows us
+to read characters from a string and to convert and store them in C
+variables according to specified formats. The sscanf( ) function
+comes in handy for in-memory conversion of characters to values.
+You may find it convenient to read in strings from a file and then
+extract values from a string by using sscanf( ). The usage of
+sscanf( ) is same as scanf( ), except that the first argument is the
+string from which reading is to take place.
+
+Unformatted Console I/O Functions
+
+There are several standard library functions available under this
+category—those that can deal with a single character and those
+that can deal with a string of characters. For openers let us look at
+those which handle one character at a time.
+
+So far for input we have consistently used the scanf( ) function.
+However, for some situations the scanf( ) function has one glaring
+weakness... you need to hit the Enter key before the function can
+

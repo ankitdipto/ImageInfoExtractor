@@ -1,0 +1,54 @@
+28.1 Solving systems of linear equations 87
+
+i-l
+vi = duty — Yo isyj -
+j=l
+
+Having solved for y, we solve for x in equation (28.6) using back substitution,
+which is similar to forward substitution. Here, we solve the mth equation first and
+work backward to the first equation. Like forward substitution, this process runs
+in @(n?) time. Since U is upper-triangular, we can rewrite the system (28.6) as
+UX + Uy2X2 bes FM p—2Xn-2 FM n-aXn-1 + MinXn = Vis
+
+Up2NX2 Fees U2,n-2X%n—2 + U2n-1Xn-1 + UanXn = V2
+
+Un—2,n-2¥n-2 TF Un—2,n-1Xn-1 + Un-2,.nX%n = Yn-2 +
+Un-1n-1Xn-1 + Un-1,nXn = Vn-1-
+
+UnaXn = Yn-
+
+Thus, we can solve for Xp, Xn—1..-.,X1 successively as follows:
+Xn = Yn/Unn >
+
+Xn=a = (Vat = Unt Xn)/Un—ayn—1 +
+
+Xn-2 = (Vn-2 = Un-2,n1Xn-1 + Un-2,nXn))/Un2.n-2 +
+
+or, in general,
+
+Mie (» ->y ws) [Uji -
+
+faith
+
+Given P, L, U, and b, the procedure LUP-SOLVE solves for x by combining
+forward and back substitution. The pseudocode assumes that the dimension 1 ap-
+pears in the attribute L.rows and that the permutation matrix P is represented by
+the array 7.
+
+LUP-SoLvE(L, U, 2, b)
+n = L.rows
+let x be a new vector of length n
+fori = lton
+
+yi = bat — Daly
+for i = n downto |
+
+x= (vi _ Djaitt UjjXj) [Mii
+return x
+
+ 
+ 
+  
+
+YAWRwWNE
+

@@ -1,0 +1,55 @@
+4.2 Strassen’s algorithm for matrix multiplication 75
+
+ray is 0. How would you change any of the algorithms that do not allow empty
+subarrays to permit an empty subarray to be the result?
+
+41-5
+
+Use the following ideas to develop a nonrecursive, linear-time algorithm for the
+maximum-subarray problem. Start at the left end of the array, and progress toward
+the right, keeping track of the maximum subarray seen so far. Knowing a maximum
+subarray of A[1.. j], extend the answer to find a maximum subarray ending at in-
+dex j +1 by using the following observation: a maximum subarray of A[1.. j + 1]
+is either a maximum subarray of A[1.. j] or a subarray Af ..j + 1], for some
+1 <i < j +1. Determine a maximum subarray of the form Afi... j + 1] in
+constant time based on knowing a maximum subarray ending at index j.
+
+ 
+
+4.2 Strassen’s algorithm for matrix multiplication
+
+If you have seen matrices before, then you probably know how to multiply them.
+(Otherwise, you should read Section D.1 in Appendix D.) If A = (a,j) and
+B = (bj;) are square n x n matrices, then in the product C = A- B, we define the
+entry cj, fori, j =1,2,..., n, by
+
+1»
+cy = Drain «bey (4.8)
+k=1
+
+We must compute n? matrix entries, and each is the sum of 1 values. The following
+procedure takes n xn matrices A and B and multiplies them, returning their n x n
+product C. We assume that each matrix has an attribute rows, giving the number
+of rows in the matrix.
+
+SQUARE-MATRIX-MULTIPLY (A, B)
+1 n= A.rows
+
+2 let C be anewn x n matrix
+
+3 fori = lton
+
+ 
+
+4 for j = lton
+
+5 Ci =
+
+6 fork = lton
+
+7 Cig = Cig + ik + Dey
+8 return C
+
+The SQUARE-MATRIX-MULTIPLY procedure works as follows. The for loop
+of lines 3-7 computes the entries of each row i, and within a given row i, the
+

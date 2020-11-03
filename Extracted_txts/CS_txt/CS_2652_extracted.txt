@@ -1,0 +1,67 @@
+binary point
+
+SECTION 33 Fixed-Point Representation 7
+
+There is no end carry
+
+Answer is negative 59282 = 10's complement of 40718
+
+Since we are dealing with unsigned numbers, there is really no way to
+get an unsigned result for the second example. When working with paper and
+pencil, we recognize that the answer must be changed to a signed negative
+number. When subtracting with complements, the negative answer is recog-
+nized by the absence of the end carry and the complemented result.
+
+Subtraction with complements is done with binary numbers in a similar
+manner using the same procedure outlined above. Using the two binary
+numbers X = 1010100 and Y = 1000011, we perform the subtraction X - Y
+and Y ~ X using 2’s complements:
+
+ 
+
+ 
+
+    
+
+ 
+
+X= 1010100
+2s complement of Y= +0111101
+
+Sum = 10010001
+Discard end carry 2’ = -10000000
+
+ 
+
+Answer: X= Y = 0010001
+
+Y= 1000011
+2's complement of X = +0101100
+Sum= 101111
+
+ 
+
+There is no end carry
+
+Answer is negative 0010001 = 2’s complement of 1101111
+
+3-3__ Fixed-Point Representation
+
+Positive integers, including zero, can be represented as unsigned numbers.
+However, to represent negative integers, we need a notation for negative
+values. In ordinary arithmetic, a negative number is indicated by a minus sign
+and a positive number by a plus sign. Because of hardware limitations, com-
+puters must represent everything with I’s and O's, induding the sign of a
+number. As a consequence, it is customary to represent the sign with a bit
+placed in the leftmost position of the number. The convention is to make the
+sign bit equal to 0 for positive and to 1 for negative.
+
+In addition to the sign, a number may have a binary (or decimal) point.
+The position of the binary point is needed to represent fractions, integers, or
+mixed integer-fraction numbers. The representation of the binary point in a
+register is complicated by the fact that it is characterized by a position in the
+register. There are two ways of specifying the position of the binary point in
+
+a register: by giving it a fixed position or by employing a floating-point repre-
+sentation. The fixed-point method assumes that the binary point is always
+

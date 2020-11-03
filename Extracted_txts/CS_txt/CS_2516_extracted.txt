@@ -1,0 +1,45 @@
+18 Chapter 5 Probabilistic Analysis and Randomized Algorithms
+
+and 1 with probability 1/2. What is the expected running time of your algorithm
+as a function of p?
+
+ 
+
+5.2 Indicator random variables
+
+In order to analyze many algorithms, including the hiring problem, we use indicator
+random variables. Indicator random variables provide a convenient method for
+converting between probabilities and expectations. Suppose we are given a sample
+space S and an event A. Then the indicator random variable | { A} associated with
+event A is defined as
+1 if A occurs ,
+Taya} oeewcs 6.)
+0 if A does not occur .
+
+As a simple example, let us determine the expected number of heads that we
+obtain when flipping a fair coin. Our sample space is S = {H, T}, with Pr{H} =
+Pr{T} = 1/2. We can then define an indicator random variable X 7, associated
+with the coin coming up heads, which is the event H. This variable counts the
+number of heads obtained in this flip, and it is 1 if the coin comes up heads and 0
+otherwise. We write
+Xy = WH}
+
+1 if H occurs ,
+
+0 if T occurs .
+
+The expected number of heads obtained in one flip of the coin is simply the ex-
+pected value of our indicator variable Xz:
+En] = Ell{#))
+= 1-Pr{H}+0-Pr{T}
+1- (1/2) + 0- (1/2)
+= 1/2.
+
+Thus the expected number of heads obtained by one flip of a fair coin is 1/2. As
+the following lemma shows, the expected value of an indicator random variable
+associated with an event A is equal to the probability that A occurs.
+
+Lemma 5.1
+Given a sample space S and an event A in the sample space S, let X¥4 = 1 {A}.
+Then E [X4] = Pr{A}.
+

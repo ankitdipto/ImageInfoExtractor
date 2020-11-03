@@ -1,0 +1,41 @@
+278 Let Us C
+
+ 
+
+/* Demonstration of call by reference */
+main()
+{
+int i;
+int marks[ ] = { 55, 65, 75, 56, 78, 78, 90};
+
+for (i= 0; <=6;i++)
+disp ( &marks[i] ) ;
+
+disp (int *n)
+{
+
+printf ("%d", "n) ;
+}
+
+And here’s the output...
+55 65 75 56 78 78 90
+
+Here, we are passing addresses of individual array elements to the
+function display( ). Hence, the variable in which this address is
+collected (n) is declared as a pointer variable. And since n contains
+the address of array element, to print out the array element we are
+using the ‘value at address’ operator (*).
+
+Read the following program carefully. The purpose of the function
+disp( ) is just to display the array elements on the screen. The
+program is only partly complete. You are required to write the
+function show() on your own. Try your hand at it.
+
+main()
+{
+int i;
+int marks[] = (55, 65, 75, 56, 78, 78, 90};
+
+for (i=0;i<=6;i++)
+disp ( &marks[i] ) ;
+

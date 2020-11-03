@@ -1,0 +1,49 @@
+80
+
+Chapter 4 Divide-and-Conquer
+
+We have traded off one matrix multiplication for a constant number of matrix ad-
+ditions. Once we understand recurrences and their solutions, we shall see that this
+tradeoff actually leads to a lower asymptotic running time. By the master method
+in Section 4.5, recurrence (4.18) has the solution T(n) = @(n'27).
+
+We now proceed to describe the details. In step 2, we create the following 10
+matrices:
+
+Sy = By-Bn,
+Sy = Ant+Arn.
+S39 = Ari + Arr.
+So = Ba-Bu.
+Ss = Aut A22,
+Sos = But Bn.
+S7 = Ap—An.
+Ss = Bat Bn.
+Sy = Ay—An.
+
+Si = ButBr.
+Since we must add or subtract n/2 x n/2 matrices 10 times, this step does indeed
+take @(n7) time.
+
+Instep 3, we recursively multiply n/2xn/2 matrices seven times to compute the
+following n/2 x n/2 matrices, each of which is the sum or difference of products
+of A and B submatrices:
+
+Py = Ay-S, = Ay+ By Ain: Boo.
+Py = S2- Boy = Au Bo + Aia- Bo .
+
+P3 = S3-Buy = An Bu t+ A22- Bu.
+Py = An-Sy = Ara Bor— Ar: Bi.
+Ps = Ss-Sp = Ay: Buy + Air+ Boz + Azo» By + Ao + Boo .
+Po = S7-Sg = Ajp+ Boy + Aia> Boy — Ana + Boy — An: By .
+
+Py = So-Sio = An- Bu t+ Au Bi — Ar Bu — Arr: Br.
+
+Note that the only multiplications we need to perform are those in the middle col-
+umn of the above equations. The right-hand column just shows what these products
+equal in terms of the original submatrices created in step 1.
+
+Step 4 adds and subtracts the P; matrices created in step 3 to construct the four
+n/2 x n/2 submatrices of the product C. We start with
+
+Cu = Ps+ Py—P2+ Po.
+

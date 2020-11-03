@@ -1,0 +1,49 @@
+29.2. Formulating problems as linear programs 861
+
+This linear program has |V|? variables, corresponding to the flow between each
+pair of vertices, and it has 2|V |? + |V| — 2 constraints.
+
+It is usually more efficient to solve a smaller-sized linear program. The linear
+program in (29.47)-(29.50) has, for ease of notation, a flow and capacity of 0 for
+each pair of vertices u,v with (u,v) ¢ E. It would be more efficient to rewrite the
+linear program so that it has O(V + E) constraints. Exercise 29.2-5 asks you to
+do so.
+
+Minimum-cost flow
+
+In this section, we have used linear programming to solve problems for which we
+already knew efficient algorithms. In fact, an efficient algorithm designed specif-
+ically for a problem, such as Dijkstra’s algorithm for the single-source shortest-
+paths problem, or the push-relabel method for maximum flow, will often be more
+efficient than linear programming, both in theory and in practice.
+
+The real power of linear programming comes from the ability to solve new prob-
+lems. Recall the problem faced by the politician in the beginning of this chapter.
+The problem of obtaining a sufficient number of votes, while not spending too
+much money, is not solved by any of the algorithms that we have studied in this
+book, yet we can solve it by linear programming. Books abound with such real-
+world problems that linear programming can solve. Linear programming is also
+particularly useful for solving variants of problems for which we may not already
+know of an efficient algorithm.
+
+Consider, for example, the following generalization of the maximum-flow prob-
+lem. Suppose that, in addition to a capacity c(u,v) for each edge (u,v), we are
+given a real-valued cost a(u, v). As in the maximum-flow problem, we assume that
+c(u,v) = 0 if (u,v) ¢ E, and that there are no antiparallel edges. If we send fy
+units of flow over edge (u,v), we incur a cost of a(u,v) fy». We are also given a
+flow demand d. We wish to send d units of flow from s to t while minimizing the
+total cost °(.))e~ 4(U, VY) fuy incurred by the flow. This problem is known as the
+minimum-cost-flow problem.
+
+Figure 29.3(a) shows an example of the minimum-cost-flow problem. We wish
+to send 4 units of flow from s to ¢ while incurring the minimum total cost. Any
+particular legal flow, that is, a function / satisfying constraints (29.48)—-(29.49),
+incurs a total cost of Yq yee 4(U. Vv) fuv- We wish to find the particular 4-unit
+flow that minimizes this cost. Figure 29.3(b) shows an optimal solution, with total
+cost Pouce AC. ¥) fuy = (2-2) + (5-2) + B-V) 47-1) +3) = 27.
+
+There are polynomial-time algorithms specifically designed for the minimum-
+cost-flow problem, but they are beyond the scope of this book. We can, however,
+express the minimum-cost-flow problem as a linear program. The linear program
+looks similar to the one for the maximum-flow problem with the additional con-
+

@@ -1,0 +1,59 @@
+306
+
+Chapter 10. Logical Reasoning Systems
+
+ 
+
+CHOICE POINT
+
+TRAIL
+
+OPEN-CODE
+
+the BACK-CHAIN algorithm from Section 9.4, with the program as the knowledge base. We
+say "essentially," because Prolog interpreters contain a variety of improvements designed to
+maximize speed. Here we consider only two.
+
+First, instead of constructing the list of all possible answers for each subgoal before
+continuing to the next, Prolog interpreters generate one answer and a "promise" to generate the
+rest when the current answer has been fully explored. This promise is called a choice point.
+When the depth-first search completes its exploration of the possible solutions arising from the
+current answer and backs up to the choice point, the choice point is expanded to yield a new
+answer for the subgoal and a new choice point. This approach saves both time and space. It also
+provides a very simple interface for debugging because at all times there is only a single solution
+path under consideration.
+
+Second, our simple implementation of BACK-CHAIN spends a good deal oftime generating
+substitutions and applying them to query lists. Prolog eliminates the need for a substitution data
+type by implementing logic variables that can remember their current binding. At any point in
+time every variable in the program is either unbound or is bound to some value. Together, these
+variables and values implicitly define a substitution. Ofcourse, there is only one such substitution
+at a time, but that is all we need. The substitution is the right one for the current path in the
+search tree. Extending the path can only add new variable bindings, because an attempt to add a
+different binding for an already-bound variable results in a failure of unification. When a path in
+the search fails, Prolog will back up to a previous choice point, and then it may have to unbind
+some variables. This is done by keeping track ofall the variables that have been bound in a stack
+called the trail. As each new variable is bound by Uniry-Var, the variable is pushed onto the
+trail stack. When a goal fails and it is time to back up to a previous choice point, each of the
+variables is unbound as it is removed from the trail.
+
+Compilation of logic programs
+
+It is possible to make a reasonably efficient Prolog interpreter by following the guidelines in the
+previous subsection. But interpreting programs in any language, including Prolog, is necessarily
+slower than running compiled code. This is because the interpreter always behaves as if it has
+never seen the program before. A Prolog interpreter must do database retrieval to find sentences
+that match the goal, and analysis of sentence structure to decide what subgoals to generate. All
+serious heavy-duty Prolog programming is done with compiled code. The great advantage of
+compilation is that when it is time to execute the inference process, we can use inference routines
+specifically designed for the sentences in the knowledge base. Prolog basically generates a
+miniature theorem prover for each different predicate, thereby eliminating much of the overhead
+of interpretation. It is also possible to open-code the unification routine for each different call,
+thereby avoiding explicit analysis of term structure. (For details of open-coded unification, see
+Warren et al. (1977).)
+
+The instruction sets of today's computers give a poor match with Prolog's semantics, so
+most Prolog compilers compile into an intermediate language rather than directly into machine
+language. The most popular intermediate language is the Warren Abstract Machine, or WAM,
+named after David H. D. Warren, one of the implementors of the first Prolog compiler. The WAM
+

@@ -1,0 +1,33 @@
+12.3 Insertion and deletion 297
+
+ 
+
+ 
+
+ 
+
+q q
+
+(a) z d r
+NIL. r o
+
+q q
+
+(b) z d I
+1 NIL os
+(©)
+q
+@ y
+r l r
+
+ 
+
+Figure 12.4 Deleting a node z from a binary search tree, Node z may be the root, a left child of
+node q, or aright child of q. (a) Node z has no left child. We replace z by its right child r, which
+may or may not be NIL. (b) Node z has a left child / but no right child. We replace z by I. (c) Node z
+has two children; its left child is node /, its right child is its successor y, and y’s right child is node x.
+We replace z by y, updating y’s left child to become /, but leaving x as y’s right child. (d) Node z
+has two children (left child / and right child r), and its successor y # r lies within the subtree rooted
+at r, We replace y by its own right child x, and we set y to be r’s parent. Then, we set y to be q’s
+child and the parent of /.
+

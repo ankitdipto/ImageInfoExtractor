@@ -1,0 +1,54 @@
+23.2. The algorithms of Kruskal and Prim 631
+
+ 
+
+23.2. The algorithms of Kruskal and Prim
+
+The two minimum-spanning-tree algorithms described in this section elaborate on
+the generic method. They each use a specific rule to determine a safe edge in line 3
+of GENERIC-MST. In Kruskal’s algorithm, the set A is a forest whose vertices are
+all those of the given graph. The safe edge added to A is always a least-weight
+edge in the graph that connects two distinct components. In Prim’s algorithm, the
+set A forms a single tree. The safe edge added to A is always a least-weight edge
+connecting the tree to a vertex not in the tree.
+
+Kruskal’s algorithm
+
+Kruskal’s algorithm finds a safe edge to add to the growing forest by finding, of all
+the edges that connect any two trees in the forest, an edge (u,v) of least weight.
+Let C; and C, denote the two trees that are connected by (u,v). Since (u,v) must
+be a light edge connecting C; to some other tree, Corollary 23.2 implies that (u, v)
+is a safe edge for C. Kruskal’s algorithm qualifies as a greedy algorithm because
+at each step it adds to the forest an edge of least possible weight.
+
+Our implementation of Kruskal’s algorithm is like the algorithm to compute
+connected components from Section 21.1. It uses a disjoint-set data structure to
+maintain several disjoint sets of elements. Each set contains the vertices in one tree
+of the current forest. The operation FIND-SET(u) returns a representative element
+from the set that contains uv. Thus, we can determine whether two vertices u and v
+belong to the same tree by testing whether FIND-SET(u) equals FIND-SET(v). To
+combine trees, Kruskal’s algorithm calls the UNION procedure.
+
+MST-KRUSKAL(G, w)
+
+1 A=9
+
+2 for each vertex v € G.V
+
+3 MAKE-SET(V)
+
+4 sort the edges of G.E into nondecreasing order by weight w
+
+5 for each edge (u,v) € G.E, taken in nondecreasing order by weight
+6 if FIND-SET(u) # FIND-SET(V)
+
+7 A=AU{(u,v)}
+
+8 UNION(u, v)
+
+9 return A
+
+Figure 23.4 shows how Kruskal’s algorithm works. Lines 1-3 initialize the set A
+to the empty set and create |V| trees, one containing each vertex. The for loop in
+lines 5-8 examines edges in order of weight, from lowest to highest. The loop
+

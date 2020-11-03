@@ -1,0 +1,53 @@
+52 Chapter2 Computer-System Structures
+
+sive, but they are fast. As we move down the hierarchy, the cost per bit generally
+decreases, whereas the access time generally increases.
+
+The operating system must ensure correct operation of the computer sys-
+tem. To prevent user programs from interfering with the proper operation of the
+system, the hardware has two modes: user mode and monitor mode. Various
+instructions (such as I/O instructions and halt instructions) are privileged, and
+can be executed in only monitor mode. The memory in which the operating
+system resides must also be protected from modification by the user. A timer
+prevents infinite loops. These facilities (dual mode, privileged instructions,
+memory protection, timer interrupt) are basic building blocks used by operating
+systems to achieve correct operation. Chapter 3 continues this discussion with
+details of the facilities that operating systems provide.
+
+LANs and WANs are the two basic types of networks. Usually connected by
+expensive twisted-pair or fiber-optic cabling, LANs allow processors distributed
+over a small geographical area to communicate. Connected by telephone lines,
+leased lines, microwave links, or satellite channels, WANs allow processors
+distributed over a larger geographical area to communicate. LANs typically
+transmit more than 100 megabits per second, whereas slower WANS transmit
+from 1,200 bits per second to more than 1 megabit per second.
+
+= Exercises
+
+2.1 Prefetching is a method of overlapping the 1/O of a job with that job’s own.
+computation. The idea is simple. After a read operation completes and the
+job is about to start operating on the data, the input device is instructed to
+begin the next read immediately. The CPU and input device are then both
+busy. With luck, by the time that the job is teady for the next data item,
+the input device will have finished reading that data item. The CPU can
+then begin processing the newly read data, while the input device starts
+to read the following data. A similar idea can be used for output. In this
+case, the job creates data that are put into a buffer until an output device
+can accept them.
+
+Compare the prefetching scheme with spooling, where the CPU
+overlaps the input of one job with the computation and output of other
+jobs.
+
+2.2 How does the distinction between monitor mode and user mode function
+as a rudimentary form of protection (security) system?
+
+2.3 What are the differences between a trap and an interrupt? What is the use
+of each function?
+
+2.4 For what types of operations is DMA useful? Explain your answer.
+
+2.5 Which of the following instructions should be privileged?
+
+ 
+

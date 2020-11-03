@@ -1,0 +1,57 @@
+Section 15,5, Knowledge Engineering for Uncertain Reasoning 457
+
+ 
+
+have an initial set of factors, we can extend the model by asking, "What directly influences
+this factor?" and "What does this factor directly influence?"
+« Decide on a vocabulary of random variables. Determine the variables you want to use,
+and what values they can take on. Sometimes it is useful to quantize a continuous-valued.
+variable into discrete ranges
+Encode general knowledge about the dependence between variables. Here there is a qual-
+itative part, where we say what variables are dependent on what others, and a quantitative
+part, where we specify probability values. The values can come either from the knowledge
+engineer's (or expert's) subjective experience, or from measurements of frequencies in a
+database of past experiences, or from some combination of the two.
+Encode a description of the specific problem instance. For example, we say that the
+particular patient we are interested in is a 34-year-old female with moderate to severe pain
+in the lowerjaw.
+Pose queries to the inference procedure and get answers. The most common query is to
+ask for the value of some hypothesis variable. For example, given the patient's symptoms,
+what is the probability of gum disease, or of any other disorder. It is also common to use
+sensitivity analysis to determine how robust the answers are with respect to perturbations
+in the conditional probability table values.
+
+.
+
+e
+
+Case study: The Pathfinder system
+
+PATHFINDER is a diagnostic expert system for lymph-node diseases, built by members of the
+Stanford Medical Computer Science program during the 1980s (see Heckerman (1991) for a
+discussion). The system deals with over 60 diseases and over 100 disease findings (symptoms
+and test results). Four versions of the system have been built, and the history is instructive
+because it shows a trend toward increasing sophistication in reasoning with uncertainty.
+
+PATHFINDER I was arule-based system written with the logical metareasoning system MRS.
+It did not do any uncertain reasoning.
+
+PATHFINDER II experimented with several methods for uncertain reasoning, including
+certainty factors and the Dempster-Shafer theory (see Section 15.6). The results showed that
+a simplified Bayesian model (in which all disease findings were assumed to be independent)
+outperformed the other methods. One interesting result of the experiment was that 10% of cases
+were diagnosed incorrectly because the expert had given a probability of zero to an unlikely but
+possible event.
+
+PATHFINDER III used the same simplified Bayesian model, but with a reassessment of the
+probabilities using a different protocol and paying attention to low-probability events.
+
+PATHFINDER IV used a belief network to represent the dependencies that could not be
+handled in the simplified Bayesian model. The author of the system sat down with an expert
+physician and followed the knowledge engineering approach described earlier. Deciding on a
+vocabulary took 8 hours, devising the topology of the network took 35 hours, and making the
+14,000 probability assessments took another 40 hours. The physician reportedly found it easy to
+
+SARE, think in terms of probabilities on causal links, and a concept called similarity networks made
+it easier for the expert to assess a large number of probabilities. The network constructed in this
+

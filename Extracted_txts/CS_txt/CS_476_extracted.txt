@@ -1,0 +1,49 @@
+33.2 Determining whether any pair of segments intersects 1027
+
+is the event point at which a and b become consecutive in the total preorder. If p
+is on sweep line z, then g = p. If p is not on sweep line z, then q is to the left
+of p. In either case, the order given by T is correct just before encountering q.
+(Here is where we use the lexicographic order in which the algorithm processes
+event points. Because p is the lowest of the leftmost intersection points, even if p
+is on sweep line z and some other intersection point p’ is on z, event point q = p
+is processed before the other intersection p’ can interfere with the total preorder T.
+Moreover, even if p is the left endpoint of one segment, say a, and the right end-
+point of the other segment, say b, because left endpoint events occur before right
+endpoint events, segment b is in T upon first encountering segment a.) Either event
+point q¢ is processed by ANY-SEGMENTS-INTERSECT or it is not processed.
+
+If g is processed by ANY-SEGMENTS-INTERSECT, only two possible actions
+may occur:
+
+ 
+
+1. Either a or b is inserted into T, and the other segment is above or below it in
+the total preorder. Lines 4~7 detect this case.
+
+2. Segments a and b are already in T, and a segment between them in the total
+preorder is deleted, making a and b become consecutive. Lines 8-11 detect this
+case.
+
+In either case, we find the intersection p and ANY-SEGMENTS-INTERSECT returns
+TRUE.
+
+If event point g is not processed by ANY-SEGMENTS-INTERSECT, the proce-
+dure must have returned before processing all event points. This situation could
+have occurred only if ANY-SEGMENTS-INTERSECT had already found an inter-
+section and returned TRUE.
+
+Thus, if there is an intersection, ANY-SEGMENTS-INTERSECT returns TRUE.
+As we have already seen, if ANY-SEGMENTS-INTERSECT returns TRUE, there is
+an intersection. Therefore, ANY-SEGMENTS-INTERSECT always returns a correct
+answer.
+
+Running time
+
+If set S contains n segments, then ANY-SEGMENTS-INTERSECT runs in time
+O(nlgn). Line 1 takes O(1) time. Line 2 takes O(n lgn) time, using merge
+sort or heapsort. The for loop of lines 3-11 iterates at most once per event point,
+and so with 2n event points, the loop iterates at most 27 times. Each iteration takes
+O(lg n) time, since each red-black-tree operation takes O(1g 7) time and, using the
+method of Section 33.1, each intersection test takes O(1) time. The total time is
+thus O(n lgn).
+

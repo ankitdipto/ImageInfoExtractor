@@ -1,0 +1,50 @@
+20.3 The van Emde Boas tree 547
+
+stored in min does not appear in any of the clusters, but the element stored in max
+does.
+
+Since the base size is 2, a vEB(2) tree does not need the array A that the cor-
+responding proto-vEB(2) structure has. Instead, we can determine its elements
+from its min and max attributes. In a vEB tree with no elements, regardless of its
+universe size u, both min and max are NIL.
+
+Figure 20.6 shows a vEB(16) tree V holding the set {2,3,4,5,7, 14,15}. Be-
+cause the smallest element is 2, V.min equals 2, and even though high(2) = 0, the
+element 2 does not appear in the vEB(4) tree pointed to by V.cluster[0]: notice
+that V.cluster[0].min equals 3, and so 2 is not in this vEB tree. Similarly, since
+V.cluster[0].min equals 3, and 2 and 3 are the only elements in V.cluster[0], the
+vEB(2) clusters within V. cluster[0] are empty.
+
+The min and max attributes will turn out to be key to reducing the number of
+recursive calls within the operations on vEB trees. These attributes will help us in
+four ways:
+
+1. The MINIMUM and MAXIMUM operations do not even need to recurse, for they
+can just return the values of min or max.
+
+2. The SUCCESSOR operation can avoid making a recursive call to determine
+whether the successor of a value x lies within high(x). That is because x’s
+successor lies within its cluster if and only if x is strictly less than the max
+attribute of its cluster. A symmetric argument holds for PREDECESSOR and
+min,
+
+3. We can tell whether a vEB tree has no elements, exactly one element, or at least
+two elements in constant time from its min and max values. This ability will
+help in the INSERT and DELETE operations. If min and max are both NIL, then
+the vEB tree has no elements. If min and max are non-NIL but are equal to each
+other, then the vEB tree has exactly one element. Otherwise, both min and max
+are non-NIL but are unequal, and the vEB tree has two or more elements.
+
+4. If we know that a vEB tree is empty, we can insert an element into it by updating
+only its min and max attributes. Hence, we can insert into an empty vEB tree in
+constant time. Similarly, if we know that a vEB tree has only one element, we
+can delete that element in constant time by updating only min and max. These
+properties will allow us to cut short the chain of recursive calls.
+
+Even if the universe size u is an odd power of 2, the difference in the sizes
+of the summary vEB tree and the clusters will not turn out to affect the asymptotic
+running times of the vVEB-tree operations. The recursive procedures that implement
+the vEB-tree operations will all have running times characterized by the recurrence
+
+T(u) < T( Vu) + OU). (20.4)
+

@@ -1,0 +1,44 @@
+656 Let UsC
+
+ 
+
+Watch the output of the program. You can notice that all the
+statements after the fork() are executed twice—once by the parent
+process and second time by the child process. In other words
+fork() has managed to split our process into two.
+
+But why on earth would we like to do this? At times we want our
+program to perform two jobs simultaneously. Since these jobs may
+be inter-related we may not want to create two different programs
+to perform them. Let me give you an example. Suppose we want
+perform two jobs—copy contents of source file to target file and
+display an animated GIF file indicating that the file copy is in
+progress. The GIF file should continue to play till file copy is
+taking place. Once the copying is over the playing of the GIF file
+should be stopped. Since both these jobs are inter-related they
+cannot be performed in two different programs. Also, they cannot
+be performed one after another. Both jobs should be performed
+simultaneously.
+
+At such times we would want to use fork( ) to create a child
+process and then write the program in such a manner that file copy
+is done by the parent and displaying of animated GIF file is done
+by the child process. The following program shows how this can
+be achieved. Note that the issue here is to show how to perform
+two different but inter-related jobs simultaneously. Hence I have
+skipped the actual code for file copying and playing the animated
+GIF file.
+
+# include <sys/types.h>
+
+int main()
+
+{
+int pid ;
+pid = fork() ;
+if (pid == 0)
+{
+
+printf ("In child process\n" ) ;
+I code to play animated GIF file */
+

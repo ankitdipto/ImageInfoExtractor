@@ -1,0 +1,49 @@
+4.6 Proof of the master theorem 97
+
+4.5-2
+
+Professor Caesar wishes to develop a matrix-multiplication algorithm that is
+asymptotically faster than Strassen’s algorithm. His algorithm will use the divide-
+and-conquer method, dividing each matrix into pieces of size n/4 x n/4, and the
+divide and combine steps together will take ©(n?) time. He needs to determine
+how many subproblems his algorithm has to create in order to beat Strassen’s algo-
+rithm. If his algorithm creates a subproblems, then the recurrence for the running
+time T(n) becomes T(n) = aT(n/4) + ©(n?). What is the largest integer value
+of a for which Professor Caesar’s algorithm would be asymptotically faster than
+Strassen’s algorithm?
+
+4.5-3
+
+Use the master method to show that the solution to the binary-search recurrence
+T(n) = T(n/2) + ©(1) is Tin) = O(lgn). (See Exercise 2.3-5 for a description
+of binary search.)
+
+4.5-4
+Can the master method be applied to the recurrence T(n) = 47 (n/2) + n? Ign?
+Why or why not? Give an asymptotic upper bound for this recurrence.
+
+45-5 *
+
+Consider the regularity condition af(n/b) < cf(n) for some constant c < 1,
+which is part of case 3 of the master theorem. Give an example of constants a > 1
+and b > | and a function f(m) that satisfies all the conditions in case 3 of the
+master theorem except the regularity condition.
+
+ 
+
+* 4.6 Proof of the master theorem
+
+This section contains a proof of the master theorem (Theorem 4.1). You do not
+need to understand the proof in order to apply the master theorem.
+
+The proof appears in two parts. The first part analyzes the master recur-
+rence (4.20), under the simplifying assumption that T(m) is defined only on ex-
+act powers of b > 1, that is, forn = 1,b,b?,.... This part gives all the intuition
+needed to understand why the master theorem is true. The second part shows how
+to extend the analysis to all positive integers 1; it applies mathematical technique
+to the problem of handling floors and ceilings.
+
+In this section, we shall sometimes abuse our asymptotic notation slightly by
+using it to describe the behavior of functions that are defined only over exact
+powers of b. Recall that the definitions of asymptotic notations require that
+

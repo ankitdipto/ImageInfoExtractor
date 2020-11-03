@@ -1,0 +1,36 @@
+Chapter 17: Windows Programming 567
+
+ 
+
+h[x] = CreateWindow ( "BUTTON", "Press Me",
+WS_OVERLAPPEDWINDOW, x * 20,
+X* 20, 150, 100, 0, 0,i, 0);
+ShowWindow ( h[x], 1) ;
+
+ 
+
+}
+
+MessageBox (0, "Hil", "Waiting", 0) ;
+
+return 0 ;
+}
+
+— —
+BEAL e02 we
+—————— fl
+
+Figure 17.3
+
+Note that each window created in this program is assigned a
+different handle. You may experiment a bit by changing the name
+of the window class to EDIT and see the result.
+
+A Real-World Window
+
+Suppose we wish to create a window and draw a few shapes in it.
+For creating such a window there is no standard window class
+available. Hence we would have to create our own window class,
+register it with Windows OS and then create a window on the basis
+of it. Instead of straightway jumping to a program that draws
+

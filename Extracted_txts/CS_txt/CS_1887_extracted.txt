@@ -1,0 +1,50 @@
+348 Chapter 10 Virtual Memory
+
+frames allocated to it (assuming that other processes do not choose its frames
+for replacement).
+
+One problem with a global replacement algorithm is that a process cannot
+control its own page-fault rate. The set of pages in memory for a process
+depends not only on the paging behavior of that process, but also on the paging
+behavior of other processes. Therefore, the same process may perform quite
+differently (taking 0.5 seconds for one execution and 10.3 seconds for the next
+execution) due to totally external circumstances. Such is not the case with a local
+replacement algorithm. Under local replacement, the set of pages in memory
+for a process is affected by the paging behavior of only that process. For its
+part, local replacement might hinder a process by not making available to it
+other, less used pages of memory. Thus, global replacement generally results in
+greater system throughput, and is therefore the more common method.
+
+10.6 = Thrashing
+
+If the number of frames allocated to a low-priority process falls below the
+minimum number required by the computer architecture, we must suspend
+that process’ execution. We should then page out its remaining pages, freeing
+all its allocated frames. This provision introduces a swap-in, swap-out level of
+intermediate CPU scheduling.
+
+In fact, look at any process that does not have “enough” frames. Although
+it is technically possible to reduce the number of allocated frames to the mini-
+mum, there is some (larger) number of pages in active use. If the process does
+not have this number of frames, it will quickly page fault. At this point, it
+must replace some page. However, since all its pages are in active use, it must
+replace a page that will be needed again right away. Consequently, it quickly
+faults again, and again, and again. The process continues to fault, replacing
+pages for which it then faults and brings back in right away.
+
+This high paging activity is called thrashing. A process is thrashing if it is
+spending more time paging than executing.
+
+10.6.1 Cause of Thrashing
+
+Thrashing results in severe performance problems. Consider the following
+scenario, which is based on the actual behavior of early paging systems.
+
+The operating system monitors CPU utilization. If CPU utilization is too
+low, we increase the degree of multiprogramming by introducing a new process
+to the system. A global page-replacement algorithm is used; it replaces pages
+with no regard to the process to which they belong. Now suppose that a process
+enters a new phase in its execution and needs more frames. It starts faulting and
+taking frames away from other processes. These processes need those pages,
+however, and so they also fault, taking frames from other processes. These
+

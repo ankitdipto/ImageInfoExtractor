@@ -1,0 +1,42 @@
+192 Let Us C
+
+ 
+
+Factorial value = 6
+Enter any number 5
+Factorial value = 120
+
+Let us understand this recursive factorial function thoroughly. In
+the first run when the number entered through scanf() is 1, let us
+see what action does rec() take. The value of a (i.e. 1) is copied
+into x. Since x turns out to be 1 the condition if ( x == 1 ) is
+satisfied and hence 1 (which indeed is the value of 1 factorial) is
+returned through the return statement.
+
+When the number entered through scanf() is 2, the (x == 1) test
+fails, so we reach the statement,
+
+f=x*rec(x-1);
+
+And here is where we meet recursion. How do we handle the
+expression x * rec (x - 1)? We multiply x by rec (x- 1). Since
+the current value of x is 2, it is same as saying that we must
+calculate the value (2 * rec (1 )). We know that the value returned
+by rec (1) is 1, so the expression reduces to (2 * 1), or simply 2.
+Thus the statement,
+
+X"rec(x-1);
+
+evaluates to 2, which is stored in the variable f, and is returned to
+main( ), where it is duly printed as
+
+Factorial value = 2
+
+Now perhaps you can see what would happen if the value of a is 3,
+4, 5 and so on.
+
+In case the value of a is 5, main() would call rec() with 5 as its
+actual argument, and rec( ) will send back the computed value. But
+before sending the computed value, rec() calls rec() and waits for
+a value to be returned. It is possible for the rec() that has just been
+

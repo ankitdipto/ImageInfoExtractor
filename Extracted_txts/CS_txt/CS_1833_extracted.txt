@@ -1,0 +1,57 @@
+304 Chapter9 Memory Management
+
+ 
+
+subroutine
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+logical address space
+Figure 9.17 User’s view of a program.
+
+name. You talk about “the symbol table,” “function Sqrt,” “the main program,”
+without caring what addresses in memory these elements occupy. You are
+not concerned with whether the symbol table is stored before or after the Sqrt
+function. Each of these segments is of variable length; the length is intrinsically
+defined by the purpose of the segment in the program. Elements within a
+segment are identified by their offset from the beginning of the segment: The
+first statement of the program, the seventeenth entry in the symbol table, the
+fifth instruction of the Sqrt function, and so on.
+
+Segmentation is a memory-management scheme that supports this user
+view of memory. A logical-address space is a collection of segments. Each
+segment has a name and a length. The addresses specify both the segment name
+and the offset within the segment. The user therefore specifies each address by
+two quantities: a segment name and an offset. (Contrast this scheme with the
+paging scheme, in which the user specified only a single address, which was
+partitioned by the hardware into a page number and an offset, all invisible to
+the programmer.)
+
+For simplicity of implementation, segments are numbered and are referred
+to by a segment number, rather than by a segment name. Thus, a logical address
+consists of a two tuple:
+
+<segment-number, offset>.
+

@@ -1,0 +1,54 @@
+Section 22.9, A Communicating Agent 683
+
+ 
+
+sm The simplest way to provide a probability distribution is to use a probabilistic context-free
+CR REREF AEE grammar or PCFG.'° In the PCFG language model, each rewrite rule has a probability associated
+OFA with it, such that the sum for all rules with the same left-hand side is 1—forexample,
+
+S—NPVP (0.9)
+S —S ConjunctionS  *(0.1)
+
+In the PCFG model, the probability of a string, P(words), is just the sum of the probabilities of
+its parse trees—one such tree for an unambiguous string, no trees for an ungrammatical string,
+and several trees for an ambiguous string. The probability of a given tree is the product of the
+probabilities of all the rules that make up the nodes of the tree.
+
+The problem with PCFGs is that they are context-free. That means that the difference
+between P(“I ate a banana") and P(‘“I ate a bandana") depends only on P(“banana”) versus
+P(“bandana”), and not on the relation between "ate" and the respective nouns. To get at that
+kind of relationship, we will need some kind of context-sensitive model. Other probabilistic
+language models that include context sensitivity have been proposed (see the Historical Notes
+section). The problem of combining the four models into one is taken up when we discuss speech
+recognition in Section 24.7.
+
+22.9 __A COMMUNICATING AGENT
+
+We have now seen how to go all the way from strings to meanings using syntactic and semantic
+analysis and disambiguation. The final step is to show how this fits in to an agent that can
+communicate. We start with the simple wumpus world robot slave described on page 662.
+
+The first step in building the communicating agent is to extend the grammar to accept
+commands such as "Go east." So far, the language €2 has only one type of speech act: the
+statement. We will extend it with commands and acknowledgments to yield the language £3.
+
+The new words and grammar rules are not complicated. A command can be formed from
+a VP, where the subject is implicitly the hearer. For example, "Go to 2 2" is a command, and
+it already is a VP according to the £2 grammar. The semantics of the command is derived by
+applying the semantics ofthe VP to the object Hearer. Now that we have several kinds of speech
+acts, we will identify the kind (i.e, command or statement) as part of the quasi-logical form. Here
+are the rules for commands and statements:
+
+S(Command(rel(Hearer))— VP(rel)
+
+S(Statement(rel(ohj)y—+ NP(ohj) VP(rel)
+So the quasi-logical form for "Go to 2 2" is;!!
+
+Command(3e e € Go(Hearer,[2, 2}))
+
+10 PCFGs are also known as stochastic context-free grammars or SCFGs.
+
+11 Note that the quasi-logical form for a command does not include the time of the event (e.g., During(Now,e)). That
+is because commands are tenseless. We can't tell that by looking at commands with "go," but consider that the correct
+form ofa command is “[you] be good,” (using the untensed form "be") not “[you] are good.”
+

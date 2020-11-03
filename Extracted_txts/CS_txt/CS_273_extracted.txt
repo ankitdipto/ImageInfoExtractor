@@ -1,0 +1,47 @@
+862
+
+ 
+
+Chapter 29 Linear Programming
+
+ 
+
+(b)
+
+Figure 29.3 (a) An example of a minimum-cost-flow problem. We denote the capacities by ¢ and
+the costs by a. Vertex s is the source and vertex 1 is the sink, and we wish to send 4 units of flow
+from s tor. (b) A solution to the minimum-cost flow problem in which 4 units of flow are sent from s
+to. For each edge, the flow and capacity are written as flow/capacity.
+
+straint that the value of the flow be exactly d units, and with the new objective
+function of minimizing the cost:
+
+minimize > a(u,v) fw (29.51)
+
+. DEE
+subject to os
+
+fw < c(u.v) foreachu,veV,
+Ve fu- Ve fw = 0 for each ue V —{s,1} ,
+vev vev
+Vf-Vhs = 4,
+vev vey
+fw = 0 foreachu,v EV. (29.52)
+
+Multicommodity flow
+
+As a final example, we consider another flow problem. Suppose that the Lucky
+Puck company from Section 26.1 decides to diversify its product line and ship
+not only hockey pucks, but also hockey sticks and hockey helmets. Each piece of
+equipment is manufactured in its own factory, has its own warehouse, and must
+be shipped, each day, from factory to warehouse. The sticks are manufactured in
+Vancouver and must be shipped to Saskatoon, and the helmets are manufactured in
+Edmonton and must be shipped to Regina. The capacity of the shipping network
+does not change, however, and the different items, or commodities, must share the
+same network.
+
+This example is an instance of a multicommodity-flow problem. In this problem,
+we are again given a directed graph G = (V, E) in which each edge (u,v) € E
+has a nonnegative capacity c(u,v) > 0. As in the maximum-flow problem, we im-
+plicitly assume that c(u,v) = 0 for (w,v) ¢ E, and that the graph has no antipar-
+

@@ -1,0 +1,49 @@
+4.5. The master method for solving recurrences 95
+
+That is, f(”) must be asymptotically smaller than n'°8>“ by a factor of n* for some
+constant € > 0. In the third case, not only must f (7) be larger than n'°20“, it also
+must be polynomially larger and in addition satisfy the “regularity” condition that
+af(n/b) < cf(n). This condition is satisfied by most of the polynomially bounded
+functions that we shall encounter.
+
+Note that the three cases do not cover all the possibilities for f(n). There is
+a gap between cases | and 2 when f(r) is smaller than n'°®“ but not polynomi-
+ally smaller. Similarly, there is a gap between cases 2 and 3 when f(n) is larger
+than n'°%>@ but not polynomially larger. If the function (1) falls into one of these
+gaps, or if the regularity condition in case 3 fails to hold, you cannot use the master
+method to solve the recurrence.
+
+Using the master method
+
+To use the master method, we simply determine which case (if any) of the master
+theorem applies and write down the answer.
+As a first example, consider
+
+T(n) = 9T(n/3) +n.
+For this recurrence, we have a = 9, b = 3, f(n) = n, and thus we have that
+nen 4 = n'83° = O(n). Since f(n) = O(n'®39-£), where € = 1, we can apply
+
+case | of the master theorem and conclude that the solution is T(n) = @(n?).
+Now consider
+
+T(n) = T(2n/3) +1,
+
+in which a = 1,b = 3/2, f(n) = 1, and n%4 = ness! = n° = 1. Case 2
+applies, since f(n) = @(n'°**) = (1), and thus the solution to the recurrence
+is T(n) = O(lgn).
+
+For the recurrence
+T(n) = 3T(n/4) +-nlgn,
+we havea = 3,b = 4, f(n) = nign, and n4 = nhs} = O(n®793),
+Since f(n) = Q(n'243**), where € ~ 0.2, case 3 applies if we can show that
+the regularity condition holds for f(n). For sufficiently large n, we have that
+af(n/b) = 3(n/4) lg(n/4) < (3/4)nlgn = cf(n) for c = 3/4. Consequently,
+by case 3, the solution to the recurrence is T(n) = O(n Ign).
+
+The master method does not apply to the recurrence
+
+T(n) = 2T(n/2) +nlgn,
+
+even though it appears to have the proper form: a = 2,b = 2, f(n) = nlgn,
+and n'°%»¢ = n. You might mistakenly think that case 3 should apply, since
+

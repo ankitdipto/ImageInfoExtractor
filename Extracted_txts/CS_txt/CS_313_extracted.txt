@@ -1,0 +1,69 @@
+Chapter 5. Game Playing
+
+ 
+
+TREE MODEL
+
+ 
+
+function MaAx-VALUE(staregame, a, 3) returns the minimax value of state
+inputs: state, current state in game
+game, game description
+a, the best score for MAX along the path to state
+8. the best score for MIN along the path to state
+
+if CUTOFF-Test(state) then return EVAL(state)
+for each s in SUCCESSORS(state) do
+a — MAX(a,, MIN-VALUE(s, game, a, 3))
+ifa > ft then return ft
+end
+return a
+
+ 
+
+function MIN-VALUE(state, game, a, ft) returns the minimax value of state
+
+if CUTOFF-TEST(state) then return EvAL(stare)
+for each s in SUCCESSORS(state) do
+ft — MIN( ft, MAX-VALUE(s, game, a, 3)
+ifft < a then return a
+end
+return ft
+
+ 
+
+ 
+
+Figure 58 The alpha-beta search algorithm. It does the same computation as a normal
+minimax, but prunes the search tree.
+
+ 
+
+ 
+
+ 
+
+that alpha-beta can look ahead twice as far as minimax for the same cost. Thus, by generating
+150,000 nodes in the time allotment, a program can look ahead eight ply instead of four. By
+thinking carefully about which computations actually affect the decision, we are able to transform
+aprogram from a novice into an expert.
+
+The effectiveness of alpha-beta pruning was first analyzed in depth by Knuth and Moore
+(1975). As well as the best case described in the previous paragraph, they analyzed the
+case in which successors are ordered randomly. It turns out that the asymptotic complexity
+is O((b/logb)4),which seems rather dismal because the effective branching factor J/log bis not
+much less than b itself. On the other hand, the asymptotic formula is only accurate for b > 1000
+or so—in other words, not for any games we can reasonably play using these techniques. For
+reasonable b, the total number of nodes examined will be roughly O(b*4*). In practice, a fairly
+simple ordering function (such as trying captures first, then threats, then forward moves, then
+backward moves) gets you fairly close to the best-case result rather than the random result.
+Another popular approach is to do an iterative deepening search, and use the backed-up values
+from one iteration to determine the ordering of successors in the next iteration.
+
+Tt is also worth noting that all complexity results on games (and, in fact, on search problems
+in general) have to assume an idealized tree model in order to obtain their results. For example,
+the model used for the alpha-beta result in the previous paragraph assumes that all nodes have the
+same branching factor b; that all paths reach the fixed depth limit d; and that the leaf evaluations
+
+ 
+

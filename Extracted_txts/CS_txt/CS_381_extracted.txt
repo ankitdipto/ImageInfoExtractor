@@ -1,0 +1,50 @@
+314 Solving modular linear equations 949
+
+MODULAR-LINEAR-EQUATION-SOLVER (a, b,n)
+(d,x', y’) = EXTENDED-EUCLID(a,n)
+ifd |b
+Xo = x'(b/d) mod n
+fori = 0tod—1
+print (xo + i(n/d)) mod n
+else print “no solutions”
+
+AnhwWwNe
+
+As an example of the operation of this procedure, consider the equation 14x =
+30 (mod 100) (here, a = 14, b = 30, and = 100). Calling EXTENDED-
+EUCLID in line 1, we obtain (d,x’, y’) = (2,—7,1). Since 2 | 30, lines 3-5
+execute. Line 3 computes x9 = (—7)(15) mod 100 = 95. The loop on lines 4-5
+prints the two solutions 95 and 45.
+
+The procedure MODULAR-LINEAR-EQUATION-SOLVER works as follows.
+Line | computes d = gcd(a,n), along with two values x’ and y’ such that d =
+ax’ + ny’, demonstrating that x’ is a solution to the equation ax’ = d (mod n).
+If d does not divide b, then the equation ax = b (mod n) has no solution, by
+Corollary 31.21. Line 2 checks to see whether d | b; if not, line 6 reports that there
+are no solutions. Otherwise, line 3 computes a solution x9 to ax = b (mod n),
+in accordance with Theorem 31.23. Given one solution, Theorem 31.24 states that
+adding multiples of (n/d), modulo n, yields the other d — 1 solutions. The for
+loop of lines 4-5 prints out all d solutions, beginning with xo and spaced n/d
+apart, modulo n.
+
+MODULAR-LINEAR-EQUATION-SOLVER performs O(lgn + ged(a,n)) arith-
+metic operations, since EXTENDED-EUCLID performs O(lg/) arithmetic opera-
+tions, and each iteration of the for loop of lines 4-5 performs a constant number of
+arithmetic operations.
+
+The following corollaries of Theorem 31.24 give specializations of particular
+interest.
+
+ 
+
+Corollary 31.25
+For any n > 1, if gcd(a,n) = 1, then the equation ax = b (mod n) has a unique
+solution, modulo n. :
+
+If b = 1, acommon case of considerable interest, the x we are looking for is a
+multiplicative inverse of a, modulo n.
+
+Corollary 31.26
+For any n > 1, if ged(a,n) = 1, then the equation ax = 1 (mod nm) has a unique
+solution, modulo n. Otherwise, it has no solution. :
+

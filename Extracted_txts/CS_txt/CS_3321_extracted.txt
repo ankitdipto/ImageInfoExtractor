@@ -1,0 +1,62 @@
+672 Chapter 22. Agents that Communicate
+
+ 
+
+ 
+
+VP(I))
+NP. VP([NP])
+VP([NP,NP]) NP NP
+IN
+
+Pronoun Verb([NP.NP])} Pronoun Article Noun
+
+You give me the gold
+
+ 
+
+ 
+
+Figure 22.12 Parse tree for "You give me the gold” showing subcategorization of the verb and
+verb phrase.
+
+ 
+
+ 
+
+ 
+
+beyond context-free. For example, the context-sensitive language a"b"c” can be represented with
+the following augmented grammar (where e represents the empty string):
+
+S(n) — A(n) Bin) Cin)
+
+A(0) +e A(n+ 1) >a A(n)
+BO)—e Bin+ 1) — b Bin)
+c(0) -e C(n+ tl) —e¢ Cin)
+
+22.7__ SEMANTIC INTERPRETATION
+
+Throughout Part III, we gained experience in translating between English and first-order logic.
+There it was done informally, to get a feeling for what statements of first-order logic mean. Here
+we will do the same thing in a more carefully controlled way, to define what statements of £1
+mean. Later on we will investigate the meaning of other types of speech acts besides sentences.
+
+Before moving on to natural languages, we will consider the semantics of formal languages.
+Itis easy to deal with meanings of expressions like “X+Y” in arithmetic orXA Y in logic because
+
+SOMPOSITIONAL they have a compositional semantics. This means that the semantics of any phrase is a function
+of the semantics of its subphrases; it does not depend on any other phrase before, after, or
+encompassing the given phrase. So if we know the meaning of X and Y (and +), then we know
+the meaning of the whole phrase.
+
+Things get more complicated when we go beyond the simple language of arithmetic. For
+example, the programming language expression "10+10" might have the semantic interpretation
+4 when it appears in the larger string “BASE(2); X -- 10+10.” However, we can still salvage a
+compositional semantics out of this if we say that the semantic function associated with “x+y"is
+to add and y in the current base. The great advantage of compositional semantics is the same as
+the advantage of context-free grammars: it lets us handle an infinite grammar with a finite (and
+often small) set of rules.
+
+ 
+

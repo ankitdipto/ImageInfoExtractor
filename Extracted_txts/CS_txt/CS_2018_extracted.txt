@@ -1,0 +1,51 @@
+13.2. I/O Hardware 459
+
+The status register contains bits that can be read by the host. These bits indi-
+cate states such as whether the current command has completed, whether a
+byte is available to be read from the data-in register, and whether there has
+been a device error.
+
+The control register can be written by the host to start a command or to
+change the mode of a device. For instance, a certain bit in the control reg-
+ister of a serial port chooses between full-duplex and half-duplex commu-
+nication, another enables parity checking, a third bit sets the word length
+to 7 or 8 bits, and other bits select one of the speeds supported by the serial
+port.
+
+© The data-in register is read by the host to get input.
+
+The data-out register is written by the host to send output.
+
+The data registers are typically 1 to 4 bytes. Some controllers have FIFO
+chips that can hold several bytes of input or output data to expand the capacity
+of the controller beyond the size of the data register. A FIFO chip can hold a
+small burst of data until the device or host is able to receive those data.
+
+13.2.1 Polling
+
+The complete protocol for interaction between the host and a controller can be
+intricate, but the basic handshaking notion is simple. We explain handshaking
+by an example. We assume that 2 bits are used to coordinate the producer—
+consumer relationship between the controller and the host. The controller
+indicates its state through the busy bit in the status register. (Recall that to set
+a bit means to write a 1 into the bit, and to clear a bit means to write a 0 into
+it.) The controller sets the busy bit when it is busy working, and clears the busy
+bit when it is ready to accept the next command. The host signals its wishes
+via the command-ready bit in the command register. The host sets the command-
+ready bit when a command is available for the controller to execute. For this
+example, the host writes output through a port, coordinating with the controller
+by handshaking as follows.
+
+1. The host repeatedly reads the busy bit until that bit becomes clear.
+
+2. The host sets the write bit in the command register and writes a byte into the
+data-out register.
+
+3. The host sets the command-ready bit.
+
+4. When the controller notices that the command-ready bit is set, it sets the busy
+bit.
+
+5. The controller reads the command register and sees the write command.
+It reads the data-out register to get the byte, and does the I/O to the device.
+

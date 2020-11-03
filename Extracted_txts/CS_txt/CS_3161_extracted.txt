@@ -1,0 +1,63 @@
+Section 18.1.
+
+A General Model of Learning Agents 527
+
+ 
+
+SPEEDUP LEARNING
+
+causes annoyance to other drivers. The critic observes the world and passes information along
+to the learning element. For example, after the taxi makes a quick left turn across three lanes of
+traffic, the critic observes the shocking language used by other drivers, the learning element is
+able to formulate a rule saying this was a bad action, and the performance element is modified
+by installing the new rule. Occasionally, the problem generator kicks in with a suggestion: try
+taking 7th Avenue uptown this time, and see if it is faster than the normal route
+
+The learning element is also responsible for improving the efficiencyof the performance
+element. For example, when asked to make a trip to a new destination, the taxi might take a
+while to consult its map and plan the best route. But the next time a similar trip is requested, the
+planning process should be much faster. This is called speedup learning, and is dealt with in
+Chapter 21. In this chapter, we concentrate on the acquisition of knowledge.
+
+Machine learning researchers have come up with a large variety of learning elements. To
+understand them, it will help to see how their design is affected by the context in which they will
+operate. The design of the learning element is affected by four major issues:
+
+* Which components of the performance element are to be improved.
+* What representation is used for those components.
+
+* What feedback is available.
+
+* What prior information is available.
+
+Components of the performance element
+
+We have seen that there are many ways to build the performance element of an agent. The
+components can include the following:
+1. A direct mapping from conditions on the current state to actions
+
+A means to infer relevant properties of the world from the percept sequence.
+. Information about the way the world evolves.
+. Information about the results of possible actions the agent can take.
+
+Utility information indicating the desirability of world states.
+
+Action-value information indicating the desirability ofparticular actions in particular states.
+7. Goals that describe classes of states whose achievement maximizes the agent's utility.
+
+Akwpy
+
+a
+
+Each of the components can be learned, given the appropriate feedback. For example, if the
+agent does an action and then perceives the resulting state of the environment, this information
+can be used to learn a description of the results of actions (4). If the taxi exerts a certain braking
+pressure when driving on a wet road, then it will soon find out how much actual deceleration is
+achieved. Similarly, if the critic can use the performance standard to deduce utility values from
+the percepts, then the agent can leam a useful representation of its utility function (5). If the
+taxi receives no tips from passengers who have been thoroughly shaken up during the trip, it can
+learn a useful component ofits overall utility function. In a sense, the performance standard can
+be seen as defining a set of distinguished percepts that will be interpreted as providing direct
+feedback on the quality of the agent's behavior. Hardwired performance standards such as pain
+and hunger in animals can be understood in this way.
+

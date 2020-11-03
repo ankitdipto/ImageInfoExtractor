@@ -1,0 +1,41 @@
+14.3 Interval trees 349
+
+ 
+
+ 
+
+(a)
+
+Figure 14.3 The interval trichotomy for two closed intervals i and i’. (a) If i and i” overlap, there
+are four situations; in each, i.ow < i’ high and i’.low < i.high. (b) The intervals do not overlap,
+and i.high < i". low. (c) The intervals do not overlap, and i’. high <i.low.
+
+INTERVAL-INSERT(T, x) adds the element x, whose int attribute is assumed to
+contain an interval, to the interval tree T.
+
+INTERVAL-DELETE(T, x) removes the element x from the interval tree T.
+
+INTERVAL-SEARCH(T, i) returns a pointer to an element x in the interval tree T
+such that x. int overlaps interval i, or a pointer to the sentinel T. nil if no such
+element is in the set.
+
+Figure 14.4 shows how an interval tree represents a set of intervals. We shall track
+the four-step method from Section 14.2 as we review the design of an interval tree
+and the operations that run on it.
+
+Step 1: Underlying data structure
+
+We choose a red-black tree in which each node x contains an interval x.int and the
+key of x is the low endpoint, x. int. low, of the interval. Thus, an inorder tree walk
+of the data structure lists the intervals in sorted order by low endpoint.
+
+Step 2: Additional information
+
+In addition to the intervals themselves, each node x contains a value x.max, which
+is the maximum value of any interval endpoint stored in the subtree rooted at x.
+Step 3: Maintaining the information
+
+We must verify that insertion and deletion take O(lg/) time on an interval tree
+of n nodes. We can determine x. max given interval x. int and the max values of
+node x’s children:
+

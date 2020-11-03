@@ -1,0 +1,75 @@
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+Section 23.4. Scaling Up the Grammar 707
+Example Nominal Compound Relation Semantic Rule
+input file UsedFor Vay UsedFor(y,x) = NNix,y)
+code file ConsistsOf Vx,y ConsistsOf(y,x) > NN(x,y)
+language code WrittenIn Vx.y WrittenIn(y.x) => NN(xy)
+POSTSCRIPT language >| Named Va,y Named(y,x) = NN(x,y)
+basketball shoes UsedFor Vx,y UsedFor(y,x) => NN(xy)
+baby shoes UsedBy Vx,y UsedBy(y,x) => NN(x,y)
+alligator shoes MadeOf Va,y MadeOy, => NN(x,y)
+designer shoes MadeBy Va,y MadeBy(y,x) = NN(x,y)
+brake shoes PartOf Vx,y PartOf(y.x) = NN(xy)
+
+Figure 239 Nominal compounds and the corresponding semantic relationships
+
+APPOSITION
+
+ 
+
+ 
+
+ 
+
+can hold between two nouns in a nominal compound. We can then write logical rules that say,
+for example, that when a UsedFor relation holds between two objects, we can infer that a NN
+relation holds. Some examples are shown in Figure 23.9.
+
+We would like a noun phrase like "every file input" to get the semantic interpretation:
+
+[V/A z Inputli)A File(fYA NN(G,f)
+Given what we have already decided about representing the semantics of NPs and articles, we
+can get this ifwe arrange for the semantics of the nominal compound "file input" to be
+
+Af Az Input(i)A File(A NNG.S)
+And we can get that with the rule
+
+Noun(\y 3x semi(x) A sem2(y) A NN(x,y))— Noun(sem) Noun(sem2)
+Another complication is that two noun phrases (not two Nouns) can be concatenated together
+in a construction called apposition, in which both noun phrases refer to the same thing. Two
+examples are “[,pthe argument] [yp fd]” and “[yp the language] [yp POSTSCRIPT].” In these
+examples, the second NP is a name, but it need not always be. In “[ypDavid McDonald] /NP the
+CMU grad] wrote about nominal compounds" we are using "the CMU grad” to distinguish this
+David McDonald from the other one.° A simplified rule for apposition is
+
+NP([gx sem\ A sem;]) > NP([gx sem,]) NP([qx sem2])
+
+Adjective Phrases
+
+In £2, adjectives were only allowed as complements to a verb, as in "the wumpus is smelly"
+But of course adjectives also appear as modifiers before a noun, as in "a smelly wumpus." The
+semantics of a phrase like this can be formed by a conjunction of the semantics contributed by
+the adjective and by the noun:
+
+Aw Smellyov)A Wumpus(w)
+
+© This is called a restrictive apposition because it restricts the set of possible references. Nonrestrictive appositionsjust
+add new information. They are often set offby commas or dashes, as in “Tarzan, lord of the jungle."
+

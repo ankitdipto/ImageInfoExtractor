@@ -1,0 +1,54 @@
+294
+
+Chapter 12 Binary Search Trees
+
+122-8
+Prove that no matter what node we start at in a height- binary search tree, k
+successive calls to TREE-SUCCESSOR take O(k + h) time.
+
+122-9
+
+Let T be a binary search tree whose keys are distinct, let x be a leaf node, and let y
+be its parent. Show that y.key is either the smallest key in T larger than x.key or
+the largest key in T smaller than x. key.
+
+ 
+
+12.3 Insertion and deletion
+
+The operations of insertion and deletion cause the dynamic set represented by a
+binary search tree to change. The data structure must be modified to reflect this
+change, but in such a way that the binary-search-tree property continues to hold.
+As we shall see, modifying the tree to insert a new element is relatively straight-
+forward, but handling deletion is somewhat more intricate.
+
+Insertion
+
+To insert a new value v into a binary search tree T, we use the procedure TREE-
+INSERT. The procedure takes a node z for which z.key = v, Z.left = NIL,
+and z.right = NIL. It modifies T and some of the attributes of z in such a way that
+it inserts z into an appropriate position in the tree.
+
+TREE-INSERT(T, z)
+
+1 y =NIL
+
+2 x = Toot
+
+3 while x A NIL
+
+4 yox
+
+5 if z.key < x.key
+6 xX = x. left
+7 else x = x.right
+8 u.p=y
+
+9 if y == NIL
+
+10 T.root = z 1 tree T was empty
+11 elseif z.key < y.key
+12 y.left = z
+
+13 else y.right = z
+

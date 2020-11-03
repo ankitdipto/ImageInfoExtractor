@@ -1,0 +1,72 @@
+Chapter 19: Interaction With Hardware 647
+
+ 
+
+Summary
+
+(a)
+
+(b)
+
+©)
+
+@
+
+©)
+
+(
+(g)
+
+a)
+@
+
+Hardware interaction can happen in two ways: (1) When the
+user interacts with the hardware and the program reacts to it.
+(2) When the program interacts with the hardware without any
+user intervention.
+
+In DOS when the user interacts with the hardware an ISR gets
+called which interacts with the hardware. In Windows the
+same thing is done by the device driver’s ISR.
+
+In DOS when the program has to interact with the hardware it
+can do so by using library functions, DOS/BIOS routines or
+by directly interacting with the hardware. In Windows the
+same thing can be done by using API functions.
+
+Under Windows to gain finer control over the hardware we
+are required to write a device driver program.
+
+Interaction with the any device can be done using API
+functions like CreateFile( ), ReadFile( ), WriteFile( ) and
+CloseHandle( ).
+
+Different strings have to be passed to the CreateFile( )
+functions for interacting with different devices.
+
+Windows provides a powerful mechanism called hooks that
+can alter the flow of messages before they reach the
+application.
+
+Windows hook procedures should be written in a DLL since
+they work on a system wide basis.
+
+Windows hooks can be put to many good uses.
+
+Exercise
+
+[A] State True or False:
+
+(a)
+(b)
+©)
+
+In MS-DOS on occurrence of an interrupt values from IDT
+are used to call the appropriate kernel routine.
+
+Under Windows on occurrence of an interrupt the kemel
+routine calls the appropriate device driver’s ISR.
+
+Under Windows an application can interact with the hardware
+by directly calling its device driver’s routines.
+

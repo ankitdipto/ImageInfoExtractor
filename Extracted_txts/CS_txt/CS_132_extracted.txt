@@ -1,0 +1,50 @@
+748
+
+Chapter 26 Maximum Flow
+
+264-7
+Show that we could change line 6 of INITIALIZE-PREFLOW to
+
+6 s.h=|G.V|-2
+
+without affecting the correctness or asymptotic performance of the generic push-
+relabel algorithm.
+
+264-8
+
+Let 6¢(u.v) be the distance (number of edges) from u to v in the residual net-
+work Gy. Show that the GENERIC-PUSH-RELABEL procedure maintains the
+properties that u.h < |V| implies u.h < d5¢(u,t) and that u.h > |V| implies
+uh—|V| <dSp(u.s).
+
+264-9 *
+
+As in the previous exercise, let 5p (u, v) be the distance from wu to v in the residual
+network Gy. Show how to modify the generic push-relabel algorithm to maintain
+the property that u.h < |V| implies u.h = 6¢(u,f) and that u.h > |V| implies
+u.h — |V| = 5¢(u,5). The total time that your implementation dedicates to main-
+taining this property should be O(VE).
+
+26.4-10
+Show that the number of nonsaturating pushes executed by the GENERIC-PUSH-
+RELABEL procedure on a flow network G = (V,E) is at most 4|V|?|E| for
+Vj>4.
+
+ 
+
+* 26.5 The relabel-to-front algorithm
+
+The push-relabel method allows us to apply the basic operations in any order at
+all. By choosing the order carefully and managing the network data structure effi-
+ciently, however, we can solve the maximum-flow problem faster than the O(V7E)
+bound given by Corollary 26.25. We shall now examine the relabel-to-front algo-
+rithm, a push-relabel algorithm whose running time is O(V+), which is asymptot-
+ically at least as good as O(V?E), and even better for dense networks.
+
+The relabel-to-front algorithm maintains a list of the vertices in the network.
+Beginning at the front, the algorithm scans the list, repeatedly selecting an over-
+flowing vertex u and then “discharging” it, that is, performing push and relabel
+operations until uw no longer has a positive excess. Whenever we relabel a ver-
+tex, we move it to the front of the list (hence the name “relabel-to-front”) and the
+algorithm begins its scan anew.
+

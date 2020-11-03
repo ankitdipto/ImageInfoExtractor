@@ -1,0 +1,44 @@
+638 Let UsC
+
+ 
+
+I" hook.c */
+# include <windows.h>
+
+static HHOOK hkb = NULL ;
+HANDLE h ;
+
+BOOL __stdcall DilMain ( HANDLE hModule, DWORD ul_reason_for_call,
+LPVOID IpReserved )
+{
+
+h = hModule ;
+return TRUE ;
+}
+
+BOOL __declspec ( dllexport ) installhook()
+{
+hkb = SetWindowsHookEx ( WH_KEYBOARD,
+(HOOKPROC ) KeyboardProc, ( HINSTANCE ) h, 0) ;
+if (hkb == NULL)
+return FALSE ;
+
+return TRUE ;
+}
+
+LRESULT __declspec ( dllexport ) __ stdcall KeyboardProc ( int nCode,
+WPARAM wParam, LPARAM [Param )
+{
+
+short int state ;
+
+if (nCode <0)
+return CallNextHookEx ( hkb, nCode, wParam, IParam ) ;
+
+if ((nCode == HC_ACTION ) &&
+((DWORD) IParam & 0x40000000 ) )
+{
+
+state = GetKeyState (VK_CAPITAL ) ;
+if ( (state & 1)== 0) /* if off */
+

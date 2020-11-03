@@ -1,0 +1,63 @@
+Completeness of resolution 287
+
+ 
+
+ 
+
+Any set of sentences $ is representable in clausal form
+
+Assume S is unsatisfiable, and in clausal form
+Herb rand's theorem
+Some set S' of ground instances is unsatisfiable
+
+> Ground resolution
+. theorem
+Resolution can find a contradiction in $
+
+— Lifting lemma
+
+There is a resolution proof for the contradiction in $
+
+ 
+
+ 
+
+Figure 98 Structure of a completeness proof for resolution.
+
+ 
+
+ 
+
+ 
+
+~ Saturation: If Sis a set ofclauses, and Pis a set of ground terms, then P(S), the saturation
+of S with respect to P, is the set of all ground clauses obtained by applying all possible
+consistent substitutions for variables in S with ground terms in P.
+
+< Herbrand base: The saturation ofa set ofclauses S with respect to its Herbrand universe
+is called the Herbrand base of S, written as Hs(S). For example, if5 contains just the clause
+given above, then
+
+Hs(S) = {P(A,F(A.A)) A Q(A,A)=> RIA, B),
+P(B,F(B,A)) \ Q(B,A) => R(B,B),
+P(F(A,A), F(F(A,A), A)) A QUF(A,A),A)=> —-RCF(A,A), B),
+P(F(A,B), F(F(A, B), A) Q(F(A, B),A) => RCF(A,B), B).
+oS}
+Notice that both the Herbrand universe and the Herbrand base can be infinite even if the
+original set of sentences S is finite.
+These definitions allow us to state a form of Herbrand's theorem (Herbrand, 1930):
+
+Ifa set of clauses S is unsatisfiable, then there exists a finite subset of Hs(S) that is also
+unsatisfiable.
+
+Let S’ be this finite subset. Now it will be useful to introduce the resolution closure of 5’,
+which is the set ofall clauses derivable by repeated application of the resolution inference step to
+clauses in S’ or their derivatives. (To construct this closure, we could run a breadth-first search to
+completion using the resolution inference rule as the successor generator.) Let Tbe the resolution
+closure ofS’, and let As: = {A;,A2,...,Ax} bethe set of atomic sentences occurring in S’, Notice
+that because S’ is finite, Ay, must also be finite. And because the clauses in T are constructed
+
+ 
+
+ 
+

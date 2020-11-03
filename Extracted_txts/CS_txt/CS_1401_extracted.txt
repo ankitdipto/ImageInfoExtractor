@@ -1,0 +1,43 @@
+652 Let UsC
+
+ 
+
+But there the similarity ends. If we are to build programs that
+utilize the features offered by the OS then things are bound to be
+different across OSs. For example, if we are to write a C program
+that would create a Window and display a message “hello” at the
+point where the user clicks the left mouse button. The architecture
+of this program would be very closely tied with the OS under
+which it is being built. This is because the mechanisms for creating
+a window, reporting a mouse click, handling a mouse click,
+displaying the message, closing the window, etc. are very closely
+tied with the OS for which the program is being built. In short the
+programming architecture (better known as programming model)
+for each OS is different. Hence naturally the program that achieves
+the same task under different OS would have to be different.
+
+The ‘Hello Linux’ Program
+
+As with any new platform we would begin our journey in the
+Linux world by creating a ‘hello world’ program. Here is the
+source code....
+
+int main()
+
+{
+printf ( "Hello Linuxin" ) ;
+return 0;
+
+}
+
+The program is exactly same as compared to a console program
+under DOS/Windows. It begins with main( ) and uses printf( )
+standard library function to produce its output. So what is the
+difference? The difference is in the way programs are typed,
+compiled and executed. The steps for typing, compiling and
+executing the program are discussed below.
+
+The first hurdle to cross is the typing of this program. Though any
+editor can be used to do so, we have preferred to use the editor
+called ‘KWrite’. This is because it is a very simple yet elegant
+

@@ -1,0 +1,48 @@
+48 Chapter 2 Computer-System Structures
+
+with its execution from the point at which it left off (when its previous time slice
+ran out).
+
+Another use of the timer is to compute the current time. A timer interrupt
+signals the passage of some period, allowing the operating system to compute
+the current time in reference to some initial time. If we have interrupts every
+1 second, and we have had 1427 interrupts since we were told that it was 1:00
+PM., then we can compute that the current time is 1:23:47 PM. Some computers
+determine the current time in this manner, but the calculations must be done
+carefully for the time to be kept accurately, since the interrupt-processing time
+(and other times when interrupts are disabled) tends to cause the software clock
+to slow down. Most computers have a separate hardware time-of-day clock that
+is independent of the operating system.
+
+2.6 = Network Structure
+
+There are basically two types of networks: local-area networks (LAN) and
+wide-area networks (WAN). The main difference between the two is the way in
+which they are geographically distributed. Local-area networks are composed
+of processors that are distributed over small geographical areas (such as a single
+building or a number of adjacent buildings). Wide-area networks, on the other
+hand, are composed of a number of autonomous processors that are distributed
+over a large geographical area (such as the United States). These differences
+imply major variations in the speed and reliability of the communications
+network, and they are reflected in the distributed operating-system design.
+
+2.6.1 Local-Area Networks
+
+Local-area networks emerged in the early 1970s, as a substitute for large main-
+frame computer systems. For many enterprises, it is more economical to have
+a number of small computers, each with its own self-contained applications,
+rather than a single large system. Because each small computer is likely to
+need a full complement of peripheral devices (such as disks and printers), and
+because some form of data sharing is likely to occur in a single enterprise, it
+was a natural step to connect these small systems into a network.
+
+LANs are usually designed to cover a small geographical area (such as a
+single building, or a few adjacent buildings) and are generally used in an office
+environment. All the sites in such systems are close to one another, so the
+communication links tend to have a higher speed and lower error rate than
+do their counterparts in wide-area networks. High-quality (expensive) cables
+are needed to attain this higher speed and reliability. It is also possible to use
+the cable exclusively for data network traffic. Over longer distances, the cost of
+using high-quality cable is enormous, and the exclusive use of the cable tends
+to be prohibitive.
+

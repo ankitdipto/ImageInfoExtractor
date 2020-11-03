@@ -1,0 +1,50 @@
+6.5. Priority queues 163
+
+We shall see other uses for min-priority queues, highlighting the DECREASE-KEY
+operation, in Chapters 23 and 24.
+
+Not surprisingly, we can use a heap to implement a priority queue. In a given ap-
+plication, such as job scheduling or event-driven simulation, elements of a priority
+queue correspond to objects in the application. We often need to determine which
+application object corresponds to a given priority-queue element, and vice versa.
+When we use a heap to implement a priority queue, therefore, we often need to
+store a handle to the corresponding application object in each heap element. The
+exact makeup of the handle (such as a pointer or an integer) depends on the ap-
+plication. Similarly, we need to store a handle to the corresponding heap element
+in each application object. Here, the handle would typically be an array index.
+Because heap elements change locations within the array during heap operations,
+an actual implementation, upon relocating a heap element, would also have to up-
+date the array index in the corresponding application object. Because the details
+of accessing application objects depend heavily on the application and its imple-
+mentation, we shall not pursue them here, other than noting that in practice, these
+handles do need to be correctly maintained.
+
+Now we discuss how to implement the operations of a max-priority queue. The
+procedure HEAP-MAXIMUM implements the MAXIMUM operation in ©(1) time.
+
+HEAP-MAXIMUM(A)
+1 return 4[1]
+
+The procedure HEAP-EXTRACT-MAX implements the EXTRACT-MAX opera-
+tion. It is similar to the for loop body (lines 3—5) of the HEAPSORT procedure.
+
+HEAP-EXTRACT-MAXx(A)
+if A. heap-size < 1
+
+error “heap underflow”
+max = A{I]}
+A{l] = A[A. heap-size]
+A.heap-size = A.heap-size — 1
+Max-HeEapiry (A, 1)
+return max
+
+NYAWRwWNE
+
+The running time of HEAP-EXTRACT-MAX is O(lgn), since it performs only a
+constant amount of work on top of the O(lgm) time for MAX-HEAPIFY.
+
+The procedure HEAP-INCREASE-KEY implements the INCREASE-KEY opera-
+tion. An index i into the array identifies the priority-queue element whose key we
+wish to increase. The procedure first updates the key of element A[j] to its new
+value. Because increasing the key of A[i] might violate the max-heap property,
+

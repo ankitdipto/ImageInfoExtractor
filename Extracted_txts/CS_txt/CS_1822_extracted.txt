@@ -1,0 +1,52 @@
+9.4 Paging 295
+
+In this example, we suffer a 40-percent slowdown in memory access time (from
+100 to 140 nanoseconds).
+For a 98-percent hit ratio, we have
+
+effective access time = 0.98 x 120 + 0.02 x 220
+= 122 nanoseconds.
+
+This increased hit rate produces only a 22-percent slowdown in access time. We
+will further explore the impact of the hit ratio on the TLB in Chapter 10.
+
+9.4.3 Protection
+
+Memory protection in a paged environment is accomplished by protection bits
+that are associated with each frame. Normally, these bits are kept in the page
+table. One bit can define a page to be read-write or read-only. Every reference
+to memory goes through the page table to find the correct frame number. At
+the same time that the physical address is being computed, the protection bits
+can be checked to verify that no writes are being made to a read-only page. An
+attempt to write to a read-only page causes a hardware trap to the operating
+system (or memory-protection violation).
+
+We can easily expand this approach to provide a finer level of protection.
+We can create hardware to provide read-only, read-write, or execute-only
+protection. Or, by providing separate protection bits for each kind of access, we
+can allow any combination of these accesses; illegal attempts will be trapped to
+the operating system.
+
+One more bit is generally attached to each entry in the page table: a valid-
+invalid bit. When this bit is set to “valid,” this value indicates that the associated
+page is in the process’ logical-address space, and is thus a legal (or valid) page.
+If the bit is set to “invalid,” this value indicates that the page is not in the
+process’ logical-address space. Illegal addresses are trapped by using the valid—
+invalid bit. The operating system sets this bit for each page to allow or disallow
+accesses to that page. For example, in a system with a 14-bit address space (0
+to 16383), we may have a program that should use only addresses 0 to 10468.
+Given a page size of 2 KB, we get the situation shown in Figure 9.11. Addresses
+in pages 0, 1, 2, 3, 4, and 5 are mapped normally through the page table. Any
+attempt to generate an address in pages 6 or 7, however, finds that the valid—
+invalid bit is set to invalid, and the computer will trap to the operating system
+(invalid page reference).
+
+Because the program extends to only address 10468, any reference beyond
+that address is illegal. However, references to page 5 are classified as valid, so
+accesses to addresses up to 12287 are valid. Only the addresses from 12288 to
+16383 are invalid. This problem is a result of the 2 KB page size and reflects the
+internal fragmentation of paging.
+
+Rarely does a process use all its address range. In fact, many processes
+use only a small fraction of the address space available to them. It would be
+

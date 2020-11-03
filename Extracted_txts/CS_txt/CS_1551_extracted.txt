@@ -1,0 +1,75 @@
+248 cuarrer e1cHT Central Processing Unit
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Address
+8
+Fu | [esry
+4
+x 3
+2
+1
+°
+
+ 
+
+ 
+
+ 
+
+Ca
+
+Figure 8-3 Block diagram of a 64-word stack.
+
+at address 3 and decrementing the content of SP. Item B is now on top of the
+stack since SP holds address 2. To insert a new item, the stack is pushed by
+incrementing SP and writing a word in the next-higher location in the stack.
+Note that item C has been read out but not physically removed. This does not
+matter because when the stack is pushed, a new item is written in its place.
+
+Ina 64-word stack, the stack pointer contains bits because # = 64. Since
+SP has only six bits, it cannot exceed a number greater than 63 (111111 in
+binary). When63 isincremented by 1, the result is Osince 111111 + 1 = 1000000
+inbinary, but SP can accommodate only the six least significant bits. Similarly,
+when 000000 is decremented by 1, the result is 111111. The one-bit register
+FULLis set to 1 when the stack is full, and the one-bit register EMTY is set to
+when the stackis empty of items. DRis the data register that holds the binary
+data to be written into or read out of the stack.
+
+Initially, SP is cleared to 0, EMTY is set to 1, and FULL is cleared to 0, so
+that SP points to the word at address 0 and the stackis marked empty and not
+full. If the stack is not full (if FULL = 0), a new item is inserted with a push
+operation The push operation is implemented with the following sequence of
+microoperations:
+
+SP-SP +1 Increment stack pointer
+M[SP]<—DR Write item on top of the stack
+

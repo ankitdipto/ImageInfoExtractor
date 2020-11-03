@@ -1,0 +1,54 @@
+134
+
+Chapter 5 Probabilistic Analysis and Randomized Algorithms
+
+How many balls fall in a given bin? The number of balls that fall in a given bin
+follows the binomial distribution b(k;n, 1/b). If we toss n balls, equation (C.37)
+tells us that the expected number of balls that fall in the given bin is n/b.
+
+How many balls must we toss, on the average, until a given bin contains a ball?
+The number of tosses until the given bin receives a ball follows the geometric
+distribution with probability 1/b and, by equation (C.32), the expected number of
+tosses until success is 1/(1/b) = b.
+
+How many balls must we toss until every bin contains at least one ball? Let us
+call a toss in which a ball falls into an empty bin a “hit.” We want to know the
+expected number 11 of tosses required to get b hits.
+
+Using the hits, we can partition the 1 tosses into stages. The / th stage consists of
+the tosses after the (i — 1)st hit until the ith hit. The first stage consists of the first
+toss, since we are guaranteed to have a hit when all bins are empty. For each toss
+during the ith stage, i — 1 bins contain balls and b —i + 1 bins are empty. Thus,
+for each toss in the ith stage, the probability of obtaining a hit is (b —i + 1)/b.
+
+Let n; denote the number of tosses in the ith stage. Thus, the number of tosses
+required to get b hits isn = y? n;. Each random variable n; has a geometric
+distribution with probability of success (b —i + 1)/b and thus, by equation (C.32),
+we have
+
+ 
+ 
+
+ 
+
+Ell = eT
+
+By linearity of expectation, we have
+E[fp] = e| |
+i=l
+b
+= EM]
+i=l
+-y
+~ 44b-i+l
+
+i=l
+= b(inb+O(1)) (by equation (A.7)) .
+
+ 
+
+It therefore takes approximately b In b tosses before we can expect that every bin
+has a ball. This problem is also known as the coupon collector’s problem, which
+says that a person trying to collect each of b different coupons expects to acquire
+approximately b In b randomly obtained coupons in order to succeed.
+

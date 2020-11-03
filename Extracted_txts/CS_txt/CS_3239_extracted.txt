@@ -1,0 +1,47 @@
+ 
+
+REINFORCEMENT
+20 LEARNING
+
+ 
+
+ 
+
+ 
+
+ 
+
+In which we examine how an agent can learn from success andfailure, reward and
+punishment.
+
+20.1__ INTRODUCTION
+
+In the previous two chapters, we have studied learning methods that learn from examples. That
+is, the environment provides input/output pairs, and the task is to leam a function that could
+have generated those pairs. These supervised learning methods are appropriate when a teacher
+is providing correct values or when the function's output represents a prediction about the future
+that can be checked by looking at the percepts in the next time step. In this chapter, we will study
+how agents can learn in much less generous environments, where the agent receives no examples,
+and starts with no model of the environment and no utility function.
+
+For example, we know an agent can learn to play chess by supervised learning—by being
+given examples of game situations along with the best move for that situation. But if there is
+no friendly teacher providing examples, what can the agent do? By trying random moves, the
+agent can eventually build a predictive model ofits environment: what the board will be like after
+it makes a given move, and even how the opponent is likely to reply in a given situation. But
+without some feedback as to what is good and what is bad, the agent will have no grounds for
+deciding which move to make. Fortunately, the chess-playing agent does receive some feedback,
+even without a friendly feacher—at the end of the game, the agent perceives whether it has won
+
+REWARD or lost. This kind of feedback is called a reward, or reinforcement. In games like chess, the
+
+TERMINAL STAIE reinforcement is received only at the end of the game. We call this a terminal state in the state
+history sequence. In other environments, the rewards come more frequently—inping-pong, each
+point scored can be considered a reward. Sometimes rewards are given by a teacher who says
+“nice move" or “uh-oh” (but does not say what the best move is).
+
+The task of reinforcement learning is to use rewards to leam a successful agent function.
+This is difficult because the agent is never told what the right actions are, nor which rewards are
+
+598
+

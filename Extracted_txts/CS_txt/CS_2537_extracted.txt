@@ -1,0 +1,57 @@
+5.4 Probabilistic analysis and further uses of indicator random variables 135
+
+5.4.3 Streaks
+
+Suppose you flip a fair coin n times. What is the longest streak of consecutive
+heads that you expect to see? The answer is @(1g), as the following analysis
+shows.
+
+We first prove that the expected length of the longest streak of heads is O(lg).
+The probability that each coin flip is a head is 1/2. Let A;, be the event that a
+streak of heads of length at least k begins with the ith coin flip or, more precisely,
+the event that the k consecutive coin flips i,i + 1,..., i +k —1 yield only heads,
+where 1 <k <nand1 <i <n—k-+1. Since coin flips are mutually independent,
+for any given event A;;, the probability that all k flips are heads is
+
+Pr{ Aig} = 1/2". (5.8)
+Fork = 2 flgn],
+Pr{Aiaien} = 1/218"!
+
+< 1/2218"
+
+= I/n?,
+
+and thus the probability that a streak of heads of length at least 2 [lg] begins in
+position i is quite small. There are at most n — 2 [lgn] + 1 positions where such
+a streak can begin. The probability that a streak of heads of length at least 2 [lg]
+begins anywhere is therefore
+
+IA
+
+n—2[lgn]+1 n—2[lgn]+1
+Pr |
+
+U Aiatign] >» 1/n?
+i=l
+
+i=l
+
+< > 1/n?
+i=l
+= In, (5.9)
+
+since by Boole’s inequality (C.19), the probability of a union of events is at most
+the sum of the probabilities of the individual events. (Note that Boole’s inequality
+holds even for events such as these that are not independent.)
+
+We now use inequality (5.9) to bound the length of the longest streak. For
+j =0,1,2,...,n,let L; be the event that the longest streak of heads has length ex-
+actly j, and let L be the length of the longest streak. By the definition of expected
+value, we have
+
+n
+
+E[L] =) j Pr{Lj} (5.10)
+
+j=0
+

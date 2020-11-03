@@ -1,0 +1,72 @@
+Chapter 19: Interaction With Hardware 621
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+   
+
+ 
+
+  
+    
+
+C Program
+| | | Direct
+BIOS Library Interaction
+Functions Functions Functions
+
+  
+ 
+
+ 
+
+  
+
+ 
+
+Hardware
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 19.2
+
+Let us now discuss the pros and cons of using these different
+methods to interact with the hardware.
+
+(a) Calling DOS Functions
+
+To interact with the hardware a program can call DOS
+functions. These functions can either directly interact with the
+hardware or they may call BIOS functions which in tum
+interact with the hardware. As a result, the programmer is not
+required to know all the hardware details to be able to interact
+with it. However, since DOS functions do not have names
+they have to be called through the mechanism of interrupts.
+This is difficult since the programmer has to remember
+interrupt service numbers for calling different DOS functions.
+Moreover, communication with these functions has to be done
+using CPU registers. This leads to lot of difficulties since
+different functions use different registers for communication.
+So one has to know details of different CPU registers, how to
+use them, which one to use when, etc.
+
+(b) Calling BIOS Functions
+

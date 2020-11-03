@@ -1,0 +1,55 @@
+218 Chapter 8. Building a Knowledge Base
+
+ 
+
+8.1 PROPERTIES OF GOOD AND BAD KNOWLEDGE BASES
+
+In Chapter 6, we said that a good knowledge representation language should be expressive,
+concise, unambiguous, context-insensitive, and effective. A knowledge base should, in addition,
+be clear and correct. The relations that matter should be defined, and the irrelevant details
+should be suppressed. Of course, there will be trade-offs between properties: we can make
+simplifications that sacrifice some correctness to gain clarity and brevity.
+
+The question of efficiency is a little more difficult to deal with. Ideally, the separation
+between the knowledge base and the inference procedure should be maintained. This allows
+the creator of the knowledge base to worry only about the content of the knowledge, and not
+about how it will be used by the inference procedure. The same answers should be obtainable by
+the inference procedure, no matter how the knowledge is encoded. As far as possible, ensuring
+efficient inference is the task of the designer of the inference procedure and should not distort the
+representation.
+
+In practice, some considerations of efficiency are unavoidable. Automatic methods exist
+that can eliminate the most obvious sources of inefficiency in a given encoding, in much the same
+way that optimizing compilers can speed up the execution of a program, but at present these
+methods are too weak to overcome the determined efforts of a profligate knowledge engineer
+who has no concern for efficiency. Even in the best case, then, the knowledge engineer should
+have some understanding ofhow inference is done, so that the representation can be designed for
+maximum efficiency. In the worst case, the representation language is used primarily as a way
+of "programming" the inference procedure.
+
+As we will see throughout this chapter, you cannot do, or understand, knowledge engi-
+neering by just talking about it. To explain the general principles of good design, we need to
+have an example. We will start by doing the example incorrectly, and then fix it.
+
+Every knowledge base has two potential consumers: human readers and inference proce-
+dures. A common mistake is to choose predicate names that are meaningful to the human reader,
+and then be lulled into assuming that the name is somehow meaningful to the inference procedure
+as well. The sentence BearOfVerySmallBrain(Pooh)might be appropriate in certain domains,!
+but from this sentence alone, the inference procedure will not be able to infer either that Pooh is a
+bear or that he has a very small brain; that he has a brain at all; that very small brains are smaller
+than small brains; or that this fact implies something about Pooh's behavior. The hard part is for
+the human reader to resist the temptation to make the inferences that seem to be implied by long
+predicate names. A knowledge engineer will often notice this kind of mistake when the inference
+procedure fails to conclude, for example, Silly(Pooh).It is compounding the mistake to write
+
+ 
+
+Vb BearOfVerySmallBrain(h) > Silly(b)
+
+because this expresses the relevant knowledge at too specific a level. Although such VeryLong-
+Names can be made to work for simple examples covering a small, sparse portion of a larger
+domain, they do not scale up well. Adding AnotherVeryLongNametakes just as much work as
+
+1 Winnie the Pooh is a toy bear belonging to Christopher Robin in the well-known series of children’s’ books (Milne,
+1926). The style ofour introductory sentence in each chapter is borrowed from these works,
+

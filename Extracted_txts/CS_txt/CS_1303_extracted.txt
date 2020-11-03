@@ -1,0 +1,41 @@
+572 Let UsC
+
+ 
+
+Reacting to Messages
+
+As we saw in the previous section, for every message picked up
+from the message queue the control is transferred to the
+WndProc() function. This function is shown below:
+
+LRESULT CALLBACK WndProc ( HWND hWnd, UINT message,
+WPARAM wParam, LPARAM [Param )
+
+This function always receives four parameters. The first parameter
+is the handle to the window for which the message has been
+received. The second parameter is the message id, whereas, the
+third and fourth parameters contain additional information about
+the message.
+
+LRESULT is a typedef of a long int and represents the return
+value of this function. CALLBACK is a typedef of __stdcall.
+This typedef has been done in ‘windows.h’. CALLBACK
+indicates that the WndProc function has been registered with
+Windows (through WNDCLASSEX structure in InitInstance( ) )
+with an intention that Windows would call this back (through
+Dispatch Message( ) function).
+
+In the WndProc( ) function we have checked the message id using
+a switch. If the id is WM_DESTROY then we have called the
+function OnDestroy( ). This message is posted to the message
+queue when the user clicks on the ‘Close Window’ button in the
+title bar. In OnDestroy( ) function we have called the API
+function PostQuitMessage( ). This function posts a WM_QUIT
+message into the message queue. As we saw earlier, when this
+message is picked up the message loop and WinMain( ) is
+terminated.
+
+For all messages other than WM_DESTROY the control lands in
+the default clause of switch. Here we have simply made a call to
+DefWindowProc( ) API function. This function does the default
+

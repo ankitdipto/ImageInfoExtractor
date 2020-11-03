@@ -1,0 +1,55 @@
+198 Let Us C
+
+ 
+
+compilers provide a utility called ‘tlib.exe’ (Turbo Librarian). Let
+us use this utility to add a function factorial() to the library.
+
+Given below are the steps to do so:
+
+(a)
+
+()
+
+()
+
+@
+
+()
+
+Write the function definition of factorial( ) in some file, say
+‘fact.c’.
+
+int factorial (int num )
+
+ 
+
+{
+int i, f=1;
+for (i=1;i<= num; i++)
+f=f*i;
+return (f);
+}
+
+Compile the ‘fact.c’ file using Alt F9. A new file called
+‘fact.obj’ would get created containing the compiled code in
+machine language.
+
+Add the function to the library by issuing the command
+
+C:\stlib- math.lib + c:\fact.obj
+
+Here, ‘math.lib’ is a library filename, + is a switch, which
+means we want to add new function to library and ‘c:\fact.obj’
+is the path of the ‘.obj’ file.
+
+Declare the prototype of the factorial( ) function in the header
+file, say ‘fact.h’. This file should be included while calling the
+function.
+
+To use the function present inside the library, create a
+program as shown below:
+
+#include "c:\Mfact.h"
+main()
+

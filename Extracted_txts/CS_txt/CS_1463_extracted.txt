@@ -1,0 +1,43 @@
+Appendix C: Chasing The Bugs 709
+
+ 
+
+For example, the dimension of the array word[ ] should be 9
+if a string “Jamboree” is to be stored in it.
+
+[15] Confusing the precedences of the various operators.
+
+main()
+
+{
+char ch;
+FILE “fp;
+
+fp = fopen (“text.c’, "r") ;
+
+while (ch = getc ( fp ) != EOF )
+putch (ch) ;
+
+fclose (fp) ;
+}
+
+Here, the value retumed by gete( ) will be first compared with
+EOF, since != has a higher priority than =. As a result, the
+value that is assigned to ch will be the true/false result of the
+test—1 if the value retumed by getc( ) is not equal to EOF,
+and 0 otherwise. The correct form of the above while would
+be,
+
+while ( (ch = getc (fp) ) |= EOF )
+putch (ch) ;
+
+[16] Confusing the operator -> with the operator . while referring to a
+structure element.
+
+Remember, on the left of the operator . only a structure
+variable can occur, whereas on the left of the operator -> only
+a pointer to a structure can occur. Following example
+demonstrates this.
+
+main()
+

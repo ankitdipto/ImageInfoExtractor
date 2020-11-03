@@ -1,0 +1,44 @@
+850 Chapter 29 Linear Programming
+
+Algorithms for linear programming
+
+This chapter studies the simplex algorithm. This algorithm, when implemented
+carefully, often solves general linear programs quickly in practice. With some
+carefully contrived inputs, however, the simplex algorithm can require exponential
+time. The first polynomial-time algorithm for linear programming was the ellipsoid
+algorithm, which runs slowly in practice. A second class of polynomial-time algo-
+rithms are known as interior-point methods. In contrast to the simplex algorithm,
+which moves along the exterior of the feasible region and maintains a feasible solu-
+tion that is a vertex of the simplex at each iteration, these algorithms move through
+the interior of the feasible region. The intermediate solutions, while feasible, are
+not necessarily vertices of the simplex, but the final solution is a vertex. For large
+inputs, interior-point algorithms can run as fast as, and sometimes faster than, the
+simplex algorithm. The chapter notes point you to more information about these
+algorithms.
+
+If we add to a linear program the additional requirement that all variables take
+on integer values, we have an integer linear program. Exercise 34.5-3 asks you
+to show that just finding a feasible solution to this problem is NP-hard; since
+no polynomial-time algorithms are known for any NP-hard problems, there is no
+known polynomial-time algorithm for integer linear programming. In contrast, we
+can solve a general linear-programming problem in polynomial time.
+
+In this chapter, if we have a linear program with variables x = (X),X2.....Xn)
+and wish to refer to a particular setting of the variables, we shall use the notation
+¥ = (X1.¥o,...4%y)-
+
+ 
+
+29.1 Standard and slack forms
+
+This section describes two formats, standard form and slack form, that are use-
+ful when we specify and work with linear programs. In standard form, all the
+constraints are inequalities, whereas in slack form, all constraints are equalities
+(except for those that require the variables to be nonnegative).
+
+Standard form
+
+In standard form, we are given n real numbers ¢;,C2,...,Cn; m real numbers
+by, bo,....bm; and mn real numbers aj; fori = 1,2,...,m and j = 1,2,....n.
+We wish to find n real numbers x), X2,...,X, that
+

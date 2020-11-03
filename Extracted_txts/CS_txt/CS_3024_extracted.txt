@@ -1,0 +1,64 @@
+ 
+
+402 Chapter 13. Planning and Acting
+NOS ERRacy ~ Unbounded indeterminacy: In this case, the set of possible unexpected outcomes is too
+
+large to be completely enumerated. This would be the case in very complex and/or dynamic
+domains such as driving, economic planning, and military strategy. In such cases, we can
+plan for at most a limited number of contingencies, and must be able to replan when reality
+does not behave as expected.
+
+The next subsection describes a simple method for replanning based on trying to get the plan
+"back on track" as quickly as possible. Section 13.3 describes a more comprehensive approach
+that deals with unexpected conditions as an integral part of the decision-making process.
+
+Simple replanning with execution monitoring
+
+One approach to replanning based on execution monitoring is shown in Figure 13.9. The simple
+planning agent is modified so that it keeps track of both the remaining plan segment p and
+the complete plan g. Before carrying out the first action ofp, it checks to see whether the
+preconditions of the p are met. Ifnot, it calls CHOOSE-BEST-CONTINUATION to choose some point
+in the complete plan q such that the plan p’ from that point to the end of q is easiest to achieve
+from the current state. The new plan is to first achieve the preconditions of p’ and then execute it.
+
+Consider how REPLANNING-AGENT Will perform the task of painting the chair to match
+the table. Suppose that the motor subsystem responsible for the painting action is imperfect
+and sometimes leaves small areas unpainted. Then after the Paint(Chair,c) action is done, the
+execution-monitoring part will check the preconditions for the rest of the plan; the preconditions
+
+ 
+
+function REPLANNING-AGENTpercept) returns an action
+static: KB, a knowledge base (includes action descriptions)
+p, an annotated plan, initially NoPlan
+q an annotated plan, initially NoPlan
+G, a goal
+
+TELL(KB, MAKE-PERCEPT-SENTENCE( percept, t))
+current — SavE-DESCRIPTION(KB, f)
+if p = NoPlan then
+P = PLANNER(current,G, KB)
+q—P
+ifp = NoPlan orp is empty then return NoOp
+if PRECONDITIONS(p) not currently true in KB then
+p’ — CHOOSE-BEST-CONTINUATION current, @
+p — APPEND(PLANNER(current, PRFCONDITIONS( p'), KB), p’)
+q—P
+action — FIRST p)
+p—REST(p)
+return action
+
+ 
+
+ 
+
+Figure 13.9 An agent that does execution monitoring and replanning.
+
+ 
+
+ 
+
+ 
+
+ 
+

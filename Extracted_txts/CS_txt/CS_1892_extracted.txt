@@ -1,0 +1,50 @@
+10.6 Thrashing 351
+
+The locality model states that, as a process executes, it moves from locality
+to locality. A locality is a set of pages that are actively used together (Figure
+10.16). A program is generally composed of several different localities, which
+may overlap.
+
+For example, when a subroutine is called, it defines a new locality. In this
+locality, memory references are made to the instructions of the subroutine, its
+local variables, and a subset of the global variables. When the subroutine is
+exited, the process leaves this locality, since the local variables and instructions
+of the subroutine are no longer in active use. We may return to this locality
+later. Thus, we see that localities are defined by the program structure and its
+data structures. The locality model states that all programs will exhibit this
+basic memory reference structure. Note that the locality model is the unstated
+principle behind the caching discussions so far in this book. If accesses to any
+types of data were random rather than patterned, caching would be useless.
+
+Suppose that we allocate enough frames to a process to accommodate its
+current locality. It will fault for the pages in its locality until all these pages are
+in memory; then, it will not fault again until it changes localities. If we allocate
+fewer frames than the size of the current locality, the process will thrash, since
+it cannot keep in memory all the pages that it is actively using.
+
+10.6.2 Working-Set Model
+
+The working-set model is based on the assumption of locality. This model
+uses a parameter, A, to define the working-set window. The idea is to examine
+the most recent A page references. The set of pages in the most recent A page
+references is the working set (Figure 10.17). Ifa page is in active use, it will be in
+the working set. If it is no longer being used, it will drop from the working set
+A time units after its last reference. Thus, the working set is an approximation
+of the program’s locality.
+
+For example, given the sequence of memory references shown in Figure
+10.17, if A = 10 memory references, then the working set at time fy is {1, 2, 5,
+6,7}. By time fy, the working set has changed to {3, 4}.
+
+The accuracy of the working set depends on the selection of A. If A is too
+small, it will not encompass the entire locality; if A is too large, it may overlap
+
+page reference table
+=». 2615777751623412344434344413234443444...
+
+WS(t,) = (1.25.6.7}" WS(t,) = {3,4}
+
+Figure 10.17 Working-set model.
+
+ 
+

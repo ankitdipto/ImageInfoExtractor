@@ -1,0 +1,50 @@
+782
+
+Chapter 27 Multithreaded Algorithms
+
+Instead, to keep our analysis simple, we shall investigate an on-line centralized
+scheduler, which knows the global state of the computation at any given time. In
+particular, we shall analyze greedy schedulers, which assign as many strands to
+processors as possible in each time step. If at least P strands are ready to execute
+during a time step, we say that the step is a complete step, and a greedy scheduler
+assigns any P of the ready strands to processors. Otherwise, fewer than P strands
+are ready to execute, in which case we say that the step is an incomplete step, and
+the scheduler assigns each ready strand to its own processor.
+
+From the work law, the best running time we can hope for on P processors
+is Tp = T,/P, and from the span law the best we can hope for is Tp = T...
+The following theorem shows that greedy scheduling is provably good in that it
+achieves the sum of these two lower bounds as an upper bound.
+
+Theorem 27.1
+On an ideal parallel computer with P processors, a greedy scheduler executes a
+multithreaded computation with work T; and span T,, in time
+
+Tp <T,/P + Too (27.4)
+
+Proof We start by considering the complete steps. In each complete step, the
+P processors together perform a total of P work. Suppose for the purpose of
+contradiction that the number of complete steps is strictly greater than [7;/P |.
+Then, the total work of the complete steps is at least
+
+P-((Ni/P| +) = P|M/P\+P
+= 1T,—(T mod P)+P (by equation (3.8))
+> TT (by inequality (3.9)) .
+
+Thus, we obtain the contradiction that the P processors would perform more work
+than the computation requires, which allows us to conclude that the number of
+complete steps is at most |7;/P |.
+
+Now, consider an incomplete step. Let G be the dag representing the entire
+computation, and without loss of generality, assume that each strand takes unit
+time. (We can replace each longer strand by a chain of unit-time strands.) Let G’
+be the subgraph of G that has yet to be executed at the start of the incomplete step,
+and let G” be the subgraph remaining to be executed after the incomplete step. A
+longest path in a dag must necessarily start at a vertex with in-degree 0. Since an
+incomplete step of a greedy scheduler executes all strands with in-degree 0 in G’,
+the length of a longest path in G” must be | less than the length of a longest path
+in G’. In other words, an incomplete step decreases the span of the unexecuted dag
+by 1. Hence, the number of incomplete steps is at most Ty.
+
+Since each step is either complete or incomplete, the theorem follows. .
+

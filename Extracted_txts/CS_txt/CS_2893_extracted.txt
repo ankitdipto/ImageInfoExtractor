@@ -1,0 +1,53 @@
+16.2 Elements of the greedy strategy 423
+
+ 
+
+16.2 Elements of the greedy strategy
+
+A greedy algorithm obtains an optimal solution to a problem by making a sequence
+of choices. At each decision point, the algorithm makes choice that seems best at
+the moment. This heuristic strategy does not always produce an optimal solution,
+but as we saw in the activity-selection problem, sometimes it does. This section
+discusses some of the general properties of greedy methods.
+
+The process that we followed in Section 16.1 to develop a greedy algorithm was
+a bit more involved than is typical. We went through the following steps:
+
+1. Determine the optimal substructure of the problem.
+
+2. Develop a recursive solution. (For the activity-selection problem, we formu-
+lated recurrence (16.2), but we bypassed developing a recursive algorithm based
+on this recurrence.)
+
+3. Show that if we make the greedy choice, then only one subproblem remains.
+
+4. Prove that it is always safe to make the greedy choice. (Steps 3 and 4 can occur
+in either order.)
+
+5. Develop a recursive algorithm that implements the greedy strategy.
+
+6. Convert the recursive algorithm to an iterative algorithm.
+
+In going through these steps, we saw in great detail the dynamic-programming un-
+derpinnings of a greedy algorithm. For example, in the activity-selection problem,
+we first defined the subproblems S;;, where both i and j varied. We then found
+that if we always made the greedy choice, we could restrict the subproblems to be
+of the form Sx.
+
+Alternatively, we could have fashioned our optimal substructure with a greedy
+choice in mind, so that the choice leaves just one subproblem to solve. In the
+activity-selection problem, we could have started by dropping the second subscript
+and defining subproblems of the form S;. Then, we could have proven that a greedy
+choice (the first activity a,, to finish in Sx), combined with an optimal solution to
+the remaining set S,, of compatible activities, yields an optimal solution to Sx.
+More generally, we design greedy algorithms according to the following sequence
+of steps:
+
+ 
+
+1. Cast the optimization problem as one in which we make a choice and are left
+with one subproblem to solve.
+
+2. Prove that there is always an optimal solution to the original problem that makes
+the greedy choice, so that the greedy choice is always safe.
+

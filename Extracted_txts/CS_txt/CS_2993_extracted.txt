@@ -1,0 +1,47 @@
+506
+
+Chapter 19 Fibonacci Heaps
+
+Binary heap Fibonacci heap
+
+Procedure (worst-case) (amortized)
+MAKE-HEAP @() @e(1)
+INSERT @(Ign) @e(1)
+MINIMUM @e(1) @e(1)
+EXTRACT-MIN @(lgn) O(lgn)
+UNION O(n) @e(1)
+DECREASE-KEY @(ign) @e(1)
+DELETE @(ign) O(lgn)
+
+Figure 19.1 Running times for operations on two implementations of mergeable heaps. The num-
+ber of items in the heap(s) at the time of an operation is denoted by n.
+
+As the table in Figure 19.1 shows, if we don’t need the UNION operation, ordi-
+nary binary heaps, as used in heapsort (Chapter 6), work fairly well. Operations
+other than UNION run in worst-case time O(lgm) on a binary heap. If we need
+to support the UNION operation, however, binary heaps perform poorly. By con-
+catenating the two arrays that hold the binary heaps to be merged and then running
+BUILD-MIN-HEApP (see Section 6.3), the UNION operation takes @() time in the
+worst case.
+
+Fibonacci heaps, on the other hand, have better asymptotic time bounds than
+binary heaps for the INSERT, UNION, and DECREASE-KEY operations, and they
+have the same asymptotic running times for the remaining operations. Note, how-
+ever, that the running times for Fibonacci heaps in Figure 19.1 are amortized time
+bounds, not worst-case per-operation time bounds. The UNION operation takes
+only constant amortized time in a Fibonacci heap, which is significantly better
+than the linear worst-case time required in a binary heap (assuming, of course, that
+an amortized time bound suffices).
+
+Fibonacci heaps in theory and practice
+
+From a theoretical standpoint, Fibonacci heaps are especially desirable when the
+number of EXTRACT-MIN and DELETE operations is small relative to the number
+of other operations performed. This situation arises in many applications. For
+example, some algorithms for graph problems may call DECREASE-KEY once per
+edge. For dense graphs, which have many edges, the @(1) amortized time of each
+call of DECREASE-KEY adds up to a big improvement over the ©(1g 7) worst-case
+time of binary heaps. Fast algorithms for problems such as computing minimum
+spanning trees (Chapter 23) and finding single-source shortest paths (Chapter 24)
+make essential use of Fibonacci heaps.
+

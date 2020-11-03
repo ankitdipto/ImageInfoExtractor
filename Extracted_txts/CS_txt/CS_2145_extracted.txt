@@ -1,0 +1,87 @@
+318 — ciurren wine Pipeline and Vector Processing
+
+ 
+
+ 
+
+ 
+
+ 
+
+Gockeyetes | 1] 2/34] 5] 6
+Lumar [1 [Ale
+
+2Load 2 Tale
+3AddRI-+R2 Tale
+4 Store R3 Tale
+
+ 
+
+() Pipeline timing with data conflict
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Clockete [1] 2] 3] «| se ]7
+Lumar [1 [Ale
+
+2, Load R2 ifale
+
+3. Nooperation T[ale
+
+4 Add RI + R2 tfale
+
+5. Store 3 tfale
+
+ 
+
+(©) Pipeline timing with delayed load
+
+Figure 9-9 Three-segment pipeline timing.
+
+memory but has no operation, thus wasting a clock cycle. This concept of
+delaying the use of the data loaded frommemory is referred to as delayed load.
+
+Figure 9-(b) shows the same program witha no-op instruction inserted
+after the load to R2 instruction. The data is loaded into R2 in clock cycle4. The
+add instruction uses the value of R2 in step 5. Thus the no-op instruction is
+used to advance one clock cycle in order to compensate for the data conflict in
+the pipeline. (Note that no operation is performed in segment A during clock
+cycle 4 or segment E during clock cycle 5.) The advantage of the delayed load
+approach is that the data dependency is taken care of by the compiler rather
+than the hardware. This results in a simpler hardware segment since the
+segment does not have to check if the content of the register being accessed
+is currently valid or not
+
+Delayed Branch
+
+Itwas shown in Fig, 9-8 thata branch instruction delays the pipeline operation
+until the instruction at the branch address is fetched. Several techniques for
+reducing branch penalties were discussed in the preceding section The
+method used in most RISC processors is to rely on the compiler to redefine the
+branches so that they take effect at the proper time in the pipeline. Thismethod
+is referred to as delayed branch.
+

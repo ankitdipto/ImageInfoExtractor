@@ -1,0 +1,114 @@
+12.2 File-System Implementation 417
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+directory structure
+open (filename) +4 —>{]
+
+Girectory structure file control block
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+user space kernel memory secondary storage
+(a)
+index
+Ly
+a data blocks
+read (index)
+per-process system-wide file control block
+open-file table open-file table
+user space kernel memory secondary storage
+
+(b)
+
+Figure 12.3 In-memory file-system structures. (a) File open. (b) File read.
+
+Boot information can be stored in a separate partition. Again, it has its
+own format, because at boot time the system does not have file-system device
+drivers loaded and therefore cannot interpret the file-system format. Rather,
+it is usually a sequential series of blocks, loaded as an image into memory.
+Execution of the image starts at a predefined location, such as the first byte. This
+boot image can contain more than the instructions for how to boot a specific
+operating system. For instance, PCs and other systems can be dual-booted.
+Multiple operating systems can be installed on such a system. How does the
+system know which one to boot? A boot loader that understands multiple
+file systems and multiple operating systems can occupy the boot space. Once
+loaded, it can boot one of the operating systems available on the disk. The disk
+can have multiple partitions, each containing a different type of file system and
+a different operating system.
+
+The root partition, which contains the operating-system kernel and poten-
+tially other system files, is mounted at boot time. Other partitions can be
+automatically mounted at boot or manually mounted later, depending on the
+operating system. As part of a successful mount operation, the operating sys-
+

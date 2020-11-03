@@ -1,0 +1,83 @@
+444
+
+D-SEPARATION
+
+  
+
+BLOCKED
+
+Chapter 15. Probabilistic Reasoning Systems
+
+rather are summarized as "noise parameters." If P(Fever|Cold) = 0.4, P(Fever|Flu) = 0.8, and
+P(Fever|Malaria)= 0.9, then the noise parameters are 0.6, 0.2, and 0.1, respectively. Ifno parent
+node is true, then the output node is false with 100% certainty. If exactly one parent is true, then
+the output is false with probability equal to the noise parameter for that node. In general, the
+probability that the output node is False is just the product of the noise parameters for all the
+input nodes that are true. For this example, we have the following:
+
+ 
+
+ 
+
+ 
+
+Cold Flu Malaria | P(Fever) | P(=Fever)
+
+F F F 0.0 10
+
+F F T 09 0.1
+
+F T F 08 0.2
+
+F T T 0.98 0.02 =0.2 x 0.1
+
+T F F 04 06
+
+T F T | 0.94 0.06 =0.6x 0.1
+
+T T F 0.88 0.12 6x 0.2
+
+T T T 0.988 0.012=0.6 < 0.2 x 0.1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+In general, noisy logical relationships in which a variable depends on k parents can be described
+using O(k) parameters instead of O(2*) for the full conditional probability table. This makes
+assessment and learning much easier. For example, the CPSC network (Pradhan et al., 1994)
+uses noisy-OR and noisy-MAX, and requires "only" 8,254 values instead of 133,931,430 for a
+network with full CPTs.
+
+Conditional independence relations in belief networks
+
+The preceding analysis shows that a belief network expresses the conditional independence of a
+node and its predecessors, given its parents, and uses this independence to design a construction
+method for networks. If we want to design inference algorithms, however, we will need to know
+whether more general conditional independences hold. If we are given a network, is it possible
+to "read off" whether a set of nodes X is independent of another set Y, given a set of evidence
+nodes E/ The answer is yes, and the method is provided by the notion of direction-dependent
+separation or d-separation.
+
+First, we will say what d-separation is good for. [fevery undirected path from a node in
+X to a node in Y is d-separated by E, then X and Y are conditionally independent given E. The
+definition of d-separation is somewhat complicated. We will need to appeal to it several times in
+constructing our inference algorithms. Once this is done, however, the process of constructing
+and using belief networks does not involve any uses of d-separation.
+
+A set of nodes E d-separates two sets of nodes X¥ and Y if every undirected path from a
+node in X to a node in Y is blocked given £. A path is blocked given a set of nodes £ if there 18
+anode Z on the path for which one of three conditions holds:
+
+1, Z is in E and Zhas one arrow on the path leading in and one arrow out
+
+2 An undirected path is a path through the network that ignores the direction of the arrows.
+
+ 
+

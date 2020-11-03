@@ -1,0 +1,69 @@
+740
+
+Chapter 24. Perception
+
+ 
+
+EPIPOLAR LINES
+
+ 
+
+Left :
+eye :
+
+  
+
+Right Pr t
+eye —<$ A$:
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 24.13 The relation between disparity and depth in stereopsis.
+
+ 
+
+Note that unlike the case of motion, we have assumed that we know the viewing geometry,
+or the relative orientation between the eyes. This is often a reasonable assumption. In the case of
+the eyes, the brain has commanded a particular state of the ocular muscles to move the eyes, and
+hence the positions of the eyes relative to the head are known. Similarly, in a binocular camera
+system, one knows the relative configuration.
+
+Knowledge of the viewing geometry is very useful in trying to measure disparity. As
+in the case of optical flow, we can try to find corresponding points between the left and right
+images by maximizing some measure of similarity. However, one does not have to search in
+a two-dimensional region. Corresponding points must always lie along epipolar lines in the
+images (see Figure 24.14). These lines correspond to the intersections of an epipolar plane (the
+plane through a point in the scene and the nodal points of the two eyes) with the left and right
+image planes. Exploiting this epipolar constraint reduces an initially two-dimensional search to
+a one-dimensional one. Obviously determination of the epipolar lines requires a knowledge of
+the viewing geometry.
+
+A simple-minded approach for finding disparity would be to search along epipolar lines
+looking to maximize the cross-correlation, just as in the case of optical flow. Given a point pr
+in the left view, its comesponding point g; in the right view is obtained by searching along the
+associated epipolar line in the other view. For each ofthe possible matches q, the cross-correlation
+between windows centered at p; and q is computed. The corresponding point is declared to be
+the pixel g; for which the cross-correlation is maximized.
+
+One can do better by exploiting some additional constraints:
+
+ 
+
+ 
+
+1. Uniqueness: a point in one image can correspond to at most one point in the other image.
+We say at most one, because it is possible that the point may be occluded in the otherview.
+
+2. Piecewise continuity of surfaces in the scene: the fact the world is usually piecewise contin-
+uous means that nearby points in the scene have nearby values of depth, and consequently
+of disparity, except across object boundaries and occlusions.
+
+An example ofa system that exploits these multiple constraints is the work of Belhumeur (1993).
+Belhumeur's results for an oblique view of a box (Figure 24.15) are shown in Figure 24.16. His
+

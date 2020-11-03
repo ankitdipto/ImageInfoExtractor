@@ -1,0 +1,73 @@
+SECTION 102 Addition and Subtraction 339
+
+as 00100001 and —33 as 11011111. Note that 11011111 isthe 2's complement of
+00100001, and vice versa.
+
+The addition of two numbers in signed-2's complement form consists of
+adding the numbers with the sign bits treated the same as the other bits of the
+number. A carry-out of the sign-bit position is discarded. The subtraction
+consists of first taking the 2's complement of the subtrahend and then adding
+it to the minuend.
+
+Whentwonumbers of n digits each areaddedandthesum occupies + 1
+digits, we say that an overflow occurred. The effect of an overflow on the sum
+of two signed-2’s complement numbers is discussed in Sec. 3-3. An overflow
+can be detected by inspecting the last two carries out of the addition. When
+the two carries are applied to an exclusive-OR gate, the overflow is detected
+when the output of the gate is equal to 1.
+
+The register configuration for the hardware implementation is shown in
+Fig. 10-3. This is the same configuration as in Fig. 10-1 except that the sign bits
+are not separated from the rest of the registers. We name the A register AC
+(accumulator) and the B register BR. The leftmost bit in AC and BR represent
+the sign bits of the numbers. The two sign bits are added or subtracted together
+with the other bits in the complementer and parallel adder. The overflow
+flip-flop V is set to 1 if there is an overflow. The output carry in this case is
+discarded.
+
+The algorithm foradding and subtracting two binary numbers in signed-
+2's complement representation is shown in the flowchart of Fig. 10-4. The sum
+is obtained by adding the contents of AC and BR (including their sign bits). The
+overflow bit V is set to 1 if the exclusive-OR of the last two carries is 1, and it
+is cleared to 0 otherwise. The subtraction operation is accomplished by adding
+the content of AC to the 2’s complement of BR. Taking the 2's complement of
+BR has the effect of changing a positive number to negative, and vice versa.
+‘An overflow must be checked during this operation because the two numbers
+added could have the same sign. The programmer must realize that if an
+overflow occurs, there will be an erroneous result in the AC register.
+
+Figure 10-3 Hardware for signed-2s complement addition and subtraction.
+
+ 
+
+BR register
+
+|
+
+‘Complementer and
+Vv parallel adder
+
+mm |
+
+AC register
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

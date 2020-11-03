@@ -1,0 +1,104 @@
+32.4 The Knuth-Morris-Pratt algorithm 1005
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ps alblalblale a
+Ps alblalb aca x(5] = 3
+Wa73 Tats 16 P, abaca xB] =1
+
+ 
+
+ 
+
+ 
+
+ 
+
+Po
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(a)
+
+Figure 32.11 An illustration of Lemma 32.5 for the pattern P = ababaca and q = 5. (a) The 7
+function for the given pattern. Since [5] = 3, [3] = 1, and [1] = 0, by iterating 7 we obtain
+x*[5] = {3, 1, 0}. (b) We slide the template containing the pattern P to the right and note when some
+prefix Pg of P matches up with some proper suffix of Ps; we get matches when k = 3, 1, and 0. In
+the figure, the first row gives P, and the dotted vertical line is drawn just after Ps. Successive rows
+show all the shifts of P that cause some prefix Py of P to match some suffix of P5. Successfully
+matched characters are shown shaded. Vertical lines connect aligned matching characters. Thus,
+tk 2k <Sand Pg “I Ps} = (3,1, 0}. Lemma 32.5 claims that *[q] = {k 2k <q and Py 3 Pg}
+for all g.
+
+ 
+
+The pseudocode below gives the Knuth-Morris-Pratt matching algorithm as
+the procedure KMP-MATCHER. For the most part, the procedure follows from
+FINITE-AUTOMATON-MATCHER, as we shall see. KMP-MATCHER calls the aux-
+iliary procedure COMPUTE-PREFIX-FUNCTION to compute zr.
+
+KMP-MartcHeR(T, P)
+
+ 
+
+1 n= T.length
+
+2 m= P.length
+
+3. a = COMPUTE-PREFIX-FUNCTION(P)
+
+4 q=0 // number of characters matched
+5 fori = 1ton // scan the text from left to right
+6 while q > 0 and P[q + 1] 4 T[i]
+
+7 q =z] // next character does not match
+8 if Pq + 1) ==T[i]
+
+9 q=qtl // next character matches
+10 ifg ==m // is all of P matched?
+ll print “Pattern occurs with shift” i —m
+
+12 q =z] // \ook for the next match
+

@@ -1,0 +1,56 @@
+Section 23.1.
+
+Practical Applications 695
+
+ 
+
+VECTOR-PACE
+
+some. Changing an "and" to an "or" is one possibility; adding another disjunction is another, but
+users found there were too many possibilities and not enough guidance.
+
+Most modem IR systems have switched from the Boolean model to a vector-space model,
+in which every list of words (both document and query) is treated as a vector in n-dimensional
+space, where n is the number of distinct tokens in the document collection. In this model, the
+query would simply be "natural language computational linguistics," which would be treated as
+a vector with the value 1 for these four words (or terms, as they are called in IR) and the value
+0 for all the other terms. Finding documents is then a matter of comparing this vector against
+a collection of other vectors and reporting the ones that are close. The vector model is more
+flexible than the Boolean model because the documents can be ranked by their distance to the
+query, and the closest ones can be reported first.
+
+There are many variations on this model. Some systems are equipped with morphological
+analyzers that match "linguistic computation" with "computational linguistics." Some allow the
+query to state that two words must appear near each other to count as a match, and others use a
+thesaurus to automatically augment the words in the query with their synonyms. Only the most
+naive systems count all the terms in the vectors equally. Most systems ignore common words like
+"the" and "a," and many systems weight each term differently. A good way to do this is to give
+atemm a larger weight if it is a good discriminator: ifit appears in a small number of documents
+rather than in many of them.
+
+This model of information retrieval is almost entirely at the word level. It admits a
+minuscule amount of syntax in that words can be required to be near each other, and allows
+a similarly tiny role for semantic classes in the form of synonym lists. You might think that
+IR would perform much better if it used some more sophisticated natural language processing
+techniques. Many people have thoughtjust that, but surprisingly, none has been able to show a
+significant improvement on a wide range of IR tasks. It is possible to tune NLP techniques to a
+particular subject domain, but nobody has been able to successfully apply NLP to an unrestricted
+range of texts.
+
+The moral is that most of the information in a text is contained in the words. The IR
+approach does a good job of applying statistical techniques to capture most of this information.
+It is as if we took all the words in a document, sorted them alphabetically, and then very
+carefully compared that list to another sorted list. While the sort loses a lot of information about
+the original document, it often maintains enough to decide if two sorted lists are on similar
+topics. In contrast, the NLP technology we have today can sometimes pick out additional
+information—disambiguating words and determining the relations between phrases—but it often
+fails to recover anything at all. We are just beginning to see hybrid IR/NLP systems that combine
+the two approaches.
+
+Text categorization
+
+NLP techniques have proven successful in a related task: sorting text into fixed topic categories.
+There are several commercial services that provide access to news wire stories in this manner.
+A subscriber can ask for all the news on a particular industry, company, or geographic area,
+for example. The providers of these services have traditionally used human experts to assign
+

@@ -1,0 +1,42 @@
+Chapter 11: Console Input/Output 401
+
+ 
+
+}
+And here’s the output...
+
+01234567890123456 78901 234567890 12345678901 234567890
+Sandy Malya
+AjayKumar Gurubaxani
+
+The format specifier %20s reserves 20 columns for printing a
+string and then prints the string in these 20 columns with right
+justification. This helps lining up names of different lengths
+properly. Obviously, the format %-20s would have left justified
+the string.
+
+Escape Sequences
+
+We saw earlier how the newline character, \n, when inserted in a
+printf( )’s format string, takes the cursor to the beginning of the
+next line. The newline character is an ‘escape sequence’, so called
+because the backslash symbol (\) is considered as an ‘escape’
+character—it causes an escape from the normal interpretation of a
+string, so that the next character is recognized as one having a
+special meaning.
+
+The following example shows usage of \n and a new escape
+sequence \t, called ‘tab’. A \t moves the cursor to the next tab stop.
+A 80-column screen usually has 10 tab stops. In other words, the
+screen is divided into 10 zones of 8 columns each. Printing a tab
+takes the cursor to the beginning of next printing zone. For
+example, if cursor is positioned in column 5, then printing a tab
+takes it to column 8.
+
+main()
+{
+
+}
+
+printf ("You\tmust\tbe\tcrazy\nto\thate\tthis\tbook" ) ;
+

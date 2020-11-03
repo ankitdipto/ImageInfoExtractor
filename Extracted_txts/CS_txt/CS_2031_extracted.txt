@@ -1,0 +1,48 @@
+ 
+
+470 Chapter 13 1/O Systems
+
+access style is also good for output devices such as printers or audio boards,
+which naturally fit the concept of a linear stream of bytes.
+
+13.3.2 Network Devices
+
+Because the performance and addressing characteristics of network I/O differ
+significantly from those of disk 1/O, most operating systems provide a network
+1/O interface that is different from the read()-write()-seek() interface
+used for disks. One interface available in many operating systems, including
+UNIX and Windows NT, is the network socket interface.
+
+Think of a wall socket for electricity: Any electrical appliance can be
+plugged in. By analogy, the system calls in the socket interface enable an
+application to create a socket, to connect a local socket to a remote address
+(which plugs this application into a socket created by another application), to
+listen for any remote application to plug into the local socket, and to send and
+receive packets over the connection. To support the implementation of servers,
+the socket interface also provides a function called select () that manages a set
+of sockets. A call to select () returns information about which sockets have a
+packet waiting to be received, and which sockets have room to accept a packet
+to be sent. The use of select () eliminates the polling and busy waiting that
+would otherwise be necessary for network I/O. These functions encapsulate the
+essential behaviors of networks, greatly facilitating the creation of distributed
+applications that can use any underlying network hardware and protocol stack.
+
+Many other approaches to interprocess communication and network com-
+munication have been implemented. For instance, Windows NT provides one
+interface to the network interface card, and a second interface to the network
+protocols (Section 21.6). In UNIX, which has a long history as a proving ground
+for network technology, we find half-duplex pipes, full-duplex FIFOs, full-
+duplex STREAMS, message queues, and sockets. Information on UNIX network-
+ing is given in Section A.9.
+
+13.3.3 Clocks and Timers
+Most computers have hardware clocks and timers that provide three basic
+functions:
+e Give the current time
+© Give the elapsed time
+Set a timer to trigger operation X at time T
+These functions are used heavily by the operating system, and also by time-
+
+sensitive applications. Unfortunately, the system calls that implement these
+functions are not standardized across operating systems.
+

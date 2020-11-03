@@ -1,0 +1,58 @@
+714
+
+METONYMY
+
+Chapter 23. Practical Natural Language Processing
+
+As another example, here are five sentences, along with the most likely interpretation of the
+relation represented by the word "with." Each of the sentences has a lexical ambiguity ("with"
+has several senses) and a syntactic ambiguity (the PP can attach to either "spaghetti" or "ate"),
+but each is resolved by semantic evidence.
+
+Sentence : Relation
+
+Tate spaghetti with meatballs. (ingredient of spaghetti)
+Tate spaghetti with salad. (side dish of spaghetti)
+Tate spaghetti with abandon. (manner of eating)
+
+Tate spaghetti with a fork. (instrument of eating)
+
+I ate spaghetti with a friend. (accompanier of eating)
+
+It is certainly possible to use meatballs as a utensil with which to eat spaghetti, but it is unlikely
+(not to mention messy), so we prefer interpretations that refer to more likely events. Of course,
+likeliness of events or situations is not the only factor. In Chapter 22, we saw that the right
+interpretation of "I am not a crook" is not the most likely situation. It is perfectly coherent to
+use language to talk about unlikely or even impossible situations: "I ran a mile in one minute" or
+"This square is a triangle."
+
+Metonymy
+
+A metonymy is a figure of speech in which one object is used to stand for another. When we
+hear "Chrysler announced a new model," we do not interpret it as saying that companies can talk;
+rather we understand that a spokesperson representing the company made the announcement
+Metonymy is common in many kinds of text, and often goes unnoticed by human readers.
+Unfortunately, our grammar as it is written is not so facile. To handle the semantics of metonymy
+properly, we need to introduce a whole new level of ambiguity. We do this by providing two
+objects for the semantic interpretation of every phrase in the sentence: one for the object that
+the phrase literally refers to (Chrysler), and one for the metonymic reference (the spokesperson).
+We then have to say that there is a relation between the two. In our current grammar, "Chrysler
+announced" gets interpreted as
+
+3x,e@ Chrysler(x)A e € Announce(x, Past)
+We need to change that to
+Im,x,e Chrysler“A Metonymy(m.x) A e E Announce(m, Past)
+
+This gives a representation for the problem, but not a solution. The next step is to define what
+kinds of metonymy can occur, that is, to define constraints on the Mefonymy relation. The
+simplest case is when there is no metonymy at all—the literal object x and the metonymic object
+mare identical:
+
+Vim,x (m =x) = Metonymy(m.x)
+For the Chrysler example, a reasonable generalization is that an organization can be used to stand
+for a spokesperson of that organization:
+
+Vim, x Organization(XA Spokesperson(mx) => Metonymy(m.)
+
+ 
+

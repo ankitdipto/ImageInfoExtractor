@@ -1,0 +1,50 @@
+886
+
+Chapter 29 Linear Programming
+
+29.4-6
+Which result from Chapter 26 can be interpreted as weak duality for the maximum-
+flow problem?
+
+ 
+
+29.5 The initial basic feasible solution
+
+In this section, we first describe how to test whether a linear program is feasible,
+and if it is, how to produce a slack form for which the basic solution is feasible.
+We conclude by proving the fundamental theorem of linear programming, which
+says that the SIMPLEX procedure always produces the correct result.
+
+Finding an initial solution
+
+In Section 29.3, we assumed that we had a procedure INITIALIZE-SIMPLEX that
+determines whether a linear program has any feasible solutions, and if it does, gives
+a slack form for which the basic solution is feasible. We describe this procedure
+here.
+
+A linear program can be feasible, yet the initial basic solution might not be
+feasible. Consider, for example, the following linear program:
+
+maximize 2x; — X2 (29.102)
+subject to
+
+2x, -— X% < 2 (29.103)
+
+xX, — 5x, < -4 (29.104)
+
+X1,X2 > 0. (29.105)
+
+If we were to convert this linear program to slack form, the basic solution would
+set Xx; = 0 and x, = 0. This solution violates constraint (29.104), and so it is not a
+feasible solution. Thus, INITIALIZE-SIMPLEX cannot just return the obvious slack
+form. In order to determine whether a linear program has any feasible solutions,
+we will formulate an auxiliary linear program. For this auxiliary linear program,
+we can find (with a little work) a slack form for which the basic solution is feasible.
+Furthermore, the solution of this auxiliary linear program determines whether the
+initial linear program is feasible and if so, it provides a feasible solution with which
+we can initialize SIMPLEX.
+
+Lemma 29.11
+Let L be a linear program in standard form, given as in (29.16)-(29.18). Let xo be
+a new variable, and let Layx be the following linear program with n + 1 variables:
+

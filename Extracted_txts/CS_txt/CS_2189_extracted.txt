@@ -1,0 +1,52 @@
+SECTION 105 FloatingPoint Arithmetic Operations 355
+
+A floating-point number is normalized if the most significant digit of the
+‘mantissa is nonzero. In this way the mantissa contains the maximum possible
+number of significant digits. A zero cannot be normalized because it does not
+havea nonzerodigit. Itis represented in floating-point by all (’ sin the mantissa
+and exponent.
+
+Floating-point representation increases the range of numbers that can be
+accommodated in a given register. Consider a computer with 48-bit words.
+Since one bit must be reserved for the sign, the range of fixed-point integer
+numbers will be +(2” ~ 1), which is approximately +10". The 48 bits can be
+used to represent a floating-point number with 36 bits for the mantissa and 12
+bits forthe exponent. Assuming fraction representation for the mantissa and
+taking the two sign bits into consideration, the range of numbers that can be
+accommodated is
+
+ 
+
+#1 - 2%) x 27
+
+This number is derived from a fraction that contains 35 1's, an exponent of 11
+bits (excluding its sign), and the fact that 2" — 1 = 2047. The largest number
+that can be accommodated is approximately 10%, which isa very large number.
+The mantissa can accommodate 35 bits (excluding the sign) and if considered
+as an integer it can store a number as large as (2° — 1). This is approximately
+equal to 10”, which is equivalent to a decimal number of 10 digits.
+Computers withshorter word lengths use two ormorewords to represent
+a floating-point number. An &-bit microcomputer may use four words to
+represent one floating-point number. One word of 8 bits is reserved for the
+exponent and the 24 bits of the other three words are used for the mantissa.
+‘Arithmetic operations with floating-point numbers are more complicated
+than with fixed-point numbers and their execution takes longer and requires
+more complex hardware. Adding or subtracting two numbers requires first an
+alignment of the radix point since the exponent parts must be made equal
+before adding or subtracting the mantissas. The alignment is done by shifting
+one mantissa while its exponent is adjusted until it is equal to the other
+exponent. Consider the sum of the following floating-point numbers:
+
+ 
+
+-5372400 x 10?
++ 1580000 x 107
+
+It is necessary that the two exponents be equal before the mantissas can be
+added. Wecan either shift the first number three positions tothe left, or shift
+the second number three positions to the right. When the mantissas are stored
+in registers, shifting to the left causes a loss of most significant digits. Shifting
+to the right causes a loss of least significant digits. The second method is
+preferable because it only reduces the accuracy, while the first method may
+cause an error. The usual alignment procedure is to shift the mantissa that has
+

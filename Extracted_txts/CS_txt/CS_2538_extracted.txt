@@ -1,0 +1,49 @@
+136
+
+Chapter 5 Probabilistic Analysis and Randomized Algorithms
+
+We could try to evaluate this sum using upper bounds on each Pr {L;} similar to
+those computed in inequality (5.9). Unfortunately, this method would yield weak
+bounds. We can use some intuition gained by the above analysis to obtain a good
+bound, however. Informally, we observe that for no individual term in the sum-
+mation in equation (5.10) are both the factors j and Pr{L;} large. Why? When
+j = 2/flgn], then Pr{L;} is very small, and when j < 2 [lg], then j is fairly
+small. More formally, we note that the events L; for 7 = 0,1,..., 7 are disjoint,
+and so the probability that a streak of heads of length at least 2 [lg] begins any-
+where is Yj-2nenl Pr {L;}. By inequality (5.9), we have Yj-2henl Pr{Lj} <1/n.
+Also, noting that 79 Pr{L;} = 1, we have that yi Pr{Lj} < 1. Thus,
+we obtain
+
+E(L] = So jPr{Lj}
+j=0
+
+2flgn]—1 n
+= DO sPrebyt+ DOs PrtLyy
+j=0 j=2fign]
+2flgn]—1 n
+< SS CflgnpPr{Ljy+ SO nPr{L;}
+j=0 j=2I[Ign]
+2flgn]—1 n
+= 2flen] DO Pr{Ljy+n YO Pr{Lj}
+j=0 j=2[lgn]
+< 2/lgn]-1+n-(/n)
+= O(lgn).
+
+The probability that a streak of heads exceeds r [lg] flips diminishes quickly
+with r. For r > 1, the probability that a streak of at least r [lg] heads starts in
+position i is
+
+Pr{Ajptientl} = 1/27henl
+< I/n’.
+
+Thus, the probability is at most n/n” = 1/n"~! that the longest streak is at
+least r [lg], or equivalently, the probability is at least | — 1/n"~! that the longest
+streak has length less than r [lgn].
+
+As an example, for 2 = 1000 coin flips, the probability of having a streak of at
+least 2 [lg] = 20 heads is at most 1/n = 1/1000. The chance of having a streak
+longer than 3 [lg] = 30 heads is at most 1/n? = 1/1,000,000.
+
+We now prove a complementary lower bound: the expected length of the longest
+streak of heads inn coin flips is Q(lg7). To prove this bound, we look for streaks
+

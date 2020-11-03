@@ -1,0 +1,58 @@
+68  Chapter3 Operating-System Structures
+
+The trap is usually caught by a debugger, which is a system program designed
+to aid the programmer in finding and correcting bugs.
+
+Many operating systems provide a time profile of a program. It indicates
+the amount of time that the program executes at a particular location or set
+of locations. A time profile requires either a tracing facility or regular timer
+interrupts. At every occurrence of the timer interrupt, the value of the program
+counter is recorded. With sufficiently frequent timer interrupts, a statistical
+picture of the time spent on various parts of the program can be obtained.
+
+Process and job control have so many facets and variations that we shall use
+examples to clarify these concepts. The MS-DOS operating system is an example
+of a single-tasking system, which has a command interpreter that is invoked
+when the computer is started (Figure 3.3(a)). Because MS-DOS is single-tasking,
+it uses a simple method to run a program and does not create a new process. It
+loads the program into memory, writing over most of itself to give the program
+as much memory as possible (Figure 3.3(b)). It then sets the instruction pointer
+to the first instruction of the program. The program then runs and either an
+error causes a trap, or the program executes a system call to terminate. Ineither
+case, the error code is saved in the system memory for later use. Following this
+action, the small portion of the command interpreter that was not overwritten
+resumes execution. Its first task is to reload the rest of the command interpreter
+from disk. Once this task is accomplished, the command interpreter makes the
+previous error code available to the user or to the next program.
+
+Although the MS-DOS operating system does not have general multitasking
+capabilities, it does provide a method for limited concurrent execution. A
+TSR program is a program that “hooks an interrupt” and then exits with the
+
+ 
+
+free memory
+
+ 
+
+command —
+interpreter
+
+ 
+
+ 
+
+ 
+
+ 
+
+kernel
+
+ 
+
+ 
+
+{a)
+
+Figure 3.3 MS-DOS execution. (a) At system startup. (b) Running a program.
+

@@ -1,0 +1,81 @@
+12.6 Efficiency and Performance 435
+
+ 
+
+VO using
+
++t y
+menien Tapped YO read( ) and write()
+
+|
+
+page cache.
+
+\
+
+buffer cache
+
+file system
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 12.11 I/O without a unified buffer cache.
+
+efficient than caching through physical disk blocks. Several systems, including
+Solaris, some new Linux releases, and Windows NT and 2000, use page caching
+to cache both process pages and file data. This is known as unified virtual
+memory. Solaris uses both a block cache and a page cache. The block cache is
+used for file-system metadata (such as inodes) and the page cache is used for
+all file-system data.
+
+Some versions of UNIX provide a unified buffer cache. Consider the two
+alternatives of opening and accessing a file. One approach is to use memory
+mapping (Section 10.3.2), the second is to use the standard system calls read
+and write. Without a unified buffer cache, we have a situation similar to
+Figure 12.11. In this instance, the read and write system calls go through
+the buffer cache. The memory mapping call requires using two caches—the
+page cache and buffer cache. A memory mapping proceeds by reading in disk
+blocks from the file system and storing them in the buffer cache. Because the
+virtual memory system cannot interface with the buffer cache, the contents of
+the file in the buffer cache must be copied into the page cache. This situation is
+known as double caching and requires caching file-system data twice. Not only
+is it wasteful of memory, but it wastes significant CPU and I/O cycles due to the
+extra data movement within system memory. Also, inconsistencies between
+the two caches can result in corrupt files. By providing a unified buffer cache,
+both memory mapping and the read and write system calls use the same page
+cache. This has the benefit of avoiding double caching and it allows the virtual
+memory system to manage file-system data. The unified buffer cache is shown
+in Figure 12.12.
+
+ 
+
+ 
+

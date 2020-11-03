@@ -1,0 +1,70 @@
+  
+
+Section 14.1
+
+Acting under Uncertainty 419
+
+ 
+
+DECISION THEORY
+
+It is also interesting that utility theory allows for altruism. It is perfectly consistent for
+an agent to assign high utility to a state where the agent itself suffers a concrete loss but others
+profit. Here, "concrete loss" must denote a reduction in "personal welfare" of the kind normally
+associated with altruism or selfishness—wealth, prestige, comfort, and so on—rather than a loss
+ofutilityper se. Therefore, utility theory is necessarily "selfish" only if one equates a preference
+for the welfare of others with selfishness; conversely, altruism is only inconsistent with the
+principle of utility maximization ifone's goals do not include the welfare of others.
+
+Preferences, as expressed by utilities, are combined with probabilities in the general theory
+ofrational decisions called decision theory:
+
+Decision theory = probability theory + utility theory
+
+The fundamental idea of decision theory is that an agent is rational ifand only ifit chooses
+the action that yields the highest expected utility, averaged over all the possible outcomes of
+the action. This is called the principle of Maximum Expected Utility (MEU). Probabilities
+and utilities are therefore combined in the evaluation of an action by weighting the utility of a
+particular outcome by the probability that it occurs. We saw this principle in action in Chapter 5,
+where we examined optimal decisions in backgammon. We will see that it is in facta completely
+general principle.
+
+Design for a decision-theoretic agent
+
+The structure of an agent that uses decision theory to select actions is identical, at an abstract
+level, to that of the logical agent described in Chapter 6. Figure 14.1 shows what needs to be
+done. In this chapter and the next, we will concentrate on the task of computing probabilities for
+current states and for the various possible outcomes of actions. Chapter 16 covers utility theory
+in more depth, and Chapter 17 fleshes out the complete agent architecture.
+
+ 
+
+function DT-AGENY( percept)returns an action
+static: a set probabilistic beliefs about the state of the world
+
+calculate updated probabilities for current state based on
+
+available evidence including current percept and previous action
+calculate outcome probabilities for actions,
+
+given action descriptions and probabilities of current states
+select action with highest expected utility
+
+given probabilities of outcomes and utility information
+return action
+
+ 
+
+ 
+
+Figure 14.1 A decision-theoretic agent that selects rational actions. The steps will be fleshed
+out in the next four chapters.
+
+ 
+
+ 
+
+ 
+
+ 
+

@@ -1,0 +1,67 @@
+fey
+bo
+
+Chapter 1. Introduction
+
+ 
+
+WEAK METHODS
+
+EXPERT SYSTEMS
+
+Knowledge-based systems: The key to power? (1969-1979)
+
+The picture of problem solving that had arisen during the first decade of AI research was of a
+general-purpose search mechanism trying to string together elementary reasoning steps to find
+complete solutions. Such approaches have been called weak methods, because they use weak
+information about the domain. For many complex domains, it turns out that their performance is
+also weak. The only way around this is to use knowledge more suited to making larger reasoning
+steps and to solving typically occurring cases in narrow areas of expertise. One might say that to
+solve a hard problem, you almost have to know the answer already.
+
+The DENDRAL program (Buchanan et al., 1969) was an early example of this approach. It
+was developed at Stanford, where Ed Feigenbaum (a former student of Herbert Simon), Bruce
+Buchanan (a philosopher turned computer scientist), and Joshua Lederberg (a Nobel laureate
+geneticist) teamed up to solve the problem of inferring molecular structure from the information
+provided by a mass spectrometer. The input to the program consists of the elementary formula of
+the molecule (e.g., CsHi3NOz), and the mass spectrum giving the masses ofthe various fragments
+of the molecule generated when it is bombarded by an electron beam. For example, the mass
+spectrum might contain a peak at # — 15 corresponding to the mass ofa methyl (CH;) fragment
+
+The naive version of the program generated all possible structures consistent with the
+formula, and then predicted what mass spectrum would be observed for each, comparing this
+with the actual spectrum. As one might expect, this rapidly became intractable for decent-sized
+molecules. The DENDRAL researchers consulted analytical chemists and found that they worked
+by looking for well-known patterns ofpeaks in the spectrum that suggested common substructures
+in the molecule. For example, the following rule is used to recognize a ketone (C=O) subgroup:
+
+if there are two peaks at.v; and.t> such that
+
+(a) x\ +15 =.M+ 28 (AM is the mass of the whole molecule);
+(b) x) — 28 is ahigh peak;
+
+(c) x» — 28 is a high peak;
+
+(d) At least one of.x; and.y> is high.
+
+then there is a ketone subgroup
+
+Having recognized that the molecule contains a particular substructure, the number of possible
+candidates is enormously reduced. The DENDRAL team concluded that the new system was
+powerful because
+
+All the relevant theoretical knowledge to solve these problems has been mapped over from its
+general form in the [spectrum prediction component] ("first principles") to efficient special
+forms ("cookbook recipes"). (Feigenbaumeral., 1971)
+
+The significance of DENDRAL was that it was arguably the first successful knowledge-intensive
+system: its expertise derived from large numbers of special-purpose rules. Later systems also
+incorporated the main theme of McCarthy's Advice Taker approach— the clean separation of the
+knowledge (in the form of rules) and the reasoning component.
+
+With this lesson in mind, Feigenbaum and others at Stanford began the Heuristic Program-
+ming Project (HPP), to investigate the extent to which the new methodology of expert systems
+could be applied to other areas of human expertise. The next major effort was in the area of
+medical diagnosis. Feigenbaum, Buchanan, and Dr. Edward Shortliffe developed Mycin to
+diagnose blood infections. With about 450 rules, MYCIN was able to perform as well as some
+

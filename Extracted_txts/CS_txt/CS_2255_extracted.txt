@@ -1,0 +1,51 @@
+408 curren ezeven Input-Output Organization
+
+vector address (VAD)
+
+so on. Thus the initial service routine for all interrupts consists of a program
+that tests the interrupt sources in sequence and branches to one of many
+possible service routines. The particular service routine reached belongs to the
+highest-priority device among all devices that interrupted the computer. The
+disadvantage of the software method is that if there are many interrupts, the
+time required to poll them can exceed the time available to service the /O
+device. In this situation a hardware priority-interrupt unit can be used to speed
+up the operation.
+
+A hardware priority-interrupt unit functions as an overall manager in an
+interrupt system environment. It accepts interrupt requests from many
+sources, determines which of the incoming requests has the highest priority,
+and issues an interrupt request to the computer based on this determination.
+To speed up the operation, each interrupt source has its own interrupt vector
+to access its own service routine directly. Thus no polling is required because
+all the decisions are established by the hardware priority-interrupt unit. The
+hardware priority function can be established by either a serial or a parallel
+connection of interrupt lines. The serial connection is also known as the daisy-
+chaining method.
+
+Daisy-Chaining Priority
+
+The daisy-chaining method of establishing priority consists of a serial connec-
+tion of all devices that requestan interrupt. The device with the highest priority
+is placed in the first position, followed by lower-priority devices up to the
+device with the lowest priority, which is placed last in the chain. This method
+of connection between three devices and the CPU is shown in Fig. 11-12. The
+interrupt request line is common toall devices and forms a wired logic connec-
+tion. If any device has its interrupt signal in the low-level state, the interrupt
+line goes to the low-level state and enables the interrupt input in the CPU.
+When no interrupts are pending, the interrupt line stays in the high-level state
+and no interrupts are recognized by the CPU. This is equivalent to a negative-
+logic OR operation. The CPU responds toan interrupt request by enabling the
+interrupt acknowledge line. This signal is received by device 1 at its PI (priority
+in) input. The acknowledge signal passes on to the next device through the PO
+(priority out) output only if device 1 is not requesting an interrupt. If device
+Thasa pending interrupt, it blocks theacknowledge signal from the next device
+by placing a0 in the PO output. It then proceeds to insert its own interrupt
+vector address (VAD) into the data bus for the CPU to use during the interrupt
+cycle.
+
+A device with a0 in its Pl input generates a0 in its PO output to inform
+the next-lower-priority device that the acknowledge signal has been blocked.
+A device that is requesting an interrupt and has a 1 inits PI input will intercept
+the acknowledge signal by placing a 0 in its PO output. If the device does not
+have pending interrupts, it transmits the acknowledge signal to the next device
+

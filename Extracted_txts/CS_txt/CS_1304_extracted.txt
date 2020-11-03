@@ -1,0 +1,26 @@
+Chapter 17: Windows Programming 573
+
+ 
+
+processing of the message that we have decided not to tackle. The
+default processing for different message would be different. For
+example on double clicking the title bar DefWindowProc( )
+maximizes the window.
+
+Actually speaking when we close the window a WM_CLOSE
+message is posted into the message queue. Since we have not
+handled this message the DefWindowProc( ) function gets called
+to tackle this message. The DefWindowProc( ) function destroys
+the window and places a WM_DESTROY message in the
+message queue. As discussed earlier, in WndProc( ) we have
+made the provision to terminate the application on encountering
+WM_DESTROY.
+
+That brings us to the end of a lonnngggg explanation! You can
+now heave a sigh of relief. I would urge you to go through the
+above explanation till the time you are absolutely sure that you
+have understood every detail of it. A very clear understanding of it
+would help you make a good Windows programmer. For your
+convenience I have given a flowchart of the entire working in
+Figure 17.5.
+

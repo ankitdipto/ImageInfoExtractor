@@ -1,0 +1,49 @@
+SECTION 135 Cache Coherence 509
+
+The semaphore is tested by transferring its value to a processor register R and
+then it is set to 1 The value in R determines what to do next. If the processor
+finds that R = 1, itknows that the semaphore was originally set. (The fact that
+itis set again does not change the semaphore value.) That means that another
+processor is executing a critical section, so the processor that checked the
+semaphore does not access the shared memory. If R = 0, it means that the
+common memory (or the shared resource that the semaphore represents) is
+available. The semaphoreis set to 1 to prevent other processors from accessing
+memory. The processor can now execute the critical section. The last instruc-
+tion in the program must clear location SEM to zero to release the shared
+resource to other processors.
+
+Note that the lock signal must be active during the execution of the
+test-and-setinstruction. It does nothave tobeactive once the semaphoreis set.
+Thus the lock mechanism prevents other processors from accessing memory
+while the semaphore is being set. The semaphore itself, when set, prevents
+other processors from accessing shared memory while one processor is execut-
+ing a critical section.
+
+13-5 Cache Coherence
+
+The operation of cache memory is explained in Sec. 12-6. The primary advan-
+tage of cache is its ability to reduce the average access time in uniprocessors.
+When the processor finds a word in cache during a read operation, the main
+memory is not involved in the transfer. If the operation is to write, there are
+two commonly used procedures to update memory. In the write-through policy,
+both cache and main memory are updated with every write operation. In the
+‘write-back policy, only the cache is updated and the location is marked so that
+it can be copied later into main memory.
+
+Ina shared memory multiprocessor system, all the processors share a
+common memory. In addition, each processor may have a local memory, part
+or all of which may be a cache. The compelling reason for having separate
+caches foreach processoris to reduce the average access time in each processor.
+The same information may reside in a number of copies in some caches and
+main memory. To ensure the ability of the system to execute memory opera-
+tions correctly, the multiple copies must be kept identical. This requirement
+imposes a cache coherence problem. A memory scheme is coherent if the value
+returned on a load instruction is always the value given by the latest store
+instruction with the same address. Without a proper solution to the cache
+coherence problem, caching cannot be used in bus-oriented multiprocessors
+with two or more processors.
+
+Conditions for Incoherence
+Cache coherence problems exist in multiprocessors with private caches be-
+cause of the need to share writable data Read-only datacan safely be replicated
+

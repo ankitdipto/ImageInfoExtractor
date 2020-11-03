@@ -1,0 +1,43 @@
+Chapter 19: Interaction With Hardware 661
+
+ 
+
+deletes the entry of the terminated process from the process table
+and returns the exit code to the parent that raised the query.
+
+When we fork a new child process and the parent and the child
+continue to execute there are two possibilities—either the child
+process ends first or the parent process ends first. Let us discuss
+both these possibilities.
+
+(a) Child terminates earlier than the parent
+
+In this case till the time parent does not query the exit code of the
+terminated child the entry of the child process would continue to
+exist. Such a process in Linux terminology is known as a ‘Zombie’
+process. Zombie means ghost, or in plain simple Hindi a ‘Bhoot’.
+Moral is, a parent process should query the process table
+immediately after the child process has terminated. This would
+prevent a zombie.
+
+What if the parent terminates without querying. In such a case the
+zombie child process is treated as an ‘Orphan’ process.
+Immediately, the father of all processes—init—adopts the
+orphaned process. Next, as a responsible parent init queries the
+process table as a result of which the child process entry is
+eliminated from the process table.
+
+(b) Parent terminates earlier than the child
+
+Since every parent process is launched from the Linux shell, the
+parent of the parent is the shell process. When our parent process
+terminates, the shell queries the process table. Thus a proper
+cleanup happens for the parent process. However, the child process
+which is still running is left orphaned. Immediately the init process
+would adopt it and when its execution is over init would query the
+process table to clean up the entry for the child process. Note that
+in this case the child process does not become a zombie.
+
+Thus, when a zombie or an orphan gets created the OS takes over
+and ensures that a proper cleanup of the relevant process table
+

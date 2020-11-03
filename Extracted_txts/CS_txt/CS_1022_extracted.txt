@@ -1,0 +1,43 @@
+332 Let Us C
+
+ 
+
+Even though there are so many ways (as shown above) to refer to
+the elements of a character array, rarely is any one of them used.
+This is because printf() function has got a sweet and simple way
+of doing it, as shown below. Note that printf() doesn’t print the
+‘\0’.
+
+main()
+
+{
+char name[] = "Klinsman" ;
+printf ("%s", name ) ;
+
+The %s used in printf() is a format specification for printing out a
+string. The same specification can be used to receive a string from
+the keyboard, as shown below.
+
+main()
+{
+char name[25] ;
+
+printf (“Enter your name ") ;
+
+scanf ("%s", name ) ;
+
+printf ("Hello %s!", name ) ;
+}
+
+And here is a sample run of the program...
+
+Enter your name Debashish
+Hello Debashish!
+
+Note that the declaration char name[25] sets aside 25 bytes under
+the array name[], whereas the scanf() function fills in the
+characters typed at keyboard into this array until the enter key is
+hit. Once enter is hit, scanf() places a ‘\0’ in the array. Naturally,
+we should pass the base address of the array to the scanf()
+function.
+

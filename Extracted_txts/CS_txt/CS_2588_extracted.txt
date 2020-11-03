@@ -1,0 +1,45 @@
+7.2. Performance of quicksort 177
+
+  
+
+(n-1)/2 (n-1)/2
+
+(n-2-1 12
+(a) (b)
+
+Figure 7.5 (a) Two levels of a recursion tree for quicksort. The partitioning at the root costs
+and produces a “bad” split: two subarrays of sizes 0 and n — 1, The partitioning of the subarray of
+size n — 1 costs n —1 and produces a “good” split: subarrays of size (n — 1)/2 — 1 and (n — 1)/2.
+(b) A single level of a recursion tree that is very well balanced. In both parts, the partitioning cost for
+the subproblems shown with elliptical shading is ©(n). Yet the subproblems remaining to be solved
+in (a), shown with square shading, are no larger than the corresponding subproblems remaining to be
+solved in (b).
+
+Intuition for the average case
+
+To develop a clear notion of the randomized behavior of quicksort, we must make
+an assumption about how frequently we expect to encounter the various inputs.
+The behavior of quicksort depends on the relative ordering of the values in the
+array elements given as the input, and not by the particular values in the array. As
+in our probabilistic analysis of the hiring problem in Section 5.2, we will assume
+for now that all permutations of the input numbers are equally likely.
+
+When we run quicksort on a random input array, the partitioning is highly un-
+likely to happen in the same way at every level, as our informal analysis has as-
+sumed. We expect that some of the splits will be reasonably well balanced and
+that some will be fairly unbalanced. For example, Exercise 7.2-6 asks you to show
+that about 80 percent of the time PARTITION produces a split that is more balanced
+than 9 to 1, and about 20 percent of the time it produces a split that is less balanced
+than 9 to 1.
+
+In the average case, PARTITION produces a mix of “good” and “bad” splits. In a
+recursion tree for an average-case execution of PARTITION, the good and bad splits
+are distributed randomly throughout the tree. Suppose, for the sake of intuition,
+that the good and bad splits alternate levels in the tree, and that the good splits
+are best-case splits and the bad splits are worst-case splits. Figure 7.5(a) shows
+the splits at two consecutive levels in the recursion tree. At the root of the tree,
+the cost is 7 for partitioning, and the subarrays produced have sizes n — | and 0:
+the worst case. At the next level, the subarray of size n — 1 undergoes best-case
+partitioning into subarrays of size (n — 1)/2 — 1 and (n — 1)/2. Let’s assume that
+the boundary-condition cost is 1 for the subarray of size 0.
+

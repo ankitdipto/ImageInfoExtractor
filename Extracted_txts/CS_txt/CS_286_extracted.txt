@@ -1,0 +1,47 @@
+29.3 The simplex algorithm 873
+
+An iteration of the while loop exchanges the role of a basic and a nonbasic
+variable by calling the PIvoT procedure. By Exercise 29.3-3, the slack form is
+equivalent to the one from the previous iteration which, by the loop invariant,
+is equivalent to the initial slack form.
+
+We now demonstrate the second part of the loop invariant. We assume that at
+the start of each iteration of the while loop, b; = 0 for each i € B, and we shall
+show that these inequalities remain true after the call to PIVOT in line 12. Since
+the only changes to the variables b; and the set B of basic variables occur in this
+assignment, it suffices to show that line 12 maintains this part of the invariant.
+We let b;, aj, and B refer to values before the call of Prvot, and b; refer to
+values returned from PIvoT.
+
+First, we observe that be > 0 because b; > 0 by the loop invariant, aje > 0 by
+lines 6 and 9 of SIMPLEX, and b, = bj /dje by line 3 of Pivot.
+
+For the remaining indices i € B — {/}, we have that
+
+by = bi —aiebe (by line 9 of Prvor)
+b; —dje(bi/die) (by line 3 of Pivot) . (29.76)
+
+We have two cases to consider, depending on whether dje > 0 or dje < 0.
+If aie > 0, then since we chose / such that
+
+bi/die <b; /die foralli € By (29.77)
+we have
+6; = b;—aje(bj/aje) (by equation (29.76))
+> bj —aie(b;/aze) (by inequality (29.77))
+= bi-bi
+0,
+
+and thus b; > 0. Ifaje < 0, then because aje, b;, and b; are all nonnegative,
+equation (29.76) implies that b; must be nonnegative, too.
+We now argue that the basic solution is feasible, i-e., that all variables have non-
+
+negative values. The nonbasic variables are set to 0 and thus are nonnegative.
+Each basic variable x; is defined by the equation
+
+x; =); - Yaix; .
+
+jeN
+
+The basic solution sets X; = b;. Using the second part of the loop invariant, we
+conclude that each basic variable X; is nonnegative.
+

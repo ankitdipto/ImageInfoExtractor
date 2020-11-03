@@ -1,0 +1,49 @@
+658 Let UsC
+
+ 
+
+{
+printf (“Child : Hello | am the child process\n" ) ;
+printf ("Child : Child's PID: %d\n", getpid() ) ;
+printf ( "Child : Parent's PID: %d\n", getppid() ) ;
+
+}
+
+else
+
+{
+printf ("Parent : Hello | am the parent process\n" ) ;
+printf ( "Parent : Parent's PID: %d\n", getpid( ) ) ;
+printf (“Parent : Child's PID: %d\n", pid ) ;
+
+}
+
+}
+Given below is the output of the program:
+
+Child : Hello | am the child process
+Child : Child's PID: 4706
+
+Child : Parent's PID: 4705
+
+Parent : Hello | am the Parent process
+Parent : Parent's PID: 4705
+
+Parent : Child's PID: 4706
+
+In addition to getpid( ) there is another related function that we
+have used in this program—getppid( ). As the name suggests, this
+function returns the PID of the parent of the calling process.
+
+You can tally the PIDs from the output and convince yourself that
+you have understood the fork( ) function well. A lot of things that
+follow use the fork() function. So make sure that you understand
+it thoroughly.
+
+Note that even Linux internally uses fork( ) to create new child
+processes. Thus there is a inverted tree like structure of all the
+processes running in memory. The father of all these processes is a
+process called init. If we want to get a list of all the running
+processes in memory we can do so using the ps command as
+shown below.
+

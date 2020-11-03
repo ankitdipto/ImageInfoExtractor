@@ -1,0 +1,87 @@
+ 
+
+518
+
+Chapter 17. | Making Complex Decisions
+
+ 
+
+ 
+
+ 
+
+Dt D.t+1 D.t+2
+
+SN
+
+State.t ( State.t+1 State.t+2 ~(_ State.t+3
+
+Figure 17.16 The generic structure of a dynamic decision network, showing a sequential
+decision problem with three steps. Evidence variables are shaded.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+    
+  
+  
+  
+   
+ 
+
+Just as we used a limited horizon in game playing and with value iteration and policy
+iteration, we can limit the extent of forward projection in the DDN in order to reduce complexity. |
+This, combined with a heuristic estimate for the utility of the remaining steps, can provide .
+a reasonable approximation to rational action. There are many other possible approximation |
+techniques, such as using less detailed state variables for states in the distant future; using a |
+greedy heuristic search through the space of decision sequences; assuming "most likely" values
+for future percept sequences rather than considering all possible values; and so on. There remain
+many possible techniques for DDN evaluation that are as yet unexplored.
+
+Discussion
+
+All in all, the DDN promises potential solutions to many of the problems that arise as AI systems {|
+are moved from static, accessible, and above all simple environments to dynamic, inaccessible,
+complex environments that are closer to the real world.
+
+* They can handle uncertainty coirectly, and sometimes efficiently.
+They deal with continuous streams of sensor input.
+They can handle unexpected events because they have no fixed “plan.”
+They can handle noisy sensors and sensor failure.
+They can act in order to obtain relevant information.
+They can handle relatively large state spaces because they decompose the state into a set
+of state variables with sparse connections. 4
+They exhibit "graceful degradation" under time pressure and in complex environments,
+using various approximation techniques
+What is missing? The first, and probably the most important, defect of DDNs is that they retain
+the property of forward search through concrete states that is typical of the search algorithms’
+
+studied in Part I In Part IV, we explained how the ability to consider partially ordered,
+abstract plans using goal-directed search provided a massive increase in problem-solving poweh|
+

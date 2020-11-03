@@ -1,0 +1,29 @@
+134 Chapter5 Threads
+
++— user thread
+
+PE gS
+
+Figure 5.3 One-to-one model.
+
+a uniprocessor). Whereas the many-to-one model allows the developer to create
+as many user threads as she wishes, true concurrency is not gained because the
+kernel can schedule only one thread at a time. The one-to-one model allows
+for greater concurrency, but the developer has to be careful not to create too
+many threads within an application (and in some instances may be limited in
+the number of threads she can create). The many-to-many model suffers from
+neither of these shortcomings: Developers can create as many user threads
+as necessary, and the corresponding kernel threads can run in parallel on a
+multiprocessor. Also, when a thread performs a blocking system call, the kernel
+can schedule another thread for execution. Solaris 2, IRIX, HP-UX, and Tru64
+UNIX support this model.
+
+o— user thread
+
+ 
+   
+
+~+— kernel thread
+
+Figure 5.4 Many-to-many model.
+

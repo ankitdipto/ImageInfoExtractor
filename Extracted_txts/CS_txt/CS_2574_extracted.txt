@@ -1,0 +1,24 @@
+6.5. Priority queues 165
+
+ 
+
+Figure 6.5 The operation of HEAP-INCREASE-KEY. (a) The max-heap of Figure 6.4(a) with a
+node whose index is i heavily shaded. (b) This node has its key increased to 15. (¢) After one
+iteration of the while loop of lines 4-6, the node and its parent have exchanged keys, and the index i
+moves up to the parent. (d) The max-heap after one more iteration of the while loop. At this point,
+A[PARENT(i)] > A[i]. The max-heap property now holds and the procedure terminates.
+
+6.5-2
+Illustrate the operation of MAX-HEAP-INSERT(A, 10) on the heap A = (15, 13,9,
+5,12,8,7,4,0, 6,2, 1).
+
+6.5-3
+
+Write pseudocode for the procedures HEAP-MINIMUM, HEAP-EXTRACT-MIN,
+HEAP-DECREASE-KEY, and MIN-HEAP-INSERT that implement a min-priority
+queue with a min-heap.
+
+6.5-4
+Why do we bother setting the key of the inserted node to —oo in line 2 of MAX-
+HEAP-INSERT when the next thing we do is increase its key to the desired value?
+

@@ -1,0 +1,41 @@
+702 Let UsC
+
+ 
+
+among their most enduring accomplishments are several
+
+new techniques for wasting time. There is no shortage of
+horror stories about programs that took twenty times to ‘debug’ as
+they did to ‘write’. And one hears again and again about programs
+that had to be rewritten all over again because the bugs present in
+it could not be located. A typical C programmer’s ‘morning after’
+is red eyes, blue face and a pile of crumpled printouts and dozens
+of reference books all over the floor. Bugs are C programmer's
+birthright. But how do we chase them away. No sure-shot way for
+that. I thought if I make a list of more common programming
+mistakes it might be of help. They are not arranged in any
+particular order. But as you would realize surely a great help!
+
+Cine’ iier are great innovators of our times. Unhappily,
+
+[1] Omitting the ampersand before the variables used in scanf().
+For example,
+
+int choice ;
+scanf ("%d", choice ) ;
+
+Here, the & before the variable choice is missing. Another
+common mistake with scanf( ) is to give blanks either just
+before the format string or immediately after the format string
+as in,
+
+int choice ;
+scanf(" %d", choice ) ;
+
+Note that this is not a mistake, but till you don't understand
+scanf( ) thoroughly, this is going to cause trouble. Safety is in
+eliminating the blanks. Thus, the correct form would be,
+
+int choice ;
+scanf ("%d", &choice ) ;
+

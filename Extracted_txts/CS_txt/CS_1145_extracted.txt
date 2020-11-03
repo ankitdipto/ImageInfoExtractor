@@ -1,0 +1,86 @@
+214 CHAPTER SEVEN Microprogrammed Control
+
+microinstruction
+
+microprogram
+
+control memory
+
+‘a microprogrammed control unit. Each word in control memory contains within
+it a microinstruction. The microinstruction specifies one or more microopera-
+tions for the system. A sequence of microinstructions constitutes a micropro-
+gram. Since alterations of the microprogram are not needed once the control
+unit is in operation, the control memory can be a read-only memory (ROM).
+The content of the words in ROM are fixed and cannot be altered by simple
+programming since no writing capability is available in the ROM. ROM words
+are made permanent during the hardware production of the unit. The use of
+a microprogram involves placing all control variables in words of ROM for use
+by the control unit through successive read operations. The content of the word
+in ROM ata given address specifies a microinstruction.
+
+‘A more advanced development known as dynamic microprogramming
+permits a microprogram to be loaded initially from an auxiliary memory such
+asa magnetic disk. Control units that use dynamicmicroprogramming employ
+a writable control memory. This type of memory can be used for writing (to
+change the microprogram) but is used mostly for reading. A memory that is
+part of acontrol unit is referred to as a control memory.
+
+A computer that employs a microprogrammed control unit will have two
+separate memories: a main memory and a control memory. The main memory
+isavailable to the user for storing the programs. The contents of main memory
+may alter when the data are manipulated and every time that the program is
+changed. The user's program in main memory consistsof machine instructions
+and data. In contrast, the control memory holds a fixed microprogram that
+cannot be altered by the occasional user. The microprogram consists of mi-
+croinstructions that specify various internal control signals for execution of
+register microoperations. Each machine instruction initiatesa series of microin-
+structions in control memory. These microinstructions generate the microop-
+erations to fetch the instruction from main memory; to evaluate the effective
+address, to execute the operation specified by the instruction, and to return
+control to the fetch phase in order to repeat the cycle for the next instruction.
+
+The general configuration of amicroprogrammed control unit is demon-
+strated in the block diagram of Fig. 7-1. The control memory is assumed to be
+a ROM, within which all control information is permanently stored. The
+
+ 
+
+ 
+
+Figure 7-1 Microprogrammed control organization.
+
+ 
+
+Exemat_, [New conta con ee
+nt col Le
+input | aces sides |p| memory || “dna
+naar regster (ROM) regster
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Nextaddeess information
+
+ 
+

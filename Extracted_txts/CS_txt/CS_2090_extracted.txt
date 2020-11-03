@@ -1,0 +1,55 @@
+Section 9.8.
+
+Summary 293
+
+ 
+
+introduced clausal form, and produced a program that attempted to find refutations by substituting
+members of the Herbrand universe for variables to produce ground clauses and then looking for
+propositional inconsistencies among the ground clauses. Prawitz (1960) developed the key idea
+of letting the quest for propositional inconsistency drive the search process, and generating terms
+from the Herbrand universe only when it was necessary to do so in order to establish propositional
+inconsistency. After further development by other researchers, this idea led J. A. Robinson (no
+relation) to develop the resolution method (Robinson, 1965), which used unification in its mod-
+em form to allow the demonstration of propositional inconsistency without necessarily making
+explicit use of terms from the Herbrand universe. The so-called "inverse method" developed at
+about the same time by the Soviet researcher S. Maslov (1964; 1967) is based on principles some-
+what different from Robinson's resolution method but offers similar computational advantages
+in avoiding the unnecessary generation of tems in the Herbrand universe. The relations between
+resolution and the inverse method are explored by Maslov (1971) and by Kuehner (1971).
+
+The demodulation rule described in the chapter was intended to eliminate equality axioms
+by combining equality substitution with resolution, and was introduced by Wos (1967). Tem
+rewriting systems such as the Knuth-Bendix algorithm (Knuth and Bendix, 1970) are based on
+demodulation, and have found wide application in programming languages. The paramodulation
+inference rule (Wos and Robinson, 1968)is a more general version of demodulation that provides
+a complete proof procedure for first-order logic with equality.
+
+In addition to demodulation and paramodulation for equality reasoning, other special-
+purpose inference rules have been introduced to aid reasoning of other kinds. Boyer and
+Moore (1979) provide powerful methods for the use of mathematical induction in automated
+reasoning, although their logic unfortunately lacks quantifiers and does not quite have the full
+power of first-order logic. Stickel's (1985) "theory resolution" and Manna and Waldinger's (1986)
+method of "special relations" provide general ways of incorporating special-purpose inference
+tules into a resolution-style framework.
+
+A number of control strategies have been proposed for resolution, beginning with the unit
+preference strategy (Wos et al., 1964). The set of support strategy was proposed by Wos et
+al. (1965), to provide a degree of goal-directedness in resolution. Linear resolution first appeared
+in (Loveland, 1968). Wolfgang Bibel (1981) developed the connection method which allows
+complex deductions to be recognized efficiently. Developments in resolution control strategies,
+and the accompanying growth in the understanding of the relationship between completeness and
+syntactic restrictions on clauses, contributed significantly to the development of logic program-
+ming (see Chapter 10). Genesereth and Nilsson (1987, Chapter 5) provide a short but thorough
+analysis of a wide variety of control strategies.
+
+There are a number of good general-purpose introductions to automated deduction and to
+the theory of proof and inference; some were mentioned in Chapter 7. Additional textbooks on
+matters related to completeness and undecidability include Computabilityand Logic (Boolos and
+Jeffrey, 1989), Metalogic (Hunter, 1971), and (for an entertaining and unconventional, yet highly
+rigorous approach) A Course in Mathematical Logic (Manin, 1977). Many of the most important
+papers from the turn-of-the-century development of mathematical logic are to be found in From
+Frege to Gédel: A Source Book in Mathematical Logic (van Heijenoort, 1967). The journal
+of record for the field of pure mathematical logic (as opposed to automated deduction) is The
+Journal of Symbolic Logic.
+

@@ -1,0 +1,58 @@
+12.4 Randomly built binary search trees 301
+
+fori =1,2,..., n. Because exactly one value of Z,,; is 1 and all others are 0, we
+also have
+
+Yn = Yo Zn (2+ max(¥i-a, Yn-i)) -
+
+i=l
+
+We shall show that E[Y,,] is polynomial in 7, which will ultimately imply that
+E[X,] = O(lgn).
+
+We claim that the indicator random variable Z,,; = I1{R, = i} is independent
+of the values of Y;_, and Y,,_;. Having chosen R,, = i, the left subtree (whose
+exponential height is Y;_;) is randomly built on the i — 1 keys whose ranks are
+less than i. This subtree is just like any other randomly built binary search tree
+oni — | keys. Other than the number of keys it contains, this subtree’s structure
+is not affected at all by the choice of R,, = i, and hence the random variables
+Y;-, and Z,,; are independent. Likewise, the right subtree, whose exponential
+height is Y,,_;, is randomly built on the n —i keys whose ranks are greater than 7.
+Its structure is independent of the value of R,,, and so the random variables Y,,_;
+and Z,, ; are independent. Hence, we have
+
+E [= Zys (2+ max(Yi1, 0]
+
+i=l
+
+En]
+
+= YCEIZ,; 2-max(¥i1,¥,1))] (by linearity of expectation)
+
+i=l
+
+= SEZ, sJE 2 -max(¥i-1. Yr] (by independence)
+
+i=l
+
+“1
+
+= YO--ER-max(¥i1. Y,] (by equation (12.1)
+i=l n
+2< ,
+
+= » E[max(Y;-1. Y,-i)] (by equation (C.22))
+2< ,
+
+=a LE Yin] + E[¥n]) (by Exercise C.3-4) .
+
+Since each term E [Yo] .E[Y,]....., E[Y,—1] appears twice in the last summation,
+once as E [Y;_;] and once as E[Y,,_;], we have the recurrence
+
+ 
+
+n-1
+
+4
+Elm] <> LEI . (12.2)
+

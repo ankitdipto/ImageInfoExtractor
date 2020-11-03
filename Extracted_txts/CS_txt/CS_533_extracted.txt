@@ -1,0 +1,51 @@
+1074
+
+Chapter 34 NP-Completeness
+
+tion is to be executed next. The program counter automatically increments upon
+fetching each instruction, thereby causing the computer to execute instructions se-
+quentially. The execution of an instruction can cause a value to be written to the
+program counter, however, which alters the normal sequential execution and allows
+the computer to loop and perform conditional branches.
+
+At any point during the execution of a program, the computer’s memory holds
+the entire state of the computation. (We take the memory to include the program
+itself, the program counter, working storage, and any of the various bits of state
+that a computer maintains for bookkeeping.) We call any particular state of com-
+puter memory a configuration. We can view the execution of an instruction as
+mapping one configuration to another. The computer hardware that accomplishes
+this mapping can be implemented as a boolean combinational circuit, which we
+denote by M in the proof of the following lemma.
+
+Lemma 34.6
+The circuit-satisfiability problem is NP-hard.
+
+Proof Let L be any language in NP. We shall describe a polynomial-time algo-
+rithm F computing a reduction function f that maps every binary string x to a
+circuit C = f(x) such that x € L if and only if C € CIRCUIT-SAT.
+
+Since L € NP, there must exist an algorithm A that verifies L in polynomial
+time. The algorithm F that we shall construct uses the two-input algorithm A to
+compute the reduction function /.
+
+Let T(n) denote the worst-case running time of algorithm A on length-n input
+strings, and let k > 1 be a constant such that T(7) = O(n‘) and the length of the
+certificate is O(n*). (The running time of A is actually a polynomial in the total
+input size, which includes both an input string and a certificate, but since the length
+of the certificate is polynomial in the length n of the input string, the running time
+is polynomial in 71.)
+
+The basic idea of the proof is to represent the computation of A as a sequence
+of configurations. As Figure 34.9 illustrates, we can break each configuration into
+parts consisting of the program for A, the program counter and auxiliary machine
+state, the input x, the certificate y, and working storage. The combinational cir-
+cuit M, which implements the computer hardware, maps each configuration c; to
+the next configuration c;+,, starting from the initial configuration cg. Algorithm A
+writes its output—O or 1—to some designated location by the time it finishes ex-
+ecuting, and if we assume that thereafter A halts, the value never changes. Thus,
+if the algorithm runs for at most T (7) steps, the output appears as one of the bits
+in rq).
+
+The reduction algorithm F constructs a single combinational circuit that com-
+putes all configurations produced by a given initial configuration. The idea is to
+

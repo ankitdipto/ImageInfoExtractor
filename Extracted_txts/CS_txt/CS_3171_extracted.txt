@@ -1,0 +1,109 @@
+536
+
+Chapter 18. Leaming from Observations
+
+ 
+
+ 
+
+ 
+
+ 
+
+Patrons?
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+French Italian Thai Burger
+4+: XE + XO + MANS +: KBR
+a XS -) X10 1 x, — REXG:
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
++ HENS XA NG XB Xi
+© =: SBXS NZ XOXIOX
+Patrons?
+None Some Full
+
++E +: XDXEXOXS = +: NANI
+
+=: X7.XN —: Hee ~) XA, X59 XO.
+
+Yes No Hungry?
+
+Y N
+4
+-!KOXIO — BSXG
+
+ 
+
+ 
+
+Figure 186 Splitting the examples by testing on attributes. In (a), we see that Patrons is a
+good attribute to test first; in (b), we see that Type is a poor one; and in (c), we see that Hungry is
+a fairly good second test, given that Patrons is the first test.
+
+ 
+
+ 
+
+ 
+
+the examples withoutthem. It has also detected an interesting regularity in the data (namely, that
+the first author will wait for Thai food on weekends) that was not even suspected. Many hours
+have been wasted by machine learning researchers trying to debug their learning algorithms when
+in fact the algorithm was behaving properly all along.
+
+Ofcourse, ifwe were to gather more examples, we might induce a tree more similar to the
+original. The tree in Figure 18.8 is bound to make a mistake; for example, it has never seen a
+case where the wait is 0-10 minutes but the restaurant is full. For a case where Hungry is false,
+the tree says not to wait, but the author would certainly wait. This raises an obvious question: if
+the algorithm induces a consistent but incorrect tree from the examples, how incorrect will the
+tree be? The next section shows how to analyze this experimentally.
+
+ 
+

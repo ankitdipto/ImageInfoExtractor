@@ -1,0 +1,47 @@
+Chapter 9: Puppetting On Strings 353
+
+ 
+
+Unlike this, using malloc() we can allocate memory dynamically,
+during execution. The argument that we pass to malloc() can be a
+variable whose value can change during execution.
+
+Once we have allocated the memory using malloc() we have
+copied the name received through the keyboard into this allocated
+space and finally stored the address of the allocated chunk in the
+appropriate element of names[ ], the array of pointers to strings.
+
+This solution suffers in performance because we need to allocate
+memory and then do the copying of string for each name received
+through the keyboard.
+
+Summary
+
+(a) A string is nothing but an array of characters terminated by
+‘\0’.
+
+(b) Being an array, all the characters of a string are stored in
+contiguous memory locations.
+
+(c) Though scanf( ) can be used to receive multi-word strings,
+gets() can do the same job in a cleaner way.
+
+(d) Both printf() and puts() can handle multi-word strings.
+
+(e) Strings can be operated upon using several standard library
+functions like strlen(), strepy(), strcat() and stremp()
+which can manipulate strings. More importantly we imitated
+some of these functions to learn how these standard library
+functions are written.
+
+(f) Though in principle a 2-D array can be used to handle several
+strings, in practice an array of pointers to strings is preferred
+since it takes less space and is efficient in processing strings.
+
+(g) malloc() function can be used to allocate space in memory on
+the fly during execution of the program.
+
+Exercise
+
+Simple strings
+

@@ -1,0 +1,62 @@
+Section 12.4.
+
+More Expressive Operator Descriptions 385
+
+ 
+
+function SELECT-SUB-GOAL( plan) returns plan, precondition conjunct
+
+pick a plan step Sneey from STEPS(plan)with a precondition conjunct c that has not been
+achieved
+ifc is a universally quantified expression then
+return Speed, EXPANSIONC)
+else ifc is a disjunction c| V C2 then
+return Sjeeq, choose(ci, 2)
+else return Speed, €
+
+procedure CHOOSE-OPERATOR(plan, operators, Syed, C)
+
+choose a step Suci from operators or STEPS( plan) that has Cua as an effect
+such that w = UNIFY(¢, ¢ai, BINDINGS( plan))
+if there is no such step then fail
+uw —u without the universally quantified variables of cau
+add uw! to BINDINGS( plan)
+add Said‘ = Syee¢ to LINKS( plan)
+add Saad < Sheed t0 ORDERINGS( plan)
+if Saar is a newly added step from operators then
+add Siig to STEPS( plan)
+add Start < Sue < Finish to ORDERINGS( plan)
+
+ 
+
+procedure RESOLVE THREATS(plan)
+
+for each S, _°. 5; in LINKS| plan) do
+for each Stiyea in STEPS( plan) do
+for each c’ in EFFECT(Stirear) 40
+if SuBs1(BINDINGS( plan), c) = SUBST(BINDINGS( plan), > c’) then
+choose either
+Promotion: Add Stirear << S¢ to ORDERINGS( plan)
+Demotion: Add S$; ~<_ Stirea to ORDERINGS( plan)
+Confrontation: ifc’ is really of the form (c’ when p) then
+CHOOSE-OPERATOR( plan, operators, Stirears 7 py
+RESOLVE-THREATS( pian)
+if not ConsIsTENT plan) then fail
+end
+end
+end
+
+ 
+
+ 
+
+ 
+
+Figure 12.8 The relevant components of POP-DUNC.
+
+ 
+
+a disjunctive precondition. CHOOSE-OPERATOR is modified only slightly, to handle universally
+quantified variables properly. RESOLVE-THREATS is modified to include confrontation as one
+method of resolving a threat from a conditional effect.
+

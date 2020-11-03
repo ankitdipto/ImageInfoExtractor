@@ -1,0 +1,50 @@
+900
+
+Chapter 30 Polynomials and the FFT
+
+Note that degree(C) = degree(A) + degree(B), implying that if A is a polyno-
+mial of degree-bound ng and B is a polynomial of degree-bound np, then C is a
+polynomial of degree-bound a +» — 1. Since a polynomial of degree-bound k
+is also a polynomial of degree-bound k + 1, we will normally say that the product
+polynomial C is a polynomial of degree-bound ng + No.
+
+Chapter outline
+
+Section 30.1 presents two ways to represent polynomials: the coefficient represen-
+tation and the point-value representation. The straightforward methods for multi-
+plying polynomials —equations (30.1) and (30.2)—take ©(n?) time when we rep-
+resent polynomials in coefficient form, but only © (71) time when we represent them
+in point-value form. We can, however, multiply polynomials using the coefficient
+representation in only @(nlgn) time by converting between the two representa-
+tions. To see why this approach works, we must first study complex roots of unity,
+which we do in Section 30.2. Then, we use the FFT and its inverse, also described
+in Section 30.2, to perform the conversions. Section 30.3 shows how to implement
+the FFT quickly in both serial and parallel models.
+
+This chapter uses complex numbers extensively, and within this chapter we use
+the symbol i exclusively to denote /—1.
+
+ 
+
+30.1 Representing polynomials
+
+The coefficient and point-value representations of polynomials are in a sense equiv-
+alent; that is, a polynomial in point-value form has a unique counterpart in co-
+efficient form. In this section, we introduce the two representations and show
+how to combine them so that we can multiply two degree-bound n polynomials
+in O(n Ign) time.
+
+Coefficient representation
+
+A coefficient representation of a polynomial A(x) = Viz ajx! of degree-
+
+bound 7 is a vector of coefficients a = (do,d),..., a,—1). In matrix equations
+in this chapter, we shall generally treat vectors as column vectors.
+
+The coefficient representation is convenient for certain operations on polyno-
+mials. For example, the operation of evaluating the polynomial A(x) at a given
+point x9 consists of computing the value of A(x9). We can evaluate a polynomial
+in ©(n) time using Horner’s rule:
+
+A(X0) = do + X0(1 + X0(a2 + +++ + X0(dn—2 + X0(An-1)) +++) «
+

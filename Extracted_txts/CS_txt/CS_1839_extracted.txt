@@ -1,0 +1,90 @@
+308 Chapter 9 Memory Management
+
+sharing processes must define the shared code segment to have the same
+segment number.
+
+For instance, if we want to share the Sqrt routine, and one process wants
+to make it segment 4 and another wants to make it segment 17, how should.
+the Sqrt routine refer to itself? Because there is only one physical copy of Sart,
+it must refer to itself in the same way for both users—it must have a unique
+segment number. As the number of users sharing the segment increases, so
+does the difficulty of finding an acceptable segment number.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+     
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+editor
+segment 0
+: fimit_ |_base
+data 1 ‘
+si 0| 25286 | 43062
+segment 1 1} 4425 | 68348
+segment table
+process P,
+logical memory
+process P,
+[ome | 0| 25286 | 43062 physical memory
+segment 1 1} 8850 | 90003
+segment table
+process P,
+logical memory
+process P,,
+
+Figure 9.20 Sharing of segments in a segmented memory system.
+

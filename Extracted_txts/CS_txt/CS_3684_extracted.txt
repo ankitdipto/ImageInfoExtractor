@@ -1,0 +1,84 @@
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Section 4.2. Heuristic Functions 103
+Search Cost Effective Branching Factor
+d IDS A*(hi) A*(h2) IDS A*(hi) A*(h2)
+2 10 6 6 2.45 179 1.79
+4 112 13 12 287 148 145
+6 680 20, 18 2B 134 130
+8 6384 39 25 2.80 1.33 124
+10 47127 93 39 2.79 138 122
+12 364404 227 B 278 142 124
+4 3473941 539 113 283 144 123
+16 - 1301 211 - 145 125
+18 - 3056 363 - 1.46 1.26
+20 - 7276 676 - 147 127
+2 - 18094 1219 - 148 128
+24 - 39135 1641 - 148 126
+Figure 48 Comparison of the search costs and effective branching factors for the
+ITERATIVE-DEEPENING-SEARCH and A* algorithms with h\, 42. Data are averaged over 100
+instances of the -puzzle, for various solution lengths.
+Inventing heuristic functions
+We have seen that both h\ and /2 are fairly good heuristics for the 8-puzzle, and that / is better.
+But we do not know how to invent a heuristic function. How might one have come up with hz?
+Is it possible for a computer to mechanically invent such a heuristic?
+4A, and Az are estimates to the remaining path length for the 8-puzzle, but they can also
+be considered to be perfectly accurate path lengths for simplified versions of the puzzle. If
+the rules of the puzzle were changed so that a tile could move anywhere, instead ofjust to the
+adjacent empty square, then h\ would accurately give the number of steps to the shortest solution.
+Similarly, ifa tile could move one square in any direction, even onto an occupied square, then Az
+would give the exact number of steps in the shortest solution. A problem with less restrictions on
+RELAXED PROBLEM ~©— the operators is called a relaxed problem. It is often the case that the cost ofan exact solution
+
+ 
+
+to a relaxed problem is a good heuristicfor the original problem.
+Ifa problem definition is written down in a formal language, it is possible to construct
+relaxed problems automatically.* For example, ifthe 8-puzzle operators are described as
+
+A tile can move from square A to square B if A is adjacent to B and B is blank,
+we can generate three relaxed problems by removing one or more of the conditions:
+
+(a) A tile can move from square A to square B if A is adjacent to B.
+(b) A tile can move from square A to square B if is blank.
+(c) A tile can move from square A to square B
+
+Recently, a program called ABSOLVER was written that can generate heuristics automatically from
+problem definitions, using the "relaxed problem" method and various other techniques (Prieditis,
+1993). ABSOLVER generated a new heuristic for the 8-puzzle better than any existing heuristic,
+and found the first useful heuristic for the famous Rubik's cube puzzle.
+
+3° An Chapters 7 and 11, we will describe formal languages suitable for this task. For now, we will use English.
+

@@ -1,0 +1,55 @@
+154
+
+Chapter 6 Heapsort
+
+6.1-4
+Where in a max-heap might the smallest element reside, assuming that all elements
+are distinct?
+
+6.1-5
+Is an array that is in sorted order a min-heap?
+
+6.1-6
+Is the array with values (23, 17, 14, 6, 13, 10, 1,5, 7, 12) a max-heap?
+
+6.1-7
+Show that, with the array representation for storing an n-element heap, the leaves
+are the nodes indexed by |[n/2J + 1, |[n/2] +2...., n.
+
+ 
+
+6.2 Maintaining the heap property
+
+In order to maintain the max-heap property, we call the procedure MAX-HEAPIFY.
+Its inputs are an array A and an index / into the array. When it is called, MAX-
+HEAPIFY assumes that the binary trees rooted at LEFT (i) and RIGHT(/) are max-
+heaps, but that A[/] might be smaller than its children, thus violating the max-heap
+property. MAX-HEaPIFY lets the value at A[i] “float down” in the max-heap so
+that the subtree rooted at index i obeys the max-heap property.
+
+MAX-HEaPIry (A, i)
+
+| = LeEFT(i)
+
+r = RIGHT(i)
+
+if] < A.heap-size and A[l] > Afi]
+largest = 1
+
+else largest =i
+
+ifr < A.heap-size and A[r] > Allargest]
+largest =r
+
+if largest Ai
+exchange Al[i] with A[/argest]
+MAx-HeEapiry (A, largest)
+
+Sewmraausaune
+
+Figure 6.2 illustrates the action of MAX-HEAPIFY. At each step, the largest of
+the elements Afi], A[LEFT(i)], and A[RIGHT(/)] is determined, and its index is
+stored in /argest. If Afi] is largest, then the subtree rooted at node i is already a
+max-heap and the procedure terminates. Otherwise, one of the two children has the
+largest element, and A[i] is swapped with A[/argest], which causes node i and its
+

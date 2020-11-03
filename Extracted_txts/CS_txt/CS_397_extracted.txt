@@ -1,0 +1,48 @@
+31.7 The RSA public-key cryptosystem 963
+
+Proof From equations (31.37) and (31.38), we have that for any M € Zp,
+P(S(M)) = S(P(M)) = M* (mod n) .
+
+Since e and d are multiplicative inverses modulo ¢(n) = (p — I)(q — 1),
+ed =1+k(p—I)(q—-1)
+
+for some integer k. But then, if M #0 (mod p), we have
+
+M?@ = M(M?1)Ka-D (mod p)
+= M(M mod p)?')K2 (mod p)
+= mijkev (mod p) (by Theorem 31.31)
+= M (mod p) .
+
+Also, M¢¢ = M (mod p) if M =0 (mod p). Thus,
+
+M4 =M (mod p)
+
+for all M. Similarly,
+
+M*! =M (mod q)
+
+for all M. Thus, by Corollary 31.29 to the Chinese remainder theorem,
+
+M“4 =M (mod n)
+
+for all M. /
+
+The security of the RSA cryptosystem rests in large part on the difficulty of fac-
+toring large integers. If an adversary can factor the modulus 7 in a public key, then
+the adversary can derive the secret key from the public key, using the knowledge
+of the factors p and q in the same way that the creator of the public key used them.
+Therefore, if factoring large integers is easy, then breaking the RSA cryptosystem
+is easy. The converse statement, that if factoring large integers is hard, then break-
+ing RSA is hard, is unproven. After two decades of research, however, no easier
+method has been found to break the RSA public-key cryptosystem than to factor
+the modulus 7. And as we shall see in Section 31.9, factoring large integers is sur-
+prisingly difficult. By randomly selecting and multiplying together two 1024-bit
+primes, we can create a public key that cannot be “broken” in any feasible amount
+of time with current technology. In the absence of a fundamental breakthrough in
+the design of number-theoretic algorithms, and when implemented with care fol-
+lowing recommended standards, the RSA cryptosystem is capable of providing a
+high degree of security in applications.
+
+In order to achieve security with the RSA cryptosystem, however, we should
+use integers that are quite long—hundreds or even more than one thousand bits
+

@@ -1,0 +1,52 @@
+270 curren E1GHT Central Processing Unit
+
+clear selected bits
+
+tions one for binary integers, one for floating-point operands, and one for
+decimal operands. The mnemonics for three add instructions that specify
+different data types are shown below.
+
+ADDI Add two binary integer numbers
+ADDF Add two floating-point numbers
+ADDD Add two decimal numbers in BCD
+
+Algorithms for integer, floating-point, and decimal arithmetic operations are
+developed in Chap. 10.
+
+‘The number of bits in any register is of finite length and therefore the
+results of arithmetic operations are of finite precision. Some computers provide
+hardware double-precision operations where the length of each operand is
+taken to be the length of two memory words. Mast small computers provide
+special instructions to facilitate double-precision arithmetic A special carry
+flip-flop is used to store the carry from an operation. The instruction “add with
+carry” performs the addition on two operands plus the value of the carry from
+the previous computation. Similarly, the “subtract with borrow’ instruction
+subtracts two words and a borrow which may have resulted from a previous
+subtract operation. The negate instruction forms the 2's complement of a
+number, effectively reversing the sign of an integer when represented in the
+signed-2’s complement form
+
+Logical and Bit Manipulation Instructions
+Logical instructions perform binary operations on strings of bits stored in
+registers. They are useful for manipulating individual bits or a group of bits
+that represent binary-coded information The logical instructions consider
+each bit of the operand separately and treat it as a Boolean variable. By proper
+application of the logical instructions itis possible to change bit values, to clear
+a group of bits, or to insert new bit values into operands stored in registers or
+memory words.
+
+‘Some typical logical and bit manipulation instructions are listed in Table
+88. The clear instruction causes the specified operand to be replaced by 0's.
+‘The complement instruction produces the 1’s complement by inverting all the
+bits of the operand. The AND, OR, and XOR instructions produce the corre-
+sponding logical operations on individual bits of the operands. Although they
+perform Boolean operations, when used in computer instructions, the logical
+instructions should be considered as performing bit manipulation operations.
+There are three bit manipulation operations possible: a selected bit can be
+dleared to 0, or can be set to 1, or can be complemented. The three logical
+instructions are usually applied to do just that.
+
+The AND instruction is used to clear a bit or a selected group of bits of
+an operand. For any Boolean variable x, the relationships xb0 = Oandxbl = x
+dictate that a binary variable ANDed with a 0 produces a 0; but the variable
+

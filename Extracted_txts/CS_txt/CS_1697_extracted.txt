@@ -1,0 +1,52 @@
+7.2 The Critical-Section Problem = 191
+
+contents of this register will be saved and restored by the interrupt handler
+(Section 2.1).
+
+The concurrent execution of “counter++” and “counter--” is equivalent
+to a sequential execution where the lower-level statements presented previ-
+ously are interleaved in some arbitrary order (but the order within each high-
+level statement is preserved). One such interleaving is
+
+To: producer execute _register; = counter {register = 5}
+Ti: producer execute register; = register, +1 {register = 6}
+Tz: consumer execute register; = counter {register2 = 5}
+T3: consumer execute register, = register; 1 {register, = 4}
+Ts: producer execute counter = register; {counter = 6}
+Ts: consumer execute counter = register {counter = 4}
+
+Notice that we have arrived at the incorrect state “counter == 4” recording that
+there are four full buffers, when, in fact, there are five full buffers. If we reversed
+the order of the statements at T, and Ts, we would arrive at the incorrect state
+“counter == 6".
+
+We would arrive at this incorrect state because we allowed both processes
+to manipulate the variable counter concurrently. A situation like this, where
+several processes access and manipulate the same data concurrently and the
+outcome of the execution depends on the particular order in which the access
+takes place, is called a race condition. To guard against the race condition
+above, we need to ensure that only one process at a time can be manipulating
+the variable counter. To make such a guarantee, we require some form of
+synchronization of the processes. Such situations occur frequently in operating
+systems as different parts of the system manipulate resources and we want the
+changes not to interfere with one another. A major portion of this chapter is
+concerned with the issue of process synchronization and coordination.
+
+ 
+
+7.2 @ The Critical-Section Problem
+
+Consider a system consisting of n processes {Po, P1,...,Pn—1}. Each process
+has a segment of code, called a critical section, in which the process may be
+changing common variables, updating a table, writing a file, and so on. The
+important feature of the system is that, when one process is executing in its
+critical section, no other process is to be allowed to execute in its critical section.
+Thus, the execution of critical sections by the processes is mutually exclusive
+in time. The critical-section problem is to design a protocol that the processes
+can use to cooperate. Each process must request permission to enter its critical
+section. The section of code implementing this request is the entry section. The
+critical section may be followed by an exit section. The remaining code is the
+remainder section.
+
+ 
+

@@ -1,0 +1,54 @@
+Section 19.5.
+
+Applications of Neural Networks 585
+
+ 
+
+wide applicability, but that they cannot magically solve problems without any thought on the
+part of the network designer. John Denker's remark that "neural networks are the second best
+way of doing just about anything" may be an exaggeration, but it is true that neural networks
+provide passable performance on many tasks that would be difficult to solve explicitly with other
+programming techniques. We encourage the reader to experiment with neural network algorithms
+to get a feel for what happens when data arrive at an unprepared network
+
+Pronunciation
+
+Pronunciation of written English text by a computer is a fascinating problem in linguistics, as
+well as a task with high commercial payoff. It is typically carried by first mapping the text
+stream to phonemes—basic sound elements—and then passing the phonemes to an electronic
+speech generator. The problem we are concemed with here is learning the mapping from text
+to phonemes. This is a good task for neural networks because most of the "rules" are only
+approximately correct. For example, although the letter “k” usually corresponds to the sound [k],
+the letter “‘c” is pronounced [k] in cat and [s] in cent.
+
+The NETtalk program (Sejnowski and Rosenberg, 1987) is a neural network that learns to
+pronounce written text. The input is a sequence of characters presented in a window that slides
+through the text. At any time, the input includes the character to be pronounced along with the
+preceding and following three characters. Each character is actually 29 input units—one for each
+of the 26 letters, and one each for blanks, periods, and other punctuation. There were 80 hidden.
+units in the version for which results are reported. The output layer consists of features of the
+sound to be produced: whether it is high or low, voiced or unvoiced, and so on. Sometimes, it
+takes two or more letters to produce a single sound; in this case, the correct output for the second
+letter is nothing.
+
+Training consisted of a 1024-word text that had been hand-transcribed into the proper
+phonemic features. NETtalk leams to perform at 95% accuracy on the training set after 50 passes
+through the training data. One might think that NETtalk should perform at 100% on the text it
+has trained on. But any program that learns individual words rather than the entire text as a whole
+will inevitably score less than 100%. The difficulty arises with words like /Jead, which in some
+cases should be pronounced to rhyme with bead and sometimes like bed. A program that looks
+at only a limited window will occasionally get such words wrong.
+
+So much for the ability of the network to reproduce the training data. What about the gen-
+eralization performance? This is somewhat disappointing. On the test data, NETtalk's accuracy
+goes down to 78%, a level that is intelligible, but much worse than commercially available pro-
+grams. Ofcourse, the commercial systems required years of development, whereas NETtalk only
+required a few dozen hours of training time plus a few months of experimentation with various
+network designs. However, there are other techniques that require even less development and
+perform just as well. For example, ifwe use the input to determine the probability of producing
+a particular phoneme given the current and previous character and then use a Markov model to
+find the sequence of phonemes with maximal probability, we do just as well as NETtalk.
+
+NETtalk was perhaps the "flagship" demonstration that converted many scientists, partic-
+ularly in cognitive psychology, to the cause of neural network research. A post hoc analysis
+

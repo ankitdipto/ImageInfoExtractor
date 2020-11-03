@@ -1,0 +1,69 @@
+960
+
+Chapter 31 Number-Theoretic Algorithms
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Bob Alice
+communication channel
+encrypt decrypt
+C = P4(M)
+M | Psy | Sa >M
+eavesdropper
+C
+
+Figure 31.5 Encryption in a public key system. Bob encrypts the message M using Alice’s public
+key P4 and transmits the resulting ciphertext C = P4(M) over a communication channel to Al-
+ice. An eavesdropper who captures the transmitted ciphertext gains no information about M. Alice
+receives C and decrypts it using her secret key to obtain the original message M = S4(C).
+
+knows P,4 and can compute P,(), the inverse function to S4(), efficiently. In order
+to design a workable public-key cryptosystem, we must figure out how to create
+a system in which we can reveal a transformation P4() without thereby revealing
+how to compute the corresponding inverse transformation S4(). This task appears
+formidable, but we shall see how to accomplish it.
+
+In a public-key cryptosystem, encryption works as shown in Figure 31.5. Sup-
+pose Bob wishes to send Alice a message M encrypted so that it will look like
+unintelligible gibberish to an eavesdropper. The scenario for sending the message
+goes as follows.
+
+* Bob obtains Alice’s public key P4 (from a public directory or directly from
+Alice).
+
++ Bob computes the ciphertext C = P4(M) corresponding to the message M
+and sends C to Alice.
+
+* When Alice receives the ciphertext C, she applies her secret key S44 to retrieve
+the original message: S4(C) = S4(P4(M)) = M.
+
+Because S4() and P,4() are inverse functions, Alice can compute M from C. Be-
+cause only Alice is able to compute S4(), Alice is the only one who can compute M
+from C. Because Bob encrypts M using P,(), only Alice can understand the trans-
+mitted message.
+
+We can just as easily implement digital signatures within our formulation of a
+public-key cryptosystem. (There are other ways of approaching the problem of
+constructing digital signatures, but we shall not go into them here.) Suppose now
+that Alice wishes to send Bob a digitally signed response M’. Figure 31.6 shows
+how the digital-signature scenario proceeds.
+
+* Alice computes her digital signature o for the message M’ using her secret
+key S4 and the equation o = S4(M’).
+

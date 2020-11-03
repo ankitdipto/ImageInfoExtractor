@@ -1,0 +1,57 @@
+24.5 Proofs of shortest-paths properties 675
+
+ 
+
+Figure 24.9 Showing that a simple path in Gz from source s to vertex v is unique. If there are two
+paths py (s ~+ u~+ xX > Z~> v)and pp (s+ u~+ y +z ~ v), where x # y, then Z.7 =x
+and z. = y, a contradiction.
+
+But
+
+ 
+
+k
+
+id= vind,
+
+i=1
+
+ 
+
+ 
+
+i
+
+since each vertex in the cycle c appears exactly once in each summation. This
+equality implies
+k
+
+0O> > w(vj-1, Yj) -
+
+i=l
+
+Thus, the sum of weights around the cycle c is negative, which provides the desired
+contradiction.
+
+We have now proven that G,, is a directed, acyclic graph. To show that it forms
+a rooted tree with root s, it suffices (see Exercise B.5-2) to prove that for each
+vertex v € V,,, there is a unique simple path from s to v in G,.
+
+We first must show that a path from s exists for each vertex in V,. The ver-
+tices in V, are those with non-NIL z values, plus s. The idea here is to prove by
+induction that a path exists from s to all vertices in Vz. We leave the details as
+Exercise 24.5-6.
+
+To complete the proof of the lemma, we must now show that for any vertex
+v € V,, the graph G, contains at most one simple path from s to v. Suppose other-
+wise. That is, suppose that, as Figure 24.9 illustrates, G, contains two simple paths
+from s to some vertex v: p1, Which we decompose into s~+u~+ x + Z~ 0,
+and pz, which we decompose into s ~+ u~+ y > z~+ v, where x # y (though u
+could be s and z could be v). But then, z.2 = x and z.m = y, which implies
+the contradiction that x = y. We conclude that G, contains a unique simple path
+from s to v, and thus G,, forms a rooted tree with root s. .
+
+We can now show that if, after we have performed a sequence of relaxation steps,
+all vertices have been assigned their true shortest-path weights, then the predeces-
+sor subgraph G,, is a shortest-paths tree.
+

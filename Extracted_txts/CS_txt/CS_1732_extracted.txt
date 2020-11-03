@@ -1,0 +1,49 @@
+220 Chapter7 Process Synchronization
+
+solution to this problem, but rather shall leave it as an exercise for you. We
+shall now consider a possible implementation of the monitor mechanism using
+semaphores. For each monitor, a semaphore mutex (initialized to 1) is provided.
+A process must execute wait (mutex) before entering the monitor, and must
+execute signal (mutex) after leaving the monitor.
+
+Since a signaling process must wait until the resumed process either leaves
+or waits, an additional semaphore, next, is introduced, initialized to 0, on
+which the signaling processes may suspend themselves. An integer variable
+next_count will also be provided to count the number of processes suspended
+on next. Thus, each external procedure F will be replaced by
+
+wait (mutex) ;
+body of F
+
+if (next_count > 0)
+signal (next) ;
+else
+signal (mutex) ;
+
+Mutual exclusion within a monitor is ensured.
+
+We can now describe how condition variables are implemented. For each
+condition x, we introduce a semaphore x_sem and an integer variable x_count ,
+both initialized to 0. The operation x. wait can now be implemented as
+
+x_count++;
+if (mext_count > 0)
+signal (next) ;
+else
+signal (mutex) ;
+wait (x_sem) ;
+x_count-—;
+
+The operation x. signal () can be implemented as
+
+if (x-count > 0) {
+next_count++;
+signal (x_sem) ;
+wait (next) ;
+next_count——;
+
+}
+
+This implementation is applicable to the definitions of monitors given by
+both Hoare and Brinch-Hansen. In some cases, however, the generality of the
+

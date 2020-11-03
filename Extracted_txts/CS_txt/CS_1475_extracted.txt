@@ -1,0 +1,49 @@
+1.2. Mainframe Systems 9
+
+ 
+
+ 
+
+jobs
+
+ 
+
+job4
+
+ 
+
+ 
+
+512K
+
+ 
+
+Figure 1.3 Memory layout for a multiprogramming system.
+
+operating system picks and begins to execute one of the jobs in the memory.
+Eventually, the job may have to wait for some task, such as an I/O operation,
+to complete. In a non-multiprogrammed system, the CPU would sit idle. In
+a multiprogramming system, the operating system simply switches to, and
+executes, another job. When that job needs to wait, the CPU is switched to
+another job, and so on. Eventually, the first job finishes waiting and gets the
+CPU back. As long as at least one job needs to execute, the CPU is never idle.
+This idea is common in other life situations. A lawyer does not work for
+only one client at a time. While one case is waiting to go to trial or have
+papers typed, the lawyer can work on another case. If she has enough clients,
+the lawyer will never be idle for lack of work. (Idle lawyers tend to become
+politicians, so there is a certain social value in keeping lawyers busy.)
+Multiprogramming is the first instance where the operating system must
+make decisions for the users. Multiprogrammed operating systems are there-
+fore fairly sophisticated. All the jobs that enter the system are kept in the job
+pool. This pool consists of all processes residing on disk awaiting allocation
+of main memory. If several jobs are ready to be brought into memory, and if
+there is not enough room for all of them, then the system must choose among
+them. Making this decision is job scheduling, which is discussed in Chapter 6.
+When the operating system selects a job from the job pool, it loads that job into
+memory for execution. Having several programs in memory at the same time
+requires some form of memory management, which is covered in Chapters 9
+and 10. In addition, if several jobs are ready to run at the same time, the system
+must choose among them. Making this decision is CPU scheduling, which is
+discussed in Chapter 6. Finally, multiple jobs running concurrently require
+that their ability to affect one another be limited in all phases of the operating
+

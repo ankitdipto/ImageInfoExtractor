@@ -1,0 +1,59 @@
+42 Chapter 2 Computer-System Structures
+
+2.5 m Hardware Protection
+
+  
+
+Early computer systems were single-user programmer-operated systems.
+When the programmers operated the computer from the console, they had
+complete control over the system. As operating systems developed, however,
+this control was given to the operating system. Early operating systems were
+called resident monitors, and starting with the resident monitor, the operating
+system began to perform many of the functions, especially I/O, for which the
+programmer had previously been responsible.
+
+In addition, to improve system utilization, the operating system began to
+share system resources among several programs simultaneously. With spooling,
+one program might have been executing while I/O occurred for other processes;
+the disk simultaneously held data for many processes. Multiprogramming put
+several programs in memory at the same time.
+
+This sharing both improved utilization and increased problems. When the
+system was run without sharing, an error in a program could cause problems
+for only the one program that was running. With sharing, many processes could
+be adversely affected by a bug in one program.
+
+For example, consider the simple batch operating system (Section 1.2.1),
+which provides nothing more than automatic job sequencing. If a program gets
+stuck in a loop reading input cards, the program will read through all its data
+and, unless something stops it, will continue reading the cards of the next job,
+and the next, and so on. This loop could prevent the correct operation of many
+jobs.
+
+Even more subtle errors can occur in a multiprogramming system, where
+one erroneous program might modify the program or data of another program,
+or even the resident monitor itself. MS-DOS and the Macintosh OS both allow
+this kind of error.
+
+Without protection against these sorts of errors, either the computer must
+execute only one process at a time, or all output must be suspect. A prop-
+erly designed operating system must ensure that an incorrect (or malicious)
+program cannot cause other programs to execute incorrectly.
+
+Many programming errors are detected by the hardware. These errors are
+normally handled by the operating system. If a user program fails in some way
+—such as by making an attempt either to execute an illegal instruction, or to
+access memory that is not in the user’s address space—then the hardware will
+trap to the operating system. The trap transfers control through the interrupt
+vector to the operating system, just like an interrupt. Whenever a program
+error occurs, the operating system must abnormally terminate the program.
+This situation is handled by the same code as is a user-requested abnormal
+termination. An appropriate error message is given, and the memory of the
+program may be dumped. The memory dump is usually written to a file so that
+the user or programmer can examine it, and perhaps can correct and restart the
+program.
+
+ 
+
+ 
+

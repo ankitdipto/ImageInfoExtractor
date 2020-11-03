@@ -1,0 +1,48 @@
+1010
+
+Chapter 32 String Matching
+
+then line 9 sets the new state to g’ +1, which should equal 6(¢, a) for the simulation
+to work correctly. In other words, the new state 5(g, a) should be either state 0 or
+one greater than some state in z*[q].
+
+Let’s look at the example in Figures 32.7 and 32.11, which are for the pattern
+P = ababaca. Suppose that the automaton is in state g = 5; the states in
+s*[5] are, in descending order, 3, 1, and 0. If the next character scanned is c, then
+we can easily see that the automaton moves to state 6(5,c) = 6 in both FINITE-
+AUTOMATON-MATCHER and KMP-MATCHER. Now suppose that the next char-
+acter scanned is instead b, so that the automaton should move to state 5(5,b) = 4.
+The while loop in KMP-MATCHER exits having executed line 7 once, and it ar-
+rives in state g’ = [5] = 3. Since P[qg’ + 1] = P[4] = b, the test in line 8
+comes up true, and KMP-MATCHER moves to the new state g’ +1 = 4 = 5(5,b).
+Finally, suppose that the next character scanned is instead a, so that the automa-
+ton should move to state 5(5,a) = 1. The first three times that the test in line 6
+executes, the test comes up true. The first time, we find that P[6] = c # a, and
+KMP-MATCHER moves to state [5] = 3 (the first state in 1*[5]). The second
+time, we find that P[4] = b # a and move to state [3] = 1 (the second state
+in *[5]). The third time, we find that P[2] = b # a and move to state [1] = 0
+(the last state in 2*[5]). The while loop exits once it arrives in state g’ = 0. Now,
+line 8 finds that P [q’+ 1] = P[1] = a, and line 9 moves the automaton to the new
+state q’ +1 = 1 = 6(5,a).
+
+Thus, our intuition is that KMP-MATCHER iterates through the states in 2*[q] in
+decreasing order, stopping at some state q' and then possibly moving to state q’ +1.
+Although that might seem like a lot of work just to simulate computing 5(q.a),
+bear in mind that asymptotically, KMP-MATCHER is no slower than FINITE-
+AUTOMATON-MATCHER.
+
+We are now ready to formally prove the correctness of the Knuth-Morris-Pratt
+algorithm. By Theorem 32.4, we have that g = o(T;) after each time we execute
+line 4 of FINITE-AUTOMATON-MATCHER. Therefore, it suffices to show that the
+same property holds with regard to the for loop in KMP-MATCHER. The proof
+proceeds by induction on the number of loop iterations. Initially, both procedures
+set q to 0 as they enter their respective for loops for the first time. Consider itera-
+tion i of the for loop in KMP-MATCHER, and let qg’ be state at the start of this loop
+iteration. By the inductive hypothesis, we have q’ = o(T;_;). We need to show
+that ¢ = o(T;) at line 10. (Again, we shall handle line 12 separately.)
+
+When we consider the character T [i], the longest prefix of P that is a suffix of T;
+is either Py 4, (if P[g’ + 1] = T[]) or some prefix (not necessarily proper, and
+possibly empty) of P;. We consider separately the three cases in which o(7;) = 0,
+o(T;)=q' + land0 < o(T;) <q’.
+

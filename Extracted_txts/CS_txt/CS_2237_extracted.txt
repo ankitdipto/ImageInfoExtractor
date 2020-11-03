@@ -1,0 +1,54 @@
+392
+
+CHAPTER ELEVEN Input-Output Organization
+
+—— Data bus -——“
+Source Destination
+unit Strobe unit
+
+(a) Block diagram
+
+ 
+
+ 
+
+Data Valid data +
+
+Strobe
+
+(b) Timing diagram
+
+Figure 11-3 Source:nitiated strobe or data transfer.
+
+‘The data bus carries the binary information from source unit to the destination
+unit. Typically, the bus has multiple lines to transfer an entire byte or word.
+The strobe is a single line that informs the destination unit when a valid data
+word is available in the bus.
+
+‘As shownin the timing diagram of Fig. 11-3(b), the source unitfirstplaces
+the data on the data bus. After a brief delay to ensure that the data settle to
+a steady value, the source activates the strobe pulse. The information on the
+data bus and the strobe signal remain in the active state for a sufficient time
+period to allow the destination unit to receive the data. Often, the destination
+unit uses the falling edge of the strobe pulse to transfer the contents of the data
+businto one of ts internal registers. The source removes the data from the bus
+a brief period after it disables its strobe pulse. Actually, the source does not
+have tochange the information in the data bus. The fact that the strobe signal
+is disabled indicates that the data bus does not contain valid data. New valid
+data will be available only after the strobe is enabled again.
+
+Figure 11-4 shows a data transfer initiated by the destination unit. In this
+case the destination unit activates the strobe pulse, informing the source to
+provide the data. The source unit responds by placing the requested binary
+information on the data bus. The data must be valid and remain in the bus long
+enough for the destination unit to accept it. The falling edge of the strobe pulse
+can be used again to trigger a destination register. The destination unit then
+disables the strobe. The source removes the data from the bus after a predeter-
+mined time interval.
+
+In many computers the strobe pulse is actually controlled by the clock
+pulses in the CPU. The CPU is always in control of the buses and informs the
+external units how to transfer data. For example, the strobe of Fig, 11-3 could
+bea memory-write control signal from the CPU to a memory unit. The source,
+being the CPU, places a word on the data bus and informs the memory unit,
+

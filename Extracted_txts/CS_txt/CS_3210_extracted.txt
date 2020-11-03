@@ -1,0 +1,78 @@
+Section 19.2
+
+Neural Networks 571
+
+ 
+
+HOPFIELD.
+NETWORKS:
+
+ASSOCIATIVE
+MEMORY
+
+SOUTZMANN
+MACHINES
+
+INPUT UNITS
+‘OUTPUT UNITS
+HIDDEN UNITS
+
+PERCEPTRONS
+
+MULTILAYER
+NETWORKS
+
+than in feed-forward networks. Recurrent networks can become unstable, or oscillate, or exhibit
+chaotic behavior. Given some input values, it can take a long time to compute a stable output,
+and learning is made more difficult. On the other hand, recurrent networks can implement more
+complex agent designs and can model systems with state. Because recurrent networks require
+some quite advanced mathematical methods, we can only provide a few pointers here.
+
+Hopfield networks are probably the best-understood class of recurrent networks. They
+use bidirectional connections with symmetric weights (i.e., W;;= Wj,); all of the units are both
+input and output units; the activation function g is the sign function; and the activation levels can
+only be + 1. A Hopfield network functions as an associative memory—aftertraining on a set of
+examples, a new stimulus will cause the network to settle into an activation pattern corresponding
+to the example in the training set that most closely resembles the new stimulus. For example, if
+the training set consists ofa set of photographs, and the new stimulus is a small piece of one of
+the photographs, then the network activation levels will reproduce the photograph from which the
+piece was taken. Notice that the original photographs are not stored separately in the network;
+each weight is a partial encoding of all the photographs. One of the most interesting theoretical
+results is that Hopfield networks can reliably store up to 0.138N training examples, where N is
+the number of units in the network.
+
+Boltzmann machines also use symmetric weights, but include units that are neither input
+nor output units (cf. the units labelled H; and Hy, in Figure 19.7). They also use a stochastic
+activation function, such that the probability of the output being 1 is some function of the total
+weighted input. Boltzmann machines therefore undergo state transitions that resemble a simulated
+annealing search for the configuration that best approximates the training set (see Chapter 4).
+It turns out that Boltzmann machines are formally identical to a special case of belief networks
+evaluated with a stochastic simulation algorithm (see Section 15.4).
+
+Returning to feed-forward networks, there is one more important distinction to be made.
+Examine Figure 19.7, which shows the topology ofa very simple neural network. On the left are
+the input units. The activation value of each of these units is determined by the environment. At
+the right-hand end of the network are four output units. In between, the nodes labelled H; and
+H, have no direct connection to the outside world. These are called hidden units, because they
+cannot be directly observed by noting the input/output behavior of the network. Some networks,
+called perceptrons, have no hidden units. This makes the learning problem much simpler, but
+it means that perceptrons are very limited in what they can represent. Networks with one or
+more layers of hidden units are called multilayer networks. With one (sufficiently large) layer
+of hidden units, it is possible to represent any continuous function of the inputs; with two layers,
+even discontinuous functions can be represented.
+
+With a fixed structure and fixed activation functions g, the functions representable by a
+feed-forward network are restricted to have a specific parameterized structure. The weights
+chosen for the network determine which of these functions is actually represented. For example,
+the network in Figure 19.7 calculates the following function:
+
+as = g(W3s5a3 + Wysa4)
+= g(Wss5g(Wi 3a) + W23a2) + Wasg(W) sai + W244) (19.1)
+
+  
+
+ 
+
+where g is the activation function, and a; is the output of node i. Notice that because the activation
+functions g are nonlinear, the whole network represents a complex nonlinear function. If you
+

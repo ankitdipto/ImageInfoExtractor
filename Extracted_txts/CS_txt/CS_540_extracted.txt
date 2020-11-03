@@ -1,0 +1,50 @@
+34.4 NP-completeness proofs 1079
+
+3. Describe an algorithm that computes a function f mapping every instance
+x € {0,1}* of L’ to an instance f(x) of L.
+
+4. Prove that the function f satisfies x € L’ if and only if f(x) € L for all
+xe f0n.
+
+5. Prove that the algorithm computing f runs in polynomial time.
+
+(Steps 2-5 show that L is NP-hard.) This methodology of reducing from a sin-
+gle known NP-complete language is far simpler than the more complicated pro-
+cess of showing directly how to reduce from every language in NP. Proving
+CIRCUIT-SAT € NPC has given us a “foot in the door.” Because we know that the
+circuit-satisfiability problem is NP-complete, we now can prove much more easily
+that other problems are NP-complete. Moreover, as we develop a catalog of known
+NP-complete problems, we will have more and more choices for languages from
+which to reduce.
+
+Formula satisfiability
+
+We illustrate the reduction methodology by giving an NP-completeness proof for
+the problem of determining whether a boolean formula, not a circuit, is satisfiable.
+This problem has the historical honor of being the first problem ever shown to be
+NP-complete.
+
+We formulate the (formula) satisfiability problem in terms of the language SAT
+as follows. An instance of SAT is a boolean formula ¢ composed of
+
+1. n boolean variables: x;,%2,..., Xn
+
+2. m boolean connectives: any boolean function with one or two inputs and one
+output, such as A (AND), Vv (OR), — (NOT), — (implication), < (if and only
+if); and
+
+3. parentheses. (Without loss of generality, we assume that there are no redundant
+parentheses, i.e., a formula contains at most one pair of parentheses per boolean
+connective.)
+
+We can easily encode a boolean formula ¢ in a length that is polynomial in n +m.
+As in boolean combinational circuits, a truth assignment for a boolean formula @
+is a set of values for the variables of ¢, and a satisfying assignment is a truth
+assignment that causes it to evaluate to 1. A formula with a satisfying assignment
+is a satisfiable formula. The satisfiability problem asks whether a given boolean
+formula is satisfiable; in formal-language terms,
+
+SAT = {(¢) : ¢ isa satisfiable boolean formula} .
+
+As an example, the formula
+

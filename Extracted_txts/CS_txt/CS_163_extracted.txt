@@ -1,0 +1,46 @@
+Chapter 27 Multithreaded Algorithms 773
+
+and the trend appears to be toward shared-memory multiprocessing. Although time
+will tell, that is the approach we shall take in this chapter.
+
+One common means of programming chip multiprocessors and other shared-
+memory parallel computers is by using static threading, which provides a software
+abstraction of “virtual processors,” or threads, sharing a common memory. Each
+thread maintains an associated program counter and can execute code indepen-
+dently of the other threads. The operating system loads a thread onto a processor
+for execution and switches it out when another thread needs to run. Although the
+operating system allows programmers to create and destroy threads, these opera-
+tions are comparatively slow. Thus, for most applications, threads persist for the
+duration of a computation, which is why we call them “static.”
+
+Unfortunately, programming a shared-memory parallel computer directly using
+static threads is difficult and error-prone. One reason is that dynamically parti-
+tioning the work among the threads so that each thread receives approximately
+the same load turns out to be a complicated undertaking. For any but the sim-
+plest of applications, the programmer must use complex communication protocols
+to implement a scheduler to load-balance the work. This state of affairs has led
+toward the creation of concurrency platforms, which provide a layer of software
+that coordinates, schedules, and manages the parallel-computing resources. Some
+concurrency platforms are built as runtime libraries, but others provide full-fledged
+parallel languages with compiler and runtime support.
+
+Dynamic multithreaded programming
+
+One important class of concurrency platform is dynamic multithreading, which is
+the model we shall adopt in this chapter. Dynamic multithreading allows program-
+mers to specify parallelism in applications without worrying about communication
+protocols, load balancing, and other vagaries of static-thread programming. The
+concurrency platform contains a scheduler, which load-balances the computation
+automatically, thereby greatly simplifying the programmer’s chore. Although the
+functionality of dynamic-multithreading environments is still evolving, almost all
+support two features: nested parallelism and parallel loops. Nested parallelism
+allows a subroutine to be “spawned,” allowing the caller to proceed while the
+spawned subroutine is computing its result. A parallel loop is like an ordinary
+for loop, except that the iterations of the loop can execute concurrently.
+
+These two features form the basis of the model for dynamic multithreading that
+we shall study in this chapter. A key aspect of this model is that the programmer
+needs to specify only the logical parallelism within a computation, and the threads
+within the underlying concurrency platform schedule and load-balance the compu-
+tation among themselves. We shall investigate multithreaded algorithms written for
+

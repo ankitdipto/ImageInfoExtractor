@@ -1,0 +1,59 @@
+88
+
+Chapter 3. Solving Problems by Searching
+
+ 
+
+ 
+
+e. Amonkey is in aroom witha crate, with bananas suspended just out ofreach on the ceiling.
+He would like to get the bananas.
+
+f You are lost in a small country town, and must find a drug store before your hay fever
+becomes intolerable. There are no maps, and the natives are all locked indoors.
+
+34 Implement the missionaries and cannibals problem and use breadth-first search to find the
+shortest solution. Is it a good idea to check for repeated states? Draw a diagram of the complete
+state space to help you decide.
+
+35 On page 76, we said that we would not consider problems with negative path costs. In this
+exercise, we explore this in more depth.
+
+a. Suppose that a negative lower bound c is placed on the cost of any given step—that is,
+negative costs are allowed, but the cost of a step cannot be less than c. Does this allow
+uniform-cost search to avoid searching the whole tree?
+
+b. Suppose that there is a set of operators that form a loop, so that executing the set in some
+order results in no net change to the state. If all of these operators have negative cost, what
+does this imply about the optimal behavior for an agent in such an environment?
+
+c. One can easily imagine operators with high negative cost, even in domains such as route-
+finding. For example, some stretches of road might have such beautiful scenery as to far
+outweigh the normal costs in terms of time and fuel. Explain, in precise terms, why humans
+do not drive round scenic loops indefinitely, and explain how to define the state space and
+operators for route-finding so that artificial agents can also avoid looping.
+
+d. Can you think ofa real domain in which step costs are such as to cause looping?
+
+36 The GENERAL-SEARCH algorithm consists of three steps: goal test, generate, and ordering
+function, in that order. It seems a shame to generate a node that is in fact a solution, but to fail to
+recognize it because the ordering function fails to place it first
+
+a. Write a version of GENERAL-SEARCH that tests each node as soon as it is generated and’
+stops immediately ifit has found a goal.
+
+b. Show how the GENERAL-SEARCH algorithm can be used unchanged to do this by giving it
+the proper ordering function.
+
+37 The formulation of problem, solution, and search algorithm given in this chapter explicitly.
+mentions the path to a goal state. This is because the path is important in many problems. For
+other problems, the path is irrelevant, and only the goal state matters. Consider the problem
+"Find the square root of 123454321." A search through the space of numbers may pass through]
+many states, but the only one that matters is the goal state, the number 11111. Of course, froma
+theoretical point of view, it is easy to run the general search algorithm and then ignore all of the
+path except the goal state. But as a programmer, you may realize an efficiency gain by coding a
+version of the search algorithm that does not keep track of paths. Consider a version of problem
+solving where there are no paths and only the states matter. Write definitions of problem and
+solution, and the general search algorithm. Which of the problems in Section 3.3 would best use
+this algorithm, and which should use the version that keeps track of paths?
+

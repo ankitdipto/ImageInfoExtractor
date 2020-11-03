@@ -1,0 +1,60 @@
+Section 8.5 The Grocery Shopping World 247
+
+ 
+
+Actually, it would be more consistent to have Believes be an event fluent just as Flies is. Then
+we could say that it will be true tomorrow that Lois knew that Superman could fly yesterday:
+
+T(Believes(Lois,Flies(Superman), Yesterday), Tomorrow)
+
+We can even say that it is true now that Jimmy knows today that Lois believes that Superman
+could fly yesterday:
+
+T(Knows(Jimmy, Believes(Lois, Flies(Superman), Yesterday), Today), Now)
+
+Knowledge and action
+
+We have been so busy trying to represent knowledge that there is a danger of losing track of what
+knowledge is/or. Recall that we are interested in building agents that perform well. That means
+that the only way knowledge can help is if it allows the agent to do some action it could not
+have done before, or if it allows the agent to choose a better action than it would otherwise have
+chosen. For example, if the agent has the goal of speaking to Bob, then knowing Bob's phone
+number can be a great help. It enables the agent to perform a dialing action and have a much
+better chance of reaching Bob than ifthe agent did not know the number and dialed randomly.
+
+KNOWLEDGE One way of looking at this is to say that actions have knowledge preconditions and
+RIOWLEDGE knowledge effects. For example, the action of dialing a person's number has the precondition of
+
+knowing the number, and the action of calling directory assistance sometimes has the effect of
+knowing the number.
+
+Note that each action has its own requirements on the form of the knowledge, just as each
+question to KnowsWhat had its own requirements. Suppose I am in China, and the telephone
+there has Chinese numerals on the buttons.'* Then knowing what Bob's number is as a digit
+string is not enough—I need to know it as a string of Chinese digits. Similarly, the question
+of whether I know where Bob lives has a different answer depending on how I want to use the
+information. IfI'm planning to go there by taxi, all I need is an address; if I'm driving myself, I
+need directions; if I'm parachuting in, I need exact longitude and latitude
+
+ 
+
+8.5 __THE GROCERY SHOPPING WORLD
+
+ 
+
+ 
+
+ 
+
+In this section, all our hard work in defining a general ontology pays off: we will be able to
+define the knowledge that an agent needs to shop for a meal in a market. To demonstrate that
+the knowledge is sufficient, we will run a knowledge-based agent in our environment simulator.
+That means providing a simulated shopping world, which will by necessity be simpler than the
+real world. But much of the knowledge shown here is the same for simulated or real worlds. The
+big differences are in the complexity of vision, motion, and tactile manipulation. (These topics
+will be covered in Chapters 24 and 25.)
+
+'2 Actually, Chinese phones have Arabic numerals, but bear with the example
+
+ 
+

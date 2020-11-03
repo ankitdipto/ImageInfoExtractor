@@ -1,0 +1,58 @@
+Section 11.4. Basic Representations for Planning 345
+
+ 
+
+except for those that are negative literals in Effect(o)For example, if the initial situation includes
+the literals
+
+At(Home), Path(Home, Supermarket), ... |
+then the action Go(Supermarket)is applicable, and the resulting situation contains the literals |
+
+Situation Space and Plan Space
+
+In Figure 11.2, we showed a search space of situations in the world (in this case the shopping
+world). A path through this space from the initial state to the goal state constitutes a plan for
+the shopping problem. If we wanted, we could take a problem described in the STRIPS language
+and solve it by starting at the initial state and applying operators one at a time until we reached
+a state that includes all the literals in the goal. We could use any of the search methods of Part
+IL An algorithm that did this would clearly be considered a problem solver, but we could also
+
+SITUATION SPACE consider it a planner. We would call it a situation space planner because it searches through
+
+PROGRESSION the space of possible situations, and a progression planner because it searches forward from the
+initial situation to the goal situation. The main problem with this approach is the high branching
+factor and thus the huge size of the search space.
+
+One way to try to cut the branching factor is to search backwards, from the goal state to the
+
+REGRESSION initial state; such a search is called regression planning. This approach is possible because the
+operators contain enough information to regress from a partial description of a result state to a
+partial description of the state before an operator is applied. We cannot get complete descriptions
+of states this way, but we don'tneed to. The approach is desirable because in typical problems the
+goal state has only a few conjuncts, each of which has only a few appropriate operators, whereas
+the initial state usually has many applicable operators. (An operator is appropriate to a goal ifthe
+goal is an effect of the operator.) Unfortunately, searching backwards is complicated somewhat
+by the fact that we often have to achieve a conjunction of goals, notjust one. The original STRIPS
+algorithm was a situation-space regression planner that was incomplete (it could not always find
+a plan when one existed) because it had an inadequate way of handling the complication of
+conjunctive goals. Fixing this incompleteness makes the planner very inefficient.
+
+In summary, the nodes in the search tree of a situation-space planner correspond to sit-
+uations, and the path through the search tree is the plan that will be ultimately returned by
+the planner. Each branch point adds another step to either the beginning (regression) or end
+(progression) of the plan.
+
+An alternative is to search through the space of plans rather than the space of situations.
+
+PARTIAL PLAN That is, we start with a simple, incomplete plan, which we call a partial plan. Then we consider
+ways of expanding the partial plan until we come up with a complete plan that solves the problem.
+The operators in this search are operators on plans: adding a step, imposing an ordering that puts
+one step before another, instantiating a previously unbound variable, and so on. The solution is
+
+ese the final plan, and the path taken to reach it is irrelevant. .
+
+OPERRORS Operations on plans come in two categories. Refinement operators take a partial plan
+and add constraints to it. One way of looking at a partial plan is as a representation for a set
+
+—=At(Home), At(Supermarket), Path(Home, Supermarket), ...
+

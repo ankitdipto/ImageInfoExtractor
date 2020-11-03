@@ -1,0 +1,50 @@
+92
+
+Chapter 4 Divide-and-Conquer
+
+The longest simple path from the root to a leaf isn — (2/3)n — (2/3)?n >
++++ 1. Since (2/3)*n = 1 when k = log3/2 n, the height of the tree is logs). 7.
+
+Intuitively, we expect the solution to the recurrence to be at most the number
+of levels times the cost of each level, or O(cn logs;.n) = O(nlgn). Figure 4.6
+shows only the top levels of the recursion tree, however, and not every level in the
+tree contributes a cost of cn. Consider the cost of the leaves. If this recursion tree
+were a complete binary tree of height logs/. 1, there would be 2!°83/2" = n'83/2?
+leaves. Since the cost of each leaf is a constant, the total cost of all leaves would
+then be ©(n'3/2?) which, since log,,,2 is a constant strictly greater than 1,
+is a(nlgn). This recursion tree is not a complete binary tree, however, and so
+it has fewer than n'°83/2? leaves. Moreover, as we go down from the root, more
+and more internal nodes are absent. Consequently, levels toward the bottom of the
+recursion tree contribute less than cn to the total cost. We could work out an accu-
+rate accounting of all costs, but remember that we are just trying to come up witha
+guess to use in the substitution method. Let us tolerate the sloppiness and attempt
+to show that a guess of O(n lg) for the upper bound is correct.
+
+Indeed, we can use the substitution method to verify that O(n lgn) is an upper
+bound for the solution to the recurrence. We show that T(n) < dn lgn, where d is
+a suitable positive constant. We have
+
+T(n) < T(n/3)+T(2n/3) +en
+< d(n/3)|g(n/3) + d(2n/3) 1g(2n/3) + en
+= (d(n/3)lgn —d(n/3) lg 3)
++ (d(2n/3)lgn —d(2n/3) lg(3/2)) +n
+
+dnign —d((n/3) lg 3 + (2n/3) 1g(3/2)) + en
+dnign —d((n/3) lg 3 + (2n/3) lg 3 — (2n/3) 1g 2) +n
+dnign —dn(lg3 —2/3) +cn
+
+< dnign,
+
+as long as d > c/(Ig 3 — (2/3)). Thus, we did not need to perform a more accurate
+accounting of costs in the recursion tree.
+
+Exercises
+
+4.4-1
+Use a recursion tree to determine a good asymptotic upper bound on the recurrence
+T(n) = 3T(|n/2]) +n. Use the substitution method to verify your answer.
+
+4.4-2
+Use a recursion tree to determine a good asymptotic upper bound on the recurrence
+T(n) = T(n/2) +n?. Use the substitution method to verify your answer.
+

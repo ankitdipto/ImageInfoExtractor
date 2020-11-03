@@ -1,0 +1,70 @@
+326
+
+Chapter 10. Logical Reasoning Systems
+
+ 
+
+TRUTH
+MAINTENANCE
+
+TRUTH,
+MAINTENANCE
+SYSTEM
+
+EXPLANATIONS
+
+ASSUNPTIONS
+
+asserted), then Q does not have to be removed after all. The process of keeping track of which
+additional propositions need to be retracted when we retract P is called truth maintenance.
+
+The simplest approach to truth maintenance is to use chronological backtracking (see page
+309). In this approach, we keep track of the order in which sentences are added to the knowledge ;
+base by numbering them from P; to P,. When the call RETRACT(P;) is made, the system reverts
+to the state just before P; was added. If desired, the sentences P;,, through P,, can then be added
+again. This is simple, and it guarantees that the knowledge base will be consistent, but it means
+that retraction is O(n), where n is the size of the knowledge base. We would prefer a more
+efficient approach that does not require us to duplicate all the work for P;,; to P,,.
+
+A truth maintenance system or TMS is a program that keeps track of dependencies ;
+between sentences so that retraction (and some other operations) will be more efficient. A TMS
+actually performs four important jobs. First, a TMS enables dependency-directed backtracking,
+to avoid the inefficiency of chronological backtracking. 4
+
+A second and equally important job is to provide explanations of propositions. A proof
+is one kind of explanation—ifwe ask, "Explain why you believe P is true?" then a proof of P
+is a good explanation. Ifa proof is not possible, then a good explanation is one that involves
+assumptions. For example, ifwe ask, "Explain why the car won't start," there may not be enough
+evidence to prove anything, but a good explanation is, "If we assume that there is gas in the car
+and thatit is reaching the cylinders, then the observed absence of activity proves that the electrical |
+system must be at fault." Technically, an explanation £ of a sentence P is defined as a set of
+sentences such that E entails P. The sentences in £ must either be known to be true (ie., they
+are in the knowledge base), or they must be known to be assumptions that the problem-solver
+has made. To avoid having the whole knowledge base as an explanation, we will insist that Z is
+minimal, that is, that there is no proper subset of E that is also an explanation.
+
+The ability to deal with assumptions and explanations is critical for the thirdjob of a TMS:
+doing default reasoning. In a taxonomic system that allows exceptions, stating that Opus is a
+penguin does not sanction an irrefutable inference that Opus has two legs, because additional
+information about Opus might override the derived belief. A TMS can deliver the explanation
+that Opus, being a penguin, has two legs provided he is not an abnormal penguin. Here, the
+lack of abnormality is made into an explicit assumption. Finally, TMSs help in dealing with ;
+inconsistencies. Ifadding P to the knowledge base results in a logical contradiction, a TMS can }
+help pinpoint an explanation of what the contradiction is
+
+There are several types of TMSs. The simplest is thejustification-based truth maintenance
+system or JTMS. In aJTMS, each sentence in the knowledge base is annotated with ajustification
+that identifies the sentences from which it was inferred, if any. For example, if Q is inferred by
+Modus Ponens from P, then the set of sentences {P, P = @Q} could serve as a justification of
+the sentence Q. Some sentences will have more than one justification. Justifications are used 4
+to do selective retractions. If after adding P, through P,, we get a call to RETRACT(P;), then the
+JIMS will remove from the knowledge base exactly those sentences for which P; is a required
+part of every justification. So, if a sentence Q had {P;, P; = Q} as its only justification, it |
+would be removed; if it had the additional justification {P;,P; VR => Q}, then it would still be
+removed; but if it also had the justification {R, P; VR => Q}, then it would be spared.
+
+In most JTMS implementations, it is assumed that sentences that are considered once will
+probably be considered again, so rather than removing a sentence from the knowledge base when
+
+ 
+

@@ -1,0 +1,57 @@
+Chapter 4. Informed Search Methods
+
+ 
+
+ 
+
+Ae
+
+——
+
+ 
+
+ 
+
+ 
+
+Figure 4.17
+
+ 
+
+A scene with polygonal obstacles.
+
+ 
+
++ The action retumed by the agent will be the vector describing the straight-line path
+it wishes to follow (thus, the relative coordinates of the place it wishes to go). Ifthe
+move does not bump into anything, the environment should "move" the agent and
+give it the percept appropriate to the next place; otherwise it stays put. If the agent
+wants to move (0,0) and is at the goal, then the environment should move the agent
+to a random vertex in the scene. (First pick a random polygon, and then a random
+vertex on that polygon.)
+
+b. Implement an agent function that operates in this environment as follows:
+
++ Ifit does not know where it is, it will need to calculate that from the percept
+
++ Ifit knows where it is and does not have a plan, it must calculate a plan to get home
+to the goal, using a search algorithm.
+
+* Once it knows where it is and has a plan, it should output the appropriate action from
+the plan. It should say (0,0) once it gets to the goal.
+
+c. Show the environment and agent operating together. The environment should print out
+some useful messages for the user showing what is going on.
+
+d. Modify the environment so that 30% of the time the agent ends up at an unintended
+destination (chosen randomly from the other visible vertices if any, otherwise no move at
+all). This is a crude model of the actual motion errors from which both humans and robots
+suffer. Modify the agent so that it always tries to get back on track when this happens.
+What it should do is this: if such an error is detected, first find out where it is and then
+modify its plan to first go back to where it was and resume the old plan. Remember that
+sometimes getting back to where it was may fail also! Show an example of the agent
+successfully overcoming two successive motion errors and still reaching the goal.
+
+e. Now try two different recovery schemes after an error: head for the closest vertex on
+the original route; and replan a route to the goal from the new location. Compare the
+

@@ -1,0 +1,52 @@
+364 Chapter10 Virtual Memory
+
+run even though their memory requirements exceed the total available physical
+memory. Such processes run in virtual memory.
+
+If total memory requirements exceed the physical memory, then it may
+be necessary to replace pages from memory to free frames for new pages.
+Various page-replacement algorithms are used. FIFO page replacement is easy
+to program, but suffers from Belady’s anomaly. Optimal page replacement
+requires future knowledge. LRU replacement is an approximation of optimal,
+but even it may be difficult to implement. Most page-replacement algorithms,
+such as the second-chance algorithm, are approximations of LRU replacement.
+
+In addition to a page-replacement algorithm, a frame-allocation policy
+is needed. Allocation can be fixed, suggesting local page replacement, or
+dynamic, suggesting global replacement. The working-set model assumes that
+processes execute in localities. The working set is the set of pages in the current
+locality. Accordingly, each process should be allocated enough frames for its
+current working set.
+
+If a process does not have enough memory for its working set, it will
+thrash. Providing enough frames to each process to avoid thrashing may
+require process swapping and scheduling.
+
+In addition to requiring that we solve the major problems of page replace-
+ment and frame allocation, the proper design of a paging system requires that
+we consider page size, 1/O, locking, prepaging, process creation, program struc-
+ture, thrashing, and other topics. Virtual memory can be thought of as one level
+of a hierarchy of storage levels in a computer system. Each level has its own
+access time, size, and cost parameters. A full example of a hybrid, functional
+virtual-memory system is presented in the Mach chapter, which is available on
+our web site (http:// www bell-labs.com/topic/books, /os-book).
+
+m Exercises
+
+10.1 Under what circumstances do page faults occur? Describe the actions
+taken by the operating system when a page fault occurs.
+
+10.2 Assume that you have a page-reference string for a process with m
+frames (initially all empty). The page-reference string has length p;
+
+distinct page numbers occur in it. Answer these questions for any page-
+replacement algorithms:
+
+a. What is a lower bound on the number of page faults?
+b. What is an upper bound on the number of page faults?
+
+10.3 A certain computer provides its users with a virtual-memory space of
+2 pytes. The computer has 2’ bytes of physical memory. The virtual
+memory is implemented by paging, and the page size is 4,096 bytes.
+A user process generates the virtual address 11123456. Explain how
+

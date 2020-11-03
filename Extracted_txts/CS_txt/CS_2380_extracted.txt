@@ -1,0 +1,68 @@
+320
+
+Chapter 10. — Logical Reasoning Systems
+
+ 
+
+MULTIPLE
+INHERITANCE
+
+contains positive Rel atoms (i.e., Rel(Legs, Birds,2) A Rel(Flies, Birds, T)),then we are stuck.
+Therefore, the translation of a semantic network like Figure 10.7 should include sentences that
+say that the Re/ and Valrelations that are shown are the only ones that are true:
+
+Vr.a,b Rel(r,a,b) < [r,a,b] € {[Alive,Animal, 7], [Flies Animal, F], +9}
+Vr.a,b Vallr,a,b) & tr,a,b] € {(Friend, Opus, Bill],{ Friend, Bill, Opus], ..}
+
+Multiple inheritance
+
+Some semantic network systems allow multiple inheritance—that is, an object can belong to
+more than one category and can therefore inherit properties along several different paths. In 4
+some cases, this will work fine. For example, some people might belong to both the categories
+Billionaire and PoloPiayer, in which case we can infer that they are rich and can ride a horse.
+
+It is possible, however, for two inheritance paths to produce conflicting answers. An
+example of this difficulty is shown in Figure 10.9. Opus is a penguin, and therefore speaks only
+in squawks. Opus is a cartoon character, and therefore speaks English. In the simple logical |
+translation given earlier, we would be able to infer both conclusions, which, with appropriate
+background knowledge, would lead to a contradiction. Without additional information indicating
+some preference for one path, there is no way to resolve the conflict.
+
+ 
+
+   
+
+     
+ 
+
+Vocalization |
+eon
+
+Vocalization
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 109 An example of conflicting inferences from multiple inheritance paths.
+
+ 
+
+ 
+
+Inheritance and change
+
+A knowledge base is not of much use to an agent unless it can be expanded. In systems based
+on first-order logic, we use TELL to add a new sentence to the knowledge base, and we enjoy the
+
+° The classical example of multiple inheritance conflict is called the "Nixon diamond." It arises from the observation
+that Richard Nixon was both a Quaker (and hence a pacifist) and a Republican (and hence not a pacifist). Because of
+its potential for controversy, we will avoid this particular example. The other canonical example involves a bird called
+Tweety, about whom the less said the better.
+
+ 
+

@@ -1,0 +1,49 @@
+3.2 Operating-System Services 61
+
+3.1.8 Command-Interpreter System
+
+One of the most important systems programs for an operating system is the
+command interpreter, which is the interface between the user and the operating
+system. Some operating systems include the command interpreter in the
+kernel. Other operating systems, such as MS-DOS and UNIX, treat the command
+interpreter as a special program that is running when a job is initiated, or when
+auser first logs on (on time-sharing systems).
+
+Many commands are given to the operating system by control statements.
+When a new job is started in a batch system, or when a user logs on to a
+time-shared system, a program that reads and interprets control statements
+is executed automatically. This program is sometimes called the control-card
+interpreter or the command-line interpreter, and is often known as the shell.
+Its function is simple: To get the next command statement and execute it.
+
+Operating systems are frequently differentiated in the area of the shell,
+with a user-friendly command interpreter making the system more agreeable
+to some users. One style of user-friendly interface is the mouse-based window-
+and-menu system used in the Macintosh and in Microsoft Windows. The
+mouse is moved to position the mouse pointer on images, or icons, on the
+screen that represent programs, files, and system functions. Depending on
+the mouse pointer’s location, clicking a button on the mouse can invoke a
+program, select a file or directory —known as a folder—or pull down a menu
+that contains commands. More powerful, complex, and difficult-to-learn shells
+are appreciated by other users. In some of these shells, commands are typed on
+a keyboard and displayed on a screen or printing terminal, with the enter (or
+return) key signaling that a command is complete and is ready to be executed.
+The MS-DOS and UNIX shells operate in this way.
+
+The command statements themselves deal with process creation and man-
+agement, I/O handling, secondary-storage management, main-memory man-
+agement, file-system access, protection, and networking.
+
+3.2 m= Operating-System Services
+
+An operating system provides an environment for the execution of programs.
+It provides certain services to programs and to the users of those programs.
+The specific services provided, of course, differ from one operating system to
+another, but we can identify common classes. These operating-system services
+are provided for the convenience of the programmer, to make the programming
+task easier.
+
+¢ Program execution: The system must be able to load a program into
+memory and to run that program. The program must be able to end its
+execution, either normally or abnormally (indicating error).
+

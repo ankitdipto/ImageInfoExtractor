@@ -1,0 +1,54 @@
+1118
+
+Chapter 35 Approximation Algorithms
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 35.3 An instance (X, ) of the set-covering problem, where X consists of the 12 black
+points and F = {S1, S2, S3, 84, 85,56}. A minimum-size set cover is © = {S3, 84,55}, with
+size 3, The greedy algorithm produces a cover of size 4 by selecting either the sets S1, 54, Ss,
+and S3 or the sets S1, S4, Ss, and So, in order.
+
+An instance (X, ¥) of the set-covering problem consists of a finite set X and
+a family ¥ of subsets of X, such that every element of X belongs to at least one
+subset in F:
+
+x=Us
+
+SeF
+
+We say that asubset S € ¥ covers its elements. The problem is to find a minimum-
+size subset C C ¥ whose members cover all of X:
+
+x=Us. (35.8)
+
+see
+
+We say that any © satisfying equation (35.8) covers X. Figure 35.3 illustrates the
+set-covering problem. The size of © is the number of sets it contains, rather than
+the number of individual elements in these sets, since every subset € that covers X
+must contain all |X| individual elements. In Figure 35.3, the minimum set cover
+has size 3.
+
+The set-covering problem abstracts many commonly arising combinatorial prob-
+lems. As a simple example, suppose that X represents a set of skills that are needed
+to solve a problem and that we have a given set of people available to work on the
+problem. We wish to form a committee, containing as few people as possible,
+such that for every requisite skill in X , at least one member of the committee has
+that skill. In the decision version of the set-covering problem, we ask whether a
+covering exists with size at most k, where k is an additional parameter specified
+in the problem instance. The decision version of the problem is NP-complete, as
+Exercise 35.3-2 asks you to show.
+

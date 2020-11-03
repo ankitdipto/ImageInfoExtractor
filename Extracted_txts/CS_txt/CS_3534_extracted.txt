@@ -1,0 +1,36 @@
+19.2 Mergeable-heap operations Si
+
+  
+
+Figure 19.3 Inserting anode into a Fibonacci heap. (a) A Fibonacci heap H. (b) Fibonacci heap H
+after inserting the node with key 21. The node becomes its own min-heap-ordered tree and is then
+added to the root list, becoming the left sibling of the root.
+
+Lines 1-4 initialize some of the structural attributes of node x. Line 5 tests to see
+whether Fibonacci heap H is empty. If it is, then lines 6-7 make x be the only
+node in H’s root list and set H.min to point to x. Otherwise, lines 8-10 insert x
+into H’s root list and update H.min if necessary. Finally, line 11 increments H.n
+to reflect the addition of the new node. Figure 19.3 shows a node with key 21
+inserted into the Fibonacci heap of Figure 19.2.
+
+To determine the amortized cost of FIB-HEAP-INSERT, let H be the input Fi-
+bonacci heap and H’ be the resulting Fibonacci heap. Then, t(H’) = t(H) +1
+and m(H’) = m(#), and the increase in potential is
+
+(eH) + 1) + 2m(H)) —(((A) + 2m(A)) = 1.
+
+Since the actual cost is O(1), the amortized cost is O(1) + 1 = O(1).
+
+Finding the minimum node
+
+The minimum node of a Fibonacci heap H is given by the pointer H.min, so we
+can find the minimum node in O(1) actual time. Because the potential of H does
+not change, the amortized cost of this operation is equal to its O(1) actual cost.
+
+Uniting two Fibonacci heaps
+
+The following procedure unites Fibonacci heaps H, and Hp, destroying H, and H
+in the process. It simply concatenates the root lists of H; and H2 and then deter-
+mines the new minimum node. Afterward, the objects representing H, and H) will
+never be used again.
+

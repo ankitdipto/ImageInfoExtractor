@@ -1,0 +1,50 @@
+204  Chapter7 Process Synchronization
+
+the switching of the order of the decrement and the test in the implementation
+of the wait operation. The list of waiting processes can be easily implemented
+by a link field in each process control block (PCB). Each semaphore contains
+an integer value and a pointer to a list of PCBs. One way to add and remove
+processes from the list, that ensures bounded waiting would be to use a FIFO
+queue, where the semaphore contains both head and tail pointers to the queue.
+In general, however, the list may use any queueing strategy. Correct usage
+of semaphores does not depend on a particular queueing strategy for the
+semaphore lists.
+
+The critical aspect of semaphores is that they are executed atomically. We
+must guarantee that no two processes can execute wait and signal operations
+on the same semaphore at the same time. This situation is a critical-section
+problem, and can be solved in either of two ways.
+
+In a uniprocessor environment (that is, where only one CPU exists), we
+can simply inhibit interrupts during the time the wait and signal operations
+are executing. This scheme works in a uniprocessor environment because,
+once interrupts are inhibited, instructions from different processes cannot be
+interleaved. Only the currently running process executes, until interrupts are
+reenabled and the scheduler can regain control.
+
+In a multiprocessor environment, inhibiting interrupts does not work.
+Instructions from different processes (running on different processors) may be
+interleaved in some arbitrary way. If the hardware does not provide any special
+instructions, we can employ any of the correct software solutions for the critical-
+section problem (Section 7.2), where the critical sections consist of the wait and
+signal procedures.
+
+It is important to admit that we have not completely eliminated busy
+waiting with this definition of the wait and signal operations. Rather, we
+have removed busy waiting from the entry to the critical sections of application
+programs. Furthermore, we have limited busy waiting to only the critical
+sections of the wait and signal operations, and these sections are short (if
+properly coded, they should be no more than about 10 instructions). Thus, the
+critical section is almost never occupied, and busy waiting occurs rarely, and
+then for only a short time. An entirely different situation exists with application
+programs whose critical sections may be long (minutes or even hours) or may
+be almost always occupied. In this case, busy waiting is extremely inefficient.
+
+7.4.3 Deadlocks and Starvation
+
+The implementation of a semaphore with a waiting queue may result in a
+situation where two or more processes are waiting indefinitely for an event that
+can be caused only by one of the waiting processes. The event in question is the
+execution of a signal operation. When such a state is reached, these processes
+are said to be deadlocked.
+

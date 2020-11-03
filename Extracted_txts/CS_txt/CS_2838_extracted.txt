@@ -1,0 +1,53 @@
+15.3. Elements of dynamic programming 379
+
+mization problem must have in order for dynamic programming to apply: optimal
+substructure and overlapping subproblems. We also revisit and discuss more fully
+how memoization might help us take advantage of the overlapping-subproblems
+property in a top-down recursive approach.
+
+Optimal substructure
+
+The first step in solving an optimization problem by dynamic programming is to
+characterize the structure of an optimal solution. Recall that a problem exhibits
+optimal substructure if an optimal solution to the problem contains within it opti-
+mal solutions to subproblems. Whenever a problem exhibits optimal substructure,
+we have a good clue that dynamic programming might apply. (As Chapter 16 di
+cusses, it also might mean that a greedy strategy applies, however.) In dynamic
+programming, we build an optimal solution to the problem from optimal solutions
+to subproblems. Consequently, we must take care to ensure that the range of sub-
+problems we consider includes those used in an optimal solution.
+
+We discovered optimal substructure in both of the problems we have examined
+in this chapter so far. In Section 15.1, we observed that the optimal way of cut-
+ting up a rod of length n (if we make any cuts at all) involves optimally cutting
+up the two pieces resulting from the first cut. In Section 15.2, we observed that
+an optimal parenthesization of A; Aj+,--- A; that splits the product between A,
+and Ax, contains within it optimal solutions to the problems of parenthesizing
+AjAjyy +++ Ag and Ags Agya+++ Aj.
+
+You will find yourself following a common pattern in discovering optimal sub-
+structure:
+
+ 
+
+ 
+
+1. You show that a solution to the problem consists of making a choice, such as
+choosing an initial cut in a rod or choosing an index at which to split the matrix
+chain. Making this choice leaves one or more subproblems to be solved.
+
+2. You suppose that for a given problem, you are given the choice that leads to an
+optimal solution. You do not concern yourself yet with how to determine this
+choice. You just assume that it has been given to you.
+
+3. Given this choice, you determine which subproblems ensue and how to best
+characterize the resulting space of subproblems.
+
+4. You show that the solutions to the subproblems used within an optimal solution
+to the problem must themselves be optimal by using a “cut-and-paste” tech-
+nique. You do so by supposing that each of the subproblem solutions is not
+optimal and then deriving a contradiction. In particular, by “cutting out” the
+nonoptimal solution to each subproblem and “pasting in” the optimal one, you
+show that you can get a better solution to the original problem, thus contradict-
+ing your supposition that you already had an optimal solution. If an optimal
+

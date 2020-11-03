@@ -1,0 +1,54 @@
+1.8 Handheld Systems 19
+
+In Chapter 6, we consider the scheduling facility needed to implement soft
+real-time functionality in an operating system. In Chapter 10, we describe the
+design of memory management for real-time computing. Finally, in Chapter 21,
+we describe the real-time components of the Windows 2000 operating system.
+
+1.8 = Handheld Systems
+
+Handheld systems include personal digital assistants (PDAs), such as Palm-
+Pilots or cellular telephones with connectivity to a network such as the Internet.
+Developers of handheld systems and applications face many challenges, most
+of which are due to the limited size of such devices. For example, a PDA is
+typically about 5 inches in height and 3 inches in width, and it weighs less than
+one-half pound. Due to this limited size, most handheld devices have a small
+amount of memory, include slow processors, and feature small display screens.
+We will take a look now at each of these limitations.
+
+Many handheld devices have between 512 KB and 8 MB of memory. (Con-
+trast this with a typical PC or workstation, which may have several hundred
+megabytes of memory!) Asa result, the operating system and applications must
+manage memory efficiently. This includes returning all allocated memory back
+to the memory manager once the memory is no longer being used. In Chapter
+10 we will explore virtual memory, which allows developers to write programs
+that behave as if the system has more memory than may be physically available.
+Currently, many handheld devices do not use virtual memory techniques, thus
+forcing program developers to work within the confines of limited physical
+memory.
+
+A second issue of concern to developers of handheld devices is the speed
+of the processor used in the device. Processors for most handheld devices often
+run at a fraction of the speed of a processor in a PC. Faster processors require
+more power. To include a faster processor in a handheld device would require a
+larger battery that would have to be replaced (or recharged) more frequently. To
+minimize the size of most handheld devices, smaller, slower processors which
+consume less power are typically used. Therefore, the operating system and
+applications must be designed not to tax the processor.
+
+The last issue confronting program designers for handheld devices is the
+small display screens typically available. Whereas a monitor for a home com-
+puter may measure up to 21 inches, the display for a handheld device is often
+no more than 3 inches square. Familiar tasks, such as reading e-mail or brows-
+ing web pages, must be condensed onto smaller displays. One approach for
+displaying the content in web pages is web clipping, where only a small subset
+of a web page is delivered and displayed on the handheld device.
+
+Some handheld devices may use wireless technology, such as BlueTooth
+(Section 1.5), allowing remote access to e-mail and web browsing. Cellular
+telephones with connectivity to the Internet fall into this category. However,
+
+ 
+
+ 
+

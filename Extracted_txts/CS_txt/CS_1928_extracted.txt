@@ -1,0 +1,67 @@
+11.2 Access Methods 381
+
+identified by the flight number. Thus, the number of available seats for flight
+713 is stored in block 713 of the reservation file. To store information about a
+larger set, such as people, we might compute a hash function on the people’s
+names, or search a small in-memory index to determine a block to read and
+search.
+
+For the direct-access method, the file operations must be modified to
+include the block number as a parameter. Thus, we have read n, where n is
+the block number, rather than read next, and write n rather than write next. An
+alternative approach is to retain read next and write next, as with sequential
+access, and to add an operation position file ton, where n is the block number.
+Then, to effect a read n, we would position to n and then read next.
+
+The block number provided by the user to the operating system is normally
+a relative block number. A relative block number is an index relative to the
+beginning of the file. Thus, the first relative block of the file is 0, the next is
+1, and so on, even though the actual absolute disk address of the block may
+be 14703 for the first block and 3192 for the second. The use of relative block
+numbers allows the operating system to decide where the file should be placed
+(called the allocation problem, as discussed in Chapter 12), and helps to prevent
+the user from accessing portions of the file system that may not be part of his
+file. Some systems start their relative block numbers at 0; others start at 1.
+
+Given a logical record length L, a request for record N is turned into an 1/O
+request for L bytes starting at location L * (N -1) within the file (assuming first
+record is N = 1). Since logical records are of a fixed size, it is also easy to read,
+write, or delete a record.
+
+Not all operating systems support both sequential and direct access for
+files. Some systems allow only sequential file access; others allow only direct
+access. Some systems require that a file be defined as sequential or direct when
+it is created; such a file can be accessed only in a manner consistent with its
+declaration. However, it is easy to simulate sequential access on a direct-access
+file. If we simply keep a variable cp that defines our current position, then we
+can simulate sequential file operations, as shown in Figure 11.3. On the other
+hand, it is extremely inefficient and clumsy to simulate a direct-access file on a
+sequential-access file.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+sequential access implementation for direct access
+reset cp = 0;
+read next read cp;
+cp = cp+1;
+write next write cp;
+cp = cp+;
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11.3 Simulation of sequential access on a direct-access file..
+

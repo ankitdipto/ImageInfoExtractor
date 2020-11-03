@@ -1,0 +1,40 @@
+300 Let Us C
+
+ 
+
+int (*q)I4) ;
+
+To begin with, q holds the base address of the zeroth 1-D array,
+i.e. 4001 (refer Figure 8.7). This address is then assigned to p, an
+int pointer, and then using this pointer all elements of the zeroth 1-
+D array are accessed. Next time through the loop when i takes a
+value 1, the expression q + i fetches the address of the first 1-D
+array. This is because, q is a pointer to zeroth 1-D array and
+adding 1 to it would give us the address of the next 1-D array. This
+address is once again assigned to p, and using it all elements of the
+next 1-D array are accessed.
+
+In the third function printt( ), the declaration of q looks like this:
+int q{ 14];
+
+This is same as int ( *q )[4], where q is pointer to an array of 4
+integers. The only advantage is that we can now use the more
+familiar expression q[i][j] to access array elements. We could have
+used the same expression in show( ) as well.
+
+Array of Pointers
+
+The way there can be an array of ints or an array of floats,
+similarly there can be an array of pointers. Since a pointer variable
+always contains an address, an array of pointers would be nothing
+but a collection of addresses. The addresses present in the array of
+pointers can be addresses of isolated variables or addresses of
+array elements or any other addresses. All rules that apply to an
+ordinary array apply to the array of pointers as well. I think a
+program would clarify the concept.
+
+main()
+
+{
+int *arr[4] ; /* array of integer pointers */
+

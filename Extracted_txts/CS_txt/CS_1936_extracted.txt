@@ -1,0 +1,115 @@
+388 Chapter 11 File-System Interface
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+root spell bin | programs
+|
+stat | mail dist find | count } hex | reorder Pp e mail
+prog | copy prt exp reorder| list find hex | count
+list obj spell first
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+$44 4
+
+Figure 11.8 Tree-structured directory structure.
+
+some other predefined location) to find an entry for this user (for accounting
+purposes). In the accounting file is a pointer to (or the name of) the user’s initial
+directory. This pointer is copied to a local variable for this user that specifies the
+user’s initial current directory.
+
+Path names can be of two types: absolute path names or relative path names.
+An absolute path name begins at the root and follows a path down to the
+specified file, giving the directory names on the path. A relative path name
+defines a path from the current directory. For example, in the tree-structured
+file system of Figure 11.8, if the current directory is root/spell/mail, then the
+relative path name prt/first refers to the same file as does the absolute path name
+root/spell/mail/prt/first.
+
+Allowing the user to define his own subdirectories permits him to impose
+a structure on his files. This structure might result in separate directories for
+files associated with different topics (for example, a subdirectory was created
+to hold the text of this book) or different forms of information (for example, the
+directory programs may contain source programs; the directory bin may store all
+the binaries).
+
+An interesting policy decision in a tree-structured directory structure is how
+to handle the deletion of a directory. If a directory is empty, its entry in its
+containing directory can simply be deleted. However, suppose the directory
+to be deleted is not empty, but contains several files or subdirectories: One of
+

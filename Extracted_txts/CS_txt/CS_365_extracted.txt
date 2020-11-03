@@ -1,0 +1,56 @@
+31.2 Greatest common divisor 937
+
+ 
+
+ab a/b) dx
+99 78 1 30-11
+
+7 21 3 3 3
+
+21) 15 1 3 2
+
+15 6 2 3 1
+
+6 3 2 3 0 1
+3 0 - 3 1 0
+
+Figure 31.1 How EXTENDED-EUCLID computes gcd(99, 78). Each line shows one level of the
+recursion: the values of the inputs a and b, the computed value |a/b, and the values d, x, and y
+returned. The triple (d,.x, y) returned becomes the triple (d’, x’, y") used at the next higher level
+of recursion. The call EXTENDED-EUCLID(99, 78) returns (3,—11, 14), so that ged(99, 78) = 3 =
+99 - (11) +.78-14.
+
+Exercise 31.2-5 for a tighter bound.) Therefore, if we call EUCLID on two -bit
+numbers, then it performs O(8) arithmetic operations and O(6%) bit operations
+(assuming that multiplication and division of B-bit numbers take O(87) bit oper-
+ations). Problem 31-2 asks you to show an O(8?) bound on the number of bit
+operations.
+
+The extended form of Euclid’s algorithm
+
+We now rewrite Euclid’s algorithm to compute additional useful information.
+Specifically, we extend the algorithm to compute the integer coefficients x and y
+such that
+
+d = gced(a,b) =ax+by. (31.16)
+
+Note that x and y may be zero or negative. We shall find these coefficients useful
+later for computing modular multiplicative inverses. The procedure EXTENDED-
+EUCLID takes as input a pair of nonnegative integers and returns a triple of the
+form (d, x, y) that satisfies equation (31.16).
+
+EXTENDED-EUCLID (a, b)
+
+1 ifb==0
+
+2 return (a, 1,0)
+
+3 else (d’, x’, y’) = EXTENDED-EUCLID(b,a mod b)
+4 (d,x.y) = (d',y'.x' — [a/b] y’)
+
+5 return (d,x,y)
+
+Figure 31.1 illustrates how EXTENDED-EUCLID computes gcd(99, 78).
+The EXTENDED-EUCLID procedure is a variation of the EUCLID procedure.
+Line | is equivalent to the test “b == 0” in line 1 of Euciip. If b = 0, then
+

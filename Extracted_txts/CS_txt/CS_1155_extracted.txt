@@ -1,0 +1,41 @@
+440 Let Us C
+
+ 
+
+The third argument is the number of such structures that we want
+to write at one time. In this case, we want to write only one
+structure at a time. Had we had an array of structures, for example,
+we might have wanted to write the entire array at once.
+
+The last argument is the pointer to the file we want to write to.
+
+Now, let us write a program to read back the records written to the
+disk by the previous program.
+
+/" Reads records from binary file and displays them on VDU */
+#include "stdio.h"
+main()
+
+FILE “fp;
+struct emp
+
+char name[40] ;
+int age ;
+float bs ;
+
+};
+
+struct emp e ;
+
+fp = fopen ("EMP.DAT", "rb" ) ;
+if (fp == NULL)
+{
+puts ( "Cannot open file” ) ;
+exit() ;
+}
+
+while (fread ( &e, sizeof (e ), 1, fp) == 1)
+printf ( "\n%s %d %f", e.name, e.age, e.bs ) ;
+
+fclose ( fp) ;
+

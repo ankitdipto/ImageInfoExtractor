@@ -1,0 +1,64 @@
+10.8 Other Considerations 361
+
+have shown that object-oriented programs also tend to have a poor locality of
+reference. Contrast these languages with Java, which does not provide pointers.
+Java programs will have better locality of reference than C or C++ programs on
+a virtual-memory system.
+
+10.8.6 I/O Interlock
+
+When demand paging is used, we sometimes need to allow some of the pages
+to be locked in memory. One such situation occurs when I/O is done to or from
+user (virtual) memory. I/O is often implemented by a separate I/O processor.
+For example, a magnetic-tape controller is generally given the number of bytes
+to transfer and a memory address for the buffer (Figure 10.20). When the
+transfer is complete, the CPU is interrupted.
+
+We must be sure the following sequence of events does not occur: A process
+issues an I/O request, and is put in a queue for that I/O device. Meanwhile, the
+CPU is given to other processes. These processes cause page faults, and, using
+a global replacement algorithm, one of them replaces the page containing the
+memory buffer for the waiting process. The pages are paged out. Some time
+later, when the I/O request advances to the head of the device queue, the 1/O
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+magnetic-tape
+drive
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 10.20 The reason why frames used for I/O must be in memory.
+

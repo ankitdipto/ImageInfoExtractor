@@ -1,0 +1,51 @@
+8.5 Deadlock Avoidance 259
+
+8.5.3.3 An Illustrative Example
+
+Consider a system with five processes Py through P, and three resource types
+A, B, C. Resource type A has 10 instances, resource type B has 5 instances, and
+resource type C has 7 instances. Suppose that, at time To, the following snapshot
+of the system has been taken:
+
+Allocation Max — Available
+ABC ABC ABC
+
+Po 010 753 332
+Py 200 322
+P 302 902
+P3 211 222
+Py 002 433
+
+The content of the matrix Need is defined to be Max — Allocation and is
+
+Need
+
+ABC
+Po 743
+Py 122
+P2 600
+P3 011
+Py 431
+
+We claim that the system is currently in a safe state. Indeed, the sequence
+<Pi, P3, P4, P2, Po> satisfies the safety criteria. Suppose now that process
+P, requests one additional instance of resource type A and two instances of
+resource type C, so Request, = (1,0,2). To decide whether this request can be
+immediately granted, we first check that Request; < Available (that is, (1,0,2) <
+(3,3,2)), which is true. We then pretend that this request has been fulfilled, and
+we arrive at the following new state:
+
+Allocation Need Available
+ABC ABC ABC
+
+ 
+
+Po 010 743 230
+Py 302 020
+Po 302 600
+P3 211 011
+Py 002 431
+
+We must determine whether this new system state is safe. To do so, we
+execute our safety algorithm and find that the sequence <P1, P3, Ps, Po, P2>
+

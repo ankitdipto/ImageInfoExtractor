@@ -1,0 +1,51 @@
+578
+
+Chapter 21 Data Structures for Disjoint Sets
+
+Proof If x isaroot or x. rank = 0, then ¢g(x) = a(n)-x.rank by definition. Now
+suppose that x is not a root and that x.rank > 1. We obtain a lower bound on q(x)
+by maximizing level (x) and iter(x). By the bound (21.1), level(x) < a(n) —1, and
+by the bound (21.2), iter(v) < x.rank. Thus,
+ba(x) (a(n) —level(x)) - x. rank — iter(x)
+(a(n) — (a(n) — 1) « x.rank — x.rank
+
+=  x.rank — x.rank
+
+0.
+
+Similarly, we obtain an upper bound on ¢g(x) by minimizing level (x) and iter(x).
+By the bound (21.1), level(x) > 0, and by the bound (21.2), iter(x) > 1. Thus,
+dg(x) < (a(n) —0)-x.rank —1
+
+= a(n)-x.rank—1
+
+Vv
+
+< a(n)-x.rank. .
+Corollary 21.9
+If node x is not a root and x.rank > 0, then dg(x) < a(n) + x. rank. .
+
+Potential changes and amortized costs of operations
+
+We are now ready to examine how the disjoint-set operations affect node potentials.
+With an understanding of the change in potential due to each operation, we can
+determine each operation’s amortized cost.
+
+Lemma 21.10
+
+Let x be a node that is not a root, and suppose that the qth operation is either a
+LINK or FIND-SET. Then after the gth operation, ¢g(x) < ¢g-1(x). Moreover, if
+x.rank > | and either level(x) or iter(x) changes due to the qth operation, then
+q(X) < Gq-1(x) — 1. That is, x’s potential cannot increase, and if it has positive
+rank and either level(x) or iter(x) changes, then x’s potential drops by at least 1.
+
+Proof Because x is not a root, the gth operation does not change x.rank, and
+because n does not change after the initial m MAKE-SET operations, a(n) remains
+unchanged as well. Hence, these components of the formula for x’s potential re-
+main the same after the gth operation. If x. rank = 0, then ¢g (x) = dg—1 (x) = 0.
+Now assume that x. rank > 1.
+
+Recall that level(x) monotonically increases over time. If the qth operation
+leaves level(x) unchanged, then iter(x) either increases or remains unchanged.
+If both level(x) and iter(x) are unchanged, then ¢g(x) = ¢g-1(x). If level(x)
+

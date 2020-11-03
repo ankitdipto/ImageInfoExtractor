@@ -1,0 +1,64 @@
+606
+
+Chapter 20. Reinforcement Learning
+
+ofcourse, converge to the correct utilities. Because the environment model usually changes only
+slightly with each observation, the dynamic programming phase can use value iteration with the
+previous utility estimates as initial values and usually converges quite quickly.
+
+The environment model is learned by direct observation of transitions. In an accessi-
+ble environment, each percept identifies the state, and hence each transition provides a direct
+input/output example for the transition function represented by M. The transition function is
+usually stochastic—that is, it specifies a probability for each possible successor rather than a
+single state. A reinforcement learning agent can use any of the techniques for learning stochastic
+functions from examples discussed in Chapters 18 and 19. We discuss their application further
+in Section 20.7.
+
+Continuing with our tabular representation for the environment, we can update the envi-
+ronment model M simply by keeping track of the percentage of times each state transitions to
+each of its neighbors. Using this simple technique in the 4 x 3 world from Figure 20.1, we obtain
+the learning performance shown in Figure 20.8. Notice that the ADP method converges far faster
+than either LMS or TD learning.
+
+ 
+
+ 
+
+‘Unility estimates
+°
+
+ 
+
+ 
+
+-0.5 |
+Sy v we oN Nao
+0 100 200 300 400 500 9 100 200 300 400 500,
+Number of epochs Number of epochs
+(a) )
+
+ 
+
+ 
+
+Figure 208 The ADP learning curves for the 4 x 3 world.
+
+ 
+
+ 
+
+ 
+
+The ADP approach and the TD approach are actually closely related. Both try to make local
+adjustments to the utility estimates in order to make each state "agree" with its successors. One
+minor difference is that TD adjustsa state to agree with its observed successor (Equation (20.2)),
+whereas ADP adjusts the state to agree with al/ of the successors that might occur given an optimal
+action choice, weighted by their probabilities (Equation (20.1)). This difference disappears
+when the effects of TD adjustments are averaged over a large number of transitions, because
+the frequency of each successor in the set of transitions is approximately proportional to its
+probability. A more important difference is that whereas TD makes a single adjustment per
+observed transition, ADP makes as many as it needs to restore consistency between the utility
+estimates U and the environment model M Although the observed transition only makes a local
+change in M, its effects may need to be propagated throughout U. Thus, TD can be viewed as a
+crude but efficient first approximation to ADP.
+

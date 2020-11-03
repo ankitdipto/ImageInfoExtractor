@@ -1,0 +1,46 @@
+442 Let Us C
+
+ 
+
+number to be modified, it would be more meaningful to ask for
+the name of the employee whose record is to be modified. On
+modifying the record, the existing record gets overwritten by
+the new record.
+
+In deleting records, except for the record to be deleted, rest of
+the records must first be written to a temporary file, then the
+original file must be deleted, and the temporary file must be
+renamed back to original.
+
+Observe carefully the way the file has been opened, first for
+reading & writing, and if this fails (the first time you run this
+program it would certainly fail, because that time the file is not
+existing), for writing and reading. It is imperative that the file
+should be opened in binary mode.
+
+Note that the file is being opened only once and closed only
+once, which is quite logical.
+
+clrscr( ) function clears the contents of the screen and
+gotoxy() places the cursor at appropriate position on the
+screen. The parameters passed to gotoxy() are column number
+followed by row number.
+
+Given below is the complete listing of the program.
+
+/" Amenu-driven program for elementary database management “/
+#include "stdio.h"
+
+main()
+
+{
+FILE ‘fp, “ft;
+char another, choice ;
+struct emp
+
+char name[40] ;
+int age ;
+float bs ;
+
+};
+

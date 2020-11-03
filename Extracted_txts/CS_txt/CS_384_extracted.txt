@@ -1,0 +1,60 @@
+952
+
+Chapter 31 Number-Theoretic Algorithms
+
+ci = m;(m;" mod n;) (1.31)
+
+fori = 1,2,..., k. Equation (31.31) is always well defined: since m; and nj; are
+
+relatively prime (by Theorem 31.6), Corollary 31.26 guarantees that m;! mod nj;
+
+exists. Finally, we can compute a as a function of a), d2,..., dx as follows:
+
+= (4,0, + gC, +++» + aycx) (mod n) . (31.32)
+We now show that equation (31.32) ensures that a = a; (mod n;) fori =
+
+1,2,...,k. Note that if 7 A i, then m 0 (mod n;), which implies that ¢;
+
+mj = 0 (mod n;). Note also that c; = 1 (mod n;), from equation (31.31). We
+
+thus have the appealing and useful correspondence
+
+ci @ (0,0,...,0,1,0,....0),
+
+a vector that has Os everywhere except in the i th coordinate, where it has a 1; the c;
+
+thus form a “basis” for the representation, in a certain sense. For each i, therefore,
+we have
+
+   
+
+ 
+
+a = ac (mod n;)
+a;m;(m;' mod n;) (mod n;)
+
+= a; (mod n;)
+
+which is what we wished to show: our method of computing a from the a;’s pro-
+duces a result a that satisfies the constraints a = a; (mod n;) fori = 1,2,..., k.
+The correspondence is one-to-one, since we can transform in both directions.
+Finally, equations (31.28)-(31.30) follow directly from Exercise 31.1-7, since
+x mod n; = (x mod 7) mod n; for any x andi = 1,2,..., k. .
+
+We shall use the following corollaries later in this chapter.
+
+Corollary 31.28
+If m1, M2,..., Ng are pairwise relatively prime and n = nyn2---ng, then for any
+integers @1,d2,..., ax, the set of simultaneous equations
+
+x =a; (modn;),
+fori =1,2,..., k, has a unique solution modulo n for the unknown x. :
+
+Corollary 31.29
+If my, Mo,..., Ng are pairwise relatively prime and n = ninz---nx, then for all
+integers x and a,
+
+x =a (mod n;)
+fori =1,2,..., k if and only if
+x =a (modn). .
+

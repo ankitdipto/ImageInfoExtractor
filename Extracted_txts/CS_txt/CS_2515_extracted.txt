@@ -1,0 +1,49 @@
+5.1 The hiring problem 7
+
+the candidates (besides their names), we have made a significant change. Instead
+of relying on a guess that the candidates come to us in a random order, we have
+instead gained control of the process and enforced a random order.
+
+More generally, we call an algorithm randomized if its behavior is determined
+not only by its input but also by values produced by a random-number gener-
+ator. We shall assume that we have at our disposal a random-number generator
+RANDOM. A call to RANDOM(a,d) returns an integer between a and J, inclu-
+sive, with each such integer being equally likely. For example, RANDOM(0, 1)
+produces 0 with probability 1/2, and it produces 1 with probability 1/2. A call to
+RANDOM(3, 7) returns either 3, 4, 5, 6, or 7, each with probability 1/5. Each inte-
+ger returned by RANDOM is independent of the integers returned on previous calls.
+You may imagine RANDOM as rolling a (b — a + 1)-sided die to obtain its out-
+put. (In practice, most programming environments offer a pseudorandom-number
+generator: a deterministic algorithm returning numbers that “look” statistically
+random.)
+
+When analyzing the running time of a randomized algorithm, we take the expec-
+tation of the running time over the distribution of values returned by the random
+number generator. We distinguish these algorithms from those in which the input
+is random by referring to the running time of a randomized algorithm as an ex-
+pected running time. In general, we discuss the average-case running time when
+the probability distribution is over the inputs to the algorithm, and we discuss the
+expected running time when the algorithm itself makes random choices.
+
+Exercises
+
+5.1-1
+
+Show that the assumption that we are always able to determine which candidate is
+best, in line 4 of procedure HIRE-ASSISTANT, implies that we know a total order
+on the ranks of the candidates.
+
+512 *
+
+Describe an implementation of the procedure RANDOM(a, b) that only makes calls
+to RANDOM(0, 1). What is the expected running time of your procedure, as a
+function of a and b?
+
+51-3 *
+
+Suppose that you want to output 0 with probability 1/2 and 1 with probability 1/2.
+At your disposal is a procedure BIASED-RANDOM, that outputs either 0 or 1. It
+outputs 1 with some probability p and 0 with probability 1 — p, where 0 < p <1,
+but you do not know what p is. Give an algorithm that uses BIASED-RANDOM
+as a subroutine, and returns an unbiased answer, returning 0 with probability 1/2
+

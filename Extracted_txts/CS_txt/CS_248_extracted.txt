@@ -1,0 +1,50 @@
+Problems for Chapter 28 841
+
+the range x; < x < x;+1, then the value of the curve is given by f(x) = fi(x—x;).
+The points x; at which the cubic polynomials are “pasted” together are called knots.
+
+For simplicity, we shall assume that x; =i fori = 0,1,..., n.
+To ensure continuity of f(x), we require that
+fi) = fi) = yi.
+fQie) = fi) = yin
+fori = 0,1,..., n—1. Toensure that f(x) is sufficiently smooth, we also insist
+
+that the first derivative be continuous at each knot:
+
+f'Qi+) = fi) = fi)
+fori =0,1,....n—2.
+
+a. Suppose that fori = 0,1,...,m, we are given not only the point-value pairs
+{(x;, y;)} but also the first derivatives D; = f'(x;) at each knot. Express each
+coefficient a;, b;, c;, and d; in terms of the values y;, y;4:, D;, and D; +1.
+(Remember that x; = 7.) How quickly can we compute the 4n coefficients
+from the point-value pairs and first derivatives?
+
+The question remains of how to choose the first derivatives of f(x) at the knots.
+
+One method is to require the second derivatives to be continuous at the knots:
+
+f' Cia) = HD = f/i10)
+
+fori = 0,1,...,2 —2. At the first and last knots, we assume that f”(X%) =
+
+So 0) = Oand f"(x) = f/",(1) = 0; these assumptions make f(x) a natural
+
+cubic spline.
+
+b. Use the continuity constraints on the second derivative to show that fori =
+1,2,..., n—-1,
+
+Dj-1 + 4D; + Dis = 3(Vi41 — Yi-1) - (28.21)
+
+c. Show that
+2Do+Di = 3(yi-Yyo). (28.22)
+Dy-1+2Dn = 3(Yn = Yn-1) - (28.23)
+
+d. Rewrite equations (28.21)-(28.23) as a matrix equation involving the vector
+D=(Dpo,D\..... D,,) of unknowns. What attributes does the matrix in your
+equation have?
+
+e. Argue that a natural cubic spline can interpolate a set of nm + 1 point-value pairs
+in O(n) time (see Problem 28-1).
+

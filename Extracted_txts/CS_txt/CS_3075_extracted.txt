@@ -1,0 +1,87 @@
+448
+
+  
+
+Chapter 15. Probabilistic Reasoning Systems
+
+ 
+
+POLYTREES
+
+‘CAUSAL SUPPORT
+
+EVIDENTIAL
+‘SUPPORT
+
+ 
+
+Sg
+
+cE ue
+—_) L"/ — Cxplaining Away)
+Diagnostic Causal Intercausal Mixed
+
+ 
+
+ 
+
+Figure 156 Simple examples of four pattems of reasoning that can be handled by belief
+
+ 
+
+ 
+
+networks. E represents an evidence variable and Q is a query variable.
+
+ 
+
+   
+   
+   
+  
+   
+   
+  
+  
+   
+  
+
+networks, also known as polytrees. In such networks, there is at most one undirected path
+between any two nodes in the network. Algorithms for general networks (Section 15.4) will use
+the polytree algorithms as their main subroutine
+
+Figure 15.7 shows a generic singly connected network. Node Xhas parents V = Uj... Un,
+and children Y = Y\ ... Y,. For each child and parent we have drawn a box that contains all the
+node's descendants and ancestors (except for X). The singly connected property means that all
+the boxes are disjoint and have no links connecting them. We are assuming that X is the query
+variable, and that there is some set of evidence variables E. The aim is to compute P(X|E).
+(Obviously, if X is itself an evidence variable in £, then calculating PX\E is trivial. We will
+assume that XY is not in £.)
+
+In order to derive the algorithm, it will be helpful to be able to refer to different portions of
+the total evidence. The first distinction we will need is the following:
+
+EX is the the causal support for ¥—the evidence variables "above" X that are connected to.Y
+through its parents.
+
+EX is the evidential support for.x—the evidence variables "below" X that are connected toX
+through its children.
+
+Sometimes we will need to exclude certain paths when considering evidence connected to a
+certain variable. For example, we will use £,,\xto refer to all the evidence connected to node ;
+U; except via the path from X. Similarly, FE}, means all the evidence connected to ¥; through |
+its parents except for X. Notice that the total evidence £ can be written as Ex (all the evidence }
+connected to X) and as Ey, (all the evidence connected to XY with no exceptions).
+
+Now we are ready to compute P(X\E). The general strategy is roughly the following:
+
++ Express P(X\£) in terms of the contributions of Ey and Ey +
+
+* Compute the contribution of E{ by computing its effect on the parents of XY, and then
+passing that effect on to X. Notice that computing the effect on each parent of X is #
+recursive instance of the problem of computing the effect on X.
+
+* Compute the contribution of Ey by computing its effect on the children of X, and then
+passing that effect on to X. Notice that computing the effect on each child of is a recursive
+instance of the problem of computing the effect on X.
+

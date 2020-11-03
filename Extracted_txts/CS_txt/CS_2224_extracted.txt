@@ -1,0 +1,65 @@
+section 2.2
+
+How Agents Should Act 33
+
+ 
+
+PERCEPT SEQUENCE
+
+IDEAL RATIONAL
+AGENT
+
+ 
+
+street." Rather, this points out that rationality is concerned with expected success given what has
+been perceived. Crossing the street was rational because most of the time the crossing would be
+successful, and there was no way I could have foreseen the falling door. Note that another agent
+that was equipped with radar for detecting falling doors or a steel cage strong enough to repel
+them would be more successful, but it would not be any more rational.
+
+In other words, we cannot blame an agent for failing to take into account something it could
+not perceive, or for failing to take an action (such as repelling the cargo door) that it is incapable
+oftaking. But relaxing the requirement of perfection is not just a question of being fair to agents.
+The point is that if we specify that an intelligent agent should always do what is actually the right
+thing, it will be impossible to design an agent to fulfill this specification—unless we improve the
+performance of crystal balls.
+
+In summary, what is rational at any given time depends on four things:
+
++ The performance measure that defines degree of success.
+
++ Everything that the agent has perceived so far. We will call this complete perceptual history
+the percept sequence.
+
+* What the agent knows about the environment.
++ The actions that the agent can perform.
+
+This leads to a definition of an ideal rational agent: For each possible percept sequence, an
+ideal rational agent should do whatever action is expected to maximize its performance measure,
+on the basis of the evidence provided by the percept sequence and whatever built-in knowledge
+the agent has.
+
+We need to look carefully at this definition. At first glance, it might appear to allow an
+agent to indulge in some decidedly underintelligent activities. For example, ifan agent does not
+look both ways before crossing a busy road, then its percept sequence will not tell it that there is
+a large truck approaching at high speed. The definition seems to say that it would be OK for it to
+cross the road. In fact, this interpretation is wrong on two counts. First, it would not be rational
+to cross the road: the risk of crossing without looking is too great. Second, an ideal rational
+agent would have chosen the "looking" action before stepping into the street, because looking
+helps maximize the expected performance. Doing actions in order to obtain usefil information
+is an important part of rationality and is covered in depth in Chapter 16.
+
+The notion of an agent is meant to be a tool for analyzing systems, not an absolute
+characterization that divides the world into agents and non-agents. Consider a clock. It can be
+thought of as just an inanimate object, or it can be thought of as a simple agent. As an agent,
+most clocks always do the right action: moving their hands (or displaying digits) in the proper
+fashion. Clocks are a kind of degenerate agent in that their percept sequence is empty; no matter
+what happens outside, the clock's action should be unaffected.
+
+Well, this is not quite true. Ifthe clock and its owner take a trip from California to Australia,
+the right thing for the clock to do would be to turn itself back six hours. We do not get upset at
+our clocks for failing to do this because we realize that they are acting rationally, given their lack
+of perceptual equipment.*
+
+3° One of the authors still gets a small thrill when his computer successfully resets itself at daylight savings time
+

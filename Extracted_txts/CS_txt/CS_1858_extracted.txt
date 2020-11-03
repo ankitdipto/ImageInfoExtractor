@@ -1,0 +1,54 @@
+324 Chapter10 Virtual Memory
+
+In addition to this hardware support, considerable software is needed, as
+we shall see. Additional architectural constraints must be imposed. A crucial
+one is the need to be able to restart any instruction after a page fault. In most
+cases, this requirement is easy to meet. A page fault could occur at any memory
+reference. If the page fault occurs on the instruction fetch, we can restart by
+fetching the instruction again. If a page fault occurs while we are fetching an
+operand, we must fetch and decode the instruction again, and then fetch the
+operand.
+
+Asa worst-case example, consider a three-address instruction such as ADD
+the content of A to B placing the result in C. These are the steps to execute this
+instruction:
+
+a
+
+. Fetch and decode the instruction (ADD).
+. Fetch A.
+
+. Fetch B.
+
+. Add A and B.
+
+a F YN
+
+. Store the sum in C.
+
+If we faulted when we tried to store in C (because C is in a page not
+currently in memory), we would have to get the desired page, bring it in, correct
+the page table, and restart the instruction. The restart would require fetching
+the instruction again, decoding it again, fetching the two operands again, and
+then adding again. However, there is not much repeated work (less than one
+complete instruction), and the repetition is necessary only when a page fault
+occurs.
+
+The major difficulty occurs when one instruction may modify several dif-
+ferent locations. For example, consider the IBM System 360/370 MVC (move
+character) instruction, which can move up to 256 bytes from one location to
+another (possibly overlapping) location. If either block (source or destination)
+straddles a page boundary, a page fault might occur after the move is partially
+done. In addition, if the source and destination blocks overlap, the source block
+may have been modified, in which case we cannot simply restart the instruction.
+
+This problem can be solved in two different ways. In one solution, the
+microcode computes and attempts to access both ends of both blocks. If a page
+fault is going to occur, it will happen at this step, before anything is modified.
+The move can then take place, as we know that no page fault can occur, since all
+the relevant pages are in memory. The other solution uses temporary registers
+to hold the values of overwritten locations. If there is a page fault, all the old
+values are written back into memory before the trap occurs. This action restores
+memory to its state before the instruction was started, so that the instruction can
+be repeated.
+

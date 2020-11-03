@@ -1,0 +1,48 @@
+618
+
+Chapter 22. Elementary Graph Algorithms
+
+We extend the notation for discovery and finishing times to sets of vertices.
+If U C V, then we define d(U) = minyey {u.d} and f(U) = maxyey {u.f}.
+That is, d(U) and f(U) are the earliest discovery time and latest finishing time,
+respectively, of any vertex in U.
+
+The following lemma and its corollary give a key property relating strongly con-
+nected components and finishing times in the first depth-first search.
+
+Lemma 22.14
+
+Let C and C’ be distinct strongly connected components in directed graph G =
+(V, E). Suppose that there is an edge (u,v) € E, where u € C and v € C’. Then
+A(C) > f(C.
+
+Proof We consider two cases, depending on which strongly connected compo-
+nent, C or C’, had the first discovered vertex during the depth-first search.
+
+If d(C) < d(C’), let x be the first vertex discovered in C. At time x.d, all ver-
+tices in C and C’ are white. At that time, G contains a path from x to each vertex
+in C consisting only of white vertices. Because (u,v) € E, for any vertex w € C’,
+there is also a path in G at time x.d from x to w consisting only of white vertices:
+xX + u — v ~> w. By the white-path theorem, all vertices in C and C’ become
+descendants of x in the depth-first tree. By Corollary 22.8, x has the latest finishing
+time of any of its descendants, and so x.f = f(C) > f(C’).
+
+If instead we have d(C) > d(C’), let y be the first vertex discovered in C’.
+At time y.d, all vertices in C’ are white and G contains a path from y to each
+vertex in C’ consisting only of white vertices. By the white-path theorem, all ver-
+tices in C’ become descendants of y in the depth-first tree, and by Corollary 22.8,
+y.f = f(C’). Attime y.d, all vertices in C are white. Since there is an edge (u,v)
+from C to C’, Lemma 22.13 implies that there cannot be a path from C’ to C.
+Hence, no vertex in C is reachable from y. At time y./, therefore, all vertices in C
+are still white. Thus, for any vertex w € C, we have w.f > y.f, which implies
+that f(C) > f(C’). .
+
+The following corollary tells us that each edge in GT that goes between different
+strongly connected components goes from a component with an earlier finishing
+time (in the first depth-first search) to a component with a later finishing time.
+
+Corollary 22.15
+Let C and C’ be distinct strongly connected components in directed graph G =
+(V, E). Suppose that there is an edge (w,v) € E™, where u € C and v € C’. Then
+IC) < f(C%.
+

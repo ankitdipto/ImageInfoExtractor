@@ -1,0 +1,56 @@
+230 Chapter7 Process Synchronization
+
+transactions share a common semaphore mutex, which is initialized to 1. When
+a transaction starts executing, its first action is to execute wait(mutex). After
+the transaction either commits or aborts, it executes signal (mutex).
+
+Although this scheme ensures the atomicity of all concurrently execut-
+ing transactions, it is nevertheless too restrictive. As we shall see, in many
+cases we can allow transactions to overlap their execution, while maintaining
+serializability. A number of different concurrency-control algorithms ensure
+serializability. These are described below.
+
+7.94.1 Serializability
+
+Consider a system with two data items A and B that are both read and written.
+by two transactions Ty and T;. Suppose that these transactions are executed
+atomically in the order Ty followed by T;. This execution sequence, which is
+called a schedule, is represented in Figure 7.24. In schedule 1 of Figure 7.24, the
+sequence of instruction steps is in chronological order from top to bottom, with
+instructions of To appearing in the left column and instructions of T; appearing
+in the right column.
+
+‘A schedule where each transaction is executed atomically is called a serial
+schedule. Each serial schedule consists of a sequence of instructions from
+various transactions where the instructions belonging to one single transaction
+appear together in that schedule. Thus, for a set of n transactions, there exist
+n! different valid serial schedules. Each serial schedule is correct, because itis
+equivalent to the atomic execution of the various participating transactions, in
+some arbitrary order.
+
+If we allow the two transactions to overlap their execution, then the result-
+ing schedule is no longer serial. A nonserial schedule does not necessarily
+imply that the resulting execution is incorrect (that is, is not equivalent to a
+serial schedule). To see that this is the case, we need to define the notion of con-
+flicting operations. Consider a schedule S in which there are two consecutive
+operations O; and O; of transactions T; and Tj, respectively. We say that O; and
+
+     
+
+To
+read(A)
+
+T1
+
+write(A)
+
+read(B)
+
+write(B)
+read(A)
+write(A)
+read(B)
+write(B)
+
+Figure 7.24 Schedule 1: A serial schedule in which Tp is followed by T}.
+

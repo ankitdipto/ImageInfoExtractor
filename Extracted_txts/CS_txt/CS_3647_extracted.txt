@@ -1,0 +1,64 @@
+604
+
+Chapter 22. Elementary Graph Algorithms
+
+provide important information about the structure of the graph and are generally
+helpful in reasoning about the behavior of depth-first search.
+
+The procedure DFS below records when it discovers vertex u in the attribute u.d
+and when it finishes vertex u in the attribute u.f. These timestamps are integers
+between | and 2|V], since there is one discovery event and one finishing event for
+each of the |V| vertices. For every vertex u,
+
+u.d<uf. (22.2)
+
+Vertex u is WHITE before time u.d, GRAY between time u.d and time u.f, and
+BLACK thereafter.
+
+The following pseudocode is the basic depth-first-search algorithm. The input
+graph G may be undirected or directed. The variable time is a global variable that
+we use for timestamping.
+
+DFS(G)
+
+1 for each vertex u € G.V
+
+2 u.color = WHITE
+
+3 u.a = NIL
+
+4 time =0
+
+5 for each vertex u € G.V
+
+6 if u.color == WHITE
+
+7 DFS-VisiT(G,u)
+
+DFS-VIsIT(G, u)
+
+1 time = time +1 // white vertex u has just been discovered
+2 u.d = time
+
+3 u.color = GRAY
+
+4 for each v € G.Adj{u] // explore edge (u,v)
+
+5 if v.color == WHITE
+
+6 var =u
+
+7 DFS-VisiT(G, v)
+
+8 u.color = BLACK // blacken u; it is finished
+
+9 time = time +1
+
+10 u.f = time
+
+Figure 22.4 illustrates the progress of DFS on the graph shown in Figure 22.2.
+Procedure DFS works as follows. Lines 1-3 paint all vertices white and ini-
+tialize their z attributes to NIL. Line 4 resets the global time counter. Lines 5-7
+check each vertex in V in turn and, when a white vertex is found, visit it using
+DFS-VisiT. Every time DFS-VisiT(G, u) is called in line 7, vertex u becomes
+

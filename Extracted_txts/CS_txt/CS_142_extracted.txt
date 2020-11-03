@@ -1,0 +1,43 @@
+756
+
+Chapter 26 Maximum Flow
+
+   
+
+ 
+
+ 
+
+6
+5 x z
+4 9 G
+(a) 3 y ox sy
+2 ff t
+1 t
+0
+6
+5 Mz
+4 QO @
+(b) 3 x oy
+2 ns t
+1 t
+0
+© x y
+
+y
+
+cH NwRUD
+
+ 
+
+Figure 26.10 The action of RELABEL-TO-FRONT. (a) A flow network just before the first iteration
+of the while loop. Initially, 26 units of flow leave source s. On the right is shown the initial list
+L = (x,y,z), where initially w = x. Under each vertex in list Z is its neighbor list, with the current
+neighbor shaded. Vertex x is discharged. It is relabeled to height 1, 5 units of excess flow are pushed
+to y, and the 7 remaining units of excess are pushed to the sink r. Because x is relabeled, it moves
+to the head of L, which in this case does not change the structure of L. (b) After x, the next vertex
+in L that is discharged is y. Figure 26.9 shows the detailed action of discharging y in this situation.
+Because y is relabeled, it is moved to the head of L. (c) Vertex x now follows y in L, and so it is
+again discharged, pushing all 5 units of excess flow to f. Because vertex x is not relabeled in this
+discharge operation, it remains in place in list L.
+

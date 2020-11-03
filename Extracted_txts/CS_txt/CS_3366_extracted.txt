@@ -1,0 +1,65 @@
+710
+
+Chapter 23 Practical Natural Language Processing
+
+ 
+
+GAP
+
+FILLER
+
+LONG-DISTANCE
+DEPENDENCY
+
+semantics of names. The simplest choice is to represent "John" with the constant John. Then
+the representation of "John slept" is 3e e £ Sleep(John, Past). But this simple approach does
+not work in a world with more than one thing called John. A better representation is therefore
+3x e e Sleep([3!x Name(x) = John], Past). Here are rules that derive that representation:
+
+NP(case, Person(3),number, [3!.x Name(x) = name]) — Name(number, name)
+Name(Singular, John) — John
+
+A noun also needs no determiner if it is a mass noun (e.g., "water") or a generic plural (e.g.,
+"Dogs like bones"). We leave these rules as exercises.
+
+Clausal complements
+
+In €), all the verbs took only noun phrases and prepositional phrases as complements. But
+some verbs accept clauses (i.e., sentences or certain types of verb phrases) as complements. For
+example, in "I believe [he has left],” the object of "believe" is a sentence, and in "I want [to
+go there],” the object of want is an infinitive verb phrase. We can handle this with the same
+subcategorization mechanism we have been using (here shown without the other augmentations):
+
+VP(subcat)— VP({S|subcat})S
+VP(subcat)— VP([VP|subcat])VP
+
+Verb((S]) — believe
+Verb([VP])— want
+
+Relative clauses
+
+The grammar of £) allows relative clauses such as "the person [that saw me],” in which the
+relative clause consists of the word "that" followed by a VP, and the interpretation is that the
+head noun phrase (the person) is the subject of the embedded VP. In English, it is also possible
+to have relative clauses such as "the person [that I saw ,,],” in which a sentence follows the word
+"that," but the sentence is missing an object. The .,symbol, which we call a gap’ indicates the
+place where the head noun phrase (the person) logically would appear to complete the sentence.
+We say that the head noun phrase is the filler of the gap. In this example, the gap is in the direct
+object position, but it could be nested farther into the relative clause. For example, it could be
+the object of a preposition (e.g., "the person [thatI looked [pp at ,,]]") or the object of a deeply
+nested clause:
+
+the person [that [5 you said [5 you thought [s I gave the book to, J]]]
+
+So far, all the syntactic relationships we have seen have been at a single level in the parse tree.
+The filler-gap relationship is called a long-distance dependency because it reaches down a
+potentially unbounded number of nodes into the parse tree. The subscripts ()on parse nodes are
+used to show that there is an identity relationship—that the recipient of the book giving is the
+same as "the person" that is the head noun phrase:
+
+[the person]; [that [s you said [s you thought [s1 gave the book to uj]]I]
+
+7 The gap is called a trace in some theories.
+
+ 
+

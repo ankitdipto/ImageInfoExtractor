@@ -1,0 +1,138 @@
+10.1 Background 319
+
+ 
+
+page 0
+
+ 
+
+ 
+
+page 1
+
+ 
+
+ 
+
+page 2
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+memory
+map
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+page n physical
+memory
+
+ 
+
+ 
+
+ 
+
+virtual
+memory
+
+Figure 10.1 Diagram showing virtual memory that is larger than physical
+memory.
+
+instead on the problem to be programmed. On systems that support virtual
+memory, overlays have almost disappeared.
+
+In addition to separating logical memory from physical memory, virtual
+memory also allows files and memory to be shared by several different pro-
+cesses through page sharing (Section 9.4.5). The sharing of pages further allows
+performance improvements during process creation.
+
+Virtual memory is commonly implemented by demand paging. It can
+also be implemented in a segmentation system. Several systems provide a
+paged segmentation scheme, where segments are broken into pages. Thus, the
+user view is segmentation, but the operating system can implement this view
+with demand paging. Demand segmentation can also be used to provide vir-
+tual memory. Burroughs’ computer systems have used demand segmentation.
+The IBM OS/2 operating system also uses demand segmentation. However,
+segment-replacement algorithms are more complex than are page-replacement
+algorithms because the segments have variable sizes. We do not cover demand
+segmentation in this text; refer to the Bibliographical Notes for relevant refer-
+ences.
+

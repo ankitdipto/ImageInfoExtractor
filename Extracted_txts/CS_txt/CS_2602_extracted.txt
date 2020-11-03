@@ -1,0 +1,50 @@
+ 
+
+Section 11.3.
+
+Planning in Situation Calculus 341
+
+conjuncts, and another subplan (e.g., either going to the hardware store or borrowing from a
+neighbor) can be used to achieve the third. The supermarket subplan can be further divided into
+a milk subplan and a bananas subplan. We can then put all the subplans together to solve the
+whole problem. This works because there is little interaction between the two subplans: going
+to the supermarket does not interfere with borrowing from a neighbor, and buying milk does not
+interfere with buying bananas (unless the agent runs out of some resource, like time or money).
+
+Divide-and-conquer algorithms are efficient because it is almost always easier to solve
+several small sub-problems rather than one big problem. However, divide-and-conquer fails in
+cases where the cost of combining the solutions to the sub-problems is too high. Many puzzles
+have this property. For example, the goal state in the eight puzzle is a conjunctive goal: to get
+tile 1 in position A and tile 2 in position B and ... up to tile 8. We could treat this as a planning
+problem and plan for each subgoal independently, but the reason that puzzles are "tricky" is that
+it is difficult to put the subplans together. It is easy to get tile 1 in position A, but getting tile 2
+in position B is likely to move tile 1 out of position. For tricky puzzles, the planning techniques
+in this chapter will not do any better than problem-solving techniques of Chapter 4. Fortunately,
+the real world is a largely benign place where subgoals tend to be nearly independent. If this
+were not the case, then the sheer size of the real world would make successful problem solving
+impossible.
+
+11.3 PLANNING IN SITUATION CALCULUS
+
+Before getting into planning techniques in detail, we present a formulation ofplanning as a logical
+inference problem, using situation calculus (see Chapter 7). A planning problem is represented
+in situation calculus by logical sentences that describe the three main parts of a problem:
+
+* Initial state: An arbitrary logical sentence about a situation So. For the shopping problem,
+this might be!
+
+At(Home, Sy) A >Have(Milk,So) A ~Have(Bananas,So) A >Have(Drill,So)
+* Goal state: A logical query asking for suitable situations. For the shopping problem, the
+query would be
+3s At(Home, s) A Have(Milk.s) A Have(Bananas,s) A Have(Drill,s)
+© Operators: A set of descriptions of actions, using the action representation described in
+Chapter 7. For example, here is a successor-state axiom involving the Buy(Milk)action:
+Vas Have(MilkResult(a,s)) <=  ((a=Buy(Milk)A At(Supermarket,s)
+Vv (Have(Milks) A a#Drop(Milk))]
+Recall that situation calculus is based on the idea that actions transform states: Result(a, s) names
+the situation resulting from executing action a in situation s. For the purposes of planning, it
+
+1A better representation might be along the lines of “3m Milk(m) A Have(m, So), but we have chosen the simpler
+notation to facilitate the explanation of planning methods. Notice that partial state information is handled automatically
+by a logical representation, whereas problem-solving algorithms required a special multiple-state representation.
+

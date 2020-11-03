@@ -1,0 +1,70 @@
+96 curren FOUR Register Transfer and Microoperations
+
+control function
+
+mally, we want the transfer to occur only under a predetermined control
+condition. This can be shown by means of an if-then statement.
+
+If(P = 1) then (R2 — R1)
+
+where P is a control signal generated in the control section. It is sometimes
+convenient to separate the control variables from the register transfer operation
+by specifying a control function. A control function is a Boolean variable that is
+equal to 1 or 0. The control function is included in the statement as follows:
+
+ 
+
+PB OR2© RI
+
+The control condition is terminated with acolon. It symbolizes the requirement
+that the transfer operation be executed by the hardware only if P = 1.
+
+Every statement written ina register transfer notation implies a hardware
+construction for implementing the transfer. Figure 4-2 shows the block dia-
+gram that depicts the transfer from R1 to R2. The » outputs of register RI are
+connected to the n inputs of register R2. The letter n will be used to indicate
+any number of bits for the register. It will be replaced by an actual number
+when the length of the register is known. Register R2 has a load input that is
+activated by the control variable P. It is assumed that the control variable is
+synchronized with the same clock as the one applied to the register. As shown
+
+ 
+
+Figure 4-2 Transfer from RI to R2 when P
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+P__Load|
+an RD Clock
+RL
+(2) Block diagram
+
+' tal
+
+ow J LALLA
+tieicemnter —t
+
+(©) Timing diagram
+

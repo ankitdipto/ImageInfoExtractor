@@ -1,0 +1,40 @@
+484 Let Us C
+
+ 
+
+}
+And here is the output...
+
+Decimal 0 is same as binary 0000000000000000
+Decimal 1 is same as binary 0000000000000001
+Decimal 2 is same as binary 0000000000000010
+Decimal 3 is same as binary 0000000000000011
+Decimal 4 is same as binary 0000000000000100
+Decimal 5 is same as binary 0000000000000101
+
+Let us now explore the various bitwise operators one by one.
+
+One’s Complement Operator
+
+On taking one’s complement of a number, all 1’s present in the
+number are changed to 0’s and all 0’s are changed to 1’s. For
+example one’s complement of 1010 is 0101. Similarly, one’s
+complement of 1111 is 0000. Note that here when we talk of a
+number we are talking of binary equivalent of the number. Thus,
+one’s complement of 65 means one’s complement of 0000 0000
+0100 0001, which is binary equivalent of 65. One’s complement of
+65 therefore would be, 1111 1111 1011 1110. One’s complement
+operator is represented by the symbol ~. Following program shows
+one’s complement operator in action.
+
+main()
+{
+int j,k;
+for (j=0;j<=3;j++)
+{
+printf ( "\nDecimal %d is same as binary “, j) ;
+showbits (j ) ;
+k=-j;
+
+printf ( "\nOne's complement of %d is", j) ;
+

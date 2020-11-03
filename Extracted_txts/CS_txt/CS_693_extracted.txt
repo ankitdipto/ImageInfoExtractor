@@ -1,0 +1,58 @@
+Chapter 2: The Decision Control Structure
+
+65
+
+ 
+
+}
+
+if (per >= 60)
+printf ( "First division ") ;
+else
+{
+if (per >= 50)
+printf ( “Second division" ) ;
+else
+{
+if (per >= 40)
+printf (“Third division" ) ;
+else
+printf ( “Fail” ) ;
+}
+}
+
+This is a straight forward program. Observe that the program uses
+nested if-elses. This leads to three disadvantages:
+
+(a) As the number of conditions go on increasing the level of
+indentation also goes on increasing. As a result the whole
+
+(b)
+(c)
+
+program creeps to the right.
+
+Care needs to be exercised to match the corresponding ifs and
+
+elses.
+
+Care needs to be exercised to match the corresponding pair of
+
+braces.
+
+All these three problems can be eliminated by usage of ‘Logical
+operators’. The following program illustrates this.
+
+|" Method - II */
+main()
+
+{
+
+int m1, m2, m3, m4, m6, per ;
+
+printf ( “Enter marks in five subjects ") ;
+
+scanf ("%d %d %d %d %d", &m1, &M2, &m3, &m4, &MS ) ;
+
+per =(m1+m2+m3+m4+m5)/5;
+

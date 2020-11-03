@@ -1,0 +1,41 @@
+Chapter 6: Data Types Revisited 233
+
+ 
+
+display() ;
+}
+display()
+{
+
+printf (“\n%d", x) ;
+}
+
+Here x is defined at two places, once outside main( ) and once
+inside it. When the control reaches the printf() in main( ) which x
+gets printed? Whenever such a conflict arises, it’s the local
+variable that gets preference over the global variable. Hence the
+printf( ) outputs 20. When display( ) is called and control reaches
+the printf( ) there is no such conflict. Hence this time the value of
+the global x, i.e. 10 gets printed.
+
+One last thing—a static variable can also be declared outside all
+the functions. For all practical purposes it will be treated as an
+extern variable. However, the scope of this variable is limited to
+the same file in which it is declared. This means that the variable
+would not be available to any function that is defined in a file other
+than the file in which the variable is defined.
+
+Which to Use When
+
+Dennis Ritchie has made available to the C programmer a number
+of storage classes with varying features, believing that the
+programmer is in a best position to decide which one of these
+storage classes is to be used when. We can make a few ground
+tules for usage of different storage classes in different
+programming situations with a view to:
+
+(a) economise the memory space consumed by the variables
+(b) improve the speed of execution of the program
+
+The rules are as under:
+

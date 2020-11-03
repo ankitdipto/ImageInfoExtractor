@@ -1,0 +1,48 @@
+13.3 Insertion 319
+
+violation must be because both z and z.p are red. Moreover, the tree violates
+no other red-black properties.
+
+Termination: When the loop terminates, it does so because z.p is black. (If z is
+the root, then z.p is the sentinel 7. nil, which is black.) Thus, the tree does not
+violate property 4 at loop termination. By the loop invariant, the only property
+that might fail to hold is property 2. Line 16 restores this property, too, so that
+when RB-INSERT-FIXUP terminates, all the red-black properties hold.
+
+Maintenance: We actually need to consider six cases in the while loop, but three
+of them are symmetric to the other three, depending on whether line 2 deter-
+mines z’s parent Z.p to be a left child or a right child of z’s grandparent Z.p.p.
+We have given the code only for the situation in which Z.p is a left child. The
+node z.p.p exists, since by part (b) of the loop invariant, if z.p is the root,
+then z.p is black. Since we enter a loop iteration only if z.p is red, we know
+that z.p cannot be the root. Hence, z.p.p exists.
+
+We distinguish case 1 from cases 2 and 3 by the color of z’s parent’s sibling,
+or “uncle.” Line 3 makes y point to z’s uncle Z.p.p.right, and line 4 tests y’s
+color. If y is red, then we execute case 1. Otherwise, control passes to cases 2
+and 3. In all three cases, z’s grandparent Z.p.p is black, since its parent z.p is
+red, and property 4 is violated only between z and Z.p.
+
+Case 1: z’s uncle y is red
+
+Figure 13.5 shows the situation for case 1 (lines 5-8), which occurs when
+both z.p and y are red. Because Z.p.p is black, we can color both z.p and y
+black, thereby fixing the problem of z and z.p both being red, and we can
+color z.p.p red, thereby maintaining property 5. We then repeat the while loop
+with Z.p.p as the new node z. The pointer z moves up two levels in the tree.
+
+Now, we show that case | maintains the loop invariant at the start of the next
+iteration. We use z to denote node z in the current iteration, and z’ = Z.p.p
+to denote the node that will be called node z at the test in line 1 upon the next
+iteration.
+
+a. Because this iteration colors z.p.p red, node Z’ is red at the start of the next
+iteration.
+
+b. The node z’.p is Z.p.p.p in this iteration, and the color of this node does not
+change. If this node is the root, it was black prior to this iteration, and it
+remains black at the start of the next iteration.
+
+c. We have already argued that case 1 maintains property 5, and it does not
+introduce a violation of properties 1 or 3.
+

@@ -1,0 +1,44 @@
+ 
+
+14.2 Disk Scheduling 497
+
+queue = 98, 183, 37, 122, 14, 124, 65, 67
+head starts at 53
+
+0 14 37 536567 98 122124 183 199
+el ee |
+
+Figure 14.5 C-LOOK disk scheduling.
+
+Then, it reverses direction immediately, without going all the way to the end
+of the disk. These versions of SCAN and C-SCAN are called LOOK and C-LOOK
+scheduling, because they look for a request before continuing to move ina given
+direction (Figure 14.5).
+
+14.2.6 Selection of a Disk-Scheduling Algorithm
+
+Given so many disk-scheduling algorithms, how do we choose the best one?
+SSTF is common and has a natural appeal because it increases performance over
+FCFS, SCAN and C-SCAN perform better for systems that place a heavy load on
+the disk, because they are less likely to have a starvation problem. For any
+particular list of requests, we can define an optimal order of retrieval, but the
+computation needed to find an optimal schedule may not justify the savings
+over SSTF or SCAN.
+
+With any scheduling algorithm, however, performance depends heavily on
+the number and types of requests. For instance, suppose that the queue usually
+has just one outstanding request. Then, all scheduling algorithms are forced to
+behave the same, because they have only one choice for where to move the disk
+head: They all behave like FCFS scheduling.
+
+The requests for disk service can be greatly influenced by the file-allocation
+method. A program reading a contiguously allocated file will generate several
+requests that are close together on the disk, resulting in limited head movement.
+
+A linked or indexed file, on the other hand, may include blocks that are widely
+scattered on the disk, resulting in greater head movement.
+
+The location of directories and index blocks is also important. Since every
+file must be opened to be used, and opening a file requires searching the
+directory structure, the directories will be accessed frequently. Suppose that a
+

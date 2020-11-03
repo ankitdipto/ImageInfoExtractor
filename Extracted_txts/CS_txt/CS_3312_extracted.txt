@@ -1,0 +1,62 @@
+664
+
+Chapter 22. Agents that Communicate
+
+ 
+
+LEXICON
+
+ARTICLES
+PREPOSITIONS
+CONJUNCTIONS
+
+OPEN CLASSES
+CLOSED CLASSES
+
+is a command, but in natural language the hearer has to determine if an utterance is a command,
+question, statement, promise, or whatever. Formal language theory provides a framework within
+which we can address these more difficult problems, but it does not answer them on its own. In
+the remainder of this section, we define a formal language for our English subset, £).
+
+The Lexicon of &
+
+The first step in defining a grammar is to define a lexicon, or list of allowable vocabulary words.
+The words are grouped into the categories or parts of speech familiar to dictionary users: nouns,
+pronouns, and names to denote things, verbs to denote events, adjectives to modify nouns, and
+adverbs to modify verbs. Categories that may be less familiar to some readers are articles (such
+as the), prepositions (in), and conjunctions (and).*Figure 22.5 shows a small lexicon.
+
+Each of the categories ends in ... to indicate that there are other words in the category.
+However, it should be noted that there are two distinct reasons for the missing words. For nouns,
+verbs, adjectives, and adverbs, it is in principle infeasible to list them all. Not only are there
+thousands or tens of thousands of members in each class, but new ones are constantly being
+added. For example, "fax" is now a very common noun and verb, but it was coined only a few
+years ago. These four categories are called open classes. The other categories (pronoun, article,
+preposition, and conjunction) are called closed classes. They have a small number of words (a
+few to a few dozen) that could in principle be enumerated. Closed classes change over the course
+of centuries, not months. For example, “thee” and “thou” were commonly used pronouns in the
+seventeenth century, on the decline in the nineteenth, and are seen only in poetry and regional
+dialects today.
+
+The Grammar of &
+
+The next step is to combine the words into phrases. We will use five nonterminal symbols to define
+the different kinds of phrases: sentence (S),noun phrase (NP),verb phrase (VP), prepositional
+phrase (PP), and relative clause (Re/Clause).* Figure 22.6 shows a grammar for £) with an
+example for each rewrite rule
+
+224 SYNTACTIC ANALYSIS (PARSING)
+
+PARSE FOREST
+
+There are many algorithms for parsing—recovering the phrase structure of an utterance, given a
+grammar. In Figure 22.7, we give a very simple algorithm that nondeterministically chooses one
+possible parse tree, if one exists. It treats the list of words as a parse forest: an ordered list of
+parse trees. On each step through the main loop, it finds some subsequence of elements in the
+
+3 The term conjunction here means something that joins two phrases together. It addition to and, it includes but, since,
+while, or, and because, Do not be confused by the fact that or is logically a disjunction but syntactically a conjunction
+4 A relative clause follows and modifies a noun phrase. It consists of a relative pronoun (such as "who" or "that")
+followed by a verb phrase (and sometimes a whole sentence). An example of a relative clause is that gave me the goldin
+"The agent that gave me the golds in 2,2."
+

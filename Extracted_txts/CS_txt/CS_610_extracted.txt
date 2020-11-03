@@ -1,0 +1,58 @@
+1136
+
+Chapter 35 Approximation Algorithms
+
+d. Consider a maximal matching M in G = (V, E). Let
+T = {v €V : some edge in M is incident on v} .
+
+What can you say about the subgraph of G induced by the vertices of G that
+are not in T?
+
+e. Conclude from part (d) that 2 |M| is the size of a vertex cover for G.
+
+J. Using parts (c) and (e), prove that the greedy algorithm in part (b) is a 2-approx-
+
+imation algorithm for maximum matching.
+
+35-5 Parallel machine scheduling
+
+In the parallel-machine-scheduling problem, we are given n jobs, J,. Jz..... Ins
+where each job J; has an associated nonnegative processing time of py. We are
+also given m identical machines, M,.M..... M,,.. Any job can run on any ma-
+chine. A schedule specifies, for each job J;, the machine on which it runs and
+the time period during which it runs. Each job J; must run on some machine M;
+for px consecutive time units, and during that time period no other job may run
+on M;. Let Cx denote the completion time of job J;, that is, the time at which
+job J; completes processing. Given a schedule, we define Cyax = maxj<j<n Cj to
+be the makespan of the schedule. The goal is to find a schedule whose makespan
+is minimum.
+
+For example, suppose that we have two machines M, and M) and that we have
+four jobs J), Jz, J3, J4, with py = 2, pp = 12, p3 = 4, and py = 5. Then one
+possible schedule runs, on machine Mj, job J, followed by job J, and on ma-
+chine Mp, it runs job J4 followed by job J3. For this schedule, C; = 2, C, = 14,
+C3 = 9, Cy = 5, and C,,,, = 14. An optimal schedule runs J, on machine M,, and
+it runs jobs J;, J3, and J, on machine M). For this schedule, C; = 2, Cy = 12,
+C3 = 6, Cy = 11, and Cy = 12.
+
+Given a parallel-machine-scheduling problem, we let C,
+of an optimal schedule.
+
+*
+
+‘wax denote the makespan
+
+a. Show that the optimal makespan is at least as large as the greatest processing
+time, that is,
+
+*
+Ch = max Dy -
+isksn
+
+b. Show that the optimal makespan is at least as large as the average machine load,
+that is,
+
+cue 4 dS m%-
+
+isksn
+

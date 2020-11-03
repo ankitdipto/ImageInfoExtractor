@@ -1,0 +1,50 @@
+Oe
+
+512 Chapter 14 Mass-Storage Structure
+
+14.5.5 Extensions
+
+The concepts of RAID have been generalized to other storage devices, including
+arrays of tapes, and even to the broadcast of data over wireless systems. When
+applied to arrays of tapes, the RAID structures are able to recover data even if
+one of the tapes in an array of tapes is damaged. When applied to broadcast of
+data, a block of data is split into short units and is broadcast along with a parity
+unit; if one of the units is not received for any reason, it can be reconstructed
+from the other units. Commonly, tape-drive robots containing multiple tape
+drives will stripe data across all the drives to increase throughput and decrease
+backup time.
+
+14.6 = Disk Attachment
+
+Computers access disk storage in two ways. One way is via 1/O ports (or host-
+attached storage); this is common on small systems. The other way is via a
+remote host via a distributed file system; this is referred to as network-attached
+storage.
+
+14.6.1 Host-Attached Storage
+
+Host-attached storage is storage accessed via local I/O ports. These ports are
+available in several technologies. The typical desktop PC uses an 1/O bus
+architecture called IDE or ATA. This architecture supports a maximum of two
+drives per I/O bus. High-end workstations and servers generally use more
+sophisticated I/O architectures such as SCSI and fibre channel (FC).
+
+SCSI is a bus architecture. Its physical medium is usually a ribbon cable
+having a large number of conductors (typically 50 or 68). The SCSI protocol
+supports a maximum of 16 devices on the bus. Typically this consists of one
+controller card in the host (the SCSI initiator), and up to 15 storage devices (the
+SCSI targets). A SCSI disk is a typical SCSI target, but the protocol provides
+the ability to address up to 8 logical units in each SCSI target. A typical use of
+logical unit addressing is to direct commands to components of a RAID array,
+or components of a removable media library (such as a CD jukebox sending
+commands to the media changer mechanism or to one of the drives).
+
+FC is a high-speed serial architecture. This architecture can operate over
+optical fiber or over a 4-conductor copper cable. It has two variants. One
+is a large switched fabric having a 24-bit address space. This method is
+expected to dominate in the future, and is the basis of storage-area networks
+(SANs). Because of the large address space and the switched nature of the
+communication, multiple hosts and storage devices can attach to the fabric,
+allowing great flexibility in I/O communication. The other is an arbitrated loop
+(FC-AL) that can address 126 devices (drives and controllers).
+

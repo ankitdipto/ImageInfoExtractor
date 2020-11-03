@@ -1,0 +1,58 @@
+Problems for Chapter 24 681
+
+Let * = ming 4(c), where c ranges over all directed cycles in G. We call acycle c
+for which jx(c) = j* a minimum mean-weight cycle. This problem investigates
+an efficient algorithm for computing j1*.
+
+Assume without loss of generality that every vertex v € V is reachable from a
+source vertex s € V. Let 5(s, v) be the weight of a shortest path from s to v, and let
+5x(s, v) be the weight of a shortest path from s to v consisting of exactly k edges.
+If there is no path from s to v with exactly k edges, then 6,(s,v) = 00.
+
+a. Show that if j4* = 0, then G contains no negative-weight cycles and 5(s,v) =
+ming<ken—1 5¢(S, v) for all vertices v € V.
+
+b. Show that if 4* = 0, then
+
+5n(S.¥) — 8x (5,V)
+max §=_————_——_. >
+Osk<n-1 n—-k
+
+0
+
+for all vertices v € V. (Hint: Use both properties from part (a).)
+
+c. Let c be a 0-weight cycle, and let u and v be any two vertices on c. Suppose
+that j4* = 0 and that the weight of the simple path from u to v along the cycle
+is x. Prove that 6(s,v) = 5(s,u) + x. (Hint: The weight of the simple path
+from v to u along the cycle is —x.)
+
+d. Show that if j.* = 0, then on each minimum mean-weight cycle there exists a
+vertex v such that
+
+5n(5,V) — 5 (5, v)
+max ————__"~ =
+Osk<n-1 n—-k
+
+0.
+
+(Hint: Show how to extend a shortest path to any vertex on a minimum mean-
+weight cycle along the cycle to make a shortest path to the next vertex on the
+cycle.)
+
+e. Show that if .* = 0, then
+
+. Sn (8.¥) — dk (5. ¥)
+mn max = ———— =
+veV 0<k<n-1 n—k
+
+0.
+
+f. Show that if we add a constant f to the weight of each edge of G, then jx*
+increases by f. Use this fact to show that
+
+«a Sn (8, v) = ks, v)
+= TEP ocken-1 n—k ,
+
+g. Give an O(VE)-time algorithm to compute j*.
+

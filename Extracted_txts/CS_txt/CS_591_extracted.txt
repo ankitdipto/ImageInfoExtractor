@@ -1,0 +1,73 @@
+158
+
+Chapter 6. Agents that Reason Logically
+
+ 
+
+ 
+
+ENTAILMENT
+
+Provided the syntax and semantics are defined precisely, we can call the language a logic?
+From the syntax and semantics, we can derive an inference mechanism for an agent that uses the
+language. We now explain how this comes about.
+
+First, recall that the semantics of the language determine the fact to which a given sentence
+refers (see Figure 6.5). It is impprtant to distinguish between facts and their representations.
+Facts are part of the world,* whereas their representations must be encoded in some way that can
+be physically stored within an agent. We cannot put the world inside a computer (nor can we put
+it inside a human), so all reasoning mechanisms must operate on representations of facts, rather
+than on the facts themselves. Because sentences are physical configurations of parts of the agent,
+reasoning must be a process of constructing new physical configurations from old ones. Proper
+reasoning should ensure that the new configurations represent facts that actually follow from the
+
+facts that the old configurations represent.
+
+ 
+
+Sentences -—_—-_——-> Sentence
+Entails o
+Representation g 5
+———— g,————___-~~—.8| _______
+World 8 &
+Facts ————__ Fact
+Follows
+
+ 
+
+ 
+
+Figure 65 The connection between sentences and facts is provided by the semantics of the
+language. The property of one fact following from some other facts is mirrored by the property of
+one sentence being entailed by some other sentences. Logical inference generates new sentences
+that are entailed by existing sentences.
+
+ 
+
+ 
+
+ 
+
+Consider the following example. From the fact that the solar system obeys the laws of
+gravitation, and the fact of the current arrangement of the sun, planets, and other bodies, it follows
+(so the astronomers tell us) that Pluto will eventually spin offinto the interstellar void. But ifour
+agent reasons improperly, it might start with representations of the first two facts and end with a
+representation that means that Pluto will shortly amive in the vicinity of Bucharest. Or we might
+end up with "logical" reasoning like that in Figure 6.6. ve
+
+We want to generate new sentences that are necessarily true, given that the old sentences
+are true. This relation between sentences is called entailment, and mirrors the relation of one
+fact following from another (Figure 6.5). In mathematical notation, the relation of entailment
+between a knowledge base KB and a sentence a is pronounced “KBentails a” and written as
+
+KB ka. boy
+
+An inference procedure can do one of two things: given a know! ledge base KB, it can generate
+
+3 This is perhaps a rather broad interpretation of the term "logic," one that makes "representation language" and "logic"
+synonymous. However, most of the principles of logic apply at this general level, rather than just at the level of the
+particular languages most often associated with the term.
+
++ As Wittgenstein (1922) put it in his famous Tractatus Logico-Philosophicus: "The world is everything that is the
+case.” We are using the word "fact" in this sense: as an "arrangement" ofthe world that may or may not be the case.
+

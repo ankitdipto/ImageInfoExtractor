@@ -1,0 +1,60 @@
+27.3 Multithreaded merge sort 799
+
+index gp in the subarray T[p2..12] so that the subarray would still be sorted if we
+inserted x between T[q2 — 1] and T [gz].
+
+We next merge the original subarrays T[p; ..11] and T[p2..r2] into A[p3..rs]
+as follows:
+
+1. Set qg3 = ps + (qi — pi) + (G2 — Pr).
+2. Copy x into A[gs].
+
+3. Recursively merge T[p) .. qi —1] with T[p2 ..q2—1], and place the result into
+the subarray A[p3..q3— 1].
+
+4. Recursively merge T[g: + 1..1i] with T[q2..r2], and place the result into the
+subarray A[q3 + 1..13].
+
+When we compute 3, the quantity ¢;—p is the number of elements in the subarray
+T[pi..q: — 1], and the quantity g2 — p2 is the number of elements in the subarray
+T[p2..q2 — 1). Thus, their sum is the number of elements that end up before x in
+the subarray A[p3..13].
+
+The base case occurs when 1; = Nz = 0, in which case we have no work
+to do to merge the two empty subarrays. Since we have assumed that the sub-
+array T[p;..11] is at least as long as T[p2.. 12], that is, my > 2, we can check
+for the base case by just checking whether 7; = 0. We must also ensure that the
+recursion properly handles the case when only one of the two subarrays is empty,
+which, by our assumption that 1; > 2, must be the subarray T[po.. rz].
+
+Now, let’s put these ideas into pseudocode. We start with the binary search,
+which we express serially. The procedure BINARY-SEARCH(x,T, p,r) takes a
+key x anda subarray T[p ..r'], and it returns one of the following:
+
++ If T[p..r] is empty (r < p), then it returns the index p.
+
+* If x < T[p], and hence less than or equal to all the elements of T[p..7r], then
+it returns the index p.
+
++ Ifx > T[p], then it returns the largest index q in the range p <q <r+1 such
+that T[g — 1] < x.
+
+Here is the pseudocode:
+
+BINARY-SEARCH (x, T, p.1r)
+
+1 lw=p
+
+2 high = max(p,r + 1)
+
+3 while low < high
+
+4 mid = ((low + high) /2|
+5 ifx < T[mid]
+
+6 high = mid
+
+7 else low = mid + 1
+
+8 return high
+

@@ -1,0 +1,104 @@
+  
+
+Section 11.9.
+
+Summary 365
+
+ 
+
+SUSSMAN ANOMALY
+
+c. Refinement vs. debugging.
+
+d. Least commitment vs. more commitment
+
+e. Bound variables vs. unbound variables.
+
+f. Total order vs. partial order.
+
+g. Interleaved vs. noninterleaved.
+
+h. Unambiguous preconditions vs. ambiguous preconditions
+i. Systematic vs. unsystematic.
+
+11.4 Figure 11.16 shows a blocks-world planning problem known as the Sussman anomaly.
+The problem was considered anomalous because the noninterleaved planners of the early 1970s
+could not solve it. Encode the problem using STRIPS operators, and use POP to solve it
+
+ 
+
+ 
+
+A
+c B
+
+BI|A Cc
+Ein
+
+Start State Goal State
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11.16 — The "Sussman anomaly" blocks-world planning problem.
+
+ 
+
+ 
+
+ 
+
+115 Suppose that you are the proud owner ofa brand new time machine. That means that you
+can perform actions that affect situations in the past. What changes would you have to make to
+the planners in this chapter to accommodate such actions?
+
+11.6 The POP algorithm shown in the text is a regression planner, because it adds steps
+whose effects satisfy unsatisfied conditions in the plan. Progression planners add steps whose
+preconditions are satisfied by conditions known to be tre in the plan. Modify POP so that it
+works as a progression planner, and compare its performance to the original on several problems
+of your choosing.
+
+11.7 In this exercise, we will look at planning in Shakey’s world.
+
+a. Describe Shakey’s six actions in situation calculus notation.
+
+b. Translate them into the STRIPS language.
+Either manually or using a partial-order planner, construct a plan for Shakey to get Box2
+into Room? from the starting configuration in Figure 11.15.
+
+d. Suppose Shakey has » boxes in a room and needs to move them all into another room.
+What is the complexity of the planning process in terms of n?
+
+ 
+

@@ -1,0 +1,53 @@
+10.5 Allocation of Frames = 347
+
+Of course, we must adjust each a; to be an integer that is greater than the
+minimum number of frames required by the instruction set, with a sum not
+exceeding m.
+
+For proportional allocation, we would split 62 frames between two pro-
+cesses, one of 10 pages and one of 127 pages, by allocating 4 frames and 57
+frames, respectively, since
+
+10/137 x 62 +4,
+127/137 x 62 57.
+
+In this way, both processes share the available frames according to their
+“needs,” rather than equally.
+
+In both equal and proportional allocation, of course, the allocation to each
+process may vary according to the multiprogramming level. If the multipro-
+gramming level is increased, each process will lose some frames to provide the
+memory needed for the new process. On the other hand, if the multiprogram-
+ming level decreases, the frames that had been allocated to the departed process
+can now be spread over the remaining processes.
+
+Notice that, with either equal or proportional allocation, a high-priority
+process is treated the same as a low-priority process. By its definition, however,
+we may want to give the high-priority process more memory to speed its
+execution, to the detriment of low-priority processes.
+
+One approach is to use a proportional allocation scheme where the ratio of
+frames depends not on the relative sizes of processes, but rather on the priorities
+of processes, or on a combination of size and priority.
+
+10.5.3 Global Versus Local Allocation
+
+Another important factor in the way frames are allocated to the various pro-
+cesses is page replacement. With multiple processes competing for frames,
+we can classify page-replacement algorithms into two broad categories: global
+replacement and local replacement. Global replacement allows a process to
+select a replacement frame from the set of all frames, even if that frame is
+currently allocated to some other process; one process can take a frame from
+another. Local replacement requires that each process select from only its own
+set of allocated frames.
+
+For example, consider an allocation scheme where we allow high-priority
+processes to select frames from low-priority processes for replacement. A
+process can select a replacement from among its own frames or the frames
+of any lower-priority process. This approach allows a high-priority process to
+increase its frame allocation at the expense of the low-priority process.
+
+With a local replacement strategy, the number of frames allocated to a
+process does not change. With global replacement, a process may happen to
+select only frames allocated to other processes, thus increasing the number of
+

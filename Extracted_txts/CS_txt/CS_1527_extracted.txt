@@ -1,0 +1,53 @@
+246 © cuarrerticHt Central Processing Unit
+
+Examples of Microoperations
+
+A control word of 14 bitsis needed to specifya microoperation in the CPU. The
+control word for a given microoperation can be derived from the selection
+variables. For example, the subtract microoperation given by the statement
+
+RICR2- RB
+
+specifies R2 for the A input of the ALU, R3 for the B input of the ALU, R1 for
+the destination register, and an ALU operation to subtract A — B. Thus the
+control word is specified by the four fields and the corresponding binary value
+for each field is obtained from the encoding listed in Tables 8-1 and 8-2 The
+binary control word for the subtract microoperation is 010 O11 001 00101 and
+is obtained as follows:
+
+Field: SELA SELB SELD OPR
+Symbol: R2 R3 RI SUB
+Control word: 01001000101
+
+The control word for this microoperation and a few others are listed in
+Table 8-3.
+
+Theincrement and transfer microoperations do not use the Binput of the
+ALU. For these cases, the B field is marked witha dash. Weassign 000to any
+unused field when formulating the binary control word, although any other
+binary number may be used. To place the content of a register into the output
+terminals we place the content of the register into the A input of the ALU, but
+none of the registers are selected to accept the data. The ALU operation TSFA
+places the data from the register, through the ALU, into the output terminals.
+The direct transfer from input to output is accomplished with a control word
+
+TABLE 8-3 Examples of Microoperations for the CPU
+
+ 
+
+‘Symbolic Designation
+
+ 
+
+Microoperation SELA SELB SELD OPR Control Word
+
+RIeR2- 3 RD R3 RL SUB ol0 O11 m1 01
+RacRAyR5 RA R5 -R4_—OR_—_ 100 101 100 01010
+R6—R6+1 RG = R6 INCA 110 000 110 00001
+R7CRL RI — 7 TSFA 001 000 111 00000
+Output-R2 2 — None TSFA 010 000 000 00000
+Output<Input Input — | None TSFA 000 000 000 00000
+Raeshi Rd RA R4— SHLA 100 000 100 11000
+
+R50 RS R5 RS. XOR_~—101 101 101 01100
+

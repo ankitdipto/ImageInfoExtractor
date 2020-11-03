@@ -1,0 +1,73 @@
+784
+
+Chapter 27 Multithreaded Algorithms
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+A
+>| A >| B >
+B
+Work: T,(A U B) = T\(A) + T,(B) Work: T,(A U B) = T\(A) + T1(B)
+Span: Too(A UB) = To(A) + Too(B) Span: Ty.(A U B) = max(Too(A), Too(B))
+
+(a) (b)
+
+Figure 27.3 The work and span of composed subcomputations. (a) When two subcomputations
+are joined in series, the work of the composition is the sum of their work, and the span of the
+composition is the sum of their spans. (b) When two subcomputations are joined in parallel, the
+work of the composition remains the sum of their work, but the span of the composition is only the
+maximum of their spans.
+
+Analyzing multithreaded algorithms
+
+We now have all the tools we need to analyze multithreaded algorithms and provide
+good bounds on their running times on various numbers of processors. Analyzing
+the work is relatively straightforward, since it amounts to nothing more than ana-
+lyzing the running time of an ordinary serial algorithm—namely, the serialization
+of the multithreaded algorithm—which you should already be familiar with, since
+that is what most of this textbook is about! Analyzing the span is more interesting,
+but generally no harder once you get the hang of it. We shall investigate the basic
+ideas using the P-FIB program.
+
+Analyzing the work 7; (1) of P-F1B (1) poses no hurdles, because we've already
+done it. The original FIB procedure is essentially the serialization of P-FrB, and
+hence T;(n) = T(n) = ©(¢") from equation (27.1).
+
+Figure 27.3 illustrates how to analyze the span. If two subcomputations are
+joined in series, their spans add to form the span of their composition, whereas
+if they are joined in parallel, the span of their composition is the maximum of the
+spans of the two subcomputations. For P-F1B (7), the spawned call to P-F1B(n— 1)
+in line 3 runs in parallel with the call to P-F1B(n — 2) in line 4. Hence, we can
+express the span of P-FIB(1) as the recurrence
+
+Too(n) = max(T,.(n — 1), Too(n — 2)) + OC)
+Too(n — 1) +O) .
+which has solution T,,(n) = @(n).
+
+The parallelism of P-F1B(1) is T;(n)/T.(n) = ©(¢"/n), which grows dra-
+matically as 1 gets large. Thus, on even the largest parallel computers, a modest
+

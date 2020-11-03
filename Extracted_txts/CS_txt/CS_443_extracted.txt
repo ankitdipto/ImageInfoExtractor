@@ -1,0 +1,51 @@
+32.3 String matching with finite automata 1001
+
+Now, we assume that $(7;) = o(T7;) and prove that $(T7j;+1) = o(Tj+1). Let g
+denote $(T7;), and let a denote T [i + 1]. Then,
+T+) = o(T;a) (by the definitions of T;,; and a)
+
+= 4d(G(T;).a) (by the definition of ¢)
+
+5(q.a) (by the definition of q)
+o(Pya) (by the definition (32.4) of 5)
+o(T;a) (by Lemma 32.3 and induction)
+= o(Tj41) (by the definition of T;4,) . .
+
+By Theorem 32.4, if the machine enters state q on line 4, then q is the largest
+value such that Pg 4 7;. Thus, we have g = m on line 5 if and only if the ma-
+chine has just scanned an occurrence of the pattern P. We conclude that FINITE-
+AUTOMATON-MATCHER operates correctly.
+
+Computing the transition function
+
+The following procedure computes the transition function 5 from a given pattern
+P[l..m).
+COMPUTE-TRANSITION-FUNCTION (P, 2)
+
+1 m= P.length
+2 forg =0tom
+
+3 for each character a € 4
+
+4 k = min(m 4+ 1,q +2)
+5 repeat
+
+6 k=k-1
+
+7 until Py 3 Pya
+
+8 5(q.a) =k
+
+9 return 5
+
+This procedure computes 5(g,@) in a straightforward manner according to its def-
+inition in equation (32.4). The nested loops beginning on lines 2 and 3 consider
+all states ¢ and all characters a, and lines 4-8 set 5(q,a) to be the largest k such
+that Py 4 Pa. The code starts with the largest conceivable value of k, which is
+min(m,q + 1). It then decreases k until Py 3 P a, which must eventually occur,
+since Po = ¢ is a suffix of every string.
+
+The running time of COMPUTE-TRANSITION-FUNCTION is O(m?|5]), be-
+cause the outer loops contribute a factor of m |=], the inner repeat loop can run
+at most m + | times, and the test P, 4 P,a on line 7 can require comparing up
+

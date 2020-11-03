@@ -1,0 +1,90 @@
+438
+
+Chapter 15. Probabilistic Reasoning Systems
+
+ 
+
+CONDITIONAL
+PROBABILITY TABLE
+
+CONDITIONING CASE
+
+ 
+
+ 
+
+15.2_TH
+
+r
+
+ 
+
+ 
+
+Notice that the network does not have nodes corresponding to Mary currently listening to
+loud music, or to the telephone ringing and confusing John. These factors are summarized in
+the uncertainty associated with the links from Alarm to JohnCalls and MaryCalls. This shows
+both laziness and ignorance in operation: it would be a lot of work to determine any reason why
+those factors would be more or less likely in any particular case, and we have no reasonable way
+to obtain the relevant information anyway. The probabilities actually summarize a potentially
+infinite set of possible circumstances in which the alarm might fail to go off (high humidity,
+power failure, dead battery, cut wires, dead mouse stuck inside bell, ...) or John or Mary might
+fail to call and report it (out to lunch, on vacation, temporarily deaf, passing helicopter, ...). In
+this way, a small agent can cope with a very large world, at least approximately. The degree of
+approximation can be improved if we introduce additional relevant information
+
+Once we have specified the topology, we need to specify the conditional probability table
+or CPT for each node. Each row in the table contains the conditional probability of each node
+value for a conditioning case. A conditioning case is just a possible combination of values for
+the parent nodes (a miniature atomic event, if you like). For example, the conditional probability
+table for the random variable Alarm might look like this:
+
+ 
+
+ 
+
+P(Alarm|Burglary, Earthquake)
+Burglary Earthquake True False
+True True 0.950 0.050
+True False 0.950 0.050
+False True 0.290 0.710
+False False 0.001 0.999
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Each row in a conditional probability table must sum to 1, because the entries represent an
+exhaustive set of cases for the variable. Hence only one of the two numbers in each row shown
+above is independently specifiable. In general, a table for a Boolean variable with n Boolean
+parents contains 2" independently specifiable probabilities. A node with no parents has only one
+row, representing the prior probabilities of each possible value of the variable.
+
+The complete network for the burglary example is shown in Figure 15.2, where we show
+just the conditional probability for the True case of each variable.
+
+ 
+
+SEMANTICS OF BEEIEF NETWORKS
+
+ 
+
+ 
+
+ 
+
+The previous section described what a network is, but not what it means. There are two ways
+in which one can understand the semantics of belief networks. The first is to see the network as
+a representation of the joint probability distribution. The second is to view it as an encoding of
+a collection of conditional independence statements. The two views are equivalent, but the first
+turns out to be helpful in understanding how to construct networks, whereas the second is helpful
+in designing inference procedures
+
+ 
+

@@ -1,0 +1,53 @@
+2.5 Hardware Protection 43
+
+2.5.1 Dual-Mode Operation
+
+To ensure proper operation, we must protect the operating system and all
+other programs and their data from any malfunctioning program. Protection
+is needed for any shared resource. The approach taken by many operating sys-
+tems provides hardware support that allows us to differentiate among various
+modes of execution.
+
+At the very least, we need two separate modes of operation: user mode
+and monitor mode (also called supervisor mode, system mode, or privileged
+mode). A bit, called the mode bit, is added to the hardware of the computer to
+indicate the current mode: monitor (0) or user (1). With the mode bit, we are
+able to distinguish between a task that is executed on behalf of the operating
+system, and one that is executed on behalf of the user. As we shall see, this
+architectural enhancement is useful for many other aspects of system operation.
+
+At system boot time, the hardware starts in monitor mode. The operating
+system is then loaded, and starts user processes in user mode. Whenever a trap
+or interrupt occurs, the hardware switches from user mode to monitor mode
+(that is, changes the state of the mode bit to 0). Thus, whenever the operating
+system gains control of the computer, it is in monitor mode. The system always
+switches to user mode (by setting the mode bit to 1) before passing control to a
+user program.
+
+The dual mode of operation provides us with the means for protecting the
+Operating system from errant users, and errant users from one another. We
+accomplish this protection by designating some of the machine instructions that
+may cause harm as privileged instructions. The hardware allows privileged
+instructions to be executed only in monitor mode. If an attempt is made to
+execute a privileged instruction in user mode, the hardware does not execute
+the instruction, but rather treats the instruction as illegal and traps it to the
+operating system.
+
+The concept of privileged instructions also provides us with the means for
+the user to interact with the operating system by asking the system to perform
+some designated tasks that only the operating system should do. Each such
+request is invoked by the user executing a privileged instruction. Such a request
+is known as a system call (also called a monitor call or an operating-system
+function call)—as described in Section 2.1.
+
+When a system call is executed, it is treated by the hardware as a software
+interrupt. Control passes through the interrupt vector to a service routine in
+the operating system, and the mode bit is set to monitor mode. The system-call
+service routine is a part of the operating system. The monitor examines the
+interrupting instruction to determine what system call has occurred; a param-
+eter indicates what type of service the user program is requesting. Additional
+information needed for the request may be passed in registers, on the stack, or
+in memory (with pointers to the memory locations passed in registers). The
+monitor verifies that the parameters are correct and legal, executes the request,
+and returns control to the instruction following the system call.
+

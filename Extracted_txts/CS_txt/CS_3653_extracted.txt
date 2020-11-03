@@ -1,0 +1,71 @@
+SECTION 1-4 Map Simplification 13,
+
+adjacent. The same applies to the top and bottom squares ofa column. Asa
+result, the four corner squares of a map must also be considered to be adjacent.
+
+‘A Boolean function represented by a truth table is plotted into the map
+by inserting 1’s in those squares where the function is 1. The squares contain-
+ing Y's arecombinedin groups of adjacent squares. These groups must contain
+a number of squares that is an integral power of 2. Groups of combined
+adjacent squares may share one or more squares with one or more groups.
+Each group of squares represents an algebraic term, and the OR of those terms
+gives the simplifiedalgebraicexpression for the function. The following exam-
+ples show the use of the map for simplifying Boolean functions.
+
+In the first example we will simplify the Boolean function
+
+F(A,B, C) = 2 3,4,6,7)
+
+ 
+
+The three-variable map for this function is shown in Fig. 1-8. There are four
+squares marked with 1's, one for each minterm that produces 1 for the func-
+tion. These squares belong to minterms 3, 4, 6, and 7 and are recognized from
+Fig. 1-7(b). Two adjacent squares are combined in the third column. This
+column belongs to both B and C and produces the term BC. The remaining two
+squares with I's in the two comers of the second row are adjacent and belong
+to row A and the two columns of C’, so they produce the term AC’. The
+simplified algebraic expression for the function is the OR of the two terms:
+
+F = BC + AC’
+The second example simplifies the following Boolean function:
+F(A,B,C) = & 0,2,4,5,6)
+
+The five minterms are marked with 1s in the corresponding squares of the
+three-variable map shown in Fig, 1-9. The four squares in the first and fourth
+columns are adjacent and represent the term C’. The remaining square marked
+with a 1 belongs to minterm 5 and can be combined with the square of minterm
+4 to produce the term AB’. The simplified function is
+
+F=C+AB’
+
+Figure 1-8 Map for F(A, B.C) = £.(3.4.6,7).
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+

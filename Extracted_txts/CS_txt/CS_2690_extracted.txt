@@ -1,0 +1,44 @@
+11.2 Hash tables 259
+
+Section 11.3 discusses these issues, but for now we shall assume that any given
+element is equally likely to hash into any of the m slots, independently of where
+any other element has hashed to. We call this the assumption of simple uniform
+hashing.
+
+For j =0,1,..., m — 1, let us denote the length of the list T[j] by n;, so that
+n=ngotm +e + Mma. (11.1)
+and the expected value of n; is E[nj;] = @ =n/m.
+
+We assume that O(1) time suffices to compute the hash value /i(k), so that
+the time required to search for an element with key k depends linearly on the
+length mj of the list T[h(k)]. Setting aside the O(1) time required to compute
+the hash function and to access slot i(k), let us consider the expected number of
+elements examined by the search algorithm, that is, the number of elements in the
+list T [h()] that the algorithm checks to see whether any have a key equal to k. We
+shall consider two cases. In the first, the search is unsuccessful: no element in the
+table has key k. In the second, the search successfully finds an element with key k.
+
+Theorem 11.1
+Ina hash table in which collisions are resolved by chaining, an unsuccessful search
+takes average-case time ©(1+q), under the assumption of simple uniform hashing.
+
+Proof Under the assumption of simple uniform hashing, any key k not already
+stored in the table is equally likely to hash to any of the m slots. The expected time
+to search unsuccessfully for a key k is the expected time to search to the end of
+list T[h(k)], which has expected length E [.4¢)] = a. Thus, the expected number
+of elements examined in an unsuccessful search is a, and the total time required
+(including the time for computing /(k)) is O(1 + @). .
+
+The situation for a successful search is slightly different, since each list is not
+equally likely to be searched. Instead, the probability that a list is searched is pro-
+portional to the number of elements it contains. Nonetheless, the expected search
+time still turns out to be @(1 + @).
+
+Theorem 11.2
+In a hash table in which collisions are resolved by chaining, a successful search
+takes average-case time ©(1+q), under the assumption of simple uniform hashing.
+
+Proof We assume that the element being searched for is equally likely to be any
+of the 7 elements stored in the table. The number of elements examined during a
+successful search for an element x is one more than the number of elements that
+

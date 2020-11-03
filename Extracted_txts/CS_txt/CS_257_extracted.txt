@@ -1,0 +1,49 @@
+Chapter 29 Linear Programming 849
+
+we shall use a concept called “duality” to show that the solution returned by the
+simplex algorithm is indeed optimal.
+
+Although the geometric view gives a good intuitive view of the operations of the
+simplex algorithm, we shall not refer to it explicitly when developing the details
+of the simplex algorithm in Section 29.3. Instead, we take an algebraic view. We
+first write the given linear program in slack form, which is a set of linear equalities.
+These linear equalities express some of the variables, called “basic variables,” in
+terms of other variables, called “nonbasic variables.’ We move from one vertex
+to another by making a basic variable become nonbasic and making a nonbasic
+variable become basic. We call this operation a “pivot” and, viewed algebraically,
+it is nothing more than rewriting the linear program in an equivalent slack form.
+
+The two-variable example described above was particularly simple. We shall
+need to address several more details in this chapter. These issues include iden-
+tifying linear programs that have no solutions, linear programs that have no finite
+optimal solution, and linear programs for which the origin is not a feasible solution.
+
+Applications of linear programming
+
+Linear programming has a large number of applications. Any textbook on opera-
+tions research is filled with examples of linear programming, and linear program-
+ming has become a standard tool taught to students in most business schools. The
+election scenario is one typical example. Two more examples of linear program-
+ming are the following:
+
+ 
+
+* An airline wishes to schedule its flight crews. The Federal Aviation Admi
+tration imposes many constraints, such as limiting the number of consecutive
+hours that each crew member can work and insisting that a particular crew work
+only on one model of aircraft during each month. The airline wants to schedule
+crews on all of its flights using as few crew members as possible.
+
+* An oil company wants to decide where to drill for oil. Siting a drill at a particu-
+lar location has an associated cost and, based on geological surveys, an expected
+payoff of some number of barrels of oil. The company has a limited budget for
+locating new drills and wants to maximize the amount of oil it expects to find,
+given this budget.
+
+With linear programs, we also model and solve graph and combinatorial prob-
+lems, such as those appearing in this textbook. We have already seen a special
+case of linear programming used to solve systems of difference constraints in Sec-
+tion 24.4. In Section 29.2, we shall study how to formulate several graph and
+network-flow problems as linear programs. In Section 35.4, we shall use linear
+programming as a tool to find an approximate solution to another graph problem.
+

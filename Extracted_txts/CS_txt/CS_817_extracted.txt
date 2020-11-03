@@ -1,0 +1,42 @@
+166 Let Us C
+
+ 
+
+Passing Values between Functions
+
+The functions that we have used so far haven’t been very flexible.
+We call them and they do what they are designed to do. Like our
+mechanic who always services the motorbike in exactly the same
+way, we haven’t been able to influence the functions in the way
+they carry out their tasks. It would be nice to have a little more
+control over what functions do, in the same way it would be nice
+to be able to tell the mechanic, “Also change the engine oil, I am
+going for an outing”. In short, now we want to communicate
+between the ‘calling’ and the ‘called’ functions.
+
+The mechanism used to convey information to the function is the
+‘argument’. You have unknowingly used the arguments in the
+printf() and scanf() functions; the format string and the list of
+variables used inside the parentheses in these functions are
+arguments. The arguments are sometimes also called ‘parameters’.
+
+Consider the following program. In this program, in main() we
+receive the values of a, b and c through the keyboard and then
+output the sum of a, b and c. However, the calculation of sum is
+done in a different function called calsum(). If sum is to be
+calculated in calsum() and values of a, b and c are received in
+main( ), then we must pass on these values to calsum(), and once
+calsum() calculates the sum we must return it from calsum()
+back to main( ).
+
+/" Sending and receiving values between functions */
+main()
+{
+
+int a, b,c, sum ;
+
+printf ( "\nEnter any three numbers " ) ;
+scanf ("%d %d %d", &a, &b, &C);
+
+sum = calsum (a,b, C);
+

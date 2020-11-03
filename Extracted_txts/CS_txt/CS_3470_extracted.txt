@@ -1,0 +1,56 @@
+Section 25.6.
+
+Navigation and Motion Planning 805
+
+ 
+
+LANDMARKS
+
+be added as degrees of freedom to the configuration space. In the last example, if the depth
+and width of the hole were uncertain, we could add them as two degrees of freedom to the
+configuration space. It is impossible to move the robot in these directions in C or to sense its
+position directly. But both those restrictions can be incorporated when describing this problem
+as an FMP problem by appropriately specifying control and sensor uncertainties. This gives a
+complex, four-dimensional planning problem, but exactly the same planning techniques can be
+applied. Notice that unlike the decision-theoretic methods in Chapter 17, this kind of approach
+results in plans designed for the worst case outcome, rather than maximizing the expected quality
+of the plan. Worst-case plans are only optimal in the decision-theoretic sense if failure during
+execution is much worse than any of the other costs involved in execution.
+
+Unfortunately, the complexity of fine-motion planning is extremely high. It grows expo-
+nentially not only with the dimension of configuration space, but also with the number of steps
+in the plan. FMP as described earlier also involves some tenuous assumptions about control and
+sensor uncertainty, uncertainty in environment shape, and capabilities of the run-time system.
+On the other hand, the FMP methodology can be applied to mobile robot navigation, and its
+assumptions seem more reasonable there. We will see some examples of this in the next section.
+
+Landmark-based navigation
+
+In the last two sections, we saw motion planning extended to include run-time decisions based
+on sensing. The sensors were assumed to be simple position or contact sensors, and to provide
+uniform accuracy across the environment. More complex sensors, such as vision and sonar, have
+very different attributes. It is much more difficult to model these sensors in a reasonable way, but
+we will present a couple ofrecent approaches.
+
+In the first, called the landmark model of sensing, we assume that the environment contains
+easily recognizable, unique landmarks. A landmark is modeled as a point with a surrounding
+circular field of influence. Within the field of influence, the robot is able to know its position
+exactly. If the robot is outside all the fields of influence, it has no direct position information.
+This model might seem unrealistic at first, but it is good model for landmarks such as bar codes.
+Bar codes, like the ones on supermarket items, are sometimes used as landmarks for mobile
+robots in indoor environments. They are placed in strategic locations on walls, a few feet above
+the floor. They have unique codes enabling each to be distinguished. As long as the robot is
+close enough to recognize a bar code, it can get a good estimate of distance from that landmark.
+Getting good angular data is harder, but some estimate can be computed. Beyond the range of
+recognition of the code, the robot cannot get any information from it
+
+The robot's control is assumed to be imperfect. When it is commanded to move in a
+direction v, we assume the actual motion lies in a cone of paths centered on v. This is the same
+uncertainty model that we used in the last section. It is a very reasonable one for mobile robots.
+If the robot has a gyroscope or magnetic compass, the e1rors in its motion will be offsets in
+direction from the commanded motion. This is exactly what the uncertainty cone models.
+
+An environment with landmarks is shown in Figure 25.22. This environment is known at
+planning time, but not the robot's position. We assume though that the robot lies somewhere inside
+a region (rectangular in the figure) that we do know. We plan a strategy for the robot by working
+

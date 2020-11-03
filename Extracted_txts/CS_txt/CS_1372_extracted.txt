@@ -1,0 +1,41 @@
+Chapter 19: Interaction With Hardware 627
+
+ 
+
+ 
+
+ 
+
+6 5 4
+
+6 5 4
+Side 0, Track 0 Side 0, Track 1
+
+BS - Boot Sector F1 - First copy of FAT
+F2 - Second copy of FAT D - Root directory structure
+DS - Data space
+
+ 
+
+Figure 19.5
+
+With the logical structure of the floppy disk behind us let us now
+write a program that reads the boot sector of a floppy disk and
+displays its contents on the screen. But why on earth would we
+ever like to do this? Well, that’s what all Windows-based Anti-
+viral softwares do when they scan for boot sector viruses. A good
+enough reason for us to add the capability to read a boot sector to
+our knowledge! Here is the program...
+
+# include <stdafx.h>
+
+# include <windows.h>
+# include <stdio.h>
+
+# include <conio.h>
+
+# pragma pack (1)
+struct boot
+
+BYTE jump [3];
+

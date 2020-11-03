@@ -1,0 +1,72 @@
+556
+
+Chapter 18. Learning from Observations
+
+are at most 3!" distinct sets of component tests. Each of these sets of tests can be in any
+order, so
+
+[k-pe(ny| < 316%" Conj(n, kD]!
+
+The number of conjunctions of /f literals from x attributes is given by
+
+& 9,
+|Conjtn,)| =~ (*) = 00)
+
+i=
+Hence, after some work, we obtain
+\k-pu(n)| = 20008 log,(n))
+
+We can plug this into Equation (18.2) to show that the number of examples needed for PAC-
+learning a k-pt function is polynomial in n:
+
+>
+
+m>- (
+Therefore, any algorithm that returns a consistent decision list will PAC-learn a k-pt function in
+areasonable number of examples, for small k. The next task is to find an efficient algorithm that
+returns a consistent decision list. We will use agreedy algorithm called DECISION-LIST-LEARNING
+that repeatedly finds a test that agrees exactly with some subset of the training set. Once it finds
+such a test, it adds it to the decision list under construction and removes the corresponding
+examples, It then constructs the remainder of the decision list usingjust the remaining examples.
+This is repeated until there are no examples left. The algorithm is shown in Figure 18,17,
+
+This algorithm does not specify the method for selecting the next test to add to the decision
+list. Although the formal results given earlier do not depend on the selection method, it would
+seem reasonable to prefer small tests that match large sets of uniformly classified examples, so
+that the overall decision list will be as compact as possible. The simplest strategy is to find
+the smallest test t that matches any uniformly classified subset, regardless of the size of the
+subset. Even this approach works quite well. The results for the restaurant data are shown in
+Figure 18.18, and suggest that learning decision lists is an effective way to make predictions.
+
+In- + Octtogsto')
+0
+
+ 
+
+function DECISION-LIST-LEARNING(examples) returns a decision list, No or failure
+
+if examples is empty then return the value No
+t—a test that matches a nonempty subset examples, of examples
+
+such that the members of examples, are all positive or all negative
+if there is no such ¢ then return failure
+if the examples in examples, are positive then 0 — Yes
+elseo—No
+return a decision list with initial test and outeome o
+
+and remaining elements given by DECIStON-LIST-LEARNING(examples - examples,y
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 1817 An algorithm for learning decision lists.
+
+ 
+
+ 
+

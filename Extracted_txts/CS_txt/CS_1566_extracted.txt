@@ -1,0 +1,50 @@
+82. Chapter3 Operating-System Structures
+
+Remember that the underlying machine has two modes: user mode and moni-
+tor mode. The virtual-machine software can run in monitor mode, since it is the
+operating system. The virtual machine itself can execute in only user mode. Just
+as the physical machine has two modes, however, so must the virtual machine.
+Consequently, we must have a virtual user mode and a virtual monitor mode,
+both of which run in a physical user mode. Those actions that cause a transfer
+from user mode to monitor mode on a real machine (such as a system call or
+an attempt to execute a privileged instruction) must also cause a transfer from
+virtual user mode to virtual monitor mode on a virtual machine.
+
+This transfer can generally be done fairly easily. When a system call, for
+example, is made by a program running on a virtual machine, in virtual user
+mode, it will cause a transfer to the virtual-machine monitor in the real machine.
+When the virtual-machine monitor gains control, it can change the register
+contents and program counter for the virtual machine to simulate the effect
+of the system call. It can then restart the virtual machine, noting that it is
+now in virtual monitor mode. If the virtual machine then tries, for example,
+to read from its virtual card reader, it will execute a privileged I/O instruction.
+Because the virtual machine is running in physical user mode, this instruction
+will trap to the virtual-machine monitor. The virtual-machine monitor must
+then simulate the effect of the I/O instruction. First, it finds the spooled file that
+implements the virtual card reader. Then, it translates the read of the virtual
+card reader into a read on the spooled disk file, and transfers the next virtual
+“card image” into the virtual memory of the virtual machine. Finally, it can
+restart the virtual machine. The state of the virtual machine has been modified
+exactly as though the I/O instruction had been executed with a real card reader
+for a real machine executing in a real monitor mode.
+
+The major difference, of course, is time. Whereas the real 1/0 might
+have taken 100 milliseconds, the virtual I/O might take less time (because it
+is spooled) or more time (because it is interpreted). In addition, the CPU is
+being multiprogrammed among many virtual machines, further slowing down
+the virtual machines in unpredictable ways. In the extreme case, it may be
+necessary to simulate all instructions to provide a true virtual machine. VM
+works for IBM machines because normal instructions for the virtual machines
+can execute directly on the hardware. Only the privileged instructions (needed
+mainly for I/O) must be simulated and hence execute more slowly.
+
+3.6.2 Benefits
+
+There are two primary advantages to using virtual machines. First, by com-
+pletely protecting system resources, the virtual machine provides a robust level
+of security. Second, the virtual machine allows system development to be done
+without disrupting normal system operation.
+
+Each virtual machine is completely isolated from all other virtual machines,
+so we have no security problems as the various system resources are completely
+

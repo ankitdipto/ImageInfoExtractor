@@ -1,0 +1,56 @@
+454
+
+(CHAPTER TWELVE Memory Organization
+
+though the physical properties of these storage devices can be quite complex,
+their logical properties can be characterized and compared by a few parame-
+ters. The important characteristics of any device are its access mode, access
+time, transfer rate, capacity, and cost.
+
+The average time required to reach a storage location in memory and
+obtain its contents is called the access time. In electromechanical devices with
+moving parts such as disks and tapes, the access time consists of a seek time
+required to position the read-write head to a location and a transfer time
+required to transfer data to or from the device. Because the seek time is usually
+much longer than the transfer time, auxiliary storage is organized in records
+or blocks. A record is a specified number of characters or words. Reading or
+writing is always done on entire records. The transfer rate is the number of
+characters or words that the device can transfer per second, after it has been
+positioned at the beginning of the record.
+
+Magnetic drums and disks are quite similar in operation. Both consist of
+high-speed rotating surfaces coated with a magnetic recording medium. The
+rotating surface of the drumis acylinder and that of the disk, around flat plate.
+The recording surface rotates at uniform speed and is not started or stopped
+during access operations. Bits are recorded as magnetic spots on the surface
+asiit passesa stationary mechanism called a write head. Stored bits are detected
+by a change in magnetic field produced by a recorded spot on the surface as
+it passes through a read head. The amount of surface available for recording in
+a disk is greater than in a drum of equal physical size. Therefore, more
+information can be stored on a disk than on a drum of comparable size. For
+this reason, disks have replaced drums in more recent computers.
+
+Magnetic Disks
+
+A magnetic disk is a circular plate constructed of metal or plastic coated with
+magnetized material. Often both sides of the disk are used and several disks
+may bestacked on one spindle with read/write heads available on each surface.
+Alldisks rotate togetherat high speed andare not stopped or started for access
+purposes. Bits are stored in the magnetized surface in spots along concentric
+Grcles called tracks. The tracks are commonly divided into sections called
+sectors. In most systems, the minimum quantity of information which can be
+transferred is a sector. The subdivision of one disk surface into tracks and
+sectors is shown in Fig. 12-5.
+
+Some units use a single read/write head foreach disk surface. In this type
+of unit, the track address bits are used by a mechanical assembly to move the
+head into the specified track position before reading or writing. In other disk
+systems, separate read/write heads are provided for each track in each surface
+The address bits can then select a particular track electronically through a
+decoder circuit This type of unit is more expensive and is found only in very
+large computer systems.
+
+Permanent timing tracks are used in disks to synchronize the bits and
+
+  
+

@@ -1,0 +1,51 @@
+1.2 Mainframe Systems 7
+
+user interfaces (GUIs) were added, allowing UNIX to be more convenient for
+users while still concentrating on efficiency.
+
+The design of an operating system is a complex task. Designers face many
+tradeoffs in the design and implementation, and many people are involved not
+only in bringing an operating system to fruition, but also constantly revising
+and updating it. How well any given operating system meets its design goals is
+open to debate, and is subjective to the different users of the operating system.
+
+To see what operating systems are and what they do, let us consider how
+they have developed over the past 45 years. By tracing that evolution, we can
+identify the common elements of operating systems, and see how and why
+these systems have developed as they have.
+
+Operating systems and computer architecture have influenced each other
+a great deal. To facilitate the use of the hardware, researchers developed
+operating systems. Users of the operating systems then proposed changes
+in hardware design to simplify them. In this short historical review, notice
+how identification of operating-system problems led to the introduction of new
+hardware features.
+
+1.2 = Mainframe Systems
+
+Mainframe computer systems were the first computers used to tackle many
+commercial and scientific applications. In this section, we trace the growth of
+mainframe systems from simple batch systems, where the computer runs one
+—and only one—application, to time-shared systems, which allow for user
+interaction with the computer system.
+
+1.2.1 Batch Systems
+
+Early computers were physically enormous machines run from a console. The
+common input devices were card readers and tape drives. The common output
+devices were line printers, tape drives, and card punches. The user did not
+intéract directly with the computer systems. Rather, the user prepared a job
+—which consisted of the program, the data, and some control information
+about the nature of the job (control cards)—and submitted it to the computer
+operator. The job was usually in the form of punch cards. At some later time
+(after minutes, hours, or days), the output appeared. The output consisted of
+the result of the program, as well as a dump of the final memory and register
+contents for debugging.
+
+The operating system in these early computers was fairly simple. Its
+major task was to transfer control automatically from one job to the next. The
+operating system was always resident in memory (Figure 1.2).
+
+To speed up processing, operators batched together jobs with similar needs
+and ran them through the computer as a group. Thus, the programmers would
+

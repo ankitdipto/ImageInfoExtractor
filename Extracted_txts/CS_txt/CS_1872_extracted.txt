@@ -1,0 +1,55 @@
+274
+
+CHAPTER EIGHT Central Processing Unit
+
+ 
+
+from this address, If the condition is not met, the program counter is not
+changed and the next instruction is taken from the next location in sequence.
+
+‘The skip instruction does not need an address field and is therefore a
+zero-address instruction. A conditional skip instruction will skip the next
+instruction if the condition is met. This is accomplished by incrementing the
+program counter during the execute phase in addition to its being incremented
+during the fetch phase. If the condition is not met, control proceeds with the
+next instruction in sequence where the programmer inserts an unconditional
+branch instruction. Thus a skip-branch pair of instructions causes a branch if
+the condition is not met, while a single conditional branch instruction causes
+a branch if the condition is met.
+
+The call and return instructions are used in conjunction with subroutines.
+Their performance and implementation are discussed later in this section. The
+compare and test instructions do not change the program sequence directly.
+They are listed in Table 8-10 because of their application in setting conditions
+for subsequent conditional branch instructions. The compare instruction per-
+forms a subtraction between two operands, but the result of the operation is
+not retained. However, certain status bit conditions are set as a result of the
+operation Similarly, the test instruction performs the logical AND of two
+operands and updates certain status bits without retaining the result or chang-
+ing the operands. The status bits of interest are the carry bit, the sign bit, a zero
+indication, and an overflow condition. The generation of these status bits will
+be discussed first and then we will show how they are used in conditional
+branch instructions.
+
+Status Bit Conditions
+
+It is sometimes convenient to supplement the ALU circuit in the CPU with a
+status register where status bit conditions can be stored for further analysis.
+Status bits are also called condition-code bits or flag bits. Figure 8-8 shows the
+block diagram of an 8-bit ALU with a 4-bit statusregister. The four status bits
+are symbolized by C, S, Z, and V. The bits are set or cleared as a result of an
+operation performed in the ALU.
+
+1. Bit C (carry) is set to1if the end carry Cyis 1. It is cleared to Oif the carry
+is 0.
+
+2. Bit S (sign) is set to 1 if the highest-order bit F, is 1 It is set to 0 if the
+bit is 0.
+
+3. BitZ (zero) issetto1 ifthe output ofthe ALUcontains all's. Itis cleared
+to 0 otherwise. In other words, Z = 1 if the output is zero and Z = 0
+if the output is not zero.
+
+4. Bit V (overflow) is set to 1 if the exclusive-OR of the last two carries is
+equal to 1, and cleared to 0 otherwise. This is the condition for an
+

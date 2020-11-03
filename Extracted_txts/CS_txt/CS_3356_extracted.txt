@@ -1,0 +1,70 @@
+Chapter 23. Practical Natural Language Processing
+
+ 
+
+ 
+
+function CHART-PARSE(string, grammar) returns chart
+
+chart{0| — {[0,0, 5’ — + S]}
+
+for v — from 1 to LENGTH(string) do
+SCANNER(v, string[v]) .
+
+end
+
+return chart
+
+procedure ADD-EDGE(edge)
+if edge in chart|END(edge)} then do nothing
+else
+push edge on chart|END(edge)]
+if COMPLETE (edge) then COMPLETER(edge)
+else PREDICTOR(edge)
+
+procedure SCANNER(, Word)
+for each /i,j, 4 — a * BA] inchart[j]do
+if word is of category B then
+App-Epce((i,j+1, A = a B * 8)
+end
+
+procedure PREDICTOR([i,j, 4 — a* B 3])
+for each (B — 4) in REwriTEs-For(B, grammar) do
+App-Epcri{j,j. B — * ~))
+end
+
+procedure Compteter([j,k, B — 7 +)
+for each [i,j,A — a * B’ 9] in chart{j|do
+ifB = S' then
+App-Epae([i,k, 4 = a B’ * 3)
+end
+
+ 
+
+ 
+
+Figure 23.6 Deterministic version of the chart-parsing algorithm. $ is the start symbol and
+S’ is a new nonterminal symbol. The function ADD-EDGE adds an edge to the chart, and either
+completes it or predicts from it.
+
+ 
+
+ 
+
+ 
+
+The ambiguity can be divided into two independent parts: each of the two subsentences is
+ambiguous in two ways. If we had a sentence with n such subsentences joined by conjunctions,
+then we would get one big sentence with 2" parses. (There also would be ambiguity in the way
+the subsentences conjoin with each other, but that is another story, one that is told quite well by
+Church and Patil (1982).) An exponential number of parses is a bad thing, and one way to avoid
+the problem is to represent the parses implicitly. Consider the following representation:
+
+[NP Fall leaves} [VP fall] | | INP spring leaves] [VP spring]
+Is isf [NP Fall] [VP leaves fall] } Jand w{ [NP spring] [VP leaves spring] f !!
+
+Instead of multiplying out the ambiguity to yield 2" separate parse trees, we have one big "tree"
+with ambiguous subparts represented by curly braces. Of course, when 7 = 2, there is not much
+
+ 
+

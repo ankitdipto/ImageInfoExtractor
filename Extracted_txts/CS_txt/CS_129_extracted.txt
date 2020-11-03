@@ -1,0 +1,44 @@
+26.4 Push-relabel algorithms 745
+
+relabeled, it is overflowing, and Lemma 26.19 tells us that there is a simple path p
+from u tos inGy. Let p = (vo.V1,....Vx), Where Vo = u, ve = S,andk < |V|-1
+because p is simple. Fori = 0,1,..., k — 1, we have (vj, vi41) € Ey, and
+therefore, by Lemma 26.16, vj. < vj41.h + 1. Expanding these inequalities over
+path p yields u.h = vo.h < veh +k <s.h+(\V|—1) =2|V|-1. /
+
+Corollary 26.21 (Bound on relabel operations)
+
+Let G = (V,E) be a flow network with source s and sink t. Then, during the
+execution of GENERIC-PUSH-RELABEL on G, the number of relabel operations is
+at most 2|V| — | per vertex and at most (2|V|— 1)(\V| —2) < 2|V|? overall.
+
+Proof Only the |V|—2 vertices in V—{s, f} may be relabeled. Let u € V—{s,T}.
+The operation RELABEL(u) increases u.h. The value of w./ is initially 0 and by
+Lemma 26.20, it grows to at most 2|V| — 1. Thus, each vertex wu € V — {s.r}
+is relabeled at most 2|V| — 1 times, and the total number of relabel operations
+performed is at most (2|V| — 1)({V| —2) < 2|V|?. .
+
+Lemma 26.20 also helps us to bound the number of saturating pushes.
+
+Lemma 26.22 (Bound on saturating pushes)
+During the execution of GENERIC-PUSH-RELABEL on any flow network G =
+(V, E), the number of saturating pushes is less than 2|V | |E].
+
+Proof For any pair of vertices u,v € V, we will count the saturating pushes
+from u to v and from v to u together, calling them the saturating pushes between u
+and v. If there are any such pushes, at least one of (u,v) and (v,1) is actually
+an edge in E. Now, suppose that a saturating push from u to v has occurred.
+At that time, v.h = u.h— 1. In order for another push from u to v to occur
+later, the algorithm must first push flow from v to uw, which cannot happen until
+v.h = u.h + 1. Since u.h never decreases, in order for v.h = u.h + 1, the
+value of v.h must increase by at least 2. Likewise, u./ must increase by at least 2
+between saturating pushes from v to u. Heights start at 0 and, by Lemma 26.20,
+never exceed 2|V|—1, which implies that the number of times any vertex can have
+its height increase by 2 is less than |V|. Since at least one of u.h and v.fh must
+increase by 2 between any two saturating pushes between u and v, there are fewer
+than 2|V| saturating pushes between wu and v. Multiplying by the number of edges
+gives a bound of less than 2|V||£| on the total number of saturating pushes.
+
+The following lemma bounds the number of nonsaturating pushes in the generic
+push-relabel algorithm.
+

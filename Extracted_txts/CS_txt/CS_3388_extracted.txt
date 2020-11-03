@@ -1,0 +1,53 @@
+730 Chapter 24. Perception
+
+from light sources and being reflected and rereflected multiple times. The shape-from-shading
+problem in computer vision is aimed at inverting the process, that is, starting from the "rendered"
+image and figuring out the layout of the three-dimensional scene that gave rise to it. We will talk
+about this in more depth in Section 24.4
+
+Spectrophotometry of image formation
+
+We have been talking of image intensity /(x,y, #), merrily ignoring the fact that visible light comes
+in a range of wavelengths—ranging from 400 nm on the violet end of the spectrum to 700 nm on
+the red end. Given that there is a continuum of wavelengths, what does it mean that we have three
+primary colors? The explanation is that color is quite literally in the eye of the beholder. There
+are three different cone types in the eye with three different spectral sensitivity curves R,(A). The
+output of the kth cone at location (x,y) at time ¢ then is K(x.y,) = [Iwy, t AYRAW. The
+infinite dimensional wavelength space has been projected to a three-dimensional color space.
+
+This means that we ought to think of/ as a three-dimensional vector at (x,y, t). Because the eye
+maps many different frequency spectra into the same color sensation, we should expect that there
+
+METAMERS. exist metamers—different light spectra that appear the same to a human.
+
+24.3 IMAGE-PROCESSING OPERATIONS FOR EARLY VISION
+
+Figure 24.5 shows an image of a scene containing a stapler resting on a table as well as the
+
+EDGES edges detected on this image. Edges are curves in the image plane across which there is a
+"significant" change in image brightness. The ultimate goal of edge detection is the construction
+of an idealized line drawing such as Figure 24.6. The motivation is that edge contours in the
+image correspond to important scene contours. In the example, we have depth discontinuities,
+labelled 1; surface-orientation discontinuities, labelled 2; a reflectance discontinuity, labelled 3;
+and an illumination discontinuity (shadow), labelled 4.
+
+As you can see, there is a big difference between the output of an edge detector as shown
+in Figure 24.5(b) and an ideal line drawing. Typically, there are missing contours (such as the top
+edge of the stapler), as well as noise contours that do not correspond to anything of significance
+in the scene. Later stages of processing based on edges have to take these errors into account.
+
+How do we detect edges in an image? Consider the profile of image brightness along a 1-D
+cross-section perpendicular to an edge, for example, the one between the left edge of the table
+and the wall. It looks something like what is shown in Figure 24.7 (a). The location of the edge
+corresponds tox = 50.
+
+Because edges correspond to locations in images where the brightness undergoes a sharp
+change, a naive idea would be to differentiate the image and look for places where the magnitude
+of the derivative /(x) is large. Well, that almost works. In Figure 24.7(b) we see that although
+there is a peak at x = 50, there are also subsidiary peaks at other locations (e.g., x = 75) that
+could potentially be mistaken as true edges. These arise because of the presence of noise in the
+
+SMOOTHING image. We get much better results by combining the differentiation operation with smoothing.
+
+ 
+

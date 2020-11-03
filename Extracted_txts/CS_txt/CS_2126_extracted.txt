@@ -1,0 +1,50 @@
+302 —crwrren rane Pipeline and Vector Processing
+
+an example
+
+havioral characteristics of the computer system rather than its operational and
+structural interconnections. One type of parallel processing that does not fit
+Flynn's classification is pipelining. The only two categories used from this
+classification are SIMD array processors discussed in Sec. 9-7, and MIMD
+multiprocessors presented in Chap. 13.
+
+In this chapter we consider parallel processing under the following main
+topics:
+
+1. Pipeline processing
+2. Vector processing,
+3. Array processors
+
+Pipeline processing is an implementation technique where arithmeticsuboper-
+ations or the phases of a computer instruction cycle overlap in execution.
+Vector processing deals with computations involving large vectors and ma-
+trices. Array processors perform computations on large arrays of data.
+
+9-2 Pipelining
+
+Pipelining is a technique of decomposing a sequential process into subopera-
+tions, with eachsubprocessbeing executed in a special dedicated segment that
+operates concurrently with all other segments. A pipeline can be visualized as
+a collection of processing segments through which binary information flows.
+Each segment performs partial processing dictated by the way the task is
+partitioned. The result obtained from the computation in each segment is
+transferred to the next segment in the pipeline. The final resultisobtained after
+the data have passed through all segments. The name “pipeline” implies a
+flow of information analogous to an industrial assembly line. It ischaracteristic
+of pipelines that several computations can be in progress in distinct segments
+at the same time. The overlapping of computation is made possible by associ
+ating a register with each segment in the pipeline. The registers provide
+isolation between each segment so that each can operate on distinct data
+simultaneously.
+
+Perhaps the simplest way of viewing the pipeline structure is to imagine
+that each segment consists of an input register followed by a combinational
+Circuit. The register holds the data and the combinational circuit performs the
+suboperationin the particular segment. The output of the combinational circuit
+ina given segment is applied to the input register of the next segment. A clock
+is applied to all registers after enough time has elapsed to perform all segment
+activity. In this way the information flows through the pipeline one step at a
+time.
+
+The pipeline organization will be demonstrated by means of a simple
+

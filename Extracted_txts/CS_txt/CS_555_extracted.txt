@@ -1,0 +1,39 @@
+1092
+
+Chapter 34 NP-Completeness
+
+ 
+
+Figure 34.16 ‘The widget used in reducing the vertex-cover problem to the hamiltonian-cycle prob-
+lem, An edge (1, v) of graph G corresponds to widget Wy in the graph G’ created in the reduction.
+(a) The widget, with individual vertices labeled. (b)-(d) The shaded paths are the only possible ones
+through the widget that include all vertices, assuming that the only connections from the widget to
+the remainder of G’ are through vertices [u, v, 1], fu, v, 6], [v.1, 1], and [v,1, 6].
+
+integer k, we construct an undirected graph G’ = (V’, E’) that has a hamiltonian
+cycle if and only if G has a vertex cover of size k.
+
+Our construction uses a widget, which is a piece of a graph that enforces certain
+properties. Figure 34.16(a) shows the widget we use. For each edge (u,v) € E, the
+graph G’ that we construct will contain one copy of this widget, which we denote
+by Wy. We denote each vertex in Wy, by [u, v, i] or [v,u,i], where 1 <i <6,so
+that each widget W,, contains 12 vertices. Widget Wy, also contains the 14 edges
+shown in Figure 34.16(a).
+
+Along with the internal structure of the widget, we enforce the properties we
+want by limiting the connections between the widget and the remainder of the
+graph G’ that we construct. In particular, only vertices [u, v, 1], [u.v, 6], [v. uw. 1],
+and [v, wu, 6] will have edges incident from outside W,,. Any hamiltonian cycle
+of G’ must traverse the edges of Wy, in one of the three ways shown in Fig-
+ures 34.16(b)}-(d). If the cycle enters through vertex [w, v, 1], it must exit through
+vertex [u, v, 6], and it either visits all 12 of the widget’s vertices (Figure 34.16(b))
+or the six vertices [u,v, 1] through [w, v, 6] (Figure 34.16(c)). In the latter case,
+the cycle will have to reenter the widget to visit vertices [v, u, 1] through [v, u, 6].
+Similarly, if the cycle enters through vertex [v,u,1], it must exit through ver-
+tex [v, u, 6], and it either visits all 12 of the widget’s vertices (Figure 34.16(d)) or
+the six vertices [v,u, 1] through [v, u, 6] (Figure 34.16(c)). No other paths through
+the widget that visit all 12 vertices are possible. In particular, it is impossible to
+construct two vertex-disjoint paths, one of which connects [u, v, 1] to [v,u, 6] and
+the other of which connects [v, w, 1] to [, v, 6], such that the union of the two paths
+contains all of the widget’s vertices.
+

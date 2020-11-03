@@ -1,0 +1,55 @@
+Section 24.6.
+
+INDEX FUNCTIONS
+
+Object Representation and Recognition 755
+
+ 
+
+  
+
+(a) (b)
+
+ 
+
+ 
+
+Figure 24.29 (a) Comers found in the stapler image. (b) Hypothesized reconstruction overlaid
+on the original image. (Courtesy of Clark Olson.)
+
+ 
+
+ 
+
+ 
+
+in Figure 24.30. Under perspective projection, the ratios of distances are not preserved—think
+of the spacing of sleepers on an image of a receding railway track. The spacing is constant in the
+world, but decreases with distance from the camera in an image. However, the ratio of ratio of
+distances on a line is preserved, that is, it is the same measured on the object or in the image.
+
+Invariants are significant in vision because they can be used as index functions, so that a
+value measured in an image directly indexes a model in the library. To take a simple example,
+suppose there are three models {A,B,C} in the library, each with a corresponding and distinct
+invariant value {/(A), /(B),1(C)}. Recognition proceeds as follows: After edge detection and
+grouping, invariants are measured from image curves. Ifa value / = (2) is measured, then there
+is evidence that object B is present. It is not necessary to consider objects 4 and C any further. It
+may be that for a large model base, all invariants are not distinct (i.e., several models may share
+invariant values). Consequently, when an invariant measured in the image corresponds to a value
+in the library, a recognition hypothesis is generated. Recognition hypotheses corresponding to
+the same object are merged if compatible. The hypotheses are verified by back projecting the
+outline as in the alignment method. An example of object recognition using invariants is given
+in Figure 21,31,
+
+Another advantage of invariant shape representation is that models can be acquired directly
+from images. It is not necessary to make measurements on the actual object, because the shape
+descriptors have the same value when measured in any image. This simplifies and facilitates
+automation of model acquisition. It is particularly useful in applications such as recognition from
+satellite images.
+
+Although the two approaches to object recognition that we have described are useful in
+practice, it should be noted that we are far away from human competence. The generation
+of sufficiently rich and descriptive representations from images, segmentation and grouping to
+identify those features that belong together, and the matching of these to object models are
+difficult research problems under active investigation.
+

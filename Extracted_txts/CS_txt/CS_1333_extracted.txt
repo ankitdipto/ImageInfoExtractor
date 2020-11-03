@@ -1,0 +1,41 @@
+596 Let UsC
+
+ 
+
+Code and Resources
+
+A program consists of both instructions and static data. Static data
+is that portion of the program which is not executed as machine
+instructions and which does not change as the program executes.
+Static data are character strings, data to create fonts, bitmaps, etc.
+The designers of Windows wisely decided that static data should
+be handled separately from the program code. The Windows term
+for static data is ‘Resource data’, or simply ‘Resources’. By
+separating static data from the program code the creators of
+Windows were able to use a standard C/C++ compiler to create the
+code portion of the finished Windows program, and they only had
+to write a ‘Resource compiler’ to create the resources that
+Windows programs use. Separating the code from the resource
+data has other advantages like reducing memory demands and
+making programs more portable. It also means that a programmer
+can work on a program’s logic, while a designer works on how the
+program looks.
+
+Freehand Drawing, the Paintbrush Style
+
+Even if you are knee high in computers I am sure you must have
+used PaintBrush. It provides a facility to draw a freehand drawing
+using mouse. Let us see if we too can achieve this. We can indicate
+where the freehand drawing begins by clicking the left mouse
+button. Then as we move the mouse on the table with the left
+mouse button depressed the freehand drawing should get drawn in
+the window. This drawing should continue till we do not release
+the left mouse button.
+
+The mouse input comes in the form of messages. For free hand
+drawing we need to tackle three mouse messages—
+WM_LBUTTONDOWN for left button click,
+WM_MOUSEMOVE for mouse movement and
+WM_LBUTTONUP for releasing the left mouse button. Let us
+now see how these messages are tackled for drawing freehand. The
+

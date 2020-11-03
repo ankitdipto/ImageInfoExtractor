@@ -1,0 +1,39 @@
+8  Chapter1 Introduction
+
+ 
+
+Figure 1.2 Memory layout for a simple batch system.
+
+leave their programs with the operator. The operator would sort programs
+into batches with similar requirements and, as the computer became available,
+would run each batch. The output from each job would be sent back to the
+appropriate programmer.
+
+In this execution environment, the CPU is often idle, because the speeds of
+the mechanical I/O devices are intrinsically slower than are those of electronic
+devices. Even a slow CPU works in the microsecond range, with thousands of
+instructions executed per second. A fast card reader, on the other hand, might
+read 1200 cards per minute (or 20 cards per second). Thus, the difference in
+speed between the CPU and its I/O devices may be three orders of magnitude or
+more. Over time, of course, improvements in technology and the introduction
+of disks resulted in faster I/O devices. However, CPU speeds increased to an
+even greater extent, so the problem was not only unresolved, but exacerbated.
+
+The introduction of disk technology allowed the operating system to keep
+all jobs ona disk, rather than ina serial card reader. With direct access to several
+jobs, the operating system could perform job scheduling, to use resources and
+perform tasks efficiently. We discuss a few important aspects of job and CPU
+scheduling here; we discuss them in detail in Chapter 6.
+
+1.2.2 Multiprogrammed Systems
+
+The most important aspect of job scheduling is the ability to multiprogram. A
+single user cannot, in general, keep either the CPU or the 1/O devices busy at all
+times. Multiprogramming increases CPU utilization by organizing jobs so that
+the CPU always has one to execute.
+
+The idea is as follows: The operating system keeps several jobs in memory
+simultaneously (Figure 1.3). This set of jobs is a subset of the jobs kept in the
+job pool—since the number of jobs that can be kept simultaneously in memory
+is usually much smaller than the number of jobs that can be in the job pool. The
+

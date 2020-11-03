@@ -1,0 +1,56 @@
+Problems for Chapter 7 185
+
+74-5
+
+We can improve the running time of quicksort in practice by taking advantage of the
+fast running time of insertion sort when its input is “nearly” sorted. Upon calling
+quicksort on a subarray with fewer than k elements, let it simply return without
+sorting the subarray. After the top-level call to quicksort returns, run insertion sort
+on the entire array to finish the sorting process. Argue that this sorting algorithm
+runs in O(nk +1 lg(n/k)) expected time. How should we pick k, both in theory
+and in practice?
+
+746%
+
+Consider modifying the PARTITION procedure by randomly picking three elements
+from array A and partitioning about their median (the middle value of the three
+elements). Approximate the probability of getting at worst an a-to-(1 —) split, as
+a function of @ in the range 0 <@ < 1.
+
+ 
+
+Problems
+
+7-1 Hoare partition correctness
+The version of PARTITION given in this chapter is not the original partitioning
+algorithm. Here is the original partition algorithm, which is due to C. A. R. Hoare:
+
+HOARE-PARTITION (A, p, 1’)
+
+ 
+
+1 x = Alp]
+
+2 i=p-l
+
+3 j=ard4l
+
+4 while TRUE
+
+5 repeat
+
+6 j=j-l
+7 until A[j] < x
+8 repeat
+
+9 i=i+l
+10 until Afi] > x
+in ifi <j
+
+12 exchange A[i] with A[/]
+13 else return j
+
+a. Demonstrate the operation of HOARE-PARTITION on the array A = (13,19, 9,
+5, 12,8, 7,4, 11,2, 6, 21), showing the values of the array and auxiliary values
+after each iteration of the while loop in lines 4-13.
+

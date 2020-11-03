@@ -1,0 +1,40 @@
+30 Let Us C
+
+ 
+
+demoted depending on the type of the variable on left-hand side of
+
+For example, consider the following assignment statements.
+
+int i;
+
+float b;
+i=3.5;
+b=30;
+
+Here in the first assignment statement though the expression’s
+value is a float (3.5) it cannot be stored in i since it is an int. In
+such a case the float is demoted to an int and then its value is
+stored. Hence what gets stored in i is 3. Exactly opposite happens
+in the next statement. Here, 30 is promoted to 30.000000 and then
+stored in b, since b being a float variable cannot hold anything
+except a float value.
+
+Instead of a simple expression used in the above examples if a
+complex expression occurs, still the same rules apply. For
+example, consider the following program fragment.
+
+float a,b, c;
+int s;
+s=a*b*c/ 100+ 32/4-3°11;
+
+Here, in the assignment statement some operands are ints whereas
+others are floats. As we know, during evaluation of the expression
+the ints would be promoted to floats and the result of the
+expression would be a float. But when this float value is assigned
+to s it is again demoted to an int and then stored in s.
+
+Observe the results of the arithmetic statements shown in Figure
+1.7. It has been assumed that k is an integer variable and a is a real
+variable.
+

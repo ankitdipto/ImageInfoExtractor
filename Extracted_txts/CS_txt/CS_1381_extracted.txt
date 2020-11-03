@@ -1,0 +1,42 @@
+634 Let UsC
+
+ 
+
+(c) To read from the CD-ROM just specify the drive letter of the
+drive. Note that CD-ROMs follow a different storage
+organization known as CD File System (CDFS).
+
+(d) The hard disk is often divided into multiple partitions. Details
+like the place at which each partition begins and ends, the size
+of each partition, whether it is a bootable partition or not, etc.
+are stored in a table on the disk. This table is often called
+‘Partition Table’. If we are to read the partition table contents
+we can do so by using the string \\\physicaldrive0.
+
+(e) Using \\\physicaldriveO we can also read contents of any
+other parts of the disk. Here 0 represents the first hard disk in
+the system. If we are to read from the second hard disk we
+need to use 1 in place of 0.
+
+Communication with Keyboard
+
+Like mouse messages there also exist messages for keyboard.
+These ace WM_KEYDOWN, WM_KEYUP and WM_CHAR.
+Of these, WM_KEYDOWN and WM_KEYUP are sent to an
+application (which has the input focus) whenever the key is
+pressed and released respectively. The additional information in
+case of these messages is the code of the key being pressed or
+released. When we tackle WM_KEYDOWN or WM_KEYUP
+we need to ourselves check the status of toggle keys like NumLock
+and CapsLock and shift keys like Ctrl, Alt and Shift. If we wish to
+avoid all this checking we can tackle the WM_CHAR message
+instead.
+
+What is mentioned above is the normal procedure followed by
+most Windows applications. However, if we wish to go a step
+further and deal with the keyboard we need to tackle it differently.
+For example, suppose we are to perform one of the following jobs:
+
+(a) Once you hit any key CapsLock should become on. Once it
+becomes on it should remain permanently on.
+

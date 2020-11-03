@@ -1,0 +1,58 @@
+4.6 Communication in Client-Server Systems 125
+client remote object
+boolean someMethod (Object x, Object y)
+
+ 
+
+“val = server someMethod(A,B)
+
+ 
+
+     
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 4.14 Marshalling parameters.
+
+someMethod(Object, Object) that returns a boolean value. The client
+executes the statement
+
+boolean val = Server.someMethod(A, B);
+
+The call to someMethod with the parameters A and B invokes the stub for the
+remote object. The stub marshalls into a parcel the parameters A and B and
+the name of the method that is to be invoked on the server, then sends this
+parcel to the server. The skeleton on the server unmarshalls the parameters and
+invokes the method someMethod. The actual implementation of someMethod
+resides on the server. Once the method is completed, the skeleton marshalls the
+Boolean value returned from someMethod and sends this value back to the
+client. The stub unmarshalls this return value and passes it to the client. The
+process is shown in Figure 4.14.
+
+Fortunately, the level of abstraction that RMI provides makes the stubs and
+skeletons transparent, allowing Java developers to write programs that invoke
+distributed methods just as they would invoke local methods. It is crucial,
+however, that you understand a few rules about the behavior of parameter
+passing.
+
+If the marshalled parameters are local (or nonremote) objects, they are
+passed by copy using a technique known as object serialization. However,
+if the parameters are also remote objects, they are passed by reference. In
+our example, if A is a local object and B a remote object, A is serialized and
+passed by copy, and B is passed by reference. This would in turn allow the
+server to invoke methods on B remotely.
+

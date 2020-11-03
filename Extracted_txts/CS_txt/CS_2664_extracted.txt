@@ -1,0 +1,49 @@
+78 cuarren THREE Data Representation
+
+signed numbers
+
+fixed in one position. The two positions most widely used are (1) a binary point
+in the extreme left of the register to make the stored number a fraction, and
+Qa binary point in the extreme right of the register to make the stored number
+an integer. In either case, the binary point is not actually present, but its
+presence is assumed from the fact that the number stored in the register is
+treated as a fraction or as an integer. The floating-point representation uses a
+second register to store a number that designates the position of the decimal
+point in the first register. Floating-point representation is discussed further in
+the next section
+
+Integer Representation
+
+When an integer binary number is positive, the sign is represented by 0 and
+the magnitude by a positivebinary number. When the number isnegative, the
+sign is represented by 1 but the rest of the number may be represented in one
+of three possible ways:
+
+1. Signed-magnitude representation
+2. Signed-I's complement representation
+3. Signed 2’s complement representation
+
+The signed-magnitude representation of a negative number consists of the
+magnitude and a negative sign. In the other two representations, the negative
+numbers represented in either the Y's or2’s complement of its positive value.
+Asan example, consider the signednumber 14 stored in an 8-bit register. +14
+is represented by a sign bit of 0 in the leftmost position followed by the binary
+equivalent of 14: 00001110. Note that each of the eight bits of the register must
+havea value and therefore0’s must be inserted in the most significant positions
+following the sign bit. Although there is only one way to represent +14, there
+are three different ways to represent ~14 with eight bits.
+
+In signed-magnitude representation 1 0001110
+In signed-1's complement representation 1 1110001
+In signed-2's complement representation 1 1110010
+
+The signed-magnitude representation of ~14is obtained from +14 by comple-
+menting only the sign bit. The signed-1’s complement representation of ~14
+is obtained by complementing all the bits of +14, including the sign bit. The
+signed-2's complement representation is obtained by taking the 2’s comple-
+ment of the positive number, including its sign bit.
+
+The signed-magnitude system is used in ordinary arithmetic but is awk-
+ward when employed in computer arithmetic. Therefore, the signed-comple-
+ment is normally used. The 1’s complement imposes difficulties because it
+

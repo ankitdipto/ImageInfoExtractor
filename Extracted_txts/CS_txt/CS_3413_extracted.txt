@@ -1,0 +1,68 @@
+Section 24.6.
+
+Object Representation and Recognition 753
+
+ 
+
+feature pointsp ;,p2, ...,p, on the image plane. In general, n#m because some model points may
+be occluded. The feature detector in the image also may miss true features and mark false ones
+due to noise. We can express this as
+
+pi = T(Ry; +t)
+
+for 3-D model point ;:; and corresponding image point p;. Here T] denotes perspective projection
+or one of its approximations such as scaled orthographic projection. We can summarize this by
+the equation p; = Qy; where Q is the (unknown) transformation that brings the model points in
+alignment with the image. Assuming the object is rigid, the transformation Q is the same for all
+the model points.
+
+One can solve for O given the 3-D coordinates of three model points and their 2-D
+projections. The intuition is as follows: one can write down equations relating the coordinates of
+Pi to those of j1;. In these equations, the unknown quantities correspond to the parameters of the
+rotation matrix R and the translation vector t. If we have sufficiently many equations, we ought
+to be able to solve for 9. We will not give any proof here, but merely state the following result
+(Huttenlocher and Ullman, 1990):
+
+Given three noncollinear points 1), j2, and j:; in the model, and their projections
+on the image plane, p\, p2, and p; under scaled orthographic projection, there exist
+exactly two transformations from the three-dimensional model coordinate frame to
+a two-dimensional image coordinate frame.
+
+These transformations are related by a reflection around the image plane and can be computed by
+a simple closed-form solution. We will just assume that there exists a function FIND-TRANSFORM,
+as shown in Figure 24.27.
+
+If we could identify the corresponding model features for three features in the image,
+we could compute Q, the pose of the object. The problem is that we do not know these
+correspondences. The solution is to operate in a generate-and-test paradigm. We have to
+guess an initial correspondence of an image triplet with a model triplet and use the function
+FIND-TRANSFORM to hypothesize Q. Ifthe guessed correspondence was correct, then Q will be
+correct, and when applied to the remaining model points will result in prediction of the image
+points. Ifthe guessed correspondence was incorrect, then Q will be incorrect, and when applied
+to the remaining model points would not predict the image points.
+
+ 
+
+function FIND-TRANSFORM( pi, 72, 3, /l1, [2,43) returns a transform Q such that
+Ani) = Pi
+
+ 
+
+inputs: )1, P2, Ps, image feature points
+11, £0, ts, model feature points
+
+ 
+
+ 
+
+Figure 2427 The definition of the transformation-finding process. We omit the algorithm
+(Huttenlocher and Ullman, 1990).
+
+ 
+
+ 
+
+ 
+
+ 
+

@@ -1,0 +1,93 @@
+Section 3.5
+
+Search Strategies 73
+
+ 
+
+3.5 _ SEARCH STRATEG!
+
+COMPLETENESS
+TIMECOMPLEXITY
+‘SPACE COMPLEXITY
+
+OPTIMALITY
+
+bane
+seugenee
+
+BLND SEARCH
+
+INFORMED SEARCH
+Heuristic SEARCH
+
+ 
+
+function GENERAL-SEARCH( problem, QUEUING-FN) returns a solution, or failure
+
+nodes — MAKE-QUEUE(MAKE-NODE(INITIAL-STATE|problem}))
+loop do
+if nodes is empty then return failure
+node — REMOVE-FRONT(nodes)
+if GOAL-TEst|problem] applied to STATE(node) succeeds then return node
+nodes — QUEUING-FN(nodes, EXPAND(node, OPERATORS|problem]))
+end
+
+ 
+
+ 
+
+Figure 3.10 The general search algorithm. (Note that QUEUING-FN is a variable whose value
+will be a function.)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+z
+tA
+
+ 
+
+The majority of work in the area of search has gone into finding the right search strategy for a
+problem. In our study of the field we will evaluate strategies in terms of four criteria:
+> Completeness: is the strategy guaranteed to find a solution when there is one?
+> Time complexi
+< Space complexity: how much memory does it need to perform the search?
+
+< Optimality: does the strategy find the highest-quality solution when there are several
+different solutions?’
+
+how long does it take to find a solution?
+
+ 
+
+This section covers six search strategies that come under the heading of uninformed
+search. The term means that they have no information about the number of steps or the path cost
+from the current state to the goal—all they can do is distinguish a goal state from a nongoal state.
+Uninformed search is also sometimes called blind search.
+
+Consider again the route-finding problem. From the initial state in Arad, there are three
+actions leading to three new states: Sibiu, Timisoara, and Zerind. An uninformed search has
+no preference among these, but a more clever agent might notice that the goal, Bucharest, is
+southeast of Arad, and that only Sibiu is in that direction, so it is likely to be the best choice.
+Strategies that use such considerations are called informed search strategies or heuristic search
+strategies, and they will be covered in Chapter 4. Not surprisingly, uninformed search is less
+effective than informed search. Uninformed search is still important, however, because there are
+many problems for which there is no additional information to consider.
+
+The six uninformed search strategies are distinguished by the order in which nodes are
+expanded. It turns out that this difference can matter a great deal, as we shall shortly see.
+
+ 
+
+7 This is the way “optimality” is used in the theoretical computer science literature. Some AI authors use “optimality”
+to refer to time of execution and “admissibility” to refer to solution optimality
+

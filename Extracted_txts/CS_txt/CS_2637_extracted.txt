@@ -1,0 +1,48 @@
+216
+
+Chapter 9 Medians and Order Statistics
+
+RANDOMIZED-SELECT uses the procedure RANDOMIZED-PARTITION intro-
+duced in Section 7.3. Thus, like RANDOMIZED-QUICKSORT, it is arandomized al-
+gorithm, since its behavior is determined in part by the output of a random-number
+generator. The following code for RANDOMIZED-SELECT returns the jth smallest
+element of the array A[p..1].
+
+RANDOMIZED-SELECT(A, pri)
+if p==r
+return A[p]
+gq = RANDOMIZED-PARTITION(A, p,r')
+k=q-p+l
+if i ==k // the pivot value is the answer
+return A[q]
+elseif i <k
+return RANDOMIZED-SELECT(A, p,q —1,i)
+else return RANDOMIZED-SELECT(A,g + 1,r,i —k)
+
+CHOIADAWAWNHE
+
+The RANDOMIZED-SELECT procedure works as follows. Line 1 checks for the
+base case of the recursion, in which the subarray A[p..r] consists of just one
+element. In this case, i must equal 1, and we simply return A[p] in line 2 as the
+ith smallest element. Otherwise, the call to RANDOMIZED-PARTITION in line 3
+partitions the array A[p..r] into two (possibly empty) subarrays A[p..q — 1]
+and A[qg+1..r] such that each element of A[p..q — 1] is less than or equal
+to A[q], which in turn is less than each element of A[g + 1..r]. As in quicksort,
+we will refer to A[q] as the pivot element. Line 4 computes the number k of
+elements in the subarray A[p ..g], that is, the number of elements in the low side
+of the partition, plus one for the pivot element. Line 5 then checks whether A[g] is
+the ith smallest element. If it is, then line 6 returns A[q]. Otherwise, the algorithm
+determines in which of the two subarrays A[p..q — 1] and A[g + 1..r] the ith
+smallest element lies. If i < k, then the desired element lies on the low side of
+the partition, and line 8 recursively selects it from the subarray. If i > k, however,
+then the desired element lies on the high side of the partition. Since we already
+know k values that are smaller than the ith smallest element of A[p ..r]—namely,
+the elements of A[p..q]—the desired element is the (i — k)th smallest element
+of A[qg+1..r], which line 9 finds recursively. The code appears to allow recursive
+calls to subarrays with 0 elements, but Exercise 9.2-1 asks you to show that this
+situation cannot happen.
+
+The worst-case running time for RANDOMIZED-SELECT is @(77), even to find
+the minimum, because we could be extremely unlucky and always partition around
+the largest remaining element, and partitioning takes ©(n) time. We will see that
+

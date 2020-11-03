@@ -1,0 +1,72 @@
+Chapter 2: The Decision Control Structure 75
+
+ 
+
+if(i==5);
+printf ( "You entered 5" ) ;
+}
+
+The ; makes the compiler to interpret the statement as if you have
+written it in following manner:
+
+if (i==5)
+printf ("You entered 5") ;
+
+Here, if the condition evaluates to true the ; (null statement, which
+does nothing on execution) gets executed, following which the
+printf( ) gets executed. If the condition fails then straightaway the
+printf() gets executed. Thus, irrespective of whether the condition
+evaluates to true or false the printf( ) is bound to get executed.
+Remember that the compiler would not point out this as an error,
+since as far as the syntax is concerned nothing has gone wrong, but
+the logic has certainly gone awry. Moral is, beware of such
+pitfalls.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The following figure summarizes the working of all the three
+logical operators.
+Operands Results
+
+x y Ix ly x&&y | xily
+
+0 0 1 1 0 0
+
+0 non-zero | 1 0 0 0
+
+non-zero_| 0 0 1 0 1
+
+non-zero_| non-zero | 0 0 1 1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 2.8
+

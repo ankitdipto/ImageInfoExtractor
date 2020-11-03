@@ -1,0 +1,51 @@
+1022
+
+Chapter 33 Computational Geometry
+
+the exercises at the end of this section show, this algorithm, or simple variations of
+it, can help solve other computational-geometry problems.
+
+The algorithm runs in O(n 1gn) time, where n is the number of segments we are
+given. It determines only whether or not any intersection exists; it does not print
+all the intersections. (By Exercise 33.2-1, it takes Q(n7) time in the worst case to
+find all the intersections in a set of n line segments.)
+
+In sweeping, an imaginary vertical sweep line passes through the given set of
+geometric objects, usually from left to right. We treat the spatial dimension that
+the sweep line moves across, in this case the x-dimension, as a dimension of
+time. Sweeping provides a method for ordering geometric objects, usually by plac-
+ing them into a dynamic data structure, and for taking advantage of relationships
+among them. The line-segment-intersection algorithm in this section considers all
+the line-segment endpoints in left-to-right order and checks for an intersection each
+time it encounters an endpoint.
+
+To describe and prove correct our algorithm for determining whether any two
+of n line segments intersect, we shall make two simplifying assumptions. First, we
+assume that no input segment is vertical. Second, we assume that no three input
+segments intersect at a single point. Exercises 33.2-8 and 33.2-9 ask you to show
+that the algorithm is robust enough that it needs only a slight modification to work
+even when these assumptions do not hold. Indeed, removing such simplifying
+assumptions and dealing with boundary conditions often present the most difficult
+challenges when programming computational-geometry algorithms and proving
+their correctness.
+
+Ordering segments
+
+Because we assume that there are no vertical segments, we know that any input
+segment intersecting a given vertical sweep line intersects it at a single point. Thus,
+we can order the segments that intersect a vertical sweep line according to the y-
+coordinates of the points of intersection.
+
+To be more precise, consider two segments 5, and s>. We say that these segments
+are comparable at x if the vertical sweep line with x-coordinate x intersects both of
+them. We say that 5, is above sy at x, written 5; x 52, if s; and sy are comparable
+at x and the intersection of s; with the sweep line at x is higher than the intersection
+of s) with the same sweep line, or if s; and s, intersect at the sweep line. In
+Figure 33.4(a), for example, we have the relationships a =, c,a =; b,b =; ¢,
+a >, c,andb , c. Segment d is not comparable with any other segment.
+
+For any given x, the relation “>,” is a total preorder (see Section B.2) for all
+segments that intersect the sweep line at x. That is, the relation is transitive, and
+if segments 5; and Ss each intersect the sweep line at x, then either 5; = y 52
+or Sy =x 51, or both (if s; and s2 intersect at the sweep line). (The relation >, is
+

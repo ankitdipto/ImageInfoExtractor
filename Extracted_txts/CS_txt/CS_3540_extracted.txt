@@ -1,0 +1,64 @@
+90 Chapter 3. Solving Problems by Searching
+
+ 
+
+3.16 Tests of human intelligence often contain sequence prediction problems. The aim in
+such problems is to predict the next member of a sequence of integers, assuming that the number
+in position n of the sequence is generated using some sequence function s(n), where the first
+element of the sequence corresponds to n = 0. For example, the function s(n)- 2" generates the
+sequence [1,2,4,8, 16, ...]
+
+In this exercise, you will design a problem-solving system capable of solving such pre-
+diction problems. The system will search the space of possible functions until it finds one that
+matches the observed sequence. The space of sequence functions that we will consider consists
+of all possible expressions built from the elements 1 and n, and the functions +, x, —, /, and
+exponentiation. For example, the function 2" becomes (1 + 1)" in this language. It will be useful
+to think of function expressions as binary trees, with operators at the internal nodes and 1's and
+n’s at the leaves.
+
+ 
+
+a. First, write the goal test function. Its argument will be a candidate sequence function s. It
+will contain the observed sequence of numbers as local state.
+
+b. Now write the successor function. Given a function expression s, it should generate all
+expressions one step more complex than s. This can be done by replacing any leaf of the
+expression with a two-leaf binary tree.
+
+c. Which of the algorithms discussed in this chapter would be suitable for this problem?
+Implement it and use it to find sequence expressions for the sequences [1,2,3,4,5],
+(1, 2,4,8, 16, ...], and [0.5, 2, 4.5, 8].
+
+d. Iflevel d ofthe search space contains all expressions of complexity d+1, where complexity
+is measured by the number of leaf nodes (e.g., n + (1 x n) has complexity 3), prove by
+induction that there are roughly 20“(d+ 1)! expressions at level d.
+
+ 
+
+e. Comment on the suitability ofuninformed search algorithms for solving this problem. Can
+you suggest other approaches?
+
+3.17. The full vacuum world from the exercises in Chapter 2 can be viewed as a search problem
+in the sense we have defined, provided we assume that the initial state is completely known.
+
+ 
+
+a. Define the initial state, operators, goal test function, and path cost function.
+
+b. Which of the algorithms defined in this chapter would be appropriate for this problem?
+
+c. Apply one of them to compute an optimal sequence of actions for a 3 x 3 world with dirt in
+the center and home squares.
+
+d. Construct a search agent for the vacuum world, and evaluate its performance in a set of {
+3x3 worlds with probability 0.2 of dirt in each square. Include the search cost as well as
+path cost in the performance measure, using a reasonable exchange rate.
+
+e. Compare the performance of your search agent with the performance of the agents con-
+structed for the exercises in Chapter 2. What happens if you include computation time in
+the performance measure, at various "exchange rates" with respect to the cost of taking a
+step in the environment?
+
+f. Consider what would happen ifthe world was enlarged ton x n. How does the performance
+of the search agent vary with n? Of the reflex agents?
+

@@ -1,0 +1,41 @@
+114 Let Us C
+
+ 
+
+Here, both, the comparison and the incrementation is done
+through the same statement, ++i <= 10. Since ++ precedes i
+firstly incrementation is done, followed by comparison. Note
+that it is necessary to initialize i to 0.
+
+Nesting of Loops
+The way if statements can be nested, similarly whiles and fors can
+also be nested. To understand how nested loops work, look at the
+
+program given below:
+
+/" Demonstration of nested loops */
+
+main()
+{
+int rc, sum;
+for (r=1;1<=3;1++) /* outer loop */
+{
+for (c=1;c¢<=2;c++) /*“inner loop */
+{
+sum =1+C;
+printf ( "r = %d c = %d sum = %d\n", r, c, sum) ;
+}
+}
+
+When you run this program you will get the following output:
+
+r=1c=1sum=2
+r=1c=2sum=3
+r=2c=1sum=3
+r=2c=2sum=4
+r=3c=1sum=4
+r=3c=2sum=5
+
+Here, for each value of r the inner loop is cycled through twice,
+with the variable c taking values from 1 to 2. The inner loop
+

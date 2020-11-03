@@ -1,0 +1,54 @@
+Section 8.2.
+
+Knowledge Engineering 221
+
+ 
+
+6. Every physical thing has a size. Sizes are arranged on a scale from Tiny to Huge. A relative
+size is a ratio of two sizes.
+Vx PhysicalThing(x) > As Size(x) =s
+Tiny < Small < Medium < Large < Huge
+Va, b RelativeSize(q, b) = Size(a)/Size(b)
+7. The function Very maps a point on a scale to a more extreme value. Medium is the neutral
+value for a scale.
+Medium=1
+Va x> Medium = Very(x)>x
+Wx x< Medium = Very(x)<x
+
+This is more work than writing a single rule for BearOfVerySmallBrain but it achieves far more.
+It has articulated some of the basic properties of physical things and animals, properties that will
+be used many times, but need be stated only once. It has begun to sketch out a hierarchy of
+objects (bears, animals, physical things). It has also made a representational choice for values on
+scales, which will come in handy later in the chapter.
+
+Every time one writes down a sentence, one should ask oneself the following:
+
+* Why is this true? Could I write down the facts that make it tue instead?
+* How generally is it applicable? Can I state it for a more general class of objects?
+
+* Do I need a new predicate to denote this class of objects? How does the class relate to
+other classes? Is it part of a larger class? Does that class have other subclasses? What are
+other properties of the objects in this class?
+
+We cannot provide a foolproof recipe for successful knowledge engineering, but we hope this
+example has provided some pointers.
+
+8.2 KNOWLEDGE ENGINEERING
+
+The knowledge engineer must understand enough about the domain in question to represent
+the important objects and relationships. He or she must also understand enough about the
+representation language to correctly encode these facts. Moreover, the knowledge engineer
+must also understand enough about the implementation of the inference procedure to assure that
+queries can be answered in a reasonable amount of time. To help focus the development of a
+knowledge base and to integrate the engineer's thinking at the three levels, the following five-step
+methodology can be used:
+
+* Decide what to talk about. Understand the domain well enough to know which objects
+and facts need to be talked about, and which can be ignored. For the early examples in
+this chapter, this step is easy. In some cases, however, it can be the hardest step. Many
+knowledge engineering projects have failed because the knowledge engineers started to
+formalize the domain before understanding it. Donald Michie (1982) gives the example
+of a cheese factory that had a single cheese tester who decided if the Camembert was
+
+ 
+

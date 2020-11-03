@@ -1,0 +1,57 @@
+90
+
+Chapter 4 Divide-and-Conquer
+
+Because subproblem sizes decrease by a factor of 4 each time we go down one
+level, we eventually must reach a boundary condition. How far from the root do
+we reach one? The subproblem size for a node at depth i is n/4'. Thus, the
+subproblem size hits m = 1 when n/4' = 1 or, equivalently, when i = log,n.
+Thus, the tree has log, + 1 levels (at depths 0,1,2,.... log, n).
+
+Next we determine the cost at each level of the tree. Each level has three times
+more nodes than the level above, and so the number of nodes at depth i is 3'.
+Because subproblem sizes reduce by a factor of 4 for each level we go down
+from the root, each node at depth i, fori = 0,1,2,...,logym — 1, has a cost
+of c(n/4')*. Multiplying, we see that the total cost over all nodes at depth i, for
+i = 0,1,2,...,logyn — 1, is 3'c(n/4')?_ = (3/16)'cn?. The bottom level, at
+depth logyn, has 3!°84" = n'e%+3 nodes, each contributing cost T(1), for a total
+cost of n!437(1), which is ©(n'"43), since we assume that T(1) is a constant.
+
+Now we add up the costs over all levels to determine the cost for the entire tree:
+
+3 32 3 \ bean
+cn? + cra cn + (=) CN? fee (=) cn? + O(n'43)
+
+logyn—1 3!
+= a 2 logy 3)
+» (=) cn? + @(n'*4°)
+
+i=0
+
+T(n)
+
+(3/16)"%"—1 tog, 3 :
+= en’ + 0(n1"* ‘by equation (A.5)) .
+Ghat (nl®3) (by equation (A.5))
+This last formula looks somewhat messy until we realize that we can again take
+advantage of small amounts of sloppiness and use an infinite decreasing geometric
+series as an upper bound. Backing up one step and applying equation (A.6), we
+have
+
+ae 3\' 2 logy 3
+Ta) = YO we) 0" + @(n'*+3)
+i=0
+
+7 3\i
+< & (3) cn? + @(n'243)
+
+= 1 2 logy 3
+= Te" + O(n'*4?)
+
+16
+= cn? + @(n'843)
+= O(n’).
+Thus, we have derived a guess of T(n) = O(n?) for our original recurrence
+T(n) = 3T(\n/4]) + @(n?). In this example, the coefficients of cn? form a
+decreasing geometric series and, by equation (A.6), the sum of these coefficients
+

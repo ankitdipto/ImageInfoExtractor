@@ -1,0 +1,49 @@
+Section 12.4. More Expressive Operator Descriptions 381
+
+ 
+
+12.4 MORE EXPRESSIVE OPERATOR DESCRIPTIONS
+
+Hierarchical planning addresses the problem of efficiency, but we still need to make our repre-
+sentation language more expressive in order to broaden its applicability. The extensions include
+allowing for the effects of an action to depend on the circumstances in which it is executed; allow-
+ing disjunctive and negated preconditions; and allowing universally quantified preconditions and
+effects. We conclude the section with a planning algorithm, POP-DUNC (Partial-Order Planner
+with Disjunction, Universal quantification, Negation and Conditional effects).
+
+Conditional effects
+
+CONDITIONAL Operators with conditional effects have different effects depending on what the world is like
+when they are executed. We will return to the blocks world of Section 11.8 for some of our
+examples. Conceptually, the simple blocks world has only one real action—moving a block from
+one place to another—but we were forced to introduce two operators in order to maintain the
+Clear predicate properly:
+
+Op(AcTION:Move(b,x, V),
+PRECOND:On(b, x) A Clear(byA Clearly).
+EFFECT: On(b,y) A Clear(x) A ~On(b,x) A >Clear(y))
+
+Op(ACTION:MoveToTable(b, x),
+PRECOND:On(b, x) A Clear(b),
+EFFECT: On(b, Table) A Clear(x)A 7On(b, x))
+
+Suppose that the initial situation includes On(A,B)and we have the goal Clear(B). We can
+achieve the goal by moving 4 off B, but unfortunately we are forced to choose whether we want
+to move 4 to the table or to somewhere else. This introduces a premature commitment and can
+lead to inefficiency.
+
+We can eliminate the premature commitment by extending the operator language to include
+conditional effects. In this case, we can define a single operator Move(h,x, y) with a conditional
+effect that says, "ify is not the table then an effect is -Clear(y).” We will use the syntax "effect
+when condition" to denote this, where effect and condition are both literals or conjunctions of
+literals. We place this syntax in the EFFECT slot of an operator, but it is really a combination of a
+precondition and an effect: the effect part refers to the situation that is the result of the operator,
+and the condition part refers to the situation before the operator is applied. Thus, “Q when P”
+is not the same as the logical statement P = Q; rather it is equivalent to the situation calculus
+statement P(s) = Q(Result(act,s)). The conditional Move operator is written as follows:
+
+Op(ACTION:Move(b.x, ¥),
+PRECOND:On(b, x)A Clear(b) A Clear(y),
+EFFECT: On(b, y) A Clear(x) A =On(b, x)
+A 7Clear(y) when y#Table)
+

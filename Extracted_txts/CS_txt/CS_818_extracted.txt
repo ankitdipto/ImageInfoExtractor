@@ -1,0 +1,43 @@
+Chapter 5: Functions & Pointers 167
+
+ 
+
+printf ( "\nSum = %d", sum) ;
+}
+
+calsum (x, y, Z)
+int x,y, Z;
+{
+
+int d;
+
+d=X+y+Z;
+return (d);
+}
+
+And here is the output...
+
+Enter any three numbers 10 20 30
+Sum = 60
+
+There are a number of things to note about this program:
+
+(a) In this program, from the function main( ) the values of a, b
+and ¢ are passed on to the function calsum(), by making a
+call to the function calsum() and mentioning a, b and c in the
+parentheses:
+
+sum = calsum (a,b, C);
+
+In the calsum() function these values get collected in three
+variables x, y and z:
+
+calsum (x, y, Z)
+int x,y, Z;
+
+(b) The variables a, b and c¢ are called ‘actual arguments’,
+whereas the variables x, y and z are called ‘formal
+arguments’. Any number of arguments can be passed to a
+function being called. However, the type, order and number of
+the actual and formal arguments must always be same.
+

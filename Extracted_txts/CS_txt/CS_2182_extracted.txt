@@ -1,0 +1,57 @@
+partial remainder
+
+SECTION 10-4 Division Algorithms 349
+
+cause the quotient digits are either 0 or 1 and there is noneed to estimate how
+many times the dividend or partial remainder fits into the divisor. The division
+process is illustrated by a numerical example in Fig. 10-11. The divisor B
+consists of five bits and the dividend A, of ten bits. The five most significant
+bits of the dividend are compared with the divisor. Since the 5-bit number is
+smaller than B, we try again by taking the sx most significant bits of A and
+compare this number with B. The 6-bit number is greater than B, so we place
+a 1 for the quotient bit in the sixth position above the dividend. The divisor is
+then shifted onceto theright and subtracted fromthe dividend. The difference
+is called a partial remainder because the division could have stopped here to
+obtain a quotient of 1 and a remainder equal to the partial remainder. The
+process is continued by comparing a partial remainder with the divisor. Ifthe
+partial remainder is greater than or equal to the divisor, the quotient bit is equal
+to 1. The divisoris then shifted right and subtracted from the partial remainder.
+If the partial remainder is smaller than the divisor, the quotient bit is 0 and no
+subtraction is needed. The divisors shifted once to the right in any case. Note
+that the result gives both a quotient and a remainder.
+
+ 
+
+Hardware Implementation for Signed-Magnitude Data
+
+When the division is implemented in a digital computer, it is convenient to
+change the process slightly. Instead of shifting the divisor to the right, the
+dividend, or partial remainder, is shifted to the left, thus leaving the two
+numbers in the required relative position. Subtraction may be achieved by
+adding A to the 2's complement of B. The information about the relative
+magnitudes is then available from the end-carry.
+
+The hardware for implementing the division operation is identical to that
+required for multiplication and consists of the components shown in Fig. 10-5.
+Register EAQ is now shifted to the left with 0 inserted into Q, and the previous
+value of E lost. The numerical example is repeated in Fig. 10-12 to clarify the
+
+Figure 10-11 Example of binary division.
+
+Divisor: 11010 Quotient = @
+B= 10001 Jo111000000 Dividend = A
+01110 5 bits of A <B, quotient has 5 bits
+011100 6 bitsofA >B
+10001 Shift right 8 and subtract: enter Lin
+010110 17 bits of remainder > B
+
+Shift right 8 and subtract; enter 1in Q
+Remainder < B; enter O in Q; shift right B
+Remainder > B
+
+Shift right 8 and subtract; enter 1 in Q
+000110 Remainder < B; enter O in Q
+——00110 Final remainder
+
+ 
+

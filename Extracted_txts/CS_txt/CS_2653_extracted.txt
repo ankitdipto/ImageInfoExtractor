@@ -1,0 +1,30 @@
+ 
+
+Introduction
+
+Sets are as fundamental to computer science as they are to mathematics. Whereas
+mathematical sets are unchanging, the sets manipulated by algorithms can grow,
+shrink, or otherwise change over time. We call such sets dynamic. The next five
+chapters present some basic techniques for representing finite dynamic sets and
+manipulating them on a computer.
+
+Algorithms may require several different types of operations to be performed on
+sets. For example, many algorithms need only the ability to insert elements into,
+delete elements from, and test membership in a set. We call a dynamic set that
+supports these operations a dictionary. Other algorithms require more complicated
+operations. For example, min-priority queues, which Chapter 6 introduced in the
+context of the heap data structure, support the operations of inserting an element
+into and extracting the smallest element from a set. The best way to implement a
+dynamic set depends upon the operations that must be supported.
+
+Elements of a dynamic set
+
+In a typical implementation of a dynamic set, each element is represented by an
+object whose attributes can be examined and manipulated if we have a pointer to
+the object. (Section 10.3 discusses the implementation of objects and pointers in
+programming environments that do not contain them as basic data types.) Some
+kinds of dynamic sets assume that one of the object’s attributes is an identifying
+key. If the keys are all different, we can think of the dynamic set as being a set
+of key values. The object may contain satellite data, which are carried around in
+other object attributes but are otherwise unused by the set implementation. It may
+

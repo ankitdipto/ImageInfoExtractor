@@ -1,0 +1,91 @@
+Problems for Chapter 3 63
+
+b. Describe the potential advantages and disadvantages of using & instead of Q to
+characterize the running times of programs.
+
+Some authors also define O in a slightly different manner; let’s use O’ for the
+alternative definition. We say that f(n) = O’(g(n)) if and only if | f(n)| =
+O(g(n)).
+
+c. What happens to each direction of the “if and only if” in Theorem 3.1 if we
+substitute O’ for O but still use Q?
+
+Some authors define O (read “soft-oh”) to mean O with logarithmic factors ig-
+nored:
+
+O(g(n)) = {f(n) : there exist positive constants c,k, and no such that
+0<f(n< cg(n) lg*(n) for alln > no}.
+
+d. Define & and © ina similar manner. Prove the corresponding analog to Theo-
+rem 3.1.
+
+3-6 Iterated functions
+
+We can apply the iteration operator * used in the lg* function to any monotonically
+increasing function f(/) over the reals. For a given constant c € R, we define the
+iterated function f;* by
+
+fe(n) = min fi > 0: fOM) <c},
+
+which need not be well defined in all cases. In other words, the quantity f;*(”) is
+the number of iterated applications of the function f required to reduce its argu-
+ment down to c or less.
+
+For each of the following functions f(n) and constants c, give as tight a bound
+as possible on f,*(11).
+
+fa)
+
+n-1
+
+fem)
+
+ 
+
+ 
+
+8
+
+c
+0
+
+Ign 1
+n/2 1
+n/2 2
+2
+
+1
+
+2
+
+2
+
+ 
+
+ 
+
+x 9
+
+ 
+
+van
+Va
+
+ni3
+
+ 
+
+ 
+
+ 
+
+rae Ss
+
+n/|gn
+
+ 
+
+ 
+
+ 
+

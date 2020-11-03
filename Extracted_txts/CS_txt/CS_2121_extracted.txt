@@ -1,0 +1,57 @@
+state table
+
+state diagram
+
+SECTION 1-7 Sequential Circuits 31
+The next state of B in the state table is equal to 1 when the present state of A
+is 0 and input x is equal to 1 The output column is derived from the output
+equation
+
+y= Ax’ + Br’
+
+TABLE 1-4 State Table for Circuit of Fig. 1-25
+
+Present Next
+state Input — state.» Output
+
+ 
+
+ 
+
+ 
+
+ 
+
+A Box A By
+0 0 Oo o 0 0
+oo 1 0 1 0
+o 1 0 0 0 1
+o 1 t 4 4 0
+1 0 0 0 0 4
+1 0 4 1 0 0
+1 1 0 0 0 4
+1 1 4 1 0 0
+
+The state table of any sequential circuit is obtained by the procedure used
+in this example. In general, a sequential circuit with m flip-flops, n input
+variables, and p output variables will contain m columns for present state, n
+columns for inputs, m columns for next state, and p columns for outputs. The
+present state and input columns are combined and under them we list the 2"*"
+binary combinations from 0 through 2"*" - 1. The next-state and output
+columns are functions of the present state and input values and are derived
+directly from the circuit or the Boolean equations that describe the circuit.
+
+State Diageam
+
+The information available in a state table can be represented graphically in a
+state diagram. In this type of diagram, a state is represented by a circle, and
+the transition between states is indicated by directed lines connecting the
+circles The state diagram of the sequential circuit of Fig. 1-25 is shown in Fig.
+1-26, The state diagram provides the same information as the state table and
+is obtained directly from Table 1-4. The binary number inside each circle
+identifies the state of the flip-flops. The directed lines are labeled with two
+binary numbers separated by a slash. The input value during the present state
+is labeled first and the number after the slash gives the output during the
+present state. For example, the directed line from state 00 to 01 is labeled 1/0,
+meaning that when thesequential circuitis in the present state 00 and the input
+

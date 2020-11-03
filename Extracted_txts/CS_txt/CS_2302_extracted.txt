@@ -1,0 +1,59 @@
+312
+
+Chapter 10. Logical Reasoning Systems
+
+ 
+
+LOCKNG
+
+PROOF-CHECKER
+
+‘SOCRATIC
+REASONER
+
+The depth-first search is replaced by an iterative deepening search. This makes the search
+strategy complete and takes only a constant factor more time.
+Negated literals (such as sP(x))are allowed. In the implementation, there are two separate
+routines, one trying to prove P and one trying to prove ~P.
+Acclause with» atoms is stored as n different rules. For example, A <= B A C would also be
+stored as =B <= CA-A and as -C = B A “A. This technique, known as locking, means
+that the current goal need only be unified with the head of each clause but still allows for
+proper handling of negation.
+Inference is made complete (even for non-Horn clauses) by the addition of the linear input
+resolution rule: If the current goal unifies with the negation of one of the goals on the
+stack, then the goal can be considered solved. This is a way ofreasoning by contradiction.
+Suppose we are trying to prove P and that the current goal is =P. This is equivalent to
+saying that -P = P, which entails P.
+Despite these changes, PTTP retains the features that make Prolog fast. Unifications are still done
+by modifying variables directly, with unbinding done by unwinding the trail during backtracking.
+The search strategy is still based on input resolution, meaning that every resolution is against one
+of the clauses given in the original statement of the problem (rather than a derived clause). This
+makes it feasible to compile all the clauses in the original statement of the problem.
+
+The main drawback of PTTP is that the user has to relinquish all control over the search
+for solutions. Each inference rule is used by the system both in its original form and in the
+contrapositive form. This can lead to unintuitive searches. For example, suppose we had the rule
+
+(fary) =fla.b)) = (x= a) A O= b)
+As a Prolog rule, this is a reasonable way to prove that two f terms are equal. But PTTP would
+also generate the contrapositive:
+
+(fa) (f(x,y) Af (a, DUA (y= b)
+It seems that this is a wasteful way to prove that any two tems.x and a are different.
+
+Theorem provers as assistants
+
+So far, we have thought of a reasoning system as an independent agent that has to make decisions
+and act on its own. Another use of theorem provers is as an assistant, providing advice to, say, a
+mathematician. In this mode the mathematician acts as a supervisor, mapping out the strategy for
+determining what to do next and asking the theorem prover to fill in the details. This alleviates
+the problem of semi-decidability to some extent, because the supervisor can cancel a query and
+try another approach if the query is taking too much time. A theorem prover can also act as a
+proof-checker, where the proofis given by a human as a series of fairly large steps; the individual
+inferences required to show that each step is sound are filled in by the system.
+
+A Socratic reasoner is a theorem prover whose ASK function is incomplete, but which can
+always arrive at a solution if asked the right series of questions. Thus, Socratic reasoners make
+good assistants, provided there is a supervisor to make the right series of calls to ASK. ONTIC
+(McAllester, 1989) is an example of a Socratic reasoning system for mathematics.
+

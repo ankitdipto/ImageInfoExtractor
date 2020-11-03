@@ -1,0 +1,40 @@
+420 Let Us C
+
+ 
+
+The FILE structure has been defined in the header file “stdio.h”
+(standing for standard mput/output header file). Therefore, it is
+necessary to #include this file.
+
+Reading from a File
+
+Once the file has been opened for reading using fopen( ), as we
+have seen, the file’s contents are brought into buffer (partly or
+wholly) and a pointer is set up that points to the first character in
+the buffer. This pointer is one of the elements of the structure to
+which fp is pointing (refer Figure 12.2).
+
+To read the file’s contents from memory there exists a function
+called fgetc(). This has been used in our program as,
+
+ch = fgetc (fp) ;
+
+fgetc( ) reads the character from the current pointer position,
+advances the pointer position so that it now points to the next
+character, and returns the character that is read, which we collected
+in the variable ch. Note that once the file has been opened, we no
+longer refer to the file by its name, but through the file pointer fp.
+
+We have used the function fgete( ) within an indefinite while loop.
+There has to be a way to break out of this while. When shall we
+break out... the moment we reach the end of file. But what is end
+of file? A special character, whose ASCII value is 26, signifies end
+of file. This character is inserted beyond the last character in the
+file, when it is created.
+
+While reading from the file, when fgetc( ) encounters this special
+character, instead of returning the character that it has read, it
+returns the macro EOF. The EOF macro has been defined in the
+file “stdio.h”. In place of the function fgetc( ) we could have as
+well used the macro gete() with the same effect.
+

@@ -1,0 +1,43 @@
+34.5 NP-complete problems 1087
+
+   
+
+SUBSET-SUM
+‘VERTEX-COVER
+y
+HAM-CYCLE
+
+TSP
+
+ 
+
+Figure 34.13 The structure of NP-completeness proofs in Sections 34.4 and 34.5. All proofs ulti-
+mately follow by reduction from the NP-completeness of CIRCUIT-SAT.
+
+a graph. As a decision problem, we ask simply whether a clique of a given size k
+exists in the graph. The formal definition is
+
+CLIQUE = {(G,k) : G is a graph containing a clique of size k} .
+
+A naive algorithm for determining whether a graph G = (V, E) with |V| ver-
+tices has a clique of size k is to list all k-subsets of V, and check each one to
+see whether it forms a clique. The running time of this algorithm is 2(k2("')),
+which is polynomial if k is a constant. In general, however, k could be near |V | /2,
+in which case the algorithm runs in superpolynomial time. Indeed, an efficient
+algorithm for the clique problem is unlikely to exist.
+
+Theorem 34.11
+The clique problem is NP-complete.
+
+Proof To show that CLIQUE € NP, for a given graph G = (V, E), we use the
+set V’ C V of vertices in the clique as a certificate for G. We can check whether V’
+is a clique in polynomial time by checking whether, for each pair u,v € V’, the
+edge (u,v) belongs to E.
+
+We next prove that 3-CNF-SAT <p CLIQUE, which shows that the clique prob-
+lem is NP-hard. You might be surprised that we should be able to prove such a
+result, since on the surface logical formulas seem to have little to do with graphs.
+
+The reduction algorithm begins with an instance of 3-CNF-SAT. Let ¢ =
+Cy A Cp A+++ A Cx be a boolean formula in 3-CNF with k clauses. For r =
+

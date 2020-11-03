@@ -1,0 +1,44 @@
+660
+
+Chapter 24 Single-Source Shortest Paths
+
+ 
+
+Figure 24.7 The proof of Theorem 24.6. Set S is nonempty just before vertex 1 is added to it. We
+
+decompose a shortest path p from source s to vertex w into s 24 x > y 23 u, where y is the first
+vertex on the path that is not in S and x € S immediately precedes y. Vertices x and y are distinct,
+but we may have s = x or y = w. Path p2 may or may not reenter set S.
+
+Proof We use the following loop invariant:
+
+At the start of each iteration of the while loop of lines 4-8, v.d = 8(s,v)
+for each vertex v € S.
+
+It suffices to show for each vertex u € V, we have u.d = 4(s, u) at the time when u
+is added to set S. Once we show that u.d = 8(s,u), we rely on the upper-bound
+property to show that the equality holds at all times thereafter.
+
+Initialization: Initially, S = @, and so the invariant is trivially true.
+
+Maintenance: We wish to show that in each iteration, u.d = 5(s, u) for the vertex
+added to set S. For the purpose of contradiction, let u be the first vertex for
+which u.d # 5(s,u) when it is added to set S. We shall focus our attention
+on the situation at the beginning of the iteration of the while loop in which u
+is added to S and derive the contradiction that u.d = 4(s,u) at that time by
+examining a shortest path from s to u. We must have u # s because s is the
+first vertex added to set S and s.d = 8(s,s) = 0 at that time. Because u ¢ 5,
+we also have that S # @ just before wu is added to S. There must be some
+path from s to u, for otherwise u.d = 5(s,u) = oo by the no-path property,
+which would violate our assumption that u.d # 6(s,u). Because there is at
+least one path, there is a shortest path p from s to u. Prior to adding u to S,
+path p connects a vertex in S, namely s, to a vertex in V — S, namely u. Let us
+consider the first vertex y along p such that y € V — S, and let x € S be y’s
+predecessor along p. Thus, as Figure 24.7 illustrates, we can decompose path p
+into s 24 x > y uy. (Either of paths p; or pz may have no edges.)
+
+We claim that y.d = 5(s,y) when u is added to S. To prove this claim, ob-
+
+serve that x € S. Then, because we chose wu as the first vertex for which
+u.d # 5(s,u) when it is added to S, we had x.d = 6(s, x) when x was added
+

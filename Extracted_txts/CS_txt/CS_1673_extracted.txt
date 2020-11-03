@@ -1,0 +1,50 @@
+172 Chapter6 CPU Scheduling
+
+event response to event
+
+response interval
+
+process made
+interrupt available
+processing
+
+dispatch latency
+
+   
+      
+
+real-time
+process
+execution
+
+conflicts dispatch
+
+ 
+
+—
+time
+
+Figure 6.8 Dispatch latency.
+
+6.6 = Algorithm Evaluation
+
+How do we select a CPU-scheduling algorithm for a particular system? As we
+saw in Section 6.3, there are many scheduling algorithms, each with its own
+parameters. As a result, selecting an algorithm can be difficult.
+
+The first problem is defining the criteria to be used in selecting an algo-
+rithm. As we saw in Section 6.2, criteria are often defined in terms of CPU
+utilization, response time, or throughput. To select an algorithm, we must
+first define the relative importance of these measures. Our criteria may include
+several measures, such as:
+
+Maximize CPU utilization under the constraint that the maximum response
+time is 1 second.
+
+¢ Maximize throughput such that turnaround time is (on average) linearly
+proportional to total execution time.
+
+Once the selection criteria have been defined, we want to evaluate the
+various algorithms under consideration. We describe the different evaluation
+methods in Sections 6.6.1 through 6.6.4.
+

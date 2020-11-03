@@ -1,0 +1,61 @@
+694
+
+Chapter 23. Practical Natural Language Processing
+
+ 
+
+TEXT
+INTERPRETATION
+
+The advantages of systems like this are obvious. The disadvantage is that the user never knows
+which wordings of a query will succeed and which are outside the system's competence. For
+example, CHAT handles "south of the equator" and "with latitude less than zero," but not "in the
+southern hemisphere." There is no principled reason why this last paraphrase should not work; it
+just happens that “hemisphere” is not in the dictionary (nor is this sense of "in"). Similarly, the
+final sample question could not be phrased as "What ocean borders both African countries and
+Asian?" because the grammar does not allow that kind of conjunction.
+
+Over the last decade, some commercial systems have built up large enough grammars and
+lexicons to handle a fairly wide variety of inputs. The main challenge for current systems is to
+follow the context of an interaction. The user should be able to ask a series of questions where
+some of them implicitly refer to earlier questions or answers:
+
+What countries are north of the equator?
+How about south?
+
+Show only the ones outside Australasia.
+What is their total area?
+
+Some systems (e.g., TEAM (Grosz et al., 1987)) handle problems like this to a limited degree.
+We return to the problem in Section 23.6.
+
+In the 1990s, companies such as Natural Language Inc. and Symantec are still selling
+database access tools that use natural language, but customers are less likely to make their buying
+decisions based on the strength of the natural language component than on the graphical user
+interface or the degree of integration of the database with spreadsheets and word processing.
+Natural language is not always the most natural way to communicate: sometimes it is easier to
+point and click with a mouse to express an idea (e.g., "sum shat column of the spreadsheet").
+
+The emphasis in practical NLP has now shifted away from database access to the broad
+field of text interpretation. In part, this is a reflection of a change in the computer industry.
+In the early 1980s, most online information was stored in databases or spreadsheets. Now the
+majority of online information is text: email, news, journal articles, reports, books, encyclopedias.
+Most computer users find there is too much information available, and not enough time to sort
+through it. Text interpretation programs help to retrieve, categorize, filter, and extract information
+from text. Text interpretation systems can be split into three types: information retrieval, text
+categorization, and data extraction.
+
+Information retrieval
+
+In information retrieval (IR), the task is to choose from a set of documents the ones that are
+relevant to a query. Sometimes a document is represented by a surrogate, such as the title and a
+list of keywords and/or an abstract. Now that so much text is online, it is more common to use
+the full text, possibly subdivided into sections that each serve as a separate document for retrieval
+purposes. The query is normally a list of words typed by the user. In early information retrieval
+systems, the query was a Boolean combination of keywords. For example, the query "(natural
+and language) or (computational and linguistics)” would be a reasonable query to find documents
+related to this chapter. However, users found it difficult to get good results with Boolean queries.
+When a query finds no documents, for example, it is not clear how to relax the query to find
+
+ 
+

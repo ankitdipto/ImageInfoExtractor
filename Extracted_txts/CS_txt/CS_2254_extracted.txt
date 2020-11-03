@@ -1,0 +1,53 @@
+priority interrupt
+
+polling
+
+SECTION 11-5 Priority Interrupt 407
+
+Software control of input-output equipment is a complex undertaking.
+For this reason /O routines for standard peripherals are provided by the
+manufacturer as part of the computer system. They are usually included within
+the operating system. Most operating systems are supplied with a variety of
+VO programs to support the particular line of peripherals offered for the
+computer. /O routines are usually available as operating system procedures
+and the user refers to the established routines to specify the type of transfer
+required without going into detailed machine language programs.
+
+11-5 Priority Interrupt
+
+Data transfer between the CPU and an I/O device is initiated by the CPU.
+However, the CPU cannot start the transfer unless the device is ready to
+communicate with the CPU. The readiness of the device can be determined
+froman interrupt signal. The CPU responds to the interrupt request by storing
+the return address from PC into a memory stack and then the program
+branches toa service routine that processes the required transfer. As discussed
+in Sec. 8-7, some processors also push the current PSW (programstatus word)
+onto the stack and load anew PSW for the service routine. We neglect the PSW
+here in order not to complicate the discussion of UO interrupts.
+
+In a typical application a number of I/O devices are attached to the
+computer, with each device being able to originate an interrupt request. The
+first task of the interrupt system is to identify the source of the interrupt. There
+is also the possibility that several sources will request service simultaneously.
+In this case the system must also decide which device to service first.
+
+Apriorityinterrupt isa system that establishes a priority over the various
+sources to determine which condition is to be serviced first when two or more
+requests arrive simultaneously. The system may also determine which condi-
+tions are permitted to interrupt the computer while another interrupt is being
+serviced. Higher-priority interrupt levels are assigned to requests which, if
+delayed or interrupted, could have serious consequences. Devices with high-
+speed transfers such as magnetic disks are given high priority, and slow
+devices such as keyboards receive low priority. When two devices interrupt the
+computer at the same time, the computer services the device, with the higher
+Priority first.
+
+Establishing the priority of simultaneous interrupts can be done by soft-
+ware or hardware. A polling procedure is used to identify the highest-priority
+source by software means. In this method there is one common branch address
+forall interrupts. The program that takes care of interrupts beginsat the branch
+address and polls the interrupt sources in sequence. The order in which they
+are tested determines the priority of each interrupt. The highest-priority source
+is tested first, and if its interrupt signal is on, control branches to a service
+routine forthis source. Otherwise, the next-lower-priority sourceis tested, and
+

@@ -1,0 +1,37 @@
+Chapter 6
+
+CPU
+SCHEDULING
+
+ 
+
+ 
+
+CPU scheduling is the basis of multiprogrammed operating systems. By switch-
+ing the CPU among processes, the operating system can make the computer
+more productive. In this chapter, we introduce the basic scheduling concepts
+and present several different CPU-scheduling algorithms. We also consider the
+problem of selecting an algorithm for a particular system.
+
+6.1 = Basic Concepts
+
+The objective of multiprogramming is to have some process running at all
+times, in order to maximize CPU utilization. In a uniprocessor system, only
+one process may run at a time; any other processes must wait until the CPU is
+free and can be rescheduled.
+
+The idea of multiprogramming is relatively simple. A process is executed
+until it must wait, typically for the completion of some I/O request. In a
+simple computer system, the CPU would then sit idle; all this waiting time is
+wasted. With multiprogramming, we try to use this time productively. Several
+processes are kept in memory at one time. When one process has to wait, the
+operating system takes the CPU away from that process and gives the CPU to
+another process. This pattern continues.
+
+Scheduling is a fundamental operating-system function. Almost all com-
+puter resources are scheduled before use. The CPU is, of course, one of the pri-
+mary computer resources. Thus, its scheduling is central to operating-system
+design.
+
+151
+

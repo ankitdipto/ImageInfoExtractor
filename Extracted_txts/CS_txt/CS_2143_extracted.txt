@@ -1,0 +1,57 @@
+316 cuarren nme Pipeline and Vector Processing
+
+single-cycle
+instruction
+execution
+
+compiler support
+
+implement an instruction pipeline using a small number of suboperations,
+with each being executed in one clock cycle. Because of the fixed-length
+instruction format, the decoding of the operation can occur at the same time
+as the register selection. All data manipulation instructions have register-to-
+register operations. Since all operands are in registers, there is no need for
+calculating an effective address or fetching of operands from memory. There-
+fore, the instruction pipeline can be implemented with two or three segments.
+One segment fetches the instruction from program memory, and the other
+segment executes the instruction in the ALU. A third segment may be used to
+store the result of the ALU operation in a destination register.
+
+The data transfer instructions in RISC are limited to load and store
+instructions. These instructions use register indirect addressing. They usually
+need three or four stages in the pipeline. To prevent conflicts between a
+memory access to fetch an instruction and to load or store an operand, most
+RISC machines use two separate buses with two memories: one for storing the
+instructions and the other for storing the data. The two memories can some-
+time operate at the same speed as the CPU clock and are referred to as cache
+memories (see Sec. 12-6).
+
+‘As mentioned in Sec. 8-8, one of the major advantages of RISC isits ability
+to execute instructions at the rate of one per clock cycle. It is not possible to
+expect that every instruction be fetched from memory and executed in one
+clock cycle. What is done, in effect, is to start each instruction with each clock
+cycle and to pipeline the processor to achieve the goal of single-cycle instruc-
+tion execution. The advantage of RISC over CISC (complex instruction set
+computer) is that RISC can achieve pipeline segments, requiring just one clock
+cycle, while CISC uses many segmentsin its pipeline, with the longest segment
+requiring two or more clock cycles.
+
+‘Another characteristic of RISC is the support given by the compiler that
+translates the high-level language program into machine language program.
+Instead of designing hardware to handle the difficulties associated with data
+conflicts and branch penalties, RISC processors rely on the efficiency of the
+compiler to detect and minimize the delays encountered with these problems.
+The following examples show how a compiler can optimize the machine
+language program to compensate for pipeline conflicts.
+
+Example: Three-Segment Instruction Pipeline
+
+A typical set of instructions for a RISC processor are listed in Table 8-12. We
+see from this table that there are three types of instructions. The data manip-
+ulation instructions operate on data in processor registers. The data transfer
+instructions are load and store instructions that use an effective address ob-
+tained from the addition of the contents of two registers or a register and a
+displacement constant provided in the instruction. The program control in-
+structions use register values and a constant to evaluate the branch address,
+which is transferred to a register or the program counter PC.
+

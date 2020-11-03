@@ -1,0 +1,41 @@
+Chapter 18: Graphics Under Windows 581
+
+ 
+
+During the original design of Windows, one of the goals was to
+provide ‘device independence’. Device independence means that
+the same program should be able to work using different screens,
+keyboards and printers without modification to the program.
+Windows takes care of the hardware, allowing the programmer to
+concentrate on the program itself. If you have ever had to update
+the code of an MS-DOS program for the latest printer, plotter,
+video display, or keyboard, you will recognize device
+independence as a huge advantage for the developer.
+
+Windows programs do not send data directly to the screen or
+printer. A Windows program knows where (screen/printer) its
+output is being sent. However, it does not know how it would be
+sent there, neither does it need to bother to know this. This is
+because Windows uses a standard and consistent way to send the
+output to screen/printer. This standard way uses an entity called
+Device Context, or simply a DC. Different DC’s are associated
+with different devices. For example, a screen DC is associated
+with a screen, a printer DC is associated with a printer, etc. Any
+drawing that we do using the screen DC is directed to the screen.
+Sunilarly, any drawing done using the printer DC is directed to the
+printer. Thus, the only thing that changes from drawing to screen
+and drawing to printer is the DC that is used.
+
+A windows program obtains a handle (ID value) for the screen or
+printer’s DC. The output data is sent to the screen/printer using its
+DC, and then Windows and the Device Driver for the device takes
+care of sending it to the real hardware. The advantage of using the
+DC is that the graphics and text commands that we send using the
+DC are always the same, regardless of where the physical output is
+showing up.
+
+The part of Windows that converts the Windows graphics function
+calls to the actual commands sent to the hardware is the GDI, or
+Graphics Device Interface. The GDI is a program file called
+GDI32.DLL and is stored in the Windows System directory. The
+

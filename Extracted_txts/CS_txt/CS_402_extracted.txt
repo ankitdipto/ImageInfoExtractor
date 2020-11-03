@@ -1,0 +1,64 @@
+140
+
+METAREASONING
+
+Chapter 5. Game Playing
+
+ 
+
+MAX
+
+MIN
+
+ 
+
+99 1000 1000-1000 100 101 102 100
+
+ 
+
+ 
+
+Figure 5.13 A two-ply game tree for which minimax may be inappropriate.
+
+ 
+
+ 
+
+ 
+
+Next, we consider the search algorithm that generates the tree. The aim of an algorithm
+designer is to specify a computation that completes in a timely manner and results in a good move
+choice. The most obvious problem with the alpha-beta algorithm is that it is designed not just to
+select a good move, but also to calculate the values of all the legal moves. To see why this extra
+information is unnecessary, consider a position in which there is only one legal move. Alpha-beta
+search still will generate and evaluate a large, and totally useless, search tree. Of course, we
+can insert a test into the algorithm, but this merely hides the underlying problem—many of the
+calculations done by alpha-beta are largely irrelevant. Having only one legal move is not much 4
+different from having several legal moves, one of which is fine and the rest of which are obviously |
+disastrous. In a "clear-favorite" situation like this, it would be better to reach a quick decision
+after a small amount of search than to waste time that could be better used later for a more
+problematic position. This leads to the idea of the utility ofa node expansion. A good search
+algorithm should select node expansions ofhigh utility—that is, ones that are likely to lead to the 4
+discovery ofa significantly better move. If there are no node expansions whose utility is higher
+than their cost (in tems of time), then the algorithm should stop searching and make a move.
+Notice that this works not only for clear-favorite situations, but also for the case of symmetrical
+moves, where no amount of search will show that one move is better than another.
+
+This kind of reasoning about what computations to do is called metareasoning (reasoning
+about reasoning). It applies not just to game playing, but to any kind of reasoning at all. All
+computations are done in the service of trying to reach better decisions, all have costs, and
+all have some likelihood of resulting in a certain improvement in decision quality. Alpha-beta
+incorporates the simplest kind of metareasoning, namely, a theorem to the effect that certain
+branches of the tree can be ignored without loss. It is possible to do much better. In Chapter 16,
+we will see how these ideas can be made precise and implementable.
+
+Finally, let us reexamine the nature of search itself. Algorithms for heuristic search and
+for game playing work by generating sequences of concrete states starting from the initial state
+and then applying an evaluation function. Clearly, this is not how humans play games. In
+chess, one often has a particular goal in mind—for example, trapping the opponent's queen—and
+can use this to selectively generate plausible plans for achieving it. This kind of goal-directed
+reasoning or planning sometimes eliminates combinatorial search altogether (see Part IV). David
+Wilkins’ (1980) PARADISE is the only program to have used goal-directed reasoning successfully
+
+ 
+

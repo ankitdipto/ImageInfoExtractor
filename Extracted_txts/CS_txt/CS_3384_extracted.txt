@@ -1,0 +1,66 @@
+Section 24.2.
+
+Image Formation 227
+
+ 
+
+LENS
+
+DEPTH OF FIELD
+
+PIXELS
+
+perspective scaling factorf/Zcan be approximated by a constant s =f/Zp. The equations for
+projection from the scene coordinates (X, Y,Z)to the image plane become x = sX and y = sY.
+Note that scaled orthographic projection is an approximation valid only for parts of the scene
+with not much internal depth variation. It should not be used to study properties "in the large."
+An example to convince you ofthe need for caution: under orthographic projection, parallel lines
+stay parallel instead of converging to a vanishing point!
+
+Lens systems
+
+Vertebrate eyes and real cameras use a lens. A lens is much wider than a pinhole, enabling it to
+let in more light. This is paid for by the fact that not all the scene can be in sharp focus at the
+same time. The image of an object at distance Z in the scene is produced at a fixed distance from
+the lens Z’, where the relation between Z and Z’ is given by the lens equation
+
+1,1 -I
+
+ZZ 7
+where f is the focal length of the lens. Given a certain choice of image distance 7 between the
+nodal point of the lens and the image plane, scene points with depths in a range around Zo, where
+Zy is the corresponding object distance, will be imaged in reasonably sharp focus. This range of
+
+depths in the scene is referred to as the depth of field.
+
+Note that because the object distance Z is typically much greater than the image distance
+
+Z' or f, we often make the following approximation:
+
+tote tea
+
+ZZ Zz Zz f
+Thus, the image distance 2’ ~/. We can therefore continue to use the pinhole camera perspective
+projection equations to describe the geometry of image formation in a lens system.
+
+In order to focus objects at different distances Z, the lens in the eye (see Figure 24.2)
+changes shape, whereas the lens in a camera moves in the Z-direction.
+
+The image plane is coated with photosensitive material:
+
+* Silver halides on photographic film.
+* Rhodopsin and variants in the retina.
+
+* Silicon circuits in the CCD (charge-coupled device) camera. Each site in a CCD integrates
+the electrons released by photon absorption for a fixed time period.
+
+In the eye and CCD camera, the image plane is subdivided into pixels: typically 512x512
+(0.25 x 10°) in the CCD camera, arranged in a rectangular grid; 120 x 10° rods and 6 x 10°
+cones in the eye, arranged in a hexagonal mosaic.
+
+In both cases, we can model the signal detected in the image plane by the variation in image
+brightness over time: J(x,),t). Figure 24.3 shows a digitized image ofa stapler on a desk, and
+Figure 24.4 shows an array of image brightness values associated with a 12 x 12 block ofpixels
+extracted from the stapler image. A computer program trying to interpret the image would have
+to start from such a representation.
+

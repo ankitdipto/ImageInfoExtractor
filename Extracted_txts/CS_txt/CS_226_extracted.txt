@@ -1,0 +1,46 @@
+28.1 Solving systems of linear equations 823
+
+nonsingular—because numerical instabilities can result. We therefore try to pivot
+on a large value.
+
+The mathematics behind LUP decomposition is similar to that of LU decom-
+position. Recall that we are given ann x 1 nonsingular matrix A, and we wish
+to find a permutation matrix P, a unit lower-triangular matrix L, and an upper-
+triangular matrix U such that PA = LU. Before we partition the matrix A, as we
+did for LU decomposition, we move a nonzero element, say dg1, from somewhere
+in the first column to the (1, 1) position of the matrix. For numerical stability, we
+choose ax; as the element in the first column with the greatest absolute value. (The
+first column cannot contain only Os, for then A would be singular, because its de-
+terminant would be 0, by Theorems D.4 and D.5.) In order to preserve the set of
+equations, we exchange row | with row k, which is equivalent to multiplying A by
+a permutation matrix Q on the left (Exercise D.1-4). Thus, we can write QA as
+
+T
+dy Ww
+A= |e
+2 ( v A )
+where v = (d21,d31,...,dm)", except that a1, replaces agi; WT = (dx2,dk3,
++++, kn); and A’ is an (n—1) x(n—1) matrix. Since ag; 4 0, we can now perform
+
+much the same linear algebra as for LU decomposition, but now guaranteeing that
+we do not divide by 0:
+
+.T
+= dk W
+= (9)
+_ 1 0 ral wt
+~ vider Tn-1 0 A -vwi/ag )°
+
+As we saw for LU decomposition, if A is nonsingular, then the Schur comple-
+ment A’ — vw/ag, is nonsingular, too. Therefore, we can recursively find an
+LUP decomposition for it, with unit lower-triangular matrix L’, upper-triangular
+matrix U’, and permutation matrix P’, such that
+P'(A'— vw" /ag,) = L'U'.
+
+Define
+
+e=(} Re.
+
+which is a permutation matrix, since it is the product of two permutation matrices
+(Exercise D.1-4). We now have
+

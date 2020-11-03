@@ -1,0 +1,49 @@
+400
+
+Chapter 15 Dynamic Programming
+
+well for the subproblem with keys k;,..., k; and dummy keys dj-1,.... d;. The
+usual cut-and-paste argument applies. If there were a subtree T” whose expected
+cost is lower than that of 7’, then we could cut T’ out of T and paste in T”,
+resulting in a binary search tree of lower expected cost than 7, thus contradicting
+the optimality of T.
+
+We need to use the optimal substructure to show that we can construct an opti-
+mal solution to the problem from optimal solutions to subproblems. Given keys
+a kj, one of these keys, say k, (i < r < j), is the root of an optimal
+subtree containing these keys. The left subtree of the root k, contains the keys
+Kine, k,- (and dummy keys d;_;,..., d,_,), and the right subtree contains the
+keys kpai.---s k; (and dummy keys d,,..., d;). As long as we examine all candi-
+date roots k,, where i <r < j, and we determine all optimal binary search trees
+containing k;..... k,—; and those containing k,41..... kj, we are guaranteed that
+we will find an optimal binary search tree.
+
+There is one detail worth noting about “empty” subtrees. Suppose that in a
+subtree with keys k;..... k;, we select k; as the root. By the above argument, k;’s
+left subtree contains the keys k;,..., k;-1. We interpret this sequence as containing
+no keys. Bear in mind, however, that subtrees also contain dummy keys. We adopt
+the convention that a subtree containing keys k;,..., kj—-1 has no actual keys but
+does contain the single dummy key d;—;. Symmetrically, if we select k; as the root,
+then k;’s right subtree contains the keys kj+1,.... k;; this right subtree contains
+no actual keys, but it does contain the dummy key d;.
+
+Step 2: A recursive solution
+
+We are ready to define the value of an optimal solution recursively. We pick our
+subproblem domain as finding an optimal binary search tree containing the keys
+Ki, kj, wherei > 1, 7 <n, and j => i-—1. (When j = i —1, there
+are no actual keys; we have just the dummy key d;_,.) Let us define e[i, j] as
+the expected cost of searching an optimal binary search tree containing the keys
+Kinsey k;. Ultimately, we wish to compute e[1, 7].
+
+The easy case occurs when j = i — 1. Then we have just the dummy key d;_;.
+The expected search cost is e[i,i — 1] = gi-1.
+
+When j > i, weneed to select aroot k, from among k;,... k; and then make an
+optimal binary search tree with keys k;,..., k,—1 as its left subtree and an optimal
+binary search tree with keys k,4,,..., k; as its right subtree. What happens to the
+expected search cost of a subtree when it becomes a subtree of a node? The depth
+of each node in the subtree increases by 1. By equation (15.11), the expected search
+cost of this subtree increases by the sum of all the probabilities in the subtree. For
+a subtree with keys k;,..., k;, let us denote this sum of probabilities as
+

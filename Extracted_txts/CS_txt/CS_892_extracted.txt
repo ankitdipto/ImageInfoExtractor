@@ -1,0 +1,48 @@
+226 Let Us C
+
+ 
+
+auto int i= 2;
+
+{
+auto int i = 3;
+printf ( "\n%d ", i);
+
+print (°%d",i) ;
+
+}
+printf (°%d", i);
+}
+
+The output of the above program would be:
+
+321
+
+Note that the Compiler treats the three i’s as totally different
+variables, since they are defined in different blocks. Once the
+control comes out of the innermost block the variable i with value
+3 is lost, and hence the i in the second printf() refers to i with
+value 2. Similarly, when the control comes out of the next
+innermost block, the third printf() refers to the i with value 1.
+
+Understand the concept of life and scope of an automatic storage
+
+class variable thoroughly before proceeding with the next storage
+class.
+
+Register Storage Class
+
+The features of a variable defined to be of register storage class
+are as under:
+
+Storage - CPU registers.
+
+Default initial value - Garbage value.
+
+Scope - Local to the block in which the variable
+is defined.
+
+Life - Till the control remains within the block
+
+in which the variable is defined.
+

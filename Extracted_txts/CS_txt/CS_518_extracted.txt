@@ -1,0 +1,40 @@
+34.2 Polynomial-time verification 1061
+
+34.1-5
+
+Show that if an algorithm makes at most a constant number of calls to polynomial-
+time subroutines and performs an additional amount of work that also takes polyno-
+mial time, then it runs in polynomial time. Also show that a polynomial number of
+calls to polynomial-time subroutines may result in an exponential-time algorithm.
+
+34.1-6
+Show that the class P, viewed as a set of languages, is closed under union, inter-
+section, concatenation, complement, and Kleene star. That is, if L;, L2 € P, then
+
+L,UL, €P, L;NL, €P, LiL, €P, L, € P,and Li €P.
+
+ 
+
+34.2. Polynomial-time verification
+
+We now look at algorithms that verify membership in languages. For example,
+suppose that for a given instance (G, u,v, k) of the decision problem PATH, we
+are also given a path p from u to v. We can easily check whether p is a path in G
+and whether the length of p is at most k, and if so, we can view p as a “certificate”
+that the instance indeed belongs to PATH. For the decision problem PATH, this
+certificate doesn’t seem to buy us much. After all, PATH belongs to P—in fact,
+we can solve PATH in linear time—and so verifying membership from a given
+certificate takes as long as solving the problem from scratch. We shall now examine
+a problem for which we know of no polynomial-time decision algorithm and yet,
+given a certificate, verification is easy.
+
+Hamiltonian cycles
+
+The problem of finding a hamiltonian cycle in an undirected graph has been stud-
+ied for over a hundred years. Formally, a hamiltonian cycle of an undirected graph
+G = (V,E) is a simple cycle that contains each vertex in V. A graph that con-
+tains a hamiltonian cycle is said to be hamiltonian; otherwise, it is nonhamilto-
+nian. The name honors W. R. Hamilton, who described a mathematical game on
+the dodecahedron (Figure 34.2(a)) in which one player sticks five pins in any five
+consecutive vertices and the other player must complete the path to form a cycle
+

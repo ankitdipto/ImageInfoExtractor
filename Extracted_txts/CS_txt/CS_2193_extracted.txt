@@ -1,0 +1,53 @@
+358
+
+CHAPTER TEN Computer Arithmetic
+
+whose sign is in A, and a magnitude that is in A. The exponent is in the part
+of the register denoted by the lowercase letter symbol a. The diagram shows
+explicitly the most significant bit of A, labeled by A1. The bit in this position
+must be a 1 for the number to be normalized. Note that the symbol AC
+represents the entire register, that is, the concatenation of A,, A, and a.
+
+Similarly, register B Ris subdivided into B,, B, and b, and QR into Q,, Q,
+and q. A parallel-adder adds the two mantissas and transfers the sum into A
+and the carry into E. A separate parallel-adder is used for the exponents. Since
+the exponents are biased, they do not have a distinct sign bit but are repre-
+sented as a biased positive quantity. It is assumed that the floating-point
+numbers are so large that the chance of an exponent overflow is very remote,
+and forthis reason the exponent overflow will be neglected. The exponents are
+also connected to a magnitude comparator that provides three binary outputs
+to indicate their relative magnitude.
+
+Thenumber in the mantissa will be takenasa fraction, so the binary point
+is assumed to reside to the left of the magnitude part. Integer representation
+for floating-point causes certain scaling problems during multiplication and
+division To avoid these problems, we adopt a fraction representation.
+
+The numbers in the registersare assumed to be initially normalized. After
+each arithmetic operation, the result will be normalized. Thus al floating-point
+operands coming from and going to the memory unit are always normalized.
+
+Addition and Subtraction
+During addition or subtraction, the two floating-point operandsarein AC and
+BR. The sum or difference is formed in the AC. The algorithm can be divided
+into four consecutive parts:
+
+1. Check for zeros.
+
+2. Align the mantissas.
+
+3. Add or subtract the mantissas.
+4. Nonmalize the result.
+
+A floating-point number that is zero cannot be normalized. If this number
+is used during the computation, the result may also be zero. Instead of check-
+ing for zeros during the normalization process we check for zeros at the
+beginning and terminate the process if necessary. The alignment of the man-
+tissas must be carried out prior to their operation. After the mantissas are
+added or subtracted, the result may be unnormalized. The normalization
+procedure ensures that the result is normalized prior to its transfer to memory.
+
+The flowchart for adding or subtracting two floating-point binary num-
+bers is shown in Fig, 10-15. If BR is equal to zero, the operation is terminated,
+with the value in the AC being the result. If AC is equal to zero, we transfer
+

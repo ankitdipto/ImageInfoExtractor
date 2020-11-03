@@ -1,0 +1,90 @@
+526
+
+Chapter 18. Learning from Observations
+
+ 
+
+crITiC
+
+PROBLEM
+(GENERATOR
+
+ 
+
+Performance standard
+
+ 
+
+ 
+
+ 
+
+ 
+
+| Learning “P| Performance
+
+ 
+
+ 
+
+element = element
+goals | ~
+Problem
+
+generator
+
+Agent —
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 18.1 A general model of learning agents.
+
+ 
+
+ 
+
+ 
+
+The critic is designed to tell the learning element how well the agent is doing. The critic
+employs a fixed standard of performance. This is necessary because the percepts themselves
+provide no indication ofthe agent's success. For example, a chess program may receive a percept
+indicating that it has checkmated its opponent, but it needs a performance standard to know that
+this is a good thing; the percept itself does not say so. It is important that the performance
+standard is a fixed measure that is conceptually outside the agent; otherwise the agent could
+adjust its performance standards to meet its behavior. In humans, this form of irrationality is
+called "sour grapes" and is characterized by comments such as "Oh well, never mind, I didn't
+want that stupid Nobel prize anyway.”
+
+The last component of the learning agent is the problem generator. It is responsible for
+suggesting actions that will lead to new and informative experiences. The point is that if the
+performance element had its way, it would keep doing the actions that are best, given what it
+knows. But ifthe agent is willing to explore a little, and do some perhaps suboptimal actions in the
+short run, it might discover much better actions for the long run. The problem generator's job is
+to suggest these exploratory actions. This is what scientists do when they carry out experiments.
+Galileo did not think that dropping rocks from the top of a tower in Pisa was valuable in itself;
+he was not trying to break the rocks, nor to render pedestrians unconscious. His aim was to
+demonstrate a better theory of the motion of objects.
+
+To make the overall design more concrete, let us return to the automated taxi example. The
+performance element consists of whatever collection of knowledge and procedures the taxi has
+for selecting its driving actions (turning, accelerating, braking, honking, and so on). The taxi goes
+out on the road and drives, using this performance element. The learning element formulates
+goals, for example, to learn better rules describing the effects of braking and accelerating, to
+learn the geography of the area, to leam how the taxi behaves on wet roads, and to lear what
+
+ 
+

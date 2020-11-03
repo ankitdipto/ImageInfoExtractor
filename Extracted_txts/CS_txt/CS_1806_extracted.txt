@@ -1,0 +1,52 @@
+282 Chapter9 Memory Management
+
+MB and the backing store is a standard hard disk with a transfer rate of 5 MB
+per second. The actual transfer of the 1 MB process to or from memory takes
+
+1000 KB/5000 KB per second = 1/5 second
+= 200 milliseconds.
+
+Assuming that no head seeks are necessary and an average latency of 8
+milliseconds, the swap time takes 208 milliseconds. Since we must both swap
+out and swap in, the total swap time is then about 416 milliseconds.
+
+For efficient CPU utilization, we want our execution time for each process
+to be long relative to the swap time. Thus, in a round-robin cPU-scheduling
+algorithm, for example, the time quantum should be substantially larger than
+0.416 seconds.
+
+Notice that the major part of the swap time is transfer time. The total
+transfer time is directly proportional to the amount of memory swapped. If we
+have a computer system with 128 MB of main memory and a resident operating
+system taking 5 MB, the maximum size of the user process is 123 MB. However,
+many user processes may be much smaller than this size—say, 1 MB. Al
+MB process could be swapped out in 208 milliseconds, compared to the 24.6
+seconds for swapping 123 MB. Therefore, it would be useful to know exactly
+how much memory a user process is using, not simply how much it might be
+using. Then, we would need to swap only what is actually used, reducing swap
+time. For this method to be effective, the user must keep the system informed of
+any changes in memory requirements. Thus, a process with dynamic memory
+requirements will need to issue system calls (request memory and release
+memory) to inform the operating system of its changing memory needs.
+
+Swapping is constrained by other factors as well. If we want to swap a
+process, we must be sure that it is completely idle. Of particular concern is any
+pending I/O. A process may be waiting for an I/O operation when we want to
+swap that process to free up its memory. However, if the 1/0 is asynchronously
+accessing the user memory for I/O buffers, then the process cannot be swapped.
+Assume that the I/O operation was queued because the device was busy. Then,
+if we were to swap out process P; and swap in process P2, the 1/O operation
+might then attempt to use memory that now belongs to process P2. The two
+main solutions to this problem are never to swap a process with pending I/O,
+or to execute I/O operations only into operating-system buffers. Transfers
+between operating-system buffers and process memory then occur only when
+the process is swapped in.
+
+The assumption that swapping requires few, if any, head seeks needs
+further explanation. We postpone discussing this issue until Chapter 14, where
+secondary-storage structure is covered. Generally, swap space is allocated as a
+chunk of disk, separate from the file system, so that its use is as fast as possible.
+
+Currently, standard swapping is used in few systems. It requires too
+much swapping time and provides too little execution time to be a reasonable
+

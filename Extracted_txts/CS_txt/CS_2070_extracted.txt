@@ -1,0 +1,153 @@
+290
+
+CHAPTER EIGHT Central Processing Unit
+
+TABLE 8-12 Instruction Set of Berkeley RISC 1
+
+ 
+
+Opcode Operands
+
+Data manipulation instructions
+
+ADD RsS2,Rd
+ADDC RsS2,Rd
+SUB RsS2,Rd
+SUBC RsS2,Rd
+SUBR RsS2,Rd
+SUBCR Rs S2,Rd
+AND RsS2,Rd
+OR RsS2,Rd
+XOR RsS2,Rd
+SLL RsS2,Rd
+SRL RsS2,Rd
+SRA RsS2,Rd
+
+Data transfer instructions
+LDL (R8S2,Rd
+LDSU (R8S2,Rd
+LDss (Rs)S2,Rd
+LDBU (R8S2,Rd
+LDBS (RSS2,Rd
+LDHI RLY
+STL Rd(Rs)S2
+sts Rd(Rs)S2
+STB Rd(Rs)S2
+GETPSW Rd.
+PUTPSW Rd
+
+Program control instructions
+IMP COND,
+
+S2(Rs)
+JMPR COND,Y
+CALL RdS2Rs)
+CALLR —RGY
+RET Ra,s2
+CALLINT Rd
+
+RETINT _Rd,S2
+GTLPC Rd
+
+Register Transfer
+
+Rd<Rs + $2
+Rd Rs + S2 + carry
+Rd<Rs ~ S2
+Rd<Rs ~ S2~ cary
+Rd<S2- Rs
+Rd -S2 ~ Rs ~ cary
+Rd-Rs AS2
+Rds vy S2
+Rd Rs @S2
+Rd <Re shifted by 52
+Rd <Rs shifted by 52
+Rd <Rs shifted by $2
+
+Rd—M{[Rs + $2]
+Rd—M{[Rs + $2]
+Rd—M{Rs + $2]
+Rd—M{Rs + $2]
+Rd—M{[Rs + $2]
+RdeY
+
+M[Rs + 52] —Rd
+M[Rs + S2)—Rd
+M[Rs + S2]—Rd
+Rd—PSW
+
+PSW Rd
+
+PCeRs + $2
+
+PCHPC+Y
+Rd@PC
+PC<Rs + $2
+CWP—CWP -1
+Rd@PC
+PCHPC+Y
+CWP—CWP -1
+PC<Rd + $2
+CWP - CWP +1
+Rd PC
+CWP—CWP -1
+PC<Rd + $2
+CWP—CWP +1
+Rd PC
+
+Description
+
+Integer add
+‘Add with carry
+Integer subtract
+Subtract with carry
+Subtract reverse
+Subtract with carry
+AND
+
+OR
+
+Exclusive OR
+Shift-eft
+
+Shift-right logical
+Shift-right arithmetic
+
+Load long
+Load short unsigned
+Load short signed
+Load byte unsigned
+Load byte signed
+Load immediate high
+Store long
+
+Store short
+
+Store byte
+
+Load status word
+
+Set status word
+
+Conditional jump
+
+Jump relative
+Call subroutine
+
+and
+
+change window
+Cal relative
+
+and
+
+change window
+Returnand
+
+change window
+Disable interrupts
+
+Enable interrupts
+
+Get last PC
+

@@ -1,0 +1,48 @@
+498 Chapter14 Mass-Storage Structure
+
+directory entry is on the first cylinder and a file’s data are on the final cylinder.
+In this case, the disk head has to move the entire width of the disk. If the
+directory entry were on the middle cylinder, the head would have to move,
+at most, one-half the width. Caching the directories and index blocks in main
+memory can also help to reduce the disk-arm movement, particularly for read
+requests.
+
+Because of these complexities, the disk-scheduling algorithm should be
+written as a separate module of the operating system, so that it can be replaced
+with a different algorithm if necessary. Either SSTF or LOOK is a reasonable
+choice for the default algorithm.
+
+The scheduling algorithms described here consider only the seek distances.
+For modern disks, the rotational latency can be nearly as large as the average
+seek time. But it is difficult for the operating system to schedule for improved
+rotational latency because modern disks do not disclose the physical location
+of logical blocks. Disk manufacturers have been alleviating this problem by
+implementing disk-scheduling algorithms in the controller hardware built into
+the disk drive. If the operating system sends a batch of requests to the controller,
+the controller can queue them and then schedule them to improve both the seek
+time and the rotational latency. If I/O performance were the only consideration,
+the operating system would gladly turn over the responsibility of disk schedul-
+ing to the disk hardware. In practice, however, the operating system may have
+other constraints on the service order for requests. For instance, demand paging
+may take priority over application I/O, and writes are more urgent than reads if
+the cache is running out of free pages. Also, it may be desirable to guarantee the
+order of a set of disk writes to make the file system robust in the face of system
+crashes. Consider what could happen if the operating system allocated a disk
+page toa file, and the application wrote data into that page before the operating
+system had a chance to flush the modified inode and free-space list back to disk.
+To accommodate such requirements, an operating system may choose to do its
+own disk scheduling and to spoon-feed the requests to the disk controller, one
+by one, for some types of I/O.
+
+14.3. = Disk Management
+
+The operating system is responsible for several other aspects of disk manage-
+ment, too. Here we discuss disk initialization, booting from disk, and bad-block
+recovery.
+
+14.3.1 Disk Formatting
+
+A new magnetic disk is a blank slate: It is just platters of a magnetic recording
+material. Before a disk can store data, it must be divided into sectors that the
+disk controller can read and write. This process is called low-level formatting
+

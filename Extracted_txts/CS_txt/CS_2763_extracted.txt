@@ -1,0 +1,57 @@
+86 © cHaPTER THREE Data Representation
+
+self-complementing
+
+weighted code
+
+excess-3 code
+
+The BCD (binary-coded decimal) has been introduced before. It uses a
+straight assignment of the binary equivalent of the digit. The six unused bit
+combinations listed have no meaning when BCD is used, just as the letter H
+has no meaning when decimal digit symbols are written down. For example,
+saying that 1001 1110 is a decimal number in BCD is like saying that 9H is a
+decimal number in the conventional symbol designation. Both cases contain
+an invalid symbol and therefore designate a meaningless number.
+
+One disadvantage of using BCD is the difficulty encountered when the
+9s complement of the number is to be computed. On the other hand, the 9’s
+complement is easily obtained with the 2421 and the excess-3 codes listed
+in Table 3-6. These two codes have a self-complementing property which
+means that the 9s complement of a decimal number, when represented in one
+of these codes, is easily obtained by changing 1's to 0's and ('s to 1’s. This
+property is useful when arithmetic operations are done in signed-complement
+Tepresentation.
+
+The 2421 is an example of a weighted code. In a weighted code, the bits are
+multiplied by the weights indicated and the sum of the weighted bits gives the
+decimal digit. For example, the bit combination 1101, when weighted by the
+respective digits 2421, gives the decimal equivalent of 2 x 1+ 4x1 +2x
+0+1+1=7. The BCD code can be assigned the weights 8421 and for this
+reason it is sometimes called the 8421 code.
+
+The excess-3 code is a decimal code that has been used in older comput-
+ers. This is an unweighted code. Its binary code assignment is obtained from
+the corresponding BCD equivalent binary number after the addition of binary
+3 (0011).
+
+From Table 3-5 we note that the Gray code is not suited for a decimal code
+if we were to choose the first 10 entries in the table. This is because the
+transition from 9 back to 0 involves a change of three bits (from 1101 to 0000).
+Toovercome this difficulty, we choose the 10 numbers starting from the third
+entry 0010 up to the twelfth entry 1010. Now the transition from 1010 to 0010
+involves a change of only one bit. Since the code has been shifted up three
+numbers, it is called the excess-3 Gray. This code is listed with the other
+decimal codes in Table 3-6.
+
+Other Alphanumeric Codes
+
+The ASCII code (Table 3-4) is the standard code commonly used for the
+transmission of binary information. Each character is represented by a 7-bit
+code and usually an eighth bit is inserted for parity (see Sec. 3-6). The code
+consists of 128 characters. Ninety-five characters represent graphic symbols that
+include upper- and lowercase letters, numerals zero to nine, punctuation
+marks, and special symbols. Twenty-three characters represent format effectors,
+which are functional characters for controlling the layout of printing or display
+devices such as carriage return, line feed, horizontal tabulation, and back
+

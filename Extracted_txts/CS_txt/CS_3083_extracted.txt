@@ -1,0 +1,73 @@
+ 
+  
+   
+ 
+ 
+   
+   
+  
+  
+ 
+   
+ 
+ 
+   
+   
+   
+ 
+ 
+   
+   
+ 
+ 
+
+456 Chapter 15. Probabilistic Reasoning Systems
+
+ 
+
+Because Sprinkler A Rain is rare in the world, most of the simulation rounds would end up with
+different values for these evidence variables, and we would have to discard those runs. The
+fraction of useful runs decreases exponentially with the number of evidence variables.
+eee We can get around this problem with an approach called likelihood weighting. The idea is
+that every time we reach an evidence variable, instead of randomly choosing a value (according
+to the conditional probabilities), we take the given value for the evidence variable, but use the
+conditional probabilities to see how likely that is. For example, to compute P(WetGrass|Rain)
+we would do the following:
+1. Choose a value for Cloudy with prior P(Cloudy)- 0.5. Assume we choose Cloudy = False.
+2. Choose a value for Sprinkler. We see that P(Sprinkler sCloudy)= 0.5, so we randomly
+choose a value given that distribution. Assume we choose Sprinkler - True.
+3. Look at Rain. This is an evidence variable that has been set to True, so we look at the table
+to see that P(Rain|—Cloudy)= 0.2. This run therefore counts as 0.2 of a complete run.
+4. Look at WerGrass. Choose randomly with P(WetGrass\Sprinkler A Rain) = 0.99; assume
+we choose WetGrass = True.
+5. We now have completed arun with likelihood 0,2 that says Wetgrass = True givenRain. The
+next run will result in a different likelihood, and (possibly) a different value for WetGrass.
+We continue until we have accumulated enough runs, and then add up the evidence for
+each value, weighted by the likelihood score.
+
+Likelihood weighting usually converges considerably faster than logic sampling, and can handle
+very large networks. In the CPSC project (Pradhan et al., 1994), for example, a belief network has
+been constructed for internal medicine that contains 448 nodes, 906 links and 8.254 conditional
+probability values. (The front cover shows a small portion of the network.) Likelihood weighting
+typically obtains accurate values in around 35 minutes on this network. 3
+
+The main difficulty with likelihood weighting, and indeed with any stochastic sampling
+method, is that it takes a long time to reach accurate probabilities for unlikely events. In general,
+the runtime necessary to reach a given level of accuracy is inversely proportional to the probability
+of the event. Events such as the meltdown of a nuclear reactor on a particular day are extremely
+unlikely, but there is a very big difference between 10> and 10~!°, so we still need to get |
+accurate values. Researchers are currently working to find ways around this problem. 4
+
+[5.5 _ KNOWLEDGE ENGINEERING FOR UNCERTAIN REASONING
+
+The approach to knowledge engineering for probabilistic reasoning systems is very much like |
+the approach for logical reasoning systems outlined in Section 8.2:
+* Decide what to talk about. This remains a difficult step. It is important to decide which
+factors will be modelled, and which will just be summarized by probability statements. 10
+
+an expert system of all dental knowledge, we will certainly want to talk about toothaches,
+
+gum disease, and cavities. We may want to know if a patient's parents have a history of
+
+gum disease, but we probably do not need to talk about the patient's third cousins. Once We’
+

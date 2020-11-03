@@ -1,0 +1,53 @@
+74
+
+Chapter 4 Divide-and-Conquer
+
+already seen, the call to FIND-MAX-CROSSING-SUBARRAY in line 6 takes ©(7)
+time. Lines 7-11 take only ©(1) time. For the recursive case, therefore, we have
+
+Tin) = @(1) +27(n/2) + Om) + 00)
+= 27T(n/2)+0(). (4.6)
+
+Combining equations (4.5) and (4.6) gives us a recurrence for the running
+time T(n) of FIND-MAXIMUM-SUBARRAY:
+
+el) ifn=1,
+2T(n/2)+ O(n) ifn >1.
+
+This recurrence is the same as recurrence (4.1) for merge sort. As we shall
+see from the master method in Section 4.5, this recurrence has the solution
+T(n) = O(nlgn). You might also revisit the recursion tree in Figure 2.5 to un-
+derstand why the solution should be T(n) = O(n lgn).
+
+Thus, we see that the divide-and-conquer method yields an algorithm that is
+asymptotically faster than the brute-force method. With merge sort and now the
+maximum-subarray problem, we begin to get an idea of how powerful the divide-
+and-conquer method can be. Sometimes it will yield the asymptotically fastest
+algorithm for a problem, and other times we can do even better. As Exercise 4.1-5
+shows, there is in fact a linear-time algorithm for the maximum-subarray problem,
+and it does not use divide-and-conquer.
+
+T(n) = (4.7)
+
+Exercises
+
+41-1
+What does FIND-MA XIMUM-SUBARRAY return when all elements of A are nega-
+tive?
+
+4.1-2
+Write pseudocode for the brute-force method of solving the maximum-subarray
+problem. Your procedure should run in @ (7) time.
+
+4.1-3
+
+Implement both the brute-force and recursive algorithms for the maximum-
+subarray problem on your own computer. What problem size 9 gives the crossover
+point at which the recursive algorithm beats the brute-force algorithm? Then,
+change the base case of the recursive algorithm to use the brute-force algorithm
+whenever the problem size is less than 9. Does that change the crossover point?
+
+41-4
+Suppose we change the definition of the maximum-subarray problem to allow the
+result to be an empty subarray, where the sum of the values of an empty subar-
+

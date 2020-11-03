@@ -1,0 +1,54 @@
+62 cHAFTER TWO Digital Components
+
+‘address input lines
+
+ 
+
+mxnROM
+m= 24)
+
+|
+
+‘data output lines
+
+ 
+
+ 
+
+ 
+
+Figure 2-13 Block diagram of read only memory (ROM).
+
+An m x n ROM is an array of binary cells organized into m words of
+bits each. As shown in the block diagram of Fig. 2-13, a ROM has k address
+input lines to select one of 2‘ = m words of memory, and n output lines, one
+for each bit of the word. An integrated circuit ROM may also have one or more
+enable inputs for expanding a number of packages into a ROM with larger
+capacity.
+
+pc The ROM does not need a read-control line since at any given time, the
+output lines automatically provide the n bits of the word selected by the
+address value. Because the outputs are a function of only the present inputs
+(the address lines), a ROM isclassified as a combinationalcircuit. In fact, aROM
+is constructed internally with decoders and a set of OR gates. There is no need
+for providing storage capabilities as in a RAM, since the values of the bits in
+the ROM are permanently fixed.
+
+ROMS find a wide range of applications in the design of digital systems.
+Basically, a ROM generates an input-output relation specified by a truth table.
+As such, it can implementany combinational circuit with kinputs and n outputs.
+When employed in a computer system as a memory unit, the ROMis used for
+storing fixed programs that are not to be altered and for tables of constants that
+are not subject to change. ROM is also employedin the design of control units,
+for digital computers. As such, they are used to store coded information that
+represents the sequence of internal control variables needed for enabling the
+various operations in the computer. A control unit that utilizes a ROM to store
+binary control information is called a microprogrammed control unit. This
+subject is dicsussed in more detail in Chapter 7.
+
+‘Types of ROMs
+
+The required paths in a ROM may be programmed in three different ways. The
+first, mask programming, isdone by the semiconductor company during thelast
+fabrication process of the unit. The procedure for fabricating a ROM requires
+

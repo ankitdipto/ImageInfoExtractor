@@ -1,0 +1,44 @@
+Chapter 14: Operations On Bits 483
+
+ 
+
+us first take a look at the bit numbering scheme in integers an
+characters. Bits are numbered from zero onwards, increasing from
+right to left as shown below:
+
+ 
+
+Character
+
+15 14 13 12 11 109 8 7 6 5 4 3 2 1 ~«0
+
+a
+
+16-bit Integer
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 14.2
+
+Throughout this discussion of bitwise operators we are going to
+use a function called showbits( ), but we are not going to show
+you the details of the function immediately. The task of
+showbits( ) is to display the binary representation of any integer or
+character value.
+
+We begin with a plain-jane example with showbits( ) in action.
+/* Print binary equivalent of integers using showbits( ) function */
+main()
+{
+int j;
+for (j=0;j<<=5; j++)
+
+printf ( "\nDecimal %d is same as binary ",j) ;
+showbits (j) ;
+

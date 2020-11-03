@@ -1,0 +1,67 @@
+Section 4.4
+
+Iterative Improvement Algorithms 113
+
+ 
+
+Clearly, ifenough iterations are allowed, random-restart hill-climbing will eventually find
+the optimal solution. The success ofhill-climbing depends very much on the shape ofthe state-
+space "surface": if there are only a few local maxima, random-restart hill-climbing will find a
+good solution very quickly. A realistic problems has surface that looks more like a porcupine.
+If the problem is NP-complete. then in all likelihood we cannot do better than exponential time.
+It follows that there must be an exponential number of local maxima to get stuck on. Usually,
+however, a reasonably good solution can be found after a small number of iterations.
+
+Simulated annealing
+
+Instead of starting again randomly when stuck on a local maximum, we could allow the search
+to take some downhill steps to escape the local maximum. This is roughly the idea ofsimulated
+annealing (Figure 4.15). The innermost loop of simulated annealing is quite similar to hill-
+climbing. Instead of picking the best move, however, it picks a random move. If the move
+actually improves the situation, it is always executed. Otherwise, the algorithm makes the move
+with some probability less than 1. The probability decreases exponentially with the "badness" of
+the move—the amount AE by which the evaluation is worsened.
+
+A second parameter 7 is also used to determine the probability. At higher values of T, "bad"
+moves are more likely to be allowed. As T tends to zero, they become more and more unlikely,
+until the algorithm behaves more or less like hill-climbing. The schedule input determines the
+value of Tas a function of how many cycles already have been completed.
+
+The readerby now may have guessed that the name "simulated annealing" and the parameter
+names AE and Twere chosen for a good reason. The algorithm was developed from an explicit
+analogy with annealing—the process of gradually cooling a liquid until it freezes. The VALUE
+function corresponds to the total energy of the atoms in the material, and T corresponds to the
+
+ 
+
+function SIMULATED-ANNEALING( problem, schedule) returns a solution state
+inputs: problem, a problem
+schedule, a mapping from time to "temperature"
+static: current, anode
+next, anode
+T, a "temperature" controlling the probability of downward steps
+
+current-— MAKE-NODE(INITIAL-STATE[problem])
+fort— 1 to oo do
+T— schedule{t|
+if T=Othen return current
+next’ arandomly selected successor of current
+AE — VALUE[next] - VaLur[current]
+if AE > 0 then current—next
+
+else current —next only with probability e!”
+
+ 
+
+ 
+
+Figure 4.15 The simulated annealing search algorithm.
+
+ 
+
+ 
+
+ 
+
+ 
+

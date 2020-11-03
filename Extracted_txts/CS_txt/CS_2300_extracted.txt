@@ -1,0 +1,58 @@
+450
+
+(CHAPTER TWELVE Memory Organization
+
+address and an 8-bit bidirectional data bus. The read and write inputs spec:
+
+the memory operation and the two chips select (CS) control inputs are ic:
+enabling the chip only when itis selected by the microprocessor. The availa:
+ity of more than one control input to select the chip facilitates the decoding <
+the address lines when multiple chips are used in the microcomputer. The rea
+and write inputs are sometimes combined intooneline labeled R/W. When th
+chip is selected, the two binary states in this line specify the two operation:
+of read or write.
+
+The function table listed in Fig. 12-2(b) specifies the operation of theRAN
+chip. The unit is in operation only when CS1 = 1 and CS2 = 0. The bar on top
+of the second select variable indicates that this input is enabled when it is equa:
+to 0. If the chip select inputs are not enabled, orf they are enabled but theread
+or write inputs are not enabled, the memory is inhibited and its data bus is in
+a high-impedance state. When CS1 = 1 and C52 = 0, the memory can be
+placed in a write or read mode. When the WR input is enabled, the memory
+stores a byte from the data bus into a location specified by the address input
+lines. When the RD input is enabled, the content of the selected byte is placed
+into the data bus. The RDand WRsignals control the memory operation as well
+as the bus buffers associated with the bidirectional data bus.
+
+AROM chip is organized externally in a similar manner. However, since
+aROMcan only read, the data bus can only be in an output mode. The block
+diagram of a ROM chip is shown in Fig. 12-3. For the same-size chip, it is
+possible to have more bits of ROM than of RAM, because the internal binary
+cells in ROM occupy less space than in RAM. For this reason, the diagram
+specifies a 512-byte ROM, while the RAM has only 128 bytes.
+
+The nineaddress lines in the ROM chip specify any one of the 512 bytes
+stored in it. The two chip select inputs must be CS1 = 1 and C32 = 0 for the
+unit to operate. Otherwise, the data bus is in a high-impedance state. There
+isnoneed fora read or write control because the unit can only read. Thus when
+the chip is enabled by the two select inputs, the byte selected by the address
+lines appears on the data bus.
+
+    
+ 
+
+  
+
+Memory Address Map
+The designer of a computer system must calculate the amount of memory
+required for the particular ap plication and assign it to either RAM or ROM. The
+interconnection between memory and processor is then established from
+knowledge of the size of memory needed and the type of RAM and ROM chips
+available. The addressing of memory can be established by means of a table
+that specifies the memory address assigned to each chip. The table, called a
+memory address map, is a pictorial representation of assigned address space for
+each chip in the system.
+
+To demonstrate with a particular example, assume that a computer sys-
+tem needs 512 bytes of RAM and 512 bytes of ROM. The RAM and ROM chips
+

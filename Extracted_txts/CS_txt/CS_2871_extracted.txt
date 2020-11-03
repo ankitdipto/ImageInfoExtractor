@@ -1,0 +1,59 @@
+Problems for Chapter 15 407
+
+Asan example, one way to transform the source string algorithmto the target
+string altruistic is to use the following sequence of operations, where the
+underlined characters are x[i] and z[/] after the operation:
+
+ 
+
+Operation x Zz
+
+initial strings algorithm
+
+copy algorithm a_
+
+copy algorithm al_
+
+replace by t algorithm alt_
+
+delete algorithm alt_
+
+copy algorithm altr_
+
+insert u algorithm altru_
+
+insert i algorithm altrui_
+insert s algorithm altruis_
+twiddle algorithm altruisti_
+insert c algorithm altruistic_
+kill algorithm_ altruistic_
+
+Note that there are several other sequences of transformation operations that trans-
+form algorithmto altruistic.
+
+Each of the transformation operations has an associated cost. The cost of an
+operation depends on the specific application, but we assume that each operation’s
+cost is a constant that is known to us. We also assume that the individual costs of
+the copy and replace operations are less than the combined costs of the delete and
+insert operations; otherwise, the copy and replace operations would not be used.
+The cost of a given sequence of transformation operations is the sum of the costs
+of the individual operations in the sequence. For the sequence above, the cost of
+transforming algorithmto altruistic is
+
+ 
+
+(3 - cost(copy)) + cost(replace) + cost(delete) + (4 - cost(insert))
++ cost(twiddle) + cost(kill) .
+
+a. Given two sequences x[1..m] and y[1..n] and set of transformation-operation
+costs, the edit distance from x to y is the cost of the least expensive operation
+sequence that transforms x to y. Describe a dynamic-programming algorithm
+that finds the edit distance from x[1..m] to y[l..n] and prints an optimal op-
+eration sequence. Analyze the running time and space requirements of your
+algorithm.
+
+The edit-distance problem generalizes the problem of aligning two DNA sequences
+(see, for example, Setubal and Meidanis [310, Section 3.2]). There are several
+methods for measuring the similarity of two DNA sequences by aligning them.
+One such method to align two sequences x and y consists of inserting spaces at
+

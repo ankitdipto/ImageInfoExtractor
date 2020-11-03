@@ -1,0 +1,49 @@
+Chapter 5: Functions & Pointers 179
+
+ 
+
+The difficulty beginners have with pointers has much to do with
+C’s pointer terminology than the actual concept. For instance,
+when a C programmer says that a certain variable is a “pointer”,
+what does that mean? It is hard to see how a variable can point to
+something, or in a certain direction.
+
+It is hard to get a grip on pointers just by listening to programmer’s
+jargon. In our discussion of C pointers, therefore, we will try to
+avoid this difficulty by explainmg pointers in terms of
+
+programming concepts we already understand. The first thing we
+want to do is explain the rationale of C’s pointer notation.
+
+Pointer Notation
+
+Consider the declaration,
+
+int i=3;
+
+This declaration tells the C compiler to:
+
+(a) Reserve space in memory to hold the integer value.
+(b) Associate the name i with this memory location.
+
+(c) Store the value 3 at this location.
+
+We may represent i’s location in memory by the following
+memory map.
+
+ 
+
+i ————~ location name
+
+value at location
+
+65524 ————> location number
+
+ 
+
+ 
+
+ 
+
+Figure 5.1
+

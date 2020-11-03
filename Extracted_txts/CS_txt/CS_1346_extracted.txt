@@ -1,0 +1,29 @@
+606 Let UsC
+
+ 
+
+Wyss sieuct)
+
+ 
+
+Figure 18.7
+
+As usual we begin our drawing activity in OnPaint( ) by first
+getting the screen DC using the BeginPaint( ) function. Next we
+have loaded the vulture bitmap image in memory by calling the
+LoadBitmap( ) function. Its usage is similar to what we saw while
+creating a pattern brush in an earlier section of this chapter. Then
+we have created a memory device context and made its properties
+compatible with that of the screen DC. To do this we have called
+the API function CreateCompatibleDC( ). Note that we have
+passed the handle to the screen DC to this function. The function
+in turn returns the handle to the memory DC. After this we have
+selected the loaded bitmap into the memory DC. Lastly, we have
+performed a bit block transfer (a bit by bit copy) from memory DC
+to screen DC using the function BitBIt( ). As a result of this the
+vulture now appears in the window.
+
+We have made the call to BitBIt( ) as shown below:
+
+BitBIt (hdc, 10, 20, 190, 220, hmemdc, 0, 0, SRCCOPY ) ;
+

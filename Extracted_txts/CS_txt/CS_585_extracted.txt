@@ -1,0 +1,46 @@
+35.2. The traveling-salesman problem 11S
+
+ery vertex is visited exactly once, and in fact it is the cycle computed by APPROX-
+TSP-Tour. Since H is obtained by deleting vertices from the full walk W, we
+have
+
+c(H) <c(W). (35.7)
+Combining inequalities (35.6) and (35.7) gives c(H) < 2c(H*), which completes
+the proof. .
+
+In spite of the nice approximation ratio provided by Theorem 35.2, APPROX-
+TSP-Tour is usually not the best practical choice for this problem. There are other
+approximation algorithms that typically perform much better in practice. (See the
+references at the end of this chapter.)
+
+35.2.2 The general traveling-salesman problem
+
+If we drop the assumption that the cost function ¢ satisfies the triangle inequality,
+then we cannot find good approximate tours in polynomial time unless P = NP.
+
+Theorem 35.3
+If P ¥ NP, then for any constant p > 1, there is no polynomial-time approximation
+algorithm with approximation ratio p for the general traveling-salesman problem.
+
+Proof The proof is by contradiction. Suppose to the contrary that for some num-
+ber p > 1, there is a polynomial-time approximation algorithm A with approx-
+imation ratio p. Without loss of generality, we assume that p is an integer, by
+rounding it up if necessary. We shall then show how to use A to solve instances
+of the hamiltonian-cycle problem (defined in Section 34.2) in polynomial time.
+Since Theorem 34.13 tells us that the hamiltonian-cycle problem is NP-complete,
+Theorem 34.4 implies that if we can solve it in polynomial time, then P = NP.
+
+Let G = (V, E) be an instance of the hamiltonian-cycle problem. We wish to
+determine efficiently whether G contains a hamiltonian cycle by making use of
+the hypothesized approximation algorithm A. We turn G into an instance of the
+traveling-salesman problem as follows. Let G’ = (V, E’) be the complete graph
+on V; that is,
+E’={(u,v):u,v eV andu #v}.
+Assign an integer cost to each edge in E’ as follows:
+e(u,v) = 1 if@ nek,
+
+p|V| +1 otherwise .
+
+We can create representations of G’ and c from a representation of G in time poly-
+nomial in |V| and | E|.
+

@@ -1,0 +1,65 @@
+220
+
+Chapter 8. Building a Knowledge Base
+
+ 
+
+adding the first one. For example, to derive Silly(Pigler)from ShyBabyPigOfSmallBrain(Piglet),
+we would have to write
+
+Vb ShyBabyPigOfSmallBrain(b)=> Silly(b)
+
+This is a sign that something is wrong. The first fact about silliness is of no help in a similar
+situation. In a properly designed knowledge base, facts that were entered for one situation should
+end up being used in new situations as well. As you go along, you should need fewer new facts,
+and fewer new predicates. This will only happen if one writes rules at the most general level
+at which the knowledge is applicable. In a good. knowledge base, BearOfVerySmallBrain(Pooh)
+would be replaced by something like the following -
+
+  
+
+1. Pooh is a bear; bears are animals; animals are physical things
+
+Bear(Pooh)
+Vb Bear(b) = Animal(b)
+Va Animal(a) > PhysicalThing(a)
+
+These sentences help to tie knowledge about Pooh into a broader context. They also enable
+knowledge to be expressed at an appropriate level of generality, depending on whether the
+information is applicable to bears, animals, or all physical objects...
+
+VAN
+
+RelativeSize(BrainOf (Pooh), BrainOf (TypicalBear))=  Very(Small)
+
+v
+
+Pooh has a very small brain.
+
+ 
+
+This provides a precise sense of "very small," which would otherwise be highly ambiguous
+Is Pooh's brain very small compared to a molecule or a moon?
+
+3. All animals (and only animals) have a brain, which is a part of the animal
+
+Va Animal(a) = Brain(BrainOf(a))
+Va PartOf(BrainOf(a), a)
+
+This allows us to connect Pooh's brain to Pooh himself, and introduces some useful, general
+vocabulary.
+4, If something is part ofa physical thing, then itis also a physical thing:
+Va,y PartOf(x.y)A PhysicalThing(y) = PhysicalThing(x)
+This is a very general and important fact that is seldom seen in physics textbooks!
+5. Animals with brains that are small (or below) relative to the normal brain size for their
+species are silly.”
+Va_ RelativeSize(BrainOf (a) BrainOf (TypicalMember(SpeciesOf(a))s Small
+= Silly(a)
+
+Vb Bear(b) ++ SpeciesOf (b> Ursidae
+TypicalBear= ‘TypicalMember(Ursidae)
+
+2 It is important to remember that the goal for this knowledge base was to be consistent and useful within a world of
+talking stuffed animals, not to be a model of the real world. Although biologists are in agreement that brain size is not a
+good predictor for silliness, the rules given here are the right ones for this world.
+

@@ -1,0 +1,55 @@
+Section 11.4. Basic Representations for Planning 343
+
+ 
+
+11.4 BASIC REPRESENTATIONS FOR PLANNIN
+
+ 
+
+The "classical" approach that most planners use today describes states and operators in arestricted
+language known as the STRIPS language,” or in extensions thereof. The STRIPS language lends
+itself to efficient planning algorithms, while retaining much of the expressiveness of situation
+calculus representations.
+
+Representations for states and goals
+
+In the STRIPS language, states are represented by conjunctions of function-free ground literals,
+that is, predicates applied to constant symbols, possibly negated. For example, the initial state
+for the milk-and-bananas problem might be described as
+
+At(Home)A —Have(Milk)\ sHave(Bananas)A ~Have(DrillA + + +
+
+As we mentioned earlier, a state description does not need to be complete. An incomplete state
+description, such as might be obtained by an agent in an inaccessible environment, corresponds
+to a set of possible complete states for which the agent would like to obtain a successful plan.
+Many planning systems instead adopt the convention—analogous to the "negation as failure"
+convention used in logic programming—that if the state description does not mention a given
+positive literal then the literal can be assumed to be false.
+
+Goals are also described by conjunctions ofliterals. For example, the shopping goal might
+be represented as
+
+At(Home) A Have(Milk) A Have(Bananas) A Have(Drill)
+
+Goals can also contain variables. For example, the goal of being at a store that sells milk would
+be represented as
+
+At(x) A Sells(x, Milk)
+
+As with goals given to theorem provers, the variables are assumed to be existentially quantified.
+However, one must distinguish clearly between a goal given to a planner and a query given to a
+theorem prover. The former asks for a sequence of actions that makes the goal true if executed,
+and the latter asks whether the query sentence is true given the truth of the sentences in the
+knowledge base.
+
+Although representations ofinitial states and goals are used as inputs to planning systems,
+it is quite common for the planning process itself to maintain only implicit representations of
+states. Because most actions change only a small part of the state representation, it is more
+efficient to keep track of the changes. We will see how this is done shortly.
+
+2 Named after a pioneering planning program known as the STanford Research Institute Problem Solver. There are two
+unfortunate things about the name STRIPS. First, the organization no longer uses the name "Stanford" and is now known
+as SRI International. Second, the program is what we now call a planner, not a problem solver, but when it was developed
+in 1970, the distinction had not been articulated. Although the STRIPS plannerhas long since been superseded, the STRIPS
+language for describing actions has been invaluable, and many “STRIPS-like” variants have been developed.
+

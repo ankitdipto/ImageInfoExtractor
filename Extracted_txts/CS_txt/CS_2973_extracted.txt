@@ -1,0 +1,49 @@
+18.1 Definition of B-trees 489
+
+3. The keys x.key; separate the ranges of keys stored in each subtree: if k; is any
+key stored in the subtree with root x.c;, then
+
+ky <x.key, < ky < x.heyy S++ < x-key yy < kent -
+
+4. All leaves have the same depth, which is the tree’s height h.
+5. Nodes have lower and upper bounds on the number of keys they can contain.
+
+We express these bounds in terms of a fixed integer ¢ > 2 called the minimum
+degree of the B-tree:
+
+a. Every node other than the root must have at least f — 1 keys. Every internal
+node other than the root thus has at least ¢ children. If the tree is nonempty,
+the root must have at least one key.
+
+b. Every node may contain at most 2¢ — | keys. Therefore, an internal node
+may have at most 2f children. We say that a node is full if it contains exactly
+2t — 1 keys.”
+
+The simplest B-tree occurs when f = 2. Every internal node then has either 2,
+3, or 4 children, and we have a 2-3-4 tree. In practice, however, much larger values
+of t yield B-trees with smaller height.
+
+The height of a B-tree
+
+The number of disk accesses required for most operations on a B-tree is propor-
+tional to the height of the B-tree. We now analyze the worst-case height of a B-tree.
+
+Theorem 18.1
+Ifn > 1, then for any n-key B-tree T of height and minimum degree ¢ > 2,
+
++1
+
+ 
+
+h < log, n
+
+Proof The root of a B-tree T contains at least one key, and all other nodes contain
+at least t — 1 keys. Thus, T, whose height is /, has at least 2 nodes at depth 1, at
+least 2¢ nodes at depth 2, at least 2¢7 nodes at depth 3, and so on, until at depth h
+it has at least 2r"—! nodes. Figure 18.4 illustrates such a tree for h = 3. Thus, the
+
+ 
+
+Another common variant on a B-tree, known as a B*-tree, requires each internal node to be at
+least 2/3 full, rather than at least half full, as a B-tree requires.
+

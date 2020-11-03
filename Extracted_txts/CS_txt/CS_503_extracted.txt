@@ -1,0 +1,35 @@
+SECTION 5.9 Design of Basic Computer 161.
+
+the bus and the content of the bus is transferred into AR by enabling its LD
+control input. The fourth statement clears AR to 0. The last statement incre-
+ments AR by 1. The control functions can be combined into three Boolean
+expressions as follows:
+
+ 
+
+where LD(AR) is the load input of AR, CLR(AR) is the clear input of AR, and
+INR(AR) is the increment input of AR. The control gate logicassociated with
+AR is shown in Fig. 5-16.
+
+Ina similar fashion we can derive the control gates for the other registers
+aswell as the logic needed to control the read and write inputs of memory. The
+logic gates associated with the read input of memory is derived by scanning
+Table 5-6 to find the statements that specify a read operation. The read oper-
+ation is recognized from the symbol — M[AR].
+
+Read = R’T, + Dsl, + (Dp + Dy + Dr + DT
+
+The output of the logic gates that implement the Boolean expression above
+must be connected to the read input of memory.
+
+Figure 5-16 Control gates associated with AR
+
+2 QB
+From bus Tobus
+
+CO etext
+
+wr {CLR
+
+    
+

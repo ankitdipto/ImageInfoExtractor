@@ -1,0 +1,53 @@
+720
+
+Chapter 26 Maximum Flow
+
+The following lemma, whose proof we leave as Exercise 26.2-7, makes the above
+argument more precise.
+
+Lemma 26.2
+Let G = (V, E) bea flow network, let f be a flow in G, and let p be an augmenting
+path in Gy. Define a function f, : V x V + R by
+
+cr(p) if (u,v) ison p,
+0 otherwise .
+
+fpUv) = (26.8)
+
+Then, fp is a flow in Gy with value | f,| = c¢(p) > 0. /
+
+The following corollary shows that if we augment f by fp, we get another flow
+in G whose value is closer to the maximum. Figure 26.4(c) shows the result of
+augmenting the flow f from Figure 26.4(a) by the flow fp in Figure 26.4(b), and
+Figure 26.4(d) shows the ensuing residual network.
+
+Corollary 26.3
+
+Let G = (V,E) be a flow network, let f be a flow in G, and let p be an
+augmenting path in Gy. Let fp be defined as in equation (26.8), and suppose
+that we augment f by fp. Then the function f + fp is a flow in G with value
+
+If t fol =1F1+ fol > IF I
+
+Proof Immediate from Lemmas 26.1 and 26.2. .
+
+Cuts of flow networks
+
+The Ford-Fulkerson method repeatedly augments the flow along augmenting paths
+until it has found a maximum flow. How do we know that when the algorithm
+terminates, we have actually found a maximum flow? The max-flow min-cut theo-
+rem, which we shall prove shortly, tells us that a flow is maximum if and only if its
+residual network contains no augmenting path. To prove this theorem, though, we
+must first explore the notion of a cut of a flow network.
+
+A cut (S,T) of flow network G = (V,E) is a partition of V into S and
+T =V—S such that s € S andt € T. (This definition is similar to the def-
+inition of “cut” that we used for minimum spanning trees in Chapter 23, except
+that here we are cutting a directed graph rather than an undirected graph, and we
+insist that s € S andt € T.) If f isa flow, then the net flow f(S,T) across the
+cut (S, T) is defined to be
+
+JST) = VV Suy- VV sow. (26.9)
+
+ueS veT ueS veT
+

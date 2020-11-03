@@ -1,0 +1,54 @@
+8.5 Deadlock Avoidance = 255
+
+A system may go from a safe state to an unsafe state. Suppose that, at time
+1, process P, requests and is allocated 1 more tape drive. The system is no
+longer in a safe state. At this point, only process P; can be allocated all its tape
+drives. When it returns them, the system will have only 4 available tape drives.
+Since process Py is allocated 5 tape drives, but has a maximum of 10, it may then
+request 5 more tape drives. Since they are unavailable, process Py must wait.
+Similarly, process P, may request an additional 6 tape drives and have to wait,
+resulting in a deadlock.
+
+Our mistake was in granting the request from process P for 1 more tape
+drive. If we had made P2 wait until either of the other processes had finished
+and released its resources, then we could have avoided the deadlock.
+
+Given the concept of a safe state, we can define avoidance algorithms that
+ensure that the system will never deadlock. The idea is simply to ensure that the
+system will always remain in a safe state. Initially, the system is in a safe state.
+Whenever a process requests a resource that is currently available, the system
+must decide whether the resource can be allocated immediately or whether
+the process must wait. The request is granted only if the allocation leaves the
+system ina safe state.
+
+In this scheme, if a process requests a resource that is currently available, it
+may still have to wait. Thus, resource utilization may be lower than it would be
+without a deadlock-avoidance algorithm.
+
+8.5.2 Resource-Allocation Graph Algorithm
+
+If we have a resource-allocation system with only one instance of each resource
+type, a variant of the resource-allocation graph defined in Section 8.2.2 can be
+used for deadlock avoidance.
+
+In addition to the request and assignment edges, we introduce a new type
+of edge, called a claim edge. A claim edge P; — R; indicates that process P; may
+request resource R; at some time in the future. This edge resembles a request
+edge in direction, but is represented by a dashed line. When process P; requests
+resource Rj, the claim edge P; — R; is converted to a request edge. Similarly,
+when a resource R; is released by P;, the assignment edge R; — P; is reconverted
+to a claim edge P; — R;. We note that the resources must be claimed a priori in
+the system. That is, before process P; starts executing, all its claim edges must
+already appear in the resource-allocation graph. We can relax this condition by
+allowing a claim edge P; — R; to be added to the graph only if all the edges
+associated with process P; are claim edges.
+
+Suppose that process P; requests resource R;. The request can be granted
+only if converting the request edge P; — R; to an assignment edge Rj — P; does
+not result in the formation of a cycle in the resource-allocation graph. Note
+that we check for safety by using a cycle-detection algorithm. An algorithm for
+detecting a cycle in this graph requires an order of n? operations, where n is the
+number of processes in the system.
+
+ 
+

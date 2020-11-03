@@ -1,0 +1,46 @@
+35.4 Randomization and linear programming 1123
+
+ 
+
+35.4 Randomization and linear programming
+
+In this section, we study two useful techniques for designing approximation algo-
+rithms: randomization and linear programming. We shall give a simple randomized
+algorithm for an optimization version of 3-CNF satisfiability, and then we shall use
+linear programming to help design an approximation algorithm for a weighted ver-
+sion of the vertex-cover problem. This section only scratches the surface of these
+two powerful techniques. The chapter notes give references for further study of
+these areas.
+
+A randomized approximation algorithm for MAX-3-CNF satisfiability
+
+Just as some randomized algorithms compute exact solutions, some randomized
+algorithms compute approximate solutions. We say that a randomized algorithm
+for a problem has an approximation ratio of p(n) if, for any input of size n, the
+expected cost C of the solution produced by the randomized algorithm is within a
+factor of p(n) of the cost C* of an optimal solution:
+
+(35.13)
+
+ 
+
+We call a randomized algorithm that achieves an approximation ratio of p(n) a
+randomized p(n)-approximation algorithm. In other words, a randomized ap-
+proximation algorithm is like a deterministic approximation algorithm, except that
+the approximation ratio is for an expected cost.
+
+A particular instance of 3-CNF satisfiability, as defined in Section 34.4, may or
+may not be satisfiable. In order to be satisfiable, there must exist an assignment of
+the variables so that every clause evaluates to 1. If an instance is not satisfiable, we
+may want to compute how “close” to satisfiable it is, that is, we may wish to find an
+assignment of the variables that satisfies as many clauses as possible. We call the
+resulting maximization problem MAX-3-CNF satisfiability. The input to MAX-3-
+CNF satisfiability is the same as for 3-CNF satisfiability, and the goal is to return
+an assignment of the variables that maximizes the number of clauses evaluating
+to 1. We now show that randomly setting each variable to 1 with probability 1/2
+and to 0 with probability 1/2 yields a randomized 8/7-approximation algorithm.
+According to the definition of 3-CNF satisfiability from Section 34.4, we require
+each clause to consist of exactly three distinct literals. We further assume that
+no clause contains both a variable and its negation. (Exercise 35.4-1 asks you to
+remove this last assumption.)
+

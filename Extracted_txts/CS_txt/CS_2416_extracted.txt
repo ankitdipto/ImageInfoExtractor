@@ -1,0 +1,48 @@
+2.3 Designing algorithms 37
+
+Figure 2.5 shows how we can solve recurrence (2.2). For convenience, we as-
+sume that 7 is an exact power of 2. Part (a) of the figure shows T(n), which we
+expand in part (b) into an equivalent tree representing the recurrence. The cn term
+is the root (the cost incurred at the top level of recursion), and the two subtrees of
+the root are the two smaller recurrences T(n/2). Part (c) shows this process carried
+one step further by expanding T(n/2). The cost incurred at each of the two sub-
+nodes at the second level of recursion is cn/2. We continue expanding each node
+in the tree by breaking it into its constituent parts as determined by the recurrence,
+until the problem sizes get down to 1, each with a cost of c. Part (d) shows the
+resulting recursion tree.
+
+Next, we add the costs across each level of the tree. The top level has total
+cost cn, the next level down has total cost c(m/2) + c(n/2) = cn, the level after
+that has total cost c(n/4) +-c(n/4) +¢(n/4) + c(n/4) = cn, and so on. In general,
+the level 7 below the top has 2' nodes, each contributing a cost of c(n/2'), so that
+the ith level below the top has total cost 2’ c(n/2') = cn. The bottom level has 1
+nodes, each contributing a cost of c, for a total cost of cn.
+
+The total number of levels of the recursion tree in Figure 2.5 is lgn + 1, where
+n is the number of leaves, corresponding to the input size. An informal inductive
+argument justifies this claim. The base case occurs when 1 = 1, in which case the
+tree has only one level. Since lg 1 = 0, we have that Ign + 1 gives the correct
+number of levels. Now assume as an inductive hypothesis that the number of levels
+of a recursion tree with 2’ leaves is lg2' + 1 = i + 1 (since for any value of i,
+we have that lg2' = 7). Because we are assuming that the input size is a power
+of 2, the next input size to consider is 2'*!. A tree with n = 2'*! leaves has
+one more level than a tree with 2' leaves, and so the total number of levels is
+G@+)+1l=lg2*4+1.
+
+To compute the total cost represented by the recurrence (2.2), we simply add up
+the costs of all the levels. The recursion tree has lg + 1 levels, each costing cn,
+for a total cost of cn(ign + 1) = cnlgn + cn. Ignoring the low-order term and
+the constant c gives the desired result of O(n lg n).
+
+Exercises
+
+2.3-1
+Using Figure 2.4 as a model, illustrate the operation of merge sort on the array
+A= (3,41, 52, 26, 38,57, 9, 49).
+
+2.3-2
+
+Rewrite the MERGE procedure so that it does not use sentinels, instead stopping
+once either array L or R has had all its elements copied back to A and then copying
+the remainder of the other array back into A.
+

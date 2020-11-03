@@ -1,0 +1,73 @@
+550
+
+Chapter 18. Learning from Observations
+
+ 
+
+6ST
+SSET
+
+space using just two boundary sets: a most general boundary (the G-set) and a most specific
+
+boundary (the S-set). Everything in between is guaranteed to be consistent with the examples.
+
+Before we prove this, let us recap:
+
++ The current version space is the set of hypotheses consistent with all the examples so far.
+It is represented by the S-set and G-set, each of which is a set of hypotheses
+
++ Every member of the S-set is consistent with all observations so far, and there are no
+consistent hypotheses that are more specific.
+
++ Every member of the G-set is consistent with all observations so far, and there are no
+consistent hypotheses that are more general.
+
+We want the initial version space (before any examples have been seen) to represent all possible
+
+hypotheses. We do this by setting the G-set to contain just True (the hypothesis that contains
+
+everything), and the S-set to contain just False (the hypothesis whose extension is empty).
+Figure 18.13 shows the general structure of the boundary set representation of the version
+space. In order to show that the representation is sufficient, we need the following two properties:
+1. Every consistent hypothesis (other than those in the boundary sets) is more specific than
+some member of the G-set, and more general than some member of the S-set. (That is,
+there are no "stragglers" left outside.) This follows directly from the definitions of S and
+G. If there were a straggler h, then it would have to be no more specific than any member
+of G, in which case it belongs in G; or no more general than any member of S, in which
+
+case it belongs in S.
+
+2. Every hypothesis more specific than some member of the G-set and more general than
+some member of the S-set is a consistent hypothesis. (That is, there are no "holes" between.
+the boundaries.) Any h between S and G must reject all the negative examples rejected by
+each member of G (because it is more specific), and must accept all the positive examples
+accepted by any member of S (because it is more general). Thus, / must agree with all the
+examples, and therefore cannot be inconsistent. Figure 18.14 shows the situation: there are
+no known examples outside S but inside G, so any hypothesis in the gap must be consistent.
+
+We have therefore shown that f.Sand G are maintained according to their definitions, then they
+
+provide a satisfactory representation of the version space. The only remaining problem is how to
+
+update S and G for a new example (the job of the VERSION-SPACE-UPDATE function). This may
+appear rather complicated at first, but from the definitions and with the help of Figure 18.13, itis
+
+not too hard to reconstruct the algorithm. 4
+
+We need to worry about the members 5; and G; ofthe S- and G-sets. For each one, the new
+instance may be a false positive or a false negative.
+
+1, False positive for 5,; This means 5; is too general, but there are no consistent specializations
+of S; (by definition), so we throw it out of the S-set
+
+2. False negative for s;: This means §; is too specific, so we replace it by all its immediate
+generalizations. 7
+
+3. False positive for G;; This means G, is too general, so we replace it by all its immediate
+specializations.
+
+4. False negative for G;: This means G; is too specific, but there are no consistent generaliza-
+tions of G; (by definition) so we throw it out of the G-set.
+
+  
+

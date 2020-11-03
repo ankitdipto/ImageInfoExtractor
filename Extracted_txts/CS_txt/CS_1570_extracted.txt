@@ -1,0 +1,53 @@
+3.7 System Design and Implementation 85
+
+java .class files
+
+ 
+
+ee
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 3.12 The Java virtual machine.
+
+oriented, portable, and architecture-neutral platform on which to run Java
+programs.
+
+3.7 = System Design and Implementation
+
+In this section, we discuss problems we face when designing and implementing
+a system. No complete solutions to the design problems exist, but some
+approaches have been successful.
+
+3.7.1 Design Goals
+
+The first problem in designing a system is to define the goals and specifications
+of the system. At the highest level, the design of the system will be affected
+by the choice of hardware and type of system: batch, time shared, single user,
+multiuser, distributed, real time, or general purpose.
+
+Beyond this highest design level, the requirements may be much harder to
+specify. The requirements can be divided into two basic groups: user goals and
+system goals.
+
+Users desire certain obvious properties in a system: The system should be
+convenient and easy to use, easy to learn, reliable, safe, and fast. Of course,
+these specifications are not particularly useful in the system design, since there
+is no general agreement on how to achieve these goals.
+
+A similar set of requirements can be defined by those people who must
+design, create, maintain, and operate the system: The operating system should
+be easy to design, implement, and maintain; it should be flexible, reliable, error
+free, and efficient. Again, these requirements are vague and have no general
+solution.
+

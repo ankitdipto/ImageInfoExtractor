@@ -1,0 +1,49 @@
+13.4 Deletion 325
+
+end of RB-DELETE; if it was black, then removing or moving y could cause
+violations of the red-black properties.
+
+* As discussed, we keep track of the node x that moves into node y’s original
+position. The assignments in lines 4, 7, and 11 set x to point to either y’s only
+child or, if y has no children, the sentinel T.nil. (Recall from Section 12.3
+that y has no left child.)
+
+* Since node x moves into node y’s original position, the attribute x.p is always
+set to point to the original position in the tree of y’s parent, even if x is, in fact,
+the sentinel 7. nil. Unless z is y’s original parent (which occurs only when z has
+two children and its successor y is Z’s right child), the assignment to x.p takes
+place in line 6 of RB-TRANSPLANT. (Observe that when RB-TRANSPLANT
+is called in lines 5, 8, or 14, the second parameter passed is the same as x.)
+
+When y’s original parent is z, however, we do not want x.p to point to y’s orig-
+inal parent, since we are removing that node from the tree. Because node y will
+move up to take Z’s position in the tree, setting x.p to y in line 13 causes x.p
+to point to the original position of y’s parent, even if x = T.nil.
+
+* Finally, if node y was black, we might have introduced one or more violations
+of the red-black properties, and so we call RB-DELETE-FIXUuP in line 22 to
+restore the red-black properties. If y was red, the red-black properties still hold
+when y is removed or moved, for the following reasons:
+
+1. No black-heights in the tree have changed.
+
+2. No red nodes have been made adjacent. Because y takes z’s place in the
+tree, along with z’s color, we cannot have two adjacent red nodes at y’s new
+position in the tree. In addition, if y was not z’s right child, then y’s original
+right child x replaces y in the tree. If y is red, then x must be black, and so
+replacing y by x cannot cause two red nodes to become adjacent.
+
+3. Since y could not have been the root if it was red, the root remains black.
+
+If node y was black, three problems may arise, which the call of RB-DELETE-
+Fixup will remedy. First, if y had been the root and a red child of y becomes the
+new root, we have violated property 2. Second, if both x and x.p are red, then
+we have violated property 4. Third, moving y within the tree causes any simple
+path that previously contained y to have one fewer black node. Thus, property 5
+is now violated by any ancestor of y in the tree. We can correct the violation
+of property 5 by saying that node x, now occupying y’s original position, has an
+“extra” black. That is, if we add 1 to the count of black nodes on any simple path
+that contains x, then under this interpretation, property 5 holds. When we remove
+or move the black node y, we “push” its blackness onto node x. The problem is
+that now node x is neither red nor black, thereby violating property 1. Instead,
+

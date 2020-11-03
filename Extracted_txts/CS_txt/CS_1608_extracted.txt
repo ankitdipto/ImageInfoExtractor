@@ -1,0 +1,47 @@
+118 Chapter 4 Processes
+
+host X
+(146.86.5.20)
+
+    
+ 
+
+web server
+(161.25.19.8)
+
+Figure 4.9 Communication using sockets.
+
+All connections must be unique. Therefore, if another process also on host
+X wished to establish another connection with the same web server, it would be
+assigned a port number greater than 1024 and not equal to 1625. This ensures
+that all connections consist of a unique pair of sockets.
+
+Although most program examples in this text use C, we will illustrate
+sockets using Java as it provides a much easier interface to sockets and has a
+rich library for networking utilities. Those interested in socket programming in
+C or C++ should consult the Bibliographical Notes.
+
+Java provides three different types of sockets. Connection-oriented (TCP)
+sockets are implemented with the Socket class. Connectionless (UDP) sockets
+use the DatagramSocket class. A third type is the MulticastSocket class, which
+is a subclass of the DatagramSocket class. A multicast socket allows data to
+be sent to multiple recipients.
+
+As an example of Java-based sockets, we now present a Java class that
+implements a time-of-day server. The operation allows clients to request the
+time of day from the server. The server listens to port 5155, although the
+port could be any arbitrary number greater than 1024. When a connection is
+received, the server returns the time of day to the client.
+
+The time-of-day server is shown in Figure 4.10. The server creates a
+ServerSocket that specifies it will listen to port 5155. It then begins listening
+to the port with the accept method. The server blocks on the accept method
+waiting for a client to request a connection. When a connection request is
+received, accept returns a socket that the server can use to communicate with
+the client.
+
+The details illustrating how the server communicates with the socket are
+as follows. The server first establishes a PrintWriter object that it will use to
+communicate with the client. A PrintWriter object allows the server to write
+to the socket using the normal print and print1n methods for output. The
+

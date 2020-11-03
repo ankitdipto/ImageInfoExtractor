@@ -1,0 +1,54 @@
+1082
+
+Chapter 34 NP-Completeness
+
+3-CNF satisfiability
+
+We can prove many problems NP-complete by reducing from formula satisfiability.
+The reduction algorithm must handle any input formula, though, and this require-
+ment can lead to a huge number of cases that we must consider. We often prefer
+to reduce from a restricted language of boolean formulas, so that we need to con-
+sider fewer cases. Of course, we must not restrict the language so much that it
+becomes polynomial-time solvable. One convenient language is 3-CNF satisfiabil-
+ity, or 3-CNF-SAT.
+
+We define 3-CNF satisfiability using the following terms. A literal in a boolean
+formula is an occurrence of a variable or its negation. A boolean formula is in
+conjunctive normal form, or CNF, if it is expressed as an AND of clauses, each
+of which is the OR of one or more literals. A boolean formula is in 3-conjunctive
+normal form, or 3-CNF, if each clause has exactly three distinct literals.
+
+For example, the boolean formula
+
+(x1 V Ax, V 7X2) A (3 V X2 V Xa) A (AX V 7x3 V 7X4)
+
+is in 3-CNF. The first of its three clauses is (x; V 7X; V 7X2), which contains the
+three literals x), 7x), and 7x2.
+
+In 3-CNF-SAT, we are asked whether a given boolean formula ¢ in 3-CNF is
+satisfiable. The following theorem shows that a polynomial-time algorithm that
+can determine the satisfiability of boolean formulas is unlikely to exist, even when
+they are expressed in this simple normal form.
+
+Theorem 34.10
+Satisfiability of boolean formulas in 3-conjunctive normal form is NP-complete.
+
+Proof The argument we used in the proof of Theorem 34.9 to show that SAT €
+NP applies equally well here to show that 3-CNF-SAT € NP. By Lemma 34.8,
+therefore, we need only show that SAT <p 3-CNF-SAT.
+
+We break the reduction algorithm into three basic steps. Each step progressively
+transforms the input formula ¢ closer to the desired 3-conjunctive normal form.
+
+The first step is similar to the one used to prove CIRCUIT-SAT <p SAT in
+Theorem 34.9. First, we construct a binary “parse” tree for the input formula @,
+with literals as leaves and connectives as internal nodes. Figure 34.11 shows such
+a parse tree for the formula
+
+@ = (x1 > x2) V A((9x1 > x3) V.X4)) AX (34.3)
+
+Should the input formula contain a clause such as the OR of several literals, we use
+associativity to parenthesize the expression fully so that every internal node in the
+resulting tree has 1 or 2 children. We can now think of the binary parse tree as a
+circuit for computing the function.
+

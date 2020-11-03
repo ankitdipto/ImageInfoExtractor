@@ -1,0 +1,54 @@
+30.1 Representing polynomials 905
+
+2. Evaluate: Compute point-value representations of A(x) and B(x) of length 2n
+by applying the FFT of order 2n on each polynomial. These representations
+contain the values of the two polynomials at the (2/)th roots of unity.
+
+3. Pointwise multiply: Compute a point-value representation for the polynomial
+C(x) = A(x) B(x) by multiplying these values together pointwise. This repre-
+sentation contains the value of C(x) at each (27)th root of unity.
+
+4. Interpolate: Create the coefficient representation of the polynomial C(x) by
+applying the FFT on 2n point-value pairs to compute the inverse DFT.
+
+Steps (1) and (3) take time ©(), and steps (2) and (4) take time @(n lgn). Thus,
+
+once we show how to use the FFT, we will have proven the following.
+
+Theorem 30.2
+
+We can multiply two polynomials of degree-bound n in time ©(n lg n), with both
+the input and output representations in coefficient form. .
+Exercises
+
+30.1-1
+
+Multiply the polynomials A(x) = 7x3 — x? + x — 10 and B(x) = 8x3 — 6x +3
+using equations (30.1) and (30.2).
+
+30.1-2
+
+Another way to evaluate a polynomial A(x) of degree-bound n at a given point x9
+is to divide A(x) by the polynomial (x — x9), obtaining a quotient polynomial q(x)
+of degree-bound n — | and a remainder r, such that
+
+AQ) = 4Q)Q— Xo) +r.
+
+Clearly, A(xo) = r. Show how to compute the remainder r and the coefficients
+of q(x) in time @(7) from Xo and the coefficients of A.
+
+30.1-3
+Derive a point-value representation for A™’(x) = vy2o y—1-jX/ from a point-
+
+value representation for A(x) = rr a;x/, assuming that none of the points is 0.
+
+ 
+
+30.1-4
+
+Prove that 7 distinct point-value pairs are necessary to uniquely specify a polyno-
+mial of degree-bound n, that is, if fewer than 7 distinct point-value pairs are given,
+they fail to specify a unique polynomial of degree-bound n. (Hint: Using Theo-
+rem 30.1, what can you say about a set of m — | point-value pairs to which you add
+one more arbitrarily chosen point-value pair?)
+

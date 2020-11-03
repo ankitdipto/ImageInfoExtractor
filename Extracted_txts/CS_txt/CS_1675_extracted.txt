@@ -1,0 +1,54 @@
+258
+
+CHAPTER EIGHT Central Processing Unit
+
+from memory and AC register. We will assume that the operands are in
+memory addresses A, B, C, and D, and the result must be stored in memory
+at address X.
+
+Three-Address Instructions
+Computers with three-address instruction formats can use each address field
+to specify either a processor register or a memory operand. The program in
+assembly language that evaluates X = (A + B)*(C + D) is shown below, to-
+gether with comments that explain the register transfer operation of each
+instruction.
+
+ADD RL, A,B RL@M(A] + M(B]
+
+ADD R2,C,D RE M[C] + H[D]
+
+MUL X, RL, R2 M[X] —RL*R2
+
+It is assumed that the computer has two processor registers, R1 and R2. The
+symbol M[A] denotes the operand at memory address symbolized by A.
+
+The advantage of the three-address format is that it results in short
+programs when evaluating arithmetic expressions. The disadvantage is that
+the binary-coded instructionsrequire too many bitsto specify three addresses.
+‘An example of a commercial computer that uses three-address instructions is
+the Cyber 170. The instruction formatsin the Cyber computer are restricted to
+either three register address fields or two register address fields and one
+memory address field.
+
+Two-Address Instructions
+
+‘Two-address instructions are the most common in commercial computers.
+Here again each address field can specify either a processor register or a
+memory word. The program to evaluate X = (A + B)*(C + D)isas follows:
+
+ 
+
+MOV R1,A = RL MA]
+
+ADD R1,B  RLCR1 + M[B]
+MOV R2,C = R2e MC]
+
+ADD R2,D R@-Re+M(D]
+MUL = R1,R2 = RLCRL*R2
+MOV X,RL = M[X]—RL
+
+The MOV instruction moves or transfers the operands to and from memory
+and processor registers. The first symbol listed in an instruction is assumed to
+be both a source and the destination where the result of the operation is
+transferred.
+

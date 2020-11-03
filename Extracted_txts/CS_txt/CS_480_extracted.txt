@@ -1,0 +1,62 @@
+section 5.8.
+
+Summary 147
+
+ 
+
+56 Prove that with a positive linear transformation of leaf values, the move choice remains
+unchanged in a game tree with chance nodes.
+
+5.7 Consider the following procedure for choosing moves in games with chance nodes:
+
+* Generate a suitable number (say, 50) dice-roll sequences down to a suitable depth (say, 8).
+
++ With known dice rolls, the game tree becomes deterministic. For each dice-roll sequence,
+solve the resulting deterministic game tree using alpha-beta.
+
+* Use the results to estimate the value of each move and choose the best.
+Will this procedure work correctly? Why (not)?
+
+58 Let us consider the problem of search in a three-player game. (You can assume no alliances
+are allowed for now.) We will call the players 0, 1, and 2 for convenience. The first change is
+that the evaluation function will return a list of three values, indicating (say) the likelihood of
+winning for players 0, 1, and 2, respectively.
+
+a. Complete the following game tree by filling in the backed-up value triples for all remaining
+nodes, including the root:
+
+ 
+
+ 
+
+ 
+
+to move
+eo
+1 LN co)
+A AL ALA
+0 4129) (429) (612) (74-1) (5-1-1) (152) (77-1) (548)
+Figure §.15 The first three ply ofa game tree with three players (0, 1, and 2).
+
+ 
+
+ 
+
+ 
+
+b. Rewrite MINIMAX-DecisION and MINIMAX-VALUE so that they work correctly for the
+three-player game.
+
+c. Discuss the problems that might arise ifplayers could form and terminate alliances as well
+as make moves "on the board." Indicate briefly how these problems might be addressed.
+
+59 Describe and implement a general game-playing environment for an arbitrary number of
+players. Remember that time is part of the environment state, as well as the board position.
+
+5.10 Suppose we play a variant of Tic-Tac-Toe in which each player sees only his or her own
+moves. If the player makes a move on a square occupied by an opponent, the board "beeps" and
+the player gets another try. Would the backgammon model suffice for this game, or would we
+need something more sophisticated? Why?
+
+ 
+

@@ -1,0 +1,85 @@
+Section 11,8,
+
+Knowledge Engineering for Planning
+
+361
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ls4
+Room 4 DOGr4
+tW x
+Room 3 DOO»r3
+Shakey
+Ls2
+Room 2 DOG 2
+1
+Box3 Box, bt)
+Ox!
+ROOm 1 Door 4
+Box4 Box1
+— LJ
+
+ 
+
+ 
+
+Corridor
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11.15 Shakey's world.
+
+ 
+
+ 
+
+4. Climb down from a box: Down(b).
+This just undoes the effects of a Climb.
+
+5. Tum a light switch on: TurnOn(Is).
+
+Because Shakey is short, this can only be done when Shakey is on top of a box that is at
+
+the light switch's location*
+
+6. Tum a light switch off: TurnOff(!s).
+
+This is similar to TurnOn. Note that it would not be possible to represent toggling a light
+switch as a STRIPS action, because there are no conditionals in the language to say that the
+light becomes on if it was off and off if it was on. (Section 124 will add conditionals to
+
+the language.)
+
+In situation calculus, we could write an axiom to say that every box is pushable and climbable.
+Butin STRIPS, we have to include individual literals for each box in the initial state. We also have
+to include the complete map of the world in the initial state, in terms of what objects are Jn which
+
+& Shakey was never dextrous enough to climb on a box or toggle a switch, but STRIPS was capable of finding plans using
+
+these actions.
+
+ 
+

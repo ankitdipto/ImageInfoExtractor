@@ -1,0 +1,59 @@
+806
+
+ 
+
+ONLINE ALGORITHM
+
+Chapter 25. Robotics
+
+backwards from the goal. Figure 25.22 shows a commanded velocity v, and the backprojection
+of the goal region with respect to v. Ifthe robot starts anywhere in the backprojection and moves
+with commanded velocity v, it will definitely reach the goal disk. Notice that the backprojection
+intersects a landmark D;. Because D\ is the field ofinfluence ofa landmark, the robot has perfect
+position sensing inside D,. So if it reaches any part of D;, it can move reliably to the part of D\
+that intersects the backprojection of the goal. From there it can move in direction v to the goal.
+
+This means that the robot can reach the goal from a region R ifit can move reliably from R
+straight to the goal or ifit can move reliably from R to disk D,. Continuing to work backwards,
+Figure 25.23 shows a backprojection of the union of the goal and D\ relative to velocity command
+u. This new backprojection contains the start region S. This gives us a guaranteed strategy for
+reaching the goal. The execution of this strategy would be (1) move in direction u to D\ and then
+(2) move in direction v to the goal.
+
+As for fine-motion planning, we must choose these velocities by searching all possibilities.
+Fortunately, in this case, we do not have an exponential blowup with the number of plan steps.
+This is because the backprojections all have the same form, namely, they are backprojections of
+unions of disks. This gives a polynomial bound on the number of qualitatively different motion
+command directions. By using this observation, it is possible to plan in time that is polynomial
+in the number of disks. The plan itself will have at most n steps if there are » landmarks, because
+no landmark need be visited more than once. This planning method is both sound and complete.
+
+Online algorithms
+
+Most robot applications have to deal with some amount of uncertainty about the environment.
+Even robots used for manufacturing, which may have complete geometric models of robot and
+environment, have to perform high-precision tasks such as assembly. Assembly may require
+motions of a thousandth of an inch or less, and at this scale, models are far from accurate.
+When the environment is poorly known, it is impossible to plan a path for the robot that will be
+collision-free and reach a goal under all circumstances.
+
+Instead, one can try to produce a conditional plan (in the language of Chapter 13) or
+policy (in the language of Chapter 17) that will make decisions at run time. In some cases, it is
+possible to compute such a plan with no knowledge of the environment at all. This avoids the
+need for an offline planning stage, and all choices are made at run time. We will call such an
+algorithm an online algorithm. Online algorithms need to be simple, because they must make
+choices in real time. For that reason, they cannot "remember" much about their environment.
+
+Despite their simplicity, online algorithms have been found that are both complete and
+"efficient." Efficiency for online algorithms can be defined in different ways. Because it depends
+on the environment, it must depend on measures ofthe environment’s complexity. In Figure 25.24
+we see a two-dimensional environment with start and goals points. The environment is not known
+to the robot when it begins, and it cannot "see" anything. It can only sense a boundary when it
+runs into it. The robot is equipped with a position sensor, and it knows where the goal is. Here
+is one complete online strategy:
+
+1. Let / be the straight line joining the initial position of the robot with its goal position. The
+robot begins to move toward the goal along /.
+
+ 
+

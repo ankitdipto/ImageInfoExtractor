@@ -1,0 +1,49 @@
+Chapter 24 Single-Source Shortest Paths
+
+X; = 6(vo, vs) satisfies the difference constraint xj — x; < w(v;, v;) that corre-
+sponds to edge (vj, vj).
+
+Now we show that if the constraint graph contains a negative-weight cycle, then
+the system of difference constraints has no feasible solution. Without loss of gen-
+erality, let the negative-weight cycle be c = (V1, V2, ..., Ve), Where vy = Vg.
+(The vertex vp cannot be on cycle c, because it has no entering edges.) Cycle c
+corresponds to the following difference constraints:
+
+X2— XS WV. V2),
+
+X3—X2 S w(V2.V3),
+
+W(Ve-2, Vk-1) 5
+W(Ve-1s Ve) -
+
+Xk-1— Xk-2 SS
+
+Xk Xk S
+We will assume that x has a solution satisfying each of these k inequalities and then
+derive a contradiction. The solution must also satisfy the inequality that results
+when we sum the k inequalities together. If we sum the left-hand sides, each
+unknown x; is added in once and subtracted out once (remember that v; VE
+implies x; = xx), so that the left-hand side of the sum is 0. The right-hand side
+sums to w(c), and thus we obtain 0 < w(c). But since c is a negative-weight cycle,
+w(c) < 0, and we obtain the contradiction that 0 < w(c) < 0. .
+
+ 
+
+Solving systems of difference constraints
+
+Theorem 24.9 tells us that we can use the Bellman-Ford algorithm to solve a
+system of difference constraints. Because the constraint graph contains edges
+from the source vertex vo to all other vertices, any negative-weight cycle in the
+constraint graph is reachable from vo. If the Bellman-Ford algorithm returns
+TRUE, then the shortest-path weights give a feasible solution to the system. In
+Figure 24.8, for example, the shortest-path weights provide the feasible solution
+x = (—5,—3,0,—1, —4), and by Lemma 24.8, x = (d —5,d —3,d,d —1,d —4)
+is also a feasible solution for any constant d. If the Bellman-Ford algorithm returns
+FALSE, there is no feasible solution to the system of difference constraints.
+
+A system of difference constraints with m constraints on n unknowns produces
+a graph with n + 1 vertices and n + m edges. Thus, using the Bellman-Ford
+algorithm, we can solve the system in O((n + 1)(n + m)) = O(n? + nm) time.
+Exercise 24.4-5 asks you to modify the algorithm to run in O(nm) time, even if m
+is much less than n.
+

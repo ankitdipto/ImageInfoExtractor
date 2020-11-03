@@ -1,0 +1,46 @@
+3.2 Standard notations and common functions 53
+
+3.1-3
+Explain why the statement, “The running time of algorithm A is at least O(n?),” is
+meaningless.
+
+3.14
+Is 2"*! = O(2")? Is 27" = O(2")?
+
+31-5
+Prove Theorem 3.1.
+
+3.1-6
+Prove that the running time of an algorithm is ©(g(7)) if and only if its worst-case
+running time is O(g(1)) and its best-case running time is Q(g(7)).
+
+3.1-7
+Prove that o(g(n)) N w(g(n)) is the empty set.
+
+3.1-8
+
+We can extend our notation to the case of two parameters n and m that can go to
+infinity independently at different rates. For a given function g(n,m), we denote
+by O(g(n,m)) the set of functions
+
+O(g(n,m)) = { f(n,m) : there exist positive constants c, 9, and mo
+such that 0 < f(n,m) < cg(n,m)
+for alln > no orm > mo}.
+
+Give corresponding definitions for Q(g(n,m)) and O(g(n,m)).
+
+ 
+
+3.2 Standard notations and common functions
+
+This section reviews some standard mathematical functions and notations and ex-
+plores the relationships among them. It also illustrates the use of the asymptotic
+notations.
+
+Monotonicity
+
+A function f(1) is monotonically increasing if m < n implies f(m) < f(n).
+Similarly, it is monotonically decreasing if m < n implies f(m) > f(n). A
+function f(n) is strictly increasing if m <n implies f(m) < f(n) and strictly
+decreasing if m <n implies f(m) > f(n).
+

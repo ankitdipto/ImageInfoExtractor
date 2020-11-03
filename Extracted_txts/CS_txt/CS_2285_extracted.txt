@@ -1,0 +1,50 @@
+436 © CHAPTER LEVEN Input-Output Organization
+
+DLE character
+
+services each one in turn The speed of most remote terminalsis extremely slow
+compared to the processor speed. This property allows multiplexing of many
+users to achieve greater efficiency ina time-sharing system. This also allows
+many users to operate simultaneously while each is being sampled at speeds
+comparable to normal human response.
+
+Data Transparency
+
+Thecharacter-oriented protocol was originally developed to communicate with
+keyboard, printer, and display devices that use alphanumeric characters exclu-
+sively. As the data communication field expanded, it became necessary to
+transmit binary information which is not ASCII text. This happens, for exam-
+ple, when two remote computers send programs and data to each other over
+a communication channel. An arbitrary bit pattern in the text message becomes
+a problem in the character-oriented protocol. This is because any 8-bit pattern
+belonging to a communication control character will be interpreted erro-
+neously by the receiver. For example, if the binary data in the text portion of
+the message has the 8-bit pattern 10000011, the receiver will interpret this as
+an ETX character and assume that it reached the end of the text field. When
+the text portion of the message is variable in length and contains bits that are
+to be treated without reference to any particular code, it is said to contain
+transparent data. This feature requires that the character recognition logic of
+the receiver be turned off so that data patterns in the text field are not acciden-
+tally interpreted as communication control information.
+
+Data transparency is achieved in character-oriented protocols by insert-
+ing a DLE (data link escape) character before each communication control
+character. Thus, thestart of heading is detected fromthe double character DLE
+SOH, and the text field is terminated with the double character DLE ETX. If
+the DLE bit pattern 00010000 occurs in the text portion of the message, the
+transmitter inserts another DLE bit pattern following it. The receiver removes
+all DLE characters and then checks the next &-bit pattern. [fit is another DLE
+bit pattern, the receiver considers it as part of the text and continues to receive
+text. Otherwise, the receiver takes the following 8-bit pattern to be a commu-
+nication control character.
+
+The achievement of data transparency by means of the DLE character is.
+inefficient and somewhat complicated to implement. Therefore, other proto-
+cols have been developed tomake the transmission of transparent data more
+efficient. One protocol used by Digital Equipment Corporation employs a byte
+count field that gives the number of bytes in the message that follows. The
+receiver must then count the number of bytes received to reach the end of the
+text field. The protocol that has been mostly used to solve the transparency
+problem (and other problems associated with the character-oriented protocol)
+is the bit-oriented protocol.
+

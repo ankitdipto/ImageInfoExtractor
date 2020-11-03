@@ -1,0 +1,57 @@
+8.4 Deadlock-Prevention 251
+
+this provision by requiring that system calls requesting resources for a process
+precede all other system calls.
+
+An alternative protocol allows a process to request resources only when
+the process has none. A process may request some resources and use them.
+Before it can request any additional resources, however, it must release all the
+resources that it is currently allocated.
+
+To illustrate the difference between these two protocols, we consider a
+process that copies data from a tape drive to a disk file, sorts the disk file, and
+then prints the results to a printer. If all resources must be requested at the
+beginning of the process, then the process must initially request the tape drive,
+disk file, and printer. It will hold the printer for its entire execution, even though
+it needs the printer only at the end.
+
+The second method allows the process to request initially only the tape
+drive and disk file. It copies from the tape drive to the disk, then releases both
+the tape drive and the disk file. The process must then again request the disk
+file and the printer. After copying the disk file to the printer, it releases these
+two resources and terminates.
+
+These protocols have two main disadvantages. First, resource utilization
+may be low, since many of the resources may be allocated but unused for a long
+period. In the example given, for instance, we can release the tape drive and
+disk file, and then again request the disk file and printer, only if we can be sure
+that our data will remain on the disk file. If we cannot be assured that they will,
+then we must request all resources at the beginning for both protocols.
+
+Second, starvation is possible. A process that needs several popular
+resources may have to wait indefinitely, because at least one of the resources
+that it needs is always allocated to some other process.
+
+ 
+
+8.4.3 No Preemption
+
+The third necessary condition is that there be no preemption of resources that
+have already been allocated. To ensure that this condition does not hold, we can
+use the following protocol. If a process is holding some resources and requests
+another resource that cannot be immediately allocated to it (that is, the process
+must wait), then all resources currently being held are preempted. In other
+words, these resources are implicitly released. The preempted resources are
+added to the list of resources for which the process is waiting. The process will
+be restarted only when it can regain its old resources, as well as the new ones
+that it is requesting.
+
+Alternatively, if a process requests some resources, we first check whether
+they are available. If they are, we allocate them. If they are not available,
+we check whether they are allocated to some other process that is waiting for
+additional resources. If so, we preempt the desired resources from the waiting
+process and allocate them to the requesting process. If the resources are not
+either available or held by a waiting process, the requesting process must wait.
+
+Be
+

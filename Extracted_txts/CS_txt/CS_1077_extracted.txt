@@ -1,0 +1,46 @@
+Chapter 10: Structures 377
+
+ 
+
+()
+
+This clearly signifies that we are referring to the quantity of
+large sized bolts that fit on an engine of a maruti car.
+
+Like an ordinary variable, a structure variable can also be
+passed to a function. We may either pass individual structure
+elements or the entire structure variable at one go. Let us
+examine both the approaches one by one using suitable
+programs.
+
+/" Passing individual structure elements */
+main()
+{
+struct book
+{
+char name[25] ;
+char author[25] ;
+int callno ;
+};
+struct book b1 = { "Let us C", "YPK", 101};
+
+display (b1.name, b1.author, b1.callno ) ;
+}
+
+display (char *s, char *t, int n)
+{
+
+printf ( "\n%s %s %d", s, tn);
+}
+
+And here is the output...
+
+Letus C YPK 101
+
+Observe that in the declaration of the structure, name and
+author have been declared as arrays. Therefore, when we call
+
+the function display() using,
+
+display (b1.name, b1.author, b1.callno ) ;
+

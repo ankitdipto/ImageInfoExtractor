@@ -1,0 +1,52 @@
+584
+
+Chapter 21 Data Structures for Disjoint Sets
+
+root of its set S; equals the depth of v in 7;. That is, if the simple path from v to its
+root in Sj is Vo, V¥1,..., Ve, Where Vo = v and vx is S;’s root, then the depth of v
+in T; is hg yd.
+
+b. Give an implementation of MAKE-TREE.
+
+c. Show how to modify FIND-SET to implement FIND-DEPTH. Your implemen-
+tation should perform path compression, and its running time should be linear
+in the length of the find path. Make sure that your implementation updates
+pseudodistances correctly.
+
+d. Show how to implement GRAFT(r, v), which combines the sets containing r
+and v, by modifying the UNION and LINK procedures. Make sure that your
+implementation updates pseudodistances correctly. Note that the root of a set S;
+is not necessarily the root of the corresponding tree T;.
+
+e. Give a tight bound on the worst-case running time of a sequence of m MAKE-
+TREE, FIND-DEPTH, and GRAFT operations, ” of which are MAKE-TREE op-
+erations.
+
+21-3 Tarjan’s off-line least-common-ancestors algorithm
+The least common ancestor of two nodes u and v in a rooted tree T is the node w
+that is an ancestor of both u and v and that has the greatest depth in T. In the
+off-line least-common-ancestors problem, we are given a rooted tree T and an
+arbitrary set P = {{u,v}} of unordered pairs of nodes in T, and we wish to deter-
+mine the least common ancestor of each pair in P.
+
+To solve the off-line least-common-ancestors problem, the following procedure
+performs a tree walk of T with the initial call LCA(T.root). We assume that each
+node is colored WHITE prior to the walk.
+
+LCA(u)
+MAKE-SET(u)
+FIND-SET(u). ancestor = u
+for each child v of u in T
+LCA(v)
+UNION(u, v)
+FIND-SET(u). ancestor = u
+u.color = BLACK
+for each node v such that {u,v} € P
+if v.color == BLACK
+print “The least common ancestor of”
+u “and” v “is” FIND-SET(V). ancestor
+
+ 
+
+SemrIAuneawne
+

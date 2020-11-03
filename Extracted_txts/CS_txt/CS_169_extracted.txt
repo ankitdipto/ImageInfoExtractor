@@ -1,0 +1,67 @@
+Section 4.5. Summary 119
+
+ 
+
+4.11 The travelling salesperson problem (TSP) can be solved using the minimum spanning tree
+(MST) heuristic, which is used to estimate the cost of completing a tour, given that a partial tour
+has already been constructed. The MST cost ofa set of cities is the smallest sum of the link costs
+of any tree that connects all the cities.
+
+a. Show how this heuristic can be derived using a relaxed version of the TSP.
+Show that the MST heuristic dominates straight-line distance.
+
+c. Write a problem generator for instances of the TSP where cities are represented by random
+points in the unit square
+
+d. Find an efficient algorithm in the literature for constructing the MST, and use it with an
+admissible search algorithm to solve instances of the TSP.
+
+ 
+
+4.12 Implement the n-queens problem and solve it using hill-climbing, hill-climbing with
+random restart, and simulated annealing. Measure the search cost and percentage of solved
+problems using randomly generated start states. Graph these against the difficulty of the problems
+(as measured by the optimal solution length). Comment on your results.
+
+ 
+
+4.13 Consider the problem of finding the shortest path between two points on a plane that has
+convex polygonal obstacles as shown in Figure 4.17. This is an idealization of the problem that
+a robot has to solve to navigate its way around a crowded environment.
+
+ 
+
+a. Suppose the state space consists of all positions (x,y) in the plane. How many states are
+there? How many paths are there to the goal?
+
+b. Explain briefly why the shortest path from one polygon vertex to any other in the scene
+must consist of straight-line segments joining some of the vertices of the polygons. Define
+a good state space now. How large is this state space?
+
+c. Define the necessary functions to implement the search problem, including a successor
+function that takes a vertex as input and returns the set of vertices that can be reached in
+a straight line from the given vertex. (Do not forget the neighbors on the same polygon.)
+Use the straight-line distance for the heuristic function.
+
+d. Implement any ofthe admissible algorithms discussed in the chapter. Keep the implemen-
+tation of the algorithm completely independent of the specific domain. Then apply it to
+solve various problem instances in the domain.
+
+4.14 In this question, we will turn the geometric scene from a simple data structure into a
+complete environment. Then we will put the agent in the environment and have it find its way to
+the goal.
+
+ 
+
+a. Implement an evaluation environment as described in Chapter 2. The environment should
+behave as follows:
+
+* The percept at each cycle provides the agent with a list of the places that it can see
+from its current location. Each place is a position vector (with an x and y component)
+giving the coordinates of the place relative to the agent. Thus, if the agent is at (1,1)
+and there is a visible vertex at (7,3), the percept will include the position vector (6,2)
+(it therefore will be up to the agent to find out where it is! It can assume that all
+locations have a different “view.”)
+
+ 
+

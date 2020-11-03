@@ -1,0 +1,49 @@
+220
+
+Chapter 9 Medians and Order Statistics
+
+9.2-4
+
+Suppose we use RANDOMIZED-SELECT to select the minimum element of the
+array A = (3,2, 9,0,7,5,4, 8, 6, 1). Describe a sequence of partitions that results
+in a worst-case performance of RANDOMIZED-SELECT.
+
+ 
+
+9.3 Selection in worst-case linear time
+
+We now examine a selection algorithm whose running time is O() in the worst
+case. Like RANDOMIZED-SELECT, the algorithm SELECT finds the desired ele-
+ment by recursively partitioning the input array. Here, however, we guarantee a
+good split upon partitioning the array. SELECT uses the deterministic partitioning
+algorithm PARTITION from quicksort (see Section 7.1), but modified to take the
+element to partition around as an input parameter.
+
+The SELECT algorithm determines the th smallest of an input array of n > 1
+distinct elements by executing the following steps. (If n = 1, then SELECT merely
+returns its only input value as the ith smallest.)
+
+1. Divide the n elements of the input array into [7/5] groups of 5 elements each
+and at most one group made up of the remaining n mod 5 elements.
+
+2. Find the median of each of the [n/5] groups by first insertion-sorting the ele-
+ments of each group (of which there are at most 5) and then picking the median
+from the sorted list of group elements.
+
+3. Use SELECT recursively to find the median x of the [n/5] medians found in
+step 2. (If there are an even number of medians, then by our convention, x is
+the lower median.)
+
+4. Partition the input array around the median-of-medians x using the modified
+version of PARTITION. Let k be one more than the number of elements on the
+low side of the partition, so that x is the kth smallest element and there are n—k
+elements on the high side of the partition.
+
+5. If i = k, then return x. Otherwise, use SELECT recursively to find the ith
+smallest element on the low side if i < k, or the (i — k)th smallest element on
+the high side if i > k.
+
+To analyze the running time of SELECT, we first determine a lower bound on the
+number of elements that are greater than the partitioning element x. Figure 9.1
+helps us to visualize this bookkeeping. At least half of the medians found in
+

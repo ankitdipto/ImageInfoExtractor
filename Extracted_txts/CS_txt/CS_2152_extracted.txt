@@ -1,0 +1,90 @@
+SECTION 96 Vector Processing 323
+
+This requires three multiplications and (after initializing c: to 0) three addi-
+tions. The total number of multiplications oradditionsrequired tocompute the
+matrixproductis9 x 3 = 27. Ifweconsider the linked multiply-add operation
+¢ +a X basacumulative operation, the product of twon x nmatricesrequires
+1 multiply-add operations. The computation consists of n? inner products,
+with each inner product requiring » multiply-add operations, assuming that
+is initialized to zero before computing each element in the product matrix.
+
+In general, the inner product consists of the sum of k product terms of
+the form
+
+ 
+
+C = A,B, + AyBy + AyBy + AyBy +++ + ABe
+
+Ina typical application k may be equal to 100 or even 1000. The inner product
+calculation on a pipeline vector processor is shown in Fig. 9-12. The values of
+A and B are either in memory or in processor registers. The floating-point
+multiplier pipeline and the floating-point adder pipeline are assumed to have
+four segments each. All segment registers in the multiplier and adder are
+initialized to 0. Therefore, the output of the adder is 0 for the first eight cycles
+until both pipes are full. A, and B, pairs are brought in and multiplied at a rate
+ofone pair per cycle. After the first four cycles, the products begin to be added
+to the output of the adder. During the next four cycles 0 is added to the
+products entering the adder pipeline. At the end of the eighth cycle, the first
+four products A,B, through A,B, are in the four adder segments, and the next
+four products, AsBs through A,Bs, are in the multiplier segments. At the
+beginning of the ninth cycle, the output of the adder is A, B, and the output
+of the multiplier is As Bs. Thus the ninth cycle starts the addition A, By + AsBs
+in the adder pipeline. The tenth cycle starts the addition 2B; + A,B, and so
+on This pattern breaks down the summation into four sections as follows:
+
+C= A,B, + AsBs + AsBy + ApBy ++°°
++ A,B, + AsBe + AroBro + AuBu +
++ A,B, + A,B, + AnBu + AisBs +
++ AyBy + AgBy + An Bp + AuBre +
+
+ 
+
+ 
+
+Figure 9-12 Pipeline for calculating an inner product.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Source
+: i
+Source Multiplier “Adder
+3 pipeline pipeline
+
+ 
+
+ 
+

@@ -1,0 +1,50 @@
+434 Chapter 12 File-System Implementation
+
+this limit to 2 bytes, which is a very large number indeed. However, 64-bit
+pointers take more space to store, and in turn make the allocation and free-
+space-management methods (linked lists, indexes, and so on) use more disk
+space.
+
+One of the difficulties in choosing a pointer size, or indeed any fixed allo-
+cation size within an operating system, is planning for the effects of changing
+technology. Consider that the IBM PC XT had a 10-MB hard drive and an MS-DOS
+file system that could support only 32 MB. (Each FAT entry was 12 bits, pointing
+to an 8-KB cluster.) As disk capacities increased, larger disks had to be split
+into 32-MB partitions, because the file system could not track blocks beyond 32
+MB. As hard disks of over 100-MB capacities became common, the disk data
+structures and algorithms in MS-DOS had to be modified to allow larger file
+systems. (Each FAT entry was expanded to 16 bits, and later to 32 bits.) The
+initial file-system decisions were made for efficiency reasons; however, with the
+advent of MS-DOS Version 4, millions of computer users were inconvenienced
+when they had to switch to the new, larger file system.
+
+‘As another example, consider the evolution of Sun’s Solaris operating
+system. Originally, many data structures were of fixed lengths, allocated at
+system startup. These structures included the process table and the open-file
+table. When the process table became full, no more processes could be created.
+When the file table became full, no more files could be opened. The system
+would fail to provide services to the users. These table sizes could be increased
+only by recompiling the kernel and rebooting the system. Since the release of
+Solaris 2, almost all kernel structures are allocated dynamically, eliminating
+these artificial limits on system performance. Of course, the algorithms that
+manipulate these tables are more complicated, and the operating system is a
+little slower because it must dynamically allocate and deallocate table entries,
+but that price is the usual one for more functional generality.
+
+12.6.2 Performance
+
+Once the basic file-system algorithms are selected, we can still improve perfor-
+mance in several ways. As noted in Chapter 2, most disk controllers include
+local memory to form an on-board cache that is sufficiently large to store entire
+tracks at a time. Once a seek is performed, the track is read into the disk cache
+starting at the sector under the disk head (alleviating latency time). The disk
+controller then transfers any sector requests to the operating system. Once
+blocks make it from the disk controller into main memory, the operating system
+may cache the blocks there.
+
+Some systems maintain a separate section of main memory for a disk
+cache, where blocks are kept under the assumption that they will be used again
+shortly. Other systems cache file data using a page cache. The page cache
+uses virtual-memory techniques to cache file data as pages rather than as file-
+system-oriented blocks. Caching file data using virtual addresses is far more
+

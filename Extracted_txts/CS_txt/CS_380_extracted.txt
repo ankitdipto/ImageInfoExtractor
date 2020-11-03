@@ -1,0 +1,51 @@
+138
+
+Chapter 5. Game Playing
+
+ 
+
+computer world champion in 1985, and was the first program to defeat a human grandmaster,
+Arnold Denker, in 1987. At the time it ranked among the top 800 human players in the world.
+
+The best current system is Deep Thought 2. It is sponsored by IBM, which hired part of the
+team that built the Deep Thought system at Carnegie Mellon University. Although Deep Thought
+2 uses a simple evaluation function, it examines about half billion positions per move, allowing
+it to reach depth 10 or 11, with a special provision to follow lines of forced moves still further
+(it once found a 37-move checkmate). In February 1993, Deep Thought 2 competed against the
+Danish Olympic team and won, 3-1, beating one grandmaster and drawing against another. Its
+FIDE rating is around 2600, placing it among the top 100 human players.
+
+The next version ofthe system, Deep Blue, will use a parallel array of 1024 custom VLSI
+chips. This will enable it to search the equivalent of one billion positions per second (100-200
+billion per move) and to reach depth 14. A !0-processorversion is due to play the Israeli national
+team (one of the strongest in the world) in May 1995, and the full-scale system will challenge
+the world champion shortly thereafter.
+
+Checkers or Draughts
+
+Beginning in 1952, Arthur Samuel of IBM, working in his spare time, developed a checkers
+program that learned its own evaluation function by playing itself thousands of times. We
+describe this idea in more detail in Chapter 20. Samuel's program began as a novice, but after
+only a few days' self-play was able to compete on equal terms in some very strong human
+tournaments. When one considers that Samuel's computing equipment (an IBM 704) had 10,000
+words of main memory, magnetic tape for long-term storage, and a cycle time of almost a
+millisecond, this remains one of the great feats of AI.
+
+Few other people attempted to do better until Jonathan Schaeffer and colleagues developed
+Chinook, which runs on ordinary computers using alpha-beta search, but uses several techniques,
+including perfect solution databases for all six-piece positions, that make its endgame play
+devastating. Chinook won the 1992 U.S. Open, and became the first program to officially
+challenge for a real world championship. It then ran up against a problem, in the form of Marion
+Tinsley. Dr. Tinsley had been world champion for over 40 years, losing only three games in all that
+time. In the first match against Chinook, Tinsley suffered his fourth and fifth losses, but won the
+match 21.5-18.5, More recently, the world championship match in August 1994between Tinsley
+and Chinook ended prematurely when Tinsley had to withdraw for health reasons. Chinook
+became the official world champion.
+
+Othello
+
+Othello, also called Reversi, is probably more popular as a computer game than as a board game.
+Ithas a smaller search space than chess, usually 5 to 15 legal moves, but evaluation expertise
+had to be developed from scratch. Even so, Othello programs on normal computers are far better
+than humans, who generally refuse direct challenges in tournaments.
+

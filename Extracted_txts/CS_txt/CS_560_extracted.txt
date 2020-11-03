@@ -1,0 +1,48 @@
+34.5 NP-complete problems 1095
+
+Suppose that G = (V,E) has a vertex cover V* C V of size k. Let
+V* = {ui,U2,...,ue}. As Figure 34.17 shows, we form a hamiltonian cy-
+cle in G’ by including the following edges" for each vertex uj € V*. Include
+edges {(uj.u?. 6], [uj 1): 1 Si < degree(w;) — 1}, which connect all
+widgets corresponding to edges incident on u;. We also include the edges within
+these widgets as Figures 34.16(b)-(d) show, depending on whether the edge is cov-
+
+ered by one or two vertices in V*. The hamiltonian cycle also includes the edges
+{Usj.fej.aj?. I) 1 <7 sk)
+
+Ul(ser. [uj uh 6) 1 <j <k-1}
+
+U f(s1, fue. (eerste » 6)} .
+
+By inspecting Figure 34.17, you can verify that these edges forma cycle. The cycle
+starts at 51, visits all widgets corresponding to edges incident on w;, then visits 52,
+visits all widgets corresponding to edges incident on uw, and so on, until it returns
+to s;. The cycle visits each widget either once or twice, depending on whether one
+or two vertices of V* cover its corresponding edge. Because V* is a vertex cover
+for G, each edge in E is incident on some vertex in V*, and so the cycle visits each
+vertex in each widget of G’. Because the cycle also visits every selector vertex, it
+is hamiltonian.
+
+Conversely, suppose that G’ = (V’, E’) has a hamiltonian cycle C C E’. We
+claim that the set
+
+V* ={u eV :(s;,[u.u, I) € C for some 1 < j <k} (34.4)
+
+is a vertex cover for G. To see why, partition C into maximal paths that start at
+some selector vertex s;, traverse an edge (s;, [w, uw, 1]) for some u € V, and end
+at a selector vertex s; without passing through any other selector vertex. Let us call
+each such path a “cover path.” From how G’ is constructed, each cover path must
+start at some 57, take the edge (s;, [v, uw, 1]) for some vertex u € V, pass through
+all the widgets corresponding to edges in E incident on u, and then end at some
+selector vertex 5;. We refer to this cover path as p,, and by equation (34.4), we
+put u into V*. Each widget visited by p, must be W,, or W,, for some v € V.
+For each widget visited by p,, its vertices are visited by either one or two cover
+paths. If they are visited by one cover path, then edge (u,v) € E is covered in G
+by vertex u. If two cover paths visit the widget, then the other cover path must
+be py, which implies that v € V*, and edge (u,v) € E is covered by both wu and v.
+
+ 
+
+Technically, we define a cycle in terms of vertices rather than edges (see Section B.4). In the
+interest of clarity, we abuse notation here and define the hamiltonian cycle in terms of edges.
+

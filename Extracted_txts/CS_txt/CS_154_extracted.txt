@@ -1,0 +1,26 @@
+766
+
+Chapter 26 Maximum Flow
+
+assigned implicitly to each edge. This new algorithm takes a different approach and
+assigns a length of 0 to high-capacity edges and a length of | to low-capacity edges.
+Informally, with respect to these lengths, shortest paths from the source to the sink
+tend have high capacity, which means that fewer iterations need be performed.
+
+In practice, push-relabel algorithms currently dominate augmenting-path or
+linear-programming based algorithms for the maximum-flow problem. A study
+by Cherkassky and Goldberg [63] underscores the importance of using two heuris-
+tics when implementing a push-relabel algorithm. The first heuristic is to peri-
+odically perform a breadth-first search of the residual network in order to obtain
+more accurate height values. The second heuristic is the gap heuristic, described in
+Exercise 26.5-5. Cherkassky and Goldberg conclude that the best choice of push-
+relabel variants is the one that chooses to discharge the overflowing vertex with the
+maximum height.
+
+The best algorithm to date for maximum bipartite matching, discovered by
+Hopcroft and Karp [176], runs in O(/V E) time and is described in Problem 26-6.
+The book by Lovasz and Plummer [239] is an excellent reference on matching
+problems.
+
+ 
+

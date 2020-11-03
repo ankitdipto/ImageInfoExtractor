@@ -1,0 +1,129 @@
+(b)
+
+(o)
+
+(d)
+
+10.2 Linked lists 239
+
+L.nil
+
+ 
+
+ 
+
+ 
+
+L.nil
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+L.nil
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+L.nil 25] “Fe [9 | Pe [16] “ep 4
+
+ 
+
+ 
+
+ 
+
+vi
+
+Ks
+
+Figure 10.4 A circular, doubly linked list with a sentinel. The sentinel L.nil appears between the
+head and tail. The attribute L.head is no longer needed, since we can access the head of the list
+by L.nil.next. (a) An empty list. (b) The linked list from Figure 10.3(a), with key 9 at the head and
+key 1 at the tail. (c) The list after executing L1sT-INSERT (L, x), where x.key = 25. The new object
+becomes the head of the list. (d) The list after deleting the object with key 1. The new tail is the
+object with key 4,
+
+but has all the attributes of the other objects in the list. Wherever we have a ref-
+erence to NIL in list code, we replace it by a reference to the sentinel L.nil. As
+shown in Figure 10.4, this change turns a regular doubly linked list into a cireu-
+lar, doubly linked list with a sentinel, in which the sentinel L. nil lies between the
+head and tail. The attribute L.nil.next points to the head of the list, and L.nil.prev
+points to the tail. Similarly, both the next attribute of the tail and the prev at-
+tribute of the head point to L.nil. Since L.nil.next points to the head, we can
+eliminate the attribute L.head altogether, replacing references to it by references
+to L.nil.next. Figure 10.4(a) shows that an empty list consists of just the sentinel,
+and both L.nil.next and L.nil.prev point to L.nil.
+
+The code for LIST-SEARCH remains the same as before, but with the references
+to NIL and L.head changed as specified above:
+
+LisT-SEARCH (L,k)
+
+1 x = L.nil. next
+
+2 whilex # L.nil and x.key Ak
+3 xX = X.next
+
+4 return x
+
+We use the two-line procedure L1st-DELETE’ from before to delete an element
+from the list. The following procedure inserts an element into the list:
+

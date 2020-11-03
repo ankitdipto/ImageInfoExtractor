@@ -1,0 +1,52 @@
+78
+
+Chapter 4 Divide-and-Conquer
+
+trices in lines 6-9 is O(n). (Again, we use index calculations to place the results
+of the matrix additions into the correct positions of matrix C, with an overhead
+of ©(1) time per entry.) The total time for the recursive case, therefore, is the sum
+of the partitioning time, the time for all the recursive calls, and the time to add the
+matrices resulting from the recursive calls:
+
+T(n) = O(1)+87(n/2) + O(n?)
+8T(n/2) + O(n?) . (4.16)
+
+Notice that if we implemented partitioning by copying matrices, which would cost
+©(n?) time, the recurrence would not change, and hence the overall running time
+would increase by only a constant factor.
+
+Combining equations (4.15) and (4.16) gives us the recurrence for the running
+time of SQUARE-MATRIX-MULTIPLY-RECURSIVE:
+
+e(1) ifn =1,
+
+TO) =) ar in/2) 4 @(n2) ifn > 1.
+
+(4.17)
+As we shall see from the master method in Section 4.5, recurrence (4.17) has the
+solution T(n) = ©(n3). Thus, this simple divide-and-conquer approach is no
+faster than the straightforward SQUARE-MATRIX-MULTIPLY procedure.
+
+Before we continue on to examining Strassen’s algorithm, let us review where
+the components of equation (4.16) came from. Partitioning each n x n matrix by
+index calculation takes ©(1) time, but we have two matrices to partition. Although
+you could say that partitioning the two matrices takes ©(2) time, the constant of 2
+is subsumed by the ©-notation. Adding two matrices, each with, say, k entries,
+takes ©(k) time. Since the matrices we add each have n7/4 entries, you could
+say that adding each pair takes ©(n?/4) time. Again, however, the ©-notation
+subsumes the constant factor of 1/4, and we say that adding two n?/4 x n?/4
+matrices takes @(n7) time. We have four such matrix additions, and once again,
+instead of saying that they take ©(4n7) time, we say that they take ©(n7) time.
+(Of course, you might observe that we could say that the four matrix additions
+take ©(4n?/4) time, and that 4n?/4 = n?, but the point here is that ©-notation
+subsumes constant factors, whatever they are.) Thus, we end up with two terms
+of @(n?), which we can combine into one.
+
+When we account for the eight recursive calls, however, we cannot just sub-
+sume the constant factor of 8. In other words, we must say that together they take
+87 (n/2) time, rather than just T(n/2) time. You can get a feel for why by looking
+back at the recursion tree in Figure 2.5, for recurrence (2.1) (which is identical to
+recurrence (4.7)), with the recursive case T(n) = 2T(n/2)+@(n). The factor of 2
+determined how many children each tree node had, which in turn determined how
+many terms contributed to the sum at each level of the tree. If we were to ignore
+

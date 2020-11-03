@@ -1,0 +1,48 @@
+682 Chapter 24 Single-Source Shortest Paths
+
+24-6 Bitonic shortest paths
+
+A sequence is bitonic if it monotonically increases and then monotonically de-
+creases, or if by a circular shift it monotonically increases and then monotonically
+decreases. For example the sequences (1, 4, 6, 8, 3, —2), (9.2,—4, —10, —5), and
+(1, 2.3, 4) are bitonic, but (1, 3, 12, 4,2, 10) is not bitonic. (See Problem 15-3 for
+the bitonic euclidean traveling-salesman problem.)
+
+Suppose that we are given a directed graph G = (V, E) with weight function
+w: E +R, where all edge weights are unique, and we wish to find single-source
+shortest paths from a source vertex s. We are given one additional piece of infor-
+mation: for each vertex v € V, the weights of the edges along any shortest path
+from s to v form a bitonic sequence.
+
+Give the most efficient algorithm you can to solve this problem, and analyze its
+running time.
+
+ 
+
+Chapter notes
+
+Dijkstra’s algorithm [88] appeared in 1959, but it contained no mention of a priority
+queue. The Bellman-Ford algorithm is based on separate algorithms by Bellman
+[38] and Ford [109]. Bellman describes the relation of shortest paths to difference
+constraints. Lawler [224] describes the linear-time algorithm for shortest paths in
+a dag, which he considers part of the folklore.
+
+When edge weights are relatively small nonnegative integers, we have more ef-
+ficient algorithms to solve the single-source shortest-paths problem. The sequence
+of values returned by the EXTRACT-MIN calls in Dijkstra’s algorithm monoton-
+ically increases over time. As discussed in the chapter notes for Chapter 6, in
+this case several data structures can implement the various priority-queue opera-
+tions more efficiently than a binary heap or a Fibonacci heap. Ahuja, Mehlhorn,
+Orlin, and Tarjan [8] give an algorithm that runs in O(E + V,/lg W) time on
+graphs with nonnegative edge weights, where W is the largest weight of any edge
+in the graph. The best bounds are by Thorup [337], who gives an algorithm that
+runs in O(E lg lg V) time, and by Raman [291], who gives an algorithm that runs
+in O(E +V min {(Ig V)!/3*€, (lg W)'/4**}) time. These two algorithms use an
+amount of space that depends on the word size of the underlying machine. Al-
+though the amount of space used can be unbounded in the size of the input, it can
+be reduced to be linear in the size of the input using randomized hashing.
+
+For undirected graphs with integer weights, Thorup [336] gives an O(V + E)-
+time algorithm for single-source shortest paths. In contrast to the algorithms men-
+tioned in the previous paragraph, this algorithm is not an implementation of Dijk-
+

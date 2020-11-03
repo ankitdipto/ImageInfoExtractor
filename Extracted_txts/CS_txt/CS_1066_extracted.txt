@@ -1,0 +1,43 @@
+370 Let Us C
+
+ 
+
+Accessing Structure Elements
+
+Having declared the structure type and the structure variables, let
+us see how the elements of the structure can be accessed.
+
+In arrays we can access individual elements of an array using a
+subscript. Structures use a different scheme. They use a dot (.)
+operator. So to refer to pages of the structure defined in our
+sample program we have to use,
+
+b1.pages
+
+Similarly, to refer to price we would use,
+
+b1.price
+
+Note that before the dot there must always be a structure variable
+and after the dot there must always be a structure element.
+
+How Structure Elements are Stored
+Whatever be the elements of a structure, they are always stored in
+contiguous memory locations. The following program would
+
+illustrate this:
+
+/* Memory map of structure elements */
+
+main()
+{
+struct book
+{
+char name ;
+float price ;
+
+int pages ;
+struct book b1 = {'B’, 130.00, 550};
+
+printf ( "\nAddress of name = %u", &b1.name ) ;
+

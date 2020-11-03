@@ -1,0 +1,53 @@
+22.1 Representations of graphs 591
+
+an undirected graph, the sum of the lengths of all the adjacency lists is 2 | E|, since
+if (u,v) is an undirected edge, then u appears in v’s adjacency list and vice versa.
+For both directed and undirected graphs, the adjacency-list representation has the
+desirable property that the amount of memory it requires is O(V + E).
+
+We can readily adapt adjacency lists to represent weighted graphs, that is, graphs
+for which each edge has an associated weight, typically given by a weight function
+w: E + R. For example, let G = (V, E) be a weighted graph with weight
+function w. We simply store the weight w(w,v) of the edge (u,v) € E with
+vertex v in u’s adjacency list. The adjacency-list representation is quite robust in
+that we can modify it to support many other graph variants.
+
+A potential disadvantage of the adjacency-list representation is that it provides
+no quicker way to determine whether a given edge (u,v) is present in the graph
+than to search for v in the adjacency list Adj[u]. An adjacency-matrix representa-
+tion of the graph remedies this disadvantage, but at the cost of using asymptotically
+more memory. (See Exercise 22.1-8 for suggestions of variations on adjacency lists
+that permit faster edge lookup.)
+
+For the adjacency-matrix representation of a graph G = (V, E), we assume
+that the vertices are numbered 1,2,...,|V| in some arbitrary manner. Then the
+adjacency-matrix representation of a graph G consists of a |V| x |V| matrix
+A = (aj;) such that
+
+a= 1 if f)Ek,
+7" 10. otherwise .
+
+ 
+
+Figures 22.1(c) and 22.2(c) are the adjacency matrices of the undirected and di-
+rected graphs in Figures 22.1(a) and 22.2(a), respectively. The adjacency matrix of
+a graph requires ©(V7) memory, independent of the number of edges in the graph.
+
+Observe the symmetry along the main diagonal of the adjacency matrix in Fig-
+ure 22.1(c). Since in an undirected graph, (u,v) and (v,u) represent the same
+edge, the adjacency matrix A of an undirected graph is its own transpose: A = A’.
+In some applications, it pays to store only the entries on and above the diagonal of
+the adjacency matrix, thereby cutting the memory needed to store the graph almost
+in half.
+
+Like the adjacency-list representation of a graph, an adjacency matrix can repre-
+sent a weighted graph. For example, if G = (V, E) is a weighted graph with edge-
+weight function w, we can simply store the weight w(u, v) of the edge (u,v) € E
+as the entry in row u and column v of the adjacency matrix. If an edge does not
+exist, We can store a NIL value as its corresponding matrix entry, though for many
+problems it is convenient to use a value such as 0 or 00.
+
+Although the adjacency-list representation is asymptotically at least as space-
+efficient as the adjacency-matrix representation, adjacency matrices are simpler,
+and so we may prefer them when graphs are reasonably small. Moreover, adja-
+

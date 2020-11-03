@@ -1,0 +1,45 @@
+274 Let Us C
+
+ 
+
+becomes 29. This is last time through the loop, which is a good
+thing, because there is no array element like marks[30].
+
+In scanf() function, we have used the “address of” operator (&) on
+the element marks[i] of the array, just as we have used it earlier
+on other variables (&rate, for example). In so doing, we are
+passing the address of this particular array element to the scanf( )
+function, rather than its value; which is what scanf() requires.
+
+Reading Data from an Array
+
+The balance of the program reads the data back out of the array
+and uses it to calculate the average. The for loop is much the same,
+but now the body of the loop causes each student’s marks to be
+added to a running total stored in a variable called sum. When all
+the marks have been added up, the result is divided by 30, the
+number of students, to get the average.
+
+for (i=0;i1<=29; i++)
+sum = sum + marksfi] ;
+
+avg = sum / 30 ;
+printf ( "\nAverage marks = %d"", avg ) ;
+
+To fix our ideas, let us revise whatever we have learnt about
+arrays:
+
+(a) An array is a collection of similar elements.
+
+(b) The first element in the array is numbered 0, so the last
+element is 1 less than the size of the array.
+
+(c) An array is also known as a subscripted variable.
+
+(d) Before using an array its type and dimension must be
+declared.
+
+(e) However big an array its elements are always stored in
+contiguous memory locations. This is a very important point
+which we would discuss in more detail later on.
+

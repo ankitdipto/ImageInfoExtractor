@@ -1,0 +1,55 @@
+776
+
+Chapter 27 Multithreaded Algorithms
+
+T(n) < (Fra —b) + @Fr2 — b) + O()
+= a(Fy-1 + Fy-2) — 2b + O(1)
+= aF,—b—(b—@(1))
+< aF,—b
+
+if we choose b large enough to dominate the constant in the @(1). We can then
+choose a large enough to satisfy the initial condition. The analytical bound
+
+T(n) = O(¢"). (27.1)
+
+where ¢ = (1 + V5)/2 is the golden ratio, now follows from equation (3.25).
+Since F,, grows exponentially in n, this procedure is a particularly slow way to
+compute Fibonacci numbers. (See Problem 31-3 for much faster ways.)
+
+Although the FIB procedure is a poor way to compute Fibonacci numbers, it
+makes a good example for illustrating key concepts in the analysis of multithreaded
+algorithms. Observe that within FiB(/), the two recursive calls in lines 3 and 4 to
+F1B(n— 1) and F1B(n — 2), respectively, are independent of each other: they could
+be called in either order, and the computation performed by one in no way affects
+the other. Therefore, the two recursive calls can run in parallel.
+
+We augment our pseudocode to indicate parallelism by adding the concurrency
+keywords spawn and sync. Here is how we can rewrite the FIB procedure to use
+dynamic multithreading:
+
+P-FiB(n)
+
+1 ifn<1
+
+2 return 7
+
+3. else x = spawn P-FiB(n — 1)
+4 y = P-Fis(n — 2)
+
+5 syne
+
+6 return x + y
+
+Notice that if we delete the concurrency keywords spawn and syne from P-FIB,
+the resulting pseudocode text is identical to FrB (other than renaming the procedure
+in the header and in the two recursive calls). We define the serialization of a mul-
+tithreaded algorithm to be the serial algorithm that results from deleting the multi-
+threaded keywords: spawn, sync, and when we examine parallel loops, parallel.
+Indeed, our multithreaded pseudocode has the nice property that a serialization is
+always ordinary serial pseudocode to solve the same problem.
+
+Nested parallelism occurs when the keyword spawn precedes a procedure call,
+as in line 3. The semantics of a spawn differs from an ordinary procedure call in
+that the procedure instance that executes the spawn—the parent—may continue
+to execute in parallel with the spawned subroutine —its child—instead of waiting
+

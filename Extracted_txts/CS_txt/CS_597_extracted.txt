@@ -1,0 +1,41 @@
+35.4 Randomization and linear programming 1125
+
+vertex cover, by using a linear program. We shall then “round” this solution and
+use it to obtain a vertex cover.
+
+Suppose that we associate a variable x(v) with each vertex v € V, and let us
+require that x(v) equals either 0 or 1 foreach v € V. We put v into the vertex cover
+if and only if x(v) = 1. Then, we can write the constraint that for any edge (u,v),
+at least one of u and v must be in the vertex cover as x(u) + x(v) => 1. This view
+gives rise to the following 0-1 integer program for finding a minimum-weight
+vertex cover:
+
+minimize > w(v) x(v) (35.14)
+veVv
+subject to
+x(uy+x(v) > 1 for each (u,v) € E (35.15)
+x(v) € {0,1} foreachveV. (35.16)
+
+In the special case in which all the weights w(v) are equal to 1, this formu-
+lation is the optimization version of the NP-hard vertex-cover problem. Sup-
+pose, however, that we remove the constraint that x(v) € {0,1} and replace it
+by 0 < x(v) < 1. We then obtain the following linear program, which is known as
+the linear-programming relaxation:
+
+minimize > w(v) x(v) (35.17)
+vev
+subject to
+
+xX(u)+x(v) > 1 foreach (u,v) € E (35.18)
+x(v) < 1 foreachv eV (35.19)
+xX(v) => 0 foreachveV. (35.20)
+
+Any feasible solution to the 0-1 integer program in lines (35.14)-(35.16) is also
+a feasible solution to the linear program in lines (35.17)-(35.20). Therefore, the
+value of an optimal solution to the linear program gives a lower bound on the value
+of an optimal solution to the 0-1 integer program, and hence a lower bound on the
+optimal weight in the minimum-weight vertex-cover problem.
+
+The following procedure uses the solution to the linear-programming relaxation
+to construct an approximate solution to the minimum-weight vertex-cover problem:
+

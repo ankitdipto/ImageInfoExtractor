@@ -1,0 +1,67 @@
+1018
+
+Chapter 33 Computational Geometry
+
+The following procedures implement this idea. SEGMENTS-INTERSECT returns
+TRUE if segments PyP2 and P3Pzq intersect and FALSE if they do not. It calls
+the subroutines DIRECTION, which computes relative orientations using the cross-
+product method above, and ON-SEGMENT, which determines whether a point
+known to be colinear with a segment lies on that segment.
+
+SEGMENTS-INTERSECT (1, P2. D3. Pa)
+
+d, = DIRECTION (ps, Pa, P1)
+
+dy = DIRECTION (ps, Pa, P2)
+
+= DIRECTION(P1, 2. Ps)
+
+ds = DIRECTION(P1, 2. ps)
+
+if ((d; > O and dz <0) or (d; < O and dz > 0)) and
+((d3 > O and dg < 0) or (d3 < Oand ds > 0))
+
+6 return TRUE
+
+7 elseif d; == 0 and ON-SEGMENT(p3, Pa, P1)
+
+8 return TRUE
+
+9 elseif d, == 0 and ON-SEGMENT(p3, Pa, P2)
+
+10 return TRUE
+
+11 elseif d3 == 0 and ON-SEGMENT (1, P2. D3)
+
+12 return TRUE
+
+13. elseif d4 == 0 and ON-SEGMENT (i, D2, Ps)
+
+14 return TRUE
+
+15__ else return FALSE
+
+AWN
+a
+&
+
+DIRECTION (pj. Pj. Pk)
+1 return (px — pi) x (pj — Pi)
+
+ON-SEGMENT (pj. Pj. Dk)
+
+1 if min(x;,.x;) < xg < max(x;.x;) and min(y;, yj) < yg < max(y;. y;)
+2 return TRUE
+
+3 else return FALSE
+
+SEGMENTS-INTERSECT works as follows. Lines 14 compute the relative ori-
+entation d; of each endpoint p; with respect to the other segment. If all the relative
+orientations are nonzero, then we can easily determine whether segments Pi Pz
+and P3P4q intersect, as follows. Segment P; Pz straddles the line containing seg-
+ment PP if directed segments 73); and 3/3 have opposite orientations relative
+to D3p4. In this case, the signs of d; and d, differ. Similarly, D3pq straddles
+the line containing Pj Po if the signs of d3 and d, differ. If the test of line 5 is
+true, then the segments straddle each other, and SEGMENTS-INTERSECT returns
+TRUE. Figure 33.3(a) shows this case. Otherwise, the segments do not straddle
+

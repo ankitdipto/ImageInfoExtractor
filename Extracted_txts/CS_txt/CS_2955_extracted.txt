@@ -1,0 +1,50 @@
+Problems for Chapter 17 475
+
+We shall first analyze the structural modifications when only insertions are per-
+formed. Let T be a red-black tree, and define ®(7) to be the number of red nodes
+in T. Assume that | unit of potential can pay for the structural modifications per-
+formed by any of the three cases of RB-INSERT-FIXUP.
+
+c. Let T’ be the result of applying Case 1 of RB-INSERT-FIXuP to 7. Argue that
+O(T’) = O(T)—1.
+
+d. When we insert a node into a red-black tree using RB-INSERT, we can break
+the operation into three parts. List the structural modifications and potential
+changes resulting from lines 1-16 of RB-INSERT, from nonterminating cases
+of RB-INSERT-FIXuP, and from terminating cases of RB-INSERT-FIXUP.
+
+e. Using part (d), argue that the amortized number of structural modifications per-
+formed by any call of RB-INSERT is O(1).
+
+We now wish to prove that there are O(m) structural modifications when there are
+both insertions and deletions. Let us define, for each node x,
+
+0 ifxisred,
+
+1 if x is black and has no red children ,
+
+0. if x is black and has one red child ,
+
+2. if x is black and has two red children .
+
+w(x) =
+
+Now we redefine the potential of a red-black tree T as
+
+OT) = Yo w(x),
+
+xeT
+and let T’ be the tree that results from applying any nonterminating case of RB-
+INSERT-FIXUP or RB-DELETE-FIXuP to T.
+
+f. Show that ®(7’) < ®(T) — 1 for all nonterminating cases of RB-INSERT-
+Fixup. Argue that the amortized number of structural modifications performed
+by any call of RB-INSERT-FIxuP is O(1).
+
+g. Show that ®(T’) < ®(T) — | for all nonterminating cases of RB-DELETE-
+Fixup. Argue that the amortized number of structural modifications performed
+by any call of RB-DELETE-FIXUP is O(1).
+
+h. Complete the proof that in the worst case, any sequence of m RB-INSERT and
+RB-DELETE operations performs O(m) structural modifications.
+

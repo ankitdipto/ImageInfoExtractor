@@ -1,0 +1,76 @@
+11.2. Hash tables 257
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 11.3 Collision resolution by chaining, Each hash-table slot T[j] contains a linked list of
+all the keys whose hash value is j. For example, h(k1) = h(k4) and h(ks) = h(k7) = h(k2).
+The linked list can be either singly or doubly linked; we show it as doubly linked because deletion is
+faster that way.
+
+There is one hitch: two keys may hash to the same slot. We call this situation
+a collision. Fortunately, we have effective techniques for resolving the conflict
+created by collisions.
+
+Of course, the ideal solution would be to avoid collisions altogether. We might
+try to achieve this goal by choosing a suitable hash function h. One idea is to
+make /) appear to be “random,” thus avoiding collisions or at least minimizing
+their number. The very term “to hash,” evoking images of random mixing and
+chopping, captures the spirit of this approach. (Of course, a hash function / must be
+deterministic in that a given input k should always produce the same output /i(k).)
+Because |U| > m, however, there must be at least two keys that have the same hash
+value; avoiding collisions altogether is therefore impossible. Thus, while a well-
+designed, “random”-looking hash function can minimize the number of collisions,
+we still need a method for resolving the collisions that do occur.
+
+The remainder of this section presents the simplest collision resolution tech-
+nique, called chaining. Section 11.4 introduces an alternative method for resolving
+collisions, called open addressing.
+
+Collision resolution by chaining
+
+In chaining, we place all the elements that hash to the same slot into the same
+linked list, as Figure 11.3 shows. Slot j contains a pointer to the head of the list of
+all stored elements that hash to /; if there are no such elements, slot 7 contains NIL.
+

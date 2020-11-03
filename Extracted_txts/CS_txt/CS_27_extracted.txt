@@ -1,0 +1,50 @@
+662
+
+Chapter 24 Single-Source Shortest Paths
+
+queue by taking advantage of the vertices being numbered | to |V|. We simply
+store v.d in the vth entry of an array. Each INSERT and DECREASE-KEY operation
+takes O(1) time, and each EXTRACT-MIN operation takes O(V) time (since we
+have to search through the entire array), for a total time of O(V? + E) = O(V?).
+
+If the graph is sufficiently sparse—in particular, E = o(V?/lgV)—we can
+improve the algorithm by implementing the min-priority queue with a binary min-
+heap. (As discussed in Section 6.5, the implementation should make sure that
+vertices and corresponding heap elements maintain handles to each other.) Each
+EXTRACT-MIN operation then takes time O(lg V). As before, there are |V| such
+operations. The time to build the binary min-heap is O(V). Each DECREASE-KEY
+operation takes time O(lg V), and there are still at most | £| such operations. The
+total running time is therefore O((V + E) lg V), which is O(E lg V) if all vertices
+are reachable from the source. This running time improves upon the straightfor-
+ward O(V)-time implementation if E = o(V?/Ig V).
+
+We can in fact achieve a running time of O(V lg V + E) by implementing the
+min-priority queue with a Fibonacci heap (see Chapter 19). The amortized cost
+of each of the |V| ExTRACT-MIN operations is O(lg V), and each DECREASE-
+Key call, of which there are at most |£|, takes only O(1) amortized time. His-
+torically, the development of Fibonacci heaps was motivated by the observation
+that Dijkstra’s algorithm typically makes many more DECREASE-KEY calls than
+EXTRACT-MIN calls, so that any method of reducing the amortized time of each
+DECREASE-KEY operation to o(lg V) without increasing the amortized time of
+EXTRACT-MIN would yield an asymptotically faster implementation than with bi-
+nary heaps.
+
+Dijkstra’s algorithm resembles both breadth-first search (see Section 22.2) and
+Prim’s algorithm for computing minimum spanning trees (see Section 23.2). It is
+like breadth-first search in that set S corresponds to the set of black vertices in a
+breadth-first search; just as vertices in S have their final shortest-path weights, so
+do black vertices in a breadth-first search have their correct breadth-first distances.
+Dijkstra’s algorithm is like Prim’s algorithm in that both algorithms use a min-
+priority queue to find the “lightest” vertex outside a given set (the set S in Dijkstra’s
+algorithm and the tree being grown in Prim’s algorithm), add this vertex into the
+set, and adjust the weights of the remaining vertices outside the set accordingly.
+
+Exercises
+
+243-1
+
+Run Dijkstra’s algorithm on the directed graph of Figure 24.2, first using vertex 5
+as the source and then using vertex z as the source. In the style of Figure 24.6,
+show the d and z values and the vertices in set S after each iteration of the while
+loop.
+

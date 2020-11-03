@@ -1,0 +1,67 @@
+404
+
+Chapter 13 Planning and Acting
+
+ 
+
+plan in the light of unexpected changes in the environment, which might include recovering from
+execution errors or removing steps that have been made redundant by serendipitous occurrences.
+Obviously, when it first gets a new goal the agent will have no actions ready to execute, so it
+will spend a while generating a partial plan. It is quite possible, however, for the agent to begin
+execution before the plan is complete, especially when it has independent subgoals to achieve
+The situated agent continuously monitors the world, updating its world model from new percepts
+even if its deliberations are still continuing.
+
+As in the discussion of the conditional planner, we will first go through an example and
+then give the planning algorithm. We will keep to the formulation of steps and plans used by
+the partial-order planner POP, rather than the more expressive languages used in Chapter 12. It
+is, of course, possible to incorporate more expressive languages, as well as conditional planning
+techniques, into a situated planner.
+
+The example we will use is a version of the blocks world. The start state is shown in
+Figure 13.10(a), and the goal is On(C.D) A On(D,B). The action we will need is Move(x,y),
+which moves blockx onto blocky, provided both are clear. Its action schema is
+
+Op(ACTION:Move(x, ¥),
+
+PRECOND:Clear(x)A Clear(yyA On(x.z),
+EFFECT: On(x,y) A Clear(z)A 7On(x, 2A Clear(y))
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 13.10 The sequence of states as the situated planning agent tries to reach the goal state
+On(C, D) A On(D,B) as shown in (d). The start state is (a). At (b), another agent has interfered,
+putting D on B. At(c), the agenthas executed Move(C,D) but has failed, dropping C on A instead.
+Itretries Move(C, D),reaching the goal state (4).
+
+ 
+
+ 
+
+ 
+
+The agent first constructs the plan shown in Figure 13.11. Notice that although the
+preconditions of both actions are satisfied by the initial state, there is an ordering constraint
+
+putting Move(D, B)before Move(C, D). This is needed to protect the condition Clear(D) until 4
+
+Move(D,B) is completed.
+At this point, the plan is ready to be executed, but nature intervenes. An external agent
+moves D onto B (perhaps the agent's teacher getting impatient), and the world is now in the state
+
+shown in Figure 13.10(b). Now Clear(B) and On(D,G)are no longer true in the initial state, 4
+
+which is updated from the new percept. The causal links that were supplying the preconditions
+
+Clear(Byand On(D, G) for the Move(D,B) action become invalid, and must be removed from the 4
+
+plan. The new plan is shown in Figure 13.12. Notice that two ofthe preconditions for Move(D,B)
+
+ 
+

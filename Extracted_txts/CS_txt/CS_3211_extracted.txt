@@ -1,0 +1,77 @@
+572
+
+Chapter 19. Learning in Neural and Belief Networks
+
+ 
+
+   
+
+NONLINEAR
+REGRESSION
+
+NERFS
+
+ 
+
+~]
+
+Was
+
+ 
+
+Ws
+
+ 
+
+ 
+
+ 
+
+Figure 19.7 A very simple, two-layer, feed-forward network with two inputs, two hidden
+nodes, and one output node.
+
+ 
+
+ 
+
+ 
+
+think of the weights as parameters or coefficients of this function, then Jearning just becomes a
+process of tuning the parameters to fit the data in the training set—a process that statisticians
+call nonlinear regression. From the statistical viewpoint, this is what neural networks do.
+
+Optimal network structure
+
+So far we have considered networks with a fixed structure, determined by some outside authority.
+This is a potential weak point, because the wrong choice of network structure can lead to poor
+performance. If we choose a network that is too small, then the model will be incapable of
+representing the desired function. If we choose a network that is too big, it will be able to
+memorize all the examples by forming a large lookup table, but will not generalize well to inputs
+that have not been seen before. In other words, like all statistical models, neural networks are
+subject to overfitting when there are too many parameters (i.c., weights) in the model. We saw
+this in Figure 18.2 (page 530), where the high-parameter models (b) and (c) fit all the data, but
+may not generalize as well as the low-parameter model (d).
+
+It is known that a feed-forward network with one hidden layer can approximate any
+continuous function of the inputs, and a network with two hidden layers can approximate any
+function at all. However, the number of units in each layer may grow exponentially with the
+number of inputs. As yet, we have no good theory to characterize NERFs, or Network Efficiently
+Representable Functions—functions that can be approximated with a small number of units.
+
+We can think of the problem of finding a good network structure as a search problem. One
+approach that has been used is to use a genetic algorithm (Chapter 20) to search the space of
+network structures. However, this is a very large space, and evaluating a state in the space means
+running the whole neural network training protocol, so this approach is very CPU-intensive.
+Therefore, it is more common to see hill-climbing searches that selectively modify an existing
+network structure. There are two ways to do this: start with a big network and make it smaller,
+or start with a small one and make it bigger.
+
+The zip code reading network described on page 586 uses an approach called optimal
+brain damage to remove weights from the initial fully-connected model. After the network is
+
+ 
+
+eT ee
+
+ 
+

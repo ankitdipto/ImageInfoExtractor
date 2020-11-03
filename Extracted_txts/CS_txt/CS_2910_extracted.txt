@@ -1,0 +1,61 @@
+438
+
+Chapter 16 Greedy Algorithms
+
+Theorem 16.5
+If G = (V, E) is an undirected graph, then Mg = (Sg, Ig) is a matroid.
+
+Proof Clearly, Sg = E isa finite set. Furthermore, Ig is hereditary, since a
+subset of a forest is a forest. Putting it another way, removing edges from an
+acyclic set of edges cannot create cycles.
+
+Thus, it remains to show that Mg satisfies the exchange property. Suppose that
+G4 = (V,A) and Gg = (V, B) are forests of G and that |B| > |A]. That is, A
+and B are acyclic sets of edges, and B contains more edges than A does.
+
+We claim that a forest F = (Vr. Ef) contains exactly |Vp| — |Er| trees. To
+see why, suppose that F consists of t trees, where the ith tree contains v; vertices
+and e; edges. Then, we have
+
+t
+Le
+
+i=l
+
+ 
+
+|Er|
+
+t
+— Yo —1) (by Theorem B.2)
+
+i=l
+
+t
+= ovat
+
+i=l
+
+= |Vel—t,
+
+which implies that f = |Vr| —|EF|. Thus, forest G4 contains |V| — | A| trees, and
+forest Gg contains |V| — |B| trees.
+
+Since forest Gg has fewer trees than forest G4 does, forest Gg must contain
+some tree T whose vertices are in two different trees in forest G4. Moreover,
+since T is connected, it must contain an edge (u,v) such that vertices u and v
+are in different trees in forest G4. Since the edge (u,v) connects vertices in two
+different trees in forest G4, we can add the edge (wu, v) to forest G4 without creating
+acycle. Therefore, Mg satisfies the exchange property, completing the proof that
+Mg isa matroid. .
+
+Given a matroid M = (S, I), we call an element x ¢ A an extension of A € I
+if we can add x to A while preserving independence; that is, x is an extension
+of A if A U {x} € I. As an example, consider a graphic matroid Mg. If A is an
+independent set of edges, then edge e is an extension of A if and only if e is not
+in A and the addition of e to A does not create a cycle.
+
+If A is an independent subset in a matroid M, we say that A is maximal if it has
+no extensions. That is, A is maximal if it is not contained in any larger independent
+subset of M. The following property is often useful.
+

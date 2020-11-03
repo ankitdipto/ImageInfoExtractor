@@ -1,0 +1,55 @@
+744
+
+Chapter 26 Maximum Flow
+
+Proof Foran overflowing vertex x, let U = {v : there exists a simple path from x
+to v in Gr}, and suppose for the sake of contradiction that s ¢ U. Let U = V—U.
+
+We take the definition of excess from equation (26.14), sum over all vertices
+in U, and note that V = U UU, to obtain
+
+Dew
+=> (Sro- > so.»
+
+ 
+
+ucU \vev veV
+
+=> ((x f(vw) + Eso] - (Sem + sw.)
+uceU veU veU veU veU
+
+= VV FO. + VV FO - VOY Fa) - OY fw)
+ueU veU ueU veU ueU veU ueU veU
+
+= VY row -V Ye few.
+ueU ve ueU ve
+
+We know that the quantity }*,,<y ¢(u) must be positive because e(x) > 0, x € U,
+all vertices other than s have nonnegative excess, and, by assumption, s ¢ U. Thus,
+we have
+
+LYE fo. - YOY fur) > 0. (26.17)
+ucU ve ueU veU
+
+All edge flows are nonnegative, and so for equation (26.17) to hold, we must have
+Muev Vex f(v.u) > 0. Hence, there must exist at least one pair of vertices
+wu’ € U and v’ € U with f(v’,w’) > 0. But, if f(v',u’) > 0, there must be a
+residual edge (u’, v’), which means that there is a simple path from x to v’ (the
+path x ~+ u’ — v’), thus contradicting the definition of U. .
+
+The next lemma bounds the heights of vertices, and its corollary bounds the
+number of relabel operations that are performed in total.
+
+Lemma 26.20
+
+Let G = (V, E) be a flow network with source s and sink ¢. At any time during
+the execution of GENERIC-PUSH-RELABEL on G, we have u.h < 2|V|—1 for all
+vertices u € V.
+
+Proof The heights of the source s and the sink ¢ never change because these
+vertices are by definition not overflowing. Thus, we always have s.h = |V| and
+t.h = 0, both of which are no greater than 2|V| — 1.
+
+Now consider any vertex u € V —{s, f}. Initially, u.h = 0 < 2|V|—1. We shall
+show that after each relabeling operation, we still have u.h < 2|V|—1. When w is
+

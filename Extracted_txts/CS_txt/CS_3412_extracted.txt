@@ -1,0 +1,54 @@
+752
+
+Chapter 24. Perception
+
+ 
+
+GENERALIZED
+‘LINDERS
+
+First, let us consider the representation problem. The two most popular representations of
+3-D objects in computer vision have been polyhedral approximations and generalized cylinders.
+Polyhedral descriptions are general, but they get painfully long if a high accuracy is desired
+in modeling curved objects. They are also very cumbersome for users to input. Generalized
+cylinders (Figure 24.26) provide compact descriptions for a wide class of objects and have been
+used in a number of object recognition systems.
+
+A generalized cylinder is defined by a planar cross section, an axis (which may be curved),
+and a sweeping rule which describes how the cross section changes along the axis. Many shapes
+can be built up using generalized cylinders as parts. Generalized cylinders are not always ideal
+for representing arbitrary objects; the object may have to be decomposed into many parts, each of
+which is a generalized cylinder. In such situations, there can be many alternative decompositions
+into parts with each part describable as a generalized cylinder in several ways. This leads to
+difficulties at matching time. In general, the problem of effective shape representation for curved
+objects is largely unsolved.
+
+ 
+
+ 
+
+ 
+
+Figure 24.26 Some examples of generalized cylinders. Each of these shapes has a principal
+axis and a planar cross-section whose dimensions may vary along the axis.
+
+ 
+
+ 
+
+ 
+
+The alignment method
+
+We wi 11 consider one particular version ofthe problem in greater detail—we are asked to identify a
+three-dimensional object from its projection on the image plane. For convenience, the projection
+process is modelled as a scaled orthographic projection. We do not know the pose of the
+object—its position and orientation with respect to the camera.
+
+The object is represented by a set of m features or distinguished points (1, #2,--+>/4m in
+three-dimensional space—perhaps vertices for a polyhedral object. These are measured in some
+coordinate system natural for the object. The points are then subjected to an unknown 3-D
+rotation R, followed by translation by unknown amount t and projection to give rise to image
+
+ 
+

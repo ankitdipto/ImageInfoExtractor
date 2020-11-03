@@ -1,0 +1,46 @@
+1008
+
+Chapter 32 String Matching
+
+its corollary to prove that COMPUTE-PREFIX-FUNCTION computes zt[q] correctly
+forg > 1.
+
+Lemma 32.6
+Let P be a pattern of length m, and let be the prefix function for P. For gq =
+1,2,...,m, if x[g] > 0, then x[g]—1 € 2*[g —1].
+
+Proof Letr = [q] > 0, so that r < q and P, 3 Pj; thus, r — 1 < q —1 and
+P,-; I Pg; (by dropping the last character from P, and Py, which we can do
+because r > 0). By Lemma 32.5, therefore, r— 1 € 2*[q — 1]. Thus, we have
+w(gj-l=r—lexn*[q-l. 7
+
+For q = 2,3,..., m, define the subset E,_; € m*[q — 1] by
+Eq = tk €n*[q—1]: P[k +1) = Pla}}
+= {kik <q —lJand Py 5 Py; and P[k + 1] = P[q]} (by Lemma 32.5)
+= {kik <q —lJand Pex, 3 Py}.
+The set E,_, consists of the values k < gq —1 for which P, 3 Pg_; and for which,
+because P[k + 1] = Plq], we have Py4, I Py. Thus, Ey-, consists of those
+
+values k € *[q — 1] such that we can extend Px, to Py; and get a proper suffix
+of Py.
+
+Corollary 32.7
+Let P be a pattern of length m, and let be the prefix function for P. For gq =
+2,3,....m,
+0 if Ey = 9.
+{q) = .
+l+max{k € Ey1} if Ey. #9.
+
+Proof If Eq—1 is empty, there is no k € 1*[q — 1] (including k = 0) for which
+we can extend Px to P4, and get a proper suffix of P,. Therefore x[q] = 0.
+
+If Eg—1 is nonempty, then for each k € Ey_; we have k +1 <q and Py4, 3 Po.
+Therefore, from the definition of [q], we have
+m[q] = 1 + max {k € Ey} . (32.8)
+Note that z[g] > 0. Let r = z[q] — 1, so that r +1 = z[g] and there-
+fore Py+; 3 Py. Since r+ 1 > 0, we have P[r + 1] = P[q]. Furthermore,
+by Lemma 32.6, we have r € m*[q — 1]. Therefore, r € Ey, and sor <
+max {k € E,_1} or, equivalently,
+mq] < 1+ max {k € Ey4} . (32.9)
+Combining equations (32.8) and (32.9) completes the proof. .
+

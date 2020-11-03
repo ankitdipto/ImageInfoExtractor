@@ -1,0 +1,50 @@
+6.4 Multiple-Processor Scheduling 169
+
+The definition of a multilevel feedback queue scheduler makes it the most
+general CPU-scheduling algorithm. It can be configured to match a specific
+system under design. Unfortunately, it also requires some means of selecting
+values for all the parameters to define the best scheduler. Although a multilevel
+feedback queue is the most general scheme, it is also the most complex.
+
+6.4 = Multiple-Processor Scheduling
+
+Our discussion thus far has focused on the problems of scheduling the CPU in
+a system with a single processor. If multiple CPUs are available, the scheduling
+problem is correspondingly more complex. Many possibilities have been tried,
+and, as we saw with single-processor CPU scheduling, there is no one best
+solution. In the following, we discuss briefly some of the issues concerning
+multiprocessor scheduling. (Complete coverage of multiprocessor scheduling
+is beyond the scope of this text; for more information, please refer to the Biblio-
+graphical Notes.) We concentrate on systems where the processors are identical
+(or homogeneous) in terms of their functionality; any available processor can
+then be used to run any processes in the queue. We also assume uniform
+memory access (UMA). In Chapters 15 through 17 we discuss systems where
+processors are different (a heterogeneous system). Only programs compiled
+for a given processor's instruction set could be run on that processor.
+
+Even within a homogeneous multiprocessor, there are sometimes limita-
+tions on scheduling. Consider a system with an I/O device attached to a private
+bus of one processor. Processes wishing to use that device must be scheduled
+to run on that processor, otherwise the device would not be available.
+
+If several identical processors are available, then load sharing can occur. It
+would be possible to provide a separate queue for each processor. In this case,
+however, one processor could be idle, with an empty queue, while another
+processor was very busy. To prevent this situation, we use a common ready
+queue. All processes go into one queue and are scheduled onto any available
+processor.
+
+In such a scheme, one of two scheduling approaches may be used. In
+one approach, each processor is self-scheduling. Each processor examines
+the common ready queue and selects a process to execute. As we shall see
+in Chapter 7, if we have multiple processors trying to access and update a
+common data structure, each processor must be programmed very carefully.
+We must ensure that two processors do not choose the same process, and that
+processes are not lost from the queue. The other approach avoids this problem
+by appointing one processor as scheduler for the other processors, thus creating
+a master-slave structure.
+
+Some systems carry this structure one step further, by having all scheduling
+decisions, I/O processing, and other system activities handled by one single
+processor—the master server. The other processors only execute user code.
+

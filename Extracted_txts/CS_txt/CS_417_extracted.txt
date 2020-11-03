@@ -1,0 +1,47 @@
+31.9 Integer factorization 979
+
+the sequence is a smaller version of what is happening modulo n:
+Xj41 = Xi+1 mod p
+JSn(xi) mod p
+((x? — 1) mod n) mod p
+(x? — 1) mod p (by Exercise 31.1-7)
+((4; mod p)? — 1) mod p
+= ((x})? —1) mod p
+= folx)-
+Thus, although we are not explicitly computing the sequence (x;), this sequence is
+well defined and obeys the same recurrence as the sequence (xj).
+
+Reasoning as before, we find that the expected number of steps before the se-
+quence (x;) repeats is @(,/P). If p is small compared to n, the sequence (x;) might
+repeat much more quickly than the sequence (x;). Indeed, as parts (b) and (c) of
+Figure 31.7 show, the (x/) sequence repeats as soon as two elements of the se-
+quence (x;) are merely equivalent modulo p, rather than equivalent modulo n.
+
+Let ¢ denote the index of the first repeated value in the (x;) sequence, and let
+u > 0 denote the length of the cycle that has been thereby produced. That is, ¢
+and u > 0 are the smallest values such that x}; = X}4,4; for alli > 0. By the
+above arguments, the expected values of ¢ and w are both @(,/p). Note that if
+Xai = Xauss then p | (Xrtu4i — Xr4i). Thus, ged(Qtrputi — X41.) > 1.
+
+Therefore, once POLLARD-RHO has saved as y any value x, such that k > f,
+then y mod p is always on the cycle modulo p. (If a new value is saved as y,
+that value is also on the cycle modulo p.) Eventually, k is set to a value that
+is greater than u, and the procedure then makes an entire loop around the cycle
+modulo p without changing the value of y. The procedure then discovers a factor
+of n when x; “runs into” the previously stored value of y, modulo p, that is, when
+x; =y (mod p).
+
+Presumably, the factor found is the factor p, although it may occasionally hap-
+pen that a multiple of p is discovered. Since the expected values of both f and u are
+©(./P), the expected number of steps required to produce the factor p is O(/P).
+
+This algorithm might not perform quite as expected, for two reasons. First, the
+heuristic analysis of the running time is not rigorous, and it is possible that the cycle
+of values, modulo p, could be much larger than ,/P. In this case, the algorithm
+performs correctly but much more slowly than desired. In practice, this issue seems
+to be moot. Second, the divisors of n produced by this algorithm might always be
+one of the trivial factors 1 or n. For example, suppose that n = pg, where p
+and q are prime. It can happen that the values of f and u for p are identical with
+the values of ¢ and u for qg, and thus the factor p is always revealed in the same
+ged operation that reveals the factor g. Since both factors are revealed at the same
+

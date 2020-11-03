@@ -1,0 +1,57 @@
+Section 8.6.
+
+Summary 259
+
+ 
+
+modal logic to reason about computer programs. Soon thereafter, Vaughan Pratt (1976) designed
+dynamic logic, in which modal operators indicate the effects of programs or other actions. For
+instance, in dynamic logic, ifa is the name ofa program, then “[a]p” might mean “p would
+be true in all world states resulting from executing program a in the current world state", and
+"(a)p” might mean “pwould be true in at least one world state resulting from executing program
+« in the current world state." Dynamic logic was applied to the actual analysis of programs by
+Fischer and Ladner (1977). Pnueli (1977) introduced the idea of using classical temporal logic
+to reason about programs. Shoham (1988) discusses the use of temporal logic in AI
+
+Despite the long history of temporal logic, the considerable mathematical theory built up
+around it, and its extensive use in other branches of computer science, AI research on temporal
+reasoning has more often taken a different approach. A temporal logic is usually conceptualized
+around an underlying model involving events, world states, or temporal intervals. The tendency
+in AI has been to refer to these events, states, and intervals directly, using terms that denote
+them, rather than indirectly through the interpretation of the sentence operators of temporal
+logic. The language used is typically either first-order logic or, in some cases, a restricted
+algebraic formalism geared toward efficient computation (but still capable of being embedded
+within first-order logic). This approach may allow for greater clarity and flexibility in some cases.
+Also, temporal knowledge expressed in first-order logic can be more easily integrated with other
+knowledge that has been accumulated in that notation.
+
+One of the earliest formalisms of this kind was McCarthy's situation calculus, mentioned
+in Chapter 7. McCarthy (1963) introduced situational fluents and made extensive use of them
+in later papers. Recent work by Raymond Reiter (1991) and others in the "cognitive robotics"
+project at the University of Toronto (Scherl and Levesque, 1993) has re-emphasized the use
+of situation calculus for knowledge representation. The relationship between temporal logic
+and situation calculus was analyzed by McCarthy and Hayes (1969). They also brought to
+the attention of AI researchers the work of philosophers such as Donald Davidson on events.
+Davidson's research, collected in (Davidson, 1980), had a heavy emphasis on the analysis
+of natural language, particularly of the adverb. It has strongly influenced later AI research,
+particularly in natural language understanding. Other philosophical and linguistic approaches to
+events that are of significance for AI research are those of Zeno Vendler (1967; 1968), Alexander
+Mourelatos (1978), and Emmon Bach (1986)
+
+James Alien's introduction of time intervals, and a small, fixed set ofrelationships between
+them, as the primitives for reasoning about time (Alien, 1983; Alien, 1984) marked a major
+advance over situation calculus and other systems based on time points or instantaneous events.
+Preliminary versions of Alien's work were available as technical reports as early as 1981. Peter
+Ladkin (1986a; 1986b) introduced "concave" time intervals (intervals with gaps; essentially,
+unions ofordinary "convex" time intervals) and applied the techniques of mathematical abstract
+algebra to time representation. Alien (1991) systematically investigates the wide variety of
+techniques currently available for time representation. Shoham (1987) describes the reification
+of events and sets forth a novel scheme of his own for the purpose. The term "event calculus"
+is also used by Kowalski and Sergot (1986), who show how to reason about events in a logic
+programming system.
+
+The syntactic theory of mental objects was first studied in depth by Kaplan and Mon-
+tague (1960), who showed that it led to paradoxes if not handled carefully. Because it has a
+
+ 
+

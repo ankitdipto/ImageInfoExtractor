@@ -1,0 +1,48 @@
+608
+
+Chapter 22. Elementary Graph Algorithms
+
+Proof We begin with the case in which u.d < v.d. We consider two subcases,
+according to whether v.d < u.f or not. The first subcase occurs when v.d < u.f,
+so v was discovered while u was still gray, which implies that v is a descendant
+of u. Moreover, since v was discovered more recently than uv, all of its outgo-
+ing edges are explored, and v is finished, before the search returns to and fin-
+ishes u. In this case, therefore, the interval [v.d, v./] is entirely contained within
+the interval [u.d,u.f]. In the other subcase, u.f < v.d, and by inequality (22.2),
+u.d <u.f <v.d < vf; thus the intervals [u.d, u.f] and [v.d, v.f] are disjoint.
+Because the intervals are disjoint, neither vertex was discovered while the other
+was gray, and so neither vertex is a descendant of the other.
+
+The case in which v.d < u.d is similar, with the roles of u and v reversed in the
+above argument. .
+
+Corollary 22.8 (Nesting of descendants’ intervals)
+Vertex v is a proper descendant of vertex u in the depth-first forest for a (directed
+or undirected) graph G if and only if u.d < v.d<v.f <uf.
+
+Proof Immediate from Theorem 22.7. .
+
+The next theorem gives another important characterization of when one vertex
+is a descendant of another in the depth-first forest.
+
+Theorem 22.9 (White-path theorem)
+
+In a depth-first forest of a (directed or undirected) graph G = (V, E), vertex v is
+a descendant of vertex u if and only if at the time u.d that the search discovers u,
+there is a path from u to v consisting entirely of white vertices.
+
+Proof =: If v = u, then the path from u to v contains just vertex u, which is still
+white when we set the value of u.d. Now, suppose that v is a proper descendant
+of u in the depth-first forest. By Corollary 22.8, u.d < v.d, and so v is white at
+time u.d. Since v can be any descendant of u, all vertices on the unique simple
+path from u to v in the depth-first forest are white at time u.d.
+
+<=: Suppose that there is a path of white vertices from wu to v at time u.d, but v
+does not become a descendant of u in the depth-first tree. Without loss of general-
+ity, assume that every vertex other than v along the path becomes a descendant of wu.
+(Otherwise, let v be the closest vertex to u along the path that doesn’t become a de-
+scendant of u.) Let w be the predecessor of v in the path, so that w is a descendant
+of u (w and u may in fact be the same vertex). By Corollary 22.8, w.f < u.f. Be-
+cause v must be discovered after u is discovered, but before w is finished, we have
+u.d < v.d < w.f < u.f. Theorem 22.7 then implies that the interval [v.d, v./]
+

@@ -1,0 +1,58 @@
+Exercises 449
+
+Network file systems, such as NFS, use client-server methodology to allow
+users to access files and directories from remote machines as if they were on
+local file systems. System calls on the client are translated into network pro-
+tocols, and retranslated into file-system operations on the server. Networking
+and multiple-client access create challenges in the areas of data consistency and
+performance.
+
+Due to the fundamental role that file systems play in system operation, their
+performance and reliability is crucial. Techniques such as log structures and
+caching help improve the performance, while log structures and RAID improve
+reliability.
+
+= Exercises
+
+12.1
+
+12.2
+
+12.3
+
+12.4
+
+Consider a file currently consisting of 100 blocks. Assume that the
+FCB (and the index block, in the case of indexed allocation) is already
+in memory. Calculate how many disk I/O operations are required for
+contiguous, linked, and indexed (single-level) allocation strategies, if, for
+one block, the following conditions hold. In the contiguous-allocation
+case, assume that there is no room to grow in the beginning, but room to
+grow in the end. Assume that the block information to be added is stored
+in memory.
+
+a. The block is added at the beginning.
+. The block is added in the middle.
+. The block is added at the end.
+
+c.
+d. The block is removed from the beginning.
+
+o
+
+e. The block is removed from the middle.
+f. The block is removed from the end.
+Consider a system where free space is kept in a free-space list.
+
+a. Suppose that the pointer to the free-space list is lost. Can the system
+reconstruct the free-space list? Explain your answer.
+
+b. Suggest a scheme to ensure that the pointer is never lost as a result
+of memory failure.
+
+What problems could occur if a system allowed a file system to be
+mounted simultaneously at more than one location?
+
+Why must the bit map for file allocation be kept on mass storage, rather
+than in main memory?
+

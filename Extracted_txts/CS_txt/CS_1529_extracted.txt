@@ -1,0 +1,67 @@
+2.6
+
+2.7
+
+2.8
+
+29
+
+2.10
+
+Exercises 53
+
+a. Set value of timer.
+
+b. Read the clock.
+
+c. Clear memory.
+
+d. Turn off interrupts.
+
+e. Switch from user to monitor mode.
+
+Some computer systems do not provide a privileged mode of operation in
+hardware. Is it possible to construct a secure operating system for these
+computers? Give arguments both that it is and that it is not possible.
+
+Some early computers protected the operating system by placing it in a
+memory partition that could not be modified by either the user job or the
+operating system itself. Describe two difficulties that you think could arise
+with such a scheme.
+
+Protecting the operating system is crucial to ensuring that the computer
+system operates correctly. Provision of this protection is the reason for
+dual-mode operation, memory protection, and the timer. To allow max-
+imum flexibility, however, you should also place minimal constraints on
+the user.
+
+The following is a list of instructions that are normally protected. What
+is the minimal set of instructions that must be protected?
+
+. Change to user mode.
+
+sf
+
+. Change to monitor mode.
+
+. Read from monitor memory.
+
+aoa
+
+. Write into monitor memory.
+
+e. Fetch an instruction from monitor memory.
+f, Turn on timer interrupt.
+
+g. Turn off timer interrupt.
+
+Give two reasons why caches are useful. What problems do they solve?
+What problems do they cause? If a cache can be made as large as the
+device for which it is caching (for instance, a cache as large as a disk), why
+not make it that large and eliminate the device?
+
+Writing an operating system that can operate without interference from
+malicious or undebugged user programs requires hardware assistance.
+Name three hardware aids for writing an operating system, and describe
+how they could be used together to protect the operating system.
+

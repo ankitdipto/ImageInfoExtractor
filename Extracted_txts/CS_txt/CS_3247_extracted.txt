@@ -1,0 +1,82 @@
+Section 20.3.
+
+Passive Learning in an Unknown Environment 605
+
+ 
+
+function TD-UPDATE(U, ¢, percepts, M, N) returns the utility table U
+
+if TERMINAL%e] then
+
+U[STATE[e]] — RUNNING-AVERAGE(U[STATE[e]], REWARD[e], N[StaTE[e])
+else ifpercepts contains more than one element then
+
+e' — the penultimate element ofpercepts
+
+4, j — STATE[e"], STATE|e]
+
+Uli] — Uli]+ a(Nf(Rewarple’] + UL Ul
+
+ 
+
+ 
+
+Figure 20.6 An algorithm for updating utility estimates using temporal differences.
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+| a 79 4 06
+05}
+05 4 : ! =
+% } z
+2 Phy + -G.3)) 3
+3 : 3) ) € :
+B Ob ws "% mi °
+2 i, 5
+4 <1.0| Zor:
+' : . a OD]
+” (4.1) ol
+- (4.2) 6 L
+0 200 400 600 800 1000 0 200 400 600 800 1000
+‘Number of epochs Number of epochs
+(@) (b)
+
+ 
+
+ 
+
+Figure 20.7 The TD learning curves for the 4 x 3 world. (a) The utility estimates of the states
+over time. (b) The RMS error compared to the correct values.
+
+ 
+
+ 
+
+ 
+
+20.3 PASSIVE LEARNING IN AN UNKNOWN ENVIRONMENT
+
+The previous section dealt with the case in which the environment model © is already known.
+Notice that of the three approaches, only the dynamic programming method used the model in full
+TD uses information about connectedness of states, but only from the current training sequence
+(As we mentioned before, all utility-learning methods will use the model during subsequent action
+selection.) Hence LMS and TD will operate unchanged in an initially unknown environment.
+The adaptive dynamic programming approach simply adds a step to PAssIvE-RL-AGENT
+that updates an estimated model of the environment. Then the estimated model is used as the
+basis fora dynamic programming phase to calculate the corresponding utility estimates after each
+observation. As the environment model approaches the correct model, the utility estimates will,
+

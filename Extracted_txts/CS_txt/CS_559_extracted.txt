@@ -1,0 +1,50 @@
+1094
+
+Chapter 34 NP-Completeness
+
+([w, x, 6], [w, y. 1]) and ([w, y, 6], [w,z. 1]). For each vertex u € V, these edges
+in G’ fill in a path containing all widgets corresponding to edges incident on u
+inG.
+
+The intuition behind these edges is that if we choose a vertex u € V in the vertex
+cover of G, we can construct a path from [u,v 1] to [, “2°, 6] in G’ that
+“covers” all widgets corresponding to edges incident on u. That is, for each of these
+widgets, say W, ,«, the path either includes all 12 vertices (if u is in the vertex
+cover but uv is not) or just the six vertices [w, uw, 1], [u,u,2],..., [uu 6] Gf
+both w and uw“ are in the vertex cover).
+
+The final type of edge in E’ joins the first vertex [w, wv“), 1] and the last vertex
+for, tester), 6] of each of these paths to each of the selector vertices. That is, we
+include the edges
+
+{(s;,[u.w, 1): we Vand 1 <j <k}
+U{(s;. fu, ue") 6}) su eV andl <j <k}.
+
+Next, we show that the size of G’ is polynomial in the size of G, and hence we
+can construct G’ in time polynomial in the size of G. The vertices of G’ are those
+in the widgets, plus the selector vertices. With 12 vertices per widget, plus k < |V|
+selector vertices, we have a total of
+\V'| = 12|E|+k
+
+= BIE|+I|V|
+vertices. The edges of G’ are those in the widgets, those that go between widgets,
+and those connecting selector vertices to widgets. Each widget contains 14 edges,
+
+totaling 14 |Z| in all widgets. For each vertex u € V, graph G’ has degree(u) — 1
+edges going between widgets, so that summed over all vertices in V,
+
+Yo egree(u) — 1) = 2 |E|—|V|
+ueV
+edges go between widgets. Finally, G’ has two edges for each pair consisting of a
+selector vertex and a vertex of V, totaling 2k |V | such edges. The total number of
+edges of G’ is therefore
+|E"| (14 |E|) + (2 |E|—|V)) + (2k |V|)
+
+= 16|E|+(2k—-1)|V|
+
+< 16|E\+@2|Vj-DIV|.
+
+Now we show that the transformation from graph G to G’ is a reduction. That is,
+we must show that G has a vertex cover of size k if and only if G’ has a hamiltonian
+cycle.
+

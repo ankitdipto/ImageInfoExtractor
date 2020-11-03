@@ -1,0 +1,52 @@
+12.6 Efficiency and Performance 433,
+
+a simple disk address, the overall list will be shorter, as long as the count is
+generally greater than 1.
+
+12.6 = Efficiency and Performance
+
+Now that we have discussed the block-allocation and directory-management
+options, we can further consider their effect on performance and efficient disk
+use. Disks tend to be a major bottleneck in system performance, since they are
+the slowest main computer component. In this section, we discuss a variety
+of techniques used to improve the efficiency and performance of secondary
+storage.
+
+12.6.1 Efficiency
+
+The efficient use of disk space is heavily dependent on the disk allocation and
+directory algorithms in use. For instance, UNIX inodes are preallocated on a
+partition. Even an “empty” disk has a percentage of its space lost to inodes.
+However, by preallocating the inodes and spreading them across the partition,
+we improve the file system’s performance. This improved performance is a
+result of the UNIX allocation and free-space algorithms, which try to keep a
+file’s data blocks near that file’s inode block to reduce seek time.
+
+As another example, let us reconsider the clustering scheme discussed in
+Section 12.4, which aids in file-seek and file-transfer performance at the cost
+of internal fragmentation. To reduce this fragmentation, BSD UNIX varies the
+cluster size as a file grows. Large clusters are used where they can be filled, and
+small clusters are used for small files and the last cluster of a file. This system
+is described in Appendix A.
+
+The types of data normally kept in a file’s directory (or inode) entry also
+require consideration. Commonly, a “last write date” is recorded to supply
+information to the user and to determine whether the file needs to be backed
+up. Some systems also keep a “last access date,” so that a user can determine
+when the file was last read. The result of keeping this information is that,
+whenever the file is read, a field in the directory structure must be written to.
+This change requires the block to be read into memory, a section changed, and
+the block written back out to disk, because operations on disks occur only in
+block (or cluster) chunks. So, any time a file is opened for reading, its directory
+entry must be read and written as well. This requirement can be inefficient for
+frequently accessed files, so we must weigh its benefit against its performance
+cost when designing a file system. Generally, every data item associated with a
+file needs to be considered for its effect on efficiency and performance.
+
+Asan example, consider how efficiency is affected by the size of the pointers
+used to access data. Most systems use either 16- or 32-bit pointers throughout
+the operating system. These pointer sizes limit the length of a file to either 21°
+(64 KB) or 2” bytes (4 GB). Some systems implement 64-bit pointers to increase
+
+ 
+

@@ -1,0 +1,43 @@
+Problems for Chapter 26 761
+
+ 
+
+ 
+
+ 
+
+(a) (b)
+
+Figure 26.11 Grids for the escape problem. Starting points are black, and other grid vertices are
+white, (a) A grid with an escape, shown by shaded paths. (b) A grid with no escape.
+
+b. Describe an efficient algorithm to solve the escape problem, and analyze its
+running time.
+
+26-2 Minimum path cover
+
+A path cover of a directed graph G = (V, E) is a set P of vertex-disjoint paths
+such that every vertex in V is included in exactly one path in P. Paths may start
+and end anywhere, and they may be of any length, including 0. A minimum path
+cover of G is a path cover containing the fewest possible paths.
+
+a. Give an efficient algorithm to find a minimum path cover of a directed acyclic
+graph G = (V,£). (Hint: Assuming that V = {1,2,..., n}, construct the
+graph G’ = (V’, E’), where
+
+VO = fXo% etn} U Yor Dien Pf +
+El’ = {(x0.%1) 21 ©V}UL{Oi. Yo) 57 EV} U (OG. y/) (7) € E}
+
+and run a maximum-flow algorithm.)
+
+b. Does your algorithm work for directed graphs that contain cycles? Explain.
+
+26-3 Algorithmic consulting
+
+Professor Gore wants to open up an algorithmic consulting company. He has iden-
+tified n important subareas of algorithms (roughly corresponding to different por-
+tions of this textbook), which he represents by the set A = {Aj, Ap..... A,}. In
+each subarea Ax, he can hire an expert in that area for cx dollars. The consulting
+company has lined up a set J = {J1, J2,..., Jm} of potential jobs. In order to
+perform job J;, the company needs to have hired experts in a subset Rj © A of
+

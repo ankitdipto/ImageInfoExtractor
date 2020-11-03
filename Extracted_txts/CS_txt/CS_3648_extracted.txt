@@ -1,0 +1,44 @@
+ 
+
+(m)
+
+ 
+
+22.3 Depth-first search 605
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 22.4 The progress of the depth-first-search algorithm DFS on a directed graph. As edges
+are explored by the algorithm, they are shown as either shaded (if they are tree edges) or dashed
+(otherwise). Nontree edges are labeled B, C, or F according to whether they are back, cross, or
+forward edges. Timestamps within vertices indicate discovery time/finishing times.
+
+the root of a new tree in the depth-first forest. When DFS returns, every vertex u
+has been assigned a discovery time u.d and a finishing time u.f.
+
+In each call DFS-VisiT(G, u), vertex u is initially white. Line 1 increments
+the global variable time, line 2 records the new value of time as the discovery
+time u.d, and line 3 paints u gray. Lines 4-7 examine each vertex v adjacent to u
+and recursively visit v if it is white. As each vertex v € Adj[u] is considered in
+line 4, we say that edge (u,v) is explored by the depth-first search. Finally, after
+every edge leaving u has been explored, lines 8—10 paint u black, increment time,
+and record the finishing time in u.f.
+
+Note that the results of depth-first search may depend upon the order in which
+line 5 of DFS examines the vertices and upon the order in which line 4 of DFS-
+VISIT visits the neighbors of a vertex. These different visitation orders tend not
+

@@ -1,0 +1,54 @@
+966
+
+Chapter 31 Number-Theoretic Algorithms
+
+50,847,534 and n/ Inn ~ 48,254,942. (To a number theorist, 10° is a small num-
+ber.)
+
+We can view the process of randomly selecting an integer n and determining
+whether it is prime as a Bernoulli trial (see Section C.4). By the prime number
+theorem, the probability of a success—that is, the probability that n is prime—is
+approximately 1/ Inn. The geometric distribution tells us how many trials we need
+to obtain a success, and by equation (C.32), the expected number of trials is ap-
+proximately Inn. Thus, we would expect to examine approximately Inn integers
+chosen randomly near 7 in order to find a prime that is of the same length as n.
+For example, we expect that finding a 1024-bit prime would require testing ap-
+proximately In2!°?4 ~ 710 randomly chosen 1024-bit numbers for primality. (Of
+course, we can cut this figure in half by choosing only odd integers.)
+
+In the remainder of this section, we consider the problem of determining whether
+or not a large odd integer n is prime. For notational convenience, we assume that 7
+has the prime factorization
+
+n= pi! p+ pe. (31.39)
+
+where r > 1, pi, p2,.... Pr are the prime factors of n, and e;,e2,.... e, are posi-
+tive integers. The integer 1 is prime if and only if r = | and e; = 1.
+
+One simple approach to the problem of testing for primality is trial division. We
+try dividing n by each integer 2,3,..., | ./n]. (Again, we may skip even integers
+greater than 2.) It is easy to see that n is prime if and only if none of the trial divi-
+sors divides n. Assuming that each trial division takes constant time, the worst-case
+running time is @(,/7), which is exponential in the length of n. (Recall that if n
+is encoded in binary using f bits, then B = [lg(n + 1)], and so /n = ©(29/?).)
+Thus, trial division works well only if is very small or happens to have a small
+prime factor. When it works, trial division has the advantage that it not only de-
+termines whether n is prime or composite, but also determines one of n’s prime
+factors if n is composite.
+
+In this section, we are interested only in finding out whether a given number 7
+is prime; if m is composite, we are not concerned with finding its prime factor-
+ization. As we shall see in Section 31.9, computing the prime factorization of a
+number is computationally expensive. It is perhaps surprising that it is much easier
+to tell whether or not a given number is prime than it is to determine the prime
+factorization of the number if it is not prime.
+
+  
+
+ 
+
+Pseudoprimality testing
+
+We now consider a method for primality testing that “almost works” and in fact
+is good enough for many practical applications. Later on, we shall present a re-
+

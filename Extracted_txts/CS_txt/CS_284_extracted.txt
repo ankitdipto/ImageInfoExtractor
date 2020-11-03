@@ -1,0 +1,59 @@
+29.3 The simplex algorithm 871
+
+In Section 29.5, we shall show how to determine whether a problem is feasible,
+and if so, how to find a slack form in which the initial basic solution is feasible.
+Therefore, let us assume that we have a procedure INITIALIZE-SIMPLEX (A, b,c)
+that takes as input a linear program in standard form, that is, an m x n matrix
+A= (aj), an m-vector b = (b;), and an n-vector c = (c;). If the problem is
+infeasible, the procedure returns a message that the program is infeasible and then
+terminates. Otherwise, the procedure returns a slack form for which the initial
+basic solution is feasible.
+
+The procedure SIMPLEX takes as input a linear program in standard form, as just
+described. It returns an n-vector ¥ = (X;) that is an optimal solution to the linear
+program described in (29.19)}-(29.21).
+
+SIMPLEX(A, b,c)
+1 (N, B,A,b,c,v) = INITIALIZE-SIMPLEX (A, b,c)
+2 let A be a new vector of length n
+3 while some index j ¢ N has cj > 0
+
+4 choose an index e € N for which ce > 0
+5 for each index i € B
+
+6 if daje > 0
+
+7 Ai = bildie
+
+8 else A; = 00
+
+9
+
+choose an index / € B that minimizes A;
+
+10 if A; == 00
+
+11 return “unbounded”
+
+12 else (N, B, A,b,c,v) = Prvot(N, B, A,b,c,v,1,e)
+13. fori = lton
+
+14 ifie B
+
+15 X; = bj
+
+16 else x; = 0
+
+17. return (X),%2,..., Xn)
+
+The SIMPLEX procedure works as follows. In line 1, it calls the procedure
+INITIALIZE-SIMPLEX (A, b,c), described above, which either determines that the
+linear program is infeasible or returns a slack form for which the basic solution is
+feasible. The while loop of lines 3-12 forms the main part of the algorithm. If all
+coefficients in the objective function are negative, then the while loop terminates.
+Otherwise, line 4 selects a variable x,, whose coefficient in the objective function
+is positive, as the entering variable. Although we may choose any such variable as
+the entering variable, we assume that we use some prespecified deterministic rule.
+Next, lines 5—9 check each constraint and pick the one that most severely limits
+the amount by which we can increase x, without violating any of the nonnegativ-
+

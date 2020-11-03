@@ -1,0 +1,57 @@
+25.2. The Floyd-Warshall algorithm 695
+
+FLOYD-WARSHALL(W)
+
+n = W.rows
+DoO=Ww
+fork = 1ton
+
+let D® = (a) be anew n x n matrix
+fori = lton
+for j = lton
+(ky (k-1) 4 (k-1) (k-1)
+dj = min(d; die + dy )
+
+SCIADAAKR WHE
+
+return D”
+
+Figure 25.4 shows the matrices D® computed by the Floyd-Warshall algorithm
+for the graph in Figure 25.1.
+
+The running time of the Floyd-Warshall algorithm is determined by the triply
+nested for loops of lines 3-7. Because each execution of line 7 takes O(1) time,
+the algorithm runs in time @(n3). As in the final algorithm in Section 25.1, the
+code is tight, with no elaborate data structures, and so the constant hidden in the
+©-notation is small. Thus, the Floyd-Warshall algorithm is quite practical for even
+moderate-sized input graphs.
+
+Constructing a shortest path
+
+There are a variety of different methods for constructing shortest paths in the Floyd-
+Warshall algorithm. One way is to compute the matrix D of shortest-path weights
+and then construct the predecessor matrix IT from the D matrix. Exercise 25.1-6
+asks you to implement this method so that it runs in O(n3) time. Given the pre-
+decessor matrix IT, the PRINT-ALL-PAIRS-SHORTEST-PATH procedure will print
+the vertices on a given shortest path.
+
+Alternatively, we can compute the predecessor matrix IT while the algorithm
+computes the matrices D. Specifically, we compute a sequence of matrices
+1 1 m1”, where IT = II and we define mi? as the predecessor of
+vertex j ona shortest path from vertex i with all intermediate vertices in the set
+{1,2...., k}.
+
+We can give a recursive formulation of n®
+to j has no intermediate vertices at all. Thus,
+
+. Whenk = 0, a shortest path fromi
+
+7 = NIL iff = j or wy = 00. (25.6)
+v i ifi A j and wij <0oo.
+
+For k > 1, if we take the path i ~+ k ~ j, where k # j, then the predecessor
+
+of j we choose is the same as the predecessor of j we chose on a shortest path
+
+from k with all intermediate vertices in the set {1,2,..., k —1}. Otherwise, we
+

@@ -1,0 +1,58 @@
+80
+
+Chapter 3. Solving Problems by Searching
+
+ 
+
+ 
+
+PREDECESSORS
+
+rather small. Intuitively, the reason is that in an exponential search tree, almost all of the nodes
+are in the bottom level, so it does not matter much that the upper levels are expanded multiple
+times. Recall that the number of expansions in a depth-limited search to depth d with branching
+factor b is
+
+14 b4b?+---4bo 7 4b0! 45
+To make this concrete, for b = 10 and d = 5. the number is
+1+ 10+ 100+ 1,000 + 10,000 + 100,000 = 111, 111
+
+In an iterative deepening search, the nodes on the bottom level are expanded once, those on the
+next to bottom level are expanded twice, and so on, up to the root of the search tree, which is
+expanded d + 1 times. So the total number of expansions in an iterative deepening search is
+
+(d+ 11 + bt (d -1)b?+ +++ 364-2 + 2b1- "+ 1b!
+Again, for b = 10 andd = 5 the number is
+6+ 50 + 400 + 3,000 +20, 000 + 100,000 = 123,456
+
+All together, an iterative deepening search from depth 1 all the way down to depth d expands
+only about 11% more nodes than a single breadth-first or depth-limited search to depth d, when
+b = 10. The higher the branching factor, the lower the overhead of repeatedly expanded states,
+but even when the branching factor is 2, iterative deepening search only takes about twice as long
+as a complete breadth-first search. This means that the time complexity of iterative deepening is
+still O(b4), and the space complexity is O(bd). In general, iterative deepening is the preferred
+search method when there is a large search space and the depth ofthe solution is not known.
+
+Bidirectional search
+
+The idea behind bidirectional search is to simultaneously search both forward from the initial state
+and backward from the goal, and stop when the two searches meet in the middle (Figure 3.17).
+For problems where the branching factor is b in both directions, bidirectional search can make a
+big difference. If we assume as usual that there is a solution of depth d, then the solution will
+be found in 0(2b”)= O(b“”)steps, because the forward and backward searches each have to
+go only half way. To make this concrete: for b = 10 and d = 6, breadth-first search generates
+1,111,111 nodes, whereas bidirectional search succeeds when each direction is at depth 3, at
+which point 2,222 nodes have been generated. This sounds great in theory. Several issues need.
+to be addressed before the algorithm can be implemented.
+
+* The main question is, what does it mean to search backwards from the goal? We define
+the predecessors of a node 1 to be all those nodes that have n as a successor. Searching j
+backwards means generating predecessors successively starting from the goal node.
+
++ When all operators are reversible, the predecessor and successor sets are identical; for.
+some problems, however, calculating predecessors can be very difficult
+
+* What can be done if there are many possible goal states? If there is an explicit list of goal
+states, such as the two goal states in Figure 3.2, then we can apply a predecessor function
+to the state set just as we apply the successor function in multiple-state search. If we only
+

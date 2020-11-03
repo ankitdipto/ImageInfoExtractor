@@ -1,0 +1,53 @@
+468
+
+Chapter 17 Amortized Analysis
+
+We assume that we measure the cost in terms of elementary insertions and dele-
+tions.
+
+You might think that we should double the table size upon inserting an item into
+a full table and halve the size when a deleting an item would cause the table to
+become less than half full. This strategy would guarantee that the load factor of
+the table never drops below 1/2, but unfortunately, it can cause the amortized cost
+of an operation to be quite large. Consider the following scenario. We perform n
+operations on a table T, where n is an exact power of 2. The first m/2 operations are
+insertions, which by our previous analysis cost a total of ©(7). At the end of this
+sequence of insertions, T.num = T.size = n/2. For the second n/2 operations,
+we perform the following sequence:
+
+insert, delete, delete, insert, insert, delete, delete, insert, insert, ....
+
+The first insertion causes the table to expand to size n. The two following deletions
+cause the table to contract back to size n/2. Two further insertions cause another
+expansion, and so forth. The cost of each expansion and contraction is @(n), and
+there are O(n) of them. Thus, the total cost of the operations is ©(n?), making
+the amortized cost of an operation @(1).
+
+The downside of this strategy is obvious: after expanding the table, we do not
+delete enough items to pay for a contraction. Likewise, after contracting the table,
+we do not insert enough items to pay for an expansion.
+
+We can improve upon this strategy by allowing the load factor of the table to
+drop below 1/2. Specifically, we continue to double the table size upon inserting
+an item into a full table, but we halve the table size when deleting an item causes
+the table to become less than 1/4 full, rather than 1/2 full as before. The load
+factor of the table is therefore bounded below by the constant 1/4.
+
+Intuitively, we would consider a load factor of 1/2 to be ideal, and the table’s
+potential would then be 0. As the load factor deviates from 1/2, the potential
+increases so that by the time we expand or contract the table, the table has garnered
+sufficient potential to pay for copying all the items into the newly allocated table.
+Thus, we will need a potential function that has grown to T.num by the time that
+the load factor has either increased to 1 or decreased to 1/4. After either expanding
+or contracting the table, the load factor goes back to 1/2 and the table’s potential
+reduces back to 0.
+
+We omit the code for TABLE-DELETE, since it is analogous to TABLE-INSERT.
+For our analysis, we shall assume that whenever the number of items in the table
+drops to 0, we free the storage for the table. That is, if T. num = 0, then T. size = 0.
+
+We can now use the potential method to analyze the cost of a sequence of n
+TABLE-INSERT and TABLE-DELETE operations. We start by defining a poten-
+tial function ® that is 0 immediately after an expansion or contraction and builds
+as the load factor increases to 1 or decreases to 1/4. Let us denote the load fac-
+

@@ -1,0 +1,30 @@
+216 Chapter 7 Process Synchronization
+
+7.7 = Monitors
+
+Another high-level synchronization construct is the monitor type. A monitor
+is characterized by a set of programmer-defined operators. The representation
+of a monitor type consists of declarations of variables whose values define the
+state of an instance of the type, as well as the bodies of procedures or functions
+that implement operations on the type. The syntax of a monitor is shown in
+Figure 7.19.
+
+The representation of a monitor type cannot be used directly by the var-
+ious processes. Thus, a procedure defined within a monitor can access only
+those variables declared locally within the monitor and its formal parameters.
+Similarly, the local variables of a monitor can be accessed by only the local
+procedures.
+
+The monitor construct ensures that only one process at a time can be active
+within the monitor. Consequently, the programmer does not need to code
+this synchronization constraint explicitly (Figure 7.20). However, the monitor
+construct, as defined so far, is not sufficiently powerful for modeling some
+synchronization schemes. For this purpose, we need to define additional syn-
+chronization mechanisms. These mechanisms are provided by the condition
+
+entry queue
+
+ 
+
+Figure 7.20 Schematic view of a monitor.
+

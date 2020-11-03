@@ -1,0 +1,51 @@
+38  Chapter2 Computer-System Structures
+
+A disk drive is attached to a computer by a set of wires called an 1/0
+bus. Several kinds of buses are available, including enhanced integrated drive
+electronics (EIDE), advanced technology attachment (ATA), and SCSI buses.
+The data transfers on a bus are carried out by special electronic processors
+called controllers. The host controller is the controller at the computer end
+of the bus. A disk controller is built into each disk drive. To perform a
+disk I/O operation, the computer places a command into the host controller,
+typically using memory-mapped I/O ports, as described in Section 2.3.1. The
+host controller then sends the command via messages to the disk controller, and
+the disk controller operates the disk-drive hardware to carry out the command.
+Disk controllers usually have a built-in cache. Data transfer at the disk drive
+happens between the cache and the disk surface, and data transfer to the host,
+at fast electronic speeds, occurs between the cache and the host controller.
+
+2.3.3 Magnetic Tapes
+
+Magnetic tape was used as an early secondary-storage medium. Although it
+is relatively permanent and can hold large quantities of data, its access time
+is slow in comparison to that of main memory. In addition, random access to
+magnetic tape is about a thousand times slower than random access to magnetic
+disk, so tapes are not very useful for secondary storage. Tapes are used mainly
+for backup, for storage of infrequently used information, and as a medium for
+transferring information from one system to another.
+
+A tape is kept in a spool, and is wound or rewound past a read—write head.
+Moving to the correct spot on a tape can take minutes, but once positioned, tape
+drives can write data at speeds comparable to disk drives. Tape capacities vary
+greatly, depending on the particular kind of tape drive. Some tapes hold 2 to 3
+times more data than does a large disk drive. Tapes and their drivers are usually
+categorized by width, including 4, 8, and 19 millimeters, 1/4 and 1/2 inch.
+
+2.4 m Storage Hierarchy
+
+The wide variety of storage systems in a computer system can be organized
+in a hierarchy (Figure 2.6) according to speed and cost. The higher levels
+are expensive, but they are fast. As we move down the hierarchy, the cost
+per bit generally decreases, whereas the access time generally increases. This
+tradeoff is reasonable; if a given storage system were both faster and less
+expensive than another—other properties being the same—then there would
+be no reason to use the slower, more expensive memory. In fact, many early
+storage devices, including paper tape and core memories, are relegated to
+museums now that magnetic tape and semiconductor memory have become
+faster and cheaper. The top three levels of memory in Figure 2.6 may be
+constructed using semiconductor memory.
+
+ 
+
+ 
+

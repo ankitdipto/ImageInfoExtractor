@@ -1,0 +1,56 @@
+310 ciurrer nine Pipeline and Vector Processing
+
+instruction cycle
+
+The sum is adjusted by normalizing the result so that it has a fraction with a
+nonzero first digit. This is done by shifting the mantissa once to the right and
+incrementing the exponent by one to obtain the normalized sum.
+
+Z = 0.10824 x 10
+
+ 
+
+The comparator, shifter, adder-subtractor, incrementer, and decrementer in
+the lating poin pipeline are implemented with combinational ret. Sup,
+pose that the timedelaysof the four segments aref, = 60ns, f; = 70ns, fy
+1s, = 80ns, and the interface registers have a delay of f, = 10 ns. The ‘lock
+cycle is chosen to be f, = fs + f, = 110ns. An equivalent nonpipeline floating-
+point adder-subtractor will have a delay time f, = fy + fr + fy + fy + f= 320
+nis, In this case the pipelined adder has a speedup of 320/110 = 2.9 over the
+nonpipelined adder.
+
+     
+
+ 
+
+9-4 Instruction Pipeline
+
+Pipeline processing canoccur not only in the data stream but in the instruction
+stream as well. An instruction pipeline reads consecutive instructions from
+memory while previous instructions are being executed in other segments.
+This causes the instruction fetch and execute phases to overlap and perform
+simultaneous operations. One possible digression associated with such a
+scheme is that an instruction may cause a branch out of sequence. In that case
+the pipeline must be emptied and all the instructions that have been read from
+memory after the branch instruction must be discarded.
+
+Consider a computer with an instruction fetch unit and an instruction
+execution unit designed to provide a two-segment pipeline. The instruction
+fetch segment can be implemented by means of a first-in, first-out (FIFO)
+buffer. This is a type of unit that forms a queue rather than a stack. Whenever
+the execution unit is not using memory, the control increments the program
+counter and uses its address value to read consecutive instructions from mem-
+ory. The instructions are inserted into the FIFO buffer so that they can be
+executed on a first-in, first-out basis. Thus an instruction stream can be placed
+ina queue, waiting for decoding and processing by the execution segment. The
+instruction stream queuing mechanism provides an efficient way for reducing
+the average access time to memory for reading instructions. Whenever there
+is space in the FIFO buffer, the control unit initiates the next instruction fetch
+phase. The buffer acts as a queue from which control then extracts the instruc-
+tions for the execution unit.
+
+‘Computers with complex instructions require other phases in addition to
+the fetch and execute to process an instruction completely. In the mast general
+case, the computer needs to process each instruction with the following se-
+quence of steps.
+

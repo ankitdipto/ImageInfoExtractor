@@ -1,0 +1,51 @@
+346 Chapter 10 Virtual Memory
+
+to can each also straddle two pages. This situation would require six frames.
+(Actually, the worst case occurs when the MVC instruction is the operand of an
+EXECUTE instruction that straddles a page boundary; in this case, we need eight
+frames.)
+
+The worst-case scenario occurs in computer architectures that allow multi-
+ple levels of indirection (for example, each 16-bit word could contain a 15-bit
+address plus a 1-bit indirect indicator). Theoretically, a simple load instruction
+could reference an indirect address that could reference an indirect address
+(on another page) that could also reference an indirect address (on yet another
+page), and so on, until every page in virtual memory had been touched. Thus,
+in the worst case, the entire virtual memory must be in physical memory. To
+overcome this difficulty, we must place a limit on the levels of indirection (for
+example, limit an instruction to at most 16 levels of indirection). When the first
+indirection occurs, a counter is set to 16; the counter is then decremented for
+each successive indirection for this instruction. If the counter is decremented to
+0, a trap occurs (excessive indirection). This limitation reduces the maximum
+number of memory references per instruction to 17, requiring the same number
+of frames.
+
+The minimum number of frames per process is defined by the architecture,
+whereas the maximum number is defined by the amount of available physical
+memory. In between, we are still left with significant choice in frame allocation.
+
+10.5.2 Allocation Algorithms
+
+The easiest way to split m frames among n processes is to give everyone an
+equal share, m/n frames. For instance, if there are 93 frames and five processes,
+each process will get 18 frames. The leftover three frames could be used as a
+free-frame buffer pool. This scheme is called equal allocation.
+
+An alternative is to recognize that various processes will need differing
+amounts of memory. Consider a system with a 1 KB frame size. If a small
+student process of 10 KB and an interactive database of 127 KB are the only two
+processes running in a system with 62 free frames, it does not make much sense
+to give each process 31 frames. The student process does not need more than
+ten frames, so the other 21 are strictly wasted.
+
+To solve this problem, we can use proportional allocation. We allocate
+available memory to each process according to its size. Let the size of the virtual
+memory for process p; be s;, and define
+
+S= si.
+
+Then, if the total number of available frames is m, we allocate a; frames to
+process pj, where a; is approximately
+
+a; =s;/S x m.
+

@@ -1,0 +1,48 @@
+SECTION 11-8 Serial Communication 435,
+
+negative acknowledgment (NAK) is returned to the terminal, which would
+initiate a retransmission of the same block. If the processor finds the message
+without errors, it transfers the message into memory and interrupts the CPU.
+When the CPU acknowledges the interrupt, it analyzes the message and
+prepares a text message for responding to the request The CPU sends an
+instruction to the data communication processor to send the message to the
+terminal.
+
+A typical response from processor to terminal is listed in Table 11-6. After
+two SYN characters, the processor acknowledges the previous message with
+an ACK character. The line continues to idle with SYN character waiting for
+the response to come. The message received from the CPU is arranged in the
+proper format by the processor by inserting the required control characters
+before and after the text. The message has the heading SOH and the address
+of the terminal T4. The text message informs the terminal that the balance is
+$100. An LRC character is computed and sent to the terminal. If the terminal
+responds with a NAK character, the processor retransmits the message.
+
+While the processor is taking care of this terminal it is busy processing
+other terminals as well. Since the characters are received ina serial fashion, it
+takes a certain amount of time to receive and collect an 8-bit character. During
+this time the processor is multiplexing all other communication lines and
+
+TABLE 11-6 Typical Transmission from Processor to Terminal
+
+ 
+
+Code ‘Symbol ‘Comments
+‘0001 0110 SYN First syne character
+0001 0110 SYN ‘Second syne character
+1000 0110 ACK Processor acknowledges previous message
+0001 o110 SYN Line is idling
+0001 0110 SYN Line is idling
+(0000 0001 SOH Start of heading
+0101 0100 T ‘Address of terminal is T4
+0011 0100 4
+(0000 0010 STX Start of text transmission
+1100 0010
+1100 0001 balance Text sent is a response from the computer giving the
+: is balance of account
+$100.00
+41011 0000
+1000 0011 ETX End of text transmission
+
+1101 0101 LRC Longitudinal parity character
+

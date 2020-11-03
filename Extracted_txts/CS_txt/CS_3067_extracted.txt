@@ -1,0 +1,62 @@
+Section 15.2.
+
+The Semantics of Belief Networks 441
+
+ 
+
+ 
+
+LOCALLY
+‘STRUCTURED
+SPARSE
+
+ 
+
+Because each node is only connected to earlier nodes, this construction method guarantees that
+the network is acyclic. Another important property of belief networks is that they contain no
+redundant probability values, except perhaps for one entry in each row of each conditional
+probability table. This means that it is impossible for the knowledge engineer or domain expert
+to create a beliefnetwork that violates the axioms ofprobability. We will see examples of the
+application of the construction method in the next section.
+
+Compactness and node ordering
+
+As well as being a complete and nonredundant representation of the domain, a beliefnetwork can
+often be far more compact than the fulljoint. This property is what makes it feasible to handle
+a large number of pieces of evidence without the exponential growth in conditional probability
+values that we saw in the discussion of Bayesian updating in Section 14.4.
+
+The compactness of belief networks is an example of a very general property of locally
+structured (also called sparse) systems. In a locally structured system, each subcomponent
+interacts directly with only a bounded number of other components, regardless of the total
+number of components. Local structure is usually associated with linear rather than exponential
+growth in complexity. In the case of belief networks, it is reasonable to suppose that in most
+domains each random variable is directly influenced by at most k others, for some constant k. If
+we assume Boolean variables for simplicity, then the amount of information needed to specify the
+conditional probability table for a node will be at most 2‘ numbers, so the complete network can
+be specified by n2‘ numbers. In contrast, the joint contains 2" numbers. To make this concrete,
+suppose we have 20 nodes (n= 20) and each has at most 5 parents (k = 5). Then the beliefnetwork
+requires 640 numbers, but the full joint requires over a million.
+
+There are domains in which each variable can be influenced directly by all the others, so
+that the network is fully connected. Then specifying the conditional probability tables requires
+the same amount of information as specifying the joint. The reduction in information that occurs
+in practice comes about because real domains have a lot of structure, which networks are very
+good at capturing. In some domains, there will be slight dependencies that should strictly be
+included by adding a new link. But if these dependencies are very tenuous, then it may not be
+worth the additional complexity in the network for the small gain in accuracy. For example, one
+might object to our burglary network on the grounds that if there is an earthquake, then John
+and Mary would not call even if they heard the alarm, because they assume the earthquake is the
+cause. Whether to add the link from Earthquake to JohnCalls and MaryCalls(and thus enlarge
+the tables) depends on the importance of getting more accurate probabilities compared to the cost
+of specifying the extra information.
+
+Even in a locally structured domain, constructing a locally structured belief network is
+not a trivial problem. We require not only that each variable is directly influenced by only a
+few others, but also that the network topology actually reflects those direct influences with the
+appropriate set ofparents. Because of the way that the construction procedure works, the "direct
+influencers” will have to be added to the network first ifthey are to become parents of the node
+they influence. Therefore, the correct order to add nodes is to add the “rootcauses" first, then
+the variables they influence, and so on until we reach the "leaves," which have no direct causal
+influence on the other variables.
+

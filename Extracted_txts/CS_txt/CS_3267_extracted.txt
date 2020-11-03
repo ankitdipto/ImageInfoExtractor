@@ -1,0 +1,55 @@
+Chapter 20. Reinforcement Learning
+
+ 
+
+2. The ADP (adaptive dynamic programming) approach uses the value or policy iteration
+algorithm to calculate exact utilities of states given an estimated model. ADP makes
+optimal use of the local constraints on utilities of states imposed by the neighborhood
+structure of the environment. q
+
+3. The TD (temporal-difference) approach updates utility estimates to match those of
+successor states, and can be viewed as a simple approximation to the ADP approach
+that requires no model for the learning process. Using the model to generate pseudo-
+experiences can, however, result in faster learning
+
+Action-value functions, or Q-functions, can be learned by an ADP approach or a TD
+approach. With TD, Q-learning requires no model in either the learning or action-selection
+phases. This simplifies the learning problem but potentially restricts the ability to leam in
+complex environments.
+
+When the learning agent is responsible for selecting actions while it learns, it must trade
+off the estimated value of those actions against the potential for learning useful new
+information. Exact solution of the exploration problem is infeasible, but some simple
+heuristics do a reasonable job 3
+In large state spaces, reinforcement learning algorithms must use an implicit functional
+representation in order to perform input generalization over states. The temporal-difference
+signal can be used directly to direct weight changes in parametric representations such as
+neural networks.
+Combining input generalization with an explicit model has resulted in excellent perfor-
+mance in complex domains.
+
+Genetic algorithms achieve reinforcement learning by using the reinforcement to increase
+the proportion of successful functions in a population of programs. They achieve the effect
+of generalization by mutating and cross-breeding programs with each other.
+
+ 
+
+Because ofits potential for eliminating hand coding of control strategies, reinforcement learning
+continues to be one of the most active areas of machine leaming research. Applications in
+robotics promise to be particularly valuable. As yet, however, there is little understanding of how
+to extend these methods to the more powerful performance elements described in earlier chapters.
+Reinforcement learning in inaccessible environments is also a topic of current research.
+
+ 
+
+BIBLIOGRAPHICAL AND HISTORICAL NOTLS
+
+Arthur Samuel's work (1959) was probably the earliest successful machine learning research.
+Although this work was informal and had a number of flaws, it contained most ofthe modern ideas
+in reinforcement learning, including temporal differencing and input generalization. Around the
+same time, researchers in adaptive control theory (Widrow and Hoff, 1960), building on work by
+Hebb (1949), were training simple networks using the LMS rule. (This early connection between
+neural networks and reinforcement learning may have led to the persistent misperception that the
+latter is a subfield of the former.) The cart-pole work of Michie and Chambers (1968) can also
+be seen as a reinforcement learning method with input generalization.
+

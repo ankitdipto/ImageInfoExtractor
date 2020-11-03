@@ -1,0 +1,47 @@
+146 Chapter 5. Game Playing
+
+ 
+
+54 The algorithms described in this chapter construct a search tree for each move from scratch.
+Discuss the advantages and disadvantages ofretaining the search tree from one move to the next
+and extending the appropriate portion. How would tree retention interact with the use of selective
+search to examine "useful" branches of the tree?
+
+55 Develop a formal proof of ‘correctness of alpha-beta pruning. To do this, consider the
+situation shown in Figure 5.14. The question is whether to prune node n;, which is a max-node
+and a descendant of node n,. The basic idea is to prune it if and only ifthe minimax value of ny
+can be shown to be independent of the value of 7;.
+
+a. The value ofn\ is given by
+my = min(n2,121,...,726,)
+
+By writing a similar expression for the value of 12. find an expression for m\ in terms of nj.
+b. Let /; be the minimum (or maximum) of the node values to the left of node n; at depth 7.
+These are the nodes whose minimax value is already known. Similarly, let 7; be the
+minimum (or maximum) of the node values to the right of; at depth i, These nodes have
+not yet been explored. Rewrite your expression for m\ in terms of the /; and 7; values.
+c. Now reformulate the expression to show that in order to affect n), n; must not exceed a
+certain bound derived from the /; values.
+
+d. Repeat the process for the case where nj; is a min-node.
+You might want to consult Wand (1980), who shows how the alpha-beta algorithm can be auto-
+
+matically synthesized from the minimax algorithm, using some general program-transformation
+techniques.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 5.14 Situation when considering whether to prune node nj
+
+ 
+
+ 
+
+ 
+

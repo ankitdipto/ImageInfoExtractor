@@ -1,0 +1,42 @@
+Chapter 7: The C Preprocessor 247
+
+ 
+
+Thus, using #define can produce more efficient and more easily
+understandable programs. This directive is used extensively by C
+programmers, as you will see in many programs in this book.
+
+Following three examples show places where a #define directive is
+popularly used by C programmers.
+
+A #define directive is many a times used to define operators as
+shown below.
+
+#define AND &&
+#define OR ||
+main()
+{
+int f= 1,x=4,y=90;
+
+if ((f<5) AND (x <=200Ry<-45))
+printf ( "\nYour PC will always work fine..." ) ;
+else
+printf ( "\nIn front of the maintenance man” ) ;
+}
+
+A #define directive could be used even to replace a condition, as
+shown below.
+
+#define AND &&
+#define ARANGE (a > 25 AND a< 50)
+main()
+{
+int a= 30;
+
+if (ARANGE )
+
+printf ( “within range" ) ;
+else
+
+printf (“out of range") ;
+

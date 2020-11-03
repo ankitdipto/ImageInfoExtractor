@@ -1,0 +1,52 @@
+ 
+
+14.5 RAID Structure 509
+
+level 1, thus reducing the storage overhead. Since reads and writes of a
+byte are spread out over multiple disks, with N-way striping of data, the
+transfer rate for reading or writing a single block is N times as fast as with a
+RAID-level-1 organization using N-way striping. On the other hand, RAID
+level 3 supports a lower number of I/Os per second, since every disk has
+to participate in every I/O request. A further performance problem with
+RAID 3 (as with all parity-based RAID levels) is the expense of computing
+and writing the parity. This overhead results in significantly slower writes,
+as compared to non-parity RAID arrays. To moderate this performance
+penalty, many RAID storage arrays include a hardware controller with
+dedicated parity hardware. This offloads the parity computation from the
+CPU to the array. The array has a non-volatile RAM (NVRAM) cache as well,
+to store the blocks while the parity is computed and to buffer the writes
+from the controller to the spindles. This combination can make parity RAID
+almost as fast as non-parity. In fact, a caching array doing parity RAID can
+outperform a non-caching non-parity RAID.
+
+RAID Level 4: RAID level 4, or block-interleaved parity organization, uses
+block-level striping, as in RAID 0, and in addition keeps a parity block ona
+separate disk for corresponding blocks from N other disks. This scheme is
+shown pictorially in Figure 14.9e. If one of the disks fails, the parity block
+can be used with the corresponding blocks from the other disks to restore
+the blocks of the failed disk.
+
+A block read accesses only one disk, allowing other requests to be processed.
+by the other disks. Thus, the data-transfer rate for each access is slower, but
+multiple read accesses can proceed in parallel, leading to a higher overall
+1/O rate. The transfer rates for large reads is high, since all the disks can
+be read in parallel; large writes also have high transfer rates, since the data
+and parity can be written in parallel.
+
+Small independent writes, on the other hand, cannot be performed in
+parallel. A write of a block has to access the disk on which the block is
+stored, as well as the parity disk, since the parity block has to be updated.
+Moreover, both the old value of the parity block and the old value of the
+block being written have to be read for the new parity to be computed.
+This is known as the read-modify-write. Thus, a single write requires four
+disk accesses: two to read the two old blocks, and two to write the two new
+blocks.
+
+RAID level 5: RAID level 5, or block-interleaved distributed parity, differs
+from level 4 by spreading data and parity among all N +1 disks, rather than
+storing data in N disks and parity in one disk. For each block, one of the
+disks stores the parity, and the others store data. For example, with an array
+of five disks, the parity for the nth block is stored in disk (n mod 5) + 1; the
+nth blocks of the other four disks store actual data for that block. This setup
+is denoted pictorially in Figure 14.9f, where the Ps are distributed across all
+

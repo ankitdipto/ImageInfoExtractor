@@ -1,0 +1,41 @@
+Chapter 6: Data Types Revisited 217
+
+ 
+
+only count things, for example. In such a case we can declare the
+variable to be unsigned, as in,
+
+unsigned int num_students ;
+
+With such a declaration, the range of permissible integer values
+(for a 16-bit OS) will shift from the range -32768 to +32767 to the
+range 0 to 65535. Thus, declaring an integer as unsigned almost
+doubles the size of the largest possible value that it can otherwise
+take. This so happens because on declaring the imteger as
+unsigned, the left-most bit is now free and is not used to store the
+sign of the number. Note that an unsigned integer still occupies
+two bytes. This is how an unsigned integer can be declared:
+
+unsigned int i;
+unsigned i ;
+
+Like an unsigned int, there also exists a short unsigned int and a
+long unsigned int. By default a short int is a signed short int and
+a long int is a signed long int.
+
+Chars, signed and unsigned
+
+Parallel to signed and unsigned ints (either short or long),
+similarly there also exist signed and unsigned chars, both
+occupying one byte each, but having different ranges. To begin
+with it might appear strange as to how a char can have a sign.
+Consider the statement
+
+ 
+
+char ch ='A’;
+
+Here what gets stored in ch is the binary equivalent of the ASCII
+value of ‘A’ (i.e. binary of 65). And if 65’s binary can be stored,
+then -54’s binary can also be stored (in a signed char).
+

@@ -1,0 +1,42 @@
+Chapter 5: Functions & Pointers 175
+
+ 
+
+Function Declaration and Prototypes
+
+Any C function by default returns an int value. More specifically,
+whenever a call is made to a function, the compiler assumes that
+this function would return a value of the type int. If we desire that a
+function should return a value other than an int, then it is necessary
+to explicitly mention so in the calling function as well as in the
+called function. Suppose we want to find out square of a number
+using a function. This is how this simple program would look like:
+
+main()
+{
+float a,b;
+
+printf ( "\nEnter any number " ) ;
+scanf ("%f", &a) ;
+
+b = square (a) ;
+printf ( "\nSquare of %f is %f", a, b ) ;
+
+}
+
+square (float x )
+
+float y ;
+y=X"X;
+
+\ return (y);
+
+And here are three sample runs of this program...
+
+Enter any number 3
+Square of 3 is 9.000000
+Enter any number 1.5
+Square of 1.5 is 2.000000
+Enter any number 2.5
+Square of 2.5 is 6.000000
+

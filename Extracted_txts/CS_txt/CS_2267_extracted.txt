@@ -1,0 +1,101 @@
+422
+
+CHAPTER ELEVEN Input-Output Organization
+
+CPU-1OP Communication
+‘The communication between CPU and IOP may takedifferent forms, depend-
+ing on the particular computer considered. In most cases the memory unit acts
+as a message center where each processor leaves information for the other. To
+appreciate the operation of a typical IOP, we willillustrate by a specific example
+the method by which the CPU and IOP communicate. This is a simplified
+example that omits many operating details in order to provide an overview of
+basic concepts.
+
+The sequence of operations may be carried out as shown in the flowchart
+of Fig. 11-20. The CPU sends an instruction to test the IOP path The IOP
+
+Figure 11-20 CPU-IOP communication.
+
+10P operations
+
+ 
+
+ 
+
+‘Transfer status word
+to memory location
+
+ 
+
+ 
+
+If status OK., send oo
+
+start I) instruction rn
+-———-| Access memory for
+tol0P OP program
+
+1 |
+
+(CPU continues with
+‘another program
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Conduct YO transfers
+using DMA; prepare
+Salus report
+
+|
+
+WO transfer completed:
+
+i a interrupt CPU
+
+Request JOP status
+
+‘Check status word be
+
+for correct transfer
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+‘Transfer status word
+to memory locaton
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Continue
+

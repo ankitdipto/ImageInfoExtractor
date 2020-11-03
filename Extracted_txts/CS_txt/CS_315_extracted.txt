@@ -1,0 +1,38 @@
+Notes for Chapter 29 897
+
+The simplex algorithm for linear programming was invented by G. Dantzig
+in 1947. Shortly after, researchers discovered how to formulate a number of prob-
+lems in a variety of fields as linear programs and solve them with the simplex
+algorithm. As a result, applications of linear programming flourished, along with
+several algorithms. Variants of the simplex algorithm remain the most popular
+methods for solving linear-programming problems. This history appears in a num-
+ber of places, including the notes in [69] and [197].
+
+The ellipsoid algorithm was the first polynomial-time algorithm for linear pro-
+gramming and is due to L. G. Khachian in 1979; it was based on earlier work by
+N. Z. Shor, D. B. Judin, and A. S. Nemirovskii. Grétschel, Lovasz, and Schrijver
+[154] describe how to use the ellipsoid algorithm to solve a variety of problems in
+combinatorial optimization. To date, the ellipsoid algorithm does not appear to be
+competitive with the simplex algorithm in practice.
+
+Karmarkar’s paper [198] includes a description of the first interior-point algo-
+rithm. Many subsequent researchers designed interior-point algorithms. Good sur-
+veys appear in the article of Goldfarb and Todd [141] and the book by Ye [361].
+
+Analysis of the simplex algorithm remains an active area of research. V. Klee
+and G. J. Minty constructed an example on which the simplex algorithm runs
+through 2” — | iterations. The simplex algorithm usually performs very well in
+practice and many researchers have tried to give theoretical justification for this
+empirical observation. A line of research begun by K. H. Borgwardt, and carried
+on by many others, shows that under certain probabilistic assumptions on the in-
+put, the simplex algorithm converges in expected polynomial time. Spielman and
+Teng [322] made progress in this area, introducing the “smoothed analysis of algo-
+rithms” and applying it to the simplex algorithm.
+
+The simplex algorithm is known to run efficiently in certain special cases. Par-
+ticularly noteworthy is the network-simplex algorithm, which is the simplex al-
+gorithm, specialized to network-flow problems. For certain network problems,
+including the shortest-paths, maximum-flow, and minimum-cost-flow problems,
+variants of the network-simplex algorithm run in polynomial time. See, for exam-
+ple, the article by Orlin [268] and the citations therein.
+

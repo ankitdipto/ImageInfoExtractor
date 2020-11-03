@@ -1,0 +1,48 @@
+208  Chapter7 Process Synchronization
+
+wait (wrt) ;
+writing is performed
+
+signal (wrt) 3
+
+Figure 7.14 The structure of a writer process.
+
+been used to test nearly every new synchronization primitive. The readers—
+writers problem has several variations, all involving priorities. The simplest
+one, referred to as the first readers—writers problem, requires that no reader
+will be kept waiting unless a writer has already obtained permission to use
+the shared object. In other words, no reader should wait for other readers to
+finish simply because a writer is waiting. The second readers—writers problem
+requires that, once a writer is ready, that writer performs its write as soon as
+possible. In other words, if a writer is waiting to access the object, no new
+readers may start reading.
+
+A solution to either problem may result in starvation. In the first case,
+writers may starve; in the second case, readers may starve. For this reason,
+other variants of the problem have been proposed. In this section, we present
+a solution to the first readers-writers problem. Refer to the Bibliographical
+Notes for relevant references on starvation-free solutions to the readers—writers
+problem.
+
+In the solution to the first readers—writers problem, the reader processes
+share the following data structures:
+
+semaphore mutex, wrt;
+int readcount;
+
+The semaphores mutex and wrt are initialized to 1; readcount is ini-
+tialized to 0. The semaphore wrt is common to both the reader and writer
+processes. The mutex semaphore is used to ensure mutual exclusion when the
+variable readcount is updated. The readcount variable keeps track of how
+many processes are currently reading the object. The semaphore wrt functions
+as a mutual-exclusion semaphore for the writers. It is also used by the first or
+last reader that enters or exits the critical section. It is not used by readers who
+enter or exit while other readers are in their critical sections.
+
+The code for a writer process is shown in Figure 7.14; the code for a reader
+process is shown in Figure 7.15. Note that, if a writer is in the critical section
+and n readers are waiting, then one reader is queued on wrt, and n — 1 readers
+are queued on mutex. Also observe that, when a writer executes signal (wrt),
+we may resume the execution of either the waiting readers or a single waiting
+writer. The selection is made by the scheduler.
+

@@ -1,0 +1,30 @@
+SECTION 2-4 Associative Memory 461.
+
+ 
+
+ 
+
+Figure 12-9 Match logic for one word of associative memory.
+
+In most applications, the associative memory stores a table with no two
+identical items under a given key. In this case, only one word may match the
+unmasked argument field By connecting output M; directly to the read line in
+the same word position (instead of the M register), the content of the matched
+word will be presented automatically at the output lines and no special read
+command signal is needed. Furthermore, if we exclude words having a zero
+content, an all-zero output will indicate that no match occurred and that the
+searched item is not available in memory.
+
+Write Operation
+
+An associative memory must havea write capability for storing the information
+to be searched. Writing in an associative memory can take different forms,
+depending on the application. If the entire memory is loaded with new infor-
+mation at once prior to a search operation then the writing can be done by
+addressing each location in sequence. This will make the device'a random-
+access memory for writingand a content addressable memory for reading. The
+advantage here is that the address for input can be decoded as in a random-
+access memory. Thus instead of having m address lines, one for each word in
+memory, the number of address lines can be reduced by the decoder tod lines,
+where m = 24 -
+

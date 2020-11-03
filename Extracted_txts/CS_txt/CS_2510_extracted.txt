@@ -1,0 +1,26 @@
+Notes for Chapter 4 113
+
++b; is a constant in the range 0 < b; < 1 fori = 1,2,..., k,
++ k > 1isan integer constant, and
+
++ f(x) is a nonnegative function that satisfies the polynomial-growth condi-
+tion: there exist positive constants c; and c such that for all x > 1, for
+i= 1,2,..., k, and for all w such that b;:x < u < x, we have c, f(x) <
+Fu) < co f(x). Cf | f’(x)| is upper-bounded by some polynomial in x, then
+F(x) satisfies the polynomial-growth condition. For example, f(x) = x” Ig x
+satisfies this condition for any real constants @ and f.)
+
+Although the master method does not apply to a recurrence such as T(n) =
+T(\n/3) + T(|2n/3]) + O(n), the Akra-Bazzi method does. To solve the re-
+currence (4.30), we first find the unique real number p such that 3, a:b? = 1.
+(Such a p always exists.) The solution to the recurrence is then
+
+rm =0(sr(14 [ Faw).
+
+The Akra-Bazzi method can be somewhat difficult to use, but it serves in solving
+recurrences that model division of the problem into substantially unequally sized
+subproblems. The master method is simpler to use, but it applies only when sub-
+problem sizes are equal.
+
+ 
+

@@ -1,0 +1,61 @@
+‘CONFRONTATION
+
+Chapter 12. Practical Planning
+
+Now we have to incorporate this new syntax into the planner. Two changes are required. First, |
+in SELECT-SUB-GOAL, we have to decide ifa precondition c in a conditional effect of the form
+e when c should be considered as a candidate for selection. The answer is that if the effecte ,
+supplies a condition that is protected by a causal link, then we should consider selecting c, but
+not until the causal link is there. Thisis because the causal link means that the plan will not
+work unless c is also true. Considering the operator just shown, the planner would usually have
+no need to establish y#7able because ~Clear(y)is not usually needed as a precondition of some
+other step in the plan. Thus, the planner can usually use the table if it needs somewhere to put a
+block that does not need to be anywhere special. y
+Second, we have another possibility for RESOLVE-THREAT. Any step that has the effect
+(=c' when p) is a possible threat to the causal link S, _°. 5; whenever c and c unify. We can 3
+resolve the threat by making sure that p does not hold. We call this technique confrontation. In. §
+the blocks world, ifwe need a given block to be clear in order to carry out some step, then it is
+possible for the Move(b,x, y) operator to threaten this condition ify is uninstantiated. However,
+the threat only occurs if y#Zableconfrontation removes the threat by setting y = Table. A version
+of RESOLVE-THREATS that incorporates confrontation appears in Figure 12.7. %
+
+ 
+
+procedure RESOLVE-THREATS(plan)
+
+for each S, “ S; in Links(plan) do
+for each Stivea in STEPS( plan) do
+for each ¢ in EFFECT Singur) 40
+if SUBST(BINDINGS( plan), c) = SUBST(BINDINGS( plan), +c’) then
+choose either
+Promotion: Add Srireq < S; to ORDERINGS( plan)
+Demotion: Add S) < Stirear to ORDERINGS( plan)
+Confrontation: if-c! is really of the form (c’ when p) then
+CHOOSE-OPERATOR( plan, operators, Shiveus 7 P)
+RESOLVE-THREATS( plan)
+if not CONSISTENT( plan) then fail
+end
+end
+end
+
+ 
+
+ 
+
+Figure 127 A version of RESOLVE-THREATS with the confrontation technique for resolving
+conditional effects.
+
+ 
+
+ 
+
+ 
+
+Negated and disjunctive goals
+
+The confrontation technique calls CHOOSE-OPERATOR with the goal sp. This is something new:
+so far we have insisted that all goals (preconditions) be positive literals. Dealing with negated
+literals as goals does not add much complexity: we still just have to check for effects that match
+
+ 
+

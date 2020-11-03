@@ -1,0 +1,51 @@
+44  Chapter2 Computer-System Structures
+
+The lack of a hardware-supported dual mode can cause serious shortcom-
+ings in an operating system. For instance, MS-DOS was written for the Intel
+8088 architecture, which has no mode bit, and therefore, no dual mode. A user
+program running awry can wipe out the operating system by writing over it
+with data, and multiple programs are able to write toa device at the same time,
+with possibly disastrous results. More recent and advanced versions of the
+Intel CPU, such as the Pentium, do provide dual-mode operation. As a result,
+more recent operating systems, such as Microsoft Windows 2000 and IBM OS/2,
+take advantage of this feature and provide greater protection for the operating
+system.
+
+2.5.2 W/O Protection
+
+A user program may disrupt the normal operation of the system by issuing
+illegal 1/O instructions, by accessing memory locations within the operating
+system itself, or by refusing to relinquish the CPU. We can use various mecha-
+nisms to ensure that such disruptions cannot take place in the system.
+
+To prevent users from performing illegal I/O, we define all I/O instruc-
+tions to be privileged instructions. Thus, users cannot issue 1/O instructions
+directly; they must do it through the operating system. For I/O protection to
+be complete, we must be sure that a user program can never gain control of the
+computer in monitor mode. If it could, I/O protection could be compromised.
+
+Consider a computer executing in user mode. It will switch to monitor
+mode whenever an interrupt or trap occurs, jumping to the address determined.
+from the interrupt vector. Ifa user program, as part of its execution, stores a new
+address in the interrupt vector, this new address could overwrite the previous
+address with an address in the user program. Then, when a corresponding trap
+or interrupt occurred, the hardware would switch to monitor mode, and would
+transfer control through the (modified) interrupt vector to the user program!
+The user program could gain control of the computer in monitor mode. In
+fact, user programs could gain control of the computer in monitor mode in
+many other ways. In addition, new bugs are discovered every day that can be
+exploited to bypass system protections. Those topics are discussed in Chapters
+18 and 19. Thus, to do I/O, a user program executes a system call to request
+that the operating system perform I/O on its behalf (Figure 2.8). The operating
+system, executing in monitor mode, checks that the request is valid, and (if the
+request is valid) does the I/O requested. The operating system then returns to
+the user.
+
+2.5.3 Memory Protection
+
+To ensure correct operation, we must protect the interrupt vector from modifica-
+tion by a user program. In addition, we must also protect the interrupt-service
+routines in the operating system from modification. Even if the user did not
+
+encore
+

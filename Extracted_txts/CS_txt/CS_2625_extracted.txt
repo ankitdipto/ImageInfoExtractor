@@ -1,0 +1,52 @@
+Problems for Chapter 8 207
+
+Your task is to find a grouping of the jugs into pairs of red and blue jugs that hold
+the same amount of water. To do so, you may perform the following operation: pick
+a pair of jugs in which one is red and one is blue, fill the red jug with water, and
+then pour the water into the blue jug. This operation will tell you whether the red
+or the blue jug can hold more water, or that they have the same volume. Assume
+that such a comparison takes one time unit. Your goal is to find an algorithm that
+makes a minimum number of comparisons to determine the grouping. Remember
+that you may not directly compare two red jugs or two blue jugs.
+
+a. Describe a deterministic algorithm that uses @(n?) comparisons to group the
+jugs into pairs.
+
+b. Prove a lower bound of Q(n 1g) for the number of comparisons that an algo-
+rithm solving this problem must make.
+
+c. Give a randomized algorithm whose expected number of comparisons is
+O(n lgn), and prove that this bound is correct. What is the worst-case num-
+ber of comparisons for your algorithm?
+
+8-5 Average sorting
+
+Suppose that, instead of sorting an array, we just require that the elements increase
+on average. More precisely, we call an n-element array A k-sorted if, for all
+i=1,2,..., n—k, the following holds:
+
+. Kk .
+Jl. Dain AU
+~ k
+
+a. What does it mean for an array to be 1-sorted?
+
+ 
+
+b. Give a permutation of the numbers 1,2,..., 10 that is 2-sorted, but not sorted.
+
+c. Prove that an n-element array is k-sorted if and only if A[i] < Aff + 4] for all
+i=1,2...., n—k.
+
+d. Give an algorithm that k-sorts an n-element array in O(n lg(n/k)) time.
+
+We can also show a lower bound on the time to produce a k-sorted array, when k
+is a constant.
+
+e. Show that we can sort a k-sorted array of length n in O(n lgk) time. (Hint:
+Use the solution to Exercise 6.5-9. )
+
+Jf. Show that when k is a constant, k-sorting an n-element array requires Q(n lg n)
+time. (Hint: Use the solution to the previous part along with the lower bound
+on comparison sorts.)
+

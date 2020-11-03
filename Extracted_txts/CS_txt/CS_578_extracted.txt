@@ -1,0 +1,35 @@
+35.1 The vertex-cover problem 1109
+
+ 
+
+ 
+
+©
+
+LUN.
+
+Figure 35.1 The operation of APPROX-VERTEX-COVER. (a) The input graph G, which has 7
+vertices and 8 edges. (b) The edge (b,c), shown heavy, is the first edge chosen by APPROX-VERTEX-
+Cover. Vertices b and c, shown lightly shaded, are added to the set C containing the vertex cover
+being created. Edges (a, b), (c,e), and (c,d), shown dashed, are removed since they are now covered
+by some vertex in C. (©) Edge (e, f) is chosen; vertices e and f are added to C. (d) Edge (d, g)
+is chosen; vertices d and g are added to C. (e) The set C, which is the vertex cover produced by
+APPROX-VERTEX-COVER, contains the six vertices b,c, d,e, fg. (f) The optimal vertex cover for
+this problem contains only three vertices: b, d, and e.
+
+APPROX-VERTEX-COVER(G)
+C=
+E' =G.E
+while E’ 4 0
+let (u,v) be an arbitrary edge of E’
+C=CU {u,v}
+remove from E’ every edge incident on either u or v
+return C
+
+NYAWRwWNE
+
+Figure 35.1 illustrates how APPROX-VERTEX-COVER operates on an example
+graph. The variable C contains the vertex cover being constructed. Line 1 ini-
+tializes C to the empty set. Line 2 sets E’ to be a copy of the edge set G.E of
+the graph. The loop of lines 3-6 repeatedly picks an edge (u,v) from E’, adds its
+

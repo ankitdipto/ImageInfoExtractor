@@ -1,0 +1,48 @@
+14.2. How to augment a data structure 347
+
+quire x.p.f to be updated, but nothing else; updating x.p.f may require x.p.p.f
+to be updated, but nothing else; and so on up the tree. Once we have updated
+T.root.f, no other node will depend on the new value, and so the process termi-
+nates. Since the height of a red-black tree is O(lgm), changing an f attribute in a
+node costs O(lg) time in updating all nodes that depend on the change.
+
+Insertion of a node x into T consists of two phases. (See Section 13.3.) The
+first phase inserts x as a child of an existing node x.p. We can compute the value
+of x.f in O(1) time since, by supposition, it depends only on information in the
+other attributes of x itself and the information in x’s children, but x’s children are
+both the sentinel T. nil. Once we have computed x./, the change propagates up
+the tree. Thus, the total time for the first phase of insertion is O(lgn). During the
+second phase, the only structural changes to the tree come from rotations. Since
+only two nodes change in a rotation, the total time for updating the / attributes
+is O(lgn) per rotation. Since the number of rotations during insertion is at most
+two, the total time for insertion is O(lgn).
+
+Like insertion, deletion has two phases. (See Section 13.4.) In the first phase,
+changes to the tree occur when the deleted node is removed from the tree. If the
+deleted node had two children at the time, then its successor moves into the position
+of the deleted node. Propagating the updates to f caused by these changes costs
+at most O(1g 7), since the changes modify the tree locally. Fixing up the red-black
+tree during the second phase requires at most three rotations, and each rotation
+requires at most O(lg7) time to propagate the updates to f. Thus, like insertion,
+the total time for deletion is O(lgn). .
+
+In many cases, such as maintaining the size attributes in order-statistic trees, the
+cost of updating after a rotation is O(1), rather than the O(1g 7) derived in the proof
+of Theorem 14.1. Exercise 14.2-3 gives an example.
+
+Exercises
+
+14.2-1
+
+Show, by adding pointers to the nodes, how to support each of the dynamic-set
+queries MINIMUM, MAXIMUM, SUCCESSOR, and PREDECESSOR in O(1) worst-
+case time on an augmented order-statistic tree. The asymptotic performance of
+other operations on order-statistic trees should not be affected.
+
+14.2-2
+
+Can we maintain the black-heights of nodes in a red-black tree as attributes in the
+nodes of the tree without affecting the asymptotic performance of any of the red-
+black tree operations? Show how, or argue why not. How about maintaining the
+depths of nodes?
+

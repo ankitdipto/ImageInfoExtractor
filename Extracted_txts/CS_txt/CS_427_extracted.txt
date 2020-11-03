@@ -1,0 +1,133 @@
+988
+
+Chapter 32 String Matching
+
+ 
+
+32.1 The naive string-matching algorithm
+
+The naive algorithm finds all valid shifts using a loop that checks the condition
+P[l..m] = T[s +1..s +m] for each of the n —m + 1 possible values of s.
+
+NAIVE-STRING-MATCHER(T, P)
+n = T.length
+m = P.length
+for s = 0ton—m
+if P[l..m] ==T[s+1..s +m]
+print “Pattern occurs with shift” s
+
+UbwWNe
+
+Figure 32.4 portrays the naive string-matching procedure as sliding a “template”
+containing the pattern over the text, noting for which shifts all of the characters
+on the template equal the corresponding characters in the text. The for loop of
+lines 3-5 considers each possible shift explicitly. The test in line 4 determines
+whether the current shift is valid; this test implicitly loops to check corresponding
+character positions until all positions match successfully or a mismatch is found.
+Line 5 prints out each valid shift s.
+
+Procedure NAIVE-STRING-MATCHER takes time O((n — m + 1)m), and this
+bound is tight in the worst case. For example, consider the text string a” (a string
+of n a’s) and the pattern a”. For each of the n —m + 1 possible values of the shift s,
+the implicit loop on line 4 to compare corresponding characters must execute
+times to validate the shift. The worst-case running time is thus @((n — m + 1)m),
+which is @(n?) if m = |n/2]. Because it requires no preprocessing, NAIVE-
+STRING-MATCHER’s running time equals its matching time.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(a) (b) (©) @
+
+Figure 32.4 The operation of the naive string matcher for the pattern P = aab and the text
+T = acaabc. Wecan imagine the pattern P as a template that we slide next to the text. (a)-(d) The
+four successive alignments tried by the naive string matcher. In each part, vertical lines connect cor
+responding regions found to match (shown shaded), and a jagged line connects the first mismatched
+character found, if any. The algorithm finds one occurrence of the pattern, at shift s = 2, shown in
+part (c).
+

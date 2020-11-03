@@ -1,0 +1,53 @@
+17.3 The potential method 461
+
+Suppose that the ith operation on the stack is MULTIPOP(S,k), which causes
+k’ = min(k,s) objects to be popped off the stack. The actual cost of the opera-
+tion is k’, and the potential difference is
+
+®(D;) — ®(Dj-1) = -k’ .
+Thus, the amortized cost of the MULTIPOP operation is
+Gj = Gj + O(D))— O(D;-1)
+
+= k'-k’
+
+= 0.
+
+Similarly, the amortized cost of an ordinary PoP operation is 0.
+
+The amortized cost of each of the three operations is O(1), and thus the total
+amortized cost of a sequence of n operations is O(n). Since we have already argued
+that ®(D;) > ®(Do), the total amortized cost of n operations is an upper bound
+on the total actual cost. The worst-case cost of n operations is therefore O(n).
+
+Incrementing a binary counter
+
+As another example of the potential method, we again look at incrementing a binary
+counter. This time, we define the potential of the counter after the ith INCREMENT
+operation to be b;, the number of Is in the counter after the ith operation.
+
+Let us compute the amortized cost of an INCREMENT operation. Suppose that
+the ith INCREMENT operation resets f; bits. The actual cost of the operation is
+therefore at most ¢; + 1, since in addition to resetting /; bits, it sets at most one
+bit to 1. If b; = 0, then the ith operation resets all k bits, and so b;_, = t; = k.
+If b; > 0, then b; = b;-; —t; + 1. In either case, b; < b;-; — t; + 1, and the
+potential difference is
+
+O(Dj))-—P(Di-1) <= (iat +1) —di-1
+1-t.
+
+The amortized cost is therefore
+
+G = cj + O(D))— O(Dj-1)
+
+(+1)+U-4)
+
+2.
+
+IA
+
+If the counter starts at zero, then ®(Do) = 0. Since ®(D;) = 0 for all i, the total
+amortized cost of a sequence of n INCREMENT operations is an upper bound on the
+total actual cost, and so the worst-case cost of 1 INCREMENT operations is O(n).
+The potential method gives us an easy way to analyze the counter even when
+it does not start at zero. The counter starts with bo 1s, and after n INCREMENT
+

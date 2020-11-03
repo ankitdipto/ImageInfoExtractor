@@ -1,0 +1,75 @@
+Chapter 8. Building a Knowledge Base
+
+ 
+
+Complete description of the shopping simulation
+
+We start by giving a PAGE (percepts, actions, goals, and environment) description of the shopping }
+simulation. First the percepts:
+
+1, The agent receives three percepts at each time step: feel, sound, and vision.
+
+2. The feel percept is just a bump or no bump, as in the vacuum world. The agent perceives
+a bump only when on the previous time step it executed a Forward action and there is not
+enough room in the location it tried to move to.
+
+3. The sound percept is a list of spoken words. The agent perceives words spoken by agents
+within two squares of it.
+
+4. Ifthe agent's camera is zoomed in, it perceives detailed visual images ofeach object in the
+
+square it is zoomed at
+
+If the agent's camera is not zoomed in, it perceives coarse visual images of each object in
+
+the three squares directly and diagonally ahead.
+
+6. A visual percept consists of a relative location, approximate size, color, shape, and possibly
+some other features. It will be explained in detail later.
+
+wn
+
+Now for the actions:
+
+1. An agent can speak a string of words.
+
+iS)
+
+An agent can go one square forward.
+
+An agent can turn 90° to the right or left.
+
+An agent can zoom its camera in at its current square, or at any of the three squares directly
+
+or diagonally ahead.
+. An agent can also zoom its camera out.
+
+An agent can grab an object that is within one square of it. To do so, it needs to specify
+
+the relative coordinates ofthe object, and it needs to be empty-handed. ]
+7. An agent can release an object that it has grabbed. To do so, it needs to specify the relative
+coordinates of the point where it wants to release the object.
+
+Aw
+
+Dun
+
+The agent's goal initially will be to buy all the items on a shopping list. This goal can be modified
+if some items are unavailable or too expensive. The agent should also try to do the shopping
+quickly, and avoid bumping into things. A more ambitious problem is to give the agent the goal
+of making dinner, and let it compose the shopping list.
+
+The environment is the interior of a store, along with all the objects and people in it. As }
+in the vacuum and wumpus worlds, the store is represented by a grid of squares, with aisles
+separating rows of display cases. At one end of the store are the checkout stands and their
+attendant clerks. Other customers and store employees may be anywhere in the store. The agent
+begins at the entrance, and must leave the store from the same square. There is an EXIT sign there
+in case the agent forgets. There are also signs marking the aisles, and smaller signs (readable
+only when the camera zooms in) marking some (but not necessarily all) ofthe items for sale.
+
+Areal agent would have to decipher the video signals from the camera (or some digitization
+of them). We assume that this work has already been done. Still, the vision component of a
+percept is a complex list of descriptions. The first component of each description is its relative
+
+ 
+

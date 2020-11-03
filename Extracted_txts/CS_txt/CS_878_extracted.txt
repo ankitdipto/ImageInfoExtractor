@@ -1,0 +1,41 @@
+216 Let Us C
+
+ 
+
+long int i;
+long int abc ;
+
+long integers cause the program to run a bit slower, but the range
+of values that we can use is expanded tremendously. The value of
+a long integer typically can vary from -2147483648 to
++2147483647. More than this you should not need unless you are
+taking a world census.
+
+If there are such things as longs, symmetry requires shorts as
+well—integers that need less space in memory and thus help speed
+up program execution. short integer variables are declared as,
+
+short int j;
+short int height ;
+
+C allows the abbreviation of short int to short and of long int to
+long. So the declarations made above can be written as,
+
+long i;
+
+long abc ;
+short j;
+short height ;
+
+Naturally, most C programmers prefer this short-cut.
+Sometimes we come across situations where the constant is small
+enough to be an int, but still we want to give it as much storage as
+
+a long. In such cases we add the suffix ‘L’ or ‘I’ at the end of the
+number, as in 23L.
+
+Integers, signed and unsigned
+
+Sometimes, we know in advance that the value stored in a given
+integer variable will always be positive—when it is being used to
+

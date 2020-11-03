@@ -1,0 +1,67 @@
+Section 22.7.
+
+ 
+
+Semantic Interpretation 673
+
+At first glance, natural languages appear to have a noncompositional semantics. In "The
+batter hit the ball," we expect the semantic interpretation of "batter" to be one who swings a bat
+and of "ball" to be spherical sporting equipment. But in "The chef mixed the batter to be served
+at the ball," we expect the two words to have different meanings. This suggests that the meaning
+of "batter" and "ball" depends noncompositionally on the surrounding context. However, these
+semantic interpretations are only the expected, preferred ones, not the only possible ones. It
+is possible that "The batter hit the ball" refers to a cake mixture making a grand appearance at
+a formal dance. If you work hard enough, you can invent a story where that is the preferred
+reading. In short, semantic interpretation alone cannot be certain of the right interpretation
+of a phrase or sentence. So we divide the work—semantic interpretation is responsible for
+combining meanings compositionally to get a set of possible interpretations, and disambiguation
+is responsible for choosing the best one.
+
+There are other constructions in natural language that pose problems for the composi-
+tional approach. The problem of quantifier scope (page 678) is one example. But overall, the
+compositional approach is the one most favored by modem natural language systems.
+
+Semantics as DCG Augmentations
+
+On page 668 we saw how augmentations could be used to specify the semantics of numbers and
+digits. In fact, it is not difficult to use the same idea to specify the semantics of the complete
+language of arithmetic, as we do in Figure 22.13. Figure 22.14 shows the parse tree for 3+ (4— 2)
+according to this grammar, with the semantic augmentations. The string is analyzed as Exp(5),
+an expression whose semantic interpretation is 5.
+
+ 
+
+Exp(sem) — Exp(sem,) Operator(op) Exp(semz) {sem = Apply(op, sem, semz)}
+Exp(sent) — ( Exp(sem))
+
+Exp(sem) — Number(sem)
+
+Digit(sem)— sem {0 < sem < 9}
+
+Number(sem) — Digit(sem)
+
+Number(sem) — Number(sem,) Digit(semy) {sem=10 x sem, + sem}
+Operator(sem)— sem {sem G {+,-,~—, x}}
+
+ 
+
+ 
+
+ 
+
+Figure 22.13 A grammar for arithmetic expressions, with semantics.
+
+ 
+
+ 
+
+ 
+
+The semantics of "John loves Mary"
+
+We are now ready to write a grammar with semantics for a very small subset of English. As
+usual, the first step is to determine what the facts are—what semantic representations we want
+to associate with what phrases. We will look at the simple sentence "John loves Mary" and
+associate with it the semantic interpretation Loves(John, Mary). It is trivial to see which parts
+of the semantic interpretation come from which words in the sentence. The complicated part is
+

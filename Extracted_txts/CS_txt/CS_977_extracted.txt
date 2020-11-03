@@ -1,0 +1,47 @@
+296 Let Us C
+
+ 
+
+/" Usage of pointer to an array */
+main()
+
+int s[5][2] = {
+{ 1234, 56},
+{1212, 33},
+{ 1434, 80},
+{ 1312, 78}
+
+hi
+int (“p [2];
+int i, j, “pint;
+
+for (i=0;i<=3;i++)
+{
+p=&sli];
+pint = p;
+printf ("\n") ;
+for (j=0;j<=1; j++)
+printf ("%d ", *( pint +j)) ;
+
+ 
+
+  
+
+}
+
+And here is the output...
+
+1234 56
+1212 33
+1434 80
+1312 78
+
+Here p is a pointer to an array of two integers. Note that the
+parentheses in the declaration of p are necessary. Absence of them
+would make p an array of 2 integer pointers. Array of pointers is
+covered in a later section in this chapter. In the outer for loop each
+time we store the address of a new one-dimensional array. Thus
+first time through this loop p would contain the address of the
+zeroth 1-D array. This address is then assigned to an integer
+pointer pint. Lastly, in the inner for loop using the pointer pint we
+

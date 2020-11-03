@@ -1,0 +1,46 @@
+232 Let Us C
+
+ 
+
+As is obvious from the above output, the value of i is available to
+the functions increment( ) and decrement( ) since i has been
+declared outside all functions.
+
+Look at the following program.
+
+int X= 21;
+main()
+
+externint y ;
+printf ( "In%d %d", x, y);
+
+}
+inty = 31;
+
+Here, x and y both are global variables. Since both of them have
+been defined outside all the functions both enjoy external storage
+class. Note the difference between the following:
+
+extern int y ;
+
+int y = 31;
+
+Here the first statement is a declaration, whereas the second is the
+definition. When we declare a variable no space is reserved for it,
+whereas, when we define it space gets reserved for it in memory.
+We had to declare y since it is being used in printf( ) before it’s
+definition is encountered. There was no need to declare x since its
+definition is done before its usage. Also remember that a variable
+can be declared several times but can be defined only once.
+
+Another small issue—what will be the output of the following
+program?
+
+int x= 10;
+main()
+{
+
+int x = 20;
+
+printf ( "\n%d", x) ;
+

@@ -1,0 +1,55 @@
+5.3 Randomized algorithms 129
+
+PERMUTE-WITH-ALL(A)
+
+1 n= A.length
+2 fori = lton
+3 swap A[i] with A[RANDOM(I1,7)]}
+
+Does this code produce a uniform random permutation? Why or why not?
+
+53-4
+Professor Armstrong suggests the following procedure for generating a uniform
+random permutation:
+
+PERMUTE-B y-CyCLic (A)
+n = A.length
+let B[1..n] be a new array
+offset = RANDOM(1,n)
+fori = lton
+
+dest =i + offset
+
+if dest >n
+
+dest = dest —n
+
+Bldest] = A[i]
+
+return B
+
+CHOIADAWAWHE
+
+Show that each element A[i] has a 1/n probability of winding up in any particular
+position in B. Then show that Professor Armstrong is mistaken by showing that
+the resulting permutation is not uniformly random.
+
+53-5 &
+Prove that in the array P in procedure PERMUTE-ByY-SORTING, the probability
+that all elements are unique is at least 1 — 1/n.
+
+5.3-6
+
+Explain how to implement the algorithm PERMUTE-B Y-SORTING to handle the
+case in which two or more priorities are identical. That is, your algorithm should
+produce a uniform random permutation, even if two or more priorities are identical.
+
+5.3-7
+
+Suppose we want to create a random sample of the set {1,2,3,....n}, that is,
+an m-element subset S, where 0 < m <n, such that each m-subset is equally
+likely to be created. One way would be to set Afi] = i fori = 1,2,3,....n,
+call RANDOMIZE-IN-PLACE(A), and then take just the first m array elements.
+This method would make n calls to the RANDOM procedure. If n is much larger
+than m, we can create a random sample with fewer calls to RANDOM. Show that
+

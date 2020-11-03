@@ -1,0 +1,41 @@
+564 Let UsC
+
+ 
+
+int _stdcall WinMain ( HINSTANCE hinstance, HINSTANCE hPrevinstance,
+LPSTR IpszCmdLine, int nhCmdShow )
+
+{
+HWND h;
+h = CreateWindow ("BUTTON", “Hit Me", WS_OVERLAPPEDWINDOW,
+10, 10, 150, 100, 0, 0, i, 0) ;
+ShowWindow (h, nCmdShow ) ;
+MessageBox ( 0, “Hil”, "Waiting", MB_OK) ;
+return 0;
+}
+
+Here is the output of the program...
+
+      
+ 
+
+ 
+
+Lol)
+
+Press Me
+
+Figure 17.2
+
+Let us now understand the program. Every window enjoys certain
+properties—background color, shape of cursor, shape of icon, etc.
+All these properties taken together are known as ‘window class’.
+The meaning of ‘class’ here is ‘type’. Windows insists that a
+window class should be registered with it before we attempt to
+create windows of that type. Once a window class is registered we
+can create several windows of that type. Each of these windows
+would enjoy the same properties that have been registered through
+the window class. There are several predefined window classes.
+Some of these are BUTTON, EDIT, LISTBOX, etc. Our program
+has created one such window using the predefined BUTTON class.
+

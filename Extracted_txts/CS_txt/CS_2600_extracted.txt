@@ -1,0 +1,44 @@
+Problems for Chapter 7 187
+
+d.
+
+RANDOMIZED-PARTITION’ and recurses only on partitions of elements not
+known to be equal to each other.
+
+Using QUICKsoORT’, how would you adjust the analysis in Section 7.4.2 to
+avoid the assumption that all elements are distinct?
+
+7-3 Alternative quicksort analysis
+
+An alternative analysis of the running time of randomized quicksort focuses on
+the expected running time of each individual recursive call to RANDOMIZED-
+QuiIckKsorT, rather than on the number of comparisons performed.
+
+a.
+
+Argue that, given an array of size n, the probability that any particular element
+is chosen as the pivot is 1/n. Use this to define indicator random variables
+X; = I {ith smallest element is chosen as the pivot}. What is E [X;]?
+Let T(n) be a random variable denoting the running time of quicksort on an
+array of size n. Argue that
+n
+E[T(n)] = ex (Tq-1)+T—4) vow . (15)
+q=1
+Show that we can rewrite equation (7.5) as
+2 n-l
+E[T@)] == YIEIT@)] + OM). (7.6)
+q=2
+
+Show that
+n-l 1 1
+Yok igk <n? Ign—-=n?. (7.7)
+
+2 8
+k=2
+(Hint: Split the summation into two parts, one for k = 2,3,..., [n/2] — 1 and
+one fork = [n/2]..... n—1.)
+Using the bound from equation (7.7), show that the recurrence in equation (7.6)
+
+has the solution E[T(n)] = O(nlgn). (Hint: Show, by substitution, that
+E[T(n)] < anlgn for sufficiently large n and for some positive constant a.)
+

@@ -1,0 +1,41 @@
+Chapter 16: C Under Windows 557
+
+ 
+
+nCmdShow: This is an integer value that is passed to the
+function. This integer tells the program whether the window
+that it creates should appear minimized, as an icon, normal, or
+maximized when it is displayed for the first time.
+
+— The MessageBox( ) function pops up a message box whose
+title is ‘Title’ and which contains a message ‘Hello!’.
+
+— Returning 0 from WinMain( ) indicates success, whereas,
+returning a nonzero value indicates failure.
+
+— Instead of printing ‘Hello!’ in the message box we can print
+the command line arguments that the user may supply while
+executing the program. The command line arguments can be
+supplied to the program by executing it from Start | Run as
+shown in Figure 16.7.
+
+Type the name of a program, folder, document, or
+Internet resource, and Windows will open it for you.
+
+c:\myapp.exe abc ijk xyz v
+
+ 
+
+Figure 16.7
+
+Note from Figure 16.7 that ‘myapp.exe’ is the name of our
+application, whereas, ‘abe ijk xyz’ represents command line
+arguments. The parameter IpszCmdline points to the string
+“abe ijk xyz”. This string can be printed using the following
+statement:
+
+MessageBox ( 0, |pszCmdline, "Title", 0) ;
+
+If the entire command line including the filename is to be
+retrieved we can use the GetCommandLine( ) function.
+

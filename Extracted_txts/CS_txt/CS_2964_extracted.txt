@@ -1,0 +1,50 @@
+482
+
+Part V_ Advanced Data Structures
+
+KEY operation takes constant amortized time, Fibonacci heaps are key components
+of some of the asymptotically fastest algorithms to date for graph problems.
+
+Noting that we can beat the Q(n lg) lower bound for sorting when the keys
+are integers in a restricted range, Chapter 20 asks whether we can design a data
+structure that supports the dynamic-set operations SEARCH, INSERT, DELETE,
+MINIMUM, MAXIMUM, SUCCESSOR, and PREDECESSOR in o(lg) time when
+the keys are integers in a restricted range. The answer turns out to be that we can,
+by using a recursive data structure known as a van Emde Boas tree. If the keys are
+unique integers drawn from the set {0,1,2,...,u— 1}, where u is an exact power
+of 2, then van Emde Boas trees support each of the above operations in O(lglgu)
+time.
+
+Finally, Chapter 21 presents data structures for disjoint sets. We have a universe
+of n elements that are partitioned into dynamic sets. Initially, each element belongs
+to its own singleton set. The operation UNION unites two sets, and the query FIND-
+SET identifies the unique set that contains a given element at the moment. By
+representing each set as a simple rooted tree, we obtain surprisingly fast operations:
+a sequence of m operations runs in O(m a(n)) time, where a() is an incredibly
+slowly growing function—a(n) is at most 4 in any conceivable application. The
+amortized analysis that proves this time bound is as complex as the data structure
+is simple.
+
+The topics covered in this part are by no means the only examples of “advanced”
+data structures. Other advanced data structures include the following:
+
+* Dynamic trees, introduced by Sleator and Tarjan [319] and discussed by Tarjan
+[330], maintain a forest of disjoint rooted trees. Each edge in each tree has
+a real-valued cost. Dynamic trees support queries to find parents, roots, edge
+costs, and the minimum edge cost on a simple path from a node up to a root.
+Trees may be manipulated by cutting edges, updating all edge costs on a simple
+path from a node up to a root, linking a root into another tree, and making a
+node the root of the tree it appears in. One implementation of dynamic trees
+gives an O(lg 7) amortized time bound for each operation; a more complicated
+implementation yields O(1g 1) worst-case time bounds. Dynamic trees are used
+in some of the asymptotically fastest network-flow algorithms.
+
+* Splay trees, developed by Sleator and Tarjan [320] and, again, discussed by
+Tarjan [330], are a form of binary search tree on which the standard search-
+tree operations run in O(lgm) amortized time. One application of splay trees
+simplifies dynamic trees.
+
+* Persistent data structures allow queries, and sometimes updates as well, on past
+versions of a data structure. Driscoll, Sarnak, Sleator, and Tarjan [97] present
+techniques for making linked data structures persistent with only a small time
+

@@ -1,0 +1,44 @@
+344 Let Us C
+
+ 
+
+difference between ASCII value of ‘J’ and ASCII value of ‘F’. In
+the third call to stremp() “Jerry” doesn’t match with “Jerry boy”,
+because the null character at the end of “Jerry” doesn’t match the
+blank in “Jerry boy”. The value returned is -32, which is the value
+of null character minus the ASCII value of space, i.e., ‘\0’ minus
+*? which is equal to -32.
+
+The exact value of mismatch will rarely concern us. All we usually
+want to know is whether or not the first string is alphabetically
+before the second string. If it is, a negative value is returned; if it
+isn’t, a positive value is returned. Any non-zero value means there
+is a mismatch. Try to implement this procedure into a function
+xstremp().
+
+Two-Dimensional Array of Characters
+
+In the last chapter we saw several examples of 2-dimensional
+integer arrays. Let’s now look at a similar entity, but one dealing
+with characters. Our example program asks you to type your name.
+When you do so, it checks your name against a master list to see if
+you are worthy of entry to the palace. Here’s the program...
+
+#define FOUND 1
+
+#define NOTFOUND 0
+
+main()
+
+char masterlist[6][10] = {
+
+“akshay’,
+“parag’,
+“raman",
+“srinivas”,
+“gopal",
+"rajesh"
+
+int i, flag, a;
+char yourname[10] ;
+

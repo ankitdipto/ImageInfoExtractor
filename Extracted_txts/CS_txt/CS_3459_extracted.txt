@@ -1,0 +1,60 @@
+Section 25.5.
+
+Configuration Spaces: A Framework for Analysis 795
+
+ 
+
+RECOGNIZABLE SET
+ABSTRACT SENSOR
+
+3. Restrict object motions. Here one chooses a parameterized family of basic motions,
+and searches for a sequence of such motions that will solve the planning problem. The
+best-known example of this is the “LMT” approach® (Lozano-Pérez et al., 1984). One
+must be careful about the choice of motions, because the problem will be intractable if
+they are too general, but unsolvable if they are too restrictive. LMT suggests the use of
+compliant motions, which produce straight-line motions in free space, but which follow the
+boundaries of configuration space when needed. LMT also explicitly models uncertainty
+in control and sensing. So the result of an LMT basic motion is not a single trajectory, but
+an envelope of possible trajectories that grows with time. LMT is described more fully in
+Section 25.6.
+
+Recognizable Sets
+
+Configuration space is a useful tool for understanding constraints induced by object shape. We
+have so far tacitly assumed that robot planning problems are all of the form "How do I get from
+here to there in W?" But the reality is that most robots have poor knowledge of where they are
+in W. The robot has reasonably good knowledge of its own state (although often not accurately
+enough for precision work), but its knowledge of other objects comes second hand from sensors
+like sonar, laser range finders, and computer vision. Some objects simply may not be visible
+from the robot's current vantage point, so their uncertainty is enormous. Rather than a point in
+configuration space, our planner must start with a probability cloud, or an envelope of possible
+configurations. We call such an envelope a recognizable set.’
+
+It will be useful to formalize this notion. An abstract sensor a is a function from the true
+world state W to the space of possible sensor values. A recognizable set is a set o—!(s) of all
+world states in which the robot would receive the sensor reading s.'°
+
+Ifthe sensor is perfect, that is, if it always produces the same sensor values in the same
+world state, the sets o~'(s) form a partition of W’. Distinct recognizable sets do not overlap,
+and their union is all of W. Unfortunately, because of noise, and because the chosen W often
+does not incorporate all of the factors that can affect sensor readings, the value returned by the
+sensor may not be a unique function of the state. To allow for this, we can treat a as a relation
+rather than a function. The relation is true of a state and a sensor reading if the sensor reading
+could possibly be returned in that world state. It still makes sense to define recognizable sets as
+o~'(s), where we now take this to mean the set of states in which the sensor could return the
+value s. Now it no longer holds that distinct recognizable sets are disjoint, although their union
+is still all of W.
+
+Recognizable sets simplify the problem of planning with uncertainty. A robot will always
+be in a recognizable set, because it will always have sensor readings available. The robot
+may also use memories of earlier sensor readings, but this is equivalent to a virtual sensor that
+provides both current and past readings. The (virtual) sensor readings determine uniquely which
+
+& LMT is named after the three authors.
+® Recognizable sets are to continuous domains what multiple state sets are to discrete problems (see Chapter 3).
+
+10 Notice the close analogy with the idea of possible worlds introduced in the context of modal logic in Chapter 8. A
+recognizable set is essentially the set of possible worlds given what the robot knows about the world
+
+ 
+

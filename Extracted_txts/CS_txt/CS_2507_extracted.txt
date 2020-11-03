@@ -1,0 +1,100 @@
+110
+
+Chapter 4 Divide-and-Conquer
+
+Consider the problem of finding a single good chip from among n chips, as-
+suming that more than 1/2 of the chips are good. Show that [n/2| pairwise
+tests are sufficient to reduce the problem to one of nearly half the size.
+
+Show that the good chips can be identified with @(7) pairwise tests, assuming
+that more than 1/2 of the chips are good. Give and solve the recurrence that
+describes the number of tests.
+
+4-6 Monge arrays
+An m x n array A of real numbers is a Monge array if for all i, j,k, and / such
+that 1 <i <k <mand1 <j </ <n, we have
+
+Afi, j] + A[k.1] < Ali./] + Ak. 7].
+
+In other words, whenever we pick two rows and two columns of a Monge array and
+consider the four elements at the intersections of the rows and the columns, the sum
+of the upper-left and lower-right elements is less than or equal to the sum of the
+lower-left and upper-right elements. For example, the following array is Monge:
+
+10
+17
+24
+11
+45
+36
+75
+
+17
+2
+28
+13
+44
+33
+66
+
+13
+16
+22
+
+6
+32
+19
+51
+
+28
+29
+34
+17
+37
+21
+53
+
+23
+23
+24
+7
+23
+6
+34
+
+a. Prove that an array is Monge if and only if for all i = 1,2,....m —1 and
+Jj =1,2,...,n —1, we have
+
+Ali, j)+Ali+ 1.7 +1 < 4f.7 +10 +4) +1, J].
+
+(Hint: For the “if” part, use induction separately on rows and columns.)
+
+b. The following array is not Monge. Change one element in order to make it
+Monge. (Hint: Use part (a).)
+
+37
+21
+53
+32
+43
+
+23
+6
+34
+13
+21
+
+22 32
+
+7
+
+10
+
+30 31
+
+9
+15
+
+6
+8
+

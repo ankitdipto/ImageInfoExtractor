@@ -1,0 +1,33 @@
+Chapter 7: The C Preprocessor 263
+
+ 
+
+If you go through the program you can notice three problems
+immediately. These are:
+
+(a) Though promised, f1() doesn’t return a value.
+
+(b) The parameter x that is passed to f2( ) is not being used
+anywhere in f2().
+
+(c) The control can never reach x++ in f3().
+
+If we compile the program we should expect warnings
+indicating the above problems. However, this does not happen
+since we have suppressed the warnings using the #pragma
+directives. If we replace the ‘~’ sign with a ‘+’ then these
+warnings would be flashed on compilation. Though it is a bad
+practice to suppress warnings, at times it becomes useful to
+suppress them. For example, if you have written a huge
+program and are trying to compile it, then to begin with you
+are more interested in locating the errors, rather than the
+warnings. At such times you may suppress the warnings.
+Once you have located all errors, then you may turn on the
+warnings and sort them out.
+
+Summary
+
+(a) The preprocessor directives enable the programmer to write
+programs that are easy to develop, read, modify and transport
+to a different computer system.
+

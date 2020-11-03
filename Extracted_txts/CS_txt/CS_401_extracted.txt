@@ -1,0 +1,50 @@
+31.8  Primality testing 967
+
+finement of this method that removes the small defect. Let Z;* denote the nonzero
+elements of Z,:
+
+Zt ={1,2,....n—1}.
+
+If nis prime, then Z = Z*.
+We say that n is a base-a pseudoprime if n is composite and
+
+a" =1 (modn). (31.40)
+
+Fermat’s theorem (Theorem 31.31) implies that if 7 is prime, then 7 satisfies equa-
+tion (31.40) for every a in Z;*. Thus, if we can find any a € Z;* such that n does
+not satisfy equation (31.40), then 7 is certainly composite. Surprisingly, the con-
+verse almost holds, so that this criterion forms an almost perfect test for primality.
+We test to see whether 7 satisfies equation (31.40) for a = 2. If not, we declare n
+to be composite by returning COMPOSITE. Otherwise, we return PRIME, guessing
+that 7 is prime (when, in fact, all we know is that 7 is either prime or a base-2
+pseudoprime).
+
+The following procedure pretends in this manner to be checking the primality
+of n. It uses the procedure MODULAR-EXPONENTIATION from Section 31.6. We
+assume that the input 7 is an odd integer greater than 2.
+
+PSEUDOPRIME (1)
+
+1 if MODULAR-EXPONENTIATION(2,n — 1,n) #1 (mod n)
+2 return COMPOSITE // definitely
+
+3 else return PRIME H/ we hope!
+
+This procedure can make errors, but only of one type. That is, if it says that n
+is composite, then it is always correct. If it says that n is prime, however, then it
+makes an error only if m is a base-2 pseudoprime.
+
+How often does this procedure err? Surprisingly rarely. There are only 22 values
+of n less than 10,000 for which it errs; the first four such values are 341, 561,
+645, and 1105. We won’t prove it, but the probability that this program makes an
+error on a randomly chosen f-bit number goes to zero as 8 —> oo. Using more
+precise estimates due to Pomerance [279] of the number of base-2 pseudoprimes of
+a given size, we may estimate that a randomly chosen 512-bit number that is called
+prime by the above procedure has less than one chance in 10° of being a base-2
+pseudoprime, and a randomly chosen 1024-bit number that is called prime has less
+than one chance in 10*! of being a base-2 pseudoprime. So if you are merely
+trying to find a large prime for some application, for all practical purposes you
+almost never go wrong by choosing large numbers at random until one of them
+causes PSEUDOPRIME to return PRIME. But when the numbers being tested for
+primality are not randomly chosen, we need a better approach for testing primality.
+

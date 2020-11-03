@@ -1,0 +1,49 @@
+Chapter 19: Interaction With Hardware 637
+
+ 
+
+(a) On pressing a key an interrupt occurs and the corresponding
+kernel routine gets called.
+
+(b) The kernel routine calls the ISR of the keyboard device driver.
+
+(c) The ISR communicates with the keyboard controller and
+obtains the code of the key pressed.
+
+(d) The ISR calls a OS function keybd_event( ) to post the key
+code to the System Message Queue.
+
+(e) The OS retrieves the message from the System Message
+Queue and posts it into the message queue of the application
+with regard to which the key has been pressed.
+
+Let us now see what needs to be done if we are to alter this
+procedure. We simply need to register our hook procedure with the
+OS. As a result, our hook procedure would receive the message
+before it is dispatched to the appropriate Application Message
+Queue. Since our hook procedure gets a first shot at the message it
+can now alter the working in the following three ways:
+
+(a) It can suppress the message altogether
+
+(b) It can change the message
+
+(c) It can post more messages into the System Message Queue
+using the keybd_event() function.
+
+Let us now put all this theory into practice by writing a few
+programs.
+
+Caps Locked, Permanently
+
+Let us now write a program that keeps the CapsLock permanently
+on. This effect would come into being when the first key is hit
+subsequent to the execution of our program. In fact there would be
+two programs:
+
+(a) A DLL containing a hook procedure that achieves the
+CapsLock effect.
+(b) An application EXE which loads the DLL in memory.
+
+Given below is the source code of the DLL program.
+

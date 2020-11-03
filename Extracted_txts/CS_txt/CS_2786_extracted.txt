@@ -1,0 +1,44 @@
+Notes for Chapter 13 337
+For nodes x and y in treap T, where y 4 x, letk = x.key andi = y.key. We
+define indicator random variables
+
+Xjx =1{y isin the right spine of the left subtree of x} .
+
+f. Show that Xiz = 1 if and only if y.priority > x.priority, y.key < x. key, and,
+for every z such that y.key < z.key < x.key, we have y. priority < Z.priority.
+
+g. Show that
+_ . (k-i-D!
+Pr{Xjn = 1p = asp!
+_ 1
+~ (k=i + Iki)”
+h. Show that
+k-l 1
+E[C] = —___
+i" Lage
+1
+= I~.
+
+i. Use asymmetry argument to show that
+
+1
+EDI =!-
+
+Jj. Conclude that the expected number of rotations performed when inserting a
+node into a treap is less than 2.
+
+ 
+
+Chapter notes
+
+The idea of balancing a search tree is due to Adel’son-Vel’skii and Landis [2], who
+introduced a class of balanced search trees called “AVL trees” in 1962, described in
+Problem 13-3. Another class of search trees, called “2-3 trees,” was introduced by
+J. E. Hopcroft (unpublished) in 1970. A 2-3 tree maintains balance by manipulating
+the degrees of nodes in the tree. Chapter 18 covers a generalization of 2-3 trees
+introduced by Bayer and McCreight [35], called “B-trees.”
+
+Red-black trees were invented by Bayer [34] under the name “symmetric binary
+B-trees.” Guibas and Sedgewick [155] studied their properties at length and in-
+troduced the red/black color convention. Andersson [15] gives a simpler-to-code
+

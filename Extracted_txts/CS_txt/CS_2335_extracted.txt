@@ -1,0 +1,91 @@
+34
+
+Chapter 2. Intelligent Agents
+
+ 
+
+MAPPING
+
+IDEAL MAPPINGS
+
+ 
+
+The ideal mapping from percept sequences to actions
+
+Once we realize that an agent's behavior depends only on its percept sequence to date, then we can
+describe any particular agent by making a table of the action it takes in response to each possible
+percept sequence. (For most agents, this would be a very long list —infinite, in fact, unless we
+place a bound on the length of percept sequences we want to consider.) Such a list is called
+a mapping from percept sequences to actions. We can, in principle, find out which mapping
+correctly describes an agent by trying out all possible percept sequences and recording which
+actions the agent does in response. (Ifthe agent uses some randomization in its computations,
+then we would have to try some percept sequences several times to get a good idea of the agent's
+average behavior.) And if mappings describe agents, then ideal mappings describe ideal agents.
+Specifving which action an agent ought to take in response to any given percept sequence provides
+a designfor an ideal agent.
+
+This does not mean, of course, that we have to create an explicit table with an entry
+for every possible percept sequence. It is possible to define a specification of the mapping
+without exhaustively enumerating it. Consider a very simple agent: the square-root function
+on a calculator. The percept sequence for this agent is a sequence of keystrokes representing a
+number, and the action is to display a number on the display screen. The ideal mapping is that
+when the percept is a positive number x, the right action is to display a positive number = such
+that z? ~ x, accurate to, say, 15 decimal places. This specification of the ideal mapping does
+not require the designer to actually construct a table of square roots. Nor does the square-root
+function have to use a table to behave correctly: Figure 2.2 shows part of the ideal mapping and
+a simple program that implements the mapping using Newton's method.
+
+The square-root example illustrates the relationship between the ideal mapping and an
+ideal agent design, for a very restricted task. Whereas the table is very large, the agent is a nice,
+compact program. It turns out that it is possible to design nice, compact agents that implement
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Percept x Action z
+10 1.000000000000000 function sQrT(x)
+Ll 1.048808848 170152 zZ—-10 /* initial guess * /
+12 1.095445 1 15010332 repeat until }z* - x] < 10-!5
+13 1.140175425099 138 oe (ee
+4 1.183215956619923 ri ence
+1s 1.224744871391589 end
+16 1.264911064067352 return z
+17 130384048 1040530
+18 1.341640786499874
+19 1,378404875209022
+Figure 2.2 Part ofthe ideal mapping for the square-root problem (accurate to 1 5 digits), anda
+corresponding program that implements the ideal mapping.
+
+ 
+
+ 
+
+ 
+
+AL
+
+Ino
+
+AGE
+
+ARC
+

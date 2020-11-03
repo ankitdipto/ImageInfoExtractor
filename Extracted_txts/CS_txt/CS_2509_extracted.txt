@@ -1,0 +1,60 @@
+112
+
+Chapter 4 Divide-and-Conquer
+
+3. Strassen’s algorithm is not quite as numerically stable as SQUARE-MATRIX-
+MULTIPLY. In other words, because of the limited precision of computer arith-
+metic on noninteger values, larger errors accumulate in Strassen’s algorithm
+than in SQUARE-MATRIX-MULTIPLY.
+
+4. The submatrices formed at the levels of recursion consume space.
+
+The latter two reasons were mitigated around 1990. Higham [167] demonstrated
+that the difference in numerical stability had been overemphasized; although
+Strassen’s algorithm is too numerically unstable for some applications, it is within
+acceptable limits for others. Bailey, Lee, and Simon [32] discuss techniques for
+reducing the memory requirements for Strassen’s algorithm.
+
+In practice, fast matrix-multiplication implementations for dense matrices use
+Strassen’s algorithm for matrix sizes above a “crossover point,” and they switch
+to a simpler method once the subproblem size reduces to below the crossover
+point. The exact value of the crossover point is highly system dependent. Analyses
+that count operations but ignore effects from caches and pipelining have produced
+crossover points as low as n = 8 (by Higham [167]) orm = 12 (by Huss-Lederman
+et al. [186]). D’Alberto and Nicolau [81] developed an adaptive scheme, which
+determines the crossover point by benchmarking when their software package is
+installed. They found crossover points on various systems ranging from n = 400
+to n = 2150, and they could not find a crossover point on a couple of systems.
+
+Recurrences were studied as early as 1202 by L. Fibonacci, for whom the Fi-
+bonacci numbers are named. A. De Moivre introduced the method of generating
+functions (see Problem 4-4) for solving recurrences. The master method is adapted
+from Bentley, Haken, and Saxe [44], which provides the extended method justified
+by Exercise 4.6-2. Knuth [209] and Liu [237] show how to solve linear recurrences
+using the method of generating functions. Purdom and Brown [287] and Graham,
+Knuth, and Patashnik [152] contain extended discussions of recurrence solving.
+
+Several researchers, including Akra and Bazzi [13], Roura [299], Verma [346],
+and Yap [360], have given methods for solving more general divide-and-conquer
+recurrences than are solved by the master method. We describe the result of Akra
+and Bazzi here, as modified by Leighton [228]. The Akra-Bazzi method works for
+recurrences of the form
+
+e1) if1<x <x.
+
+PO) =) yk aTUbix) + fx) ifx> x.
+
+(4.30)
+
+where
+
+* x > 1isareal number,
+
+ 
+
+* Xo is aconstant such that x9 > 1/b; and x) > 1/(1 —b;) for i = 1,2
+
+* aj; isa positive constant for i = 1,2 k,
+
+ 
+

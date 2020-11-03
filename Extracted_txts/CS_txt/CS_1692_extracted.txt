@@ -1,0 +1,61 @@
+186
+
+Chapter6 CPU Scheduling
+
+Process Arrival Time Burst Time
+
+Py 0.0 8
+Pz 0.4 4
+P3 1.0 1
+
+a. What is the average turnaround time for these processes with the
+FCFS scheduling algorithm?
+
+b. What is the average turnaround time for these processes with the SJF
+
+scheduling algorithm?
+
+c. The SJF algorithm is supposed to improve performance, but notice
+that we chose to run process P; at time 0 because we did not know
+that two shorter processes would arrive soon. Compute what the
+average turnaround time will be if the CPU is left idle for the first
+1 unit and then SJF scheduling is used. Remember that processes
+P; and P» are waiting during this idle time, so their waiting time
+may increase. This algorithm could be known as future-knowledge
+scheduling.
+
+6.5 Consider a variant of the RR scheduling algorithm where the entries in the
+
+ready queue are pointers to the PCBs.
+
+a. What would be the effect of putting two pointers to the same process
+in the ready queue?
+
+b. What would be the major advantages and disadvantages of this
+
+scheme?
+
+c. How would you modify the basic RR algorithm to achieve the same
+effect without the duplicate pointers?
+
+6.6 What advantage is there in having different time-quantum sizes on differ-
+
+ent levels of a multilevel queueing system?
+
+6.7 Consider the following preemptive priority-scheduling algorithm based
+
+on dynamically changing priorities. Larger priority numbers imply higher
+priority. When a process is waiting for the CPU (in the ready queue, but
+not running), its priority changes at a rate a; when itis running, its priority
+changes at a rate 3. All processes are given a priority of 0 when they enter
+the ready queue. The parameters a and 3 can be set to give many different
+scheduling algorithms.
+
+a. What is the algorithm that results from 8 > a > 0?
+
+b. What is the algorithm that results froma < <0?
+
+6.8 Many CPU-scheduling algorithms are parameterized. For example, the
+
+RR algorithm requires a parameter to indicate the time slice. Multilevel
+

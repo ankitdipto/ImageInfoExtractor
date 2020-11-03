@@ -1,0 +1,47 @@
+Chapter 8: Arrays 297
+
+ 
+
+have printed the individual elements of the 1-D array to which p is
+pointing.
+
+But why should we use a pointer to an array to print elements of a
+2-D array. Is there any situation where we can appreciate its usage
+better? The entity pointer to an array is immensely useful when we
+need to pass a 2-D array to a function. This is discussed in the next
+section.
+
+Passing 2-D Array to a Function
+
+There are three ways in which we can pass a 2-D array to a
+function. These are illustrated in the following program.
+
+I" Three ways of accessing a 2-D array */
+main()
+
+{
+int a[3][4]= {
+
+ous
+COn
+Nw
+Dor
+
+clrscr() ;
+
+display (a, 3, 4) ;
+
+show (a, 3, 4);
+
+print (a, 3, 4);
+}
+display (int *q, int row, int col)
+{
+
+int i,j;
+
+for (i=0;i< row; i++)
+{
+for (j=0;j<col; j++)
+printf ("%d", *(q+i*col+j));
+

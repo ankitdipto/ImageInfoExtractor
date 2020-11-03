@@ -1,0 +1,89 @@
+596
+
+(g)
+
+ 
+
+Chapter 22. Elementary Graph Algorithms
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+als oO |wlr
+11
+Qlr\t QO l|t|x|v
+122 222
+QO vfu olviuly
+22 2 3
+s t u r s t u
+Q |uly (h) Q |y
+3 3
+w x y v w x y
+s t u
+Q 6
+w x y
+
+Figure 22.3. The operation of BFS on an undirected graph, Tree edges are shown shaded as they
+are produced by BFS. The value of v.d appears within each vertex w. The queue Q is shown at the
+beginning of each iteration of the while loop of lines 10-18. Vertex distances appear below vertices
+in the queue.
+
+Although we won’t use this loop invariant to prove correctness, it is easy to see
+that it holds prior to the first iteration and that each iteration of the loop maintains
+the invariant. Prior to the first iteration, the only gray vertex, and the only vertex
+in Q, is the source vertex s. Line 11 determines the gray vertex u at the head of
+the queue Q and removes it from Q. The for loop of lines 12-17 considers each
+vertex v in the adjacency list of u. If v is white, then it has not yet been discovered,
+and the procedure discovers it by executing lines 14-17. The procedure paints
+vertex v gray, sets its distance v.d to u.d+1, records u as its parent v. 7, and places
+it at the tail of the queue Q. Once the procedure has examined all the vertices on u’s
+

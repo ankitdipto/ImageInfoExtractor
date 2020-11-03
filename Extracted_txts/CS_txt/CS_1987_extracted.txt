@@ -1,0 +1,80 @@
+432 Chapter 12 File-System Implementation
+
+free-space list head
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 12.10 Linked free space list on disk.
+
+time. Fortunately, traversing the free list is not a frequent action. Usually, the
+operating system simply needs a free block so that it can allocate that block to
+a file, so the first block in the free list is used. The FAT method incorporates
+free-block accounting into the allocation data structure. No separate method is
+needed.
+
+12.5.3 Grouping
+
+‘A modification of the free-list approach is to store the addresses of n free blocks
+in the first free block. The first n—1 of these blocks are actually free. The last
+block contains the addresses of another 11 free blocks, and so on. The importance
+of this implementation is that the addresses of a large number of free blocks can
+be found quickly, unlike in the standard linked-list approach.
+
+12.5.4 Counting
+
+Another approach is to take advantage of the fact that, generally, several con-
+tiguous blocks may be allocated or freed simultaneously, particularly when
+space is allocated with the contiguous-allocation algorithm or through clus-
+tering. Thus, rather than keeping a list of n free disk addresses, we can keep
+the address of the first free block and the number n of free contiguous blocks
+that follow the first block. Each entry in the free-space list then consists of a
+disk address and a count. Although each entry requires more space than would
+

@@ -1,0 +1,67 @@
+530
+
+14.6
+
+14.7
+
+14.8
+
+14.9
+
+14.10
+
+14.11
+
+14.12
+
+Chapter 14 Mass-Storage Structure
+
+b. Using the seek-time function from part a, calculate the total seek
+time for each of the schedules in Exercise 14.2. Is your answer the
+same as it was for Exercise 14.3? Explain why it is the same or why
+itis different.
+
+c. What is the percentage speedup of the fastest schedule over FCFS in
+this case?
+
+Write a Java program for disk scheduling using the SCAN and C-SCAN
+disk-scheduling algorithms.
+
+Compare the performance of C-SCAN and SCAN scheduling, assuming a
+uniform distribution of requests. Consider the average response time
+(the time between the arrival of a request and the completion of that
+request’s service), the variation in response time, and the effective band-
+width. How does performance depend on the relative sizes of seek time
+and rotational latency?
+
+Is disk scheduling, other than FCFS scheduling, useful in a single-user
+environment? Explain your answer.
+
+Explain why SSTF scheduling tends to favor middle cylinders over the
+innermost and outermost cylinders.
+
+Requests are not usually uniformly distributed. For example, a cylinder
+containing the file system FAT or inodes can be expected to be accessed
+more frequently than a cylinder that contains only files. Suppose that
+you know that 50 percent of the requests are for a small, fixed number of
+cylinders.
+
+a. Would any of the scheduling algorithms discussed in this chapter
+be particularly good for this case? Explain your answer.
+
+b. Propose a disk-scheduling algorithm that gives even better perfor-
+mance by taking advantage of this “hot spot” on the disk.
+
+c. File systems typically find data blocks via an indirection table, such
+as a FAT in DOS or inodes in UNIX. Describe one or more ways to
+take advantage of this indirection to improve the disk performance.
+
+Why is rotational latency usually not considered in disk scheduling?
+How would you modify SSTF, SCAN, and C-SCAN to include latency
+optimization?
+
+How would the use of a RAM disk affect your selection of a disk-
+scheduling algorithm? What factors would you need to consider? Do
+the same considerations apply to hard-disk scheduling, given that the file
+system stores recently used blocks in a buffer cache in main memory?
+

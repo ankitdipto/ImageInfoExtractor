@@ -1,0 +1,48 @@
+29.2. Formulating problems as linear programs 859
+
+ 
+
+29.2. Formulating problems as linear programs
+
+Although we shall focus on the simplex algorithm in this chapter, it is also impor-
+tant to be able to recognize when we can formulate a problem as a linear program.
+Once we cast a problem as a polynomial-sized linear program, we can solve it
+in polynomial time by the ellipsoid algorithm or interior-point methods. Several
+linear-programming software packages can solve problems efficiently, so that once
+the problem is in the form of a linear program, such a package can solve it.
+
+We shall look at several concrete examples of linear-programming problems. We
+start with two problems that we have already studied: the single-source shortest-
+paths problem (see Chapter 24) and the maximum-flow problem (see Chapter 26).
+We then describe the minimum-cost-flow problem. Although the minimum-cost-
+flow problem has a polynomial-time algorithm that is not based on linear program-
+ming, we won’t describe the algorithm. Finally, we describe the multicommodity-
+flow problem, for which the only known polynomial-time algorithm is based on
+linear programming.
+
+When we solved graph problems in Part VI, we used attribute notation, such
+as v.d and (u,v).f. Linear programs typically use subscripted variables rather
+than objects with attached attributes, however. Therefore, when we express vari-
+ables in linear programs, we shall indicate vertices and edges through subscripts.
+For example, we denote the shortest-path weight for vertex v not by v.d but by dy.
+Similarly, we denote the flow from vertex u to vertex v not by (wu, v).f but by fuy-
+For quantities that are given as inputs to problems, such as edge weights or capac-
+ities, we shall continue to use notations such as w(u, v) and c(u.v).
+
+Shortest paths
+
+We can formulate the single-source shortest-paths problem as a linear program.
+In this section, we shall focus on how to formulate the single-pair shortest-path
+problem, leaving the extension to the more general single-source shortest-paths
+problem as Exercise 29.2-3.
+
+In the single-pair shortest-path problem, we are given a weighted, directed graph
+G = (V.E), with weight function w : E — R mapping edges to real-valued
+weights, a source vertex s, and destination vertex f. We wish to compute the
+value d,, which is the weight of a shortest path from s to t. To express this prob-
+lem as a linear program, we need to determine a set of variables and constraints that
+define when we have a shortest path from s to ¢. Fortunately, the Bellman-Ford al-
+gorithm does exactly this. When the Bellman-Ford algorithm terminates, it has
+computed, for each vertex v, a value d, (using subscript notation here rather than
+attribute notation) such that for each edge (u,v) € E, we have d, < d, +w(u,v).
+

@@ -1,0 +1,104 @@
+218 © cuarrenseven Microprogrammed Control
+
+ 
+
+Instruction code
+
+ 
+
+ 
+
+ 
+
+ 
+
+Mapping.
+logic
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Multiplexers
+
+ 
+
+ 
+
+ 
+
+ 
+
+Saad
+coer
+we
+: |}
+coma
+
+ae
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Incrementer
+
+-——
+
+Control memory
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Microoperations
+
+ 
+
+Branch address
+
+Figure 7-2 Selection of addres for control memory.
+
+This can be implemented with a multiplexer. Suppose that there are eight
+status bit conditions in the system. Three bits in the microinstruction are used
+to specify any one of eight status bit conditions. These three bits provide the
+selection variables for the multiplexer. If the selected status bit isin the 1 state,
+the output of the multiplexer is 1; otherwise, it is 0. A 1 output in the multi-
+plexer generates a control signal to transfer the branch address from the
+microinstruction into the control address register. A 0 output in the multiplexer
+causes the address register to be incremented. In this configuration, the
+microprogram follows one of two possible paths, depending on the value of
+the selected status bit.
+

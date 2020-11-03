@@ -1,0 +1,73 @@
+Section 3.5.
+
+Search Strategies 75
+
+ 
+
+ 
+
+ 
+
+UNIFORM COST
+SEARCH
+
+at the same time. Figure 3.12 assumes that 1000 nodes can be goal-checked and expanded per
+second, and that a node requires 100 bytes of storage. Many puzzle-like problems fit roughly
+within these assumptions (give or take a factor of 100) when run on a modern personal computer
+or workstation.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Depth Nodes Time Memory
+0 1 1 millisecond 100 bytes
+2 lll .1 seconds 11 kilobytes
+4 11111 11 seconds 1 megabyte
+6 10° 18 minutes 111 megabytes
+8 108 31 hours 11 gigabytes
+10 10! 128 days 1 terabyte
+2 10" 35. years 111 terabytes
+14 1014 3500 years 11,111 terabytes
+Figure 312 Time and memory requirements for breadth-first search. The figures shown
+assume branching factor b = 10; 1000nodes/second; 100 bytes/node.
+
+ 
+
+ 
+
+ 
+
+There are two lessons to be learned from Figure 3.12. First, the memory requirements are
+a biggerproblem for breadth-first search than the execution time. Most people have the patience
+to wait 18 minutes for a depth 6 search to complete, assuming they care about the answer, but not
+so many have the 111 megabytes of memory that are required. And although 3! hours would not
+be too long to wait for the solution to an important problem of depth 8, very few people indeed
+have access to the 11 gigabytes of memory it would take. Fortunately, there are other search
+strategies that require less memory.
+
+The second lesson is that the time requirements are still a major factor. If your problem
+has a solution at depth 12, then (given our assumptions) it will take 35 years for an uninformed
+search to find it. Ofcourse, iftrends continue then in 10 years, you will be able to buy a computer
+that is 100 times faster for the same price as your current one. Even with that computer, however,
+it will still take 128 days to find a solution at depth 12—and 35 years for a solution at depth
+14. Moreover, there are no other uninformed search strategies that fare any better. Jn general,
+exponential complexity search problems cannot be solvedfor any but the smallest instances.
+
+Uniform cost search
+
+Breadth-first search finds the shallowest goal state, but this may not always be the least-cost
+solution for a general path cost function. Uniform cost search modifies the breadth-first strategy
+by always expanding the lowest-cost node on the fringe (as measured by the path cost g(n)),
+rather than the lowest-depth node. It is easy to see that breadth-first search is just uniform cost
+search with g(n) = DEPTH(n).
+
+When certain conditions are met, the first solution that is found is guaranteed to be the
+cheapest solution, because if there were a cheaper path that was a solution, it would have been
+expanded earlier, and thus would have been found first. A look at the strategy in action will help
+explain. Consider the route-finding problem in Figure 3,13. The problem is to get from S'to G,
+

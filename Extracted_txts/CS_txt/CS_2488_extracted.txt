@@ -1,0 +1,48 @@
+Chapter 4 Divide-and-Conquer
+
+f(n) = nign is asymptotically larger than n'°8»* = n. The problem is that it
+is not polynomially larger. The ratio f(n)/n'°%* = (nlgn)/n = Ign is asymp-
+totically less than n* for any positive constant €. Consequently, the recurrence falls
+into the gap between case 2 and case 3. (See Exercise 4.6-2 for a solution.)
+
+Let’s use the master method to solve the recurrences we saw in Sections 4.1
+and 4.2. Recurrence (4.7),
+
+T(n) =2T(n/2) + O(n),
+
+characterizes the running times of the divide-and-conquer algorithm for both the
+maximum-subarray problem and merge sort. (As is our practice, we omit stating
+the base case in the recurrence.) Here, we have a = 2, b = 2, f(n) = ©(n), and
+thus we have that m!°8o4 = n'°82? = n. Case 2 applies, since f(n) = O(7), and so
+we have the solution T(n) = O(n Ign).
+
+Recurrence (4.17),
+
+T(n) =8T(n/2) + OW),
+
+ 
+
+describes the running time of the first divide-and-conquer algorithm that we saw
+for matrix multiplication. Now we have a = 8, b = 2, and f(n) = O(n’),
+and so nl = n'228 = 13. Since n3 is polynomially larger than f (1) (that is,
+Ff (n) = O(n) for € = 1), case | applies, and T(n) = O(n3).
+
+Finally, consider recurrence (4.18),
+T(n) = 7T(n/2) + O(n’) ,
+
+which describes the running time of Strassen’s algorithm. Here, we have a = 7,
+b = 2, f(n) = O(n’), and thus n'°»4 = n'227, Rewriting log, 7 as lg7 and
+recalling that 2.80 < lg7 < 2.81, we see that f(n) = O(n'8?~£) fore = 0.8.
+Again, case | applies, and we have the solution T(n) = O(n'7).
+
+Exercises
+
+4.5-1
+Use the master method to give tight asymptotic bounds for the following recur-
+rences.
+
+a. T(n) =2T(n/4) +1.
+b. T(n) =2T(n/4) + Vn.
+ce. T(n) = 2T(n/4) +n.
+d, T(n) = 2T(n/4) +n?.
+

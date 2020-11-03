@@ -1,0 +1,37 @@
+190 Let Us C
+
+ 
+
+factorial of a number is the product of all the integers between 1
+and that number. For example, 4 factorial is 4 * 3 * 2 * 1. This can
+also be expressed as 4! = 4 * 3! where ‘!’ stands for factorial. Thus
+factorial of a number can be expressed in the form of itself. Hence
+this can be programmed using recursion. However, before we try
+to write a recursive function for calculating factorial let us take a
+look at the non-recursive function for calculating the factorial
+value of an integer.
+
+main()
+{
+int a, fact ;
+
+printf ( "\nEnter any number ") ;
+scanf ("%d", &a) ;
+
+fact = factorial (a) ;
+printf ( "Factorial value = %d", fact ) ;
+
+}
+factorial (int x )
+{
+int f=1i;
+for (i=X;i>=1;i-)
+f=f*i;
+return (f) ;
+}
+
+And here is the output...
+
+Enter any number 3
+Factorial value = 6
+

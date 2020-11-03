@@ -1,0 +1,42 @@
+172 Let Us C
+
+ 
+
+of i is known only to the function main() and not to any other
+function. Similarly, the variable k is local to the function
+display() and hence it is not available to main(). That is why to
+make the value of i available to display() we have to explicitly
+pass it to display(). Likewise, if we want k to be available to
+main() we will have to return it to main() using the return
+statement. In general we can say that the scope of a variable is
+local to the function in which it is defined.
+
+Calling Convention
+Calling convention indicates the order in which arguments are
+passed to a function when a function call is encountered. There are
+
+two possibilities here:
+
+(a) Arguments might be passed from left to right.
+(b) Arguments might be passed from right to left.
+
+C language follows the second order.
+
+Consider the following function call:
+
+fun (a, b,c, d);
+
+In this call it doesn’t matter whether the arguments are passed
+from left to right or from right to left. However, in some function
+call the order of passing arguments becomes an important
+
+consideration. For example:
+
+int a=1;
+printf ("%d %d %d", a, ++a, a++) ;
+
+It appears that this printf() would output 1 2 3.
+
+This however is not the case. Surprisingly, it outputs 3 3 1. This is
+because C’s calling convention is from right to left. That is, firstly
+

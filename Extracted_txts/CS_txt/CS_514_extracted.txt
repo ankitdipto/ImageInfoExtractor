@@ -1,0 +1,51 @@
+1058
+
+Chapter 34 NP-Completeness
+
+tations of prime numbers. We denote the empty string by ¢, the empty language
+by 9, and the language of all strings over © by L*. For example, if 2 = {0,1},
+then E* = {e,0,1,00,01, 10, 11,000,...} is the set of all binary strings. Every
+language L over ¥ is a subset of &*.
+
+We can perform a variety of operations on languages. Set-theoretic operations,
+such as union and intersection, follow directly from the set-theoretic definitions.
+We define the complement of L by TL = =*—L. The concatenation LL of two
+languages L, and L» is the language
+
+L = {x1X2:X1 € Ly and x2 € Lp} .
+The closure or Kleene star of a language L is the language
+L*={e}ULULPULSU-.,
+
+where L* is the language obtained by concatenating L to itself k times.
+
+From the point of view of language theory, the set of instances for any decision
+problem Q is simply the set 4*, where © = {0,1}. Since Q is entirely character-
+ized by those problem instances that produce a | (yes) answer, we can view Q as
+a language L over & = {0,1}, where
+
+L={xeX*: O(x)=]}.
+For example, the decision problem PATH has the corresponding language
+
+PATH = {(G,u.v,k) : G = (V, E) is an undirected graph,
+uve,
+k > Ois an integer, and
+there exists a path from u to v in G
+consisting of at most k edges} .
+
+(Where convenient, we shall sometimes use the same name— PATH in this case—
+to refer to both a decision problem and its corresponding language.)
+
+The formal-language framework allows us to express concisely the relation be-
+tween decision problems and algorithms that solve them. We say that an al-
+gorithm A accepts a string x € {0,1}* if, given input x, the algorithm’s out-
+put A(x) is 1. The language accepted by an algorithm A is the set of strings
+L = {x € {0,1}" : A(x) = 1}, that is, the set of strings that the algorithm accepts.
+An algorithm A rejects a string x if A(x) = 0.
+
+Even if language L is accepted by an algorithm A, the algorithm will not neces-
+sarily reject a string x ¢ L provided as input to it. For example, the algorithm may
+loop forever. A language L is decided by an algorithm A if every binary string
+in L is accepted by A and every binary string not in L is rejected by A. A lan-
+guage L is accepted in polynomial time by an algorithm A if it is accepted by A
+and if in addition there exists a constant k such that for any length-n string x € L,
+

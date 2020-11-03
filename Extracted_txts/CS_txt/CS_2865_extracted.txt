@@ -1,0 +1,62 @@
+402
+
+Chapter 15 Dynamic Programming
+
+©(j —i) additions—we store these values in a table w[l.. + 1,0..n]. For the
+base case, we compute w{f,i — 1] = qi-1 for | <i <n+1. For j = i, we
+compute
+
+wii, j] = uli. -U+p;+9,- (15.15)
+Thus, we can compute the ©(77) values of wf, j] in (1) time each.
+
+The pseudocode that follows takes as inputs the probabilities p;,..., Pn and
+Gress Qn and the size n, and it returns the tables e and root.
+
+OPTIMAL-BST(p, ¢.7)
+
+1 letefl..2+1,0..n],w[l..n +1,0..n],
+and root{1..n,1..n] be new tables
+
+2 fori = 1lton+1
+
+3 efi.i -—1 = qin
+
+4 wli,i-— 1] = qi-n
+
+5 for! = lton
+
+6 fori = lton—/+1
+
+7
+
+8
+
+j=itl-1
+eli, j] = 00
+9 wli, J) = wl. jf -+ pj +4;
+10 for r = i toj
+al t =efi.r—lt+efr+1.j]+ uli. Jj]
+12 ift < efi, j]
+13 eli. jJ=t
+14 root{i, j] =r
+
+15 return e and root
+
+From the description above and the similarity to the MATRIX-CHAIN-ORDER pro-
+cedure in Section 15.2, you should find the operation of this procedure to be fairly
+straightforward. The for loop of lines 24 initializes the values of e[i,i — 1]
+and w[i,i — 1]. The for loop of lines 5-14 then uses the recurrences (15.14)
+and (15.15) to compute e[i, j] and w[f, j] forall | <i < j <n. In the first itera-
+tion, when/ = 1, the loop computes e[f, i] and w[i,i] fori = 1,2,...,n. The sec-
+ond iteration, with / = 2, computes e[i,i+1] and w[f,i+1] fori =1,2,..., n-l,
+and so forth. The innermost for loop, in lines 10-14, tries each candidate index r
+to determine which key k, to use as the root of an optimal binary search tree con-
+taining keys kj,..., k;. This for loop saves the current value of the index r in
+root(i, j] whenever it finds a better key to use as the root.
+
+Figure 15.10 shows the tables e[i, j], w[i, j], and root[i, 7] computed by the
+procedure OPTIMAL-BST on the key distribution shown in Figure 15.9. As in the
+matrix-chain multiplication example of Figure 15.5, the tables are rotated to make
+
+ 
+

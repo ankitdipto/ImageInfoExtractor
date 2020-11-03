@@ -1,0 +1,92 @@
+Section 3.3 Example Problems 63
+
+ 
+
+3.3__ EXAMPLE PROBLEMS.
+
+The range of task environments that can be characterized by well-defined problems is vast. We
+
+‘roy PROBLEMS can distinguish between so-called, toy problems, which are intended to illustrate or exercise
+
+peakiigee various problem-solving methods, and so-called real-world problems, which tend to be more
+difficult and whose solutions people actually care about. In this section, we will give examples of
+both. By nature, toy problems can be given a concise, exact description. This means that they can
+be easily used by different researchers to compare the performance of algorithms. Real-world
+problems, on the other hand, tend not to have a single agreed-upon description, but we will
+attempt to give the general flavor of their formulations.
+
+Toy problems
+
+The 8-puzzle
+
+BPURZLE The 8-puzzle, an instance of which is shown in Figure 3.4, consists of a 3x3 board with eight
+numbered tiles and a blank space. A tile adjacent to the blank space can slide into the space.
+The object is to reach the configuration shown on the right of the figure. One important trick is
+to notice that rather than use operators such as "move the 3 tile into the blank space," it is more
+sensible to have operators such as "the blank space changes places with the tile to its left." This is
+because there are fewer of the latter kind of operator. This leads us to the following formulation:
+
+States: a state description specifies the location of each of the eight tiles in one of the nine
+squares. For efficiency, it is useful to include the location of the blank.
+
+} Operators: blank moves left, right, up, or down
+
+0 Goal test: state matches the goal configuration shown in Figure 3.4.
+
+0 Path cost: each step costs 1, so the path cost is just the length of the path.
+
+S1pNIG-ALocK The 8-puzzle belongs to the family of sliding-block puzzles. This general class is known
+to be NP-complete, so one does not expect to find methods significantly better than the search
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Start State Goal State
+
+ 
+
+ 
+
+Figure34 A typical instance of the 8-puzzle.
+
+ 
+
+ 
+
+ 
+

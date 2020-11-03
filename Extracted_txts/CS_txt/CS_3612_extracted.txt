@@ -1,0 +1,49 @@
+ 
+
+of union by rank with path compression 575
+
+Properties of ranks
+
+In the remainder of this section, we prove an O(ma(n)) bound on the running time
+of the disjoint-set operations with union by rank and path compression. In order to
+prove this bound, we first prove some simple properties of ranks.
+
+Lemma 21.4
+
+For all nodes x, we have x.rank < x.p.rank, with strict inequality if x # x.p.
+The value of x.rank is initially 0 and increases through time until x 4 x.p; from
+then on, x.rank does not change. The value of x.p.rank monotonically increases
+over time.
+
+Proof The proof is a straightforward induction on the number of operations, us-
+ing the implementations of MAKE-SET, UNION, and FIND-SET that appear in
+Section 21.3. We leave it as Exercise 21.4-1. /
+
+Corollary 21.5
+As we follow the simple path from any node toward a root, the node ranks strictly
+increase. /
+
+Lemma 21.6
+Every node has rank at most n — 1.
+
+Proof Each node’s rank starts at 0, and it increases only upon LINK operations.
+Because there are at most n — 1 UNION operations, there are also at most n — 1
+LINK operations. Because each LINK operation either leaves all ranks alone or
+increases some node’s rank by 1, all ranks are at most 1 — 1. :
+
+Lemma 21.6 provides a weak bound on ranks. In fact, every node has rank at
+most [lgn| (see Exercise 21.4-2). The looser bound of Lemma 21.6 will suffice
+for our purposes, however.
+
+Proving the time bound
+
+We shall use the potential method of amortized analysis (see Section 17.3) to prove
+the O(m a(n)) time bound. In performing the amortized analysis, we will find it
+convenient to assume that we invoke the LINK operation rather than the UNION
+operation. That is, since the parameters of the LINK procedure are pointers to two
+roots, we act as though we perform the appropriate FIND-SET operations sepa-
+rately. The following lemma shows that even if we count the extra FIND-SET op-
+erations induced by UNION calls, the asymptotic running time remains unchanged.
+
+    
+

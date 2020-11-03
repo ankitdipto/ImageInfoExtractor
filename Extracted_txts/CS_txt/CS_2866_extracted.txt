@@ -1,0 +1,25 @@
+15.5. Optimal binary search trees 403
+
+ 
+
+Figure 15.10 The tables efi, j], w[i, j], and roor[i, j] computed by OpTIMAL-BST on the key
+distribution shown in Figure 15.9. The tables are rotated so that the diagonals run horizontally.
+
+the diagonals run horizontally. OPTIMAL-BST computes the rows from bottom to
+top and from left to right within each row.
+
+The OPTIMAL-BST procedure takes (n°) time, just like MATRIX-CHAIN-
+ORDER. We can easily see that its running time is O(n3), since its for loops are
+nested three deep and each loop index takes on at most 7 values. The loop indices in
+OPTIMAL-BST do not have exactly the same bounds as those in MATRIX-CHAIN-
+ORDER, but they are within at most | in all directions. Thus, like MATRIX-CHAIN-
+ORDER, the OPTIMAL-BST procedure takes (7°) time.
+
+Exercises
+
+15.5-1
+
+Write pseudocode for the procedure CONSTRUCT-OPTIMAL-BST(root) which,
+given the table root, outputs the structure of an optimal binary search tree. For the
+example in Figure 15.10, your procedure should print out the structure
+

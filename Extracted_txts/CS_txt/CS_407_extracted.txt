@@ -1,0 +1,48 @@
+31.8  Primality testing 971
+
+X = (241, 298, 166, 67, 1). Thus, WITNEss discovers a nontrivial square root
+of 1 in the last squaring step, since a?8° = 67 (mod n) and a* = 1 (mod n).
+Therefore, a = 7 is a witness to the compositeness of n, WITNESS(7,7) returns
+TRUE, and MILLER-RABIN returns COMPOSITE.
+
+If n is a B-bit number, MILLER-RABIN requires O(sf) arithmetic operations
+and O(sB*) bit operations, since it requires asymptotically no more work than s
+modular exponentiations.
+
+Error rate of the Miller-Rabin primality test
+
+If MILLER-RABIN returns PRIME, then there is a very slim chance that it has made
+an error. Unlike PSEUDOPRIME, however, the chance of error does not depend
+on 7; there are no bad inputs for this procedure. Rather, it depends on the size of s
+and the “luck of the draw” in choosing base values a. Moreover, since each test is
+more stringent than a simple check of equation (31.40), we can expect on general
+principles that the error rate should be small for randomly chosen integers n. The
+following theorem presents a more precise argument.
+
+Theorem 31.38
+If n is an odd composite number, then the number of witnesses to the composite-
+ness of 77 is at least (n — 1)/2.
+
+Proof The proof shows that the number of nonwitnesses is at most (n — 1)/2,
+which implies the theorem.
+
+We start by claiming that any nonwitness must be a member of Z*. Why?
+Consider any nonwitness a. It must satisfy a”~! = 1 (mod n) or, equivalently,
+a-a" = 1 (modn). Thus, the equation ax = 1 (mod 7) has a solution,
+namely a"-?. By Corollary 31.21, ged(a,n) | 1, which in turn implies that
+ged(a,n) = 1. Therefore, a is a member of Z*; all nonwitnesses belong to Z.
+
+To complete the proof, we show that not only are all nonwitnesses contained
+in Z>, they are all contained in a proper subgroup B of Z* (recall that we say B
+is a proper subgroup of Z* when B is subgroup of Z* but B is not equal to Z*).
+By Corollary 31.16, we then have |B| < |Z*|/2. Since |Z*| < n — 1, we obtain
+|B| < (n — 1)/2. Therefore, the number of nonwitnesses is at most (n — 1)/2, so
+that the number of witnesses must be at least (n — 1)/2.
+
+We now show how to find a proper subgroup B of Z* containing all of the
+nonwitnesses. We break the proof into two cases.
+
+Case 1: There exists an x € Z* such that
+
+x"! £1 (modn).
+

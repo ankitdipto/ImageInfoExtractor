@@ -1,0 +1,64 @@
+194
+
+Chapter 7. First-Order Logic
+
+ 
+
+ 
+
+Equality can be viewed as a predicate symbol with a predefined meaning, namely, that it
+is fixed t6 refer to the identity relation. The identity relation is the set of all pairs of objects in
+
+~~" which both elements of each parr ate the same object:
+
+{ {Spot, Spot),
+
+(Rebecca. Rebecca),
+
+(Felix, Felix),
+
+(Richard the Lionheart, Richard the Lionheart),
+
+(King John, King John).
+
+(Henry II, Henry Il),
+
+oJ
+Thus, to see if Farher(John) =Henry is true in a particular interpretation, we first look in the
+functional relation for Father and find the entry
+
+ 
+
+(ing John, Henry II),
+ot
+
+Then, because Henry refers to Henry II, the equality statement is true because (Henry II, Henry nD
+is in the equality relation.
+
+The equality symbol can be used to describe the properties of a given function, as we did
+above for the Father symbol. It can also be used with negation to insist that two terms are not
+the same object. To say that Spot has at least two sisters, we would write
+
+3x,y Sister(Spot.x) A Sister(Spot.y) A a(x=y)
+Ifwe simply wrote
+3x, Sister(Spot.x) A Sister(Spot.y)
+
+that would not assert the existence of two distinct sisters, because nothing says that x and y have
+to be different. Consider the expansion of the existential statement into a disjunction: it will
+include as a disjunct
+.» V (Sister(Spot Rebecca) A Sister(Spot,Rebecca)) V
+
+which occurs when Rebecca is substituted for both x and y. If Rebecca is indeed Spot's sister,
+then the existential will be satisfied because this disjunct will be true. The addition of (x=)
+makes the disjunct false, because Rebecca = Rebecca is necessarily true. The notation xy is
+sometimes used as an abbreviation for >(x=y).
+
+7.2__ EXTENSIONS AND NOTATIONAL VARIATIONS
+
+In this section we look at three types of alternatives to first-order logic. First, we look at an
+extension called higher-order logic. Second, we consider some abbreviations that add no new
+power to first-order logic but do make the resulting sentences more concise. Third, we look at
+variations on our notation for first-order logic.
+
+ 
+

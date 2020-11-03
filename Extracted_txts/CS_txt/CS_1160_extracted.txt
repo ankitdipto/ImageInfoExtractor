@@ -1,0 +1,57 @@
+Chapter 12: File Input/Output 443
+
+ 
+
+struct emp e;
+char empname[4Q] ;
+long int recsize ;
+
+fp = fopen ("EMP.DAT", "tb+") ;
+
+if (fp == NULL)
+
+{
+
+}
+
+fp = fopen ("EMP.DAT", "wb+") ;
+
+if (fp == NULL)
+
+{
+puts ("Cannot open file” ) ;
+exit() ;
+
+}
+
+recsize = sizeof (e) ;
+
+while (1)
+
+{
+
+clrscr() ;
+
+gotoxy ( 30, 10);
+
+printf (1. Add Records" ) ;
+gotoxy ( 30,12);
+
+printf ("2. List Records") ;
+gotoxy (30,14);
+
+printf ( "3. Modify Records” ) ;
+gotoxy ( 30, 16);
+
+printf ( "4. Delete Records") ;
+gotoxy ( 30, 18);
+
+printf ( "0. Exit") ;
+
+gotoxy (30, 20);
+
+printf ( "Your choice" ) ;
+
+fflush (stdin ) ;
+choice = getche( ) ;
+

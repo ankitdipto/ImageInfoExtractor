@@ -1,0 +1,51 @@
+398 Chapter 11 File-System Interface
+
+Client identification is more difficult. Clients can be specified by their
+network name or other identifier, such as IP address, but these can be spoofed
+(or imitated). An unauthorized client can spoof the server into deciding that it
+is authorized, and the unauthorized client could be allowed access. More secure
+solutions include secure authentication of the client to the server via encrypted
+keys. Unfortunately, with security comes many challenges, including ensuring
+compatibility of the client and server (they must use the same encryption
+algorithms) and secure key exchanges (intercepted keys could again allow
+unauthorized client access). These problems are difficult enough that, most
+commonly, unsecure authentication methods are used. In the case of UNIX
+and its network file system (NFS), authentication is via the client networking
+information, by default. In this scheme, the user IDs must match on the client
+and server. If not, the server will be unable to determine access rights to files.
+
+Consider the example of a user who has the ID of 1000 on the client and
+2000 on the server. A request from the client to the server for a specific file
+will not be handled appropriately, as the server will determine if user 1000 has
+access to the file, rather than the real user ID of 2000. Access would be granted
+or denied based on incorrect authentication information. The server must trust
+the client to present the correct user ID. The NFS protocols allow many-to-many
+relationships. That is, many servers can provide files to many clients. In fact,
+a given machine can be both a server to other NFS clients and a client of other
+NES servers.
+
+Once the remote file system is mounted, file operation requests are sent on
+the behalf of the user, across the network, to the server, via the DFS protocol.
+Typically, a file open request is sent along with the ID of the requesting user.
+The server then applies the standard access checks to determine if the user
+has credentials to access the file in the mode requested. The request is either
+allowed or denied. If it is allowed, a file handle is returned to the client
+application, and the application then may perform read, write, and other
+operations on the file. The client closes the file when access is completed. The
+operating system may apply semantics similar to those for a local file system
+mount, or may have different semantics.
+
+11.5.2.2. Distributed Information Systems
+
+To ease the management of client-server services, distributed information sys-
+tems, also known as distributed naming services, have been devised to pro-
+vide a unified access to the information needed for remote computing. Domain
+name system (DNS) provides host-name-to-network-address translations for
+the entire Internet (including the World Wide Web). Before DNS was invented
+and became widespread, files containing the same information were sent via e-
+mail or ftp between all networked hosts. This methodology was not scalable.
+DNS is further discussed in 15.4.1.
+
+Other distributed information systems provide user name/password/user
+ID/group ID space for a distributed facility. UNIX systems have had a wide
+

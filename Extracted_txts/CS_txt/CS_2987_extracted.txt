@@ -1,0 +1,82 @@
+18.3 Deleting a key from a B-tree Sol
+
+©
+
+(e’)
+
+®
+
+D deleted: case 3b
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+     
+ 
+
+tree shrinks
+in height
+
+ 
+
+B deleted: case 3a_| E_L,P T _X
+
+ 
+
+ 
+
+ 
+
+ 
+
+A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 18.8, continued (e) Deletion of D. This is case 3b: the recursion cannot descend to
+
+nod
+
+le CL because it has only 2 keys, so we push P down and merge it with CL and TX to form
+
+CLPTX; then we delete D froma leaf (case 1). (e’) After (e), we delete the root and the tree shrinks
+
+in height by one. (f) Deletion of B. This is case 3a: C moves to fill B’s position and E moves to
+
+fill C’s position.
+
+a. If the child y that precedes k in node x has at least t keys, then find the
+predecessor k’ of k in the subtree rooted at y. Recursively delete k’, and
+replace k by k’ in x. (We can find k’ and delete it in a single downward
+pass.)
+
+b. If y has fewer than f keys, then, symmetrically, examine the child z that
+follows k in node x. If z has at least t keys, then find the successor k’ of k in
+the subtree rooted at z. Recursively delete k’, and replace k by k’ in x. (We
+can find k’ and delete it in a single downward pass.)
+
+c. Otherwise, if both y and z have only t — 1 keys, merge k and all of z into y,
+so that x loses both k and the pointer to z, and y now contains 2¢ — | keys.
+Then free z and recursively delete k from y.
+
+If the key k is not present in internal node x, determine the root x.c; of the
+appropriate subtree that must contain k, if k is in the tree at all. If x.c; has
+only f — 1 keys, execute step 3a or 3b as necessary to guarantee that we descend
+to anode containing at least ¢ keys. Then finish by recursing on the appropriate
+child of x.
+

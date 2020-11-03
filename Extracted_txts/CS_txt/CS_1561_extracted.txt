@@ -1,0 +1,52 @@
+3.5 System Structure 79
+
+3.5.3 Microkernels
+
+As the UNIX operating system expanded, the kernel became large and diffi-
+cult to manage. In the mid-1980s, researchers at Carnegie Mellon University
+developed an operating system called Mach that modularizes the kernel using
+the microkernel approach. This method structures the operating system by
+removing all nonessential components from the kernel, and implementing them.
+as system- and user-level programs. The result is a smaller kernel. There
+is little consensus regarding which services should remain in the kernel and
+which should be implemented in user space. In general, however, microkernels
+typically provide minimal process and memory management, in addition to a
+communication facility.
+
+The main function of the microkernel is to provide a communication facility
+between the client program and the various services that are also running
+in user space. Communication is provided by message passing, which was
+described in Section 3.3.5. For example, if the client program wishes to access a
+file, it must interact with the file server. The client program and the service
+never interact directly. Rather, they communicate indirectly by exchanging
+messages with the microkernel.
+
+The benefits of the microkernel approach include the ease of extending the
+operating system. All new services are added to user space and consequently
+do not require modification of the kernel. When the kernel does have to be
+modified, the changes tend to be fewer, because the microkernel is a smaller
+kernel. The resulting operating system is easier to port from one hardware
+design to another. The microkernel also provides more security and reliability,
+since most services are running as user—rather than kernel—processes. If a
+service fails, the rest of the operating system remains untouched.
+
+Several contemporary operating systems have used the microkernel
+approach. Tru64 UNIX (formerly Digital UNIX) provides a UNIX interface to the
+user, but it is implemented with a Mach kernel. The Mach kernel maps UNIX
+system calls into messages to the appropriate user-level services. The Apple
+MacOS X Server operating system is based on the Mach kernel.
+
+QNX is a real-time operating system that is also based upon the microkernel
+design. The QNX microkernel provides services for message passing and
+process scheduling. It also handles low-level network communication and
+hardware interrupts. All other services in QNX are provided by standard
+processes that run outside the kernel in user mode.
+
+Windows NT uses a hybrid structure. We have already mentioned that part
+of the Windows NT architecture uses layering. Windows NT is designed to run
+various applications, including Win32 (native Windows applications), OS/2,
+and POSIX. It provides a server that runs in user space for each application type.
+Client programs for each application type also run in user space. The kernel
+coordinates the message passing between client applications and application
+servers. The client-server structure of Windows NT is depicted in Figure 3.10.
+

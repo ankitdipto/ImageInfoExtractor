@@ -1,0 +1,49 @@
+Exercises 147
+
+5.8.2 The JVM and the Host Operating System
+
+The typical implementation of the JVM is on top of a host operating system.
+This setup allows the JVM to hide the implementation details of the underlying
+operating system and to provide a consistent, abstract environment that allows
+Java programs to operate on any platform that supports a JVM. The specification
+for the JVM does not indicate how Java threads are to be mapped to the
+underlying operating system, instead leaving that decision to the particular
+implementation of the JVM. Windows 95/98/NT and Windows 2000 use the one-
+to-one model; therefore, each Java thread for a JVM running on these operating
+systems maps to a kernel thread. Solaris 2 initially implemented the JVM using
+the many-to-one model (called green threads). However, as of Version 1.1 of the
+JVM with Solaris 2.6, it was implemented using the many-to-many model.
+
+5.9 = Summary
+
+A thread is a flow of control within a process. A multithreaded process contains
+several different flows of control within the same address space. The benefits of
+multithreading include increased responsiveness to the user, resource sharing
+within the process, economy, and the ability to take advantage of multiproces-
+sor architectures.
+
+User-level threads are threads that are visible to the programmer and are
+unknown to the kernel. A thread library in user space typically manages user-
+level threads. The operating-system kernel supports and manages kernel-level
+threads. In general, user-level threads are faster to create and manage than are
+kernel threads. Three different types of models relate user and kernel threads:
+The many-to-one model maps many user threads to a single kernel thread.
+The one-to-one model maps each user thread to a corresponding kernel thread.
+The many-to-many model multiplexes many user threads to a smaller or equal
+number of kernel threads.
+
+Multithreaded programs introduce many challenges for the programmer,
+including the semantics of the fork and exec system calls. Other issues
+include thread cancellation, signal handling, and thread-specific data. Many
+modern operating systems provide kernel support for threads; among these
+are Windows NT and Windows 2000, Solaris 2, and Linux. The Pthread API
+provides a set of functions to create and manage threads at the user level. Java
+provides a similar API for supporting threads. However, because Java threads
+are managed by the JVM and not by a user-level thread library or kernel, they
+do not fall under the category of either user- or kernel-level threads.
+
+= Exercises
+
+5.1 Provide two programming examples of multithreading that improve per-
+formance over a single-threaded solution.
+

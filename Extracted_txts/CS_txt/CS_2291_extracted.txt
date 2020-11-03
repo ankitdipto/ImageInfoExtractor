@@ -1,0 +1,69 @@
+Section 104 Theorem Provers 31)
+
+Unit clauses are usually treated as very light, so that the search can be seen as a generalization
+of the unit preference strategy. At each step, OTTER moves the "lightest" clause in the set of
+support to the usable list, and adds to the usable list some immediate consequences of resolving
+the lightest clause with elements ofthe usable list. OTTER halts when it has found a refutation or
+
+when there are no more clauses in the set of support. The algorithm is shown in more detail in
+Figure 10.5. .
+
+ 
+
+procedure OTTER(sos, usable)
+inputs: sas, a set of support—clauses defining the problem (a global variable)
+usable, background knowledge potentially relevant to the problem
+
+repeat
+clause — the lightest member of sos
+move clause from sos to usable
+PROCESS(INFER(clause, usable), sos)
+until sos - [] or a refutation has been found
+
+ 
+
+function INFER(clause, usable) returns clauses
+
+resolve clause with each member of usable
+return the resulting clauses after applying FILTER
+
+ 
+
+procedure PROCESS(clauses, sos)
+
+for each clause in clauses do
+clause — SIMPLIFY(clause)
+merge identical literals
+discard clause if it is a tautology
+sos — [clause sos]
+if clause has no literals then a refutation has been found
+
+if clause has one literal then look for unit refutation
+end
+
+ 
+
+ 
+
+Figure 10.5 Sketch of the OTTER theorem prover. Heuristic control is applied in the selection
+
+of the "lightest" clause, and in the FILTER function that eliminates uninteresting clauses from
+consideration.
+
+ 
+
+ 
+
+ 
+
+Extending Prolog
+
+An alternative way to build a theorem prover is to start with a Prolog compiler and extend it to
+get a sound and complete reasoner for full first-order logic. This was the approach taken in the
+Prolog Technology Theorem Prover, or PTTP (Stickel, 1988). PTTP includes five significant
+changes to Prolog to restore completeness and expressiveness:
+
++ The occurs check is put back into the unification routine to make it sound.
+
+ 
+

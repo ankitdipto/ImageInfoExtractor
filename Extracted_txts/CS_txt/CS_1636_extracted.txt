@@ -1,0 +1,43 @@
+5.5 Solaris 2 Threads 141
+
+5.5 m Solaris 2 Threads
+
+Solaris 2 is a version of UNIX with support for threads at the kernel and user
+levels, SMP, and real-time scheduling. Solaris 2 implements the Pthread API dis-
+cussed in Section 5.4 in addition to supporting user-level threads with a library
+containing APIs for thread creation and management (known as UI threads).
+The differences between these two libraries are insignificant, although most
+developers now opt for the Pthread library. Solaris 2 defines an intermediate
+level of threads as well. Between user- and kernel-level threads are lightweight
+processes (LWPs). Each process contains at least one LWP. The thread library
+multiplexes user-level threads on the pool of LWPs for the Process, and only
+user-level threads currently connected to an LWP accomplish work. The rest are
+either blocked or waiting for an LWP on which they can run.
+
+Standard kernel-level threads execute all operations within the kernel. Each
+LWP has a kernel-level thread, and some kernel-level threads run on the kernel’s
+behalf and have no associated LWP (for instance, a thread to service disk
+requests). Kernel-level threads are the only objects scheduled within the system
+(Chapter 6). Solaris 2 implements the many-to-many model; its entire thread
+system is depicted in Figure 5.6.
+
+User-level threads may be either bound or unbound. A bound user-level
+thread is permanently attached to an LWP. Only that thread runs on the LWP,
+and by request the LWP can be dedicated to a single processor (see the rightmost
+thread in Figure 5.6). Binding a thread is useful in situations that require quick
+tesponse time, such as a real-time application. An unbound thread is not
+permanently attached to any LWP. All unbound threads in an application are
+multiplexed onto the pool of available LWPs for the application. Threads are
+
+task 1 task 2 task 3
+
+user-level thread
+
+lightweight process
+
+kernel thread
+
+ 
+
+Figure 5.6 Solaris 2 threads.
+

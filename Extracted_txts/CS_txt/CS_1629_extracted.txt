@@ -1,0 +1,50 @@
+5.3 Threading Issues 135
+
+5.3. = Threading Issues
+
+In this section we discuss some of the issues to consider with multithreaded
+programs.
+
+5.3.1 The fork and exec System Calls
+
+In Chapter 4 we described how the fork system call is used to create a separate,
+duplicate process. In a multithreaded program, the semantics of the fork and
+exec system calls change. If one thread in a program calls fork, does the
+new process duplicate all threads or is the new process single-threaded? Some
+UNIX systems have chosen to have two versions of fork, one that duplicates
+all threads and another that duplicates only the thread that invoked the fork
+system call. The exec system call typically works in the same way as described
+in Chapter 4. That is, if a thread invokes the exec system call, the program
+specified in the parameter to exec will replace the entire process—including
+all threads and LWPs.
+
+Usage of the two versions of fork depends upon the application. If exec
+is called immediately after forking, then duplicating all threads is unnecessary,
+as the program specified in the parameters to exec will replace the process. In
+this instance, duplicating only the calling thread is appropriate. If, however, the
+separate process does not call exec after forking, the separate process should
+duplicate all threads.
+
+5.3.2 Cancellation
+
+Thread cancellation is the task of terminating a thread before it has completed.
+For example, if multiple threads are concurrently searching through a database
+and one thread returns the result, the remaining threads might be cancelled.
+Another situation might occur when a user presses a button on a web browser
+that stops a web page from loading any further. Often a web page is loaded in
+a separate thread. When a user presses the stop button, the thread loading the
+page is cancelled.
+
+A thread that is to be cancelled is often referred to as the target thread.
+Cancellation of a target thread may occur in two different scenarios:
+
+1. Asynchronous cancellation: One thread immediately terminates the target
+thread.
+
+2. Deferred cancellation: The target thread can periodically check if it should
+terminate, allowing the target thread an opportunity to terminate itself in
+an orderly fashion.
+
+The difficulty with cancellation occurs in situations where resources have
+been allocated to a cancelled thread or if a thread was cancelled while in
+

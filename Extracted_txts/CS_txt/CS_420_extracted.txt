@@ -1,0 +1,44 @@
+982 Chapter 31 Number-Theoretic Algorithms
+
+c. Show how to compute F;, in O(lg7) time using only integer addition and mul-
+tiplication. (Hint: Consider the matrix
+
+O01
+11
+and its powers.)
+
+d,. Assume now that adding two B-bit numbers takes ©(8) time and that multi-
+plying two f-bit numbers takes ©(A) time. What is the running time of these
+three methods under this more reasonable cost measure for the elementary arith-
+metic operations?
+
+31-4 Quadratic residues
+Let p be an odd prime. A number a € Z> is a quadratic residue if the equation
+x? =a (mod p) has a solution for the unknown x.
+
+a. Show that there are exactly (p — 1)/2 quadratic residues, modulo p.
+
+b. If p is prime, we define the Legendre symbol (9), fora € Z*, tobe 1 ifaisa
+quadratic residue modulo p and —1 otherwise. Prove that ifa € Z>, then
+
+(5) =a? (mod p).
+
+Give an efficient algorithm that determines whether a given number a is a qua-
+dratic residue modulo p. Analyze the efficiency of your algorithm.
+
+c. Prove that if p is a prime of the form 4k + 3 and a is a quadratic residue in Z*,
+then a**! mod p is a square root of a, modulo p. How much time is required
+to find the square root of a quadratic residue a modulo p?
+
+d. Describe an efficient randomized algorithm for finding a nonquadratic residue,
+modulo an arbitrary prime p, that is, a member of Z} that is not a quadratic
+residue. How many arithmetic operations does your algorithm require on aver-
+age?
+
+ 
+
+Chapter notes
+
+Niven and Zuckerman [265] provide an excellent introduction to elementary num-
+ber theory. Knuth [210] contains a good discussion of algorithms for finding the
+

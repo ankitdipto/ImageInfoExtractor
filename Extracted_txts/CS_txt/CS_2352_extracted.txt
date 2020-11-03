@@ -1,0 +1,103 @@
+494 CHAPTER THIRTEEN Multiprocessors:
+
+‘Memory modules
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+MMi MM2 MM3 MMs
+cur
+
+cpu2 4 4
+
+cpus +t 4
+
+cpus |_—_4 ____4 __]
+
+ 
+
+ 
+
+ 
+
+Figure 13-3. Multiport memory organization.
+
+nection structure is usually appropriate for systems with a small number of
+processors.
+
+Crossbar Switch
+The crossbar switch organization consists of a number of crosspoints that are
+placed at intersections between processor buses and memory module paths.
+Figure 13-4 shows a crossbar switch interconnection between four CPUs and
+four memory modules, The small square in each crosspoint is a switch that
+determines the path froma processor to a memory module. Each switchpoint
+hascontrol logic to set up the transfer path between a processor and memory.
+It examines the address that is placed in the bus to determine whether its
+particular module is being addressed. It also resolves multiple requests for
+access to the same memory module on a predetermined priority basis.
+Figure 13-5 shows the functional design of a crossbar switch connected
+toone memory module. The circuit consists of multiplexers that select the data,
+

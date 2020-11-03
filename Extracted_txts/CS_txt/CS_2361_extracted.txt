@@ -1,0 +1,59 @@
+synchronous bus
+
+‘asynchronous bus
+
+SECTION 133 Interprocessor Arbitration 501
+
+‘The data lines provide a path for the transfer of data between processors
+and common memory. The number of data lines s usually a multiple of 8, with
+16 and 32being most common. The address lines are used to identify amemory
+address or any other source or destination, such as input or output ports. The
+number of address lines determines the maximum possible memory capacity
+inthe system. For example, an address of 24 lines can access up to 2* (16 mega)
+words of memory. The data and address lines are terminated with three-state
+buffers (see Fig. 4-5). The address buffers are unidirectional from processor to
+memory. The data lines are bidirectional (see Fig. 123), allowing the transfer
+of data in either direction.
+
+Data transfers over the system bus may be synchronous orasynchronous.
+In asynchronous bus, each data item is transferred during a time slice known
+in advance to both source and destination units. Synchronization is achieved
+by driving both units from a common clock source. An alternative procedure
+is to have separate clocks of approximately the same frequency in each unit.
+Synchronization signals re transmitted periodically in order to keep all clocks
+in the system in step with each other. In an asynchronous bus, each data item
+being transferred is accompanied by handshaking control signals (see Fig. 11-9)
+to indicate when the data are transferred from the source and received by the
+destination.
+
+‘The control lines provide signals for controlling the information transfer
+between units Timing signals indicate the validity of data and address infor-
+mation. Command signals specify operations to be performed. Typical control
+lines include transfer signals such as memory read and write, acknowledge of
+a transfer, interrupt requests, bus control signals such as bus request and bus
+grant, and signals for arbitration procedures.
+
+Table 13-1 lists the 86 lines that are available in the IEEE standard 796
+multibus. It includes 16 data lines and 24 address lines. All signals in the
+multibus are active or enabled in the low-level state The data transfer control
+signals include memory read and write as well as I/O read and write. Conse-
+quently, the address lines can be used to address separate memory and /O
+spaces. The memory or /O responds witha transfer acknowledge signal when
+the transfer is completed. Each processor attached to the multibus has up to
+eight interrupt request outputs and one interrupt acknowledge input line.
+They are usually applied to a priority interrupt controller similar to the one
+described in Fig. 11-21. The miscellaneous control signals provide timing and
+initialization capabilities. In particular, the bus lock signal is essential for
+multiprocessor applications. This processor-activated signal serves to prevent
+other processors from getting hold of the bus while executing a test and set
+instruction. This instruction is needed for proper processor synchronization
+(see Sec. 13-4). .
+
+The six bus arbitration signals are used for interprocessor arbitration
+These signals will be explained later after a discussion of the serial and parallel
+arbitration procedures.
+
+ 
+
+   
+

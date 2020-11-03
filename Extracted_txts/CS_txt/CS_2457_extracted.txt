@@ -1,0 +1,90 @@
+70
+
+Chapter 4 Divide-and-Conquer
+
+1 2 3 4 5 6 7 8 9 1 I! 12 13 14 15 16
+A | 13 | -3 |-25] 20 | -3 |-16]-23) 18 | 20 | -7 | 12 | -5 |-22] 15 |} 4] 7
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+maximum subarray
+
+Figure 4.3 The change in stock prices as a maximum-subarray problem. Here, the subar-
+ray A[8 .. 11], with sum 43, has the greatest sum of any contiguous subarray of array A.
+
+that although computing the cost of one subarray might take time proportional to
+the length of the subarray, when computing all ©(77) subarray sums, we can orga-
+nize the computation so that each subarray sum takes O(1) time, given the values
+of previously computed subarray sums, so that the brute-force solution takes @()
+time.
+
+So let us seek a more efficient solution to the maximum-subarray problem.
+When doing so, we will usually speak of “a” maximum subarray rather than “the”
+maximum subarray, since there could be more than one subarray that achieves the
+maximum sum.
+
+The maximum-subarray problem is interesting only when the array contains
+some negative numbers. If all the array entries were nonnegative, then the
+maximum-subarray problem would present no challenge, since the entire array
+would give the greatest sum.
+
+A solution using divide-and-conquer
+
+Let’s think about how we might solve the maximum-subarray problem using
+the divide-and-conquer technique. Suppose we want to find a maximum subar-
+ray of the subarray A[low.. high]. Divide-and-conquer suggests that we divide
+the subarray into two subarrays of as equal size as possible. That is, we find
+the midpoint, say mid, of the subarray, and consider the subarrays A[low . . mid]
+and Almid + 1.. high]. As Figure 4.4(a) shows, any contiguous subarray A[i .. j]
+of A[/ow . . high| must lie in exactly one of the following places:
+
+* entirely in the subarray A[low .. mid], so that low <i < j < mid,
+
+* entirely in the subarray A[mid + 1.. high], so that mid <i < j < high, or
+
+* crossing the midpoint, so that low <i < mid < j <high.
+
+Therefore, a maximum subarray of A[/ow.. high] must lie in exactly one of these
+places. In fact, a maximum subarray of A[/ow..high] must have the greatest
+sum over all subarrays entirely in A[/ow..mid], entirely in A[mid + 1.. high],
+or crossing the midpoint. We can find maximum subarrays of A[low ..mid] and
+
+Almid+1. . high] recursively, because these two subproblems are smaller instances
+of the problem of finding a maximum subarray. Thus, all that is left to do is find a
+

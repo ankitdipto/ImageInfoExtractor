@@ -1,0 +1,63 @@
+794
+
+Chapter 25. Robotics
+
+ 
+
+ 
+
+ 
+
+ 
+
+oT |
+_
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 25.12 A two-link manipulator in a workspace containing a movable obstacle.
+
+ 
+
+ 
+
+1. Partition }V' into finitely many states—a form of abstraction (see Section 12.2). The
+planning problem then reduces to a logical planning problem of the kind addressed in
+Part IV. For example, the blocks world involves a partition of block configurations into
+those in which one block is "on another," and those in which it is "on the table." The exact
+locations of the blocks are ignored. The partitioning must be done carefully, because it
+involves a considerable loss of generality. In the blocks world case, one can no longer
+construct plans involving blocks that are leaning, or in which two or more blocks perch on
+another, or in which block positions are important (as in building a wall). Obviously, the
+appropriate partition depends on the goal, but as yet no general method for constructing
+partitions has been devised.
+
+2. Plan object motions first and then plan for the robot. This could be called the classical
+
+approach to assembly planning. We first restrict the object motions so that all the objects
+move as two rigid subgroups, one representing the main assembly, and the other a sub-
+assembly that is being added to it. A single robot then has a good chance to be able to
+perform that step, and a separate planning phase generates the robot's motion.
+
+Planning object motions also can be abstracted into discrete actions such as "screw part
+A onto part B.” Many early assembly planners used this kind of representation, and are
+therefore able to use standard partial-order planning algorithms. They support a variety
+of constraints on the order of assembly steps, but questions of geometric feasibility are
+usually handled by separate geometric algorithms, or in some cases by the user.
+
+Recently though, a very elegant method was described that plans a geometrically
+feasible assembly sequence and runs in time polynomial in n (Wilson and Schweikard,
+1992). This scheme necessarily does not generate all possible sequences, because there
+are exponentially many. But a user can reject certain of the subassemblies it has chosen,
+and it will generate another feasible sequence just as fast that satisfies the user's strictures.
+

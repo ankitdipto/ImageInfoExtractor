@@ -1,0 +1,104 @@
+236
+
+(CHAPTER SEVEN Microprogrammed Control
+
+76.
+
+7.
+
+78.
+
+79.
+
+7-10,
+
+7.
+
+72,
+
+713,
+
+7a,
+
+’. If there are 16 statusbits in the system, how many bits of the branch logic
+are used to select a status bit?
+
+¢. How many bits are left to select an input for the multiplexers?
+
+‘The control memory in Fig. 7-2 has 4096 words of 24 bits each
+
+a. How many bits are there in the control address register?
+
+'b. How many bits are there in each of the four inputs shown going into the
+multiplexers?
+
+¢. What are the number of inputs in each multiplexer and how many
+multiplexers are needed?
+
+Using the mapping procedure described in Fig. 7-3, give the first microin-
+
+struction address for the following operation code: (a) 0010;(b) 1011; (€)1111.
+
+Formulate a mapping procedure that provides eight consecutive microin-
+
+structions for each routine. The operation code has six bits and the contral
+
+memory has 2048 words
+
+Explain how the mapping from an instruction code to a microinstruction
+
+address can be done by means ofa read-only memory. Whatis the advantage
+
+of this method compared to the one in Fig, 7-3?
+
+Why dowe need the two multiplexers in the computer hardware configura-
+
+tion shown in Fig. 7-4? Is there another way that information from multiple
+
+sources can be transferred to a common destination?
+
+Using Table 7-1, give the 9-bit microoperation field for the following micro-
+
+operations:
+
+a. ACHAC +1, DR-DR+1
+
+b. PCPC +1, DR—M{AR]
+
+« DRAC, ACHDR
+
+Using Table 7-1, convert the following symbolic microoperations to register
+
+transfer statements and to binary.
+
+a. READ, INCPC
+
+b. ACTDR, DRTAC
+
+ ARTPC DRTAC, WRITE
+
+‘Suppose that we change the ADD routine listed in Table7-2 to the following,
+
+two microinstructions.
+
+aD)
+
+ 
+
+READ I CALL —INDR2
+ADD uOOMP. FETCH
+‘What should be subroutine INDR2?
+
+‘The followings a symbolic microprogram for an instruction in the computer
+defined in Sec. 7-3.
+
+oRG 40
+NOP S JMB FETCH
+NOP. 2 JMB FETCH
+NOP I CALL INDRCT
+
+ARTRC Uo JMB FETCH
+
+4. Specify the operation performed when the instruction is executed.
+b. Convert the four microinstructions into their equivalent binary form.
+

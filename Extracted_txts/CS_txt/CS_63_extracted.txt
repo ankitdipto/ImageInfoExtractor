@@ -1,0 +1,52 @@
+692
+
+Chapter 25 All-Pairs Shortest Paths
+
+25.1-3
+
+What does the matrix
+0 © oo
+co 0 w oo
+
+L® =| ~ ow 0 oo
+co CO CO 0
+
+used in the shortest-paths algorithms correspond to in regular matrix multiplica-
+tion?
+
+25.14
+Show that matrix multiplication defined by EXTEND-SHORTEST-PATHS is asso-
+ciative.
+
+25.15
+
+Show how to express the single-source shortest-paths problem as a product of ma-
+trices and a vector. Describe how evaluating this product corresponds to a Bellman-
+Ford-like algorithm (see Section 24.1).
+
+25.1-6
+
+Suppose we also wish to compute the vertices on shortest paths in the algorithms of
+this section. Show how to compute the predecessor matrix IT from the completed
+matrix L of shortest-path weights in O(n) time.
+
+25.1-7
+
+We can also compute the vertices on shortest paths as we compute the shortest-
+path weights. Define a” as the predecessor of vertex j on any minimum-weight
+path from i to j that contains at most m edges. Modify the EXTEND-SHORTEST-
+PATHS and SLOW-ALL-PAIRS-SHORTEST-PATHS procedures to compute the ma-
+
+trices 1, 1®,..., 1 as the matrices LY, L®,..., L~ are computed.
+
+25.1-8
+
+The FASTER-ALL-PAIRS-SHORTEST-PATHS procedure, as written, requires us to
+store [lg(n — 1)] matrices, each with n? elements, for a total space requirement of
+@(n? Ign). Modify the procedure to require only @(n?) space by using only two
+n Xn matrices.
+
+25.19
+Modify FASTER-ALL-PAIRS-SHORTEST-PATHS so that it can determine whether
+the graph contains a negative-weight cycle.
+

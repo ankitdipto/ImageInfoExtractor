@@ -1,0 +1,57 @@
+branch field
+
+SECTION? Microprogram Example 225
+
+Tis available from bit 15 of DR after an instruction is read from memory. The
+sign bit of AC provides the next status bit The zero value, symbolized by Z,
+isa binary variable whose value is equal to 1 ifall the bits in AC are equal to
+zero. We will use the symbols U, I, S, and Z for the four status bits when we
+‘write microprograms in symbolic form.
+
+The BR (branch) field consists of two bits. It is used, in conjunction with
+the address field AD, to choose the address of the next microinstruction. As
+shown in Table 7-1, when BR = 00, the control performs a jump (JMP) opera-
+tion (which is similar to a branch), and when BR = O1, it performs a call to
+subroutine (CALL) operation. The two operations are identical except that a
+call microinstruction stores the return address in the subroutine register SBR.
+‘The jump and call operations depend on the value of the CD field. If the status
+bit condition specified in the CD field is equal to 1, the next address in the AD
+field is transferred to the control address register CAR. Otherwise, CAR is
+incremented by 1.
+
+The return from subroutine is accomplished with a BR field equal to 10.
+This causes the transfer of the return address from SBR toCAR. The mapping
+from the operation code bits of the instruction to an address for CAR is
+accomplished when the BR field is equal to 11. This mapping is as depicted in
+Fig, 7-3. The bits of the operation code are in DR(11-14) after an instruction
+is read from memory. Note that the last two conditions in the BR field are
+independent of the values in the CD and AD fields.
+
+ 
+
+Symbolic Microinstructions
+
+The symbols defined in Table 7-1 can be used to specify microinstruction in
+symbolic form. A symbolic microprogram can be translated into its binary
+equivalent by means of an assembler. A microprogram assembler is similar in
+concept to a conventional computer assembler as defined in Sec. 6-3. The
+simplest and most straightforward way to formulate an assembly language for
+a microprogram is to define symbols for each field of the microinstruction and
+to give users the capability for defining their own symbolic addresses.
+
+Each line of the assembly language microprogram defines a symbolic
+microinstruction Each symbolic microinstruction is divided into five fields:
+label, microoperations, CD, BR, and AD. The fields specify the following
+information
+
+  
+
+1. The label field may be empty or it may specify a symbolic address. A
+label is terminated with a colon (:).
+
+2. The microoperations field consists of one, two, or three symbols, sep-
+arated by commas, from those defined in Table 7-1. There may be no
+more than one symbol from each F field. The NOP symbol is used when
+the microinstruction has no microoperations. This will be translated by
+the assembler to nine zeros.
+

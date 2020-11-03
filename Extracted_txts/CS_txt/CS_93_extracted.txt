@@ -1,0 +1,53 @@
+716
+
+Chapter 26 Maximum Flow
+
+it has already sent along an edge. Sending flow back along an edge is equiva-
+lent to decreasing the flow on the edge, which is a necessary operation in many
+algorithms.
+
+More formally, suppose that we have a flow network G = (V, E) with source s
+and sink t. Let f be a flow in G, and consider a pair of vertices u,v € V. We
+define the residual capacity cf (u,v) by
+
+clu.v)—f(u.v) if(uvye EB,
+cr(u,v) = 4 f(v,u) if(yueE, (26.2)
+0 otherwise .
+
+Because of our assumption that (u,v) € E implies (v,u) ¢ E, exactly one case in
+equation (26.2) applies to each ordered pair of vertices.
+
+As an example of equation (26.2), if c(u,v) = 16 and f(u,v) = 11, then we
+can increase f(u,v) by up to c¢(u,v) = 5 units before we exceed the capacity
+constraint on edge (u,v). We also wish to allow an algorithm to return up to 11
+units of flow from v to wv, and hence c¢(v,u) = 11.
+
+Given a flow network G = (V, E) and a flow f, the residual network of G
+induced by f is Gf = (V, Ey), where
+
+Er ={(u.v) €V x V ve¢(uyv) > 0}. (26.3)
+
+That is, as promised above, each edge of the residual network, or residual edge,
+can admit a flow that is greater than 0. Figure 26.4(a) repeats the flow network G
+and flow f of Figure 26.1(b), and Figure 26.4(b) shows the corresponding residual
+network Gy. The edges in E¥ are either edges in E or their reversals, and thus
+
+|Er| <2 ||.
+
+Observe that the residual network G+ is similar to a flow network with capacities
+given by cr. It does not satisfy our definition of a flow network because it may
+contain both an edge (u,v) and its reversal (v,w). Other than this difference, a
+residual network has the same properties as a flow network, and we can define a
+flow in the residual network as one that satisfies the definition of a flow, but with
+respect to capacities cy in the network Gy.
+
+A flow in a residual network provides a roadmap for adding flow to the original
+flow network. If f is a flow in G and f’ is a flow in the corresponding residual
+network Gy, we define f ¢ f’, the augmentation of flow f by f’, to be a function
+from V x V to R, defined by
+
+fv) + fluvy—fid.u) ifdvyek,
+0 otherwise .
+
+(Ft fv) = (26.4)
+

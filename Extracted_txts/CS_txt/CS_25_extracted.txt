@@ -1,0 +1,57 @@
+106 Chapter 4. Informed Search Methods
+
+ 
+
+43 MEMORY BOUNDED SEARCH
+
+ 
+
+Despite all the clever search algorithms that have been invented, the fact remains that some prob-
+lems are intrinsically difficult, by the nature ofthe problem. When we run up against these expo-
+nentially complex problems, something has to give. Figure 3.12 shows that thefirst thing to give
+is usually the available memory. In this section, we investigate two algorithms that are designed
+to conserve memory. The first, IDA*, is a logical extension of ITERATIVE-DEEPENING-SEARCH
+to use heuristic information. The second, SMA*, is similar to A*, but restricts the queue size to
+fit into the available memory.
+
+ 
+
+Iterative deepening A* search (IDA*)
+
+In Chapter 3, we showed that iterative deepening is a useful technique for reducing memory
+requirements. We can try the same trick again, turning A* search into iterative deepening A*, or
+
+ig IDA* (See Figure 4.10). In this algorithm, each iteration is a depth-first search, just as in regular
+iterative deepening. The depth-first search is modified to use an f-cost limit rather than a depth
+limit. Thus, each iteration expands all nodes inside the contour for the current f-cost, peeping
+over the contour to find out where the next contour lies. (See the DFS-Conrour function in
+Figure 4.10.) Once the search inside a given contour has been completed, a new iteration is
+started using a new f-cost for the next contour.
+
+IDA* is complete and optimal with the same caveats as A* search, but because it is depth-
+first, it only requires space proportional to the longest path that it explores. If b is the smallest
+operator cost and f* the optimal solution cost, then in the worst case, IDA* will require bf*/6
+nodes of storage. In most cases, bdis a good estimate of the storage requirements.
+
+The time complexity of IDA* depends strongly on the number of different values that the
+heuristic function can take on. The Manhattan distance heuristic used in the 8-puzzle takes on
+one ofa small number of integer values. Typically, f only increases two or three times along any
+solution path. Thus, IDA* only goes through two or three iterations, and its efficiency is similar
+to that of A*—in fact, the last iteration of IDA* usually expands roughly the same number of
+nodes as A*. Furthermore, because IDA* does not need to insert and delete nodes on a priority
+queue, its overhead per node can be much less than that for A*. Optimal solutions for many
+practical problems were first found by IDA*, which for several years was the only optimal,
+memory-bounded, heuristic algorithm.
+
+Unfortunately, IDA* has difficulty in more complex domains. In the travelling salesperson
+problem, for example, the heuristic value is different for every state. This means that each contour
+only includes one more state than the previous contour. If A* expands N nodes, IDA* will have
+to go through N iterations and will therefore expand J +2 + * +. +N = O(N?)nodes. Now ifNis
+too large for the computer's memory, then N? is almost certainly too long to wait!
+
+One way around this is to increase the/-cost limit by a fixed amount ¢ on each iteration, so
+that the total number of iterations is proportional to 1/e, This can reduce the search cost, at the
+expense of returning solutions that can be worse than optimal by at most ¢. Such an algorithm is
+
+€-ADMISSIBLE called ¢-admissible.
+

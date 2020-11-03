@@ -1,0 +1,37 @@
+34.2 Polynomial-time verification 1063
+
+of the vertices, and therefore the running time is Q(m!) = Q(./7!) = Q(2¥*),
+which is not O(n*) for any constant k. Thus, this naive algorithm does not run
+in polynomial time. In fact, the hamiltonian-cycle problem is NP-complete, as we
+shall prove in Section 34.5.
+
+Verification algorithms
+
+Consider a slightly easier problem. Suppose that a friend tells you that a given
+graph G is hamiltonian, and then offers to prove it by giving you the vertices in
+order along the hamiltonian cycle. It would certainly be easy enough to verify the
+proof: simply verify that the provided cycle is hamiltonian by checking whether
+it is a permutation of the vertices of V and whether each of the consecutive edges
+along the cycle actually exists in the graph. You could certainly implement this
+verification algorithm to run in O(n?) time, where nn is the length of the encoding
+of G. Thus, a proof that a hamiltonian cycle exists in a graph can be verified in
+polynomial time.
+
+We define a verification algorithm as being a two-argument algorithm A, where
+one argument is an ordinary input string x and the other is a binary string y called
+a certificate. A two-argument algorithm A verifies an input string x if there exists
+a certificate y such that A(x,y) = 1. The language verified by a verification
+algorithm A is
+
+L = {x €{0,1}": there exists y € {0,1}* such that A(x, y) = 1}.
+
+Intuitively, an algorithm A verifies a language L if for any string x € L, there
+exists a certificate y that A can use to prove that x € L. Moreover, for any string
+x ¢ L, there must be no certificate proving that x € L. For example, in the
+hamiltonian-cycle problem, the certificate is the list of vertices in some hamilto-
+nian cycle. If a graph is hamiltonian, the hamiltonian cycle itself offers enough
+information to verify this fact. Conversely, if a graph is not hamiltonian, there
+can be no list of vertices that fools the verification algorithm into believing that the
+graph is hamiltonian, since the verification algorithm carefully checks the proposed
+“cycle” to be sure.
+

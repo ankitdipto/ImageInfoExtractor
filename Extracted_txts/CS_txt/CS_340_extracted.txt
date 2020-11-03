@@ -1,0 +1,52 @@
+916
+
+Chapter 30 Polynomials and the FFT
+
+ 
+
+ 
+
+yf yEl + of yf ye > borye
+ok ok >
+ye vel — on yp yl > yp) of yf
+
+ 
+
+ 
+
+ 
+
+ 
+
+(a) (b)
+
+Figure 30.3. A butterfly operation, (a) The two input values enter from the left, the twiddle fac-
+
+tor ok is multiplied by yf!!, and the sum and difference are output on the right. (b) A simplified
+
+drawing of a butterfly operation. We will use this representation in a parallel FFT circuit.
+
+ 
+
+Figure 30.4 The tree of input vectors to the recursive calls of the RECURSIVE-FFT procedure. The
+initial invocation is for n = 8.
+
+by the corresponding input vector. Each RECURSIVE-FFT invocation makes two
+recursive calls, unless it has received a 1-element vector. The first call appears in
+the left child, and the second call appears in the right child.
+
+Looking at the tree, we observe that if we could arrange the elements of the
+initial vector a into the order in which they appear in the leaves, we could trace
+the execution of the RECURSIVE-FFT procedure, but bottom up instead of top
+down. First, we take the elements in pairs, compute the DFT of each pair using
+one butterfly operation, and replace the pair with its DFT. The vector then holds
+n/2 2-element DFTs. Next, we take these n/2 DFTs in pairs and compute the
+DFT of the four vector elements they come from by executing two butterfly oper-
+ations, replacing two 2-element DFTs with one 4-element DFT. The vector then
+holds n/4 4-element DFTs. We continue in this manner until the vector holds two
+(n/2)-element DFTs, which we combine using 1/2 butterfly operations into the
+final n-element DFT.
+
+To turn this bottom-up approach into code, we use an array A[0..n — 1] that
+initially holds the elements of the input vector a in the order in which they appear
+

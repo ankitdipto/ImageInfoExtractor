@@ -1,0 +1,38 @@
+550 Let UsC
+
+ 
+
+From the programmer’s perspective, the consistent user interface
+results from using the Windows API functions for constructing
+menus and dialog boxes. All menus have the same keyboard and
+mouse interfaces because Windows—rather than the application
+program—handles this job.
+
+Hardware Independent Programming
+
+As we saw earlier a Windows program can always call Windows
+API functions. Thus an application can easily communicate with
+OS. What is new in Windows is that the OS can also communicate
+with application. Let us understand why it does so with the help of
+an example.
+
+Suppose we have written a program that contains a menu item,
+which on selection is supposed to display a string “Hello World”
+in the window. The menu item can be selected either using the
+keyboard or using the mouse. On executing this program it will
+perform the initializations and then wait for the user input. Sooner
+or later the user would press the key or click the mouse to select
+the menu-item. This key-press or mouse-click is known as an
+‘event’. The occurrence of this event is sensed by the keyboard or
+mouse device driver. The device driver would now inform
+Windows about it. Windows would in turn notify the application
+about the occurrence of this event. This notification is known as a
+‘message’. Thus the OS has communicated with the application.
+When the application receives the message it communicates back
+with the OS by calling a Windows API function to display the
+string “Hello World” in the window. This API function in turn
+communicates with the device driver of the graphics card (that
+drives the screen) to display the string. Thus there is a two-way
+communication between the OS and the application. This is shown
+in Figure 16.4.
+

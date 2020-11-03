@@ -1,0 +1,50 @@
+15.5. Optimal binary search trees 401
+
+i i
+wij) =o pit Do a. (15.12)
+[=i I=i-1
+Thus, if k, is the root of an optimal subtree containing keys k;,..., kj, we have
+
+eli, j] = pr + (eli.r —1 + wli,r-D)+ (er +1 jJ+wr+1 7).
+
+Noting that
+
+wii, j)=wlir-Y)+p,+wr+lj),
+
+we rewrite e[i, j] as
+
+eli. j] = eli.r-—lJ+e[r+1.j]+w, J). (15.13)
+
+The recursive equation (15.13) assumes that we know which node k, to use as
+the root. We choose the root that gives the lowest expected search cost, giving us
+our final recursive formulation:
+
+(qin ifj=i-1
+l=) min felir— 1 +elr +1. f+ wl.) ii <j. (15.14)
+mip,
+
+The e[i, j] values give the expected search costs in optimal binary search trees.
+To help us keep track of the structure of optimal binary search trees, we define
+root(i, j], for 1 < i < j <n, to be the index r for which k, is the root of an
+optimal binary search tree containing keys k;,..., k;. Although we will see how
+to compute the values of roor{i, j], we leave the construction of an optimal binary
+search tree from these values as Exercise 15.5-1.
+
+Step 3: Computing the expected search cost of an optimal binary search tree
+
+At this point, you may have noticed some similarities between our characterizations
+of optimal binary search trees and matrix-chain multiplication. For both problem
+domains, our subproblems consist of contiguous index subranges. A direct, recur-
+sive implementation of equation (15.14) would be as inefficient as a direct, recur-
+sive matrix-chain multiplication algorithm. Instead, we store the e[i, j] values in a
+table e[1..1 +1,0..n]. The first index needs to run to n + | rather than n because
+in order to have a subtree containing only the dummy key d,,, we need to compute
+and store e[n + 1,1]. The second index needs to start from 0 because in order to
+have a subtree containing only the dummy key do, we need to compute and store
+e[1, 0]. We use only the entries e[i, j] for which j > i — 1. We also use a table
+root(i, j], for recording the root of the subtree containing keys k;,..., kj. This
+table uses only the entries for which 1 <i < j <n.
+
+We will need one other table for efficiency. Rather than compute the value
+of w(i, j) from scratch every time we are computing e[i, j]—which would take
+

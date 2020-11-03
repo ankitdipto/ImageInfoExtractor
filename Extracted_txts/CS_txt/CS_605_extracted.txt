@@ -1,0 +1,55 @@
+35.5 The subset-sum problem 1131
+
+O<e<l. (35.25)
+It returns a value z whose value is within a 1 + € factor of the optimal solution.
+
+APPROX-SUBSET-SUM (S, ft, €)
+1 n=|S|
+2 Lo = (0)
+3 fori = 1ton
+L; = MERGE-Lists(Lj-;, Li) + Xi)
+L; = TRIM(L;,€/2n)
+remove from L; every element that is greater than f
+let z* be the largest value in L,,
+return z*
+
+CIDA
+
+Line 2 initializes the list Lo to be the list containing just the element 0. The for
+loop in lines 3-6 computes L; as a sorted list containing a suitably trimmed ver-
+sion of the set P;, with all elements larger than ¢ removed. Since we create L;
+from L;—;, we must ensure that the repeated trimming doesn’t introduce too much
+compounded inaccuracy. In a moment, we shall see that APPROX-SUBSET-SUM
+returns a correct approximation if one exists.
+
+As an example, suppose we have the instance
+
+S = (104, 102,201, 101)
+
+with ¢ = 308 and € = 0.40. The trimming parameter 5 is €/8 = 0.05. APPROX-
+SUBSET-SUM computes the following values on the indicated lines:
+
+line2: Lo = (0),
+
+line 4: Ly = (0,104),
+
+line 5: Ly = (0,104),
+
+line6: Ly = (0,104),
+
+line 4: L, = (0,102, 104,206) .
+
+line 5: Ly = (0,102,206).
+
+line6: Ly = (0,102,206).
+
+line 4: L3 = (0,102,201, 206,303,407) .
+line 5: L3 = (0,102,201,303, 407) .
+
+line 6: L3 = (0,102,201,303) ,
+
+line 4: Lg = (0,101, 102,201,203, 302, 303, 404)
+line 5: Lg = (0,101,201, 302,404) .
+
+line 6: Lg = (0,101,201,302) .
+

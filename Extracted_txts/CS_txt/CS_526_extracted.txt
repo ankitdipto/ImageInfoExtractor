@@ -1,0 +1,56 @@
+1068
+
+Chapter 34 NP-Completeness
+
+ 
+
+{0,1}* f {0,1}*
+
+>=
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 34.4 An illustration of a polynomial-time reduction from a language L toa language L2
+via a reduction function f. For any input x € {0, 1}*, the question of whether x € Ly has the same
+answer as the question of whether f(x) € Lo.
+
+then f(x) € Lz. Moreover, if x ¢ L;, then f(x) ¢ L». Thus, the reduction func-
+tion maps any instance x of the decision problem represented by the language L;
+to an instance f(x) of the problem represented by L2. Providing an answer to
+whether f(x) € L> directly provides the answer to whether x € Ly.
+
+Polynomial-time reductions give us a powerful tool for proving that various lan-
+guages belong to P.
+
+Lemma 34.3
+If L1,L2 © {0,1}* are languages such that L; <p Lo, then Lz € P implies
+L,e€P.
+
+Proof Let Az be a polynomial-time algorithm that decides L2, and let F be a
+polynomial-time reduction algorithm that computes the reduction function f. We
+shall construct a polynomial-time algorithm A, that decides Ly.
+
+Figure 34.5 illustrates how we construct A;. For a given input x € {0,1}*,
+algorithm A, uses F to transform x into f(x), and then it uses A> to test whether
+f(x) € Lz. Algorithm A, takes the output from algorithm A, and produces that
+answer as its own output.
+
+The correctness of A, follows from condition (34.1). The algorithm runs in poly-
+nomial time, since both F and A2 run in polynomial time (see Exercise 34.1-5). m
+
+NP-completeness
+
+Polynomial-time reductions provide a formal means for showing that one prob-
+lem is at least as hard as another, to within a polynomial-time factor. That is, if
+L, <p Lo, then L; is not more than a polynomial factor harder than L>, which is
+

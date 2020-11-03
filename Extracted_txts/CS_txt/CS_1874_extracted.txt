@@ -1,0 +1,43 @@
+10.4 PageReplacement 337
+
+ 
+
+ 
+
+number of page faults
+
+ 
+
+ 
+
+number of frames.
+
+Figure 10.10 Page-fault curve for FIFO replacement on a reference string.
+
+Figure 10.10 shows the curve of page faults versus the number of available
+frames. We notice that the number of faults for four frames (10) is greater than
+the number of faults for three frames (nine)! This most unexpected result is
+known as Belady’s anomaly: For some page-replacement algorithms, the page-
+fault rate may increase as the number of allocated frames increases. We would
+expect that giving more memory to a process would improve its performance.
+In some early research, investigators noticed that this assumption was not
+always true. Belady’s anomaly was discovered as a result.
+
+10.4.3 Optimal Page Replacement
+
+One result of the discovery of Belady’s anomaly was the search for an optimal
+page-replacement algorithm. An optimal page-replacement algorithm has the
+lowest page-fault rate of all algorithms, and will never suffer from Belady’s
+anomaly. Such an algorithm does exist, and has been called OPT or MIN. It is
+simply
+
+Replace the page that will not be used
+for the longest period of time.
+
+Use of this page-replacement algorithm guarantees the lowest possible page-
+fault rate for a fixed number of frames.
+
+For example, on our sample reference string, the optimal page-replacement
+algorithm would yield nine page faults, as shown in Figure 10.11. The first three
+references cause faults that fill the three empty frames. The reference to page
+

@@ -1,0 +1,40 @@
+Chapter 18: Graphics Under Windows 605
+
+ 
+
+the bitmap of memory DC is transferred to screen DC using
+BitBlt( ) function.
+
+Let us now take a look at the program that puts all these concepts
+in action. The program merely displays the image of a vulture in a
+window. Here is the code...
+
+void OnPaint ( HWND hWnd )
+
+{
+
+}
+
+HDC hdc ;
+
+HBITMAP hbmp ;
+HDC hmemdc ;
+HGDIOBJ holdbmp ;
+PAINTSTRUCT ps ;
+
+hdc = BeginPaint (hWnd, &ps ) ;
+hbmp = LoadBitmap ( hinst, MAKEINTRESOURCE (IDB_BITMAP1 )) ;
+
+hmemdc = CreateCompatibleDC ( hdc) ;
+holdbmp = SelectObject ( hmemdc, hbmp ) ;
+
+BitBIt ( hdc, 10, 20, 190, 220, hmemdc, 0, 0, SRCCOPY ) ;
+EndPaint ( hWnd, &ps) ;
+SelectObject (hmemdc, holdbmp ) ;
+
+DeleteObject ( hbmp ) ;
+DeleteDC (hmemdc) ;
+
+On executing the program we get the window shown in Figure
+18.7.
+

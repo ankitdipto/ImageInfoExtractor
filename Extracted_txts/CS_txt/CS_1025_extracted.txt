@@ -1,0 +1,41 @@
+334 Let Us C
+
+ 
+
+one string at a time, the plus point with gets() is that it can
+receive a multi-word string.
+
+If we are prepared to take the trouble we can make scanf( )
+accept multi-word strings by writing it in this manner:
+
+char name[25] ;
+printf ( "Enter your full name ") ;
+scanf ("%[*\n]s", name ) ;
+
+Though workable this is the best of the ways to call a
+function, you would agree.
+
+Pointers and Strings
+
+Suppose we wish to store “Hello”. We may either store it in a
+string or we may ask the C compiler to store it at some location in
+memory and assign the address of the string in a char pointer. This
+is shown below:
+
+char str[] = "Hello" ;
+char “p= "Hello" ;
+
+There is a subtle difference in usage of these two forms. For
+example, we cannot assign a string to another, whereas, we can
+assign a char pointer to another char pointer. This is shown in the
+following program.
+
+main()
+
+{
+char str1[] = "Hello" ;
+char str2[10] ;
+
+char *s = "Good Morning’ ;
+char *q;
+

@@ -1,0 +1,72 @@
+324
+
+Chapter 10. Logical Reasoning Systems
+
+The CLASSIC language (Borgida ef a/., 1989) is a typical description logic. The syntax §
+
+of CLASSIC descriptions is shown in Figure 10.11.!° For example, to say that bachelors are
+unmarried, adult males we would write
+
+Bachelor = And(Unmarried, Adult, Male)
+The equivalent in first-order logic would be
+Vx Bachelor(x) <2 Unmarried(x)A Adult(x) A Male(x)
+
+Notice that the description logic effectively allows direct logical operations on predicates, rather 4
+
+than having to first create sentences to be joined by connectives. Any description in CLASSIC can
+
+be written in first-order logic, but some descriptions are more straightforward in CLASSIC. For
+
+example, to describe the set of men with at least three sons who are all unemployed and mantied
+
+to doctors, and at most two daughters who are all professors in physics or chemistry departments, |
+
+we would use
+And(Man, AtLeast(3, Son), AtMost(2, Daughter),
+All(Son, And( Unemployed, Married, All(Spouse, Doctor))),
+All(Daughter, And(Professor,Fills(Department, Physics, Chemistry))))
+
+We leave it as an exercise to translate this into first-order logic.
+
+ 
+
+Concept — Thing | ConceptName
+
+| And(Concept,...)
+
+| All(RoleName, Concept)
+| ArLeast(integer, RoleName)
+| AtMost(Integer, RoleName)
+| Fills (Role Name, IndividualName, ...)
+| SameAs(Path, Path)
+
+| OneOf (individualName,...)
+
+Path — [RoleName,...]
+
+ 
+
+Figure 10.11 The syntax of descriptions in a subset of the CLASSIC language.
+
+ 
+
+ 
+
+Perhaps the most important aspect of description logics is the emphasis on tractability of
+inference. A problem instance is solved by describing it and asking if it is subsumed by one of
+
+several possible solution categories. In standard first-order logic systems, predicting the solution 4
+
+time is often impossible. It is often left to the user to engineer the representation to detour around
+sets of sentences that seem to be causing the system to take several weeks to solve a problem.
+The thrust in description logics, on the other hand, is to ensure that subsumption-testing can be
+solved in time polynomial in the size of the problem description. The CLASSIC language satisfies
+this condition, and is currently the most comprehensive language to do so.
+
+10 Notice that the language does not allow one to simply state that one concept, or category, is a subset of another. This
+
+is a deliberate policy: subsumption between categories must be derivable from some aspects of the descriptions of the
+categories. Ifnot, then something is missing from the descriptions
+
+ 
+

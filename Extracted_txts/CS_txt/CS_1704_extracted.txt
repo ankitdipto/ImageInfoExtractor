@@ -1,0 +1,51 @@
+196 Chapter7 Process Synchronization
+
+To prove properties 2 and 3, we note that a process P; can be prevented
+from entering the critical section only if it is stuck in the while loop with the
+condition flag [j] == true and turn == j; this loop is the only one. If P; isnot
+ready to enter the critical section, then flag[j] == false and P; can enter its
+critical section. If P; has set flag [j] to true and is also executing in its while
+statement, then either turn == j. Ifturn _ then P; will enter
+the critical section. If turn == j, then P; will enter the critical section. However,
+once P; exits its critical section, it will reset flag [j] to false, allowing P; to
+enter its critical section. If Pj resets flag [j] to true, it must also set turn to i.
+Thus, since P; does not change the value of the variable turn while executing
+the while statement, P; will enter the critical section (progress) after at most
+one entry by P; (bounded waiting).
+
+   
+
+7.2.2 Multiple-Process Solutions
+
+We have seen that algorithm 3 solves the critical-section problem for two
+processes. Now let us develop an algorithm for solving the critical-section
+problem for n processes. This algorithm is known as the bakery algorithm, and
+it is based on a scheduling algorithm commonly used in bakeries, ice-cream
+stores, deli counters, motor-vehicle registries, and other locations where order
+must be made out of chaos. This algorithm was developed for a distributed
+environment, but at this point we are concerned with only those aspects of the
+algorithm that pertain to a centralized environment.
+
+On entering the store, each customer receives a number. The customer with
+the lowest number is served next. Unfortunately, the bakery algorithm cannot
+guarantee that two processes (customers) do not receive the same number. In
+the case of a tie, the process with the lowest name is served first. That is, if
+P; and P; receive the same number and if i < j, then P; is served first. Since
+process names are unique and totally ordered, our algorithm is completely
+deterministic.
+
+The common data structures are
+
+boolean choosing [n] ;
+int number (n];
+
+Initially, these data structures are initialized to false and 0, respectively. For
+convenience, we define the following notation:
+
+@ (a,b) < (c,d) ifa<corifa==candb<d.
+© max(ao, ..., 4n—1) is a number, k, such that k > aj fori=0,....n—1.
+The structure of process P;, used in the bakery algorithm, is shown in Figure 7.5.
+
+To prove that the bakery algorithm is correct, we need first to show that, if
+P; is in its critical section and P; (kK != i) has already chosen its number k != 0,
+

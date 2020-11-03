@@ -1,0 +1,44 @@
+Chapter 19: Interaction With Hardware 633
+
+ 
+
+that when WriteFile( ) is to be used we need to specify the
+GENERIC_WRITE flag in the call to CreateFile( ) API
+function. Given below is the code of WriteSector( ) function that
+works exactly opposite to the ReadSector() function.
+
+void WriteSector (char “src, int ss, int num, void* buff )
+{
+HANDLE h;
+unsigned int br ;
+h =CreateFile (src, GENERIC_WRITE,
+FILE_SHARE_WRITE, 0, OPEN_EXISTING, 0, 0);
+SetFilePointer (h, (ss * 512), NULL, FILE_BEGIN) ;
+WriteFile (h, buff, 512 * num, &br, NULL) )
+CloseHandle (h);
+}
+
+Accessing Other Storage Devices
+
+Note that the mechanism of reading from or writing to any device
+remains standard under Windows. We simply need to change the
+string that specifies the device. Here are some sample calls for
+reading/writing from/to various devices:
+
+     
+
+ReadSector ( "\\\\\\a:", 0, 1, &b); /* reading from 2" floppy drive */
+ReadSector ( , 1, buffer ) ; /* reading from a CD-ROM drive */
+WriteSector ("W\\\ ",0, 1, &b) ; /* writing to a hard disk */
+
+ReadSector ( "\\\\.\\physicaldriveO”, 0, 1, &b ); /* reading partition table */
+
+Here are a few interesting points that you must note.
+
+(a) If we are to read from the second floppy drive we should
+replace A: with B: while calling ReadSector( ).
+
+(b) To read from storage devices like hard disk drive or CD-ROM
+or ZIP drive, etc. use the string with appropriate drive letter.
+The string can be in the range \\.\C: to \\\Z:.
+

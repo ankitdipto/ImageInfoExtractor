@@ -1,0 +1,57 @@
+decoding of F fields
+
+arithmetic logic
+shift unit
+
+SECTION 74 Design of Control Unit 231
+
+cheaper and faster than a RAM and also to prevent the occasional user from
+changing the architecture of the system.
+
+7-4 Design of Control Unit
+
+The bits of the microinstruction are usually divided into fields, with each field
+defining a distinct, separate function The various fields encountered in in-
+struction formats provide control bits to initiate microoperations in the system,
+special bits to specify the way that the next address is to be evaluated, and an
+address field for branching. The number of control bits that initiate microop-
+erations can be reduced by grouping mutually exclusive variables into fields
+and encoding the k bits in each field to provide 2* microoperations. Each field
+requires a decoder to produce the corresponding control signals. This method
+reduces the size of the microinstruction bits but requires additional hardware
+external to the control memory. It also increases the delay time of the control
+signals because they must propagate through the decoding circuits.
+
+The encoding of control bits was demonstrated in the programming
+example of the preceding section. The nine bits of the microoperation field are
+divided into three subfields of three bits each. The control memory output
+of each subfield must be decoded to provide the distinct microoperations. The
+outputs of the decoders are connected to the appropriate inputs in the proces-
+sor unit.
+
+Figure 7-7 shows the three decoders and some of the connections that
+must be made from their outputs. Each of the three fields of the microinstruc-
+tion presently available in the output of control memory are decoded with a
+3 x 8 decoder to provide eight outputs. Each of these outputs must be con-
+nected to the proper circuit to initiate the corresponding microoperation as,
+specified in Table 7-1. For example, when F1 = 101 (binary 5), the next clock
+pulse transition transfers the content of DR(0-10) to AR (symbolized by DRTAR
+in Table 7-1). Similarly, when Fl = 110 (binary 6) there is a transfer from PC
+to AR (symbolized by PCTAR). Asshown in Fig. 7-7, outputs Sand 6 of decoder
+FI are connected to the load input of AR so that when either one of these
+outputs is active, information from the multiplexers is transferred to AR. The
+multiplexers select the information from DR when output 5 is active and from
+PC when output 5 is inactive. The transfer into AR occurs with a clock pulse
+transition only when output 5 or output 6 of the decoder are active. The other
+outputs of the decoders that initiate transfers between registers must be con-
+nected in a similar fashion
+
+‘The arithmetic logic shift unit can be designed as in Figs. 5-19 and 5-20.
+Instead of using gates to generate the control signals marked by the symbols
+AND, ADD, and DR in Fig. 5-19, these inputs will now come from the outputs
+of the decoders associated with the symbols AND, ADD, and DRTAC, respec-
+
+ 
+
+ 
+

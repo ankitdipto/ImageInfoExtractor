@@ -1,0 +1,45 @@
+1070
+
+Chapter 34 NP-Completeness
+
+oS
+CO
+
+Figure 34.6 How most theoretical computer scientists view the relationships among P, NP,
+and NPC. Both P and NPC are wholly contained within NP, and PM NPC = 9.
+
+ered, a proof that a problem is NP-complete provides excellent evidence that it is
+intractable.
+
+Circuit satisfiability
+
+We have defined the notion of an NP-complete problem, but up to this point, we
+have not actually proved that any problem is NP-complete. Once we prove that at
+least one problem is NP-complete, we can use polynomial-time reducibility as a
+tool to prove other problems to be NP-complete. Thus, we now focus on demon-
+strating the existence of an NP-complete problem: the circuit-satisfiability prob-
+lem.
+
+Unfortunately, the formal proof that the circuit-satisfiability problem is NP-
+complete requires technical detail beyond the scope of this text. Instead, we shall
+informally describe a proof that relies on a basic understanding of boolean combi-
+national circuits.
+
+Boolean combinational circuits are built from boolean combinational elements
+that are interconnected by wires. A boolean combinational element is any circuit
+element that has a constant number of boolean inputs and outputs and that performs
+a well-defined function. Boolean values are drawn from the set {0,1}, where 0
+represents FALSE and | represents TRUE.
+
+The boolean combinational elements that we use in the circuit-satisfiability prob-
+lem compute simple boolean functions, and they are known as logic gates. Fig-
+ure 34.7 shows the three basic logic gates that we use in the circuit-satisfiability
+problem: the NOT gate (or inverter), the AND gate, and the OR gate. The NOT
+gate takes a single binary input x, whose value is either 0 or 1, and produces a
+binary output z whose value is opposite that of the input value. Each of the other
+two gates takes two binary inputs x and y and produces a single binary output z.
+
+We can describe the operation of each gate, and of any boolean combinational
+element, by a truth table, shown under each gate in Figure 34.7. A truth table gives
+the outputs of the combinational element for each possible setting of the inputs. For
+

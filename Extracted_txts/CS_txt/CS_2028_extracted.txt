@@ -1,0 +1,102 @@
+13.3 Application I/O Interface 467
+
+ 
+
+kernel
+
+ 
+
+kernel I/O subsystem
+
+software
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+scsi keyboard mouse PCI bus floppy ATAPI
+device device device ooo device device device
+driver driver driver driver driver driver
+| SCSI | keyboard | mouse PCIbus | floppy | ATAPI
+device | device | device ooo device device device
+-controlier| controller | controller | controller | controller | controller
+es es ee
+s r
+= E ATAPI
+scsi ’ ftoppy-cisk| | devices
+‘devices mouse || eee PCI bus ‘dives: (disks,
+tapes,
+i : drives)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 13.6 A kernel I/O structure.
+
+compatible with an existing host controller interface (such as SCSI-2), or they
+write device drivers to interface the new hardware to popular operating sys-
+tems. Thus, new peripherals can be attached to a computer without waiting for
+the operating-system vendor to develop support code.
+
+Unfortunately for device-hardware manufacturers, each type of operating
+system has its own standards for the device-driver interface. A given device
+may ship with multiple device drivers—for instance, drivers for MS-DOS, Win-
+dows 95/98, Windows NT/2000, and Solaris. Devices vary in many dimensions,
+as illustrated in Figure 13.7.
+
+¢ Character-stream or block: A character-stream device transfers bytes one
+by one, whereas a block device transfers a block of bytes as a unit.
+
+¢ Sequential or random-access: A sequential device transfers data in a fixed
+order determined by the device, whereas the user of a random-access
+device can instruct the device to seek to any of the available data storage
+locations.
+
+* Synchronous or asynchronous: A synchronous device is one that performs
+
+data transfers with predictable response times. An asynchronous device
+exhibits irregular or unpredictable response times.
+

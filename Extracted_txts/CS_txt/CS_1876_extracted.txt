@@ -1,0 +1,106 @@
+10.4 Page Replacement 339
+
+reference string
+7 0 12 0 3 04 2 303 2 414 2 04 70 1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+7} 17) | 7 | 2 2 4) [4] | 4) [0 1 1 1
+0) | 0} | 0 0 0} | 0 3 3 0 0}
+1 1 3] 3) | 2) 2| 2Q| 2 7
+
+page frames
+
+Figure 10.12 LRU page-replacement algorithm.
+
+S®, Similarly, the page-fault rate for the LRU algorithm on S is the same as the
+page-fault rate for the LRU algorithm on S*.)
+
+The result of applying LRU replacement to our example reference string is
+shown in Figure 10.12. The LRU algorithm produces 12 faults. Notice that the
+first five faults are the same as the optimal replacement. When the reference
+to page 4 occurs, however, LRU replacement sees that, of the three frames in
+memory, page 2 was used least recently. The most recently used page is page
+0, and just before that page 3 was used. Thus, the LRU algorithm replaces page
+2, not knowing that page 2 is about to be used. When it then faults for page 2,
+the LRU algorithm replaces page 3 since, of the three pages in memory {0, 3, 4},
+page 3 is the least recently used. Despite these problems, LRU replacement with
+12 faults is still much better than FIFO replacement with 15.
+
+The LRU policy is often used as a page-replacement algorithm and is consid-
+ered to be good. The major problem is how to implement LRU replacement. An
+LRU page-replacement algorithm may require substantial hardware assistance.
+The problem is to determine an order for the frames defined by the time of last
+use. Two implementations are feasible:
+
+¢ Counters: In the simplest case, we associate with each page-table entry a
+time-of-use field, and add to the CPU a logical clock or counter. The clock is
+incremented for every memory reference. Whenever a reference to a page is
+made, the contents of the clock register are copied to the time-of-use field in
+the page-table entry for that page. In this way, we always have the “time”
+of the last reference to each page. We replace the page with the smallest
+time value. This scheme requires a search of the page table to find the LRU
+page, and a write to memory (to the time-of-use field in the page table)
+for each memory access. The times must also be maintained when page
+tables are changed (due to CPU scheduling). Overflow of the clock must be
+considered.
+
+« Stack: Another approach to implementing LRU replacement is to keep a
+stack of page numbers. Whenever a page is referenced, it is removed
+from the stack and put on the top. In this way, the top of the stack is
+always the most recently used page and the bottom is the LRU page (Figure
+

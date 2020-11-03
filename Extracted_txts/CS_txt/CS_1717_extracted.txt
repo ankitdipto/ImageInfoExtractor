@@ -1,0 +1,46 @@
+7.5 Classic Problems of Synchronization 207
+
+do {
+produce an item in nextp
+
+wait (empty) ;
+wait (mutex) ;
+
+add nextp to buffer
+
+signal (mutex) ;
+signal (full) ;
+} while (1);
+
+Figure 7.12 The structure of the producer process.
+
+7.5.2 The Readers—Writers Problem
+
+A data object (such as a file or record) is to be shared among several concurrent
+processes. Some of these processes may want only to read the content of
+the shared object, whereas others may want to update (that is, to read and
+write) the shared object. We distinguish between these two types of processes
+by referring to those processes that are interested in only reading as readers,
+and to the rest as writers. Obviously, if two readers access the shared data
+object simultaneously, no adverse effects will result. However, if a writer
+and some other process (either a reader or a writer) access the shared object
+simultaneously, chaos may ensue.
+
+To ensure that these difficulties do not arise, we require that the writers
+have exclusive access to the shared object. This synchronization problem is
+referred to as the readers—writers problem. Since it was originally stated, it has
+
+do {
+wait (full) ;
+wait (mutex) ;
+
+remove an item from buffer to nextc
+
+signal (mutex) ;
+signal (empty) ;
+
+consume the item in nextc
+} while (1);
+
+Figure 7.13 The structure of the consumer process.
+

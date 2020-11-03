@@ -1,0 +1,41 @@
+1024
+
+Chapter 33 Computational Geometry
+
+solely on simple properties of the input data. In particular, each segment endpoint
+is an event point. We sort the segment endpoints by increasing x-coordinate and
+proceed from left to right. (If two or more endpoints are covertical, i.e., they have
+the same x-coordinate, we break the tie by putting all the covertical left endpoints
+before the covertical right endpoints. Within a set of covertical left endpoints, we
+put those with lower y-coordinates first, and we do the same within a set of cover-
+tical right endpoints.) When we encounter a segment’s left endpoint, we insert the
+segment into the sweep-line status, and we delete the segment from the sweep-line
+status upon encountering its right endpoint. Whenever two segments first become
+consecutive in the total preorder, we check whether they intersect.
+
+The sweep-line status is a total preorder T, for which we require the following
+operations:
+
++ INSERT(T, 5): insert segment s into T.
++ DELETE(T,s): delete segment s from T.
++ ABOVE(T,s): return the segment immediately above segment s in T.
+
++ BELOW(T,5s): return the segment immediately below segment s in T.
+
+It is possible for segments s; and s2 to be mutually above each other in the total
+preorder 7; this situation can occur if s; and 52 intersect at the sweep line whose
+total preorder is given by 7. In this case, the two segments may appear in either
+order in T.
+
+If the input contains n segments, we can perform each of the operations INSERT,
+DELETE, ABOVE, and BELOw in O(lg7) time using red-black trees. Recall that
+the red-black-tree operations in Chapter 13 involve comparing keys. We can re-
+place the key comparisons by comparisons that use cross products to determine the
+relative ordering of two segments (see Exercise 33.2-2).
+
+Segment-intersection pseudocode
+
+The following algorithm takes as input a set S of n line segments, returning the
+boolean value TRUE if any pair of segments in S intersects, and FALSE otherwise.
+A red-black tree maintains the total preorder T.
+

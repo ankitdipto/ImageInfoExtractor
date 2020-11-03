@@ -1,0 +1,50 @@
+1034
+
+Chapter 33 Computational Geometry
+
+of CH(Q) (see Exercise 33.3-1). Figure 33.7(a) shows the points of Figure 33.6
+sequentially numbered in order of increasing polar angle relative to po.
+
+The remainder of the procedure uses the stack S. Lines 3-6 initialize the stack
+to contain, from bottom to top, the first three points po, pi, and p2. Figure 33.7(a)
+shows the initial stack S. The for loop of lines 7-10 iterates once for each point
+in the subsequence (p3. P4..... Pm). We shall see that after processing point p;,
+stack S contains, from bottom to top, the vertices of CH({po, P1.---. Pi}) in coun-
+terclockwise order. The while loop of lines 8-9 removes points from the stack if
+we find them not to be vertices of the convex hull. When we traverse the convex
+hull counterclockwise, we should make a left turn at each vertex. Thus, each time
+the while loop finds a vertex at which we make a nonleft turn, we pop the vertex
+from the stack. (By checking for a nonleft turn, rather than just a right turn, this
+test precludes the possibility of a straight angle at a vertex of the resulting convex
+hull. We want no straight angles, since no vertex of a convex polygon may be a
+convex combination of other vertices of the polygon.) After we pop all vertices
+that have nonleft turns when heading toward point pj, we push p; onto the stack.
+Figures 33.7(b)-(k) show the state of the stack S after each iteration of the for
+loop. Finally, GRAHAM-SCAN returns the stack S in line 11. Figure 33.7(1) shows
+the corresponding convex hull.
+
+The following theorem formally proves the correctness of GRAHAM-SCAN.
+
+Theorem 33.1 (Correctness of Graham’s scan)
+
+If GRAHAM-SCAN executes on a set Q of points, where |Q| > 3, then at termina-
+tion, the stack S consists of, from bottom to top, exactly the vertices of CH(Q) in
+counterclockwise order.
+
+Proof After line 2, we have the sequence of points (p;, P2..... Pm). Let us
+define, fori = 2,3,..., m, the subset of points O; = {po.Pi..... Di}. The
+points in QO — Q,,, are those that were removed because they had the same polar
+angle relative to Po as some point in Q,,; these points are not in CH(Q), and
+so CH(Q,,) = CH(Q). Thus, it suffices to show that when GRAHAM-SCAN
+terminates, the stack S consists of the vertices of CH(Q,,) in counterclockwise
+order, when listed from bottom to top. Note that just as po, Pi, and p,, are vertices
+of CH(Q), the points po, p1, and p; are all vertices of CH(Q;).
+The proof uses the following loop invariant:
+
+At the start of each iteration of the for loop of lines 7-10, stack S consists of,
+from bottom to top, exactly the vertices of CH(Q;_;) in counterclockwise
+order.
+
+Initialization: The invariant holds the first time we execute line 7, since at that
+time, stack S consists of exactly the vertices of Q2 = Qj-1, and this set of three
+

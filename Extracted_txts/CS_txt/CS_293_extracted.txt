@@ -1,0 +1,59 @@
+144
+
+CHAPTER FIVE Basic Computer Organization and Design
+
+structions are listed in Table 5-3. These instructions are executed with the clock
+transition associated with timing variable T;. Each control function needs the
+Boolean relation D,I'Ts, which we designate for convenience by the symbol r.
+The control function is distinguished by one of the bitsin IR(0-11). By assigning
+the symbol B, to bit iof IR, all control functions can be simply denoted by rB;.
+For example, the instruction CLA has the hexadecimal code 7800 (see Table5-2),
+which gives the binary equivalent 0111 1000 0000 0000. The first bit is a zero
+and is equivalent to I’. The next three bits constitute the operation code and
+are recognized from decoder output D>. Bit 11 in IR is 1 and is recognized from
+Bu. The control function that initiates the microoperation for this instruction
+is DjI’T,By = rBy,. The execution of a register-reference instruction is com-
+pleted at time, The sequence counter SC is cleared to 0 and the control goes
+back to fetch the next instruction with timing signal To.
+
+The first seven register-reference instructions perform clear, comple-
+ment, circular shift, and increment microoperations on the AC or E registers.
+Thenextfour instructions cause askip of thenextinstruction in sequence when
+a stated condition is satisfied. The skipping of the instruction is achieved by
+incrementing PC once again (in addition, it is being incremented during the
+fetch phase at time T}). The condition control statements must be recognized
+as part of the control conditions. The AC is positive when the sign bit in
+AC(15) = 0; itis negative when AC(15) = 1. The content of AC is zero (AC = 0)
+if all the flipflops of the register are zero. The HLT instruction clears a
+start-stop flip-flop S and stops the sequence counter from counting. To restore
+the operation of the computer, the start-stop flip-flop must be set manually.
+
+TABLE 5-3 Execution of RegisterReference Instructions
+
+ 
+
+D1ITs = r (common to all register-reference instructions)
+IR(@) = B, (bit in 1R(O-11) that specifies the operation]
+
+scH0 Clear SC
+
+: ACH0 Clear AC
+
+: EX Clear E
+AC—AT Complement AC
+EcE Complement E
+
+AC«sht AC, AC(1S)<—E, E<-AC(0) Circulate right
+AC«shl AC, AC(0)<-E, E<AC(15) Circulate left
+AC<AC +1 Increment AC
+) then (POPC +1) Skip if positive
+)) then (PC<—PC +1) Skip if negative
+If (AC = 0) then PC-—PC + 1) Skip if AC zero
+0) then (PC<—PC + 1) Skip if E zero
+50 (Sis a start-stop flip-flop) Halt computer
+
+ 
+  
+
+  
+

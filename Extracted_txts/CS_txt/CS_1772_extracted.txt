@@ -1,0 +1,42 @@
+254  Chapter8 Deadlocks
+
+: deadlock
+
+ 
+
+ 
+
+Figure 8.4 Safe, unsafe, and deadlock state spaces.
+
+the resources that process P; needs are not immediately available, then P; can
+wait until all P; have finished. When they have finished, P; can obtain all of its
+needed resources, complete its designated task, return its allocated resources,
+and terminate. When P; terminates, P;.1 can obtain its needed resources, and so
+on. If no such sequence exists, then the system state is said to be unsafe.
+
+Assafe state is not a deadlock state. Conversely, a deadlock state is an unsafe
+state. Not all unsafe states are deadlocks, however (Figure 8.4). An unsafe
+state may lead to a deadlock. As long as the state is safe, the operating system
+can avoid unsafe (and deadlock) states. In an unsafe state, the operating sys-
+tem cannot prevent processes from requesting resources such that a deadlock
+occurs: The behavior of the processes controls unsafe states.
+
+To illustrate, we consider a system with 12 magnetic tape drives and 3
+processes: Po, P1, and P. Process Pp requires 10 tape drives, process P, may
+need as many as 4, and process P, may need up to 9 tape drives. Suppose
+that, at time fo, process Po is holding 5 tape drives, process P is holding 2, and
+process P2 is holding 2 tape drives. (Thus, there are 3 free tape drives.)
+
+Maximum Needs —_Current Needs
+
+Po 10 5
+Py 4 2
+Pz 9 2
+
+At time f, the system is in a safe state. The sequence <P}, Po, Pa> satisfies
+the safety condition, since process P; can immediately be allocated all its tape
+drives and then return them (the system will then have 5 available tape drives),
+then process Po can get all its tape drives and return them (the system will then
+have 10 available tape drives), and finally process P2 could get all its tape drives
+and return them (the system will then have all 12 tape drives available).
+

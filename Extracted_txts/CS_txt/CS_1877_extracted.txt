@@ -1,0 +1,72 @@
+340 Chapter 10 Virtual Memory
+
+10.13). Because entries must be removed from the middle of the stack, it
+is best implemented by a doubly linked list, with a head and tail pointer.
+Removing a page and putting it on the top of the stack then requires
+changing six pointers at worst. Each update is a little more expensive, but
+there is no search for a replacement; the tail pointer points to the bottom of
+the stack, which is the LRU page. This approach is particularly appropriate
+for software or microcode implementations of LRU replacement.
+
+Neither optimal replacement nor LRU replacement suffers from Belady’s
+anomaly. There is a class of page-replacement algorithms, called stack algo-
+rithms, that can never exhibit Belady’s anomaly. A stack algorithm is an algo-
+rithm for which it can be shown that the set of pages in memory for n frames is
+always a subset of the set of pages that would be in memory with n + 1 frames.
+For LRU replacement, the set of pages in memory would be the n most recently
+referenced pages. If the number of frames is increased, these 1 pages will still
+be the most recently referenced and so will still be in memory.
+
+Note that neither implementation of LRU would be conceivable without
+hardware assistance beyond the standard TLB registers. The updating of the
+clock fields or stack must be done for every memory reference. If we were to
+use an interrupt for every reference, to allow software to update such data
+structures, it would slow every memory reference by a factor of at least ten,
+hence slowing every user process by a factor of ten. Few systems could tolerate
+that level of overhead for memory management.
+
+10.4.5 LRU Approximation Page Replacement
+
+Few computer systems provide sufficient hardware support for true LRU page
+replacement. Some systems provide no hardware support, and other page-
+
+reference string
+4° 7°07 1 0 14 2 4 2-7 4 2
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2 7 b
+1 2
+0 1
+7 oO
+4 4
+stack before a stack after b
+
+Figure 10.13 Use of a stack to record the most recent page references.
+

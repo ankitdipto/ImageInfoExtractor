@@ -1,0 +1,119 @@
+336 Chapter 10 Virtual Memory
+
+10.4.2 FIFO Page Replacement
+
+The simplest page-replacement algorithm is a FIFO algorithm. A FIFO replace-
+ment algorithm associates with each page the time when that page was brought
+into memory. When a page must be replaced, the oldest page is chosen. Notice
+that it is not strictly necessary to record the time when a page is brought in. We
+can create a FIFO queue to hold all pages in memory. We replace the page at the
+head of the queue. When a page is brought into memory, we insert it at the tail
+of the queue.
+
+For our example reference string, our three frames are initially empty. The
+first three references (7, 0, 1) cause page faults, and are brought into these empty
+frames, The next reference (2) replaces page 7, because page 7 was brought in
+first. Since 0 is the next reference and 0 is already in memory, we have no fault
+for this reference. The first reference to 3 results in page 0 being replaced, since
+it was the first of the three pages in memory (0, 1, and 2) to be brought in.
+Because of this replacement, the next reference, to 0, will fault. Page 1 is then
+replaced by page 0. This process continues as shown in Figure 10.9. Every time
+a fault occurs, we show which pages are in our three frames. There are 15 faults
+altogether.
+
+The FIFO page-replacement algorithm is easy to understand and program.
+However, its performance is not always good. The page replaced may be an
+initialization module that was used a long time ago and is no longer needed.
+On the other hand, it could contain a heavily used variable that was initialized
+early and is in constant use.
+
+Notice that, even if we select for replacement a page that is in active use,
+everything still works correctly. After we page out an active page to bring ina
+new one, a fault occurs almost immediately to retrieve the active page. Some
+other page will need to be replaced to bring the active page back into memory.
+Thus, a bad replacement choice increases the page-fault rate and slows process
+execution, but does not cause incorrect execution.
+
+To illustrate the problems that are possible with a FIFO page-replacement
+algorithm, we consider the reference string,
+
+1,2, 3,4, 1, 2,5, 1, 2,3,4,5.
+
+reference string
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+70120304 2303 21 2 01 704
+7| [7] [7 [2 2] [2 al fo o| [od 7) [7 [7
+9| [9 |o 3 2} || a] a 1] Jo} [o
+a] fa 1| Jo} [| [ol || [3 3| [2 2| fal fa
+page frames
+
+Figure 10.9 FIFO page-replacement algorithm.
+

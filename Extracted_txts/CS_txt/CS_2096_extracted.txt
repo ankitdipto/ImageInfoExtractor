@@ -1,0 +1,50 @@
+14.8 Tertiary-Storage Structure 523
+
+into the drive, many seconds can be required for the drive to calibrate itself
+to the tape and to prepare for I/O. Although a slow tape jukebox can have a
+tape switch time of 1 or 2 minutes, this time is not enormously larger than the
+random-access time within one tape.
+
+So, to generalize, we say that random access in a disk jukebox has a latency
+of tens of seconds, whereas random access in a tape jukebox has a latency of
+hundreds of seconds; switching disks is expensive, but switching tapes is not.
+Be careful not to overgeneralize: Some expensive tape jukeboxes can rewind,
+eject, load a new tape, and fast forward to a random item of data all in less than
+30 seconds.
+
+If we pay attention to only the performance of the drives ina jukebox, the
+bandwidth and latency seem reasonable. But if we focus our attention on the
+cartridges instead, there is a terrible bottleneck. Consider first the bandwidth.
+By comparison with a fixed disk, the bandwidth-to-storage-capacity ratio of a
+robotic library is much less favorable. To read all the data stored ona large hard
+disk could take about an hour. To read all the data stored in a large tape library
+could take years. The situation with respect to access latency is nearly as bad.
+To illustrate this, if 100 requests are queued for a disk drive, the average waiting
+time will be about 1 second. If 100 requests are queued for a tape library, the
+average waiting time could be over 1 hour. The low cost of tertiary storage
+results from having many cheap cartridges share a few expensive drives. But
+a removable library is best devoted to the storage of infrequently used data,
+because the library can satisfy only a relatively small number of 1/0 requests
+per hour.
+
+14.8.3.2. Reliability
+
+Although we often think good performance means high speed, another important
+aspect of performance is reliability. If we try to read some data and are unable
+to do so because of a drive or media failure, for all practical purposes the access
+time is infinitely long and the bandwidth is infinitely small. So it is important
+to understand the reliability of removable media.
+
+Removable magnetic disks are somewhat less reliable than are fixed hard
+disks because the cartridge is more likely to be exposed to harmful environ-
+mental conditions such as dust, large changes in temperature and humidity,
+and mechanical forces such as shock and bending. Optical disks are considered
+very reliable, because the layer that stores the bits is protected by a transparent
+plastic or glass layer. The reliability of magnetic tape varies widely, depending
+on the kind of drive. Some inexpensive drives wear out tapes after a few dozen
+uses; other kinds are gentle enough to allow millions of reuses. By comparison
+with a magnetic disk, the head in a magnetic-tape drive is a weak spot. A disk
+head flies above the media, but a tape head is in close contact with the tape.
+The scrubbing action of the tape can wear out the head after a few thousands or
+tens of thousands of hours.
+

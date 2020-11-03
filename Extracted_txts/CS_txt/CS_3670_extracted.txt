@@ -1,0 +1,44 @@
+622 Chapter 22. Elementary Graph Algorithms
+
+ 
+
+Figure 22.10 The articulation points, bridges, and biconnected components of a connected, undi-
+rected graph for use in Problem 22-2. The articulation points are the heavily shaded vertices, the
+bridges are the heavily shaded edges, and the biconnected components are the edges in the shaded
+regions, with a bec numbering shown.
+
+these definitions. We can determine articulation points, bridges, and biconnected
+components using depth-first search. Let Gz = (V. E,) be a depth-first tree of G.
+
+a.
+
+Prove that the root of G, is an articulation point of G if and only if it has at
+least two children in G,.
+
+Let v be a nonroot vertex of G,. Prove that v is an articulation point of G if and
+only if v has a child s such that there is no back edge from s or any descendant
+of s to a proper ancestor of v.
+
+Let
+
+vd,
+
+v.low = min .
+w.d : (u, w) is a back edge for some descendant u of v .
+
+Show how to compute v./ow for all vertices v € V in O(£) time.
+
+|, Show how to compute all articulation points in O(£) time.
+
+Prove that an edge of G is a bridge if and only if it does not lie on any simple
+cycle of G.
+
+Show how to compute all the bridges of G in O(£) time.
+
+. Prove that the biconnected components of G partition the nonbridge edges of G.
+
+h. Give an O(E)-time algorithm to label each edge e of G with a positive in-
+
+teger e.bcc such that e.bcc = e’.bcc if and only if e and e’ are in the same
+biconnected component.
+

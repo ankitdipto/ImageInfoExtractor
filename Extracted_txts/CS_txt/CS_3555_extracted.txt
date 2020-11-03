@@ -1,0 +1,50 @@
+special symbols
+
+‘SECTION 45 Logic Microoperations 109
+
+It specifies a logic microoperation to be executed on the individual bits of the
+registers provided that the control variable P = 1. As a numerical example,
+assume that each register has four bits. Let the content of R1 be 1010 and the
+content of R2 be 1100. The exclusive-OR microoperation stated above symbol-
+izes the following logic computation:
+
+1010 Content of R1
+1100 Content of R2
+0110 Content of R1 after P = 1
+
+The content of R1, after the execution of the microoperation, is equal to the
+bit-by-bit exclusive-OR operation on pairs of bits in R2 and previous values of
+R1. The logic microoperations are seldom used in scientific computations, but
+they are very useful for bit manipulation of binary data and for making logical
+decisions.
+
+Special symbols will be adopted for the logicmicrooperations OR, AND,
+and complement, to distinguish them from the corresponding symbols used
+to express Boolean functions. The symbol \y will be used to denote an OR
+microoperation and the symbol /\ to denote an AND microoperation. The
+complement microoperation is the same as the 1’s complement and uses a bar
+on top of the symbol that denotes the register name. By using different
+symbols, it wil be possible to differentiate between a logic microoperation and
+a control (or Boolean) function. Another reason for adopting two sets of
+symbols is to be able to distinguish the symbol + , when used to symbolize
+anarithmetic plus, from alogicOR operation. Although the + symbol hastwo
+meanings, it will be possible to distinguish between them by noting where the
+symbol occurs, When the symbol + occurs in a microoperation, it will denote
+an arithmetic plus. When it occurs in a control (or Boolean) function, it will
+denote an OR operation. We will never use it to symbolize an OR microoper-
+ation. For example, in the statement
+
+P+Q R1< R2+R3, RA RS V RO
+
+the + between P and Qis an OR operation between two binary variables of a
+control function. The + between R2 and R3 specifies an add microoperation.
+The OR microoperation is designated by the symbol \v between registers R5
+and R6.
+
+List of Logic Microoperations
+
+There are 16 different logic operations that can be performed with two binary
+variables, They can be determined from all possible truth tables obtained with
+two binary variables as shown in Table 4-5. In this table, each of the 16 columns
+Fothrough F,s represents a truth table of one possible Boolean function for the
+

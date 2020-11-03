@@ -1,0 +1,72 @@
+  
+
+388 Chopter 12. Practical Planning
+
+ 
+
+ 
+   
+ 
+ 
+   
+   
+   
+  
+ 
+   
+ 
+ 
+   
+   
+   
+   
+ 
+ 
+
+range $(10.00) < Cash < $(11.00) at the finish. If we started out with less than $(1.50), then
+this approach would lead to failure quickly, without having to try all permutations of Buy steps
+at all combinations of stores.
+
+There is a trade-off in deciding how much of the resource quantity information we want to
+deal with in the rough check. We could implement a full constraint satisfaction problem solver for q
+arbitrary arithmetic inequalities (making sure we tie this process in with the normal unification
+of variables). However, with complicated domains, we can end up spendingjust as long solving
+the constraint satisfaction problem as we would have spent resolving all the conflicts.
+
+Temporal constraints
+
+In most ways, time can be treated like any other resource. The initial state specifies a start time for
+the plan, for example, Time — 8:30. (Here 8:30is a shorthand for Minutes(8 x 60 + 30).) We then
+can say how much time each operation consumes. (In the case of time, of course, consumption 4
+means adding to the amount.) Suppose it takes 10 seconds to pump each gallon of gas, and 3 4
+minutes to do the rest of the Fillup action. Then an effect of Fillup is
+
+Time — Time + Minutes(3)+ (Seconds(10)/Gallons(1)x (Gallons(15) - GasLevel))
+
+It is handy to provide the operator Wuit(x),which has the effect Time — Time + x and no other
+preconditions or effects (at least in static domains).
+
+There are two ways in which time differs from other resources. First, actions that are }
+executed in parallel consume the maximum of their respective times rather than the sum. Second,
+constraints on the time resource have to be consistent with ordering constraints. That is, if S; < Sj
+is one of the ordering constraints, then Time at S, must be less than Time at Sj.
+
+Another important constraint is that time never goes backward. This implies that no
+operators generate time instead of consuming it. Thus, ifthe goal state specifies a deadline (a
+maximum time), and you have a partial plan whose steps require more time than is allowed, you
+can backtrack immediately, without considering any completions of the plan. (See Exercise 12.9
+for more on this.)
+
+12.6 SUMMARY
+
+In this chapter we have seen several ways to extend the planning language—the representation
+of states and operators—to allow the planner to handle more complex, realistic domains. Each
+extension requires a corresponding change to the planning algorithm, and there is often a difficult J
+trade-off between expressiveness and worst-case efficiency. However, when the more expressive
+representations are used wisely, they can lead to an increase in efficiency.
+
+We have tried to present the field of planning in a way that emphasizes the best aspects of]
+progress in AT. The field started with a vague set ofrequirements (to control a robot) and aftersome:
+experimenting with an initially promising but ultimately intractable approach (situation calculus
+and theorem proving) settled down to a well-understood paradigm (STRIPS-style planning). From’
+

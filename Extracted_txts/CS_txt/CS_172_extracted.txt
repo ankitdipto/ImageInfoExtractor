@@ -1,0 +1,50 @@
+780
+
+Chapter 27 Multithreaded Algorithms
+
+path, so that if each strand takes unit time, its work is 17 time units and its span
+is 8 time units.
+
+The actual running time of a multithreaded computation depends not only on
+its work and its span, but also on how many processors are available and how
+the scheduler allocates strands to processors. To denote the running time of a
+multithreaded computation on P processors, we shall subscript by P. For example,
+we might denote the running time of an algorithm on P processors by Tp. The
+work is the running time on a single processor, or T;. The span is the running time
+if we could run each strand on its own processor—in other words, if we had an
+unlimited number of processors—and so we denote the span by T5.-
+
+The work and span provide lower bounds on the running time 7p of a multi-
+threaded computation on P processors:
+
+* In one step, an ideal parallel computer with P processors can do at most P
+units of work, and thus in 7p time, it can perform at most P Tp work. Since the
+total work to do is T;, we have P Tp = T,. Dividing by P yields the work law:
+
+Tp >T,/P. (27.2)
+
+* A P-processor ideal parallel computer cannot run any faster than a machine
+with an unlimited number of processors. Looked at another way, a machine
+with an unlimited number of processors can emulate a P-processor machine by
+using just P of its processors. Thus, the span law follows:
+
+Tp > Too - (27.3)
+
+We define the speedup of a computation on P processors by the ratio T;/Tp,
+which says how many times faster the computation is on P processors than
+on | processor. By the work law, we have Tp > 1,/P, which implies that
+T,/Tp < P. Thus, the speedup on P processors can be at most P. When the
+speedup is linear in the number of processors, that is, when 7;/Tp = @(P), the
+computation exhibits linear speedup, and when T,/Tp = P, we have perfect
+linear speedup.
+
+The ratio T;/T>. of the work to the span gives the parallelism of the multi-
+threaded computation. We can view the parallelism from three perspectives. As a
+ratio, the parallelism denotes the average amount of work that can be performed in
+parallel for each step along the critical path. As an upper bound, the parallelism
+gives the maximum possible speedup that can be achieved on any number of pro-
+cessors. Finally, and perhaps most important, the parallelism provides a limit on
+the possibility of attaining perfect linear speedup. Specifically, once the number of
+processors exceeds the parallelism, the computation cannot possibly achieve per-
+fect linear speedup. To see this last point, suppose that P > T,/ Tao, in which case
+

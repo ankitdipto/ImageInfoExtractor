@@ -1,0 +1,50 @@
+32.4 The Knuth-Morris-Pratt algorithm JON
+
+* Ifo(T;) = 0, then Po = eis the only prefix of P that is a suffix of T;. The while
+loop of lines 6-7 iterates through the values in 2*[q’], but although P, 5 T; for
+every g € 1°*[q’], the loop never finds ag such that P [g + 1] = T[i]. The loop
+terminates when q reaches 0, and of course line 9 does not execute. Therefore,
+gq = Oat line 10, so that g = o(T;).
+
+* Ifo(T;) = q’ + 1, then P[q’ + 1] = T[i], and the while loop test in line 6
+fails the first time through. Line 9 executes, incrementing q so that afterward
+we have g = q' + 1 =0(T).
+
++ If 0 < o(T7;) < q’, then the while loop of lines 6~7 iterates at least once,
+checking in decreasing order each value g € 1*[q'] until it stops at some g < q’.
+Thus, P; is the longest prefix of Py for which P[q¢+1] = T [i], so that when the
+while loop terminates, g + 1 = o(PyT[i]). Since q’ = o(T;-,), Lemma 32.3
+implies that o (T;_,T [i]) = 0 (PT [i]). Thus, we have
+
+o(P, TI)
+o(T-aTIi)
+o(T;)
+
+qt+l
+
+when the while loop terminates. After line 9 increments g, we have g = 0 (T;).
+
+Line 12 is necessary in KMP-MATCHRR, because otherwise, we might refer-
+ence P[m + 1] on line 6 after finding an occurrence of P. (The argument that
+q = 0(T;-1) upon the next execution of line 6 remains valid by the hint given in
+Exercise 32.4-8: 5(m,a) = 6(x[m],a) or, equivalently, (Pa) = o(Pxpmja) for
+any a € &.) The remaining argument for the correctness of the Knuth-Morris-
+Pratt algorithm follows from the correctness of FINITE-AUTOMATON-MATCHER,
+since we have shown that KMP-MATCHER simulates the behavior of FINITE-
+AUTOMATON-MATCHER.
+
+Exercises
+
+32.4-1
+Compute the prefix function z for the pattern ababbabbabbababbabb.
+
+32.4-2
+Give an upper bound on the size of *[q] as a function of g. Give an example to
+show that your bound is tight.
+
+32.4-3
+
+Explain how to determine the occurrences of pattern P in the text T by examining
+the z function for the string P T (the string of length m+n that is the concatenation
+of P and T).
+

@@ -1,0 +1,52 @@
+9.3 Contiguous Memory Allocation 285
+
+9.3.2. Memory Allocation
+
+Now we are ready to turn to memory allocation. One of the simplest methods
+for memory allocation is to divide memory into several fixed-sized partitions.
+Each partition may contain exactly one process. Thus, the degree of multipro-
+gramming is bound by the number of partitions. In this multiple-partition
+method, when a partition is free, a process is selected from the input queue
+and is loaded into the free partition. When the process terminates, the partition
+becomes available for another process. This method was originally used by the
+IBM OS/360 operating system (called MFT); it is no longer in use. The method
+described next is a generalization of the fixed-partition scheme (called MVT); it
+is used primarily in a batch environment. Many of the ideas presented here are
+also applicable to a time-sharing environment in which pure segmentation is
+used for memory management (Section 9.5).
+
+The operating system keeps a table indicating which parts of memory are
+available and which are occupied. Initially, all memory is available for user
+processes, and is considered as one large block of available memory, a hole.
+When a process arrives and needs memory, we search for a hole large enough
+for this process. If we find one, we allocate only as much memory as is needed,
+keeping the rest available to satisfy future requests.
+
+As processes enter the system, they are put into an input queue. The
+operating system takes into account the memory requirements of each process
+and the amount of available memory space in determining which processes are
+allocated memory. When a process is allocated space, it is loaded into memory
+and it can then compete for the CPU. When a process terminates, it releases its
+memory, which the operating system may then fill with another process from
+the input queue.
+
+At any given time, we have a list of available block sizes and the input
+queue. The operating system can order the input queue according to a schedul-
+ing algorithm. Memory is allocated to processes until, finally, the memory
+requirements of the next process cannot be satisfied; no available block of mem-
+ory (or hole) is large enough to hold that process. The operating system can then
+wait until a large enough block is available, or it can skip down the input queue
+to see whether the smaller memory requirements of some other process can be
+met.
+
+In general, a set of holes, of various sizes, is scattered throughout memory at
+any given time. When a process arrives and needs memory, the system searches
+this set for a hole that is large enough for this process. If the hole is too large, it is
+split into two: One part is allocated to the arriving process; the other is returned
+to the set of holes. When a process terminates, it releases its block of memory,
+which is then placed back in the set of holes. If the new hole is adjacent to other
+holes, these adjacent holes are merged to form one larger hole. At this point, the
+system may need to check whether there are processes waiting for memory and
+whether this newly freed and recombined memory could satisfy the demands
+of any of these waiting processes.
+

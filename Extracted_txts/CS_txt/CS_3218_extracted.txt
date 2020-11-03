@@ -1,0 +1,57 @@
+Section 3.2
+
+Formulating Problems 61
+
+ 
+
+seanc COST
+sora. COST
+
+Measuring problem-solving performance
+
+The effectiveness ofa search can be measured in at least three ways. First, does it rind a solution
+at all? Second, is it a good solution (one with a low path cost)? Third, what is the search cost
+associated with the time and memory required to find a solution? The total cost of the search is
+the sum ofthe path cost and the search cost.
+
+For the problem of finding a route from Arad to Bucharest, the path cost might be pro-
+portional to the total mileage of the path, perhaps with something thrown in for wear and tear
+on different road surfaces. The search cost will depend on the circumstances. In a static en-
+vironment, it will be zero because the performance measure is independent of time. If there is
+some urgency to get to Bucharest, the environment is semidynamic because deliberating longer
+will cost more. In this case, the search cost might vary approximately linearly with computation
+time (at least for small amounts of time). Thus, to compute the total cost, it would appear that
+we have to add miles and milliseconds. This is not always easy, because there is no "official
+exchange rate" between the two. The agent must somehow decide what resources to devote to
+search and what resources to devote to execution. For problems with very small state spaces, it
+is easy to find the solution with the lowest path cost. But for large, complicated problems, there
+is a trade-off to be made—the agent can search for a very long time to get an optimal solution,
+or the agent can search for a shorter time and get a solution with a slightly larger path cost. The
+issue of allocating resources will be taken up again in Chapter 16; for now, we concentrate on
+the search itself.
+
+Choosing states and actions
+
+Now that we have the definitions out of the way, let us start our investigation of problems with
+an easy one: "Drive from Arad to Bucharest using the roads in the map in Figure 3.3." An
+appropriate state space has 20 states, where each state is defined solely by location, specified as
+a city. Thus, the initial state is "in Arad" and the goal test is "is this Bucharest?" The operators
+correspond to driving along the roads between cities
+
+One solution is the path Arad to Sibiu to Rimnicu Vilcea to Pitesti to Bucharest. There are
+lots of other paths that are also solutions, for example, via Lugoj and Craiova. To decide which
+of these solutions is better, we need to know what the path cost function is measuring: it could
+be the total mileage, or the expected travel time. Because our current map does not specify either
+of these, we will use the number of steps as the cost function. That means that the path through
+Sibiu and Fagaras, with a path cost of 3, is the best possible solution
+
+The real art of problem solving is in deciding what goes into the description of the states
+and operators and what is left out. Compare the simple state description we have chosen, "in
+Arad," to an actual cross-country trip, where the state of the world includes so many things: the
+travelling companions, what is on the radio, what there is to look at out of the window, the vehicle
+being used for the trip, how fast it is going, whether there are any law enforcement officers nearby,
+what time it is, whether the driver is hungry or tired or running out of gas, how far it is to the next
+
+5 In theoretical computer science and in robotics, the search cost (the part you do before interacting with the environment)
+is called the offline cost and the path cost is called the online cost.
+

@@ -1,0 +1,52 @@
+3.3 System Calls 67
+
+circumstances, the operating system must transfer control to the command
+interpreter. The command interpreter then reads the next command. In an
+interactive system, the command interpreter simply continues with the next
+command; it is assumed that the user will issue an appropriate command to
+respond to any error. In a batch system, the command interpreter usually
+terminates the entire job and continues with the next job. Some systems allow
+control cards to indicate special recovery actions in case an error occurs. If the
+program discovers an error in its input and wants to terminate abnormally, it
+may also want to define an error level. More severe errors can be indicated
+by a higher-level error parameter. It is then possible to combine normal and
+abnormal termination by defining a normal termination as error at level 0.
+The command interpreter or a following program can use this error level to
+determine the next action automatically.
+
+A process or job executing one program may want to load and execute
+another program. This feature allows the command interpreter to execute a
+program as directed by, for example, a user comman<d, the click of a mouse, or
+a batch command. An interesting question is where to return control when
+the loaded program terminates. This question is related to the problem of
+whether the existing program is lost, saved, or allowed to continue execution
+concurrently with the new program.
+
+If control returns to the existing program when the new program termi-
+nates, we must save the memory image of the existing program; thus, we have
+effectively created a mechanism for one program to call another program. If
+both programs continue concurrently, we have created a new job or process to
+be multiprogrammed. Often, system calls exists specifically for this purpose
+(create process or submit job).
+
+If we create a new job or process, or perhaps even a set of jobs or pro-
+cesses, we should be able to control its execution. This control requires the
+ability to determine and reset the attributes of a job or process, including the
+job’s priority, its maximum allowable execution time, and so on (get. process
+attributes and set process attributes). We may also want to termi-
+nate a job or process that we created (terminate process) if we find that it is
+incorrect or is no longer needed.
+
+Having created new jobs or processes, we may need to wait for them to
+finish their execution. We may want to wait for a certain amount of time (wait
+time); more likely, we may want to wait for a specific event to occur (wait
+event). The jobs or processes should then signal when that event has occurred
+(signal event). System calls of this type, dealing with the coordination of
+concurrent processes, are discussed in great detail in Chapter 7.
+
+Another set of system calls is helpful in debugging a program. Many
+systems provide system calls to dump memory. This provision is useful for
+debugging. A program trace lists each instruction as it is executed; it is
+provided by fewer systems. Even microprocessors provide a CPU mode known
+as single step, in which a trap is executed by the CPU after every instruction.
+

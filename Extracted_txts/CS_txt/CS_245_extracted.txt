@@ -1,0 +1,45 @@
+28.3 Symmetric positive-definite matrices and least-squares approximation 839
+
+F(x) = 1.200 —0.757x + 0.214x?
+
+as the closest-fitting quadratic to the given data, in a least-squares sense.
+
+As a practical matter, we solve the normal equation (28.19) by multiplying y
+by AT and then finding an LU decomposition of ATA. If A has full rank, the
+matrix ATA is guaranteed to be nonsingular, because it is symmetric and positive-
+definite. (See Exercise D.1-2 and Theorem D.6.)
+
+Exercises
+
+28.3-1
+Prove that every diagonal element of a symmetric positive-definite matrix is posi-
+tive.
+
+28.3-2 b
+Let A = (j c ) be a 2 x 2 symmetric positive-definite matrix. Prove that its
+
+determinant ac — b? is positive by “completing the square” in a manner similar to
+that used in the proof of Lemma 28.5.
+
+28.3-3
+Prove that the maximum element in a symmetric positive-definite matrix lies on
+the diagonal.
+
+28.3-4
+Prove that the determinant of each leading submatrix of a symmetric positive-
+definite matrix is positive.
+
+28.3-5
+
+Let Ax denote the kth leading submatrix of a symmetric positive-definite matrix A.
+Prove that det(A,)/ det(A_,) is the kth pivot during LU decomposition, where,
+by convention, det(Ao) = 1.
+
+28.3-6
+Find the function of the form
+
+F(x) =c1 + 2x lgx +c3e*
+that is the best least-squares fit to the data points
+
+(1, 1), (2, 1), 3.3), (4,8) .
+

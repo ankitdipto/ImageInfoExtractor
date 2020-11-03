@@ -1,0 +1,45 @@
+16.1 An activity-selection problem 417
+
+Making the greedy choice
+
+What if we could choose an activity to add to our optimal solution without having
+to first solve all the subproblems? That could save us from having to consider all
+the choices inherent in recurrence (16.2). In fact, for the activity-selection problem,
+we need consider only one choice: the greedy choice.
+
+What do we mean by the greedy choice for the activity-selection problem? Intu-
+ition suggests that we should choose an activity that leaves the resource available
+for as many other activities as possible. Now, of the activities we end up choos-
+ing, one of them must be the first one to finish. Our intuition tells us, therefore,
+to choose the activity in S with the earliest finish time, since that would leave the
+resource available for as many of the activities that follow it as possible. (If more
+than one activity in S has the earliest finish time, then we can choose any such
+activity.) In other words, since the activities are sorted in monotonically increasing
+order by finish time, the greedy choice is activity a;. Choosing the first activity
+to finish is not the only way to think of making a greedy choice for this problem;
+Exercise 16.1-3 asks you to explore other possibilities.
+
+If we make the greedy choice, we have only one remaining subproblem to solve:
+finding activities that start after a, finishes. Why don’t we have to consider ac-
+tivities that finish before a, starts? We have that s; < f;, and /f; is the earliest
+finish time of any activity, and therefore no activity can have a finish time less than
+or equal to s,. Thus, all activities that are compatible with activity a, must start
+after a, finishes.
+
+Furthermore, we have already established that the activity-selection problem ex-
+hibits optimal substructure. Let S, = {a; € S : 5; = fx} be the set of activities that
+start after activity a; finishes. If we make the greedy choice of activity a,, then S;
+remains as the only subproblem to solve.! Optimal substructure tells us that if a,
+is in the optimal solution, then an optimal solution to the original problem consists
+of activity a; and all the activities in an optimal solution to the subproblem S,.
+
+One big question remains: is our intuition correct? Is the greedy choice—in
+which we choose the first activity to finish—always part of some optimal solution?
+The following theorem shows that it is.
+
+ 
+
+1We sometimes refer to the sets Sy as subproblems rather than as just sets of activities. It will always
+be clear from the context whether we are referring to Sj as a set of activities or as a subproblem
+whose input is that set.
+

@@ -1,0 +1,50 @@
+846
+
+Chapter 29 Linear Programming
+
+are linear inequalities. We use the general term linear constraints to denote either
+linear equalities or linear inequalities. In linear programming, we do not allow
+strict inequalities. Formally, a linear-programming problem is the problem of
+either minimizing or maximizing a linear function subject to a finite set of linear
+constraints. If we are to minimize, then we call the linear program a minimization
+linear program, and if we are to maximize, then we call the linear program a
+maximization linear program.
+
+The remainder of this chapter covers how to formulate and solve linear pro-
+grams. Although several polynomial-time algorithms for linear programming have
+been developed, we will not study them in this chapter. Instead, we shall study the
+simplex algorithm, which is the oldest linear-programming algorithm. The simplex
+algorithm does not run in polynomial time in the worst case, but it is fairly efficient
+and widely used in practice.
+
+An overview of linear programming
+
+In order to describe properties of and algorithms for linear programs, we find it
+convenient to express them in canonical forms. We shall use two forms, standard
+and slack, in this chapter. We will define them precisely in Section 29.1. Infor-
+mally, a linear program in standard form is the maximization of a linear function
+subject to linear inequalities, whereas a linear program in slack form is the max-
+imization of a linear function subject to linear equalities. We shall typically use
+standard form for expressing linear programs, but we find it more convenient to
+use slack form when we describe the details of the simplex algorithm. For now, we
+restrict our attention to maximizing a linear function on 7 variables subject to a set
+of m linear inequalities.
+Let us first consider the following linear program with two variables:
+
+  
+
+maximize x + XxX (29.11)
+subject to
+
+4x, -— x% < 8 (29.12)
+
+2x, + % < 10 (29.13)
+
+5x, — 2x, > -2 (29.14)
+
+X1,X2 > 0. (29.15)
+
+We call any setting of the variables x, and x, that satisfies all the constraints
+(29.12)-(29.15) a feasible solution to the linear program. If we graph the con-
+straints in the (x, X2)-Cartesian coordinate system, as in Figure 29.2(a), we see
+

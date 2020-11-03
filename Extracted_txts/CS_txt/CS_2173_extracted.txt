@@ -1,0 +1,85 @@
+SECTION 10:3 Multiplication Algorithms 3.4].
+
+‘The sign of the product is determined from the signs of the multiplicand
+and multiplier. If they are alike, the sign of the product is positive. If they are
+unlike, the sign of the product is negative.
+
+Hardware Implementation for Signed-Magnitude Data
+
+When multiplication is implemented in a digital computer, it is convenient to
+change the process slightly. First, instead of providing registers to store and
+add simultaneously as many binary numbers as thereare bits in the multiplier,
+it is convenient to provide an adder for the summation of only two binary
+numbers and successively accumulate the partial products in a register. Sec-
+ond, instead of shifting the multiplicand to the left, the partial product is
+shifted to the right, which results in leaving the partial product and the
+multiplicand in the required relative positions. Third, when the corresponding
+bit of the multiplier is 0, there is no need to add all zeros to the partial product
+since it will not alter its value.
+
+‘The hardware for multiplication consists of the equipment shown in Fig.
+10-1 plus two more registers. These registers together with registers A and B
+are shown in Fig. 10-5. The multiplier is stored in the Q register and its sign
+in Q,. The sequence counter SC isinitially set to anumber equal to the number
+of bits in the multiplier. The counter is decremented by 1 after forming each
+partial product. When the content of the counter reaches zero, the product is,
+formed and the process stops.
+
+Initially, the multiplicand is in register Band the multiplier in Q. The sum
+of Aand B formsa partial product whichis transferred to the EA register. Both
+partial product and multiplier are shifted to the right. This shift will be denoted
+by the statement shr EAQ to designate the right shift depicted in Fig. 10-5. The
+
+ 
+
+Figure 10-5 Hardware for multiply operation.
+
+ 
+
+3,
+
+ 
+
+ 
+
+ 
+
+Bier Seqenescoumer 60) ]
+
+I
+
+‘Complementer and
+parallel adder
+
+ 
+
+ 
+
+ 
+
+ 
+
+A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ofe}_ ava +f oreter i
+
+ 
+
+ 
+
+ 
+

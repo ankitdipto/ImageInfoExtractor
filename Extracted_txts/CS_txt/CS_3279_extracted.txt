@@ -1,0 +1,56 @@
+Section 21.3. Learning Using Relevance Information 633
+
+ 
+
+21.3 LEARNING USING RELEVANCE INFORMATION
+
+Our traveller in Brazil seems to be able to make a confident generalization concerning the
+language spoken by other Brazilians. The inference is sanctioned by her background knowledge,
+namely, that people in a given country (usually) speak the same language. We can express this in
+first-order logic as follows:?
+
+Vx,y,n,/ Nationality(x,n) A Nationality(y,n) A Language(x, l) = Language(y,l) (21.4)
+
+(Literal translation: "Ifx andy have a common nationality n and x speaks language /, then y also
+speaks it.”) It is not difficult to show that, given this sentence and the observation
+
+Nationality(Fernando,Brazil) A Language(Fernando, Portuguese)
+
+the conclusion
+Vx Nationality(x,Brazil) = Language(x, Portuguese)
+
+follows logically (see Exercise 21.1).
+Sentences such as (21.4) express a strict form of relevance: given nationality, language is
+fully determined. Put another way: language is a function of nationality. These sentences are
+DEPENDENCIES called functional dependencies or determinations. They occur so commonly in certain kinds
+DETERMINATIONS of applications (¢.g., defining database designs) that a special syntax is used to write them. We
+adopt the notation used by Davies (1985):
+
+Nationality(x,n) > Language(x, 1)
+
+As usual, this is simply a syntactic sugaring, but it makes it clear that the determination is really
+a relationship between the predicates: nationality determines language. The relevant properties
+determining conductance and density can be expressed similarly:
+
+Material(x,m) A Temperature(x,t) > Conductance(x,p)
+Material(x,m) A Temperature(x,t) > Density(x,d)
+
+The corresponding generalizations follow logically from the determinations and observations.
+
+Determining the hypothesis space
+
+Although the determinations sanction general conclusions concerning all Brazilians, or all pieces
+of copper at a given temperature, they cannot, of course, yield a general predictive theory for all
+nationalities, or for all temperatures and materials, from a single example. Their main effect can
+be seen as limiting the space of hypotheses that the learning agent need consider. In predicting
+conductance, for example, one has only to consider material and temperature and can ignore
+mass, ownership, day of the week, the current president, and so on. Hypotheses can certainly
+include terms that are in turn determined by material and temperature, such as molecular structure,
+
+thermal energy, or free-electron density. Determinations specify a sufficient basis vocabulary
+
+ 
+
+2 We assume for the sake of simplicity that a person speaks only one language. Clearly, the rule also would have to be
+amended for countries such as Switzerland or India
+

@@ -1,0 +1,97 @@
+378 — cuarrer TEN Computer Arithmetic
+
+10-18.
+
+10419.
+10-20,
+
+1021.
+
+10-2
+10-23,
+
+10-24.
+
+10-28.
+
+10-26.
+
+'b. Show that a 7-bit magnitude comparator can be used to compare the
+relative magnitude of the two exponents
+
+¢. Show that after the addition of two biased exponents it is necessary to
+subtract 64 in order to have a biased exponents sum. How would you
+subtract 64 by adding its 2's complement value?
+
+4. Show that after the subtraction of two biased exponents it is necessary
+to add 64 in order to have a biased exponent difference.
+
+Derive an algorithm in flowchart form for the comparison of two signed
+binary numbers when negative numbers are in signed-2's complement rep-
+resentation:
+
+a. By means of a subtraction operation with the signed-2's complement
+numbers.
+
+. By scanning and comparing pairs of bits from left to right.
+
+Repeat Prob. 10-18 forsigned-magnitude binary numbers.
+
+Let nbe the number ofbitsof the mantissa in a binary floating-point number.
+
+When the mantissas are aligned during the addition or subtraction, the
+
+exponent difference may be greater than n ~ 1. If this occurs, the mantissa
+
+with the smaller exponent is shifted entirely out of the register. Modify the
+
+‘mantissa alignment in Fig. 10-15 by including a sequence counter SC that
+
+counts the number of shifts. If the number of shifts is greater than n ~ 1,
+
+the larger number is then used to determine the result.
+
+The procedure for aligning mantissas during addition or subtraction of
+
+floating-point numbers can be stated as follows: Subtract the smaller expo-
+
+nentfrom the largerand shift right the mantissa having the smaller exponent
+
+‘a number of places equal to the difference bétween the exponents. The
+
+exponent of the sum (or difference) is equal to the larger exponents. Without
+
+usinga magnitude comparator, assuming biased exponents, and taking into
+account that only the AC can be shifted, derive an algorithm in flowchart
+form for aligning the mantissas and placing the larger exponent in the AC.
+
+‘Show that there can be no mantissa overflow aftera multiplication operation.
+
+Show that the division of two normalized floating-point numbers with
+
+fractional mantissas will always result in a normalized quotient provided a
+
+dividend alignment is carried out prior to the division operation.
+
+Extend the flowchart of Fig. 10-17 to provide a normalized floating-point
+
+remainder in the AC. The mantissa should be a fraction.
+
+The algorithms for the floating-point arithmetic operations in Sec. 10-5
+
+neglect the possibility of exponent overflow or underflow.
+
+‘a. Go over the three flowcharts and find where an exponent overflow may
+occur.
+
+b. Repeat (a) for exponent underflow. An exponentunderflow occurs ifthe
+‘exponent is more negative than the smallest number that can be accom-
+modated in the register.
+
+« Show how an exponent overflow or underflow can be detected by the
+hardware.
+
+If we assume integer representation for the mantissa of floating-point num-
+
+bers, we encounter certain scaling problems during multiplication and divi-
+

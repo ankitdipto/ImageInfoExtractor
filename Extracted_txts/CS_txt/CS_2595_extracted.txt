@@ -1,0 +1,55 @@
+182
+
+Chapter 7 Quicksort
+
+if we can count the total number of times that line 4 is executed, we can bound the
+total time spent in the for loop during the entire execution of QUICKSORT.
+
+Lemma 7.1
+
+Let X be the number of comparisons performed in line 4 of PARTITION over the
+entire execution of QUICKSORT on an n-element array. Then the running time of
+QUICKSORT is O(n + X).
+
+Proof By the discussion above, the algorithm makes at most n calls to PARTI-
+TION, each of which does a constant amount of work and then executes the for
+
+loop some number of times. Each iteration of the for loop executes line 4. .
+
+Our goal, therefore, is to compute X’, the total number of comparisons performed
+in all calls to PARTITION. We will not attempt to analyze how many comparisons
+are made in each call to PARTITION. Rather, we will derive an overall bound on the
+total number of comparisons. To do so, we must understand when the algorithm
+compares two elements of the array and when it does not. For ease of analysis, we
+rename the elements of the array A as Z,,Z2.....Z,, With z; being the ith smallest
+element. We also define the set Z;; = {Z;, Zj11,---.Z;} to be the set of elements
+between z; and Z;, inclusive.
+
+When does the algorithm compare z; and z;? To answer this question, we first
+observe that each pair of elements is compared at most once. Why? Elements
+are compared only to the pivot element and, after a particular call of PARTITION
+finishes, the pivot element used in that call is never again compared to any other
+elements.
+
+Our analysis uses indicator random variables (see Section 5.2). We define
+
+ 
+
+Xi; =1{z; is compared to z;} ,
+
+where we are considering whether the comparison takes place at any time during
+the execution of the algorithm, not just during one iteration or one call of PARTI-
+TION. Since each pair is compared at most once, we can easily characterize the
+total number of comparisons performed by the algorithm:
+
+n-l n
+X=>o > xy.
+i=l j=it+l
+
+Taking expectations of both sides, and then using linearity of expectation and
+Lemma 5.1, we obtain
+
+nat = of 8]
+
+i=1 j=itl
+

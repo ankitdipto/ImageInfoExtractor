@@ -1,0 +1,59 @@
+178 carrer six Programming the Basic Computer
+
+TABLE 6-5 Assembly Language Program to Add Two Numbers
+
+ 
+
+ORGO —_/Origin of program is location 0
+
+LDA A {Load operand from location A
+
+ADDB —_/Add operand from location B
+
+STAC ‘Store sum in location C
+
+HLT ‘Halt computer
+
+DEC 83 Decimal operand
+
+DEC -23 Decimal operand
+
+C, DECO ‘Sum stored in location C
+END FEnd of symbolic program
+
+PP
+
+symbolic address and each hexadecimal operand by a decimal operand. This
+is convenient because one usually does not know exactly the numeric memory
+location of operands while writing a program. If the operands are placed in
+memory following the instructions, and if the length of the program is not
+known in advance, the numerical location of operands is not known until the
+end of the program is reached. In addition, decimal numbers are more familiar
+than their hexadecimal equivalents.
+
+The program in Table 6-5 is the assembly-language program for adding
+two numbers. The symbol ORG followed by a number is not a machine
+instruction. Its purpose is to specify an origin, that is, the memory location of
+the next instruction below it. The next three lines have symbolic addresses.
+Their value is specified by their being present as a label in the first column.
+Decimal operands are specified following the symbol DEC. The numbers may
+be positive or negative, but ifnegative, they must be converted to binary in the
+signed-2's complement representation. The last line has the symbol END
+indicating the end of the program. The symbols ORG, DEC, and END, called
+pseudoinstructions, are defined in the next section. Note that all comments are
+preceded by a slash.
+
+The equivalent Fortran program for adding two integer numbers is listed
+in Table 6-6. The two values for A and B may be specified by an input statement
+or by a data statement. The arithmetic operation for the two numbers is
+specified by one simple statement. The translation of this Fortran program into
+a binary program consists of assigning three memory locations, one each for
+the augend, addend, and sum, and then deriving the sequence of binary
+
+TABLE 6-6 Fortran Program to Add Two Numbers
+
+INTEGER A, B, C
+DATAA,63 B,-23
+C=A+B
+END
+

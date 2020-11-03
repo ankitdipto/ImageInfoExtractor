@@ -1,0 +1,60 @@
+ 
+
+ 
+
+Section 23.2. Efficient Parsing 701
+Ss
+ON
+NP vP
+NP. RelClause
+
+ZL
+
+The ride the horse gave was wild
+
+ 
+
+ 
+
+Figure 23.5 A left-comer parsing algorithm avoids predicting a VP starting with "ride," but
+does predict a VP starting with "was," because the grammar expects a VP following an NP.
+The triangle over "the horse gave" means that the words have a parse as a RefClause, but with
+
+ 
+
+ 
+
+additional intermediate constituents that are not shown.
+
+ 
+
+Extracting parses from the chart: Packing
+
+When the chart-parsing algorithm finishes, it returns the entire chart, but what we really want is a
+parse tree (or trees). Depending on how the parser is used, we may want to pick out one or all the
+parse trees that span the entire input, or we may want to look at some subtrees that do not span
+the whole input. If we have an augmented grammar, we may only want to look at the semantic
+augmentation, ignoring the syntactic structure. In any case, we need to be able to extract parses
+from the chart
+
+The easiest way to do that is to modify COMPLETER so that when it combines two child
+edges to produce a parent edge, it stores in the parent edge the list of children that comprise it.
+Then, when we are done with the parse, we need only look in chart[n] for an edge that starts
+at 0, and recursively look at the children lists to reproduce a complete parse tree. The only
+complication is deciding what to do about ambiguous parses. To see why this is a problem, let
+us look at an example. The sentence
+
+Fall leaves fall and spring leaves spring
+
+is highly ambiguous because each word (except "and") can be either a noun or a verb, and "fall"
+and "spring" can be adjectives as well. Altogether the sentence has four parses:*
+
+[S [S [NP Fall leaves] fall] and [S [NP spring leaves] spring]
+[S [S [NP Fall leaves] fall] and [S spring [VP leaves spring]
+[S [S Fall [VP leaves fall] and [S [NP spring leaves] spring]
+[S [S Fall [VP leaves fall]] and [S spring [VP leaves spring]
+
+4. The parse [S Fall [VP leaves fall] is equivalent to “Autumn abandons autumn.”
+
+ 
+

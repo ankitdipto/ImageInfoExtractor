@@ -1,0 +1,51 @@
+350
+
+Chapter 14 Augmenting Data Structures
+
+ 
+
+26426
+
+25+ 30
+
+19420
+
+17-419
+(a) 16421
+15+ 23
+BHD
+6+—— 10
+5Sr——18
+0r—33
+
+l L L 1 L L ly
+0 5 10 15 20 25 30
+
+int
+
+— max
+
+      
+ 
+
+cm
+
+ED
+
+Figure 14.4 An interval tree. (a) A set of 10 intervals, shown sorted bottom to top by left endpoint.
+(b) The interval tree that represents them. Each node x contains an interval, shown above the dashed
+line, and the maximum value of any interval endpoint in the subtree rooted at x, shown below the
+dashed line. An inorder tree walk of the tree lists the nodes in sorted order by left endpoint.
+
+X.max = max(x.int.high, x.left.max, x.right.max) .
+
+Thus, by Theorem 14.1, insertion and deletion run in O(lgn) time. In fact, we
+can update the max attributes after a rotation in O(1) time, as Exercises 14.2-3
+and 14.3-1 show.
+
+Step 4: Developing new operations
+
+The only new operation we need is INTERVAL-SEARCH(T, i), which finds a node
+in tree T whose interval overlaps interval i. If there is no interval that overlaps 7 in
+the tree, the procedure returns a pointer to the sentinel T. nil.
+

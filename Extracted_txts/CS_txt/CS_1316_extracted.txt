@@ -1,0 +1,44 @@
+Chapter 18: Graphics Under Windows 583
+
+ 
+
+|" Main message loop */
+while (GetMessage ( &m, NULL, 0, 0))
+DispatchMessage(&m);
+
+return 0 ;
+}
+
+LRESULT CALLBACK WndProc ( HWND hWnd, UINT message,
+WPARAM wParam, LPARAM [Param )
+{
+switch ( message )
+{
+case WM_DESTROY :
+OnDestroy (hWnd) ;
+break ;
+case WM_PAINT :
+OnPaint ( hWnd ) ;
+break ;
+default :
+return DefWindowProc ( hWnd, message, wParam, IParam ) ;
+}
+return 0;
+}
+
+void OnDestroy ( HWND hWnd )
+{
+
+PostQuitMessage (0) ;
+}
+
+void OnPaint ( HWND hWnd )
+{
+HDC hdc ;
+PAINTSTRUCT ps ;
+HFONT hfont ;
+LOGFONT f= {0};
+HGDIOBJ holdfont ;
+char “fonts[] = { "Arial, "Times New Roman", "Comic Sans MS" };
+inti;
+

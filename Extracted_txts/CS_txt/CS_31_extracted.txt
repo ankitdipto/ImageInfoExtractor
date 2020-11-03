@@ -1,0 +1,49 @@
+666
+
+Chapter 24 Single-Source Shortest Paths
+
+One solution to this problem is x = (—5, —3,0,—1,—4), which you can verify di-
+rectly by checking each inequality. In fact, this problem has more than one solution.
+Another is x’ = (0,2,5,4,1). These two solutions are related: each component
+of x’ is 5 larger than the corresponding component of x. This fact is not mere
+coincidence.
+
+Lemma 24.8
+
+Let x = (X1,X2,...,X,) be a solution to a system Ax < b of difference con-
+straints, and let d be any constant. Then x +d = (x; +d.X2.+d,....%, +d)
+is a solution to Ax < b as well.
+
+Proof For each x; and x;, we have (x; + d) — (x; + d) = x; — x;. Thus, if x
+satisfies Ax < b, so does x +d. .
+
+Systems of difference constraints occur in many different applications. For ex-
+ample, the unknowns x; may be times at which events are to occur. Each constraint
+states that at least a certain amount of time, or at most a certain amount of time,
+must elapse between two events. Perhaps the events are jobs to be performed dur-
+ing the assembly of a product. If we apply an adhesive that takes 2 hours to set at
+time x, and we have to wait until it sets to install a part at time x2, then we have the
+constraint that x2 > x; + 2 or, equivalently, that x; — x2 < —2. Alternatively, we
+might require that the part be installed after the adhesive has been applied but no
+later than the time that the adhesive has set halfway. In this case, we get the pair of
+constraints ¥2 > x, and x2 < x; +1 or, equivalently, x; —x2 <0 and x2—x,; <1.
+
+Constraint graphs
+
+We can interpret systems of difference constraints from a graph-theoretic point
+of view. In a system Ax < b of difference constraints, we view the m x n
+linear-programming matrix A as the transpose of an incidence matrix (see Exer-
+cise 22.1-7) for a graph with n vertices and m edges. Each vertex v; in the graph,
+fori = 1,2,...,n, corresponds to one of the n unknown variables x;. Each di-
+rected edge in the graph corresponds to one of the m inequalities involving two
+unknowns.
+
+More formally, given a system Ax < b of difference constraints, the correspond-
+ing constraint graph is a weighted, directed graph G = (V, E), where
+
+V = {v0.¥1,.--.Un}
+and
+E = {(vj, vj) 1 Xj — Xj < Dg is a constraint}
+
+U{(vo, Y1), (Vo, V2), (Vo. V3). +++ (V0. Un)} +
+

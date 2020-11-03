@@ -1,0 +1,84 @@
+610
+
+Chapter 20. Reinforcement Learning
+
+ 
+
+BANDIT PROBLEMS
+
+ 
+
+  
+
+ 
+
+ 
+
+i ne 2S
+1 os! |
+2
+2 os
+203
+
+02
+lo.
+
+0 "i a = 0
+
+50 100 150 200 250 200 330 400 430 5x) (@ 50 100 150 200 250 300 350 400 450 500
+Sumber af pecs Trumber pecs
+
+ 
+
+icy logs (greedy policy)
+
+ 
+
+ 
+
+ 
+
+____|
+
+9 50 100 150 200 250 300 350 400 450 5) 0
+‘Number of epochs
+
+ 
+
+50 100 150 200 250 300 350 400 450 S00
+‘Number of epochs
+
+ 
+
+ 
+
+Figure 2010 Curves showing the RMS error in utility estimates (Left) and the total loss asso-
+ciated with the corresponding policy (right), for the wacky (top) and greedy (bottom) approaches
+to exploration.
+
+ 
+
+ 
+
+ 
+
+that it too fails to achieve perfection (bottom right) because it does not find the optimal route via
+(1,2), (1,3), and (2,3).
+
+Obviously, we need an approach somewhere between wackiness and greediness. The agent
+should be more wacky when it has little idea of the environment, and more greedy when it has a 3
+model that is close to being correct. Can we be a little more precise than this? Is there an optimal
+exploration policy? It turns out that this question has been studied in depth in the subfield of
+statistical decision theory that deals with so-called bandit problems (see sidebar).
+
+Although bandit problems are extremely difficult to solve exactly to obtain an optimal
+exploration policy, it is nonetheless possible to come up with a reasonable policy that seems to
+have the desired properties. In a given state, the agent should give some weight to actions that
+it has not tried very often, while being inclined to avoid actions that are believed to be of low
+utility. This can be implemented by altering the constraint equation (20.3) so that it assigns a
+higher utility estimate to relatively unexplored action-state pairs. Essentially, this amounts to
+an optimistic prior over the possible environments, and causes the agent to behave initially as
+if there were wonderful rewards scattered all over the place. Let us use U*(é) to denote the
+optimistic estimate of the utility (ie. the expected reward-to-go) of the state i, and let N(a,i)
+be the number of times action a has been tried in state 7. Suppose we are using value iteration
+

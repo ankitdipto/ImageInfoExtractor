@@ -1,0 +1,51 @@
+670
+
+Chapter 24 Single-Source Shortest Paths
+
+244-5
+
+Show how to modify the Bellman-Ford algorithm slightly so that when we use it
+to solve a system of difference constraints with m inequalities on n unknowns, the
+running time is O(nm).
+
+244-6
+
+Suppose that in addition to a system of difference constraints, we want to handle
+equality constraints of the form x; = Xx; + b,. Show how to adapt the Bellman-
+Ford algorithm to solve this variety of constraint system.
+
+244-7
+Show how to solve a system of difference constraints by a Bellman-Ford-like algo-
+rithm that runs on a constraint graph without the extra vertex vo.
+
+244-8
+
+Let Ax < b be a system of m difference constraints in n unknowns. Show that the
+Bellman-Ford algorithm, when run on the corresponding constraint graph, maxi-
+mizes )>/_, X; subject to Ax <b and x; < 0 for all xj.
+
+244-9 x
+
+Show that the Bellman-Ford algorithm, when run on the constraint graph for a sys-
+tem Ax < b of difference constraints, minimizes the quantity (max {x; }—min {x; })
+subject to Ax < b. Explain how this fact might come in handy if the algorithm is
+used to schedule construction jobs.
+
+24.4-10
+
+Suppose that every row in the matrix A of a linear program Ax < b corresponds to
+a difference constraint, a single-variable constraint of the form x; < bg, or a single-
+variable constraint of the form —x; < by. Show how to adapt the Bellman-Ford
+algorithm to solve this variety of constraint system.
+
+244-11
+Give an efficient algorithm to solve a system Ax < b of difference constraints
+when all of the elements of b are real-valued and all of the unknowns x; must be
+integers.
+
+244-12 x
+
+Give an efficient algorithm to solve a system Ax < b of difference constraints
+when all of the elements of are real-valued and a specified subset of some, but
+not necessarily all, of the unknowns x; must be integers.
+

@@ -1,0 +1,44 @@
+80  Chapter3 Operating-System Structures
+
+ 
+
+ 
+
+Figure 3.10 Windows NT client-server structure.
+
+3.6 = Virtual Machines
+
+Conceptually, a computer system is made up of layers. The hardware is the
+lowest level in all such systems. The kernel running at the next level uses the
+hardware instructions to create a set of system calls for use by outer layers. The
+system programs above the kernel are therefore able to use either system calls
+or hardware instructions, and in some ways these programs do not differentiate
+between these two. Thus, although they are accessed differently, they both
+provide functionality that the program can use to create even more advanced
+functions. System programs, in turn, treat the hardware and the system calls as
+though they were both at the same level.
+
+Some systems carry this scheme a step further by allowing the system
+programs to be called easily by the application programs. As before, although
+the system programs are at a level higher than that of the other routines, the
+application programs may view everything under them in the hierarchy as
+though the latter were part of the machine itself. This layered approach is
+taken to its logical conclusion in the concept of a virtual machine. The VM
+operating system for IBM systems is the best example of the virtual-machine
+concept, because IBM pioneered the work in this area.
+
+By using CPU scheduling (Chapter 6) and virtual-memory techniques
+(Chapter 10), an operating system can create the illusion that a process has its
+own processor with its own (virtual) memory. Of course, normally, the process
+has additional features, such as system calls and a file system, that are not pro-
+vided by the bare hardware. The virtual-machine approach, on the other hand,
+does not provide any additional functionality, but rather provides an interface
+that is identical to the underlying bare hardware. Each process is provided with
+a (virtual) copy of the underlying computer (Figure 3.11).
+
+The physical computer shares resources to create the virtual machines. CPU
+scheduling can share out the CPU to create the appearance that users have their
+own processors. Spooling and a file system can provide virtual card readers and
+virtual line printers. A normal user time-sharing terminal provides the function
+of the virtual-machine operator’s console.
+

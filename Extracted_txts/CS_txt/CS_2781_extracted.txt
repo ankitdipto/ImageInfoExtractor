@@ -1,0 +1,54 @@
+332
+
+Chapter 13 Red-Black Trees
+
+For a general persistent binary search tree, identify the nodes that we need to
+change to insert a key k or delete a node y.
+
+Write a procedure PERSISTENT-TREE-INSERT that, given a persistent tree T
+and a key & to insert, returns a new persistent tree T’ that is the result of insert-
+ing k into T.
+
+If the height of the persistent binary search tree T is h, what are the time and
+space requirements of your implementation of PERSISTENT-TREE-INSERT?
+(The space requirement is proportional to the number of new nodes allocated.)
+
+Suppose that we had included the parent attribute in each node. In this case,
+PERSISTENT-TREE-INSERT would need to perform additional copying. Prove
+that PERSISTENT-TREE-INSERT would then require Q(n) time and space,
+where n is the number of nodes in the tree.
+
+Show how to use red-black trees to guarantee that the worst-case running time
+and space are O(lg7) per insertion or deletion.
+
+13-2 Join operation on red-black trees
+
+The join operation takes two dynamic sets S, and Sz and an element x such that
+for any x; € S; and x2 € Sz, we have x;.key < x.key < X2.key. It returns a set
+S = S, U {x} U Sp. In this problem, we investigate how to implement the join
+operation on red-black trees.
+
+a.
+
+Given a red-black tree T,, let us store its black-height as the new attribute T. bh.
+Argue that RB-INSERT and RB-DELETE can maintain the bh attribute with-
+out requiring extra storage in the nodes of the tree and without increasing the
+asymptotic running times. Show that while descending through T, we can de-
+termine the black-height of each node we visit in O(1) time per node visited.
+
+We wish to implement the operation RB-JOIN(T;, x, T2), which destroys T; and T>
+and returns a red-black tree T = T; U {x}U T>. Let n be the total number of nodes
+in T, and 7).
+
+b
+
+Assume that 7).bh > T>.bh. Describe an O(lgm)-time algorithm that finds a
+black node y in T, with the largest key from among those nodes whose black-
+height is T>. bh.
+
+Let Ty be the subtree rooted at y. Describe how Ty U {x} U T> can replace Ty
+in O(1) time without destroying the binary-search-tree property.
+
+What color should we make x so that red-black properties 1, 3, and 5 are main-
+tained? Describe how to enforce properties 2 and 4 in O(lg 7) time.
+

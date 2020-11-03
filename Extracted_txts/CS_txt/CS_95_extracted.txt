@@ -1,0 +1,45 @@
+718
+
+Chapter 26 Maximum Flow
+
+For the capacity constraint, first observe that if (u,v) € E, then cf(v,u) =
+Sf (u,v). Therefore, we have f’(v.u) < c¢(v.u) = f (u,v), and hence
+
+(Ft f/IVQLv) = flv) + fu.v) = f"v,w) (by equation (26.4)
+
+= fu.) + f'u.v)— flu.v) (because f’(v.u) < f(u.v))
+= fur)
+> 0.
+In addition,
+(Ft #)@.¥)
+= f(u,v)+ f’u.v)— f'(v.u) (by equation (26.4))
+< f(u.v) + f’u.v) (because flows are nonnegative)
+<= f(u.v) +er(u.v) (capacity constraint)
+f(u.v) + c(u.v) — f(u.v) — definition of cr)
+c(u,v).
+
+For flow conservation, because both f and f’ obey flow conservation, we have
+that for all wu € V — {s,t},
+
+Vt A anr) = Yfonv) + fav) = f'o,w)
+
+“ = Y fu +D aw) -Y Poa
+= > soa + > son - y fur)
+= So +o" - rw, »))
+= vu TA/IO.W.
+
+where the third line follows from the second by flow conservation.
+
+Finally, we compute the value of f + f’. Recall that we disallow antiparallel
+edges in G (but not in Gy), and hence for each vertex v € V, we know that there
+can be an edge (s,v) or (v,5), but never both. We define V; = {v : (s,v) € E}
+to be the set of vertices with edges from s, and V. = {v : (v,s) € E} to be the
+set of vertices with edges to s. We have V; U V2 C V and, because we disallow
+antiparallel edges, V; N V2 = %. We now compute
+
+th) = Vt Nowv-Vsrt sos)
+vev vev
+= VEFtNGY-VM ethos, (26.5)
+
+veVy veva
+

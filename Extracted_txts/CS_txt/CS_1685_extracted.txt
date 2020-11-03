@@ -1,0 +1,49 @@
+182.  Chapter6 CPU Scheduling
+
+Processes are typically members of the NORMAL-PRIORITY-CLASS unless
+the parent of the process was of the IDLE-PRIORITY.CLASS, or another class
+was specified when the process was created. The initial priority of a thread
+is typically the base priority of the process the thread belongs to.
+
+When a thread’s time quantum runs out, that thread is interrupted; if the
+thread is in the variable-priority class, its priority is lowered. The priority
+is never lowered below the base priority, however. Lowering the thread’s
+priority tends to limit the CPU consumption of compute-bound threads. Whena
+variable-priority thread is released from a wait operation, the dispatcher boosts
+the priority, The amount of the boost depends on what the thread was waiting
+for; for example, a thread that was waiting for keyboard I/O would get a large
+priority increase, whereas a thread waiting for a disk operation would get a
+moderate one. This strategy tends to give good response times to interactive
+threads that are using the mouse and windows, and enables 1/O-bound threads
+to keep the 1/O devices busy, while permitting compute-bound threads to use
+spare CPU cycles in the background. This strategy is used by several time-
+sharing operating systems, including UNIX. In addition, the current window
+with which the user is interacting also receives a priority boost to enhance its
+response time.
+
+When a user is running an interactive program, the system needs to provide
+especially good performance for that process. For this reason, Windows 2000
+has a special scheduling rule for processes in the NORMAL.PRIORITY.CLASS.
+Windows 2000 distinguishes between the foreground process that is currently
+selected on the screen, and the background processes that are not currently
+selected. When a process moves into the foreground, Windows 2000 increases
+the scheduling quantum by some factor—typically by 3. This increase gives the
+foreground process three times longer to run before a time-sharing preemption
+occurs.
+
+6.7.3 An Example: Linux
+
+Linux provides two separate process-scheduling algorithms. One is a time-
+sharing algorithm for fair preemptive scheduling among multiple processes;
+the other is designed for real-time tasks where absolute priorities are more
+important than fairness. In Section 6.5, we described a situation in which real-
+time systems must allow the kernel to be preempted to keep dispatch latency
+low. Linux allows only processes running in user mode to be preempted. A
+process may not be preempted while it is running in kernel mode, even if a
+real-time process with a higher priority is available to run.
+
+Part of every process’ identity is a scheduling class, that defines which
+of these algorithms to apply to the process. The scheduling classes used by
+Linux are defined in the POSIX standard’s extensions for real-time computing
+(POSIX.4, now known as POSIX.1b).
+

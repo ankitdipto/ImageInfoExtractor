@@ -1,0 +1,48 @@
+116 Chapter4 Processes
+
+been poor performance caused by copying the message first from the sender to
+the mailbox, and then from the mailbox to the receiver. The Mach message
+system attempts to avoid double-copy operations by using virtual-memory
+—management techniques (Chapter 10). Essentially, Mach maps the address
+space containing the sender’s message into the receiver’s address space. The
+message itself is never actually copied. This message-management technique
+provides a large performance boost, but works only for intrasystem messages.
+The Mach operating system is discussed in an extra chapter that is posted on
+our web site (http:/ /www.bell-labs.com/topic/books/os-book).
+
+4.5.6 An Example: Windows 2000
+
+The Windows 2000 operating system is an example of modern design that
+employs modularity to increase functionality and decrease the time needed to
+implement new features. Windows 2000 provides support for multiple oper-
+ating environments or subsystems, with which application programs commu-
+nicate via a message-passing mechanism. The application programs can be
+considered to be clients of the Windows 2000 subsystem server.
+
+The message-passing facility in Windows 2000 is called the local procedure-
+call (LPC) facility. The LPC in Windows 2000 communicates between two
+processes that are on the same machine. It is similar to the standard RPC
+mechanism that is widely used, but it is optimized for and specific to Windows
+2000. Like Mach, Windows 2000 uses a port object to establish and maintain a
+connection between two processes. Every client that calls a subsystem needs
+a communication channel, which is provided by a port object and is never
+inherited. Windows 2000 uses two types of ports: connection ports and commu-
+nication ports. They are really the same but are given different names according
+to how they are used. Connection ports are named objects, which are visible to
+all processes; they give applications a way to set up a communication channel
+(Chapter 21). This communication works as follows:
+
+The client opens a handle to the subsystem’s connection port object.
+
+e The client sends a connection request.
+
+© The server creates two private communication ports, and returns the handle
+to one of them to the client.
+
+The client and server use the corresponding port handle to send messages
+or callbacks and to listen for replies.
+
+Windows 2000 uses three types of message-passing techniques over a port
+that the client specifies when it establishes the channel. The simplest, which is
+used for small messages, uses the port’s message queue as intermediate storage
+

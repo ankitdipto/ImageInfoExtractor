@@ -1,0 +1,96 @@
+Chapter 18: Graphics Under Windows 593
+
+ 
+
+HGDIOBJ holdbr ;
+HBITMAP hbmp ;
+
+Rectan
+
+Rectan|
+
+hbmp =
+
+Rectan|
+
+ 
+
+ 
+
+hbr = CreateSolidBrus|
+holdbr = SelectObject
+
+SelectObject (hdc, hol
+DeleteObject (hbr ) ;
+
+hbr = CreateHatchBrus|
+holdbr = SelectObject
+
+SelectObject (hdc, hol
+DeleteObject (hbr ) ;
+
+SelectObject (hdc, hol
+DeleteObject (hbr ) ;
+DeleteObject ( hbmp ) ;
+
+le (hdc, 5, 5, 1
+
+LoadBitmap ( hi
+
+le (hdc, 245, 5,
+
+ 
+
+EndPaint ( hWnd, &ps )
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DeleteObject (hbr ) ;
+
+le (hdc, 125, 5,
+
+hdc = BeginPaint ( hWnd, &ps ) ;
+
+RGB (255, 0,0));
+hdc, hbr) ;
+
+05, 100) ;
+
+br) ;
+
+h( HS_CROSS, RGB (255, 0, 0));
+hdc, hbr ) ;
+
+225, 100) ;
+
+br) ;
+
+Inst, MAKEINTRESOURCE (IDB_BITMAP1 ) ) ;
+
+hbr = CreatePatternBrush ( hbmp ) ;
+holdbr = SelectObject
+
+hdc, hbr) ;
+
+, 345, 100) ;
+
+ 
+
+ 
+
+ 
+
+ 
+
+br) ;
+

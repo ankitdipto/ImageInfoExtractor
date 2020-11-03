@@ -1,0 +1,44 @@
+Chapter 5: Functions & Pointers 165
+
+ 
+
+what is called a Library. This library of functions is present on
+the disk and is written for us by people who write compilers
+for us. Almost always a compiler comes with a library of
+standard functions. The procedure of calling both types of
+functions is exactly same.
+
+Why Use Functions
+
+Why write separate functions at all? Why not squeeze the entire
+logic into one function, main( )? Two reasons:
+
+(a)
+
+(b)
+
+Writing functions avoids rewriting the same code over and
+over. Suppose you have a section of code in your program
+that calculates area of a triangle. If later in the program you
+want to calculate the area of a different triangle, you won’t
+like it if you are required to write the same instructions all
+over again. Instead, you would prefer to jump to a ‘section of
+code’ that calculates area and then jump back to the place
+from where you left off. This section of code is nothing but a
+function.
+
+Using functions it becomes easier to write programs and keep
+track of what they are doing. If the operation of a program can
+be divided into separate activities, and each activity placed in
+a different function, then each could be written and checked
+more or less independently. Separating the code into modular
+functions also makes the program easier to design and
+understand.
+
+What is the moral of the story? Don’t try to cram the entire logic in
+one function. It is a very bad style of programming. Instead, break
+a program into small units and write functions for each of these
+isolated subdivisions. Don’t hesitate to write functions that are
+called only once. What is important is that these functions perform
+some logically isolated task.
+

@@ -1,0 +1,52 @@
+520
+
+Chapter 19 Fibonacci Heaps
+
+We use the mark attributes to obtain the desired time bounds. They record a little
+piece of the history of each node. Suppose that the following events have happened
+to node x:
+
+1. at some time, x was a root,
+2. then x was linked to (made the child of) another node,
+
+3. then two children of x were removed by cuts.
+
+As soon as the second child has been lost, we cut x from its parent, making it a new
+root. The attribute x.mark is TRUE if steps 1 and 2 have occurred and one child
+of x has been cut. The CUT procedure, therefore, clears x.mark in line 4, since it
+performs step 1. (We can now see why line 3 of FIB-HEAP-LINK clears y.mark:
+node y is being linked to another node, and so step 2 is being performed. The next
+time a child of y is cut, y.mark will be set to TRUE.)
+
+We are not yet done, because x might be the second child cut from its parent y
+since the time that y was linked to another node. Therefore, line 7 of FIB-HEAP-
+DECREASE-KEYy attempts to perform a cascading-cut operation on y. If y is a
+root, then the test in line 2 of CASCADING-CUT causes the procedure to just return.
+If y is unmarked, the procedure marks it in line 4, since its first child has just been
+cut, and returns. If y is marked, however, it has just lost its second child; y is cut
+in line 5, and CASCADING-CUT calls itself recursively in line 6 on y’s parent Zz.
+The CASCADING-CUT procedure recurses its way up the tree until it finds either a
+root or an unmarked node.
+
+Once all the cascading cuts have occurred, lines 8—9 of FIB- HEAP-DECREASE-
+Key finish up by updating H.min if necessary. The only node whose key changed
+was the node x whose key decreased. Thus, the new minimum node is either the
+original minimum node or node x.
+
+Figure 19.5 shows the execution of two calls of FIB- HEAP-DECREASE-KEy,
+starting with the Fibonacci heap shown in Figure 19.5(a). The first call, shown
+in Figure 19.5(b), involves no cascading cuts. The second call, shown in Fig-
+ures 19.5(c)-(e), invokes two cascading cuts.
+
+We shall now show that the amortized cost of FIB-HEAP-DECREASE-KEY is
+only O(1). We start by determining its actual cost. The FIB-HEAP-DECREASE-
+Key procedure takes O(1) time, plus the time to perform the cascading cuts. Sup-
+pose that a given invocation of FIB-HEAP-DECREASE-KEY results in c calls of
+CASCADING-CUT (the call made from line 7 of FIB-HEAP-DECREASE-KEY fol-
+lowed by c — | recursive calls of CASCADING-CuT). Each call of CASCADING-
+CuT takes O(1) time exclusive of recursive calls. Thus, the actual cost of FIB-
+HEAP-DECREASE-KEY, including all recursive calls, is O(c).
+
+We next compute the change in potential. Let H denote the Fibonacci heap just
+prior to the FiB-HEAP-DECREASE-KEY operation. The call to CUT in line 6 of
+

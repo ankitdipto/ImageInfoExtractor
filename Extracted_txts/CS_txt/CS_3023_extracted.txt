@@ -1,0 +1,53 @@
+Section 13.2. A Simple Replanning Agent 401
+
+ 
+
+13.2 A SIMPLE REPLANNING AGENT
+
+As long as the world behaves exactly as the action descriptions describe it, then executing a plan
+in the ideal or incomplete-information cases will always result in goal achievement. As each step
+is executed, the world state will be as predicted—as long as nothing goes wrong.
+
+"Something going wrong" means that the world state after an action is not as predicted.
+More specifically, the remaining plan segment will fail ifany ofits preconditions is not met. The
+preconditions of a plan segment (as opposed to an individual step) are all those preconditions of
+the steps in the segment that are not established by other steps in the segment. Itis straightforward
+to annotate a plan at each step with the preconditions required for successful completion of the
+remaining steps. In terms of the plan description adopted in Chapter 11, the required conditions
+are just the propositions protected by all the causal links beginning at or before the current
+step and ending at or after it. Then we can detect a potential failure by comparing the current
+preconditions with the state description generated from the percept sequence. This is the standard
+model of execution monitoring, first used by the original STRIPS planner. STRIPS also introduced
+
+TRIANGLE TABLE the triangle table, an efficient representation for fully annotated plans.
+A second approach is to check the preconditions of each action as it is executed, rather
+action monorne — than checking the preconditions of the entire remaining plan. This is called action monitoring.
+As well as being simpler and avoiding the need for annotations, this method fits in well with
+realistic systems where an individual action failure can be recognized. For example, ifa robot
+agent issues a command to the motor subsystem to move two meters forward, the subsystem can
+report a failure if the robot bumps into an obstacle that materialized unexpectedly. On the other
+hand, action monitoring is less effective than execution monitoring, because it does not look
+ahead to see that an unexpected current state will cause an action failure some time in the future.
+For example, the obstacle that the robot bumped into might have been knocked off the table by
+accident much earlier in the plan. An agent using execution monitoring could have realized the
+problem and picked it up again.
+
+Action monitoring is also useful when a goal is serendipitously achieved. That is, if
+someone or something else has already changed the world so that the goal is achieved, action
+monitoring notices this and avoids wasting time by going through the rest of the plan.
+
+These forms of monitoring require that the percepts provide enough information to tell
+if a plan or action is about to fail. In an inaccessible world where the relevant conditions are
+not perceivable, more complicated strategies are needed to cope with undetected but potentially
+serious deviations from expectations. This issue is beyond the scope of the current chapter.
+
+We can divide the causes of plan failure into two kinds, depending on whether it is possible
+to anticipate the possible contingencies:
+
+ROE ERnacy 0 Bounded indeterminacy: In this case, actions can have unexpected effects, but the possible
+effects can be enumerated and described as part of the action description axiom. For
+example, the result of opening a can of paint can be described as the disjunction ofhaving
+paint available, having an empty can, or spilling the paint. Using a combination of CPOP
+and the “D” (disjunctive) part of POP-DUNC we can generate conditional plans to deal
+with this kind of indeterminacy.
+

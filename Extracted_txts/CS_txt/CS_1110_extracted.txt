@@ -1,0 +1,40 @@
+404 Let Us C
+
+ 
+
+12.550000 0
+
+I would leave it to you to analyze the results by yourselves. Some
+of the conversions you would find are quite sensible.
+
+Let us now turn our attention to scanf( ). scanf( ) allows us to
+enter data from keyboard that will be formatted in a certain way.
+
+The general form of scanf() statement is as follows:
+scanf (“format string’, list of addresses of variables ) ;
+
+For example:
+
+scanf ("%d %f %c", &c, &a, &ch) ;
+
+Note that we are sending addresses of variables (addresses are
+obtained by using ‘&’ the ‘address of operator) to scanf( )
+function. This is necessary because the values received from
+keyboard must be dropped into variables corresponding to these
+addresses. The values that are supplied through the keyboard must
+be separated by either blank(s), tab(s), or newline(s). Do not
+include these escape sequences in the format string.
+
+All the format specifications that we learnt in printf() function are
+applicable to scanf( ) function as well.
+
+sprintf() and sscanf() Functions
+
+The sprintf( ) function works similar to the printf( ) function
+except for one small difference. Instead of sending the output to
+the screen as printf( ) does, this function writes the output to an
+array of characters. The following program illustrates this.
+
+main()
+{
+

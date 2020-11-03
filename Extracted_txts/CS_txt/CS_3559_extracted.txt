@@ -1,0 +1,44 @@
+532
+
+Chapter 20 van Emde Boas Trees
+
+operation, we will implement the simpler operation MEMBER(S, x), which returns
+a boolean indicating whether the value x is currently in dynamic set S.
+
+So far, we have used the parameter 1 for two distinct purposes: the number of
+elements in the dynamic set, and the range of the possible values. To avoid any
+further confusion, from here on we will use 1 to denote the number of elements
+currently in the set and u as the range of possible values, so that each van Emde
+Boas tree operation runs in O(lglgu) time. We call the set {0,1,2,....u—1}
+the universe of values that can be stored and wu the universe size. We assume
+throughout this chapter that w is an exact power of 2, i.e., u = 2 for some integer
+k>1.
+
+Section 20.1 starts us out by examining some simple approaches that will get
+us going in the right direction. We enhance these approaches in Section 20.2,
+introducing proto van Emde Boas structures, which are recursive but do not achieve
+our goal of O(Ig 1g u)-time operations. Section 20.3 modifies proto van Emde Boas
+structures to develop van Emde Boas trees, and it shows how to implement each
+operation in O(lg1gu) time.
+
+ 
+
+20.1 Preliminary approaches
+
+In this section, we shall examine various approaches for storing a dynamic set.
+Although none will achieve the O(1g lg u) time bounds that we desire, we will gain
+insights that will help us understand van Emde Boas trees when we see them later
+in this chapter.
+
+Direct addressing
+
+Direct addressing, as we saw in Section 11.1, provides the simplest approach to
+storing a dynamic set. Since in this chapter we are concerned only with storing
+keys, we can simplify the direct-addressing approach to store the dynamic set as a
+bit vector, as discussed in Exercise 11.1-2. To store a dynamic set of values from
+the universe {0,1,2,...,u —1}, we maintain an array A[0..u — 1] of u bits. The
+entry A[x] holds a 1 if the value x is in the dynamic set, and it holds a 0 otherwise.
+Although we can perform each of the INSERT, DELETE, and MEMBER operations
+in O(1) time with a bit vector, the remaining operations— MINIMUM, MAXIMUM,
+SUCCESSOR, and PREDECESSOR — each take @(w) time in the worst case because
+

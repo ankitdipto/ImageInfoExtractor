@@ -1,0 +1,75 @@
+718.
+
+SECTION 7-4 Design of Control Unit 237
+
+‘The computer of Sec. 7-3 has the following binary microprogram:
+
+ 
+
+Address Binary Microprogram
+
+om 01000001000001000011
+a 11110000001011000000
+2 o00100100010100111111
+6 10111000011110111100
+
+7-16,
+
+4. Translate it to a symbolic microprogram as in Table 7-2. (FETCH is in
+address 64 and INDRCT in address 67.)
+
+. Lista the things that will be wrong when this microprogramisexecuted
+in the computer.
+
+‘Add the followinginstructions to the computer of Sec 7-3 (EA is the effective
+
+address). Write the symbolic microprogram for each routine as in Table 7-2.
+
+(Note that AC must not change in value unless the instruction specifies a
+
+change in AC.)
+
+ 
+
+Symbol Opcode ‘Symbolic Function Description
+
+AND 0100. ACH-AC A M[EA] AND
+
+SUB 0101. AC~-AC ~ M[E A] Subtract
+
+ADM 0110. M[EA] —M[EA] + AC Add to memory
+
+BICL Ol = ACHAC A MEA] Bit clear
+
+BZ 1000 If (AC = 0) then (PC EA) Branchif AC zero
+
+SEQ 1001_—If (AC = M[EA)) then (PC—PC +1) Skip if equal
+
+BPNZ 1010 _If (AC > 0) then (PC—-EA) Branch if positive
+and nonzero
+
+77.
+
+7-18.
+
+719,
+
+7-20,
+
+Write a symbolic microprogram routine for the ISZ (increment and skip if
+zero) instruction defined in Chap. 5 (Table 5-4) Use the microinstruction
+format of Sec. 7-3, Note that DR = 0 status condition is not available in the
+CD field of the computer defined in Sec. 7-3. However, you can exchange
+AC and DR and check if AC = 0 with the Z bit
+
+Write the symbolic microprogram routines for the BSA (branch and save
+address)instructions defined in Chap. 5 (Table 54). Use the microinstruction
+format of Sec. 7-3. Minimize the number of microinstructions.
+
+‘Show how outputs 5 and 6 of decoder F3 in Fig. 7-7 are to be connected to
+the program counter PC.
+
+‘Show how a 9-bit microoperation field in a microinstruction can be divided
+into subfieldsto specify 46 microoperations. How many microoperations can
+bbe specified in one microinstruction?
+

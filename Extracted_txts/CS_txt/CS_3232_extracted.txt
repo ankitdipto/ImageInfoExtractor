@@ -1,0 +1,62 @@
+Section 19.6.
+
+Bayesian Methods for Learning Belief Networks 591
+
+ 
+
+log-likelihood surface is also a maximum on the likelihood surface. We calculate the gradient
+using partial derivatives, varying a single value w; while keeping the others constant:®
+
+OinP(D) _ AInJ];PD)_ ~~ Jn PD) OP(DyOw:
+Ow Ow: ~ = Ow; 2h P(D;)
+
+J
+Hence, we can calculate separately the gradient contribution ofeach case and sum the results.
+Now the aim is to find an expression for the gradient contribution from a single case, such
+that the contribution can be calculated using only information local to the node with which w;is
+associated. Let w; be a specific entry in the conditional probability table for a node X given its
+parent variables U. We'll assume that it is the entry for the case X = x; given U =
+
+w= P(X=x;|U=ui)= Pla uj)
+In order to get an expression in terms of local information, we introduce X and U by averaging
+over their possible values:
+
+APD VOW, tay (Caw PCD) | Pou)
+PD) P(D;)
+(Oyu PCD; |x. uPx u)P(u))
+P(D))
+For our purposes, the important property of this expression is that w; appears only in linear form.
+In fact, appears only in one term in the summation, namely the term for x; and u;. For this
+term, P(x \ u) is just w;, hence
+
+OP(D) Ow; — PCD; _xi,aj)PCuj)
+
+ 
+
+ 
+
+P(Dj) P(Dj)
+Further manipulation reveals that the gradient calculation can "piggyback" on the calculations of
+posterior probabilities done in the normal course of belief network operation—thatis, calculations
+of the probabilities of network variables given the observed data. To do this, we apply Bayes’
+theorem to the above equation, yielding
+
+APD Ow. — Plx;.u; | D))P(D)Px)_ Plu Dj) _ Plead Dj)
+
+PID) ~ PC, u)P(Dj) P(x; | uj) ~ Wj
+
+In most implementations of belief network inference, the term P(x;,u; j Dj) is either
+computed directly or is easily obtained by summing a small number of table entries. The
+complete gradient vector is obtained by summing the above expression over the data cases to give
+the gradient component with respect to each w; for the likelihood of the entire training set. Thus,
+the necessary information for calculating the gradient can be derived directly from the normal
+computations done by beliefnetworks as new evidence is obtained.
+
+Once we have a locally computable expression for the gradient, we can apply the same
+kinds of hill-climbing or simulated annealing methods as are used for neural networks. Leaming
+with belief networks has the advantage that a human expert can easily provide a structure for the
+
+6 We also need to include the constraint that the conditional probability values for any given conditioning case must
+remain normalized. A formal analysis shows that the derivative of the constrained system (where the columns sum to
+one) is equal to the orthogonally projection of the unconstrained derivative onto the constraint surface
+

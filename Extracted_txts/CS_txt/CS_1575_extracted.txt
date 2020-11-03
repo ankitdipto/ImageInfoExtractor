@@ -1,0 +1,53 @@
+90  Chapter3 Operating-System Structures
+
+anism for a user to issue a request without writing a program. Commands
+may come from files during batch-mode execution, or directly from a keyboard
+when in an interactive or time-shared mode. System programs are provided to
+satisfy many common user requests.
+
+The types of requests vary according to the level of the request. The system-
+call level must provide the basic functions, such as process control and file
+and device management. Higher-level requests, satisfied by the command
+interpreter or system programs, are translated into a sequence of system calls.
+System services can be classified into several categories: program control, status
+requests, and I/O requests. Program errors can be considered implicit requests
+for service.
+
+Once the system services are defined, the structure of the operating system
+can be developed. Various tables are needed to record the information that
+defines the state of the computer system and the status of the system's jobs.
+
+The design of a new operating system is a major task. The goals of
+the system must be well defined before the design begins. They form the
+foundation for choices among various algorithms and strategies that will be
+necessary.
+
+Since an operating system is large, modularity is important. Designing a
+system as a sequence of layers or using a microkernel is considered a good
+technique. The virtual-machine concept takes the layered approach and treats
+both the kernel of the operating system and the hardware as though they were
+all hardware. Other operating systems may even be loaded on top of this virtual
+machine.
+
+Any operating system that has implemented the JVM is able to run all
+Java programs, because the JVM abstracts the underlying system to the Java
+program, providing an architecture-neutral interface.
+
+Throughout the entire operating-system design cycle, we must be careful to
+separate policy decisions from implementation details (or mechanisms). This
+separation allows maximum flexibility if policy decisions are to be changed
+later.
+
+Operating systems are now almost always written in a systems-
+implementation language or in a higher-level language. This feature improves
+their implementation, maintenance, and portability. To create an operating
+system for a particular machine configuration, we must perform system
+generation.
+
+m Exercises
+3.1 What are the five major activities of an operating system in regard to
+process management?
+
+3.2 What are the three major activities of an operating system in regard to
+memory management?
+

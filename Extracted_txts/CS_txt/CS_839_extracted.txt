@@ -1,0 +1,42 @@
+Chapter 5: Functions & Pointers 183
+
+ 
+
+Address of i = 65524
+
+ 
+
+Value of j = 65524
+
+Value of i = 3
+Value of i = 3
+Value of i = 3
+
+Work through the above program carefully, taking help of the
+memory locations of i and j shown earlier. This program
+summarizes everything that we have discussed so far. If you don’t
+understand the program’s output, or the meanings of &i, &j, *j
+and *( &i ), re-read the last few pages. Everything we say about C
+pointers from here onwards will depend on your understanding
+these expressions thoroughly.
+
+Look at the following declarations,
+
+int “alpha ;
+char *ch;
+float “s ;
+
+Here, alpha, ch and s are declared as pointer variables, i.e.
+variables capable of holding addresses. Remember that, addresses
+(location nos.) are always going to be whole numbers, therefore
+pointers always contain whole numbers. Now we can put these two
+facts together and say—pointers are variables that contain
+addresses, and since addresses are always whole numbers, pointers
+would always contain whole numbers.
+
+The declaration float *s does not mean that s is going to contain a
+floating-point value. What it means is, s is going to contain the
+address of a floating-point value. Similarly, char *ch means that
+ch is going to contain the address of a char value. Or in other
+words, the value at address stored in ch is going to be a char.
+

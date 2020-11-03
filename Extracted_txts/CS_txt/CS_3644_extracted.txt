@@ -1,0 +1,45 @@
+22.2 Breadth-first search 601
+
+path from s to v that is also a shortest path from s to v in G. A breadth-first tree
+is in fact a tree, since it is connected and | E| = |Vz| — 1 (see Theorem B.2). We
+call the edges in Ey tree edges.
+
+The following lemma shows that the predecessor subgraph produced by the BFS
+procedure is a breadth-first tree.
+
+Lemma 22.6
+When applied to a directed or undirected graph G = (V, E), procedure BFS con-
+structs z so that the predecessor subgraph Gz = (Vz, Ez) is a breadth-first tree.
+
+Proof Line 16 of BFS sets v. = u if and only if (u,v) € E and 6(s,v) < co—
+that is, if v is reachable from s—and thus V,, consists of the vertices in V reachable
+from s. Since G, forms a tree, by Theorem B.2, it contains a unique simple path
+from s to each vertex in V,. By applying Theorem 22.5 inductively, we conclude
+that every such path is a shortest path in G. .
+
+The following procedure prints out the vertices on a shortest path from s to v,
+assuming that BFS has already computed a breadth-first tree:
+
+PRINT-PATH(G, 5, v)
+ifv==s5
+print s
+elseif v.72 == NIL
+print “no path from” s “to” v “exists”
+else PRINT-PATH(G, 5, v.70)
+print v
+
+AnhwWNH
+
+This procedure runs in time linear in the number of vertices in the path printed,
+since each recursive call is for a path one vertex shorter.
+
+Exercises
+
+22.2-1
+Show the d and z values that result from running breadth-first search on the di-
+rected graph of Figure 22.2(a), using vertex 3 as the source.
+
+22.2-2
+Show the d and z values that result from running breadth-first search on the undi-
+rected graph of Figure 22.3, using vertex u as the source.
+

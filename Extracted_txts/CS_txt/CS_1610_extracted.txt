@@ -1,0 +1,47 @@
+120 Chapter4 Processes
+
+A client communicates with the server by creating a socket and connecting
+to the port the server is listening on. We implement such a client in the Java
+program shown in Figure 4.11. The client creates a Socket and requests a
+connection with the server at IP address 127.0.0.1 on port 5155. Once the
+connection is made, the client can read from the socket using normal stream I/O
+statements. After it has received the time of day from the server, the client closes
+the socket and exits. The IP address 127.0.0.1 is a special IP address known as the
+local host. When a computer refers to IP address 127.0.0.1, it is referring to itself.
+This mechanism allows the client and server on the same host to communicate
+using the TCP/IP protocol. The IP address 127.0.0.1 could be replaced with the
+TP address of another host running the time-of-day server.
+
+import java.net.*;
+import java.io.*;
+
+public class Client
+
+{
+
+public static void main(String[] args) throws IOException {
+InputStream in = null;
+BufferedReader bin = null;
+Socket sock = null;
+
+try {
+//make connection to socket
+sock = new Socket ("127.0.0.1",5155) ;
+
+in = sock.getInputStream() ;
+bin = new BufferedReader(new InputStreamReader(in));
+
+String line;
+while ( (line = bin.readLine()) != null)
+System. out .println(line) ;
+
+catch (I0Exception ioe) {
+System.err.print1n(ioe) ;
+
+finally {
+
+if (sock != null)
+sock.close();
+
+Figure 4.11 The client.
+

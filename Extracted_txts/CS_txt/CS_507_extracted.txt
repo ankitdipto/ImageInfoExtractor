@@ -1,0 +1,73 @@
+1052
+
+Chapter 34 NP-Completeness
+
+ 
+
+ 
+
+ 
+
+—— —— yes .
+instance @.| | polynomial-time instance B polynomial-time —}|-——>> yes
+ofA reduction algorithm ofB  Lalgorithm to decide B | 55>! > no
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+polynomial-time algorithm to decide A
+
+ 
+
+ 
+
+ 
+
+Figure 34.1 How to use a polynomial-time reduction algorithm to solve a decision problem A in
+polynomial time, given a polynomial-time decision algorithm for another problem B. In polynomial
+time, we transform an instance a of A into an instance B of B, we solve B in polynomial time, and
+we use the answer for as the answer for a.
+
+We call such a procedure a polynomial-time reduction algorithm and, as Fig-
+ure 34.1 shows, it provides us a way to solve problem A in polynomial time:
+
+1. Given an instance @ of problem A, use a polynomial-time reduction algorithm
+to transform it to an instance B of problem B.
+
+2. Run the polynomial-time decision algorithm for B on the instance B.
+
+3. Use the answer for f as the answer for a.
+
+As long as each of these steps takes polynomial time, all three together do also, and
+so we have a way to decide on @ in polynomial time. In other words, by “reducing”
+solving problem A to solving problem B, we use the “easiness” of B to prove the
+“easiness” of A.
+
+Recalling that NP-completeness is about showing how hard a problem is rather
+than how easy it is, we use polynomial-time reductions in the opposite way to show
+that a problem is NP-complete. Let us take the idea a step further, and show how we
+could use polynomial-time reductions to show that no polynomial-time algorithm
+can exist for a particular problem B. Suppose we have a decision problem A for
+which we already know that no polynomial-time algorithm can exist. (Let us not
+concern ourselves for now with how to find such a problem A.) Suppose further
+that we have a polynomial-time reduction transforming instances of A to instances
+of B. Now we can use a simple proof by contradiction to show that no polynomial-
+time algorithm can exist for B. Suppose otherwise; i.e., suppose that B has a
+polynomial-time algorithm. Then, using the method shown in Figure 34.1, we
+would have a way to solve problem A in polynomial time, which contradicts our
+assumption that there is no polynomial-time algorithm for A.
+
+For NP-completeness, we cannot assume that there is absolutely no polynomial-
+time algorithm for problem A. The proof methodology is similar, however, in that
+we prove that problem B is NP-complete on the assumption that problem A is also
+NP-complete.
+

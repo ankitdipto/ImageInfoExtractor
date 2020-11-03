@@ -1,0 +1,43 @@
+Chapter 18: Graphics Under Windows 607
+
+ 
+
+Let us now understand its parameters. These are as under:
+hdc — Handle to target DC where the bitmap is to be blitted
+10, 20 — Position where the bitmap is to be blitted
+
+190, 220 — Width and height of bitmap being blitted
+
+0, 0 — Top left corner of the source image. If we give 10, 20 then
+the image from 10, 20 to bottom right corner of the bitmap would
+get blitted.
+
+SRCCOPY — Specifies one of the raster-operation codes. These
+codes define how the color data for the source rectangle is to be
+combined with the color data for the destination rectangle to
+achieve the final color. SRCCOPY means that the pixel color of
+source should be copied onto the destination pixel of the target.
+
+Animation at Work
+
+Speed is the essence of life. So having the ability to display a
+bitmap in a window is fine, but if we can add movement and sound
+to it then nothing like it. So let us now see how to achieve this
+animation and sound effect.
+
+If we are to animate an object in the window we need to carry out
+the following steps:
+
+(a) Create an image that is to be animated as a resource.
+
+(b) Prepare the image for later display.
+
+(c) Repeatedly display this prepared image at suitable places in
+the window taking care that when the next image is displayed
+the previous image is erased.
+
+(d) Check for collisions while displaying the prepared image.
+
+Let us now write a program that on execution makes a red colored
+ball move in the window. As the ball strikes the walls of the
+

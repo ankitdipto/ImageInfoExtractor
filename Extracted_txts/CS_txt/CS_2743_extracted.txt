@@ -1,0 +1,49 @@
+Problems for Chapter 12 303
+
+1 @+3a+2 +)
+
+4 6
+_ ne +6n? +11n+6
+~ 24 ,
+Taking logarithms of both sides gives E[X,,] = O(lgn). .
+Exercises
+12.4-1
+
+Prove equation (12.3).
+
+12.4-2
+
+Describe a binary search tree on n nodes such that the average depth of a node in
+the tree is O(lg 1) but the height of the tree is @(lgm). Give an asymptotic upper
+bound on the height of an n-node binary search tree in which the average depth of
+anode is O(Ig7).
+
+12.4-3
+
+Show that the notion of a randomly chosen binary search tree on n keys, where
+each binary search tree of n keys is equally likely to be chosen, is different from
+the notion of a randomly built binary search tree given in this section. (Hint: List
+the possibilities when n = 3.)
+
+12.4-4
+Show that the function f(x) = 2* is convex.
+
+124-5 x
+
+Consider RANDOMIZED-QUICKSORT operating on a sequence of n distinct input
+numbers. Prove that for any constant k > 0, all but O(1/n*) of the n! input
+permutations yield an O(n lg n) running time.
+
+ 
+
+Problems
+
+12-1 Binary search trees with equal keys
+Equal keys pose a problem for the implementation of binary search trees.
+
+a. What is the asymptotic performance of TREE-INSERT when used to insert 1
+items with identical keys into an initially empty binary search tree’?
+
+We propose to improve TREE-INSERT by testing before line 5 to determine whether
+z.key = x.key and by testing before line 11 to determine whether z.key = y.key.
+

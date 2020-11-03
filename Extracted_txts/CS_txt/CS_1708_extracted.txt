@@ -1,0 +1,66 @@
+200 Chapter7 Process Synchronization
+
+do {
+
+ 
+
+waiting[i] = true;
+
+key = true;
+
+while (waiting[i] && key)
+key = TestAndSet (lock) ;
+
+waiting{i] = false;
+
+ 
+
+ 
+
+critical section
+
+ 
+
+ 
+
+= i) && !waiting[j])
+j= Gt % na;
+
+if (j == i)
+lock = false;
+else
+
+waiting[j] = false;
+
+ 
+
+ 
+
+ 
+
+remainder section
+} while (1);
+
+Figure 7.10 Bounded-waiting mutual exclusion with TestAndSet.
+
+only if either waiting[i] == false or key == false. The value of key
+can become false only if the TestAndSet is executed. The first process to
+execute the TestAndSet will find key == false; all others must wait. The
+variable waiting[i] can become false only if another process leaves its
+critical section; only one waiting [i] is set to false, maintaining the mutual-
+exclusion requirement.
+
+To prove the progress requirement is met, we note that the arguments
+presented for mutual exclusion also apply here, since a process exiting the
+critical section either sets lock to false, or sets waiting[j] to false. Both
+allow a process that is waiting to enter its critical section to proceed.
+
+To prove the bounded-waiting requirement is met, we note that, when a
+process leaves its critical section, it scans the array waiting in the cyclic order-
+ing (i+ 1,i+2,....1—1,0,...,i— 1). It designates the first process in this ordering
+that is in the entry section (waiting [j] == true) as the next one to enter the
+critical section. Any process waiting to enter its critical section will thus do
+so within n — 1 turns. Unfortunately for hardware designers, implementing
+atomic Test AndSet instructions on multiprocessors is not a trivial task. Such
+implementations are discussed in books on computer architecture.
+

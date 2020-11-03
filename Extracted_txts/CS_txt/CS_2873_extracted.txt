@@ -1,0 +1,51 @@
+voter
+
+SECTION 1-4 Map Simplification 11
+
+The complement expression is obtained by interchanging AND and OR oper-
+ations and complementing each individual variable. Note that the complement
+of C’ is C.
+
+1-4 Map Simplification
+
+The complexity of the logic diagram that implements a Boolean function is
+rdated directly to the complexity of the algebraic expression from which the
+function is implemented. The truth table representation of a function isunique,
+but the function can appear in many different forms when expressed alge-
+braically. The expression may be simplified using the basic relations of Boolean
+algebra. However, this procedureis sometimes difficult becauseit lacks specific
+rules for predicting each succeeding step in the manipulative process. The map
+method provides a simple, straightforward procedure for simplifying Boolean
+expressions. This method may be regarded as a pictorial arrangement of the
+truth table which allows an easy interpretation for choosing the minimum
+number of terms needed to express the function algebraically. The map
+method is also known as the Karnaugh map or K-map.
+
+Each combination of the variables in a truth table is called a minterm. For
+example, the truth table of Fig. 1-3 contains eight minterms. When expressed
+ina truth table a function of n variables will have 2° minterms, equivalent to
+the 2" binary numbers obtained from m bits. A Boolean function is equal to 1
+for some minterms and to 0 for others. The information contained in a truth
+table may be expressed in compact form by listing the decimal equivalent of
+those minterms that produce a 1 for the function. For example, the truth table
+of Fig. 1-3 can be expressed as follows:
+
+Fxy,2) = % (4,5,6,7)
+
+The letters in parentheses list the binary variables in the order that they appear
+inthe truth table. The symbol & stands for the sum of the minterms that follow
+in parentheses. The minterms that produce 1 for the function are listed in their
+decimal equivalent. The minterms missing from the list are the ones that
+produce 0 for the function.
+
+The mapis a diagram made up of squares, with each square representing
+one minterm. The squares corresponding to minterms that produce 1 for the
+function are marked by a1 and the others are marked by a0 or are left empty.
+By recognizing various patterns and combining squares marked by 1's in the
+map, it is possible to derive alternative algebraic expressions for the function,
+from which the most convenient may be selected.
+
+Themaps for functionsof two, three, and four variables are shown in Fig.
+1-7. The number of squares in a map of n variables is 2". The 2" minterms are
+listed by an equivalent decimal number for easy reference. The minterm
+

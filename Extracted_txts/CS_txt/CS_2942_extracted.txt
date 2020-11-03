@@ -1,0 +1,59 @@
+464
+
+Chapter 17 Amortized Anat
+
+ 
+
+the unused space in the table is never more than a constant fraction of the total
+amount of space.
+
+We start by analyzing a dynamic table in which we only insert items. We then
+consider the more general case in which we both insert and delete items.
+
+17.4.1 Table expansion
+
+Let us assume that storage for a table is allocated as an array of slots. A table fills
+up when all slots have been used or, equivalently, when its load factor is 1.' In some
+software environments, upon attempting to insert an item into a full table, the only
+alternative is to abort with an error. We shall assume, however, that our software
+environment, like many modern ones, provides a memory-management system that
+can allocate and free blocks of storage on request. Thus, upon inserting an item
+into a full table, we can expand the table by allocating a new table with more slots
+than the old table had. Because we always need the table to reside in contiguous
+memory, we must allocate a new array for the larger table and then copy items from
+the old table into the new table.
+
+A common heuristic allocates a new table with twice as many slots as the old
+one. If the only table operations are insertions, then the load factor of the table is
+always at least 1/2, and thus the amount of wasted space never exceeds half the
+total space in the table.
+
+In the following pseudocode, we assume that T is an object representing the
+table. The attribute T. table contains a pointer to the block of storage representing
+the table, 7. num contains the number of items in the table, and T. size gives the total
+number of slots in the table. Initially, the table is empty: T. num = T. size = 0.
+
+TABLE-INSERT(T, x)
+
+if T.size == 0
+allocate T. table with 1 slot
+T.size = 1
+
+if T.num == T. size
+allocate new-table with 2 - T. size slots
+insert all items in T. table into new-table
+free T. table
+T.table = new-table
+T.size = 2-T.size
+
+insert x into T. table
+
+T.num = T.num +1
+
+FSeCHmrAwWswne
+
+ 
+
+‘In some situations, such as an open-address hash table, we may wish to consider a table to be full if
+its load factor equals some constant strictly less than 1. (See Exercise 17.4-1.)
+

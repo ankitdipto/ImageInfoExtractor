@@ -1,0 +1,48 @@
+7.6 Critical Regions 211
+
+¢ Use an asymmetric solution; that is, an odd philosopher picks up first her
+left chopstick and then her right chopstick, whereas an even philosopher
+picks up her right chopstick and then her left chopstick.
+
+Finally, any satisfactory solution to the dining-philosophers problem must
+guard against the possibility that one of the philosophers will starve to death.
+A deadlock-free solution does not necessarily eliminate the possibility of star-
+vation.
+
+7.6 = Critical Regions
+
+Although semaphores provide a convenient and effective mechanism for pro-
+cess synchronization, their incorrect use can still result in timing errors that are
+difficult to detect, since these errors happen only if some particular execution
+sequences take place, and these sequences do not always occur.
+
+We have seen an example of such types of errors in the use of counters in
+our solution to the producer—consumer problem (Section 7.1). In that example,
+the timing problem happened only rarely, and even then the counter value
+appeared to be a reasonable value—off by only 1. Nevertheless, this solution
+is obviously not an acceptable one. It is for this reason that semaphores were
+introduced in the first place.
+
+Unfortunately, such timing errors can still occur with the use of
+semaphores. To illustrate how, let us review the solution to the critical-section
+problem using semaphores. All processes share a semaphore variable mutex,
+which is initialized to 1. Each process must execute wait (mutex) before
+entering the critical section, and signal (mutex) afterward. If this sequence is
+not observed, two processes may be in their critical sections simultaneously.
+
+Let us examine the various difficulties that may result. Note that these
+difficulties will arise if even a single process is not well behaved. This situation
+may be the result of an honest programming error or of an uncooperative
+programmer.
+
+e Suppose that a process interchanges the order in which the wait and
+signal operations on the semaphore mutex are executed, resulting in the
+following execution:
+
+signal (mutex) ;
+critical section
+wait (mutex) ;
+
+In this situation, several processes may be executing in their critical sec-
+tion simultaneously, violating the mutual-exclusion requirement. This error
+

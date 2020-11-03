@@ -1,0 +1,47 @@
+32 cHarTER one Digital Logic Circuits
+
+binary counter
+
+ 
+
+Figure 1-26 Sure diagrams of sequential circuit.
+
+is 1, the output is 0. After a clock transition, the circuit goes to the next state
+O1. The same clock transition may change the input value. If the input changes
+to 0, the output becomes 1, but if the input remains at 1, the output stays at
+0. Thisinformation is obtained from the state diagram along the two directed
+lines emanating from the circle representing state 01. A directed line connect-
+ing a circle with itself indicates that no change of state occurs.
+
+There is no difference between a state table and a state diagram except
+in the manner of representation. The state table is easier to derive froma given
+logic diagram and the state diagram follows directly from the state table. The
+state diagram gives a pictorial view of state transitions and is the form suitable
+for human interpretation of the circuit operation. For example, the state dia-
+gram of Fig. 1-26 clearly shows that starting from state 00, the output is 0 as
+ong as the input staysat 1. The first input after a string of 1's gives an output
+of 1 and transfers the circuit back to the initial state 00.
+
+Design Example
+
+The procedure for designing sequential circuits will be demonstrated by a
+specific example. The design procedure consists of first translating the circuit
+specifications into a state diagram. The state diagram is then converted into a
+state table. From the state table we obtain the information for obtaining the
+logic circuit diagram.
+
+We wish to design a clocked sequential circuit that goes through a se-
+quence of repeated binary states 00, 01, 10, and 11 when an external input x
+is equalto 1. The state of the circuit remains unchanged when x = 0. This type
+of circuit is called a 2-bit binary counter because the state sequence is identical
+to the count sequence of two binary digits Input x is the control variable that
+specifies when the count should proceed.
+
+The binary counter needs two flip-flops to represent the two bits. The
+state diagram for the sequential circuit is shown in Fig. 1-27. The diagram is
+drawn to show that the states of the circuit follow the binary count as long as
+
+ 
+
+  
+

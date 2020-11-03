@@ -1,0 +1,40 @@
+978 Chapter 31 | Number-Theoretic Algorithms
+
+a
+84 396
+/ \ .
+xy 177 84
+{ | oo
+X6 h 120 xf 18 i
+xs 1194 339 529 x! 26 47
+x, 63 EN x! 63
+| (x. |
+x, 8 xh 8 xt ry 8
+x. ! x} fs xy !
+2 :
+/ foo
+x 2 x @ x” 2
+mod 1387 mod 19 mod 73
+(a) (b) (c)
+
+Figure 31.7  Pollard’s rho heuristic. (a) The values produced by the recurrence xj41 =
+(x? — 1) mod 1387, starting with x1 = 2. The prime factorization of 1387 is 19-73. The heavy
+arrows indicate the iteration steps that are executed before the factor 19 is discovered. The light
+arrows point to unreached values in the iteration, to illustrate the “rho” shape. The shaded values are
+the y values stored by POLLARD-RHO. The factor 19 is discovered upon reaching x7 = 177, when
+gced(63 — 177, 1387) = 19 is computed. The first x value that would be repeated is 1186, but the
+factor 19 is discovered before this value is repeated. (b) The values produced by the same recurrence,
+modulo 19. Every value x; given in part (a) is equivalent, modulo 19, to the value x/ shown here.
+For example, both x4 = 63 and x7 = 177 are equivalent to 6, modulo 19. (c) The values produced
+by the same recurrence, modulo 73. Every value x; given in part (a) is equivalent, modulo 73, to the
+value x!” shown here. By the Chinese remainder theorem, each node in part (a) corresponds to a pair
+‘of nodes, one from part (b) and one from part (c).
+
+The sequence (x;) induces a corresponding sequence (x/) modulo p, where
+
+Xx; = x; mod p
+
+for all i.
+Furthermore, because f,, is defined using only arithmetic operations (squaring
+and subtraction) modulo 1, we can compute x;,, from xj; the “modulo p” view of
+

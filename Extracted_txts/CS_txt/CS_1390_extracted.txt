@@ -1,0 +1,51 @@
+Chapter 19: Interaction With Hardware 643
+
+ 
+
+One last point about this program—the ‘hook.dll’ file should be
+copied into the directory of the application’s EXE before executing
+the EXE.
+
+Did You Press It TT wwiiccee....
+
+With the power of windows hooks below your belt you are into the
+league of power programmers of Windows. So how about tasting
+the power some bit more. How about writing a program that would
+make every key pressed in any Windows application appear twice.
+Here is the code for the hook procedure.
+
+LRESULT __declspec (dllexport ) __stdcall KeyboardProc (int nCode,
+WPARAM wParam, LPARAM IParam )
+{
+
+static BYTE key ;
+static BOOL flag = FALSE ;
+
+if (nCode <0)
+return CallNextHookEx (hkb, nCode, wParam, IParam ) ;
+
+if ((nCode == HC_ACTION ) &&
+(( DWORD ) IParam & 0x80000000 ) == 0)
+
+{
+
+if ( flag == FALSE )
+
+{
+key = wParam ;
+keybd_event (key , 0, KEYEVENTF_EXTENDEDKEY, 0) ;
+flag = TRUE ;
+
+}
+
+else
+
+{
+if (key == (BYTE) wParam )
+
+flag = FALSE ;
+}
+
+}
+return CallNextHookEx ( hkb, nCode, wParam, [Param ) ;
+

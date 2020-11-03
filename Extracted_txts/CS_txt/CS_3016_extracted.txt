@@ -1,0 +1,71 @@
+Section 13.1.
+
+Conditional Planning
+
+395
+
+ 
+
+ 
+
+‘CONTEXT
+
+ 
+
+function CoNDITIONAL-PLANNING-AGENT( percepteturns an action
+static: KB, a knowledge base (includes action descriptions)
+p, aplan, initially NoPlan
+1, a counter, initially 0, indicating time
+Ga goal .
+
+TELL(KB, MAKE-PERCEPT-SENTENCE( percept, 1)
+current — STATE-DESCRIPTION(KB,t)
+if p = NoPlan then p — CPOP(current,G, KB)
+ifp = NoPlan orp is empty then action —NoOp
+else
+action — FIRST(p)
+while CONDITIONAL action) do
+if ASK(KB, CONDITION-PARt[action]) then p — APPEND(THEN-PART[action], REST(p))
+else p — APPEND(ELSE-PART[action], REST(p))
+action — FIRST(p)
+end
+p—REST(p)
+TELL(KB, MAKE-ACTION-SENTENCE(action, 0)
+fot+l
+return action
+
+ 
+
+ 
+
+ 
+
+Figure 13.1. A conditional planning agent.
+
+ 
+
+ 
+
+In our action schema format, we would write
+
+Op(ACTION: CheckTire(x),
+PRECOND:Tire(x),
+EFFECT: Knows Whether(“Intact(x)”))
+
+Notice that as well as having knowledge effects, a sensing action can have ordinary effects. For
+example, if the CheckTire action uses the water method, then the tire will become wet. Sensing
+actions can also have preconditions that need to be established. For example, we might need to
+fetch the pump in order to put some air in the tire in order to check it. A conditional planner
+therefore will sometimes create plans that involve carrying out ordinary actions for the purpose
+
+ofobtaining some needed information.
+
+An algorithm for generating conditional plans
+
+The process of generating conditional plans is much like the planning process described in
+Chapter 11. The main additional construct is the context ofa step in the plan. A step's context is
+simply the union of the conditions that must hold in order for the step to be executed—essentially,
+it describes the "branch" on which the step lies. For example, the action Inflate(Tire,)in the
+earlier plan has a context Jntact(Tire\). Once it is established that a step has a certain context,
+then subsequent steps in the plan inherit that context. Because it cannot be the case that two steps
+

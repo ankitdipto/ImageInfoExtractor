@@ -1,0 +1,55 @@
+SECTION 3.1 Data Types 69
+
+converting each part separately. The conversion of a decimal integer into a base
+r representation is done by successive divisions by r and accumulation of the
+remainders. The conversion of a decimal fraction to radix r representation is,
+accomplished by successive multiplications by r and accumulation of the in-
+teger digits so obtained. Figure 3-1 demonstrates these procedures.
+
+The conversion of decimal 41.6875 into binary is done by first separating
+the number into its integer part 41 and fraction part .6875. The integer part is
+converted by dividing 41 by r = 2 to give an integer quotient of 20 and a
+remainder of 1. The quotient is again divided by 2 to give a new quotient and
+remainder. This process is repeated until the integer quotient becomes 0. The
+coefficients of the binary number are obtained from the remainders with the
+first remainder giving the low-order bit of the converted binary number.
+
+The fraction part isconverted by multiplying it by r = 2to giveaninteger
+and a fraction. The new fraction (without the integer) is multiplied again by 2
+to give a new integer and a new fraction. This process is repeated until the
+fraction part becomes zero or until the number of digits obtained gives the
+required accuracy. The coefficients of the binary fraction are obtained from
+the integer digits with the first integer computed being the digit to be placed
+next to the binary point. Finally, the two parts are combined to give the total
+required conversion.
+
+Octal and Hexadecimal Numbers
+
+The conversion from and to binary, octal, and hexadecimal representation
+plays an important part in digital computers. Since 2 = 8 and 2 = 16, each
+octal digit corresponds to three binary digits and each hexadecimal digit cor-
+responds to four binary digits. The conversion from binary to octal is easily
+accomplished by partitioning the binary number into groups of three bits each.
+The corresponding octal digit is then assigned to each group of bits and the
+string of digits so obtained gives the octal equivalent of the binary number.
+Consider, for example, a 16-bit register. Physically, one may think of the
+
+Figure 1 Conversion of decimal 41.6875 into binary.
+
+Integer = 41 Fraction = 0.6875
+4 0.6875
+20/1 2
+10 Jo T3730
+3 |o x2
+2|i 07500
+ilo x2
+oli T5000
+
+x2
+
+T
+
+(40,9 = 001001); (068750 = (0.1011),
+
+(41.6875)o = (101001.1011)
+

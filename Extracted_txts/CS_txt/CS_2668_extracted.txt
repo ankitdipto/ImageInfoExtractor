@@ -1,0 +1,80 @@
+Section 2.3.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Structure of Intelligent Agents 37
+Agent Type Percepts Actions Goals Environment
+Medical diagnesis |] Symptoms, Questions, tests, Healthy patient, Patient, hospital
+system findings, patient's | treatments minimize costs
+
+answers
+Satellite image Pixels of varying Print a Correct Images from
+analysis system intensity, color categorization of categorization orbiting satellite
+seene
+
+Part-picking robot Pixels of varying Pick up parts and Place parts in Conveyor belt
+
+intensity sort into bins comect bins with parts
+
+Refinery controller Temperature, Open, close Maximize purity, Refinery
+
+pressure readings | valves; adjust yield, safety
+temperature
+Interactive English Typed words Print exercises, Maximize Set of students
+tutor suggestions, student's score on
+corrections test
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 23 Examples of agent types and their PAGE descriptions.
+
+ 
+
+ 
+
+The most famous artificial environment is the Turing Test environment, in which the whole
+point is that real and artificial agents are on equal footing, but the environment is challenging
+enough that it is very difficult for a software agent to do as well as ahuman. Section 2.4 describes
+in more detail the factors that make some environments more demanding than others.
+
+Agent programs
+
+We will be building intelligent agents throughout the book. They will all have the same skeleton,
+namely, accepting percepts from an environment and generating actions. The early versions of
+agent programs will have a very simple form (Figure 2.4). Each will use some internal data
+structures that will be updated as new percepts arrive. These data structures are operated on by
+the agent's decision-making procedures to generate an action choice, which is then passed to the
+architecture to be executed.
+
+There are two things to note about this skeleton program. First, even though we defined
+the agent mapping as a function from percept sequences to actions, the agent program receives
+only a single petcept as its input. It is up to the agent to build up the percept sequence in memory,
+if it so desires. In some environments, it is possible to be quite successful without storing
+the percept sequence, and in complex domains, it is infeasible to store the complete sequence.
+

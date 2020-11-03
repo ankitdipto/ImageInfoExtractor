@@ -1,0 +1,47 @@
+15.2. Matrix-chain multiplication 377
+
+northwest from A;. Each horizontal row in the table contains the entries for matrix
+chains of the same length. MATRIX-CHAIN-ORDER computes the rows from bot-
+tom to top and from left to right within each row. It computes each entry m[i, j']
+using the products pj—1pxpj fork =i,i+1,..., j — 1 and all entries southwest
+and southeast from m[i, j].
+
+A simple inspection of the nested loop structure of MATRIX-CHAIN-ORDER
+yields a running time of O(n) for the algorithm. The loops are nested three deep,
+and each loop index (/, i, and k) takes on at most n—1 values. Exercise 15.2-5 asks
+you to show that the running time of this algorithm is in fact also Q(n3). The al-
+gorithm requires @(n”) space to store the m and s tables. Thus, MATRIX-CHAIN-
+ORDER is much more efficient than the exponential-time method of enumerating
+all possible parenthesizations and checking each one.
+
+Step 4: Constructing an optimal solution
+
+Although MATRIX-CHAIN-ORDER determines the optimal number of scalar mul-
+tiplications needed to compute a matrix-chain product, it does not directly show
+how to multiply the matrices. The table s[1..n — 1,2..n] gives us the informa-
+tion we need to do so. Each entry s[i, j] records a value of k such that an op-
+timal parenthesization of A;A;+,--- Aj; splits the product between Ax and Ag41.
+Thus, we know that the final matrix multiplication in computing A,_,, optimally
+is Ay. stinJAstinjti.n- We can determine the earlier matrix multiplications recur-
+sively, since s[1, s[1,n]] determines the last matrix multiplication when computing
+Aj. s{i.n) and s[s[1,n] + 1,n] determines the last matrix multiplication when com-
+puting Ast nj+1..n. The following recursive procedure prints an optimal parenthe-
+sization of (A;, Aj41..... Aj), given the s table computed by MATRIX-CHAIN-
+ORDER and the indices i and j. The initial call PRINT-OPTIMAL-PARENS(s, 1,7)
+prints an optimal parenthesization of (A;,A2..... A,).
+
+PRINT-OPTIMAL-PARENS(S, i, j)
+
+ifi ==j7
+print “A”;
+
+else print “(”
+PRINT-OPTIMAL-PARENS(s, i, s[i, j])
+PRINT-OPTIMAL-PARENS(s, s[i, j] + 1.)
+print “)”
+
+AnkhwWNe
+
+In the example of Figure 15.5, the call PRINT-OPTIMAL-PARENS(s, 1, 6) prints
+the parenthesization ((A;(A2A3))((A4As) Ao)).
+

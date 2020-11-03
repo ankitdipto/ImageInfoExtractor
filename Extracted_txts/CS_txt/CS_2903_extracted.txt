@@ -1,0 +1,58 @@
+16.3 Huffman codes 431
+
+of c’s leaf in the tree. Note that dy(c) is also the length of the codeword for
+character c. The number of bits required to encode a file is thus
+
+B(T) = )<c.freq-dr(c), (16.4)
+
+ceC
+
+which we define as the cost of the tree T.
+
+Constructing a Huffman code
+
+Huffman invented a greedy algorithm that constructs an optimal prefix code called
+a Huffman code. In line with our observations in Section 16.2, its proof of cor-
+rectness relies on the greedy-choice property and optimal substructure. Rather
+than demonstrating that these properties hold and then developing pseudocode, we
+present the pseudocode first. Doing so will help clarify how the algorithm makes
+greedy choices.
+
+In the pseudocode that follows, we assume that C is a set of n characters and
+that each character c € C is an object with an attribute c.freq giving its frequency.
+The algorithm builds the tree T corresponding to the optimal code in a bottom-up
+manner. It begins with a set of |C| leaves and performs a sequence of |C| — 1
+“merging” operations to create the final tree. The algorithm uses a min-priority
+queue Q, keyed on the jreq attribute, to identify the two least-frequent objects to
+merge together. When we merge two objects, the result is a new object whose
+frequency is the sum of the frequencies of the two objects that were merged.
+
+HUFFMAN(C)
+1 n=|C|
+2 Q@=C
+
+3 fori = lton—1
+allocate a new node Zz
+z.left = x = EXTRACT-MIN(Q)
+z.right = y = EXTRACT-MIN(Q)
+Z.freq = X.freq + y.freq
+INSERT(Q, Zz)
+return EXTRACT-MIN(Q) // return the root of the tree
+
+ 
+
+4
+5
+6
+7
+8
+9
+
+For our example, Huffman’s algorithm proceeds as shown in Figure 16.5. Since
+the alphabet contains 6 letters, the initial queue size is n = 6, and 5 merge steps
+build the tree. The final tree represents the optimal prefix code. The codeword for
+a letter is the sequence of edge labels on the simple path from the root to the letter.
+
+Line 2 initializes the min-priority queue Q with the characters in C. The for
+loop in lines 3-8 repeatedly extracts the two nodes x and y of lowest frequency
+

@@ -1,0 +1,45 @@
+Section 25.3.
+
+Parts: What Are Robots Made Of? 783
+
+ 
+
+REPEATABILITY
+
+‘oDoMETRY
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 25.6 The Utah-MIT Hand.
+
+ 
+
+ 
+
+end. You should do better after a few tries, which shows that your positioning repeatability is
+better than your accuracy. The same is usually true for robots.
+
+Mobots can measure their change in position using odometry, based on sensors that
+measure wheel rotation (or, in the case of stepper motors that rotate a fixed angle per step, the
+number of steps). Unfortunately, because of slippage as the robot moves, the position error
+from wheel motion deteriorates as the robot moves, and may be several percent of the distance
+travelled. Orientation can be measured more reliably, using a magnetic compass or a gyroscope
+system. Accelerometers can measure the change in velocity.
+
+Force sensing
+
+Even though robots can sense and control the positions of their joints much more accurately
+than humans, there are still many tasks that cannot be carried out using only position sensing.
+Consider, for example, the task of scraping paint off a windowpane using a razor blade. To get
+all the paint requires positioning accuracy of about a micron in the direction perpendicular to
+the glass. An error of a millimeter would cause the robot to either miss the paint altogether or
+break the glass. Obviously, humans are not doing this using position control alone. This and
+

@@ -1,0 +1,65 @@
+Section 15.2.
+
+The Semantics of Belief Networks 443
+
+ 
+
+CANONICAL
+DISTRIBUTIONS
+
+DETERMINISTIC
+NODES
+
+NoIsKOR,
+
+LEAK NODE
+
+tenuous relationships that require difficult and unnatural probability judgments, such as assessing
+the probability of Earthquake given Burglary and Alarm. This phenomenon is quite general.
+
+If we try to build a diagnostic model with links from symptoms to causes (as from MaryCalls
+to Alarm, or Alarm to Burglary), we end up having to specify additional dependencies between
+otherwise independent causes, and often between separately occurring symptoms as well. sAve
+stick to a causal model, we end up having to specify fewer numbers, and the numbers will often
+be easier to come up with. In the domain of medicine, for example, it has been shown by Tversky
+and Kahneman (1982) that expert physicians prefer to give probability judgments for causal rules
+rather than for diagnostic ones.
+
+The right-hand side of Figure 15.3 shows a really bad ordering of nodes: MaryCalls,
+JohnCalls, Earthquake, Burglary, Alarm. This network requires 31 distinct probabilities to be
+specified—exactly the same as the full joint distribution. It is important to realize, however, that
+any of the three networks can represent exactly the samejoint distribution. The last two versions
+simply fail to represent all the conditional independence relationships, and end up specifying a
+lot of unnecessary numbers instead.
+
+Representation of conditional probability tables
+
+Even with a fairly small number of parents, a node's conditional probability table still requires
+a lot of numbers. Filling in the table would appear to require a good deal of time and also a
+lot of experience with all the possible conditioning cases. In fact, this is a worst-case scenario,
+where the relationship between the parents and the child is completely arbitrary. Usually, such
+relationships fall into one of several categories that have canonical distributions—that is, they
+fit some standard pattern. In such cases, the complete table can be specified by naming the pattern
+and perhaps supplying a few parameters.
+
+The simplest example is provided by deterministic nodes. A deterministic node has its
+value specified exactly by the values of its parents, with no uncertainty. The relationship can
+be a logical one—for example, the relationship between parent nodes Canadian, US, Mexican
+and the child node NorthAmerican is simply that the child is the disjunction of the parents. The
+relationship can also be numerical—for example, ifthe parent nodes are the prices of a particular
+model of car at several dealers, and the child node is the price that a bargain hunter ends up
+paying, then the child node is the minimum of the parent values; or if the parent nodes are the
+inflows (rivers, runoff, precipitation) into a lake and the outflows (rivers, evaporation, seepage)
+from the lake and the child is the change in lake level, then the child is the difference between
+the the inflow parents and the outflow parents.
+
+Uncertain relationships can often be characterized by so-called "noisy" logical relation-
+ships. The standard example is the so-called noisy-OR relation, which is a generalization of
+the logical OR. In propositional logic, we might say Fever is true if and only if Cold, Flu, or
+Malaria is true. The noisy-OR model adds some uncertainty to this strict logical approach. The
+model makes three assumptions. First, it assumes that each cause has an independent chance
+of causing the effect. Second, it assumes that all the possible causes are listed. (This is not as
+strict as it seems, because we can always add a so-called leak node that covers "miscellaneous
+causes") Third, it assumes that whatever inhibits, say, Co/d from causing a fever is independent
+of whatever inhibits F/u from causing a fever. These inhibitors are not represented as nodes but
+

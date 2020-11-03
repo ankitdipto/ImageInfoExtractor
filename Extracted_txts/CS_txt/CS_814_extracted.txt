@@ -1,0 +1,49 @@
+Chapter 5: Functions & Pointers 163
+
+ 
+
+@
+
+()
+
+@
+
+Any function can be called from any other function. Even
+main( ) can be called from other functions. For example,
+
+main()
+{
+message( ) ;
+}
+message( )
+
+printf ( "\nCan't imagine life without C" ) ;
+main() ;
+
+}
+
+A function can be called any number of times. For example,
+
+main()
+{
+message( ) ;
+message( ) ;
+}
+message( )
+
+printf ( “\nJewel Thief!!" ) ;
+}
+
+The order in which the functions are defined in a program and
+the order in which they get called need not necessarily be
+same. For example,
+
+main()
+{
+message1() ;
+message2() ;
+}
+message2()
+
+printf ("\nBut the butter was bitter" ) ;
+

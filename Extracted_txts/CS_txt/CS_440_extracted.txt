@@ -1,0 +1,48 @@
+156 CHAPTER FVE Basic Computer Organization and Design
+
+modified fetch phase
+
+read from memory during the fetch phase, control goes to the indirect phase
+(because! = 1) toread the effective address. The effective addressisin location
+Oand is the return address that was stored there during the previous interrupt
+cycle. The execution of the indirect BUN instruction results in placing into PC
+the retum address from location 0.
+
+Interrupt Cycle
+
+We are now ready to list the register transfer statements for theinterrupt cycle.
+The interrupt cycle is initiated after the last execute phase if the interrupt
+flip-flop R is equal to 1. This flip-flop is set to 1 if IEN = 1 and either FGI or
+FGO are equal to 1. This can happen with any clock transition except when
+timing signals T., T,, or T, are active. The condition for setting flip-flop R to
+1 can be expressed with the following register transfer statement:
+
+TsTWTAUEN)(FGI + FGO): R<-1
+
+The symbol + between FGI and FGOin the control function designates a logic
+OR operation. This is ANDed with JEN and T;IjT3.
+
+We now modify the fetch and decode phases of the instruction cycle.
+Instead of using only timing signals To, T;, and T; (as shown in Fig. 5-9) we
+will AND the three timing signals with R’ so that the fetch and decode phases
+will be recognized from the three control functions R’To, R’T;, and R’T;. The
+reason for this is that after the instruction is executed and SC is cleared to 0,
+the control will go through a fetch phase only if R = 0. Otherwise, if R = 1,
+the control will go through an interrupt cycle. The interrupt cycle stores the
+return address (available in PC) into memory location 0, branches to memory
+location 1, and clears JEN, R, and SC to 0. This can be done with the following
+sequence of microoperations:
+
+RTg AR<—0, TR<—PC
+RT; MI[ARJ—TR, PC<0
+RT; PC<PC +1, IEN<0, R<0, SC<—O
+
+During the first timing signal AR is cleared to 0, and the content of PC is
+transferred to the temporary register TR. With the second timing signal, the
+return address is stored in memory at location 0 and PC is cleared to 0. The
+third timing signal increments PC to 1, clears IEN and R, and control goes back
+to Ty by clearing SC to 0. The beginning of the next instruction cycle has the
+condition R’Ty and the content of PC is equal to 1 The control then goes
+through an instruction cycle that fetches and executes the BUN instruction in
+location 1.
+

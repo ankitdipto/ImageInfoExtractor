@@ -1,0 +1,64 @@
+24
+
+(CHAPTER ONE Digital Logic Circuits
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Do D us
+—pe ° Clearto 0
+1 Setto 1
+p—- —l
+(2) Graphic symbol (©) Characteristic table
+
+Figure 1-20 D fliplop.
+
+is determined from the D input. The relationship can be expressed by a
+characteristic equation:
+
+Qt+1)=D
+
+This means that the Q output of the flip-flop receives its value from the D input
+every time that the clock signal goes through a transition from 0 to 1.
+
+‘Note that no input condition exists that will leave the state of the D
+flip-flop unchanged. Although a D flip-flop has the advantage of having only
+one input (excluding C), ithas the disad vantage that its characteristic table does
+not have a “no change” condition Q(¢ + 1) = Q(t). The “no change” condition
+can be accomplished either by disabling the clock signal or by feeding the
+output back into the input, so that clock pulses keep the state of the flip-flop
+unchanged.
+
+JK Flip-Flop
+
+‘A JK flip-flop is a refinement of the SR flip-flop in that the indeterminate
+condition of the SR type is defined in the JK type. Inputs J and K behave like
+inputs S and R to set and clear the flip-flop, respectively. When inputs J and
+K are both equal to 1, a clock transition switches the outputs of the flip-flop
+to their complement state.
+
+The graphic symbol and characteristic table of the JK flip-flop are shown
+in Fig. 1-21. The J input is equivalent to the $ (set) input of the SR flip-flop,
+and the K input is equivalent to the R (clear) input. Instead of the indeterminate
+condition, the JK flip-flop has a complement condition Q¢t + 1) = Q’(#) when
+both J and K are equal to 1.
+
+T Fip-Flop
+
+Another type of flip-flop found in textbooks is the T (toggle) flip-flop. This
+flip-flop, shown in Fig. 1-22, is obtained from a JK type when inputs J and K
+are connected to provide a single input designated by T. The T flip-flop
+

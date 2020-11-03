@@ -1,0 +1,48 @@
+208 — cHAFTERSIX Programming the Basic Computer
+
+‘The service routine performs the six tasks mentioned above. The antents
+of AC and E are stored in special locations. (These are the only processor
+registers in the basic computer.) The flags are checked sequentially, the input
+flag first and the output flag second. If any or both flags are set, an item of data
+is transferred to or from the corresponding memory buffer. Before returning
+to the running program the previous eontents of E and AC are restuxed and
+the interrupt facility is turned on. The last instruction causes a branch to the
+address stored in location 0. This is the return addrese stored there previously
+during the interrupt cycle. Hence the cunning program will continue from
+location 104, where it was interrupted.
+
+A typical computer may have many more input and output devices
+connected to the interrupt facility. Furthermore, interrupt soustes are not
+limited to input and output transfers. interrupts can be used for other pur-
+poses, such as interna) processing errors or speci) alarm conditions. Further
+discussion of interrupts and some advanced concepts concerning this impor-
+tant subject can be found in Sec. 11-5.
+
+ 
+
+ 
+
+ 
+
+‘PROBLEMS _
+
+£1) The following program is stored in the cemory unil of the basic computer.
+‘Show the contents of the AC, PC, and IR (in hexedecioal) at the end, after
+ea ch instruction is enecuted. All n umbers lis ted betow are in henadeamal
+
+Location Instruction
+
+010 CLA
+on ADDOI6
+on BUNOL4
+or3 HLT
+ow ANDOI7
+01s BUN 013,
+016 C1AS
+017 9306
+
+4e2. The following program is a list of inetnctions in bexadecienal code. The
+‘coniputer executes the instru ctiors starting from addres 100. What are the
+content of AC and the memory word at address 103 when the computer
+nalts?
+

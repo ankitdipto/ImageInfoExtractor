@@ -1,0 +1,53 @@
+774 Chapter 25. Robotics
+
+ 
+
++ The real world is dynamic. Therefore, a robot has to know when it is worth deliberating
+and when it is better to act immediately.
+
+* The real world is continuous, in that states and actions are drawn from a continuum of
+physical configurations and motions. Because this makes it impossible to enumerate the
+set of possible actions, many of the search and planning algorithms described in earlier
+chapters will need to be modified.
+
+We could go on about the unique properties of robotics, but instead we will refer you to Ex-
+ercise 25.1. It does not require any additional reading, it will give you an instant and visceral
+appreciation of the problems of robotics (and their possible solutions), and it can be amusing.
+
+This chapter has three main points. First, we look at the tasks that robots perform (Sec-
+tion 25.2) and the special effectors and sensors they use (Section 25.3). Second, we step away
+from robots per se and look at agent architectures for inaccessible, nondeterministic, nonepisodic,
+dynamic domains (Section 25.4). Third, we look at the specific problem of selecting actions in
+a continuous state space (Sections 25.5 and 25.6). The algorithms rely on a level of computa-
+tional geometry that is more suited for a specialized advanced text, so we only give qualitative
+descriptions of the problems and solutions
+
+25.2 TASKS: WHAT ARE ROBOTS GOOD FOR?
+
+ 
+
+While humans do a wide variety of things using more or less the same body, robot designs vary
+widely depending on the task for which they are intended. In this section, we survey some of the
+tasks, and in the next section, we look at the available parts (effectors and sensors) that make up
+a robot's body.
+
+Manufacturing and materials handling
+
+Manufacturing is seen as the traditional domain of the robot. The repetitive tasks on a production
+line are natural targets for automation, and so in 1954 George Devol patented the programmable
+robot am, based on the same technology—punch cards—that was used in the Jacquard loom 150
+years eatlier. By 1985, there were about 180,000 robots in production lines around the world,
+with Japan, the United States, and France accounting for 150,000 of them. The automotive and
+microelectronics industries are major consumers of robots. However, most robots in use today
+are very limited in their abilities to sense and adapt. Autonomous robots are still struggling
+for acceptance. The reasons for this are historical, cultural, and technological. Manufacturing
+existed and burgeoned long before robots appeared, and many tricks were developed for solving
+manufacturing problems without intelligence. And it is still true that simple machines are the
+best solution for simple tasks.
+
+Material handlingis another traditional domain for robots. Material handling is the storage,
+transport, and delivery of material, which can range in size from silicon chips to diesel trucks. The
+robots used for material handling likewise vary from table-top manipulators to gantry cranes, and
+
+  
+

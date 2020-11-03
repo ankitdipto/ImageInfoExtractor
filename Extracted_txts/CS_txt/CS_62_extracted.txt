@@ -1,0 +1,46 @@
+25.1 Shortest paths and matrix multiplication 691
+
+ 
+
+Figure 25.2 A weighted, directed graph for use in Exercises 25.1-1, 25.2-1, and 25.3-1.
+
+FASTER-ALL-PAIRS-SHORTEST-PATHS (W)
+
+1 n= Warows
+
+2 LY =W
+
+3 m=1
+
+4 while m <n—1
+
+5 let L°” be a new n x n matrix
+
+6 L°™) = ExTEND-SHORTEST-PaTHs (L™), L™)
+7 m= 2m
+
+8 return L“”
+
+In each iteration of the while loop of lines 4-7, we compute Lem) = (L™),
+starting with m = 1. At the end of each iteration, we double the value
+of m. The final iteration computes L~” by actually computing L°” for some
+n—1<2m <2n —2. By equation (25.3), L°” = L~». The next time the test
+in line 4 is performed, m has been doubled, so now m > n — 1, the test fails, and
+the procedure returns the last matrix it computed.
+
+Because each of the [lg( — 1)] matrix products takes @(n3) time, FASTER-
+ALL-PAIRS-SHORTEST-PATHS runs in @(n? lg) time. Observe that the code
+is tight, containing no elaborate data structures, and the constant hidden in the
+©-notation is therefore small.
+
+Exercises
+
+25.1-1
+
+Run SLOW-ALL-PAIRS-SHORTEST-PATHS on the weighted, directed graph of
+Figure 25.2, showing the matrices that result for each iteration of the loop. Then
+do the same for FASTER-ALL-PAIRS-SHORTEST-PATHS.
+
+25.1-2
+Why do we require that w;; = 0 for all 1 <i <n?
+

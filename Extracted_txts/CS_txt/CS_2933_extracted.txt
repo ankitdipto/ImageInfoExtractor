@@ -1,0 +1,47 @@
+17.2. The accounting method 457
+
+yi G — 71 ci. By inequality (17.1), the total credit associated with the data
+structure must be nonnegative at all times. If we ever were to allow the total credit
+to become negative (the result of undercharging early operations with the promise
+of repaying the account later on), then the total amortized costs incurred at that
+time would be below the total actual costs incurred; for the sequence of operations
+up to that time, the total amortized cost would not be an upper bound on the total
+actual cost. Thus, we must take care that the total credit in the data structure never
+becomes negative.
+
+Stack operations
+
+To illustrate the accounting method of amortized analysis, let us return to the stack
+example. Recall that the actual costs of the operations were
+
+PusH 1,
+Pop 1,
+MuLTIPoP§ min(k,s) ,
+
+where is the argument supplied to MULTIPOP and s is the stack size when it is
+called. Let us assign the following amortized costs:
+
+PUSH 2,
+Pop 0,
+MULTIPOP 0.
+
+Note that the amortized cost of MULTIPOP is a constant (0), whereas the actual cost
+is variable. Here, all three amortized costs are constant. In general, the amortized
+costs of the operations under consideration may differ from each other, and they
+may even differ asymptotically.
+
+We shall now show that we can pay for any sequence of stack operations by
+charging the amortized costs. Suppose we use a dollar bill to represent each unit
+of cost. We start with an empty stack. Recall the analogy of Section 10.1 between
+the stack data structure and a stack of plates in a cafeteria. When we push a plate
+on the stack, we use | dollar to pay the actual cost of the push and are left with a
+credit of 1 dollar (out of the 2 dollars charged), which we leave on top of the plate.
+At any point in time, every plate on the stack has a dollar of credit on it.
+
+The dollar stored on the plate serves as prepayment for the cost of popping it
+from the stack. When we execute a Pop operation, we charge the operation nothing
+and pay its actual cost using the credit stored in the stack. To pop a plate, we take
+the dollar of credit off the plate and use it to pay the actual cost of the operation.
+Thus, by charging the PUSH operation a little bit more, we can charge the PoP
+operation nothing.
+

@@ -1,0 +1,45 @@
+Chapter 5: Functions & Pointers 159
+
+ 
+
+main()
+{
+message() ;
+printf ( "\nCry, and you stop the monotony!" ) ;
+
+message( )
+{
+
+}
+
+printf ( "\nSmile, and the world smiles with you..." ) ;
+
+And here’s the output...
+
+Smile, and the world smiles with you...
+Cry, and you stop the monotony!
+
+Here, main() itself is a function and through it we are calling the
+function message(). What do we mean when we say that main()
+‘calls’ the function message( )? We mean that the control passes to
+the function message(). The activity of main() is temporarily
+suspended; it falls asleep while the message( ) function wakes up
+and goes to work. When the message() function runs out of
+statements to execute, the control returns to main(), which comes
+to life again and begins executing its code at the exact point where
+it left off. Thus, main() becomes the ‘calling’ function, whereas
+message( ) becomes the ‘called’ function.
+
+If you have grasped the concept of ‘calling’ a function you are
+prepared for a call to more than one function. Consider the
+following example:
+
+main()
+{
+printf ( “\nl am in main” ) ;
+italy() ;
+brazil() ;
+argentina() ;
+
+}
+

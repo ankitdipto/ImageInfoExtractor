@@ -1,0 +1,53 @@
+788
+
+Chapter 27 Multithreaded Algorithms
+
+eral others, and the North American Blackout of 2003, which left over 50 million
+people without power. These pernicious bugs are notoriously hard to find. You can
+run tests in the lab for days without a failure only to discover that your software
+sporadically crashes in the field.
+
+A determinacy race occurs when two logically parallel instructions access the
+same memory location and at least one of the instructions performs a write. The
+following procedure illustrates a race condition:
+
+RACE-EXAMPLE( )
+
+1 x=0
+
+2. parallel for i = 1 to2
+3 x=x+1
+
+4 print x
+
+After initializing x to 0 in line 1, RACE-EXAMPLE creates two parallel strands,
+each of which increments x in line 3. Although it might seem that RACE-
+EXAMPLE should always print the value 2 (its serialization certainly does), it could
+instead print the value 1. Let’s see how this anomaly might occur.
+
+When a processor increments x, the operation is not indivisible, but is composed
+of a sequence of instructions:
+
+1. Read x from memory into one of the processor’s registers.
+2. Increment the value in the register.
+
+3. Write the value in the register back into x in memory.
+
+Figure 27.5(a) illustrates a computation dag representing the execution of RACE-
+EXAMPLE, with the strands broken down to individual instructions. Recall that
+since an ideal parallel computer supports sequential consistency, we can view the
+parallel execution of a multithreaded algorithm as an interleaving of instructions
+that respects the dependencies in the dag. Part (b) of the figure shows the values
+in an execution of the computation that elicits the anomaly. The value x is stored
+in memory, and r; and rz are processor registers. In step 1, one of the processors
+sets x to 0. In steps 2 and 3, processor | reads x from memory into its register 1
+and increments it, producing the value | in r;. At that point, processor 2 comes
+into the picture, executing instructions 4-6. Processor 2 reads x from memory into
+register 2; increments it, producing the value | in rz; and then stores this value
+into x, setting x to 1. Now, processor 1 resumes with step 7, storing the value 1
+in r; into x, which leaves the value of x unchanged. Therefore, step 8 prints the
+value 1, rather than 2, as the serialization would print.
+
+We can see what has happened. If the effect of the parallel execution were that
+processor | executed all its instructions before processor 2, the value 2 would be
+

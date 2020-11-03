@@ -1,0 +1,61 @@
+29.3 The simplex algorithm 869
+
+necessarily integral. Furthermore, the final solution to a linear program need not
+be integral; it is purely coincidental that this example has an integral solution.
+
+Pivoting
+
+We now formalize the procedure for pivoting. The procedure PIVOT takes as in-
+put a slack form, given by the tuple (NV, B, A,b,c,v), the index / of the leav-
+ing variable x;, and the index e of the entering variable x,. It returns the tuple
+(N. B.A, be, D) describing the new slack form. (Recall again that the entries of
+the mxn matrices A and Aare actually the negatives of the coefficients that appear
+in the slack form.)
+
+Pivot(N, B, A,b,c,v,1,e)
+
+1 // Compute the coefficients of the equation for new basic variable Xe.
+2 let Abe anew m x n matrix
+3 be = bi/dte
+
+4 foreach j € N —{e}
+
+5 Gej = a1; /dte
+
+6 Gea = 1/die
+
+7 / Compute the coefficients of the remaining constraints.
+8 foreach i € B— {I}
+
+9 by = bi ~diebe
+
+10 for each j € N — {e}
+
+1 Giz = ij — ieGe;
+
+12 Giy = jee
+
+13. // Compute the objective function.
+
+14 D=vtebe
+
+15 for each j € N —{e}
+
+16 CG = Cj) — Coe;
+
+V7 GC) = Cee
+
+18 // Compute new sets of basic and nonbasic variables.
+
+19 N =N-{eyuth}
+
+20 B= B—{hU fe}
+
+21 return (N,B,A.5.é, 1)
+
+Pivot works as follows. Lines 3-6 compute the coefficients in the new equation
+for Xe by rewriting the equation that has x; on the left-hand side to instead have x¢
+on the left-hand side. Lines 8-12 update the remaining equations by substituting
+the right-hand side of this new equation for each occurrence of Xe. Lines 14-17
+do the same substitution for the objective function, and lines 19 and 20 update the
+

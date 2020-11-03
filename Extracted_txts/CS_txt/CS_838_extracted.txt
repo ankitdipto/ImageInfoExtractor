@@ -1,0 +1,42 @@
+182 Let Us C
+
+ 
+
+As you can see, i’s value is 3 and j’s value is i’s address.
+
+But wait, we can’t use j in a program without declaring it. And
+since j is a variable that contains the address ofi, it is declared as,
+int *j;
+
+This declaration tells the compiler that j will be used to store the
+address of an integer value. In other words j points to an integer.
+How do we justify the usage of * in the declaration,
+
+int *j;
+Let us go by the meaning of *. It stands for ‘value at address’.
+Thus, int *j would mean, the value at the address contained in j is
+
+an int.
+
+Here is a program that demonstrates the relationships we have
+been discussing.
+
+main()
+
+{
+int i=3;
+int *j;
+j=8i;
+
+printf ( "\nAddress of i= %u", &i) ;
+printf (“\nAddress of i = %u", j) ;
+printf ("\nAddress of j= %u", &j) ;
+printf ( "\nValue ofj = %u", j) ;
+printf ( "\nValue of i = %d", i) ;
+printf ( “\nValue of i = %d", *( &i)) ;
+printf ( "\nValue of i = %d", *j) ;
+
+}
+
+The output of the above program would be:
+

@@ -1,0 +1,45 @@
+270 Let Us C
+
+ 
+
+v I Nhe C language provides a capability that enables the user to
+design a set of similar data types, called array. This chapter
+describes how arrays can be created and manipulated in C.
+
+We should note that, in many C books and courses arrays and
+pointers are taught separately. I feel it is worthwhile to deal with
+these topics together. This is because pointers and arrays are so
+closely related that discussing arrays without discussing pointers
+would make the discussion incomplete and wanting. In fact all
+arrays make use of pointers internally. Hence it is all too relevant
+to study them together rather than as isolated topics.
+
+What are Arrays
+
+For understanding the arrays properly, let us consider the
+following program:
+
+main()
+{
+
+int x;
+
+X=5;
+
+X= 10;
+
+printf ("\nx = %d", x);
+}
+
+No doubt, this program will print the value of x as 10. Why so?
+Because when a value 10 is assigned to x, the earlier value of x,
+i.e. 5, is lost. Thus, ordinary variables (the ones which we have
+used so far) are capable of holding only one value at a time (as in
+the above example). However, there are situations in which we
+would want to store more than one value at a time in a single
+variable.
+
+For example, suppose we wish to arrange the percentage marks
+obtained by 100 students in ascending order. In such a case we
+have two options to store these marks in memory:
+

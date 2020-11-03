@@ -1,0 +1,41 @@
+3.1 Asymptotic notation SI
+
+iim 2 =0. (3.1)
+
+Some authors use this limit as a definition of the o-notation; the definition in this
+book also restricts the anonymous functions to be asymptotically nonnegative.
+
+@-notation
+
+By analogy, -notation is to Q-notation as o-notation is to O-notation. We use
+@-notation to denote a lower bound that is not asymptotically tight. One way to
+define it is by
+
+Ff (n) € w(g(n)) if and only if g(n) € o( f(n)) .
+Formally, however, we define w(g()) (“little-omega of g of n”) as the set
+@(g(n)) = { f(n) : for any positive constant c > 0, there exists a constant
+
+no > Osuch that 0 < cg(n) < f(n) forall n > no} .
+For example, n?/2 = w(n), but n?/2 4 w(n). The relation f(n) = w(g(n))
+implies that
+lim Lo) = 00
+noe gin)
+if the limit exists. That is, f() becomes arbitrarily large relative to g(n) as n
+approaches infinity.
+
+Comparing functions
+Many of the relational properties of real numbers apply to asymptotic comparisons
+as well. For the following, assume that f(m) and g() are asymptotically positive.
+Transitivity:
+fn) = O(g(n)) and g(n) = O(h(n)) imply f(x) = O(n).
+fn) = O(g(n)) and g(n) = O(h(n)) imply f(n) = O(h()) .
+fn) = Q(g(n)) and g(n) = Q(h(n)) imply f(x) = Qn),
+f(n) = o(g(n)) and g(n) = o(h(n)) imply f(r) = oh).
+fn) = o(g(n)) and g(n) = o(h(n)) imply f(x) = w(h(n)).
+
+Reflexivity:
+fm) = Of).
+fa) = Of n)).
+
+fn) = Af).
+

@@ -1,0 +1,51 @@
+30.2) The DFT and FFT 911
+
+RECURSIVE-FFT(a)
+
+1 n =a.length 1 nis a power of 2
+2 ifn==1
+
+3 return a
+
+4 On = e2ni/n
+
+5 w=1
+
+6 all = (ay,do,..., n—-2)
+
+7 all = (ay,a3..... Gn-1)
+
+8 yll = Recursive-FFT (a!)
+
+9 yll = Recursive-FFT (al!)
+10 fork = O0ton/2—1
+
+Ho ye = yf +e yl
+
+12 Viesin2) = Ye — © ye
+
+13 O = WW,
+
+14 return y // y is assumed to be a column vector
+
+The RECURSIVE-FFT procedure works as follows. Lines 2-3 represent the basis
+of the recursion; the DFT of one element is the element itself, since in this case
+Yo = ao!
+
+= do-l
+
+= a.
+Lines 6-7 define the coefficient vectors for the polynomials A!® and AU], Lines
+4, 5, and 13 guarantee that w is updated properly so that whenever lines 11-12
+are executed, we have » = w*. (Keeping a running value of @ from iteration
+to iteration saves time over computing w* from scratch each time through the for
+loop.) Lines 8-9 perform the recursive DFT,,/. computations, setting, for k =
+OL... n/2-1,
+ye = AM ef.)
+y= alot
+
+or, since ok, = ok by the cancellation lemma,
+
+y= aMo24,
+yf) = AUN(@2) ,
+

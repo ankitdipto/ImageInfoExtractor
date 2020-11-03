@@ -1,0 +1,62 @@
+Chapter 15. Probabilistic Reasoning Systems
+
+ 
+
+     
+
+   
+
+Burglary Burglary
+
+Figure 15.3 Network structure depends on order of introduction.
+
+    
+   
+
+Earthquake
+
+ 
+
+ 
+
+ 
+
+ 
+
+What happens if we happen to choose the wrong order? Let us consider the burglary
+example again. Suppose we decide to add the nodes in the order MaryCalls,JohnCalls, Alarm,
+Burglary, Earthquake. We get a somewhat more complicated network (Figure 15.3, left). The
+process goes as follows:
+
+Adding MaryCalls: no parents
+
+Adding JohnCalls: if Mary calls, that probably means the alarm has gone off, which of |
+
+course would make it more likely that John calls. Therefore, there is a dependence:
+P(JohnCalls|MaryCalls)¢ +P(JohnCalls)
+
+Hence, JohnCalls needs MaryCalls as a parent.
+
+Adding Alarm: clearly, if both call, it is more likely that the alarm has gone off than ifjust
+one or neither call, so we need both MaryCalls and JohnCalls as parents.
+
+Adding Burglary: if we know the alam state, then the call (or lack of it) from John or
+Mary might tell us about whether our telephone is ringing or whether Mary's music is on 4
+loud, but it does not give us further information about a burglary. That is,
+
+P(Burglary|Alarm, JohnCalls, MaryCalls) = P(Burglary|Alarm)
+
+Hence we need just Alarm as parent
+
+Adding Earthquake: if the alarm is on, it is more likely that there has been an earthquake
+(because the alarm is an earthquake detector of sorts). But if we know there has been a
+burglary, then that accounts for the alarm and the probability of an earthquake would be
+only slightly above normal. Hence we need both Alarm and Burglary as parents:
+
+P(Earthquake| Burglary, Alarm,JohnCalls, MaryCalls) = P(Earthquake|Burglary.Alarm)
+
+The resulting network has two more links than the original network in Figure 15.1, and requires
+three more probabilities to be specified. But the worst part is that some of the links represent
+
+ 
+

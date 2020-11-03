@@ -1,0 +1,20 @@
+Appendix C: Chasing The Bugs 711
+
+ 
+
+main()
+{
+char ch;
+
+for (ch = 0; ch <= 255; ch++)
+printf ( “\n%c %d", ch, ch ) ;
+
+Can you believe that this is an indefinite loop? Probably, a
+closer look would confirm it. Reason is, ch has been declared
+as a char and the valid range of char constant is -128 to
++127. Hence, the moment ch tries to become 128 (through
+ch++), the value of character range is exceeded, therefore the
+first number from the negative side of the range, -128, gets
+assigned to ch. Naturally the condition is satisfied and the
+control remains within the loop externally.
+

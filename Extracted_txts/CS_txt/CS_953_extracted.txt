@@ -1,0 +1,47 @@
+276 Let Us C
+
+ 
+
+as each integer would occupy 4 bytes). And since the array is not
+being initialized, all eight values present in it would be garbage
+values. This so happens because the storage class of this array is
+assumed to be auto. If the storage class is declared to be static
+then all the array elements would have a default initial value as
+zero. Whatever be the initial values, all the array elements woul
+always be present in contiguous memory locations. This
+arrangement of array elements in memory is shown in Figure 8.1.
+
+ 
+
+ 
+
+12 34 66 -45 23 346 77 90
+
+65508 65510 65512 65514 65516 65518 65520 65522
+
+ 
+
+ 
+
+ 
+
+Figure 8.1
+
+Bounds Checking
+
+In C there is no check to see if the subscript used for an array
+exceeds the size of the array. Data entered with a subscript
+exceeding the array size will simply be placed in memory outside
+the array; probably on top of other data, or on the program itself.
+This will lead to unpredictable results, to say the least, and there
+will be no error message to warn you that you are going beyond
+the array size. In some cases the computer may just hang. Thus,
+the following program may turn out to be suicidal.
+
+main()
+{
+int num[40], i;
+
+for (i= 0;i <= 100; i++)
+num{i] =i;
+

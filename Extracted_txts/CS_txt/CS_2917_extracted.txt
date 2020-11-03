@@ -1,0 +1,50 @@
+16.5 A task-scheduling problem as a matroid 443
+
+Exercises
+
+16.4-1
+Show that (S, I,) is a matroid, where S is any finite set and I, is the set of all
+subsets of S of size at most k, where k < |S].
+
+164-2 x
+
+Given an m x n matrix T over some field (such as the reals), show that (S, I) is a
+matroid, where S is the set of columns of T and A € J if and only if the columns
+in A are linearly independent.
+
+16.4-3. *
+Show that if (S, I) is a matroid, then (S, I’) is a matroid, where
+
+I’ = {A': S — A’ contains some maximal A € I} .
+
+That is, the maximal independent sets of (S, I’) are just the complements of the
+maximal independent sets of (S, I).
+
+16.4-4 x
+
+Let S be a finite set and let S;,S2,..., Sx be a partition of S into nonempty disjoint
+subsets. Define the structure (S, I) by the condition that J = {A:|AN S;| <1
+for i =1,2,..., k}. Show that (S, I) is a matroid. That is, the set of all sets A
+that contain at most one member of each subset in the partition determines the
+independent sets of a matroid.
+
+16.4-5
+
+Show how to transform the weight function of a weighted matroid problem, where
+the desired optimal solution is a minimum-weight maximal independent subset, to
+make it a standard weighted-matroid problem. Argue carefully that your transfor-
+mation is correct.
+
+ 
+
+* 16.5 A task-scheduling problem as a matroid
+
+An interesting problem that we can solve using matroids is the problem of op-
+timally scheduling unit-time tasks on a single processor, where each task has a
+deadline, along with a penalty paid if the task misses its deadline. The problem
+looks complicated, but we can solve it in a surprisingly simple manner by casting
+it as a matroid and using a greedy algorithm.
+
+A unit-time task is a job, such as a program to be run on a computer, that requires
+exactly one unit of time to complete. Given a finite set S of unit-time tasks, a
+

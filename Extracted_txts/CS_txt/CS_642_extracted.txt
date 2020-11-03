@@ -1,0 +1,39 @@
+24 Let Us C
+
+ 
+
+Type Declaration Instruction
+
+This instruction is used to declare the type of variables being used
+in the program. Any variable used in the program must be declared
+before using it in any statement. The type declaration statement is
+written at the beginning of main( ) function.
+
+Ex.: int bas ;
+float rs, grosssal ;
+char name, code ;
+
+There are several subtle variations of the type declaration
+instruction. These are discussed below:
+
+(a) While declaring the type of variable we can also initialize it as
+shown below.
+
+int i= 10, j= 25;
+float a = 1.5, b = 1.99 + 2.4 * 1.44;
+
+(b) The order in which we define the variables is sometimes
+important sometimes not. For example,
+
+inti = 10, j= 25;
+
+is same as
+
+intj = 25, j= 10;
+However,
+
+float a = 1.5, b= a+ 3.1;
+is alright, but
+
+float b=a+3.1,a=1.5;
+

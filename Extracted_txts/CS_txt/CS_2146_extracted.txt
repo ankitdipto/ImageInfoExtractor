@@ -1,0 +1,68 @@
+298
+
+Chapter 10. Logical Reasoning Systems
+
+ 
+
+FRAME SYSTEMS
+
+SEMANTIC
+NETWORKS
+
+DESCRIPTION LOGIC
+‘SYSTEMS
+
+TERMINOLOGICAL
+LoGics
+
+deletions from the knowledge base as well as input and output. Production systems operate
+with a forward-chaining control structure. Some have a conflict resolution mechanism
+to decide which action to take when more than one is recommended. Examples: OPS-5,
+CLIPS, SOAR.
+
+Frame systems and semantic networks: These systems use the metaphor that objects are
+nodes in a graph, that these nodes are organized in a taxonomic structure, and that links
+between nodes represent binary relations. In frame systems the binary relations are thought
+of as slots in one frame that are filled by another, whereas in semantic networks, they are
+thought of as arrows between nodes. The choice between the frame metaphor and the
+semantic network metaphor determines whether you draw the resulting networks as nested
+boxes or as graphs, but the meaning and implementation of the two types of systems can
+be identical. In this chapter we will say "semantic network" to mean "semantic network or
+frame system." Examples of frame systems: OWL, FRAIL, KODIAK. Examples of semantic
+networks: SNEPS, NETL, Conceptual Graphs
+
+0 Description logic systems: These systems evolved from semantic networks due to pressure
+to formalize what the networks mean while retaining the emphasis on taxonomic structure
+as an organizing principle. The idea is to express and reason with complex definitions
+of, and relations among, objects and classes. Description logics are sometimes called
+terminological logics, because they concentrate on defining terms. Recent work has
+concentrated on the trade-off between expressivity in the language and the computational
+complexity of certain operations. Examples: KL-ONE, CLASSIC, LOOM.
+
+In this chapter, we will see how each of the four types of systems can be implemented, and how 4
+each of the following five tasks is addressed:
+
+1. Add a new fact to the knowledge base. This could be a percept, or a fact derived via
+inference. We call this function TELL.
+
+2. Given a knowledge base and a new fact, derive some of the facts implied by the conjunction
+of the knowledge base and the new fact. In a forward-chaining system, this is part of TELL.
+
+3. Decide if a query is entailed by the knowledge base. We call this function ASK. Different
+versions of ASK do different things, ranging fromjust confirming that the query is entailed
+to returning a set of all the possible substitutions that make the query true.
+
+4. Decide ifa query is explicitly stored in the knowledge base—a restricted version of ASK.
+
+5. Remove a sentence from the knowledge base. It is important to distinguish between!
+correcting a sentence that proves to be false, forgetting a sentence that is no longer useful
+(perhaps because it was only relevant in the past), and updating the knowledge base to
+reflect a change in the world, while still remembering how the world was in the past-
+(Some systems can make this distinction; others rely on the knowledge engineer to keep
+things straight.)
+
+All knowledge-based systems rely on the fundamental operation ofretrieving sentences satisfying
+certain conditions—for example, finding an atomic sentence that unifies with a query, or finding.
+an implication that has a given atomic sentence as one of its premises. We will therefore begin
+with techniques for maintaining a knowledge base in a form that supports efficient retrieval.
+

@@ -1,0 +1,96 @@
+422 Chapter12_File-System Implementation
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+directory
+file start length
+count 0 2
+tr 4 3
+mal 19 6
+list 2800«C4
+f 6 2
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 12.5 Contiguous allocation of disk space.
+
+Contiguous allocation has some problems, however. One difficulty is
+finding space for a new file. The implementation of the free-space-management
+system, discussed in Section 12.5, determines how this task is accomplished.
+Any management system can be used, but some are slower than others.
+
+The contiguous disk-space-allocation problem can be seen to bea particular
+application of the general dynamic storage-allocation problem discussed in
+Section 9.3, which is how to satisfy a request of size n from a list of free
+holes. First fit and best fit are the most common strategies used to select a
+free hole from the set of available holes. Simulations have shown that both
+first fit and best fit are more efficient than worst fit in terms of both time and
+storage utilization. Neither first fit nor best fit is clearly best in terms of storage
+utilization, but first fit is generally faster.
+
+These algorithms suffer from the problem of external fragmentation. As
+files are allocated and deleted, the free disk space is broken into little pieces.
+External fragmentation exists whenever free space is broken into chunks. It
+becomes a problem when the largest contiguous chunk is insufficient for a
+request; storage is fragmented into a number of holes, no one of which is large
+enough to store the data. Depending on the total amount of disk storage and the
+average file size, external fragmentation may be a minor or a major problem.
+
+Some older microcomputer systems used contiguous allocation on floppy
+disks. To prevent loss of significant amounts of disk space to external fragmen-
+tation, the user had to run a repacking routine that copied the entire file system
+

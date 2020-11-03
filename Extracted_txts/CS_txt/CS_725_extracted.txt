@@ -1,0 +1,58 @@
+180 canrren six Programming the Basic Computer
+
+pseudoinstruction
+
+code from Table 6-1. The secondis asymbolic address. The third symbol, which
+may or may not be present, is the letter I Iflis missing, theline denotes a direct
+address instruction. The presence of the symbol I denotes an indirect address
+instruction.
+
+‘A nor-MRI is defined as an instruction that does not have an address.
+part. A non-MRI is recognized in the instruction field of a program by any one
+Of the three-letter symbols listed in Table 6-1 for the register-reference and
+input-output instructions.
+
+The following is an illustration of the symbols that may be placed in the
+instruction field of a program
+
+CLA non—MRI
+
+ADD OPR direct address MRI
+ADDPTRI indirect address MRI
+
+The first three-letter symbol in each line must be one of the instruction symbols
+of the computer and must be listed in Table 6-1. A memory-reference instruc-
+tion, such as ADD, must be followed by a symbolic address. The letter I may
+or may not be present.
+
+‘A symbolic address in the instruction field specifies the memory location
+of an operand. This location must be defined somewhere in the program by
+appearing again as a label in the first column To be able to translate an
+assembly language program toa binary program, itis absolutely necessary that
+each symbolic address that is mentioned in the instruction field must occur
+again in the label field.
+
+A pseudoinstruction is not amachine instruction but rather an instruction
+tothe assembler giving information about some phase of the translation. Four
+pseudoinstructions that are recognized by the assembler are listed in Table 6-7.
+(Other assembly language programs recognize many more pseudoinstruc-
+tions.) The ORG (origin) pseudoinstruction informs the assembler that the
+instruction or operand in the following line is to be placed in amemory location
+specified by the number next to ORG. Itis possible to use ORG more than once
+ina program to specify more than one segment of memory. The END symbol
+
+TABLE 6-7 Definition of Pseudoinstructions
+
+ 
+
+Information for the Assembler
+
+ORGN — Hexadecimal number N is the memory location for the instruction or
+‘operand listed in the following line
+
+END _ Denotes the end of symbolic program
+
+DECN Signed decimal number N to be converted to binary
+
+HEX N_ — Hexadecimal number N to be converted to binary
+

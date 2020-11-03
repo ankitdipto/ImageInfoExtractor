@@ -1,0 +1,58 @@
+434
+
+CHAPTER ELEVEN Input-Output Organization
+
+A typical message that might be sent from a terminal to the processor is
+listed in Table 11-5. A look at this message reveals that there are a number of
+control characters used for message formation. Each character, including the
+control characters, is transmitted serially as an 8-bit binary code which consists
+of the 7-bit ASCII code plus an odd parity bit in the eighth most significant
+position. The two SYN characters are used to synchronize the receiver and
+transmitter. The heading starts with the SOH character and continues with two
+characters that specify the address of the terminal. In this particular example,
+the address is T4, but in general it can have any set of two or more graphic
+characters. The STX character terminates the heading and signifies the begin-
+ning of the text transmission. The text data of concer here is “request balance
+of account number 1234.” The individual characters for this message are not
+listed in the table because they will take too much space. It must be realized,
+however, that each character in the message has an 8-bit code and that each
+bit is transmitted serially. The ETX control character signifies the termination
+of the text characters. The next character following ETX is a longitudinal
+redundancy check (LRO. Each bit in this characteris a parity bit calculated from
+all the bits in the same column in the code section of the table.
+
+The data communication processor receives this message and proceeds
+to analyze it. It recognizes terminal T4 and stores the text associated with the
+message. While receiving the characters, the processor checks the parity in
+each character and also computes the longitudinal parity. The computed LRC
+is compared with the LRC character received, If the two match, a positive
+acknowledgment (ACK) is sent back to the terminal. If a mismatch exists, a
+
+TABLE 11-5 Typical Transmission from a Terminal to Processor
+
+ 
+
+ 
+
+ 
+
+Code ‘Symbol ‘Comments
+‘0001 0110 SYN First sync character
+(0001 0110 SYN ‘Second syne character,
+(0000 0001 SOH Start of heading
+0101 0100 T ‘Address of terminal is T4
+0011 0100 4
+(0000 0010 sTx Start of text transmission
+0101 0010
+0100 0101 request Text sent is a request to respond with the balance of
+: balance account number 1234
+of account
+. No. 1234
+4011 0011
+0011 0100
+1000 0011 ETX End of text transmission
+
+0111 0000 LRC Longitudinal parity character
+
+ 
+

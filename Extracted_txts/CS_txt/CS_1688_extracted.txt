@@ -1,0 +1,57 @@
+SECTIONS-4 Instruction Formats 259.
+
+One-Address Instructions
+
+One-address instructions use an implied accumulator (AC) register for all data
+manipulation. For multiplication and division there is a need for a second
+register. However, here we will neglect the second register and assume that
+the AC contains the result of all operations. The program to evaluate
+X= (A+ B)*(C + Djis
+
+LOAD =A AC MA]
+
+ADD Bo AC+AC + MIB]
+STORE T M[T]<AC
+LOAD = C_)— ACe MC]
+
+ADD D  ACHAC +M[D]
+MOL T ACHAC#M(T)
+STORE X M[X]~AC
+
+All operations are done between the AC register and a memory operand.
+T is the address of a temporary memory location required for storing the
+intermediate result.
+
+Zero-Address Instructions
+
+A stack organized computer does not use an address field for the instructions
+ADD and MUL. The PUSH and POP instructions, however, need an address
+field to specify the operand that communicates with the stack. The following
+program shows how X = (A + B)*(C + D) will be written for a stack-
+organized computer. (TOS stands for top of stack.)
+
+PUSH A TOS<A
+
+PUSH B TOS+B
+
+ADD TOS<(A+B)
+
+PUSH C TOS+C
+
+PUSH D TOS-D
+
+ADD TOS<(C+D)
+
+MOL TOS<(C+D)*(A+B)
+POP =X M[X]~TOS
+
+To evaluate arithmetic expressions in a stack computer, it is necessary to
+convert the expression into reverse Polish notation. The name “zero-address”
+
+is given to this type of computer because of the absence of an address field in
+the computational instructions.
+
+RISC Instructions
+The advantages of a reduced instruction set computer (RISC) architecture are
+explained in Sec. 8-8, The instruction set of atypical RISC processor isrestricted
+

@@ -1,0 +1,53 @@
+830
+
+Chapter 28 Matrix Operations
+
+B ct “1 RT
+a=(¢ p) a A =(7 y): (28.11)
+Then, if we let
+S=D-—CB'ct (28.12)
+
+be the Schur complement of A with respect to B (we shall see more about this form
+of Schur complement in Section 28.3), we have
+
+Ate R T\_ (B'+B'CTS*CB* —B'CTS“! 08.13
+“Lu vj —S'CB st (28.13)
+since AA~! = I, as you can verify by performing the matrix multiplication. Be-
+
+cause A is symmetric and positive-definite, Lemmas 28.4 and 28.5 in Section 28.3
+imply that B and S are both symmetric and positive-definite. By Lemma 28.3 in
+Section 28.3, therefore, the inverses B~! and S~! exist, and by Exercise D.2-6,
+B-! and S~ are symmetric, so that (B~!)™ = Bo and (S~!)? = S~!. There-
+fore, we can compute the submatrices R, T, U, and V of A7! as follows, where
+all matrices mentioned are n/2 x n/2:
+
+1. Form the submatrices B, C, CT, and D of A.
+
+2. Recursively compute the inverse B~! of B.
+
+3. Compute the matrix product W = CB™', and then compute its transpose W7,
+which equals B~!C™ (by Exercise D.1-2 and (B~!)? = Bo).
+
+4. Compute the matrix product ¥ = WC, which equals CB~'C’, and then
+compute the matrix § = D —X = D—CB™'!C’.
+
+5. Recursively compute the inverse S~! of S, and set V to S7!.
+
+6. Compute the matrix product Y = S~'W, which equals S~'CB™!, and
+then compute its transpose YT, which equals B-'CTS~! (by Exercise D.1-2,
+(B")? = Bo, and (S~!)™ = S~). Set T to—Y™ and U to—Y.
+
+7. Compute the matrix product Z = WTY, which equals B~'C™S~!'CB™, and
+set Rto Bo! + Z.
+
+Thus, we can invert an 7 xn symmetric positive-definite matrix by inverting two
+n/2xn/2 matrices in steps 2 and 5; performing four multiplications of n/2 x n/2
+matrices in steps 3, 4, 6, and 7; plus an additional cost of O(n?) for extracting
+submatrices from A, inserting submatrices into A~!, and performing a constant
+number of additions, subtractions, and transposes on n/2 x n/2 matrices. We get
+the recurrence
+
+I(n) << 21(n/2) + 4M(n/2) + O(n?)
+= 21(n/2) + O(M(n))
+= O(M(n)).
+

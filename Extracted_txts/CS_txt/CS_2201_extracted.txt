@@ -1,0 +1,67 @@
+Section 10.2.
+
+Indexing, Retrieval, and Unification 303
+
+two expressions simultaneously, building up a unifier as it goes along but failing if it ever finds
+two corresponding points in the structures that do not match. Unfortunately, it has one expensive
+step. The occur-check takes time linear in the size of the expression being checked, and is
+done for each variable found. It makes the time complexity of the algorithm O(n*)in the size
+of the expressions being unified. Later we will see how to make this algorithm more efficient
+by eliminating the need for explicit representations of substitutions. On page 308, we see how
+unification can be extended to handle more information besides equality.
+
+ 
+
+function UNIFY(x, y) returns a substitution to make x and y identical, if possible
+
+UNIFY-INTERNAL(x, y, { }).
+
+ 
+
+function UNiFy-INTERNAL(x, y, 9) returns a substitution to make.x and y identical (given 9)
+inputs: x, a variable, constant, list, or compound
+y, a variable, constant, list, or compound
+9, the substitution built up so far
+
+if 9 = failure then return failure
+else ifx =y then return #
+else if VARIABLE?(x) then return UNIFY-VAR(x, 9)
+else if VARIABLE?(y) then return UNIFY-VAR(y,x, 0)
+else if COMPOUND Xx) and COMPOUND (y) then
+ret UNIFY-INTERNAL(ARGS[x], ARGSLy], UNIFY-INTERNAL(OP[x], Op[y],9)
+else if List?(x) and List?(y} then
+return UNIFY-INTERNAL(REST[X], REST[y], UNIFY-INTERNAL(FIRST[x], FirsT{y], @))
+else return failure
+function UNIFY-VAR(var, x, 9) returns a substitution
+inputs: var, a variable
+x, any expression
+9, the substitution built up so far
+
+if {varlval} € 9
+then return UNIFY-INTERNAL(val, x, 6)
+
+else if {x/val} € 9
+then return UNIFY-INTERNAL(var, val, 9)
+
+else if var occurs anywhere in x /* occur-check *I
+then return failure
+
+else return add {x/var}to #
+
+ 
+
+ 
+
+Figure 10.3 The unification algorithm. The algorithm works by comparing the structures of
+the inputs, element by element. The substitution 9 that is the argument to UNIFY-INTERNAL is
+built up along the way, and used to make sure that later comparisons are consistent with bindings
+that were established earlier.
+
+ 
+
+ 
+
+ 
+
+       
+

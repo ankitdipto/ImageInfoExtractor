@@ -1,0 +1,91 @@
+Section 10.2.
+
+Indexing, Retrieval, and Unification 301
+
+ 
+
+TREE BASED
+INDEXING
+
+‘COMBINED INDEXING
+
+ 
+
+ 
+
+ 
+
+Key Positive Negative Conclusion Premise
+
+Brother || Brother(Richard,John) | ~Brother(Ann,Sam) | Brother(x,y) A Male(y) | Brother(x,y) A Male(y)
+Brother(Ted, Jack) => Brother(y,x) => Brother(y.x)
+Brother(Jack, Bobbie) Brother(x.y) => Male(x)
+
+Male Male(Jack) =Male(Ann) Brother(x,y) =» Male(x)| Brother(1,y) A Male(y)
+Male(Ted) - => Brotherty.x)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 10.1 — Table-based indexing for a collection of logical sentences.
+
+ 
+
+ 
+
+ 
+
+Because in first-order logic the predicate is always fixed in a query, the simple device of
+dividing up the knowledge base by predicate reduces the cost of fetching considerably. But why
+stop withjust the predicate?
+
+ 
+
+Tree-based indexing
+
+Table-based indexing is ideal when there are many predicate symbols and a few clauses for each
+symbol. But in some applications, there are many clauses for a given predicate symbol. For
+example, in a knowledge base for the U.S. Census Bureau that uses social security numbers to
+represent people, the query Brother(012-34-5678, x) would require a search through millions of
+Brother literals.
+
+To make this search efficient, we need to index on the arguments as well as on the predicate
+symbols themselves. One way to do this is to change the table entry for Brother so that each
+entry is itself a table, indexed by the first argument, rather than just a list. So to answer the
+query Brother(0 12-34-5678,x), we first look in the predicate table under Brother, and then look
+in that entry under 012-34-5678. Both table lookups take a small constant amount of time, so
+the complete FETCH is efficient. We can view the process of searching for a matching literal as
+a walk down a tree, where the branch at each point is dictated by the symbol at the appropriate
+point in the query sentence (Figure 10.2).
+
+Tree-based indexing is one form of combined indexing, in that it essentially makes a
+combined key out of the sequence of predicate and argument symbols in the query. Unfortunately,
+it provides little help when one of the symbols in the sequence is a variable, because every branch
+has to be followed in that case. Suppose our census knowledge base has a predicate Taxp
+with four arguments: a person, a zip code, a net income to the nearest thousand, and the number
+of dependents, for example:
+
+Taxpayer(012-34-5678, 02138, 32000, 10)
+Suppose we were interested in finding all the people in zip code 02138 with exactly 10dependents:
+FETCH(Taxpayer(p, 02138, i, 10))
+
+There are tens of thousands of people with that zip code, and hundreds of thousands of people in
+the country with 10 dependents, but there are probably only a few people that match both criteria
+To find those people without undue effort, we need a combined index based on both the second
+and fourth argument. If we are to deal with every possible set of variable positions, we will need
+
+ 
+
+ 
+

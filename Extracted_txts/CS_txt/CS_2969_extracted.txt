@@ -1,0 +1,51 @@
+486
+
+Chapter 18 B-Trees
+
+from the spindle. When a given head is stationary, the surface that passes under-
+neath it is called a track. Multiple platters increase only the disk drive’s capacity
+and not its performance.
+
+Although disks are cheaper and have higher capacity than main memory, they are
+much, much slower because they have moving mechanical parts.! The mechanical
+motion has two components: platter rotation and arm movement. As of this writing,
+commodity disks rotate at speeds of 5400—15,000 revolutions per minute (RPM).
+We typically see 15,000 RPM speeds in server-grade drives, 7200 RPM speeds
+in drives for desktops, and 5400 RPM speeds in drives for laptops. Although
+7200 RPM may seem fast, one rotation takes 8.33 milliseconds, which is over 5
+orders of magnitude longer than the 50 nanosecond access times (more or less)
+commonly found for silicon memory. In other words, if we have to wait a full rota-
+tion for a particular item to come under the read/write head, we could access main
+memory more than 100,000 times during that span. On average we have to wait
+for only half a rotation, but still, the difference in access times for silicon memory
+compared with disks is enormous. Moving the arms also takes some time. As of
+this writing, average access times for commodity disks are in the range of 8 to 11
+milliseconds.
+
+In order to amortize the time spent waiting for mechanical movements, disks
+access not just one item but several at a time. Information is divided into a number
+of equal-sized pages of bits that appear consecutively within tracks, and each disk
+read or write is of one or more entire pages. For a typical disk, a page might be 2!
+to 2! bytes in length. Once the read/write head is positioned correctly and the disk
+has rotated to the beginning of the desired page, reading or writing a magnetic disk
+is entirely electronic (aside from the rotation of the disk), and the disk can quickly
+read or write large amounts of data.
+
+Often, accessing a page of information and reading it from a disk takes longer
+than examining all the information read. For this reason, in this chapter we shall
+look separately at the two principal components of the running time:
+
+* the number of disk accesses, and
+* the CPU (computing) time.
+
+We measure the number of disk accesses in terms of the number of pages of infor-
+mation that need to be read from or written to the disk. We note that disk-access
+time is not constant—it depends on the distance between the current track and
+the desired track and also on the initial rotational position of the disk. We shall
+
+ 
+
+As of this writing, solid-state drives have recently come onto the consumer market, Although they
+are faster than mechanical disk drives, they cost more per gigabyte and have lower capacities than
+mechanical disk drives.
+

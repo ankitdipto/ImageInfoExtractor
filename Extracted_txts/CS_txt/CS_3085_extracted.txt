@@ -1,0 +1,68 @@
+48 Chapter 2. Intelligent Agents
+
+ 
+
+ 
+
+procedure RUN-ENVIRONMENT( state, UPDATE-FN, agents, termination)
+inputs: stare, the initial state of the environment
+UPDATE-FN, function to modify the environment
+agents, a set of agents ,
+termination, a predicate to test when we are done
+
+. repeat
+for each agent in agents do
+PERCEPT[agent]— GET-PERCEPT(agent,state)
+end
+for each agent in agents do
+ACTION[agent) — PROGRAM{[agent\(PERCEPT[agent})
+end
+state — UpDATE-FN(actions, agents, state)
+until termination(state)
+
+ 
+
+ 
+
+Figure 2.14 The basic environment simulator program. It gives each agent its percept, gets an
+action from each agent, and then updates the environment.
+
+ 
+
+ 
+
+function RUN-EVAL-ENVIRONMENT(state, UPDATE-IN, agents,
+termination, PERFORMANCE-FN) returns scores
+local variables: scores, a vector the same size as agents, all 0
+
+repeat
+for each agent in agents do
+PERcEPT[agent]— GET-PERCEPT(agent, state)
+end
+for each agentin agents do
+AcTION[agent] — PROGRAM[agent|(PERCEPTlagent])
+end
+state — UPDATE-FN(actions, agents, state)
+scores — PERFORMANCE-FN(scores, agents, state)
+until fermination(state)
+return scores I* change */
+
+ 
+
+ 
+
+Figure 2.15 An environment simulator program that keeps track of the performance measure
+for each agent.
+
+ 
+
+ 
+
+ 
+
+works by a simple accumulation using either summation, averaging, or taking a maximum. For jj
+example, if the performance measure for a vacuum-cleaning agent is the total amount of dirt ]
+cleaned ina shift, scores will just keep track of how much dirt has been cleaned up so far.
+RUN-EVAL-ENVIRONMENT returns the performance measure for a a single environment,
+- defined by a single initial state and a particular update function. Usually, an agent is designed to
+

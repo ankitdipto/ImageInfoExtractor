@@ -1,0 +1,66 @@
+56
+
+Chapter 3. Solving Problems by Searching
+
+ 
+
+GOAL FORMULATION
+
+PROBLEM
+FORMULATION
+
+SEARCH
+SOLUTION
+
+Imagine our agent in the city of Arad, Romania, toward the end of a touring holiday. The
+agent has a ticket to fly out of Bucharest the following day. The ticket is nonrefundable, the
+agent's visa is about to expire, and after tomozrow, there are no seats available for six weeks. Now
+the agent's performance measure contains many other factors besides the cost of the ticket and
+the.undesirability of being arrested aqd deported. For example, it wants to improve its suntan,
+improve its Romanian, take in the sights, and so on. All these factors might suggest any ofa vast
+array of possible actions. Given the seriousness of the situation, however, it should adopt the
+goal of driving to Bucharest. Actions that result in a failure to reach Bucharest on time can be
+rejected without further consideration. Goals such as this help organize behavior by limiting the
+objectives that the agent is trying to achieve. Goal formulation, based on the current situation,
+is the first step in problem solving. As well as formulating a goal, the agent may wish to decide
+on some other factors that affect the desirability of different ways of achieving the goal.
+
+For the purposes of this chapter, we will consider a goal to be a set of world states—just
+those states in which the goal is satisfied. Actions can be viewed as causing transitions between
+world states, so obviously the agent has to find out which actions will get it to a goal state. Before
+it can do this, it needs to decide what sorts of actions and states to consider. Ifit were to try
+to consider actions at the level of "move the left foot forward 18 inches" or "turn the steering
+wheel six degrees left," it would never find its way out of the parking lot, let alone to Bucharest,
+because constructing a solution at that level of detail would be an intractable problem. Problem
+formulation is the process of deciding what actions and states to consider, and follows goal
+formulation. We will discuss this process in more detail. For now, let us assume that the agent
+will consider actions at the level of driving from one major town to another. The states it will
+consider therefore correspond to being in a particular town.!
+
+Our agent has now adopted the goal of driving to Bucharest, and is considering which town
+to drive to from Arad. There are three roads out of Arad, one toward Sibiu, one to Timisoara,
+and one to Zerind. None of these achieves the goal, so unless the agent is very familiar with the
+geography of Romania, it will not know which road to follow.” In other words, the agent will not J
+know which of its possible actions is best, because it does not know enough about the state that
+results from taking each action. Ifthe agent has no additional knowledge, then it is stuck. The
+best it can do is choose one of the actions at random.
+
+But suppose the agent has a map of Romania, either on paper or in its memory. The point ]
+of a map is to provide the agent with information about the states it might get itself into, and
+the actions it can take. The agent can use this information to consider subsequent stages of a
+hypothetical journey through each of the three towns, to try to find ajourney that eventually gets
+to Bucharest. Once it has found a path on the map from Arad to Bucharest, it can achieve its goal
+by carrying out the driving actions that correspond to the legs of the journey. In general, then, an
+agent with several immediate options of unknown value can decide what to do by first examining
+different possible sequences of actions that lead to states of known value, and then choosing the
+best one. This process of looking for such a sequence is called search. A search algorithm takes
+a problem as input and returns a solution in the form of an action sequence. Once a solution is
+
+1 Notice that these states actually correspond to large sets of world states, because a world state specifies every aspect
+ofreality. It is important to keep in ming the distinction between states in problem solving and world states
+
+2 We are assuming that most readers are in the same position, and can easily imagine themselves as clueless as our
+agent. We apologize to Romanian readers who are unable to take advantage of this pedagogical device
+
+fw
+

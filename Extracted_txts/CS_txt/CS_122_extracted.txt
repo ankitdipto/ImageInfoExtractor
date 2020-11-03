@@ -1,0 +1,45 @@
+26.4 Push-relabel algorithms 739
+
+PusH(u, v)
+// Applies when: u is overflowing, cf (u,v) > 0, and uh = v.h + 1.
+// Action: Push Ay(u,v) = min(u.e, cy (u,v) units of flow from u to v.
+Ayu, v) = min(u.e, c¢(u,v))
+if(u,v)eE
+(u,v). = Qt v).f + Aplev)
+else (v.u).f = (v,u).f — Ayu. v)
+u.e = u.e—Af(u.v)
+vie = v.e+A;f(u,v)
+
+CIDARWNH
+
+The code for PUSH operates as follows. Because vertex u has a positive excess u.e
+and the residual capacity of (uw, v) is positive, we can increase the flow from u to v
+by Ay(u,v) = min(w.e, cf (wu, v)) without causing u.e to become negative or the
+capacity c(u, v) to be exceeded. Line 3 computes the value Ay(u, v), and lines 4-6
+update f. Line 5 increases the flow on edge (u,v), because we are pushing flow
+over a residual edge that is also an original edge. Line 6 decreases the flow on
+edge (v,u), because the residual edge is actually the reverse of an edge in the
+original network. Finally, lines 7-8 update the excess flows into vertices u and v.
+Thus, if f is a preflow before PUSH is called, it remains a preflow afterward.
+
+Observe that nothing in the code for PUSH depends on the heights of u and v,
+yet we prohibit it from being invoked unless u.h = v.h + 1. Thus, we push excess
+flow downhill only by a height differential of 1. By Lemma 26.12, no residual
+edges exist between two vertices whose heights differ by more than 1, and thus,
+as long as the attribute / is indeed a height function, we would gain nothing by
+allowing flow to be pushed downhill by a height differential of more than 1.
+
+We call the operation PUSH(u, v) a push from u to v. If a push operation ap-
+plies to some edge (u,v) leaving a vertex u, we also say that the push operation
+applies to u. It is a saturating push if edge (u,v) in the residual network becomes
+saturated (cf (u,v) = 0 afterward); otherwise, it is a nonsaturating push. If an
+edge becomes saturated, it disappears from the residual network. A simple lemma
+characterizes one result of a nonsaturating push.
+
+Lemma 26.13
+After a nonsaturating push from u to v, the vertex u is no longer overflowing.
+
+Proof Since the push was nonsaturating, the amount of flow A;(u, v) actually
+pushed must equal w.e prior to the push. Since u.e is reduced by this amount, it
+becomes 0 after the push. .
+

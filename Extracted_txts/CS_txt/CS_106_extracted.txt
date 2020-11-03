@@ -1,0 +1,27 @@
+26.2. The Ford-Fulkerson method 727
+
+ 
+
+Figure 26.6, continued (f) The residual network at the last while loop test. It has no augmenting
+paths, and the flow f shown in (e) is therefore a maximum flow, The value of the maximum flow
+found is 23.
+
+The Edmonds-Karp algorithm
+
+We can improve the bound on FORD-FULKERSON by finding the augmenting
+path p in line 3 with a breadth-first search. That is, we choose the augmenting
+path as a shortest path from s to f in the residual network, where each edge has
+unit distance (weight). We call the Ford-Fulkerson method so implemented the
+Edmonds-Karp algorithm. We now prove that the Edmonds-Karp algorithm runs
+in O(VE7) time.
+
+The analysis depends on the distances to vertices in the residual network Gy.
+The following lemma uses the notation 5¢(u.v) for the shortest-path distance
+from u to v in Gy, where each edge has unit distance.
+
+Lemma 26.7
+
+If the Edmonds-Karp algorithm is run on a flow network G = (V, E) with source 5
+and sink f, then for all vertices v € V — {s,f}, the shortest-path distance 5r(s, v)
+in the residual network Gy increases monotonically with each flow augmentation.
+

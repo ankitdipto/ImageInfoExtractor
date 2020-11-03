@@ -1,0 +1,56 @@
+31.5 The Chinese remainder theorem 951
+
+for arbitrary integers k. The “Chinese remainder theorem” provides a correspon-
+dence between a system of equations modulo a set of pairwise relatively prime
+moduli (for example, 3, 5, and 7) and an equation modulo their product (for exam-
+ple, 105).
+
+The Chinese remainder theorem has two major applications. Let the inte-
+ger n be factored as n = n,Nz---nx, where the factors nj; are pairwise relatively
+prime. First, the Chinese remainder theorem is a descriptive “structure theorem”
+that describes the structure of Z, as identical to that of the Cartesian product
+Zn, X Zn, X +++ X Zp, with componentwise addition and multiplication modulo 1;
+in the ith component. Second, this description helps us to design efficient algo-
+rithms, since working in each of the systems Z,,, can be more efficient (in terms of
+bit operations) than working modulo n.
+
+Theorem 31.27 (Chinese remainder theorem)
+Let n = 1,Mz-+--nx, where the n; are pairwise relatively prime. Consider the
+correspondence
+
+a (d1,42,..., ak). (31.27)
+where a € Zn, a; € Zp,, and
+
+a; =a mod n;
+
+fori =1,2,..., k. Then, mapping (31.27) is a one-to-one correspondence (bijec-
+tion) between Z,, and the Cartesian product Z,, x Zn, X-++ x Zn,,. Operations per-
+formed on the elements of Z,, can be equivalently performed on the corresponding
+
+k-tuples by performing the operations independently in each coordinate position in
+the appropriate system. That is, if
+
+ 
+
+a = (G1,42,..., ak).
+
+b <> (bi.b2...., by).
+
+then
+
+(a+b) modn <= ((a,; +b1) mod m,..., (ae + b¢) mod ng) , (31.28)
+(a—b)modn <= ((a;—b,) modny,..., (ax — be) mod ng) , (31.29)
+(ab) mod n < (a,b; mod n,..., axby mod ng) . (31.30)
+
+Proof Transforming between the two representations is fairly straightforward.
+Going from a to (a;.d2..... dx) is quite easy and requires only k “mod” opera-
+tions.
+
+Computing a from inputs (a;.42.....d,) is a bit more complicated. We begin
+by defining m; = n/n; fori = 1,2,...,k; thus m; is the product of all of the n;’s
+other than nj: mj; = \N2-++Nj—1Nj 41 +++ Nz. We next define
+
+ 
+
+ 
+

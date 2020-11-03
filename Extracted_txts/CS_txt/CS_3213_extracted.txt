@@ -1,0 +1,70 @@
+574
+
+Chapter 19. Learning in Neural and Belief Networks
+
+ 
+
+LINEARLY
+
+| ‘SEPARABLE,
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Wi O; LOW °
+Input Output Input Output
+Units Units Units Unit
+Perceptron Network Single Perceptron
+
+ 
+
+ 
+
+Figure 19.8 Perceptrons.
+
+ 
+
+ 
+
+ 
+
+The perceptron, with 1 unit and 7 weights, gives a much more compact representation of this
+function. In accordance with Ockham’s razor, we would expect the perceptron to do a much
+better job of learning a majority function, as we will soon see.
+
+Unfortunately, it turns out that perceptrons are severely limited in the Boolean functions
+they can represent. The problem is that any input /j can only influence the final output in one
+direction, no matter what the other input values are. Consider some input vector a. Suppose that
+this vector has a; = 0 and that the vector produces a 0 as output. Furthermore, suppose that when
+a; is replaced with 1, the output changes to 1. This implies that Wj must be positive. It also
+implies that there can be no input vector b for which the output is 1 when hj = 0, but the output is
+0 when Jj is replaced with 1. Because this limitation applies to each input, the result is a severe
+limitation in the total number of functions that can be represented. For example, the perceptron
+is unable to represent the function for deciding whether or not to wait for a table at a restaurant
+(shown as a decision tree in Figure 18.4).
+
+A little geometry helps make clear what is going on. Figure 19.9 shows three different
+Boolean functions oftwo inputs, the AND, OR, and XOR functions. Each function is represented
+as a two-dimensional plot, based on the values of the two inputs. Black dots indicate a point
+in the input space where the value of the function is 1, and white dots indicate a point where
+the value is 0. As we will explain shortly, a perceptron can represent a function only if there is
+some line that separates all the white dots from the black dots. Such functions are called linearly
+separable. Thus, a perceptron can represent AND and OR, but not XOR.
+
+ 
+

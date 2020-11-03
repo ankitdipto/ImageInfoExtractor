@@ -1,0 +1,58 @@
+190
+
+Chapter 7. First-Order Logic
+
+ 
+
+VARIABLE
+
+GROUND TERM
+
+To express this particular rule, we will use unary predicates Cat and Mammal, thus, "Spot is a
+cat" is represented by Car(Spor)and "Spot is a mammal" by Mammal(Spot).In English, what
+we want to say is that for any object.x, ifx is a cat then x is a mammal. First-order logic lets us
+do this as follows: ~~ a
+
+Vx Cat(x) => Mammal(x)’
+
+V is usually pronounced "For all ...”, Remember that the upside-down A stands for "all" You
+can think of a sentence Vx P, where P is any logical expression, as being equivalent to the
+conjunction (ie., the A) of all the sentences obtained by substituting the name of an object for
+the variable x wherever it appears in P. The preceding sentence is therefore equivalent to
+
+Cat(Spot)=> Mammal(Spot)A
+Cat(Rebecca) => Mammal(Rebecca) A
+Cat(Felix)= Mammal(Felix)A
+Cat(Richard) = Mamumal(Richard) A
+Cat(John)= Mammal(John) A
+
+Thus, it is true if and only if all these sentences are true, that is, if P is true for all objects x in the
+universe. Hence V is called a universal quantifier.
+
+We use the convention that all variables start with a lowercase letter, and that all constant,
+predicate, and function symbols are capitalized. A variable is a term all by itself, and as such can
+also serve as the argument of a function, for example, ChildOf(x).A term with no variables is
+called a ground term.
+
+It is worth looking carefully at the conjunction of sentences given before. If Spot, Rebecca,
+and Felix are known to be cats, then the first three conjuncts allow us to conclude that they are
+mammals. But what about the next two conjuncts, which appear to make claims about King John
+and Richard the Lionheart? Is that part of the meaning of "all cats are mammals"? In fact, these
+conjuncts are true, but make no claim whatsoever about the mammalian qualifications of John
+and Richard. This is because Cat(Richard) and Cat(John)are (presumably) false. Looking at
+the truth table for => (Figure 6.9), we see that the whole sentence is true whenever the left-hand
+side of the implication is false—regardless of the truth of the right-hand side. Thus, by asserting
+the universally quantified sentence, which is equivalent to asserting a whole list of individual
+implication sentences, we end up asserting the right-hand side of the rulejust for those individuals
+for whom the left-hand side is true, and saying nothing at all about those individuals for whom
+the left-hand side is false. Thus, the truth-table entries for = turn out to be perfect for writing
+general rules with universal quantifiers.
+
+It is tempting to think that the presence of the condition Cat(x) on the left-hand side of the
+implication means that somehow the universal quantifier ranges only over cats. This is perhaps
+helpful but not technically correct. Again, the universal quantification makes a statement about
+everything. but it does not make any claim about whether non-cats are mammals or not. On the
+other hand, if we tried to express “all cats are mammals" using the sentence
+
+Vx Cat(x) A Mammal(x)
+

@@ -1,0 +1,55 @@
+482
+
+(CHAPTERTWELVE Memory Organization
+
+12-24(b) shows that pages Zand 4 of segment 6have been referenced previously
+and therefore their corresponding block numbers are stored in the associative
+memory.
+
+From this example it should be evident that the memory management
+system can assign any number of pages to each segment. Each logical page can
+be mapped into any block in physical memory. Pages can move to different
+blocks in memory depending on memory space requirements. The only updat-
+ing required is the change of the block number in the page table. Segments can
+grow or shrink independently without affecting each other. Different seg-
+ments can use the same block of memory if it is required to share a program
+by many users. For example, block number 12 in physical memory can be
+assigned asecond logical address F0000 through FOOFF. This specifies segment
+number 15 and page 0, which maps to block 12 as shown in Fig. 12-24(a).
+
+Memory Protection
+
+Memory protection can be assigned to the physical address or the logical
+address. The protection of memory through the physical address can be done
+by assigning to each block in memory a number of protection bits that indicate
+the type of access allowed to its corresponding block. Every time a page is
+moved from one block to another it would be necessary to update the block
+protection bits A much better place to apply protectionis in the logical address
+space rather than the physical address space. This can be done by including
+protection information within the segment table or segment register of the
+memory management hardware.
+
+The content of each entry in the segment table or a segment register is
+called a descriptor. A typical descriptor would contain, in addition to a base
+address field, one or two additional fields for protection purposes. A typical
+format for a segment descriptor is shown in Fig. 12-25. The base address field
+gives the base of the page table address in a segmented-page organization or
+the block base address in a segment register organization. This is the address
+used in mapping from a logical to the physical address. The length field gives
+the segment size by specifying the maximum number of pages assigned to the
+segment. The length field is compared against the page number in the logical
+address. A size violation occurs if the page number falls outside the segment
+length boundary. Thusa given program andits data cannot access memory not
+assigned to it by the operating system.
+
+The protection field in a segment descriptor specifies the access rights
+available to the particular segment. In a segmented-page organization, each
+
+ 
+
+Figure 12-25 Format of a typical segment descriptor.
+
+Base address Length _| Protection
+
+ 
+

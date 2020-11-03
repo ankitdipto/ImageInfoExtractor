@@ -1,0 +1,53 @@
+366 © curren res Computer Arithmetic
+
+TABLE 10-4 Derivation of BCD Adder
+
+ 
+
+Binary Sum BCD Sum
+
+K & & & 2 C S& Ss $2 S Decimal
+o 0 0 0 0 0 0 0 0 0 0
+o 0 0 0 1 0 0 0 0 1 1
+o 0 o 1 0 0 0 60 1 0 2
+o 0 0 1 1 0 6 oO 1 1 3
+o o 1 0 0 0 0 1 0 0 4
+o 0 1 0 1 0 0 1 0 1 5
+o 0 1 1 0 0 0 1 1 0 6
+oo 4 4 t 0 Oo 1 2 1 7
+o 1 0 0 0 0 1 0 0 0 8
+o 1 0 0 1 0 1 0 0 14 9
+o 1 0 1 0 1 0 0 © 0 0
+o 1 0 1 1 1 0 0 0 1 n
+o 1 1 0 O 1 0 0 1 0 2
+o 1 1 0 1 1 0 O 1 1 B
+o 1 1 1 0 1 0 1 0 0 4
+o 1 a a ro 1 0 1 0 1 15
+1 0 0 o 0 1 0 1 1 0 16
+1 0 0 0 2 1 0 1 4 4 7
+1 0 0 1 0 t 1 0 0 0 1B
+1 0 0 2 2 1 1 0 0 1 19
+
+and therefore no conversion is needed. When the binary sum is greater than
+1001, we obtain anonvalid BCD representation. The addition of binary 6 (0110)
+to the binary sum converts it to the correct BCD representation and also
+produces an output-carry as required.
+
+‘One method of adding decimal numbers in BCD would be to employ one
+4-bit binary adder and perform the arithmetic operation one digit at atime. The
+low-order pair of BCD digitsis first added to produce a binary sum. If the result
+is equal or greater than 1010, it is corrected by adding 0110 to the binary sum.
+This second operation willautomatically produce an output-carry for the next
+pair of significant digits. The next higher-order pair of digits, together with the
+input-carry, is then added to produce their binary sum. If this result is equal
+to or greater than 1010, it is corrected by adding 0110. The procedure is
+repeated until all decimal digits are added.
+
+Thelogiccircuit that detects the necessary correction can be derived from
+the table entries. It is obvious that a correction is needed when the binary sum
+‘has an output carry K = 1 The other six combinations from 1010 to 1111 that
+need a correction have a 1 in position Zs. To distinguish them from binary 1000
+and 1001 which also havea 1 in position Zs, we specify further that either Z,
+
+ 
+

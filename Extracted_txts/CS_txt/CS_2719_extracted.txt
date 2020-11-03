@@ -1,0 +1,62 @@
+Problems for Chapter 11 283
+
+11-2 Slot-size bound for chaining
+
+Suppose that we have a hash table with 7 slots, with collisions resolved by chain-
+ing, and suppose that 7 keys are inserted into the table. Each key is equally likely
+to be hashed to each slot. Let M be the maximum number of keys in any slot after
+all the keys have been inserted. Your mission is to prove an O(lgn/ lg lgm) upper
+bound on E[M], the expected value of M.
+
+a. Argue that the probability Q, that exactly k keys hash to a particular slot is
+
+given by
+
+1)‘ 1\"* (n
+o(SO-Y")
+n n k
+b. Let Py be the probability that M = k, that is, the probability that the slot
+containing the most keys contains k keys. Show that Py <n Qx.
+
+c. Use Stirling’s approximation, equation (3.18), to show that Ox < e*/k*.
+
+d. Show that there exists a constant c > 1 such that Og, < 1/n? for ky =
+clgn/lglgn. Conclude that Py < 1/n? fork > ky = clgn/Igign.
+
+e. Argue that
+
+ 
+
+ 
+
+ 
+
+le
+IM) <r > erst |-n-+Pr|M <
+
+elgn clgn
+Igign ~ Igign
+
+‘Tgign
+Conclude that E[M] = O(lgn/ lg lgn).
+
+11-3 Quadratic probing
+
+Suppose that we are given a key k to search for in a hash table with positions
+O.1...., m —1, and suppose that we have a hash function /: mapping the key space
+into the set {0,1,..., m— 1}. The search scheme is as follows:
+
+1. Compute the value j = h(k), and seti = 0.
+
+2. Probe in position j for the desired key k. If you find it, or if this position is
+empty, terminate the search.
+
+3. Seti = i +1. Ifi now equals m, the table is full, so terminate the search.
+Otherwise, set 7 = (i + j) mod m, and return to step 2.
+
+Assume that m is a power of 2.
+a. Show that this scheme is an instance of the general “quadratic probing” scheme
+by exhibiting the appropriate constants c; and cz for equation (11.5).
+
+b. Prove that this algorithm examines every table position in the worst case.
+

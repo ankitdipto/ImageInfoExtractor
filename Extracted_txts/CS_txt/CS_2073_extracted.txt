@@ -1,0 +1,100 @@
+ 
+
+504 Chapter14 Mass-Storage Structure
+
+map
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+512K 812K 512K TK
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 14.7 4.3 BSD text-segment swap map.
+
+The data-segment swap map is more complicated, because the data seg-
+ment can grow over time. The map is of fixed size, but contains swap addresses
+for blocks of varying size. Given index i, a block pointed to by swap-map entry
+iis of size 2' x 16 KB, to a maximum of 2 MB. This data structure is shown
+in Figure 14.8. (The block size minimum and maximum are variable, and can
+be changed at system reboot.) When a process tries to grow its data segment
+beyond the final allocated block in its swap area, the operating system allocates
+another block, twice as large as the previous one. This scheme results in small
+processes using only small blocks. It also minimizes fragmentation. The blocks
+of large processes can be found quickly, and the swap map remains small.
+
+In Solaris 1 (SunOS 4), the designers made changes to standard UNIX meth-
+ods to improve efficiency and reflect technological changes. When a process
+executes, text-segment pages are brought in from the file system, accessed in
+main memory, and thrown away if selected for pageout. It is more efficient to
+reread a page from the file system than to write it to swap space and then to
+reread it from there.
+
+More changes were made in Solaris 2. The biggest change is that Solaris 2
+allocates swap space only when a page is forced out of physical memory, rather
+than when the virtual-memory page is first created. This change gives better
+performance on modern computers, which have more physical memory than
+older systems and tend to page less.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+16K 32k |128k fo 256K
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 14.8 4.3 BSD data-segment swap map.
+

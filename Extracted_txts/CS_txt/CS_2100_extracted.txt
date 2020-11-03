@@ -1,0 +1,57 @@
+ 
+
+14.9 Summary 527
+
+Disk-scheduling algorithms can improve the effective bandwidth, the aver-
+age response time, and the variance in response time. Algorithms such as SSTF,
+SCAN, C-SCAN, LOOK, and C-LOOK are designed to make such improvements
+by strategies for disk-queue ordering.
+
+Performance can be harmed by external fragmentation. Some systems
+have utilities that scan the file system to identify fragmented files; they then
+move blocks around to decrease the fragmentation. Defragmenting a badly
+fragmented file system can significantly improve the performance, but the sys-
+tem may have reduced performance while the defragmentation is in progress.
+Sophisticated file systems, such as the UNIX Fast File System, incorporate many
+strategies to control fragmentation during space allocation, so that disk reorga-
+nization is not needed.
+
+The operating system manages the disk blocks. First, a disk must be low-
+level formatted to create the sectors on the raw hardware—new disks usually
+come pre-formatted. Then, the disk is partitioned and file systems created, and
+boot blocks are allocated to store the system’s bootstrap program. Finally, when
+a block is corrupted, the system must have a way to lock out that block, or to
+replace it logically with a spare.
+
+Because an efficient swap space is a key to good performance, systems
+usually bypass the file system and use raw disk access for paging 1/O. Some
+systems dedicate a raw disk partition to swap space, and others use a file within
+the file system instead. Other systems allow the user or system administrator
+to make the decision by providing both options.
+
+The write-ahead log scheme requires the availability of stable storage.
+To implement such storage, we need to replicate the needed information on
+multiple nonvolatile storage devices (usually disks) with independent failure
+modes. We also need to update the information in a controlled manner to
+ensure that we can recover the stable data after any failure during data transfer
+or recovery.
+
+Because of the amount of storage required on large systems, disks are
+frequently made redundant via RAID algorithms. These algorithms allow more
+than one disk to be used for a given operation, and allow continued operation
+and even automatic recovery in the face of a disk failure. RAID algorithms are
+organized into different levels where each level provides some combination of
+teliablity and high transfer rates.
+
+Disks may be attached to a computer system one of two ways: (1) using the
+local I/O ports on the host computer or (2) using a network connection such as
+storage area networks.
+
+Tertiary storage is built from disk and tape drives that use removable
+media. Many different technologies are available, including magnetic tape,
+removable magnetic and magneto-optic disks, and optical disks.
+
+For removable disks, the operating system generally provides the full
+services of a file-system interface, including space management and request-
+queue scheduling. For many operating systems, the name of a file on a
+

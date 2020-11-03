@@ -1,0 +1,48 @@
+3.3 System Calls 69
+
+terminate and stay resident system call. For instance, it can hook the
+clock interrupt by placing the address of one of its subroutines into the list of
+interrupt routines to be called when the system timer is triggered. This way,
+the TSR routine will be executed several times per second, at each clock tick.
+The terminate and stay resident system call causes MS-DOS to reserve
+the space occupied by the TSR, so it will not be overwritten when the command
+interpreter is reloaded.
+
+FreeBSD is an example of a multitasking system. When a user logs on to
+the system, the shell (or command interpreter) of the user’s choice is run. This
+shell is similar to the MS-DOS shell in that it accepts commands and executes
+programs that the user requests. However, since FreeBSD is a multitasking
+system, the command interpreter may continue running while another program
+is executed (Figure 3.4). To start a new process, the shell executes a fork
+system call. Then, the selected program is loaded into memory via an exec
+system call, and the program is then executed. Depending on the way the
+command is issued, the shell then either waits for the process to finish, or
+runs the process “in the background.” In the latter case, the shell immediately
+requests another command. When a process is running in the background, it
+cannot receive input directly from the keyboard, because the shell is using this
+resource. I/O is therefore done through files, or through a window-and-menu
+interface. Meanwhile, the user is free to ask the shell to run other programs, to
+monitor the progress of the running process, to change that program’s priority,
+and so on. When the process is done, it executes an exit system call to
+terminate, returning to the invoking process a status code of 0, or a nonzero
+error code. This status (or error) code is then available to the shell or other
+programs. Processes are discussed in Chapter 4.
+
+ 
+
+"process D
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 3.4 UNIX running multiple programs.
+

@@ -1,0 +1,49 @@
+Notes for Chapter 31 983
+
+greatest common divisor, as well as other basic number-theoretic algorithms. Bach
+[30] and Riesel [295] provide more recent surveys of computational number the-
+ory. Dixon [91] gives an overview of factorization and primality testing. The
+conference proceedings edited by Pomerance [280] contains several excellent sur-
+vey articles. More recently, Bach and Shallit [31] have provided an exceptional
+overview of the basics of computational number theory.
+
+Knuth [210] discusses the origin of Euclid’s algorithm. It appears in Book 7,
+Propositions 1 and 2, of the Greek mathematician Euclid’s Elements, which was
+written around 300 B.c. Euclid’s description may have been derived from an al-
+gorithm due to Eudoxus around 375 B.C. Euclid’s algorithm may hold the honor
+of being the oldest nontrivial algorithm; it is rivaled only by an algorithm for mul-
+tiplication known to the ancient Egyptians. Shallit [312] chronicles the history of
+the analysis of Euclid’s algorithm.
+
+Knuth attributes a special case of the Chinese remainder theorem (Theo-
+rem 31.27) to the Chinese mathematician Sun-Tsti, who lived sometime between
+200 B.C. and A.D. 200—the date is quite uncertain. The same special case was
+given by the Greek mathematician Nichomachus around A.D. 100. It was gener-
+alized by Chhin Chiu-Shao in 1247. The Chinese remainder theorem was finally
+stated and proved in its full generality by L. Euler in 1734.
+
+The randomized primality-testing algorithm presented here is due to Miller [255]
+and Rabin [289]; it is the fastest randomized primality-testing algorithm known,
+to within constant factors. The proof of Theorem 31.39 is a slight adaptation of
+one suggested by Bach [29]. A proof of a stronger result for MILLER-RABIN
+was given by Monier [258, 259]. For many years primality-testing was the classic
+example of a problem where randomization appeared to be necessary to obtain
+an efficient (polynomial-time) algorithm. In 2002, however, Agrawal, Kayal, and
+Saxema [4] surprised everyone with their deterministic polynomial-time primality-
+testing algorithm. Until then, the fastest deterministic primality testing algorithm
+known, due to Cohen and Lenstra [73], ran in time (Ig 2)¢2!*"=”) on input n, which
+is just slightly superpolynomial. Nonetheless, for practical purposes randomized
+primality-testing algorithms remain more efficient and are preferred.
+
+The problem of finding large “random” primes is nicely discussed in an article
+by Beauchemin, Brassard, Crépeau, Goutier, and Pomerance [36].
+
+The concept of a public-key cryptosystem is due to Diffie and Hellman [87].
+The RSA cryptosystem was proposed in 1977 by Rivest, Shamir, and Adleman
+[296]. Since then, the field of cryptography has blossomed. Our understanding
+of the RSA cryptosystem has deepened, and modern implementations use signif-
+icant refinements of the basic techniques presented here. In addition, many new
+techniques have been developed for proving cryptosystems to be secure. For ex-
+ample, Goldwasser and Micali [142] show that randomization can be an effective
+tool in the design of secure public-key encryption schemes. For signature schemes,
+

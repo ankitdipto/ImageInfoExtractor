@@ -1,0 +1,64 @@
+SECTION 65 Program Loops 191
+
+TABLE 6-13 Symbolic Program to Add 100 Numbers
+
+ 
+
+ 
+
+Line
+
+1 ORG 100 /Origin of program is HEX 100
+2 LDA ADS Load first address of operands
+3 STAPTR Store in pointer
+
+4 LDANBR — /Loadminus 100
+
+5 STACTR Store in counter
+
+6 CLA /Clear accumulator
+
+7 LOP, ADD PTRI _/Add an operand to AC
+
+8 ISZPTR Increment pointer
+
+9 ISZCTR Increment counter
+10 BUNLOP Repeat loop again
+
+1 STASUM ‘Store sum
+
+2 HLT Malt
+
+13 ADS, HEX 150 _—_/First address of operands
+
+14 PTR, =~ HEXO ‘This location reserved for a pointer
+15 NBR, DEC ~100 —_/Constant to initialized counter
+16 CIR, HEXO ‘This location reserved for a counter
+7 SUM, —HEX0 ‘Sum is stored here
+
+18 ORG 150 /Origin of operands is HEX 150
+19 DEC 75 MFirst operand
+
+18 DEC 23 MLast operand
+119 END FEnd of symbolic program
+
+lines 2 through 5 and the constants in lines 13 through 16. The address of the
+first operand (150) is stored in location ADS in line 12 The number of times
+that Fortran statement number 3 must be executed is 100. So —100 is stored in
+location NBR. The compiler then generates the instructions in lines 2 through
+5 to initialize the program loop. The address of the first operand is transferred
+to location PTR. This corresponds to setting A()) to A(1). The number —100 is
+then transferred to location CTR. This locationactsas a counter with its content
+incremented by one every time the program loop is executed. When the value
+of the counter reaches zero, the 100 operations will be completed and the
+program will exit from the loop.
+
+Some compilers will translate the statement SUM = 0 into a machine
+instruction that initializes location SUM to zero. A reference to this location is
+then made every time Fortran statement number 3 is executed. A more intel-
+ligent compiler will realize that the sum can be formed in the accumulator and
+only the final result stored in location SUM. This compiler will produce an
+instruction in line 6 to clear the AC. It will also reserve a memory location
+
+ 
+

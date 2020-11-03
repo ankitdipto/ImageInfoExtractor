@@ -1,0 +1,44 @@
+26.2. The Ford-Fulkerson method 719
+
+where the second line follows because (f ¢ f’)(w, x) is 0 if (w,x) ¢ E. We now
+apply the definition of f ¢ f’ to equation (26.5), and then reorder and group terms
+to obtain
+
+lft fil
+= VF.) + £6.) = £0.39) — PF O.8) + #0.) = £9)
+vey, veV,
+= Vfont+ Vow-Y so.)
+vevi vey veVi
+— YE fe.) - YF .9) + YO fv)
+vera veV> vEev>
+= Yfow->Y fos)
+vey, veV2
++ VE FoM+ DY OMY £O.9)-— YO £5)
+veV, veV; veV, veV;
+= Vifow-Vfesy+ YI few- Y f'.5). 266)
+veV, vEeV, veV,UV> veV| UVa
+
+In equation (26.6), we can extend all four summations to sum over V, since each
+additional term has value 0. (Exercise 26.2-1 asks you to prove this formally.) We
+
+thus have
+Ifthl = Vfow-Y fo.9y+ Ve row- PFs) 6.7)
+veV veV veV veV
+= Ifl+if'- .
+Augmenting paths
+
+Given a flow network G = (V,£) and a flow f, an augmenting path p is a
+simple path from s to f in the residual network Gy. By the definition of the resid-
+ual network, we may increase the flow on an edge (u,v) of an augmenting path
+by up to c¢(u, v) without violating the capacity constraint on whichever of (u,v)
+and (v, 1) is in the original flow network G.
+
+The shaded path in Figure 26.4(b) is an augmenting path. Treating the residual
+network G+ in the figure as a flow network, we can increase the flow through each
+edge of this path by up to 4 units without violating a capacity constraint, since the
+smallest residual capacity on this path is cf (v2, v3) = 4. We call the maximum
+amount by which we can increase the flow on each edge in an augmenting path p
+the residual capacity of p, given by
+
+cf(p) = min {cf (u,v) : (u,v) is on p} «
+

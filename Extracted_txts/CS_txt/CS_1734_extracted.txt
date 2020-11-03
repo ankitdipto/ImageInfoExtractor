@@ -1,0 +1,49 @@
+222 Chapter7 Process Synchronization
+
+R.acquire(t) ;
+access the resource;
+R.release();
+
+where R is an instance of type ResourceAllocation.
+Unfortunately, the monitor concept cannot guarantee that the preceding
+access sequences will be observed. In particular,
+
+A process might access the resource without first gaining access permission
+to that resource.
+
+« A process might never release the resource once it has been granted access
+to that resource.
+
+« A process might attempt to release a resource that it never requested.
+
+A process might request the same resource twice (without first releasing
+that resource).
+
+The same difficulties are encountered with the critical section construct, and
+these difficulties are similar in nature to those that encouraged us to develop
+the critical-region and monitor constructs in the first place. Previously, we had
+to worry about the correct use of semaphores. Now, we have to worry about
+the correct use of higher-level programmer-defined operations, with which the
+compiler can no longer assist us.
+
+One possible solution to the above problem is to include the resource-
+access operations within the ResourceAllocation monitor. However, this
+solution will result in scheduling being done according to the built-in monitor-
+scheduling algorithm, rather than by the one we have coded.
+
+To ensure that the processes observe the appropriate sequences, we must
+inspect all the programs that make use of the ResourceAllocation monitor
+and its managed resource. There are two conditions that we must check to
+establish the correctness of this system. First, user processes must always make
+their calls on the monitor in a correct sequence. Second, we must be sure that
+an uncooperative process does not simply ignore the mutual-exclusion gateway
+provided by the monitor and try to access the shared resource directly, without
+using the access protocols. Only if these two conditions can be ensured can
+we guarantee that no time-dependent errors will occur, and that the scheduling
+algorithm will not be defeated.
+
+Although this inspection may be possible for a small, static system, it is
+not reasonable for a large system or for a dynamic system. This access-control
+problem can be solved only by additional mechanisms that will be elaborated
+in Chapter 18.
+

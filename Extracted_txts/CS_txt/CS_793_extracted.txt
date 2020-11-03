@@ -1,0 +1,45 @@
+146 Let Us C
+
+ 
+
+one of the reasons that programs become unreliable, unreadable,
+and hard to debug. And yet many programmers find goto
+seductive.
+
+In a difficult programming situation it seems so easy to use a goto
+to take the control where you want. However, almost always, there
+is a more elegant way of writing the same program using if, for,
+while and switch. These constructs are far more logical and easy
+to understand.
+
+The big problem with gotos is that when we do use them we can
+never be sure how we got to a certain point in our code. They
+obscure the flow of control. So as far as possible skip them. You
+can always get the job done without them. Trust me, with good
+programming skills goto can always be avoided. This is the first
+and last time that we are going to use goto in this book. However,
+for sake of completeness of the book, the following program
+shows how to use goto.
+
+main()
+{
+int goals ;
+
+printf ("Enter the number of goals scored against India" ) ;
+scanf ("%d", &goals ) ;
+
+if (goals <= 5)
+goto sos ;
+
+else
+
+{
+printf ( "About time soccer players learnt C\n" ) ;
+printf (“and said goodbye! adieu! to soccer” ) ;
+exit( ) ; /* terminates program execution */
+
+}
+
+Sos:
+printf ("To err is human!” ) ;
+

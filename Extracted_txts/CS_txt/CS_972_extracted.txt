@@ -1,0 +1,38 @@
+Chapter 8: Arrays 291
+
+ 
+
+int stud[4][2] = {
+{ 1234, 56 },
+{1212, 33},
+{ 1434, 80},
+{ 1312, 78}
+hi
+or even this would work...
+int stud[4][2] = { 1234, 56, 1212, 33, 1434, 80, 1312, 78};
+
+of course with a corresponding loss in readability.
+
+It is important to remember that while initializing a 2-D array it is
+necessary to mention the second (column) dimension, whereas the
+first dimension (row) is optional.
+
+Thus the declarations,
+
+int arr[2][3] = (12, 34, 23, 45, 56, 45};
+int arr{ ][3] = { 12, 34, 23, 45, 56, 45};
+
+are perfectly acceptable,
+whereas,
+
+int arr[2][] = { 12, 34, 23, 45, 56, 45};
+int ar{][] = { 12, 34, 23, 45, 56, 45};
+
+would never work.
+
+Memory Map of a 2-Dimensional Array
+
+Let us reiterate the arrangement of array elements in a two-
+dimensional array of students, which contains roll nos. in one
+column and the marks in the other.
+

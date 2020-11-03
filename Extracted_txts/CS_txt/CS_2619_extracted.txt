@@ -1,0 +1,46 @@
+202
+
+Chapter 8 Sorting in Linear Time
+
+To analyze the cost of the calls to insertion sort, let n; be the random variable
+denoting the number of elements placed in bucket B[/]. Since insertion sort runs
+in quadratic time (see Section 2.2), the running time of bucket sort is
+
+nal
+Tin) = O(n) + S00).
+i=0
+
+We now analyze the average-case running time of bucket sort, by computing the
+expected value of the running time, where we take the expectation over the input
+distribution. Taking expectations of both sides and using linearity of expectation,
+we have
+
+nol
+E[T(@)] = E [ew +0 ow]
+i=0
+nal
+= O(n)+ > E [0@?)] (by linearity of expectation)
+i=0
+nol
+
+= O(n) + >> 0 (E[n?]) (by equation (C.22)) . (8.1)
+
+i=0
+We claim that
+E[n7]=2-1/n (8.2)
+
+fori = 0,1,..., —1. It is no surprise that each bucket i has the same value of
+E [n?], since each value in the input array A is equally likely to fall in any bucket.
+To prove equation (8.2), we define indicator random variables
+
+ 
+
+Xi; = 1{A[/] falls in bucket i}
+fori =0,1,..., n—landj =1,2,..., n. Thus,
+
+n
+ne= YX; .
+j=l
+
+To compute E [n?], we expand the square and regroup terms:
+

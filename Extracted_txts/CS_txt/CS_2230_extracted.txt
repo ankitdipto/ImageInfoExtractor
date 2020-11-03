@@ -1,0 +1,65 @@
+10 command
+
+control command
+
+status
+
+output data
+
+input data
+
+SECTION 11-2 Input-Output Interface 387
+
+selected responds to the function codeand proceeds to executeit. The function
+code is referred to as an I/O command and is in essence an instruction that is
+executed in the interface and its attached peripheral unit The interpretation
+of the command depends on the peripheral that the processor is addressing.
+There are four types of commands that an interface may receive. They are
+classified as control, status, data output, and data input.
+
+‘Acontrolcommandis issued to activate the peripheral and toinform it what
+to do. For example, a magnetic tape unit may be instructed to backspace the
+tape by one record, to rewind the tape, or to start the tape moving in the
+forward direction. The particular control command issued depends on the
+peripheral, and each peripheral receives its own distinguished sequence of
+control commands, depending on its mode of operation.
+
+A status command is used to test various status conditions in the interface
+and the peripheral. For example, the computer may wish to check the status
+of the peripheralbeforea transfer is initiated. During the transfer, one or more
+errors may occur which are detected by the interface. These errors are desi
+nated by setting bits in a status register that the processor can read at certain
+intervals.
+
+‘A data out put command causes the interface to respond by transferring data
+from the bus into one of its registers. Consider an example with a tape unit.
+The computer starts the tape moving by issuing a control command. The
+processor then monitors the status of the tape by means of a status command.
+‘When the tape is in the correct position, the processor issues a data output
+command. The interface responds to the address and command and transfers
+the information from the data lines in the bus to its buffer register. The interface
+then communicates with the tape controller and sends the data to be stored
+on tape.
+
+Phe datainputcommand isthe ‘opposite of the data output. In this case the
+interface receives an item of data from the peripheral and places it in its buffer
+register. The processor checks if data are available by means of a status com-
+mand and then issues a data input command. The interface places the data on
+the data lines, where they are accepted by the processor.
+
+ 
+
+V/O versus Memory Bus
+
+Inaddition to communicating with /O, the processor must communicate with
+the memory unit. Like the /O bus, the memory bus contains data, address,
+and read/write control lines. There are three ways that computer buses can be
+used to communicate with memory and LO:
+
+1. Use two separate buses, one for memory and the other for /O.
+
+2. Use one common bus for both memory and /O but have separate
+control lines for each. .
+
+3. Use one common bus for memory and /O with common control lines.
+

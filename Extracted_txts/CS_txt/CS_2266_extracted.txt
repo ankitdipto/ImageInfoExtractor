@@ -1,0 +1,61 @@
+commands
+
+SECTION 11-7 Input-Output Processor 421
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+oma
+eno wan a Peripheral devies
+om TE ® © © ©
+prota (OP Tobe
+
+ 
+
+ 
+
+ 
+
+Figure 11-19 Block diagram of a computer with VO processor.
+
+The data formats of peripheral devices differ from memory and CPU data
+formats. The IOP must structure data words from many different sources. For
+example, it may be necessary to take four bytes from an input device and pack
+them into one 32-bit word before the transfer to memory. Data are gathered
+in the IOP at the device rate and bit capacity while the CPU is executing its own
+Program. After the input data are assembled into a memory word, they are
+transferred from IOP directly into memory by “stealing” one memory cycle
+from the CPU. Similarly, an output word transferred from memory to the IOP
+is directed from the IOP to the output device at the device rate and bit capacity.
+
+The communication between the IOP and the devices attached to it is
+similar to the program control method of transfer. Communication with the
+memory is similar to the direct memory access method. The way by which the
+CPU and IOP communicate depends on the level of sophistication included in
+the system. In very-large-scale computers, each processor is independent of
+all others and any one processor can initiate an operation. In most computer
+systems, the CPU is the master while the IOP is a slave processor. The CPU
+is assigned the task of initiating all operations, but /Oinstructions are executed
+in the IOP. CPUinstructions provide operations to start an [/O transferand also
+to test /O status conditions needed for making decisions on various /O
+activities. The IOP, in tum, typically asks for CPU attention by means of an
+interrupt. It also responds to CPU requests by placing a status word in a
+prescribed location in memory to be examined later by a CPU program. When
+an U/O operation is desired, the CPU informs the IOP where to find the JO
+Program and then leaves the transfer details to the IOP.
+
+Instructions that are read from memory by an IOP are sometimes called
+commands, to distinguish them from instructions that are read by the CPU.
+Otherwise, an instruction and a command have similar functions. Commands
+are prepared by experienced programmers and are stored in memory. The
+command words constitutethe program for the IOP. The CPUinforms the IOP
+where to find the commands in memory when it is time to execute the /O
+program.
+

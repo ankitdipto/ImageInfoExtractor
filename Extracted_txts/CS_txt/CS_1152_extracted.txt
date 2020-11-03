@@ -1,0 +1,40 @@
+Chapter 12: File Input/Output 437
+
+ 
+
+Text versus Binary Mode: Storage of Numbers
+
+The only function that is available for storing numbers in a disk
+file is the fprintf( ) function. It is important to understand how
+numerical data is stored on the disk by fprintf( ). Text and
+characters are stored one character per byte, as we would expect.
+Are numbers stored as they are in memory, two bytes for an
+integer, four bytes for a float, and so on? No.
+
+Numbers are stored as strings of characters. Thus, 1234, even
+though it occupies two bytes in memory, when transferred to the
+disk using fprintf( ), would occupy four bytes, one byte per
+character. Similarly, the floating-point number 1234.56 would
+occupy 7 bytes on disk. Thus, numbers with more digits would
+require more disk space.
+
+Hence if large amount of numerical data is to be stored in a disk
+file, using text mode may turn out to be inefficient. The solution is
+to open the file in binary mode and use those functions (fread( )
+and fwrite( ) which are discussed later) which store the numbers in
+binary format. It means each number would occupy same number
+of bytes on disk as it occupies in memory.
+
+Record I/O Revisited
+
+The record I/O program that we did in an earlier section has two
+disadvantages:
+
+(a) The numbers (basic salary) would occupy more number of
+bytes, since the file has been opened in text mode. This is
+because when the file is opened in text mode, each number is
+stored as a character string.
+
+(b) If the number of fields in the structure increase (say, by
+adding address, house rent allowance etc.), writing structures
+

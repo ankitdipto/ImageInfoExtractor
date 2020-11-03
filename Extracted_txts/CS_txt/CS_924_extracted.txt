@@ -1,0 +1,70 @@
+  
+
+Chapter 7. First-Order Logic
+
+ 
+
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+   
+   
+ 
+ 
+ 
+ 
+ 
+ 
+   
+   
+
+0 Function symbols: Cosine. FatherOf, LeftLegOf...
+Some relations are functional—that is, any given object is related to exactly one other
+object by the relation. For example, any angle has only one number that is its cosine; any
+person has only one person that is his or her father. In such cases, itis often more convenient
+to define a function symbol (¢.g., Cosine) that refers to the appropriate relation between
+angles and numbers. In the model, the mapping is just a set ofn + 1-tuples with a special
+property, namely, that the last element of each tuple is the value of the function for the
+first n elements, and each combination of the first n elements appears in exactly one tuple.
+A table of cosines is just such a set of tuples—for each possible angle of interest, it gives
+the cosine of the angle. Unlike predicate symbols, which are. used to state that relations
+hold among certain objects, function symbols are used to refer to particular objects wi ithout
+using their names,-as-we will see In the next section.
+
+The choice of constant, predicate, and function symbols is entirely up to the user. A mathematician
+might want to use + and Cosine, a composer Crescendo and F-sharp. The names do not matter
+from a formal point of view, but it enhances readability if the intended interpretation of the
+symbols is clear. We return to this point in Section 8.1.
+
+Terms
+
+A term is a logical expression that refers to an object. Constant symbols are therefore terms.
+Sometimes, it is more convenient to use an expression to refer to an object. For example,
+in English we might use the expression "King John's left leg" rather than giving a name to
+his leg. This is what function symbols are for: instead of using a constant symbol, we use
+LeftLegOfJohn). In the general case, a complex term is formed by a function symbol followed
+by a parenthesized list of terms as arguments to the function symbol. It is important to remember
+that a complex tem is just a complicated kind ofname. It is not a "subroutine call" that "retums
+a value." There is no LeftLegOfsubroutine that takes a person as input and returns a leg. We can
+reason about left legs (e.g., stating the general rule that everyone has one and then deducing that
+John must have one) without ever providing a definition of LefiLegOf This is something that
+cannot be done with subroutines in programming languages.
+The formal semantics of terms is straightforward. An interpretation specifies a functional
+relation referred to by the function symbol, and objects referred to by the terms that are its
+arguments. Thus, the whole tem refers to the object that appears as the (n+1)-th entry in that
+tuple in the relation whose first n elements are the objects referred to by the arguments. Thus,
+the LeftLegOf function symbol might refer to the following functional relation:
+
+{ (King John, King John’s left leg),
+(Richard the Lionheart, Richard's left leg) }
+
+and if King John refers to King John, then LefiLegO<KingJohn) refers, according to the relation,
+to King John's left leg.
+

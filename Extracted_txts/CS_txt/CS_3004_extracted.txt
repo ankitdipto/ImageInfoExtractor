@@ -1,0 +1,60 @@
+384
+
+Chapter 12. Practical Planning
+
+ 
+
+have Bag(x) or ~Bag(x)as an effect. With this semantics of objects in mind, we can extend the
+syntax of preconditions and effects by allowing the form
+
+Vx T@) = CQ)
+
+where Tis a unary type predicate onx, and C is a condition involving x. The finite, static, typed
+universe means that we can always expand this form into an equivalent conjunctive expression
+with no quantifiers:
+
+MX T(x) => C(x) = Cy) A... A CQn)
+where.x,,... ,x, are the objects in the initial state that satisfy 7(x). Here is an example:
+
+Initial State: Bag(B) A Milk(M,)A Milk(M2)A Milk(M3)
+
+Expression: = Vx Milk(x) = In(x,B)
+
+Expansion: — /n(M),B) A In(M2,B) A In(M3, B)
+In our planner, we will expand universally quantified goals to eliminate the quantifier. This can
+be inefficient because it can lead to large conjunctions that need to be satisfied, but there is no
+general solution that does any better.
+
+For universally quantified effects, we are better off. We do not need to expand out the effect
+because we may not care about many of the resulting conjuncts. Instead we leave the universally °
+quantified effect as it is, but make sure that RESOLVE-THREATS can notice that a universally
+quantified effect is a threat and that CHOOSE-OPERATOR can notice when a universally quantified
+effect can be used as a causal link.
+
+Some domains are dynamic in that objects are created or destroyed, or change their type
+over time. Plans in which objects are first made, then used, seem quite natural. Our insistence
+on a static set of objects might seem to make it impossible to handle such domains. In fact,
+we can often finesse the problem by specifying broad static types in the universally quantified |
+expressions and using additional dynamic unary predicates to make finer discriminations. In
+particular, we can use the dynamic predicate to distinguish between potential and actual objects.
+We begin with a supply of non-Actual objects, and object creation is handled by operators that
+make objects Actual. Suppose that in the house-building domain there are two possible sites for
+the house. In the initial state we could include House(H,)A House(H2),where we take House to
+mean that its argument is a possible house: something that might exist in some points of some §
+plans, but not in others. In the initial state neither Actual(H,) nor Actual(Hz) holds, but that
+can change: the Build(x) operator has Actual(x) as an effect, and the Demolish(x) operator has
+—Actual(x)as an effect. 4
+
+If there were an infinite number of possible houses (orjust a million), then this approach
+would not work. But objects that can potentially exist in large, undifferentiated quantities can
+often be treated as resources, which are covered in the next section.
+
+A planner for expressive operator descriptions
+
+We now combine all the extensions to create our POP-DUNC algorithm. Because the top level
+of POP-DUNC is identical to that of POP (Figure 11.13), we will not repeat it here. Figure 12.8
+shows the parts of POP-DUNC that differ from the original. SELECT-SUB-GOAL is modified to
+expand out universally quantified preconditions and to choose one of two possible ways to satisfy
+
+ 
+

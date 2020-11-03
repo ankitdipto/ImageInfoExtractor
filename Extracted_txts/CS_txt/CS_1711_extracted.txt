@@ -1,0 +1,52 @@
+7.4 Semaphores 203
+
+by a wakeup operation, which changes the process from the waiting state to
+the ready state. The process is then placed in the ready queue. (The CPU may
+or may not be switched from the running process to the newly ready process,
+depending on the CPU-scheduling algorithm.)
+
+To implement semaphores under this definition, we define a semaphore as
+a“C” struct:
+
+typedef struct {
+
+int value;
+
+struct process *L;
+} semaphore;
+
+Each semaphore has an integer value and a list of processes. When a process
+must wait on a semaphore, it is added to the list of processes. A signal
+operation removes one process from the list of waiting processes and awakens
+that process.
+
+The wait semaphore operation can now be defined as
+
+void wait(semaphore S) {
+S.value--;
+if (S.value < 0) {
+add this process to S.L;
+block () ;
+
+}
+The signal semaphore operation can now be defined as
+
+void signal(semaphore S) {
+S.valuet+;
+if (S.value <= 0) {
+remove a process P from S.L;
+wakeup (P) ;
+
+}
+
+The block operation suspends the process that invokes it. The wakeup (P)
+operation resumes the execution of a blocked process P. These two operations
+are provided by the operating system as basic system calls.
+
+Note that, although under the classical definition of semaphores with busy
+waiting the semaphore value is never negative, this implementation may have
+negative semaphore values. If the semaphore value is negative, its magnitude
+is the number of processes waiting on that semaphore. This fact is a result of
+
+ 
+

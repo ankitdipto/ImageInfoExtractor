@@ -1,0 +1,71 @@
+  
+
+Section 18.4.
+
+Using Information Theory 541
+
+ 
+
+INFORMATION GAIN
+
+This is just the average information content of the various events (the — log, P terms) weighted
+by the probabilities of the events. To check this equation, for the tossing of a fair coin we get
+
+(2, t\_} 1, YL pit
+
+\2'2) 2! See 22
+Ifthe coin is loaded to give 99% heads we get / (1/100, 99/100) = 0.08 bits, and as the probability
+of heads goes to 1, the information of the actual answer goes to 0.
+
+For decision tree learning, the question that needs answering is: for a given example, what
+is the correct classification? A correct decision tree will answer this question. An estimate of
+the probabilities of the possible answers before any of the attributes have been tested is given
+by the proportions of positive and negative examples in the training set. Suppose the training
+set contains p positive examples and n negative examples. Then an estimate of the information
+contained in a correct answer is
+
+pce 2 \ PR
+
+n n
+—— log, ——
+\ptn ptn ptn to, pin en
+
+For the restaurant training set shown in Figure 18.5, we have p = n = 6, so we need 1 bit of
+information.
+
+Now a test ona single attribute.A will not usually tell us this much information, but it will
+give us some of it. We can measure exactly how much by looking at how much information we
+still need after the attribute test. Any attribute A divides the training set Z into subsets F),..., E,
+according to their values for, where A can have v distinct values. Each subset F; has p; positive
+examples and n; negative examples, so if we go along that branch we will need an additional
+/ (lpi + nj), nj/(p; + nj) bits of information to answer the question. A random example has the
+ith value for the attribute with probability (p;+ j)/(p +n), so on average, after testing attribute A,
+we will need
+
+Remainder(A) - Vor (ao ni )
+
+Ptr PitNe PitN;
+bits of information to classify the example. The information gain from the attribute test is
+defined as the difference between the original information requirement and the new requirement:
+
+Gain(Ay= 1 (-P—
+ptn'pt
+and the heuristic used in the CHoosE-ATTRIBUTE function is just to choose the attribute with the
+largest gain.
+
+Looking at the attributes Patrons and Type and their classifying power, as shown in Fig-
+ure 18.6, we have
+
+ 
+
+)- - Remainder(A)
+
+= f2 6, 72 4\1 .
+Gain(Patrons) = 1 “ir 10, nes ill 0)+ ia Ne o/) % 0.541 bits
+
+. 2 11 2 til 4 22 4/22 .
+Gainey -| 5 (5. 3)* pp (5 i) ta (Ga) +B! (§-3)] <ovi
+
+In fact, Patrons has the highest gain of any of the attributes and would be chosen by the decision-
+tree learning algorithm as the root.
+

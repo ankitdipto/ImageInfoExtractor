@@ -1,0 +1,41 @@
+12.9 NFS 443
+
+local
+
+dirl
+
+(b)
+
+ 
+
+Figure 12.15 Mounting in NFS. (a) Mounts. (b) Cascading mounts.
+
+The figure shows the result of mounting $2:/usr/dir2 over U:/usr/local/dirl, which
+is already remotely mounted from S7. Users can access files within dir2 on
+U using the prefix /usr/local/dirl. If a shared file system is mounted over a
+user’s home directories on all machines in a network, a user can log in to
+any workstation and get his home environment. This property permits user
+mobility.
+
+One of the design goals of NFS was to operate in a heterogeneous envi-
+ronment of different machines, operating systems, and network architectures.
+The NES specification is independent of these media and thus encourages other
+implementations. This independence is achieved through the use of RPC prim-
+itives built on top of an External Data Representation (XDR) protocol used
+between two implementation-independent interfaces. Hence, if the system con-
+sists of heterogeneous machines and file systems that are properly interfaced to
+NES, file systems of different types can be mounted both locally and remotely.
+
+The NFS specification distinguishes between the services provided by a
+mount mechanism and the actual remote-file-access services. Accordingly,
+two separate protocols are specified for these services: a mount protocol,
+and a protocol for remote file accesses, the NFS protocol. The protocols are
+specified as sets of RPCs. These RPCs are the building blocks used to implement
+transparent remote file access.
+
+12.9.2 The Mount Protocol
+
+The mount protocol establishes the initial logical connection between a server
+and a client. In Sun’s implementation, each machine has a server process,
+outside the kernel, performing the protocol functions.
+

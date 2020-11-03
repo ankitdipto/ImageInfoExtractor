@@ -1,0 +1,110 @@
+176 Chapter6 CPU Scheduling
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+performance
+simulation tum Statistics
+for FCFS
+FCFS
+CPU 10
+VO 213
+actual CPU 12 performance
+process bump /O 112 oa simulation imp Statistics
+execution cPU 2 for SUF
+vo 147 SUF
+CPUI73
+trace tape
+performance
+‘simulation jmp — statistics
+for RR(q= 14)
+RR(g= 14)
+
+ 
+
+ 
+
+ 
+
+Figure 6.9 Evaluation of CPU schedulers by simulation.
+
+A distribution-driven simulation may be inaccurate, however, due to rela-
+tionships between successive events in the real system. The frequency distribu-
+tion indicates only how many of each event occur; it does not indicate anything
+about the order of their occurrence. To correct this problem, we can use trace
+tapes. We create a trace tape by monitoring the real system, recording the
+sequence of actual events (Figure 6.9). This sequence is then used to drive the
+simulation. Trace tapes provide an excellent way to compare two algorithms on
+exactly the same set of real inputs. This method can produce accurate results
+for its inputs.
+
+Simulations can be expensive, however, often requiring hours of computer
+time. A more detailed simulation provides more accurate results, but also
+requires more computer time. In addition, trace tapes can require large amounts
+of storage space. Finally, the design, coding, and debugging of the simulator
+can be a major task.
+
+6.6.4 Implementation
+
+Even a simulation is of limited accuracy. The only completely accurate way to
+evaluate a scheduling algorithm is to code it, put it in the operating system, and
+see how it works. This approach puts the actual algorithm in the real system
+for evaluation under real operating conditions.
+

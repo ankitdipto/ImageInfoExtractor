@@ -1,0 +1,41 @@
+Chapter 21: More Linux Programming 681
+
+ 
+
+third parameters specify the height and the width of the
+window respectively.
+
+(f) Display the window on the screen using the function
+gtk_widget_show().
+
+(g) Wait in a loop to receive events for the window. This can be
+accomplished using the gtk_main() function.
+
+How about another program that draws a few shapes in the
+window? Here is the program...
+
+I" myshapes.c */
+# include <gtk/gtk.h>
+
+int expose_event ( GtkWidget “widget, GdkEventExpose “event )
+{
+GdkGC* p;
+GdkPoint arr [ 5] = { 250, 150, 250, 300, 300, 350, 400, 300, 320, 190};
+
+Pp = gdk_gc_new (widget -> window) ;
+gdk_draw_line ( widget -> window, p, 10, 10, 200, 10) ;
+gdk_draw_rectangle ( widget -> window, p, TRUE, 10, 20, 200, 100) ;
+gdk_draw_arc ( widget -> window, p, TRUE, 200, 10, 200, 200,
+
+2880, -2880°2 ) ;
+gdk_draw_polygon ( widget -> window, p, TRUE , arr, 5);
+gdk_gc_unref(p);
+
+return TRUE ;
+}
+
+int main(int argc, char *argv[ ] )
+GtkWidget “p ;
+
+gtk_init ( &argc, &argy ) ;
+

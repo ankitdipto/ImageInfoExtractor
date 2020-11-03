@@ -1,0 +1,54 @@
+360
+
+Chapter 15 Dynamic Programming
+
+rods of smaller length in way that maximizes their total value. Section 15.2 asks
+how we can multiply a chain of matrices while performing the fewest total scalar
+multiplications. Given these examples of dynamic programming, Section 15.3 dis-
+cusses two key characteristics that a problem must have for dynamic programming
+to be a viable solution technique. Section 15.4 then shows how to find the longest
+common subsequence of two sequences via dynamic programming. Finally, Sec-
+tion 15.5 uses dynamic programming to construct binary search trees that are opti-
+mal, given a known distribution of keys to be looked up.
+
+ 
+
+15.1 Rod cutting
+
+Our first example uses dynamic programming to solve a simple problem in decid-
+ing where to cut steel rods. Serling Enterprises buys long steel rods and cuts them
+into shorter rods, which it then sells. Each cut is free. The management of Serling
+Enterprises wants to know the best way to cut up the rods.
+
+We assume that we know, fori = 1,2,..., the price p; in dollars that Serling
+Enterprises charges for a rod of length i inches. Rod lengths are always an integral
+number of inches. Figure 15.1 gives a sample price table.
+
+The rod-cutting problem is the following. Given a rod of length n inches and a
+table of prices p; fori = 1,2, n, determine the maximum revenue 1, obtain-
+able by cutting up the rod and selling the pieces. Note that if the price p, for a rod
+of length n is large enough, an optimal solution may require no cutting at all.
+
+Consider the case when n = 4. Figure 15.2 shows all the ways to cut up a rod
+of 4 inches in length, including the way with no cuts at all. We see that cutting a
+4-inch rod into two 2-inch pieces produces revenue p2 + p2 = 5 +5 = 10, which
+is optimal.
+
+We can cut up a rod of length n in 2”~! different ways, since we have an in-
+dependent option of cutting, or not cutting, at distance 7 inches from the left end,
+
+ 
+
+ 
+
+length i
+price pj | 158
+
+10
+30
+
+ 
+
+Figure 15.1 A sample price table for rods. Each rod of length i inches earns the company pj
+dollars of revenue.
+

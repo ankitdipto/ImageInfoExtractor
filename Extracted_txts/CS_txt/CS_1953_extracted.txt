@@ -1,0 +1,49 @@
+11.6 Protection 403
+
+Other operations, such as renaming, copying, or editing the file, may also
+be controlled. For many systems, however, these higher-level functions may
+be implemented by a system program that makes lower-level system calls.
+Protection is provided at only the lower level. For instance, copying a file may
+be implemented simply by a sequence of read requests. In this case, a user with
+read access can also cause the file to be copied, printed, and so on.
+
+Many protection mechanisms have been proposed. Each scheme has
+advantages and disadvantages and must be appropriate for its intended appli-
+cation. A small computer system that is used by only a few members of a
+research group may not need the same types of protection as will a large cor-
+porate computer that is used for research, finance, and personnel operations. A
+complete treatment of the protection problem is deferred to Chapter 18.
+
+11.6.2 Access Control
+
+The most common approach to the protection problem is to make access depen-
+dent on the identity of the user. Various users may need different types of access
+toa file or directory. The most general scheme to implement identity-dependent
+access is to associate with each file and directory an access-control list (ACL)
+specifying the user name and the types of access allowed for each user. When a
+user requests access to a particular file, the operating system checks the access
+list associated with that file. If that user is listed for the requested access, the
+access is allowed. Otherwise, a protection violation occurs, and the user job is
+denied access to the file.
+
+This approach has the advantage of enabling complex access methodolo-
+gies. The main problem with access lists is their length. If we want to allow
+everyone to read a file, we must list all users with read access. This technique
+has two undesirable consequences:
+
+¢ Constructing such a list may be a tedious and unrewarding task, especially
+if we do not know in advance the list of users in the system.
+
+* The directory entry, previously of fixed size, now needs to be of variable
+size, resulting in more complicated space management.
+
+These problems can be resolved by use of a condensed version of the access list.
+To condense the length of the access control list, many systems recognize
+three classifications of users in connection with each file:
+© Owner: The user who created the file is the owner.
+
+¢ Group: A set of users who are sharing the file and need similar access is a
+group, or work group.
+
+¢ Universe: All other users in the system constitute the universe.
+

@@ -1,0 +1,50 @@
+34.3 NP-completeness and reducibility 1067
+
+ 
+
+34.3, NP-completeness and reducibility
+
+Perhaps the most compelling reason why theoretical computer scientists believe
+that P # NP comes from the existence of the class of “NP-complete” problems.
+This class has the intriguing property that if any NP-complete problem can be
+solved in polynomial time, then every problem in NP has a polynomial-time solu-
+tion, that is, P = NP. Despite years of study, though, no polynomial-time algorithm
+has ever been discovered for any NP-complete problem.
+
+The language HAM-CYCLE is one NP-complete problem. If we could decide
+HAM-CYCLE in polynomial time, then we could solve every problem in NP in
+polynomial time. In fact, if NP — P should turn out to be nonempty, we could say
+with certainty that HAM-CYCLE € NP — P.
+
+The NP-complete languages are, in a sense, the “hardest” languages in NP. In
+this section, we shall show how to compare the relative “hardness” of languages
+using a precise notion called “polynomial-time reducibility.”. Then we formally
+define the NP-complete languages, and we finish by sketching a proof that one
+such language, called CIRCUIT-SAT, is NP-complete. In Sections 34.4 and 34.5,
+we shall use the notion of reducibility to show that many other problems are NP-
+complete.
+
+Reducibility
+
+Intuitively, a problem Q can be reduced to another problem Q’ if any instance of Q
+can be “easily rephrased” as an instance of Q’, the solution to which provides a
+solution to the instance of Q. For example, the problem of solving linear equations
+in an indeterminate x reduces to the problem of solving quadratic equations. Given
+an instance ax + b = 0, we transform it to 0x? + ax + b = 0, whose solution
+provides a solution to ax + b = 0. Thus, if a problem Q reduces to another
+problem Q’, then Q is, in a sense, “no harder to solve” than Q’.
+
+Returning to our formal-language framework for decision problems, we say that
+a language L, is polynomial-time reducible to a language L>, written L; <p L,
+if there exists a polynomial-time computable function f : {0,1}* + {0,1}* such
+that for all x € {0,1}*,
+
+x € L, if and only if f(x) € Lo. (34.1)
+
+We call the function / the reduction function, and a polynomial-time algorithm F
+that computes f is a reduction algorithm.
+
+Figure 34.4 illustrates the idea of a polynomial-time reduction from a lan-
+guage L, to another language Lz. Each language is a subset of {0,1}*. The
+reduction function f provides a polynomial-time mapping such that if x € Ly,
+

@@ -1,0 +1,51 @@
+56 Chapter3 Operating-System Structures
+
+3.1.1 Process Management
+
+A program does nothing unless its instructions are executed by a CPU. A
+process can be thought of as a program in execution, but its definition will
+broaden as we explore it further. A time-shared user program such as a
+compiler is a process. A word-processing program being run by an individual
+user on a PC is a process. A system task, such as sending output to a printer, is
+also a process. For now, you can consider a process to be a job or a time-shared
+program, but later you will learn that the concept is more general. As we shall
+see in Chapter 4, we can provide system calls that allow processes to create
+subprocesses to execute concurrently.
+
+A process needs certain resources— including CPU time, memory, files, and
+1/O devices—to accomplish its task. These resources are either given to the
+process when it is created, or allocated to it while it is running. In addition
+to the various physical and logical resources that a process obtains when it is
+created, various initialization data (or input) may be passed along. For example,
+consider a process whose function is to display the status of a file on the screen
+of a terminal. The process will be given as an input the name of the file, and
+will execute the appropriate instructions and system calls to obtain and display
+on the terminal the desired information. When the process terminates, the
+operating system will reclaim any reusable resources.
+
+We emphasize that a program by itself is not a process; a program is a
+passive entity, such as the contents of a file stored on disk, whereas a process
+is an active entity, with a program counter specifying the next instruction to
+execute. The execution of a process must be sequential. The CPU executes one
+instruction of the process after another, until the process completes. Further, at
+any time, at most one instruction is executed on behalf of the process. Thus,
+although two processes may be associated with the same program, they are
+nevertheless considered two separate execution sequences. It is common to
+have a program that spawns many processes as it runs.
+
+A process is the unit of work in a system. Such a system consists of a
+collection of processes, some of which are operating-system processes (those
+that execute system code) and the rest of which are user processes (those that
+execute user code). All these processes can potentially execute concurrently, by
+multiplexing the CPU among them.
+
+The operating system is responsible for the following activities in connec-
+tion with process management:
+
+¢ Creating and deleting both user and system processes
+« Suspending and resuming processes
+« Providing mechanisms for process synchronization
+e Providing mechanisms for process communication
+¢ Providing mechanisms for deadlock handling
+We discuss process-management techniques in Chapters 4 through 7.
+

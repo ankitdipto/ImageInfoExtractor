@@ -1,0 +1,51 @@
+568
+
+Chapter 21 Data Structures for Disjoint Sets
+
+Assume that if the sets containing x; and x; have the same size, then the operation
+UNION (x;, xj) appends x;’s list onto x;’s list.
+
+21.2-3
+
+Adapt the aggregate proof of Theorem 21.1 to obtain amortized time bounds
+of O(1) for MAKE-SET and FIND-SET and O(Ig 7) for UNION using the linked-
+list representation and the weighted-union heuristic.
+
+21.24
+
+Give a tight asymptotic bound on the running time of the sequence of operations in
+Figure 21.3 assuming the linked-list representation and the weighted-union heuris-
+tic.
+
+212-5
+
+Professor Gompers suspects that it might be possible to keep just one pointer in
+each set object, rather than two (head and tail), while keeping the number of point-
+ers in each list element at two. Show that the professor’s suspicion is well founded
+by describing how to represent each set by a linked list such that each operation
+has the same running time as the operations described in this section. Describe
+also how the operations work. Your scheme should allow for the weighted-union
+heuristic, with the same effect as described in this section. (Hint: Use the tail of a
+linked list as its set’s representative.)
+
+212-6
+
+Suggest a simple change to the UNION procedure for the linked-list representation
+that removes the need to keep the sail pointer to the last object in each list. Whether
+or not the weighted-union heuristic is used, your change should not change the
+asymptotic running time of the UNION procedure. (Hint: Rather than appending
+one list to another, splice them together.)
+
+ 
+
+21.3 Disjoint-set forests
+
+In a faster implementation of disjoint sets, we represent sets by rooted trees, with
+each node containing one member and each tree representing one set. In a disjoint-
+set forest, illustrated in Figure 21.4(a), each member points only to its parent. The
+root of each tree contains the representative and is its own parent. As we shall
+see, although the straightforward algorithms that use this representation are no
+faster than ones that use the linked-list representation, by introducing two heuris-
+tics —“union by rank” and “path compression” — we can achieve an asymptotically
+optimal disjoint-set data structure.
+

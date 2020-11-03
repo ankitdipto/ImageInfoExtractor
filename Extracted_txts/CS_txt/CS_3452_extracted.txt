@@ -1,0 +1,61 @@
+788
+
+ 
+
+SITUATED AUTOMATA
+
+Chapter 25. Robotics
+
+The basic elements of Shakey's design—specialized components for low-level control and
+geometric reasoning, a centralized world model for planning, compilation to increase speed, and
+execution monitoring to handle unexpected problems—are repeated in many modern systems.
+Improvements in the symbolic planning and execution monitoring components are discussed in
+depth in Part IV. Compilation, or explanation-based learning, has been used extensively in two
+robot architectures: Robo-SOAR (Laird ef al., 1991) and THEO (Mitchell, 1990). Computation
+times for simple tasks can be reduced from several minutes to less than a second in some cases.
+In both of these architectures, compilation is invoked whenever a problem is solved for which
+no ready-made solution was available. In this way, the robot gradually becomes competent and
+efficient in routine tasks, while still being able to fall back on general-purpose reasoning when
+faced with unexpected circumstances.
+
+Much of the research in robotics since Shakey was switched off has been at the level of
+ILAs and LLAs. Shakey was able to move on a flat floor, and could push large objects around
+with difficulty. Modern robots can twirl pencils in their fingers, screw in screws and perform
+high-precision surgery with greater accuracy than human experts. Sections 25.5 and 25.6 describe
+some of the theoretical advances in geometric reasoning and sensor integration that have made
+such achievements possible. Hilare II (Giralt et a/., 1991) is probably the most comprehensive
+modem example of a robot architecture in the classical tradition that makes use of advanced
+geometric methods.
+
+Situated automata
+
+Since the mid-1980s, a significant minority of Al and robotics researchers have begun to question
+the "classical" view of intelligent agent design based on representation and manipulation of
+explicit knowledge. In robotics, the principal drawback of the classical view is that explicit
+
+reasoning about the effects of low-level actions is too expensive to generate real-time behavior.
+We have seen that compilation can alleviate this to some extent. Researchers working on situated
+automata have taken this idea one step further, by eliminating explicit deliberation from their
+robot designs altogether.
+
+A situated automaton is essentially a finite-state machine whose inputs are provided by
+sensors connected to the environment, and whose outputs are connected to effectors. Situated
+automata provide a very efficient implementation of reflex agents with state. There have been
+two main strands in the development of such robots. The first approach involves generating the
+automaton by an offline compilation process, starting with an explicit representation. The second
+approach involves a manual design process based on a decomposition according to the various
+behaviors that the robot needs to exhibit.
+
+The compilation approach, pioneered by Stan Rosenschein, (Rosenschein, 1985; Kaelbling
+and Rosenschein, 1990) distinguishes between the use of explicit knowledge representation by
+human designers (what he calls the "grand strategy") and the use of explicit knowledge within
+the agent architecture (the "grand tactic"). Through a careful logical analysis of the relationship
+between perception, action, and knowledge, Rosenschein was able to design a compiler that
+generates finite state machines whose internal states can be proved to correspond to certain
+logical propositions about the environment, provided that the initial state and the correct laws
+
+i
+i
+
+ 
+

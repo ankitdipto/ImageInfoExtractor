@@ -1,0 +1,52 @@
+154 Chapter6 CPU Scheduling
+
+1. When a process switches from the running state to the waiting state (for
+example, I/O request, or invocation of wait for the termination of one of
+the child processes)
+
+2. When a process switches from the running state to the ready state (for
+example, when an interrupt occurs)
+
+3. When a process switches from the waiting state to the ready state (for
+example, completion of 1/0)
+
+4. When a process terminates
+
+In circumstances 1 and 4, there is no choice in terms of scheduling. A new
+process (if one exists in the ready queue) must be selected for execution. There
+is a choice, however, in circumstances 2 and 3.
+
+When scheduling takes place only under circumstances 1 and 4, we say
+the scheduling scheme is nonpreemptive; otherwise, the scheduling scheme
+is preemptive. Under nonpreemptive scheduling, once the CPU has been
+allocated to a process, the process keeps the CPU until it releases the CPU either
+by terminating or by switching to the waiting state. This scheduling method
+is used by the Microsoft Windows 3.1 and by the Apple Macintosh operating
+systems. It is the only method that can be used on certain hardware platforms,
+because it does not require the special hardware (for example, a timer) needed
+for preemptive scheduling.
+
+Unfortunately, preemptive scheduling incurs a cost. Consider the case of
+two processes sharing data. One may be in the midst of updating the data when
+it is preempted and the second process is run. The second process may try to
+read the data, which are currently in an inconsistent state. New mechanisms
+thus are needed to coordinate access to shared data; this topic is discussed in
+Chapter 7.
+
+Preemption also has an effect on the design of the operating-system kernel.
+During the processing of a system call, the kernel may be busy with an activity
+on behalf of a process. Such activities may involve changing important kernel
+data (for instance, I/O queues). What happens if the process is preempted in
+the middle of these changes, and the kernel (or the device driver) needs to read
+or modify the same structure? Chaos could ensue. Some operating systems,
+including most versions of UNIX, deal with this problem by waiting either fora
+system call to complete, or for an I/O block to take place, before doing a context
+switch. This scheme ensures that the kernel structure is simple, since the kernel
+will not preempt a process while the kernel data structures are in an inconsistent
+state. Unfortunately, this kernel-execution model is a poor one for supporting
+real-time computing and multiprocessing. These problems, and their solutions,
+are described in Sections 6.4 and 6.5.
+
+In the case of UNIX, sections of code are still at risk. Because interrupts can,
+by definition, occur at any time, and because they cannot always be ignored
+

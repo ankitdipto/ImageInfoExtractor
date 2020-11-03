@@ -1,0 +1,97 @@
+ 
+
+Section 12.3
+
+Analysis of Hierarchical Decomposition 377
+
+ 
+
+ 
+
+b=3 branching factor: number of decomposition methods per step
+s=4 steps in a decomposition method
+
+d=3 depth of the hierarchical plan
+Depth
+
+d=0
+
+   
+ 
+
+ 
+
+ 
+
+exe oes d=1
+
+Figure 125 A portion of the search space for hierarchical decomposition with depth d - 3;
+branching factorb = 3 decompositions per step; s = 4 steps per decomposition method. A solution
+will have n = s steps (n- 64 in this case). We also assume that 1/bdecompositions will lead to
+a solution.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+A nonhierarchical planner would have to generate an n-step plan, choosing among b possi-
+bilities for each one. (We are also assuming that the number of decompositions per nonprimitive
+step, b, is the same as the number of applicable new operators for an open precondition of a
+primitive step.) Thus, it takes time O(b”)in the worst case. With a hierarchical planner, we
+can adopt the strategy of only searching decompositions that lead to abstract solutions. (In our
+simplified model, exactly 1 of every b decompositions is a solution. In more realistic models,
+we need to consider what to do when there are zero or more than one solution.) The planner has
+to look at sb steps at depth d = 1. At depth d = 2, it looks at another sb steps for each step it
+decomposes, but it only has to decompose 1/b of them, for a total of bs?. Thus, the total number
+of plans considered is
+
+d
+
+S bs = ows
+
+isl
+To give you an idea of the difference, for the parameter values in Figure 12.5, a nonhierarchical
+planner has to inspect 3 x 10*°plans, whereas a hierarchical planner looks at only 576.
+
+The upward and downward solution properties seem to be enormously powerful. At first
+glance, it may seem that they are necessary consequences ofthe correctness conditions for decom-
+positions (page 373). In fact, neither property is guaranteed to hold. Without these properties, or
+some reasonable substitute, a hierarchical planner does no better than a nonhierarchical planner
+in the worst case (although it may do better in the average case).
+

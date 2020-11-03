@@ -1,0 +1,52 @@
+8.12
+
+8.13
+
+Exercises 269
+
+type banker’s scheme cannot be implemented by individual application
+of the single-resource-type scheme to each resource type.
+
+Cana system detect that some of its processes are starving? If you answer
+“yes,” explain how it can. If you answer “no,” explain how the system can
+deal with the starvation problem.
+
+Consider the following snapshot of a system:
+
+Allocation Max Available
+
+ABCD ABCD ABCD
+Po 0012 * 0012 1520
+P, 1000 1750
+P, 1354 2356
+P3 0632 0652
+Py 0014 0656
+
+Answer the following questions using the banker’s algorithm:
+a. What is the content of the matrix Need?
+b. Is the system in a safe state?
+
+c. If a request from process P, arrives for (0,4,2,0), can the request be
+granted immediately?
+
+Consider the following resource-allocation policy. Requests and releases
+for resources are allowed at any time. If a request for resources cannot
+be satisfied because the resources are not available, then we check any
+processes that are blocked, waiting for resources. If they have the desired
+resources, then these resources are taken away from them and are given
+to the requesting process. The vector of resources for which the waiting
+process is waiting is increased to include the resources that were taken
+away.
+
+For example, consider a system with three resource types and the vector
+Available initialized to (4,2,2). If process Pp asks for (2,2,1), it gets them. If
+P, asks for (1,0,1), it gets them. Then, if Po asks for (0,0,1), it is blocked
+(resource not available). If P2 now asks for (2,0,0), it gets the available one
+(1,0,0) and one that was allocated to Po (since Po is blocked). Po’s Allocation
+vector goes down to (1,2,1), and its Need vector goes up to (1,0,1).
+
+a. Can deadlock occur? If so, give an example. If not, which necessary
+condition cannot occur?
+
+b. Can indefinite blocking occur?
+

@@ -1,0 +1,42 @@
+186 Let Us C
+
+ 
+
+Back to Function Calls
+
+Having had the first tryst with pointers let us now get back to what
+we had originally set out to learn—the two types of function
+calls—call by value and call by reference. Arguments can
+generally be passed to functions in one of the two ways:
+
+(a) sending the values of the arguments
+(b) sending the addresses of the arguments
+
+In the first method the ‘value’ of each of the actual arguments in
+the calling function is copied into corresponding formal arguments
+of the called function. With this method the changes made to the
+formal arguments in the called function have no effect on the
+values of actual arguments in the calling function. The following
+program illustrates the ‘Call by Value’.
+
+main()
+
+{
+int a= 10, b= 20;
+swapv (a, b) ;
+
+printf ("\na = %d b = %d", a, b) ;
+}
+
+swapv (int x, int y )
+{
+
+int t;
+
+ 
+
+printf ( “\nx = %d y = %d", x,y);
+}
+
+The output of the above program would be:
+

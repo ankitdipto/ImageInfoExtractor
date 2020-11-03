@@ -1,0 +1,56 @@
+SECTION 8.8 Reduced Instruction Set Computer (RISC) 289
+
+accessed at any given time, the instruction format can specify a processor
+register with a register field of five bits.
+
+Figure 8-10 shows the 32-bit instruction formats used for register-to-
+register instructions and memory access instructions. Seven of the bits in the
+operation code specify an operation, and the eighth bit indicates whether to
+update the status bits after an ALU operation. For register-to-register instruc-
+tions, the 5-bit Rd field selects one of the 32 registers as a destination for the
+result of the operation. The operation is performed with the data specified in
+fields Rs and $2. Rs is one of the source registers. If bit 13 of the instruction
+is 0, the low-order 5 bits of $2 specify another source register. If bit 13 of the
+instruction is 1, $2 specifies a sign-extended 13-bit constant. Thus the instruc-
+tion hasa three-address format, but the second source may be either a register
+oran immediate operand. Memory access instructions use Rs to specify a 32-bit
+address in a register and $2 to specify an offset. Register RO contains all O's,
+so it can be used in any field to specify a zero quantity. The third instruction
+format combines the last three fields to form a 19-bit relative address Y and is,
+used primarily with the jump and call instructions. The COND field replaces
+the Rd field for jump instructions and is used to specify one of 16 possible
+branch conditions.
+
+The 31 instructions of RISC I are listed in Table 8-12. They have been
+grouped into three categories. Data manipulation instructions perform arith-
+metic, logic, and shift operations. The symbols under the opcode and operands
+columns are used when writing assembly language programs. The register
+transfer and description columns explain the instruction in register transfer
+notation and in words. Note that all instructions have three operands. The
+second source $2 can be either a register or an immediate operand, symbolized
+by the number sign #. Consider, for example, the ADD instruction and how
+it can be used to perform a variety of operations.
+
+  
+
+  
+
+ADD Re2,R21,R23 R23 R22 + R21
+ADDR22,#150,R2@3 9 REI R22 +150
+
+ADD RO,R21,R22 R22<-R21 (Move)
+
+ADD RO, #1S0,R22 R22<1S50 (Load immediate)
+ADD R22, #1,Re2 Re@—R22+1 (Increment)
+
+By using register RO, which always contains ('s, it is possible to transfer the
+contents of one register or a constant into another register. The increment
+operation is accomplished by adding a constant 1 to a register.
+
+The data transfer instructions consist of six load instructions, three store
+instructions, and two instructions that transfer the program status word PSW.
+‘The register that holds PSW contains the status of the CPU and includes the
+program counter, the status bits from the ALU, pointers used in conjunction
+with the register windows, and other information that determines the state of
+the CPU.
+

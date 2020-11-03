@@ -1,0 +1,100 @@
+ 
+
+32 Chapter 2 Computer-System Structures
+
+ 
+
+device: keyboard
+
+ 
+      
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+status: idle
+
+device: laser printer request for
+
+status: busy *| laser printer
+
+~ address: 38546
+
+device: mouse length: 1372
+
+status: idle
+
+device: disk unit 1
+
+‘Status: idle
+
+device: disk unit 2
+
+atetuer busy ——+} request for —+— | request for +
+disk unit 2 disk unit 2
+
+: file: 0x file: yyy
+
+operation: read operation: write
+address: 43046 address: 03458
+tength: 20000 length: 500
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 2.4 Device-status table.
+
+device. Since it is possible for other processes to issue requests to the same
+device, the operating system will also maintain a wait queue—a list of waiting
+requests— for each I/O device.
+
+An 1/O device interrupts when it needs service. When an interrupt occurs,
+the operating system first determines which I/O device caused the interrupt. It
+then indexes into the I/O device table to determine the status of that device,
+and modifies the table entry to reflect the occurrence of the interrupt. For
+most devices, an interrupt signals completion of an I/O request. If there are
+additional requests waiting in the queue for this device, the operating system
+starts processing the next request.
+
+Finally, control is returned from the I/O interrupt. If a process was waiting
+for this request to complete (as recorded in the device-status table), we can now
+return control to it. Otherwise, we return to whatever we were doing before
+the 1/O interrupt: to the execution of the user program (the program started an
+I/O operation and that operation has now finished, but the program has not yet
+waited for the operation to complete) or to the wait loop (the program started
+two or more I/O operations and is waiting for a particular one to finish, but this
+interrupt was from one of the other operations). In a time-sharing system, the
+operating system could switch to another ready-to-run process.
+
+The schemes used by specific input devices may vary from this one. Many
+interactive systems allow users to type ahead—to enter data before the data are
+tequested—on the keyboard. In this case, interrupts may occur, signaling the
+arrival of characters from the terminal, while the device-status block indicates
+that no program has requested input from this device. If typeahead is to be
+allowed, then a buffer must be provided to store the typeahead characters until
+
+ 
+

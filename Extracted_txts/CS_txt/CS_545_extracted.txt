@@ -1,0 +1,50 @@
+1084
+
+Chapter 34 NP-Completeness
+
+(v1 > 2A 72))
+
+He ocHoce
+
+ 
+
+Figure 34.12 The truth table for the clause (v1 < (y2 A 7%X2)).
+
+laws for propositional logic,
+
+a(aAb) = -av-b,
+a(avb) = -aa-b,
+
+to complement all literals, change ORs into ANDs, and change ANDs into ORs.
+
+In our example, we convert the clause ¢, = (yi < ()2 A 7X2)) into CNF
+as follows. The truth table for ¢{ appears in Figure 34.12. The DNF formula
+equivalent to =; is
+
+(V1 A Y2 A X2) V 1 A>Y2 A Xa) V V1 A V2 AWX2) V (AVL A V2 A 7X9) -
+Negating and applying DeMorgan’s laws, we get the CNF formula
+
+d = (yi V>y2 V Ax2) A(Ay1 V y2 V 7X2)
+A (Ay1 V 2 V X2) AWW V 7y2 V X2),
+
+which is equivalent to the original clause ¢}.
+
+At this point, we have converted each clause ¢/ of the formula ¢’ into a CNF
+formula @/, and thus ¢’ is equivalent to the CNF formula $” consisting of the
+conjunction of the ¢;’. Moreover, each clause of p” has at most 3 literals.
+
+The third and final step of the reduction further transforms the formula so that
+each clause has exactly 3 distinct literals. We construct the final 3~-CNF formula 6”
+from the clauses of the CNF formula ¢”. The formula #”” also uses two auxiliary
+variables that we shall call p and qg. For each clause C; of @”, we include the
+
+following clauses in $'”:
+
+* If C; has 3 distinct literals, then simply include C; as a clause of 6”.
+
+* If C; has 2 distinct literals, that is, if C; = (J; Vv /,), where /; and /, are literals,
+
+then include (J; Vl, V p) A (1; Vv ly V ap) as clauses of ¢””. The literals
+
+p and —p merely fulfill the syntactic requirement that each clause of 6” has
+

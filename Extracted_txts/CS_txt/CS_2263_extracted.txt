@@ -1,0 +1,79 @@
+SECTION 115 Priority Interupt 413
+
+INTACK<1 Enable interrupt acknowledge
+PC«<VAD Transfer vector address to PC
+IEN<0 Disable further interrupts
+
+Go to fetch next instruction
+
+The CPU pushes the return address from PC into the stack. It then acknow!-
+edges the interrupt by enabling the INTACK line. The priority interrupt unit
+responds by placing a unique interrupt vector into the CPU data bus. The CPU
+transfers the vector address into PC and clears JEN prior to going to the next
+fetch phase. The instruction read from memory during the next fetch phase will
+be the one located at the vector address.
+
+Software Routines
+
+A priority interrupt system is a combination of hardware and software tech-
+niques. So far we have discussed the hardware aspects of a priority interrupt
+system. The computer must also have software routines for servicing the
+interrupt requests and for controlling the interrupt hardware registers.
+Figure 11-15 shows the programs that must reside in memory for handling the
+
+Figure 11-15 Programs stored in memory for servicing interrupts.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+nase
+—_— eee
+os |
+«eo =r
+one
+2 JMP RDR PTR—=|___Programtoservice
+men
+3 JMP KBD Print
+‘Main program
+=| eee
+mans
+|
+10 —-| remem
+=r
+ms «—
+7
+‘s
+
+ 
+
+ 
+
+ 
+

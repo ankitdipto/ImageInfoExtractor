@@ -1,0 +1,47 @@
+34.4 NP-completeness proofs 1085
+
+exactly 3 distinct literals. Whether p = 0 or p = 1, one of the clauses is
+equivalent to /; V /», and the other evaluates to 1, which is the identity for AND.
+
++ If C; has just 1 distinct literal /, then include (J v p Vg) A (lV pV 7q) A
+(lv ap vq) A(Lv ap Vv 7g) as clauses of $’”. Regardless of the values of p
+and q, one of the four clauses is equivalent to /, and the other 3 evaluate to 1.
+
+We can see that the 3-CNF formula ¢” is satisfiable if and only if ¢ is satisfiable
+by inspecting each of the three steps. Like the reduction from CIRCUIT-SAT to
+SAT, the construction of ¢’ from ¢ in the first step preserves satisfiability. The
+second step produces a CNF formula ¢” that is algebraically equivalent to ¢’. The
+third step produces a 3-CNF formula ¢”” that is effectively equivalent to ¢”, since
+any assignment to the variables p and q produces a formula that is algebraically
+equivalent to p”.
+
+We must also show that the reduction can be computed in polynomial time. Con-
+structing ¢’ from ¢ introduces at most 1 variable and 1 clause per connective in ¢.
+Constructing ¢” from ¢’ can introduce at most 8 clauses into ¢” for each clause
+from ¢’, since each clause of ¢’ has at most 3 variables, and the truth table for
+each clause has at most 2? = 8 rows. The construction of @” from ” introduces
+at most 4 clauses into ¢”” for each clause of #”. Thus, the size of the resulting
+formula ¢” is polynomial in the length of the original formula. Each of the con-
+structions can easily be accomplished in polynomial time. .
+
+Exercises
+
+34.4-]
+
+Consider the straightforward (nonpolynomial-time) reduction in the proof of The-
+orem 34.9. Describe a circuit of size n that, when converted to a formula by this
+method, yields a formula whose size is exponential in 1.
+
+34.4-2
+Show the 3-CNF formula that results when we use the method of Theorem 34.10
+on the formula (34.3).
+
+34.4-3
+
+Professor Jagger proposes to show that SAT <p 3-CNF-SAT by using only the
+truth-table technique in the proof of Theorem 34.10, and not the other steps. That
+is, the professor proposes to take the boolean formula ¢, form a truth table for
+its variables, derive from the truth table a formula in 3-DNF that is equivalent
+to —@, and then negate and apply DeMorgan’s laws to produce a 3-CNF formula
+equivalent to @. Show that this strategy does not yield a polynomial-time reduction.
+

@@ -1,0 +1,51 @@
+_ |
+488 Chapter 13 1/O Systems
+
+For each of these I/O scenarios, would you design the operating system
+to use buffering, spooling, caching, or a combination? Would you use
+polled 1/0 or interrupt-driven I/O? Give reasons for your choices.
+
+13.3 The example of handshaking in Section 13.2 used 2 bits: a busy bit and
+a command-ready bit. Is it possible to implement this handshaking with
+only 1 bit? If it is, describe the protocol. If not, explain why 1 bit is
+insufficient.
+
+13.4 Describe three circumstances under which blocking I/O should be used.
+Describe three circumstances under which nonblocking 1/O should be
+used. Why not just implement nonblocking 1/0 and have processes
+busy-wait until their device is ready?
+
+13.5 Why might a system use interrupt-driven I/O to manage a single serial
+port, but polling 1/O to manage a front-end processor, such as a terminal
+concentrator?
+
+13.6 Polling for an 1/O completion can waste a large number of CPU cycles
+if the processor iterates a busy-waiting loop many times before the I/O
+completes. But if the 1/O device is ready for service, polling can be much
+more efficient than is catching and dispatching an interrupt. Describe a
+hybrid strategy that combines polling, sleeping, and interrupts for 1/O
+device service. For each of these three strategies (pure polling, pure
+interrupts, hybrid), describe a computing environment in which that
+strategy is more efficient than is either of the others.
+
+13.7 UNIX coordinates the activities of the kernel I/O components by manipu-
+lating shared in-kernel data structures, whereas Windows NT uses object-
+oriented message passing between kernel I/O components. Discuss three
+pros and three cons of each approach.
+
+13.8 How does DMA increase system concurrency? How does it complicate
+the hardware design?
+
+13.9 Write (in pseudocode) an implementation of virtual clocks, including
+the queueing and management of timer requests for the kernel and
+applications. Assume that the hardware provides three timer channels.
+
+13.10 Why is it important to scale up system bus and device speeds as the CPU
+speed increases?
+
+13.11 Distinguish between a STREAMS driver and a STREAMS module.
+Bibliographical Notes
+
+Vahalia [1996] provides a good overview of I/O and networking in UNIX. Lef-
+fler et al. [1989] detail the I/O structures and methods employed in BSD UNIX.
+

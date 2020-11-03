@@ -1,0 +1,45 @@
+802
+
+Chapter 27 Multithreaded Algorithms
+
+of the recursive calls. For the recursive calls, observe that although the recursive
+calls in lines 13 and 14 might merge different numbers of elements, together the
+two recursive calls merge at most 1 elements (actually n — 1 elements, since T[q:]
+does not participate in either recursive call). Moreover, as we saw in analyzing the
+span, a recursive call operates on at most 37/4 elements. We therefore obtain the
+recurrence
+
+PM,(n) = PM,(an) + PM,((1 —a@)n) + Ollgn) , (27.9)
+
+where @ lies in the range 1/4 < @ < 3/4, and where we understand that the actual
+value of a may vary for each level of recursion.
+
+We prove that recurrence (27.9) has solution PM; = O(n) via the substitution
+method. Assume that PM,(n) < cin—cz lgn for some positive constants c; and ¢2.
+Substituting gives us
+
+PM\(n) < (cyan ~cy|g(an)) + (c\(1 — @)n — ce Ig((1 —@)n)) + Olgn)
+cr(@ + (1 —a))n — e(Ig(an) + Ig((1 — a)n)) + O(lgn)
+
+cn — (Iga +lgn + lg(1—a@) +1gn) + O(lgn)
+
+cn — C2 lgn— (co(lgn + lg(a(1 —@))) — O(lgn))
+
+< cen—clgn,
+
+since we can choose C2 large enough that c2(lgn + 1g(@(1 — @))) dominates the
+(Ign) term. Furthermore, we can choose c; large enough to satisfy the base
+conditions of the recurrence. Since the work PM,(n) of P-MERGE is both Q(n)
+and O(n), we have PM,(n) = O(n).
+
+The parallelism of P-MERGE is PM, (n)/PM,.(n) = @(n/ 1g? n).
+
+Multithreaded merge sort
+
+Now that we have a nicely parallelized multithreaded merging procedure, we can
+incorporate it into a multithreaded merge sort. This version of merge sort is similar
+to the MERGE-Sort’ procedure we saw earlier, but unlike MERGE-SorT’, it takes
+as an argument an output subarray B, which will hold the sorted result. In par-
+ticular, the call P-MERGE-SorT(A, p,r, B,s) sorts the elements in A[p..r] and
+stores them in B[s..s +r — p].
+

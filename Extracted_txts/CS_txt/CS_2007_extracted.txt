@@ -1,0 +1,50 @@
+448  Chapter12_ File-System Implementation
+
+session semantics of Andrew. In spite of these drawbacks, the utility and high
+performance of the mechanism makes it the most widely used multivendor
+distributed system in operation.
+
+12.10 =» Summary
+
+The file system resides permanently on secondary storage, which is designed to
+hold a large amount of data permanently. The most common secondary-storage
+medium is the disk.
+
+Physical disks may be segmented into partitions to control media use and
+to allow multiple, possibly varying, file systems per spindle. These file systems
+are mounted onto a logical file system architecture to make them available for
+use. File systems are often implemented in a layered or modular structure. The
+lower levels deal with the physical properties of storage devices. Upper levels
+deal with symbolic file names and logical properties of files. Intermediate levels
+map the logical file concepts into physical device properties.
+
+Every file-system type can have different structures and algorithms. A VFS
+layer allows the upper layers to deal with each file-system type uniformly. Even
+remote file systems can be integrated into the system’s directory structure and
+acted on by standard system calls via the VFS interface.
+
+The various files can be allocated space on the disk in three ways: through
+contiguous, linked, or indexed allocation. Contiguous allocation can suffer
+from external fragmentation. Direct access is very inefficient with linked allo-
+cation. Indexed allocation may require substantial overhead for its index block.
+These algorithms can be optimized in many ways. Contiguous space may be
+enlarged through extents to increase flexibility and to decrease external frag-
+mentation. Indexed allocation can be done in clusters of multiple blocks to
+increase throughput and to reduce the number of index entries needed. Index-
+ing in large clusters is similar to contiguous allocation with extents.
+
+Free-space allocation methods also influence the efficiency of use of disk
+space, the performance of the file system, and the reliability of secondary
+storage. The methods used include bit vectors and linked lists. Optimizations
+include grouping, counting, and the FAT, which places the linked list in one
+contiguous area.
+
+The directory-management routines must consider efficiency, performance,
+and reliability. A hash table is the most frequently used method; it is fast
+and efficient. Unfortunately, damage to the table or a system crash could
+result in the directory information not corresponding to the disk’s contents. A
+consistency checker—a systems program such as fsck in UNIX, or chkdsk in
+MS-DOS—can be used to repair the damage. Operating-system backup tools
+allow disk data to be copied to tape, to recover from data or even disk loss due
+to hardware failure, operating system bug, or user error.
+

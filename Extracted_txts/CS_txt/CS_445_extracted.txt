@@ -1,0 +1,47 @@
+32.4 The Knuth-Morris-Pratt algorithm 1003
+
+a € &, the value z[q] contains the information we need to compute 6(¢, a) but
+that does not depend on a. Since the array has only m entries, whereas 6 has
+©(m |}) entries, we save a factor of |X| in the preprocessing time by computing 7
+rather than 6.
+
+The prefix function for a pattern
+
+The prefix function z for a pattern encapsulates knowledge about how the pat-
+tern matches against shifts of itself. We can take advantage of this information to
+avoid testing useless shifts in the naive pattern-matching algorithm and to avoid
+precomputing the full transition function 6 for a string-matching automaton.
+
+Consider the operation of the naive string matcher. Figure 32.10(a) shows a
+particular shift s of a template containing the pattern P = ababaca against a
+text T. For this example, g = 5 of the characters have matched successfully, but
+the 6th pattern character fails to match the corresponding text character. The infor-
+mation that g characters have matched successfully determines the corresponding
+text characters. Knowing these q text characters allows us to determine immedi-
+ately that certain shifts are invalid. In the example of the figure, the shift s + 1 is
+necessarily invalid, since the first pattern character (a) would be aligned with a text
+character that we know does not match the first pattern character, but does match
+the second pattern character (b). The shift s’ = s + 2 shown in part (b) of the fig-
+ure, however, aligns the first three pattern characters with three text characters that
+must necessarily match. In general, it is useful to know the answer to the following
+question:
+
+Given that pattern characters P[1 ..q] match text characters T[s+1..s+g],
+what is the least shift s’ > s such that for some k < q,
+
+Pll..k]=Tls' + 1..8' +k], (32.6)
+where s’ +k =s+q?
+
+In other words, knowing that Py 4 T;+g, we want the longest proper prefix Pj
+of Pa that is also a suffix of Ts1g. (Since s’ +k = s + q, if we are given 5
+and q, then finding the smallest shift s’ is tantamount to finding the longest prefix
+length k.) We add the difference q — k in the lengths of these prefixes of P to the
+shift s to arrive at our new shift s’, so that s’ = s + (q—k). In the best case, k = 0,
+so that s’ = s +q, and we immediately rule out shifts s + 1,5 +2,..., st+q-l.
+In any case, at the new shift s’ we don’t need to compare the first k characters of P
+with the corresponding characters of 7, since equation (32.6) guarantees that they
+match.
+
+We can precompute the necessary information by comparing the pattern against
+itself, as Figure 32.10(c) demonstrates. Since T[s’ + 1..s’ +k] is part of the
+

@@ -1,0 +1,53 @@
+416 Chapter12 _File-System Implementation
+
+UNIX systems refer to it as a file descriptor; Windows 2000 refers to it as a file
+handle. Consequently, as long as the file is not closed, all file operations are
+done on the open-file table.
+
+When a process closes the file, the per-process table entry is removed,
+and the system-wide entry’s open count is decremented. When all users that
+have opened the file close it, the updated file information is copied back to
+the disk-based directory structure and the system-wide open-file table entry is
+removed.
+
+In reality, the open system call first searches the system-wide open-file table
+to see if the file is already in use by another process. If it is, a per-process
+oper-file table entry is created pointing to the existing system-wide open-file
+table. This algorithm can save substantial overhead when opening files that are
+already open.
+
+Some systems complicate this scheme even further by using the file system
+as an interface to other system aspects, such as networking. For example, in
+UFS, the system-wide open-file table holds the inodes and other information for
+files and directories. It also holds similar information for network connections
+and devices. In this way, one mechanism can be used for multiple system
+aspects.
+
+The caching aspects of these structures should not be overlooked. Using
+this scheme, all information about an open file, except for its actual data blocks,
+is in memory. The BSD UNIX system is typical in its use of caches wherever
+disk 1/O can be saved. Its average cache hit rate of 85 percent shows that these
+techniques are well worth implementing. The BSD UNIX system is described
+fully in Appendix A
+
+The operating structures of a file-system implementation are summarized
+in Figure 12.3.
+
+12.2.2 Partitions and Mounting
+
+The layout of a disk can have many variations, depending on the operating
+system. A disk can be sliced into multiple partitions, or a partition can span
+multiple disks. The former is discussed here, while the latter is more appropri-
+ately considered a form of RAID and is covered in Section 14.5.
+
+Each partition can either be “raw,” containing no file system, or “cooked,”
+containing a file system. Raw disk is used where no file system is appropriate.
+UNIX swap space can use a raw partition, as it uses its own format on disk and
+does not use a file system. Likewise, some databases use raw disk and format
+the data to suit their needs. Raw disk can also hold information needed by
+disk RAID systems, such as bit maps indicating which blocks are mirrored and
+which have changed and need to be mirrored. Similarly, raw disk can contain
+a miniature database holding RAID configuration information, such as which
+disks are members of each RAID set. Raw disk use is further discussed in Section
+14.3.1.
+

@@ -1,0 +1,51 @@
+8.2 Deadlock Characterization 245
+
+files, semaphores, and monitors). However, other types of events may result in
+deadlocks (for example, the IPC facilities discussed in Chapter 4).
+
+To illustrate a deadlock state, we consider a system with three tape drives.
+Suppose each of three processes holds one of these tape drives. If each process
+now requests another tape drive, the three processes will be in a deadlock state.
+Each is waiting for the event “tape drive is released,” which can be caused
+only by one of the other waiting processes. This example illustrates a deadlock
+involving the same resource type.
+
+Deadlocks may also involve different resource types. For example, consider
+a system with one printer and one tape drive. Suppose that process P; is holding
+the tape drive and process P; is holding the printer. If P; requests the printer and
+P; requests the tape drive, a deadlock occurs.
+
+A programmer who is developing multithreaded applications must pay
+particular attention to this problem: Multithreaded programs are good candi-
+dates for deadlock because multiple threads can compete for shared resources.
+
+8.2 = Deadlock Characterization
+
+In a deadlock, processes never finish executing and system resources are tied
+up, preventing other jobs from starting. Before we discuss the various meth-
+ods for dealing with the deadlock problem, we shall describe features that
+characterize deadlocks.
+
+8.2.1 Necessary Conditions
+
+A deadlock situation can arise if the following four conditions hold simultane-
+ously in a system:
+
+1. Mutual exclusion: At least one resource must be held in a nonsharable
+mode; that is, only one process at a time can use the resource. If another
+process requests that resource, the requesting process must be delayed until
+the resource has been released.
+
+2. Hold and wait: A process must be holding at least one resource and
+waiting to acquire additional resources that are currently being held by
+other processes.
+
+3. No preemption: Resources cannot be preempted; that is, a resource can be
+released only voluntarily by the process holding it, after that process has
+completed its task.
+
+4. Circular wait: A set {Po, Pi, ..., Py} of waiting processes must exist such that
+Po is waiting for a resource that is held by P;, P; is waiting for a resource
+that is held by P2, ..., P,—1 is waiting for a resource that is held by P,,, and
+P, is waiting for a resource that is held by Pp.
+

@@ -1,0 +1,41 @@
+Chapter 4: The Case Control Structure 137
+
+ 
+
+integer. The keyword case is followed by an integer or a character
+constant. Each constant in each case must be different from all the
+others. The “do this” lines in the above form of switch represent
+any valid C statement.
+
+What happens when we run a program containing a switch? First,
+the integer expression following the keyword switch is evaluated.
+The value it gives is then matched, one by one, against the
+constant values that follow the case statements. When a match is
+found, the program executes the statements following that case,
+and all subsequent case and default statements as well. If no
+match is found with any of the case statements, only the
+statements following the default are executed. A few examples
+will show how this control structure works.
+
+Consider the following program:
+
+main()
+{
+int i=2;
+switch (i)
+{
+case 1:
+printf ( "I amin case 1 \n") ;
+case 2:
+printf ( "lamin case 2 \n") ;
+case 3:
+printf ( "I amin case 3 \n") ;
+default :
+printf ("Il am in default \n" ) ;
+}
+}
+
+The output of this program would be:
+
+lam in case 2
+

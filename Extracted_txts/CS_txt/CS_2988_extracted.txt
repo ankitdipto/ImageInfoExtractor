@@ -1,0 +1,51 @@
+502
+
+Chapter 18 B-Trees
+
+a. If x.c; has only ¢ — | keys but has an immediate sibling with at least ¢ keys,
+give x.c; an extra key by moving a key from x down into x.c;, moving a
+key from x.c;’s immediate left or right sibling up into x, and moving the
+appropriate child pointer from the sibling into x. c;.
+
+b. If x.c; and both of x.c;’s immediate siblings have tf — 1 keys, merge x.¢;
+with one sibling, which involves moving a key from x down into the new
+merged node to become the median key for that node.
+
+Since most of the keys in a B-tree are in the leaves, we may expect that in
+practice, deletion operations are most often used to delete keys from leaves. The
+B-TREE-DELETE procedure then acts in one downward pass through the tree,
+without having to back up. When deleting a key in an internal node, however,
+the procedure makes a downward pass through the tree but may have to return to
+the node from which the key was deleted to replace the key with its predecessor or
+successor (cases 2a and 2b).
+
+Although this procedure seems complicated, it involves only O(h) disk oper-
+ations for a B-tree of height /, since only O(1) calls to DIsk-READ and DIsK-
+WRITE are made between recursive invocations of the procedure. The CPU time
+required is O(th) = O(¢ log, n).
+
+Exercises
+
+183-1
+Show the results of deleting C, P, and V, in order, from the tree of Figure 18.8(f).
+
+18.3-2
+Write pseudocode for B-TREE-DELETE.
+
+ 
+
+Problems
+
+18-1 Stacks on secondary storage
+
+Consider implementing a stack in a computer that has a relatively small amount
+of fast primary memory and a relatively large amount of slower disk storage. The
+operations PUSH and Pop work on single-word values. The stack we wish to
+support can grow to be much larger than can fit in memory, and thus most of it
+must be stored on disk.
+
+A simple, but inefficient, stack implementation keeps the entire stack on disk.
+We maintain in memory a stack pointer, which is the disk address of the top element
+on the stack. If the pointer has value p, the top element is the (p mod m)th word
+on page | p/m| of the disk, where m is the number of words per page.
+

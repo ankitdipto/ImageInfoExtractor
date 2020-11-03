@@ -1,0 +1,29 @@
+726 Chapter 26 Maximum Flow
+
+(a)
+
+(b)
+
+(c)
+
+ 
+
+Figure 26.6 The execution of the basic Ford-Fulkerson algorithm. (a)-(e) Successive iterations of
+the while loop. The left side of each part shows the residual network Gy from line 3 with a shaded
+augmenting path p. The right side of each part shows the new flow f that results from augmenting f
+by fp- The residual network in (a) is the input network G.
+
+When the capacities are integral and the optimal flow value | f*| is small, the
+running time of the Ford-Fulkerson algorithm is good. Figure 26.7(a) shows an ex-
+ample of what can happen on a simple flow network for which | f*| is large. A max-
+imum flow in this network has value 2,000,000: 1,000,000 units of flow traverse
+the path s + u > f, and another 1,000,000 units traverse the path s + v > f. If
+the first augmenting path found by FORD-FULKERSON is s > u > v > ft, shown
+in Figure 26.7(a), the flow has value | after the first iteration. The resulting resid-
+ual network appears in Figure 26.7(b). If the second iteration finds the augment-
+ing path s + v + u +f, as shown in Figure 26.7(b), the flow then has value 2.
+Figure 26.7(c) shows the resulting residual network. We can continue, choosing
+the augmenting path s > u > v — f in the odd-numbered iterations and the aug-
+menting path s + v — u — f in the even-numbered iterations. We would perform
+a total of 2,000,000 augmentations, increasing the flow value by only | unit in each.
+

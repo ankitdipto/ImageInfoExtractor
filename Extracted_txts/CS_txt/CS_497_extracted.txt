@@ -1,0 +1,49 @@
+1044
+
+Chapter 33 Computational Geometry
+
+33.4-3
+
+We can define the distance between two points in ways other than euclidean. In
+the plane, the L,,-distance between points p; and p2 is given by the expres-
+sion (jx; —X2\" + |y1 — yl), Euclidean distance, therefore, is L2-distance.
+Modify the closest-pair algorithm to use the Lj-distance, which is also known as
+the Manhattan distance.
+
+33.44
+
+Given two points p; and p2 in the plane, the L..-distance between them is
+given by max(|x1 — X2|.|1 — Y2|). Modify the closest-pair algorithm to use the
+Lo-distance.
+
+33.4-5
+
+Suppose that Q(7) of the points given to the closest-pair algorithm are covertical.
+Show how to determine the sets Pz, and Pr and how to determine whether each
+point of Y is in Py; or Pe so that the running time for the closest-pair algorithm
+remains O(n lgn).
+
+33.4-6
+
+Suggest a change to the closest-pair algorithm that avoids presorting the Y array
+but leaves the running time as O(n lg). (Hint: Merge sorted arrays Y; and Yr to
+form the sorted array Y .)
+
+ 
+
+Problems
+
+33-1 Convex layers
+
+Given a set Q of points in the plane, we define the convex layers of Q inductively.
+The first convex layer of Q consists of those points in Q that are vertices of CH(Q).
+Fori > 1, define Q; to consist of the points of Q with all points in convex layers
+1,2,..., i —1 removed. Then, the ith convex layer of Q is CH(Q;) if Q; A 9 and
+is undefined otherwise.
+
+a. Give an O(n7)-time algorithm to find the convex layers of a set of n points.
+
+b. Prove that Q(n lg n) time is required to compute the convex layers of a set of 1
+points with any model of computation that requires Q(n lg) time to sort n real
+numbers.
+

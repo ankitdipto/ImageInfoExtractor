@@ -1,0 +1,58 @@
+Section 19.6.
+
+Bayesian Methods for Learning Belief Networks 589
+
+ 
+
+MAXIMUM.
+UKELHOOD
+
+prior probability assigned to the given model. Arguments over the nature and significance of this
+prior probability distribution, and its relation to preference for simpler hypotheses (Ockham’s
+razor), have raged unchecked in the statistics and learning communities for decades. The only
+reasonable policy seems to be to assign prior probabilities based on some simplicity measure on
+hypotheses, such that the prior of the entire hypothesis space adds up to 1. The more we bias
+the priors towards simpler hypotheses, the more we will be immune to noise and overfitting. Of
+course, if the priors are too biased, then we get underfitting, where the data is largely ignored.
+There is a careful trade-off to make.
+
+In some cases, a uniform prior over belief networks seems to be appropriate, as we shall
+see. With a uniform prior, we need only choose an H; that maximizes P(D|H;). This is called a
+maximum-likelihood (ML) hypothesis, Hm...
+
+Belief network learning problems
+
+The learning problem for beliefnetworks comes in several varieties. The structure of the network
+can be known or unknown, and the variables in the network can be observable or hidden.
+
+0 Known structure, fully observable: In this case, the only learnable part is the set of
+conditional probability tables. These can be estimated directly using the statistics of the set
+of examples. Some belief network systems incorporate automatic updating of conditional
+probability table entries to reflect the cases seen.
+
+Unknown structure, fully observable: In this case, the problem is to reconstruct the
+topology of the network. This problem can be cast as a search through the space of
+structures, guided by the ability of each structure to model the data correctly. Fitting
+the data to a given structure reduces to the fixed-structure problem, and the MAP or ML
+probability value can be used as heuristic for hill-climbing or simulated annealing search.
+
+Known structure, hidden variables: This case is analogous to neural network learning.
+We discuss methods for this problem in the next section.
+
+Unknown structure, hidden variables: When some variables are sometimes or always
+unobservable, the prior techniques for recovering structure become difficult to apply,
+because they essentially require averaging over all possible combinations of values of the
+unknown variables. At present, no good, general algorithms are known for this problem.
+
+Learning networks with fixed structure
+
+Experience in constructing belief networks for applications has shown that finding the topology
+of the network is often the easy part. Humans find it easy to say what causes what, but hard to
+put exact numbers on the links. This is particularly true when some of the variables cannot be
+observed directly in actual cases. The "known structure, hidden variable" learning problem is
+therefore of great importance
+
+One might ask why the problem cannot be reduced to the fully observable case by elimi-
+nating the hidden variables using marginalization ("averaging out”). There are two reasons for
+this. First, it is not necessarily the case that any particular variable is hidden in all the observed
+

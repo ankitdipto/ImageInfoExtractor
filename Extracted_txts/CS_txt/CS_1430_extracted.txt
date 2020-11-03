@@ -1,0 +1,41 @@
+676 Let UsC
+
+ 
+
+case SIGCONT :
+printf ("SIGCONT Received\n" ) ;
+break ;
+}
+}
+int main()
+{
+
+}
+
+char buffer [80] = "\0" ;
+sigset_t block ;
+
+signal (SIGTERM, sighandler ) ;
+signal (SIGINT, sighandler ) ;
+signal (SIGCONT, sighandler ) ;
+
+sigemptyset ( &block ) ;
+sigaddset ( &block, SIGTERM ) ;
+sigaddset ( &block, SIGINT ) ;
+
+sigprocmask ( SIG_BLOCK, &block, NULL ) ;
+while ( strcmp ( buffer,"n" ) != 0)
+{
+printf ("Enter a String: ") ;
+gets (buffer ) ;
+puts (buffer ) ;
+sigprocmask ( SIG_UNBLOCK, &block, NULL ) ;
+
+while (1)
+printf ( "\rProgram Running" ) ;
+
+return 0 ;
+
+In this program we have registered a common handler for the
+SIGINT, SIGTERM and SIGCONT signals. Next we want to
+

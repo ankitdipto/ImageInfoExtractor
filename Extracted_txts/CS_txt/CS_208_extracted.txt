@@ -1,0 +1,72 @@
+Problems for Chapter 27 809
+
+P-SCAN-3(x)
+
+1 n=x.length
+
+2° let y[1..n] and ¢[1.. 7] be new arrays
+3 yf] = xf]
+
+4 ifn>1
+
+5 P-SCAN-UP(x,f,2,n)
+
+6 P-SCAN-DowN(x[I], x,t, ¥.2,7)
+7 return y
+
+P-SCAN-UP(X, ft. i,j)
+
+1 ifi==j7
+
+2 return x[i]
+
+3 else
+
+4 k=(G+))/2
+
+5 t[k] = spawn P-SCAN-UP(x, t, i,k)
+
+6 right = P-SCAN-UP(x,t,k + 1,7)
+
+7 syne
+
+8 return // fill in the blank
+
+ 
+
+P-SCAN-DOWN(v, x,t, y.i. J)
+
+ 
+
+ 
+
+1 ifi==j7
+
+2 yi] = v @ x[i]
+
+3 else
+
+4 k=(G4+/)/2]
+
+5 spawn P-SCAN-DOWN( .x,t,y.i,k)  // fill in the blank
+
+6 P-ScAN-Down( Xtyk +1, j) // fill in the blank
+
+7 sync
+
+d. Fill in the three missing expressions in line 8 of P-SCAN-UP and lines 5 and 6
+
+of P-SCAN-DowNn. Argue that with expressions you supplied, P-SCAN-3 is
+correct. (Hint: Prove that the value v passed to P-SSCAN-DOWN(v, x,t, yi, j)
+satisfies v = x[1] ® x[2] ®--- @ x[i — 1].)
+
+e. Analyze the work, span, and parallelism of P-SCAN-3.
+
+27-5 Multithreading a simple stencil calculation
+
+Computational science is replete with algorithms that require the entries of an array
+to be filled in with values that depend on the values of certain already computed
+neighboring entries, along with other information that does not change over the
+course of the computation. The pattern of neighboring entries does not change
+during the computation and is called a stencil. For example, Section 15.4 presents
+

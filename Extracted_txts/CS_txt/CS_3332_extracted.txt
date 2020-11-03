@@ -1,0 +1,60 @@
+682
+
+Chapter 22. Agents that Communicate
+
+ 
+
+ 
+
+Finally, there can be ambiguity about what speech act has been performed. A hearer who
+says, "yes" when asked, "Do you know what time it is?" has successfully interpreted the sentence
+as ifit were question, but most likely it was actually intended as a request for information.
+
+Disambiguation
+
+As we said before, disambiguation is a question of diagnosis. The hearer maintains a model of
+the world and, upon hearing a new speech act, adds the possible interpretations ofthe speech act
+to the model as hypotheses. The uncertain reasoning techniques of Part V can then be used to
+decide which interpretation is best. To do this well, the model must include a lot of information
+about the world. For example, to correctly resolve the syntactic ambiguity in "Chris saw the
+Grand Canyon flying to New York," one needs to know that it is more likely that Chris is doing
+the flying than that the Grand Canyon is. Similarly, to understand "Donald keeps his money in the
+bank," it helps to know that money is kept in savings institutions more often than in snowbanks.
+
+One also needs a good model of the beliefs of speaker and hearer, in order to decide
+what the speaker will bother to say. For example, the normal interpretation of the statement "I
+am not a crook" is that the speaker is not a criminal. This is true even though an alternative
+interpretation—that the speaker is not a hooked shepherd's staff—hasa higher probability of
+being true. Similarly, "Howard doesn't keep his money in the bank" probably refers to saving 4
+institutions, because it would not be worth remarking that he did not keep his money ina }
+snowbank. In general, disambiguation requires the combination of four models:
+
+1. The world model: the probability that a fact occurs in the world.
+
+2. The mental model: the probability that the speaker forms the intention of communicating
+this fact to the hearer, given that it occurs.? (This combines models of what the speaker
+believes, what the speaker believes the hearer believes, and so on.)
+
+3. The language model: the probability that a certain string of words will be chosen, given
+that the speaker has the intention of communicating a certain fact.
+
+4. The acoustic model: the probability that a particular sequence of sounds will be generated, 3
+given that the speaker has chosen a given string of words. This will be taken up when we
+consider perception in Chapter 24.
+
+The final reason why it is hard to pick the right interpretation is that there may be several right
+ones. Jokes rely on the fact that the hearer will entertain two interpretations simultaneously. In
+"She criticized his apartment so he knocked her flat," we have three lexical and one syntactic j
+ambiguity. But the joke would be lost on a hearer who simply accepted the best interpretation
+and ignored the other. Poetry, advertising, political rhetoric, and murder mysteries are other
+genres that make use of deliberate ambiguity. Most language understanding programs ignore this 4
+possibility, just as many diagnosis systems ignore the possibility of multiple causes.
+Context-free grammars do not provide a very useful language model (even when augmenta-
+tions are included). The problem is that the grammar does not say which strings are more probable
+than others—it simply divides the strings into two classes: grammatical and agrammatical.
+
+% We should also consider the possibility that the speaker intends to convey some information given that it did nor occur,
+that is, that the speaker is mistaken or lying.
+
+ 
+

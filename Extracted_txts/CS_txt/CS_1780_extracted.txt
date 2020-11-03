@@ -1,0 +1,58 @@
+ 
+
+INFERENCE IN
+
+FIRST-ORDER LOGIC |
+
+ 
+
+ 
+
+  
+
+In which we define inference mechanisms that can efficiently answer questions posed
+in first-order logic.
+
+Chapter 6 defined the notion of inference, and showed how sound and complete inference can
+be achieved for propositional logic. In this chapter, we extend these results to first-order logic.
+In Section 9.1 we provide some additional basic inference rules to deal with quantifiers. In
+Section 9.2, we show how these inference rules, along with those for propositional logic, can
+be chained together to make proofs. By examining these proofs, we can come up with more
+powerful inference rules that make proofs much shorter and more intuitive. This makes it
+possible to design inference procedures that are sufficiently powerful to be ofuse to a knowledge-
+based agent. These rules and procedures are discussed in Sections 9.3 and 9.4. Section 9.5
+describes the problem of completeness for first-order inference, and discusses the remarkable
+result, obtained by Kurt Gédel, that if we extend first-order logic with additional constructs
+to handle mathematical induction, then there is no complete inference procedure; even though
+the needle is in the metaphorical haystack, no procedure can guarantee to find it. Section 9.6
+describes an inference procedure called resolution that is complete for any set of sentences in
+first-order logic, and Section 9.7 proves that it is complete
+
+ 
+
+ 
+
+ 
+
+ 
+
+r
+
+RS
+
+ 
+
+9.1 INFERENCE RULES INVOLVING QUANTIF!
+
+In Section 6.4, we saw the inference rules for propositional logic: Modus Ponens, And-
+Elimination, And-Introduction, Or-Introduction, and Resolution. These rules hold for first-order
+logic as well. But we will need additional inference rules to handle first-order logic sentences
+with quantifiers. The three additional rules we introduce here are more complex than previous
+ones, because we have to talk about substituting particular individuals for the variables. We will
+use the notation SUBST(@, a) to denote the result of applying the substitution (or binding list) 6
+to the sentence a. For example:
+
+SuBstT({x/Sam,y/Pam}, Likes(x,y)) = Likes(Sam, Pam)
+
+265
+

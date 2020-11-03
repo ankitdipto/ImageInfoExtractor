@@ -1,0 +1,55 @@
+6.3 Scheduling Algorithms 167
+
+Let us look at an example of a multilevel queue-scheduling algorithm with
+five queues:
+
+. System processes
+
+. Interactive processes
+
+1
+2,
+3. Interactive editing processes
+4. Batch processes
+
+5.
+
+. Student processes
+
+Each queue has absolute priority over lower-priority queues. No process in the
+batch queue, for example, could run unless the queues for system processes,
+interactive processes, and interactive editing processes were all empty. If an
+interactive editing process entered the ready queue while a batch process was
+running, the batch process would be preempted. Solaris 2 uses a form of this
+algorithm.
+
+Another possibility is to time slice between the queues. Each queue gets a
+certain portion of the CPU time, which it can then schedule among the various
+processes in its queue. For instance, in the foreground-background queue
+example, the foreground queue can be given 80 percent of the CPU time for
+RR scheduling among its processes, whereas the background queue receives 20
+percent of the CPU to give to its processes in a FCFS manner.
+
+6.3.6 Multilevel Feedback Queue Scheduling
+
+Normally, in a multilevel queue-scheduling algorithm, processes are perma-
+nently assigned to a queue on entry to the system. Processes do not move
+between queues. If there are separate queues for foreground and background
+processes, for example, processes do not move from one queue to the other,
+since processes do not change their foreground or background nature. This
+setup has the advantage of low scheduling overhead, but the disadvantage of
+being inflexible.
+
+Multilevel feedback queue scheduling, however, allows a process to move
+between queues. The idea is to separate processes with different CPU-burst
+characteristics. If a process uses too much CPU time, it will be moved to a
+lower-priority queue. This scheme leaves I/O-bound and interactive processes
+in the higher-priority queues. Similarly, a process that waits too long in a lower-
+priority queue may be moved to a higher-priority queue. This form of aging
+prevents starvation.
+
+For example, consider a multilevel feedback queue scheduler with three
+queues, numbered from 0 to 2 (Figure 6.7). The scheduler first executes all
+processes in queue 0. Only when queue 0 is empty will it execute processes
+in queue 1. Similarly, processes in queue 2 will be executed only if queues 0
+

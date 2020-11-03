@@ -1,0 +1,55 @@
+Section 7.3
+
+Using First-Order Logic 197
+
+ 
+
+Two other common notations derive from implementations of logic in computer systems. The
+logic programming language Prolog (which we discuss further in Chapter 10) has two main
+differences. It uses uppercase letters for variables and lowercase for constants, whereas most
+other notations do the reverse. Prolog also reverses the order of implications, writing Q :-P
+instead of P = Q. A comma is used both to separate arguments and for conjunction, and a
+period marks the end of a sentence:
+
+cat(X) :- furry(X), meows(X), has(X,claws) .
+
+In reasoning systems implemented in Lisp, a consistent prefix notation is common. Each sentence
+and nonconstant term is surrounded by parentheses, and the connectives come first, just like the
+predicate and function symbols. Because Lisp does not distinguish between uppercase and
+lowercase symbols, variables are usually distinguished by an initial ? or $ character, as in this
+example:
+
+(forall ?«
+(implies (and (furry ?x) (meows ?x) (has ?x claws))
+(cat ?x)))
+
+713 USING FIRST-ORDER LOGIC
+
+DOMAIN,
+
+In knowledge representation, a domain is a section of the world about which we wish to express
+some knowledge. In this chapter, we start with some simple domains, using first-order logic to
+represent family relationships and mathematical sets. We then move on to show the knowledge
+that an agent in the wumpus world would need. Chapter 8 goes into more depth on the use of
+first-order logic for knowledge representation.
+
+The kinship domain
+
+The first example we consider is the domain of family relationships, or kinship. This domain
+includes facts such as "Elizabeth is the mother of Charles" and "Charles is the father of William,"
+and rules such as "Ifx is the mother of y and y is a parent of z, then x is a grandmother of z."
+
+Clearly, the objects in our domain are people. The properties they have include gender,
+and they are related by relations such as parenthood, brotherhood, marriage, and so on. Thus,
+we will are have two unary predicates, Male and Female. Most of the kinship relations will be
+binary predicates: Parent, Sibling, Brother, Sister, Child, Daughter, Son, Spouse, Wife, Husband,
+Grandparent, Grandchild, Cousin, Aunt, Uncle. We will use functions for Mother and Father,
+because every person has exactly one of each of these (at least according to nature's design).
+
+We can go through each function and predicate, writing down what we know in terms of
+the other symbols. For example, one's mother is one's female parent:
+
+Vim, ¢ Mother(c)=m <= Female(m) A Parent(m, c)
+
+ 
+

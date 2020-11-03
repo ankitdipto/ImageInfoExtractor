@@ -1,0 +1,54 @@
+142
+
+Chapter 5. Game Playing
+
+ 
+
+(Morrison and Morrison, 1961). He believed that ifhis most ambitious design for a mechanical
+digital computer, the Analytical Engine, were ever completed, it could be programmed to play
+checkers and chess. He also designed, but did not build, a special-purpose machine for playing
+Tic-Tac-Toe. Ernst Zermelo, the designer of modern axiomatic set theory, later speculated on
+the rather quixotic possibility of searching the entire game tree for chess in order to determine
+a perfect strategy (Zermelo, 1976). The first functioning (and nonfraudulent) game-playing
+machine was designed and built around 1890by the Spanish engineer Leonardo Torres y Quevedo.
+It specialized in the “KRK” chess endgame (king and rook vs. king), playing the side with the
+king and rook against a human opponent attempting to defend with the lone king. Its play was
+correct and it was capable of forcing mate from any starting position (with the machine moving
+first). The “Nimotron” (Condon ef al., 1940) demonstrated perfect play for the very simple
+game of Nim. Significantly, a completely optimal strategy for Nim and an adequate strategy for
+the KRK chess endgame (i.e, one which will always win when given the first move, although
+not necessarily in the minimal number of moves) are both simple enough to be memorized and
+executed algorithmically by humans.
+
+Torres y Quevedo's achievement, and even Babbage's and Zermelo's speculations, re-
+mained relatively isolated until the mid-1940s—the era when programmable electronic digital
+computers were first being developed. The comprehensive theoretical analysis of game strategy
+in Theory of Games and Economic Behavior (Von Neumann and Morgenstern, 1944) placed
+emphasis on minimaxing (without any depth cutoff) as a way to define mathematically the
+game-theoretic value of a position in a game. Konrad Zuse (1945), the first person to design
+a programmable computer, developed ideas as to how mechanical chess play might be accom-
+plished. Adriaan de Groot (1946) carried out in-depth psychological analysis of human chess
+strategy, which was useful to designers of computer chess programs. Norbert Wiener's (1948)
+book Cybernetics included a brief sketch of the functioning ofa possible computer chess-playing
+program, including the idea of using minimax search with a depth cutoff and an evaluation func-
+tion to select a move. Claude Shannon (1950) wrote a highly influential article that laid out the
+basic principles underlying modem computer game-playing programs, although the article did
+not actually include a program of his own. Shannon described minimaxing with a depth cutoff
+and evaluation function more clearly and in more detail than had Wiener, and introduced the
+notion of quiescence ofa position. Shannon also described the possibility of using nonexhaustive
+("type B”) as opposed to exhaustive ("type A") minimaxing. Slater (1950) and the commentators
+on his article in the same volume also explored the possibilities for computer chess play. In
+particular, Good (1950) developed the notion of quiescence independently of Shannon.
+
+In 1951, Alan Turing wrote the first actual computer program capable of playing a full
+game of chess. (The program was published in Turing (1953).) But Turing's program never
+actually ran on a computer; it was tested by hand simulation against a very weak human player,
+who defeated it. Meanwhile D. G. Prinz (1952) had written, and actually run, a program that
+solved chess problems, although it did not play a full game.
+
+Checkers, rather than chess, was the first of the classic games for which a program actually
+running on a computer was capable of playing out a full game. Christopher Strachey (1952) was
+the first to publish such research, although Slagle (1971) mentions a checkers program written
+by Arthur Samuel as early as 1947. Chinook, the checkers program that recently took over the
+world title from Marion Tinsley, is described by Schaefferet al. (1992).
+

@@ -1,0 +1,57 @@
+328
+
+Chapter 10. — Logical Reasoning Systems
+
+We have described implementation techniques and characteristics of four major classes of
+
+logical reasoning systems:
+
++ Logic programming systems and theorem provers.
+
+* Production systems.
+
++ Semantic networks
+
++ Description logics.
+We have seen that there is a trade-offbetween the expressiveness ofthe system and its efficiency. 4
+Compilation can provide significant improvements in efficiency by taking advantage of the fact |
+that the set ofsentences is fixed in advance. Usability is enhanced by providing a clear semantics
+for the representation language, and by simplifying the execution model so that the user has a
+good idea of the computations required for inference.
+
+ 
+
+BIBLIOGRAPHICAL AND HISTORICAL NOTES
+
+Work on indexing and retrieval in knowledge bases appears in the literatures of both AI and -
+databases. The two major texts on AI programming (Charniak et al., 1987; Norvig, 1992)
+discuss the topic in depth. The text by Forbus and de Kleer (1993) also covers much of this
+ground. The standard reference on management of databases and knowledge bases is (Ullman,
+1989). Jack Minker was a major pioneer in the development ofthe theory of deductive databases |
+(Gallaire and Minker, 1978;Minker, 1988). Colomb (1991)presents some interesting ideas about
+using hardware to aid indexing of Prolog programs.
+
+As mentioned in Chapter 9, unification was foreshadowed by Herbrand (1930), and formally
+introduced by Robinson (1965) in the same article that unveiled the resolution inference tule. ‘
+Extending work by Boyer and Moore (1972), Martelli and Montanari (1976) and Paterson and
+Wegman (1978) developed unification algorithms that run in linear time and space via sharing
+of structure among representations of terms. Unification is surveyed by Knight (1989) and by |
+Lassez et al, (1988). Shieber (1986) covers the use of unification in natural language processing.
+
+Prolog was developed, and the first interpreter written, by the French researcher Alain
+Colmerauer in 1972 (Roussel, 1975; Colmerauer et al., 1973); Colmerauer (1985) also gives
+an English-language survey of Prolog. Much of the theoretical background was developed by
+Robert Kowalski (1974; 1979; 1979a)in collaboration with Colmerauer. Kowalski (1988) and :
+Cohen (1988) provide good historical overviews of the origins of Prolog. Foundations ofLogic
+Programming (Lloyd, 1987) is a theoretical analysis of the underpinnings of Prolog and other
+logic programming languages. Ait-Kaci (1991) gives a clear exposition of the Warren Abstract
+Machine (WAM) model of computation (Warren, 1983).
+
+Recently, much of the effort in logic programming has been aimed toward increasing
+efficiency by building information about specific domains or specific inference patterns into
+the logic programming language. The language LOGIN (Ait-Kaci and Nasr, 1986) incorporates
+efficient handling of inheritance reasoning. Constraint logic programming (CLP) is based on
+the use of constraint satisfaction, together with a background theory, to solve constraints on
+
+ 
+

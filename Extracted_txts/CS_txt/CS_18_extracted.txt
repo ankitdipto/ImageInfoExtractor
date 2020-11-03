@@ -1,0 +1,53 @@
+24.2. Single-source shortest paths in directed acyclic graphs 655
+
+241-5 &
+
+Let G = (V, E) be a weighted, directed graph with weight function w : E > R.
+Give an O(VE)-time algorithm to find, for each vertex v € V, the value 6*(v) =
+minyev {5(u, v)}.
+
+241-6 *
+
+Suppose that a weighted, directed graph G = (V, E) has a negative-weight cycle.
+Give an efficient algorithm to list the vertices of one such cycle. Prove that your
+algorithm is correct.
+
+ 
+
+24.2 Single-source shortest paths in directed acyclic graphs
+
+By relaxing the edges of a weighted dag (directed acyclic graph) G = (V, E)
+according to a topological sort of its vertices, we can compute shortest paths from
+a single source in @(V + E) time. Shortest paths are always well defined in a dag,
+since even if there are negative-weight edges, no negative-weight cycles can exist.
+
+The algorithm starts by topologically sorting the dag (see Section 22.4) to im-
+pose a linear ordering on the vertices. If the dag contains a path from vertex u to
+vertex v, then u precedes v in the topological sort. We make just one pass over the
+vertices in the topologically sorted order. As we process each vertex, we relax each
+edge that leaves the vertex.
+
+DaG-SHORTEST-PATHS(G, w, 5)
+
+1 topologically sort the vertices of G
+
+2 INITIALIZE-SINGLE-SOURCE(G, 5)
+
+3 for each vertex u, taken in topologically sorted order
+4 for each vertex v € G.Adj{u]
+
+5 RELAX(u, v, w)
+
+Figure 24.5 shows the execution of this algorithm.
+
+The running time of this algorithm is easy to analyze. As shown in Section 22.4,
+the topological sort of line 1 takes @(V + E) time. The call of INITIALIZE-
+SINGLE-SOURCE in line 2 takes ©(V) time. The for loop of lines 3-5 makes one
+iteration per vertex. Altogether, the for loop of lines 4—5 relaxes each edge exactly
+once. (We have used an aggregate analysis here.) Because each iteration of the
+inner for loop takes @(1) time, the total running time is @(V + E), which is linear
+in the size of an adjacency-list representation of the graph.
+
+The following theorem shows that the DAG-SHORTEST-PATHS procedure cor-
+rectly computes the shortest paths.
+

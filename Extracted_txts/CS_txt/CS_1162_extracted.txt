@@ -1,0 +1,46 @@
+Chapter 12: File Input/Output 445
+
+ 
+
+}
+
+{
+if (strcmp (e.name, empname ) == 0 )
+
+printf ( "\nEnter new name, age & bs" ) ;
+scanf ("%s %d %f", e.name, &e.age,
+&e.bs ) ;
+fseek ( fp, - recsize, SEEK_CUR) ;
+furite ( &e, recsize, 1, fp) ;
+break ;
+}
+}
+
+printf ("\nModify another Record (Y/N) ") ;
+fflush (stdin ) ;
+another = getche() ;
+
+break ;
+
+case'4':
+
+another = 'Y';
+while ( another == 'Y')
+
+{
+
+printf ( "\nEnter name of employee to delete ") ;
+scanf ("%s", empname ) ;
+
+ft = fopen ("TEMP.DAT", "wb" ) ;
+
+rewind (fp) ;
+while (fread ( &e, recsize, 1, fp) == 1)
+{
+if (strcmp (e.name, empname ) != 0)
+fwrite ( &e, recsize, 1, ft) ;
+}
+
+fclose (fp) ;
+fclose (ft) ;
+

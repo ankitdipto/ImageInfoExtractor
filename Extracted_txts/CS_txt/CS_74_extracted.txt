@@ -1,0 +1,55 @@
+25.3 Johnson's algorithm for sparse graphs 701
+
+that allows us to use the same method. The new set of edge weights @ must satisfy
+two important properties:
+
+1. For all pairs of vertices u,v € V,a path p is a shortest path from u to v using
+weight function w if and only if p is also a shortest path from u to v using
+weight function 0.
+
+2. For all edges (u,v), the new weight t(u, v) is nonnegative.
+
+As we shall see in a moment, we can preprocess G to determine the new weight
+function @ in O(VE) time.
+
+Preserving shortest paths by reweighting
+
+The following lemma shows how easily we can reweight the edges to satisfy the
+first property above. We use 6 to denote shortest-path weights derived from weight
+function w and 6 to denote shortest-path weights derived from weight function #0.
+
+Lemma 25.1 (Reweighting does not change shortest paths)
+
+Given a weighted, directed graph G = (V, E) with weight function w : E > R,
+let h : V — R be any function mapping vertices to real numbers. For each edge
+(u,v) € E, define
+
+w(u,v) = wu,v) +h(u) —h(v). (25.9)
+Let p = (Vo, Vi, +++ 5 vz) be any path from vertex vp to vertex vg. Then p is a
+shortest path from vo to v; with weight function w if and only if it is a shortest path
+with weight function W. That is, w(p) = 5(vo, vg) if and only if O(p) = 3(vo. Vy).
+Furthermore, G has a negative-weight cycle using weight function w if and only
+if G has a negative-weight cycle using weight function 0.
+
+Proof We start by showing that
+
+O(p) = w(p) + h(v9) — h(v,) - (25.10)
+We have
+
+k
+Bp) = Yow.)
+
+i=l
+
+k
+
+= Yow; vi) + h(i) — hv)
+i=l
+k
+
+= > w(vi-1, Vi) + h(v0) — hve) (because the sum telescopes)
+
+i=1
+
+= w(p) +h(v) — h(rx) «
+

@@ -1,0 +1,65 @@
+394
+
+  
+
+Chapter 13. Planning and Acting
+
+ 
+
+ 
+
+knowledge of the world—the tire may be flat because it is punctured, or just because it has
+not been pumped up lately. Because changing a tire is a dirty and time-consuming business,
+it would be better if the agent could execute a conditional plan: if Tire; is intact, then inflate
+it. Ifnot, remove it and put on the spare. To express this formally, we can extend our original
+notation for plan steps with a conditional step Jf(<Condition><ThenPart>, <ElsePart>, ). Thus,
+the tire-fixing plan now includes the step
+
+  
+    
+   
+   
+
+If Intact(Tire,), UInflate(Tire)], [Remove(Tire,), PutOn(Spare)])
+
+Thus, the conditional planning agent can sometimes do better than the standard planning agents
+described earlier. Furthermore, there are cases where a conditional plan is the only possible
+plan. Ifthe agent does not know ifits spare tire is flat or inflated, then the standard planner will
+fail, whereas the conditional planner can insert a second conditional step that inflates the spare if  ;
+necessary. Lastly, ifthere is a possibility that both tires have holes, then neither planner can come
+up with a guaranteed plan. In this case, a conditional planner can plan for all the cases where
+success is possible, and insert a Fail action on those branches where no completion is possible.
+
+Plans that include conditional steps are executed as follows. When the conditional step is
+executed, the agent first tests the condition against its knowledge base. It then continues executing
+either the then-part or the else-part, depending on whether the condition is true or false. The
+then-part and the else-part can themselves be plans, allowing arbitrary nesting of conditionals. {
+The conditional planning agent design is shown in Figure 13.1. Notice that it deals with nested
+conditional steps by following the appropriate conditional branches until it finds a real action to
+do. (The conditional planning algorithm itself, CPOP, will be discussed later.)
+
+The crucial part of executing conditional plans is that the agent must, at the time of
+execution of a conditional step, be able to decide the truth or falsehood of the condition—thatis,
+the condition must be known to the agent at that point in the plan. If the agent does not know
+if Tire\ is intact or not, it cannot execute the previously shown plan. What the agent knows at
+any point is of course determined by the sequence of percepts up to that point, the sequence of
+actions carried out, and the agent's initial knowledge. In this case, the initial conditions in the
+knowledge base do not say anything about Jnract(Tire;). Furthermore, the agent may have no
+actions that cause Intact(Tire,) to become true.' To ensure that a conditional plan is executable,
+the agent must insert actions that cause the relevant conditions to become known by the agent.
+
+Facts become known to the agent through its percepts, so what we mean by the previous
+remark is that the agent must act in such a way as to make sure it receives the appropriate percepts.
+For example, one way to come to know that a tire is intact is to put some air into it and place
+one's listening device in close proximity. A hissing percept then enables the agent to infer that
+the tire is not intact.” Suppose we use the name CheckTire(x)to refer to an action that establishes
+the state of the tire x. This is an example ofa sensing action.
+
+Using the situation calculus description of sensing actions described in Chapter 8, we
+would write
+
+Vx,s Tire) => KnowsWhether(“Intact(x)”, Result(CheckTire(x), 8)
+
+' Note that if, for example, a Puch(Tirey) action were available, then a standard plan could be constructed
+2 Agents without sound percepts can wet the tire. A bubbling visual percept then suggests the tire is compromised.
+

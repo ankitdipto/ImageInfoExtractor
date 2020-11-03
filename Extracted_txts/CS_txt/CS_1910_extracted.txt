@@ -1,0 +1,59 @@
+366
+
+10.9
+
+10.10
+
+Chapter 10 Virtual Memory
+
+per minute and transfers one million words per second. The following
+statistical measurements were obtained from the system:
+
+One percent of all instructions executed accessed a page other than
+the current page.
+
+Of the instructions that accessed another page, 80 percent accessed a
+page already in memory.
+
+¢ When a new page was required, the replaced page was modified 50
+percent of the time.
+
+Calculate the effective instruction time on this system, assuming that the
+system is running one process only, and that the processor is idle during
+drum transfers.
+
+Consider a demand-paging system with the following time-measured
+
+utilizations:
+
+CPU utilization 20%
+Paging disk 97.7%
+Other I/O devices 5%
+
+For each of the following, say whether it will (or is likely to) improve CPU
+utilization. Explain your answers.
+
+a. Install a faster CPU.
+b. Install a bigger paging disk.
+
+c. Increase the degree of multiprogramming.
+
+a
+
+. Decrease the degree of multiprogramming.
+e. Install more main memory.
+
+£. Install a faster hard disk, or multiple controllers with multiple hard
+disks.
+
+g. Add prepaging to the page-fetch algorithms.
+h. Increase the page size.
+Consider the two-dimensional array A:
+int AC][] = new int [100] [100];
+
+where A[0] [0] is stored at location 200, in a paged memory system with
+pages of size 200. A small process resides in page 0 (locations 0 to 199)
+for manipulating the A matrix; thus, every instruction fetch will be from
+
+page 0.
+

@@ -1,0 +1,63 @@
+632
+
+Chapter 21. Knowledge in Learning
+
+ 
+
+OPERATIONALITY
+
+ 
+
+step Simplify(+ z, w), yielding the rule
+
+Simplify z,w) => Simplify(x (y+ 2),w)
+In general, a rule can be extracted from any partial subtree of the generalized proof tree. Now
+we have a problem: which of these rules do we choose?
+
+The choice of which rule'to generate comes down to the question of efficiency. There are
+three factors involved in the analysis of efficiency gains from EBL:
+
+1, Adding large numbers of rules to a knowledge base can slow down the reasoning process,
+because the inference mechanism must still check those rules even in cases where they do
+not yield a solution. In other words, it increases the branching factor in the search space.
+
+2. To compensate for this, the derived rules must offer significant increases in speed for the
+cases that they do cover. This mainly comes about because the derived mules avoid dead
+ends that would otherwise be taken, as well as shortening the proof itself.
+
+3. Derived rules should also be as general as possible, so that they apply to the largest possible
+set of cases.
+
+A common approach to ensuring that derived rules are efficient is to insist on the operationality
+of each subgoal in the rule. A subgoal is operational, roughly speaking, ifit is "easy" to solve.
+For example, the subgoal Primitive(z) is easy to solve, requiring at most two steps, whereas
+the subgoal Simplify(+ z, w) could lead to an arbitrary amount of inference, depending on the
+values ofy and =. Ifa test for operationality is carried out at each step in the construction of the
+generalized proof, then we can prune the rest ofa branch as soon as an operational subgoal is
+found, keeping just the operational subgoal as a conjunct of the new rule
+
+Unfortunately, there is usually a trade-off between operationality and generality. More
+specific subgoals are usually easier to solve but cover fewer cases. Also, operationality is a
+matter of degree; one or two steps is definitely operational, but what about 10, or 100? Finally,
+the cost of solving a given subgoal depends on what other rules are available in the knowledge
+base. It can go up or down as more rules are added. Thus, EBL systems really face a very
+complex optimization problem in trying to maximize the efficiency ofa given initial knowledge
+base. It is sometimes possible to derive a mathematical model of the effect on overall efficiency
+of adding a given rule, and to use this model to select the best rule to add. The analysis can
+become very complicated, however, especially when recursive rules are involved. One promising
+approach is to address the problem of efficiency empirically, simply by adding several rales and
+seeing which ones are useful and actually speed things up.
+
+The idea of empirical analysis of efficiency is actually at the heart of EBL. What we have
+been calling loosely the "efficiency of a given knowledge base" is actually the average-case
+complexity on a population of problems that the agent will have to solve. By generalizingfrom
+past example problems, EBL makes the knowledge base more efficient for the kind ofproblems
+that it is reasonable to expect. This works as long as the distribution of past examples is roughly
+the same as for future examples—the same assumption used for PAC-learning in Section 18.6.
+If the EBL system is carefully engineered, it is possible to obtain very significant improvements
+on future problems. In a very large Prolog-based natural language system designed for real-
+time speech-to-speech translation between Swedish and English, Samuelsson and Rayner (1991)
+report that EBL made the system more than 1200 times faster.
+
+ 
+

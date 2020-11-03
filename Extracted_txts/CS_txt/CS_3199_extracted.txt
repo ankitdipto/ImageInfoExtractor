@@ -1,0 +1,61 @@
+Section 18.7.
+
+Summary 561
+
+ 
+
+CLASS PROBABILITY
+
+ 
+
+18.2 Repeat Exercise 18.1 for the case of learning to play tennis (or some other competitive
+sport with which you are familiar). Is this supervised learning or reinforcement learning?
+
+18.3 Draw a decision tree for the problem of deciding whether or not to move forward at a road
+intersection given that the light has just turned green.
+
+18.4 We never test the same attribute twice along one path in a decision tree. Why not?
+
+185 A good "straw man" learning algorithm is as follows: create a table out of all the training
+examples. Determine which output occurs most often among the training examples; call it d.
+Then when given an input that is not in the table, just return d For inputs that are in the table,
+return the output associated with it (or the most frequent output, if there is more than one). If
+the input does not appear in the table, then return d. Implement this algorithm and see how well
+it does in a sample domain. This should give you an idea of the baseline for the domain—the
+minimal performance that any algorithm should be able to obtain (although many published
+algorithms have managed to do worse).
+
+18.6 Look back at Exercise 3.16, which asked you to predict from a sequence of numbers
+(such as [1,4,9,16]) the function underlying the sequence. What techniques from this chapter are
+applicable to this problem? How would they allow you to do better than the problem-solving
+approach of Exercise 3.16?
+
+187 In the recursive construction of decision trees, it sometimes occurs that a mixed set of
+positive and negative examples remains at a leaf node, even after all the attributes have been used.
+Suppose that we have p positive examples and n negative examples.
+
+a. Show that the solution used by DEcISIon-TREE-LEARNING, which picks the majority
+classification, minimizes the absolute error over the set of examples at the leaf.
+
+b. Show that returning the class probability p/(p + n) minimizes the sum of squared errors.
+
+188 Suppose that a learning algorithm is trying to find a consistent hypothesis when the
+classifications ofexamples are actually being generated randomly. There are n Boolean attributes,
+and examples are drawn uniformly from the set of 2" possible examples. Calculate the number of
+examples required before the probability of finding a contradiction in the data reaches 0.5.
+
+18.9 Suppose that an attribute splits the set ofexamples £ into subsets £;, and that each subset
+has p; positive examples and n; negative examples. Show that unless the ratio p,/(p; + nj) is the
+same for all 7, the attribute has strictly positive information gain.
+
+18.10 Modify DECISION-TREE-LEARNING to include \?-pruning. You may wish to consult
+Quinlan (1986) for details.
+
+18.11 The standard DECISION-TREE-LEARNING algorithm described in the chapter does not
+handle cases in which some examples have missing attribute values.
+
+a. First, we need to find a way to classify such examples, given a decision tree that includes
+tests on the attributes for which values may be missing. Suppose an example X has a
+missing value for attribute 4, and that the decision tree tests for A at a node that Y reaches.
+One way to handle this case is to pretend that the example has all possible values for the
+

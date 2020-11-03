@@ -1,0 +1,38 @@
+12.1 What is a binary search tree? 287
+
+ 
+
+(a) (b)
+
+Figure 12.1 Binary search trees. For any node x, the keys in the left subtree of x are at most x. key,
+and the keys in the right subtree of x are at least x.key. Different binary search trees can represent
+the same set of values, The worst-case running time for most search-tree operations is proportional
+to the height of the tree. (a) A binary search tree on 6 nodes with height 2. (b) A less efficient binary
+search tree with height 4 that contains the same keys.
+
+its right child, and its parent, respectively. If a child or the parent is missing, the
+appropriate attribute contains the value NIL. The root node is the only node in the
+tree whose parent is NIL.
+
+The keys in a binary search tree are always stored in such a way as to satisfy the
+binary-search-tree property:
+
+Let x be a node in a binary search tree. If y is a node in the left subtree
+of x, then y.key < x.key. If y is a node in the right subtree of x, then
+y. key > x. key.
+
+Thus, in Figure 12.1(a), the key of the root is 6, the keys 2, 5, and 5 in its left
+subtree are no larger than 6, and the keys 7 and 8 in its right subtree are no smaller
+than 6. The same property holds for every node in the tree. For example, the key 5
+in the root’s left child is no smaller than the key 2 in that node’s left subtree and no
+larger than the key 5 in the right subtree.
+
+The binary-search-tree property allows us to print out all the keys in a binary
+search tree in sorted order by a simple recursive algorithm, called an inorder tree
+walk. This algorithm is so named because it prints the key of the root of a subtree
+between printing the values in its left subtree and printing those in its right subtree.
+(Similarly, a preorder tree walk prints the root before the values in either subtree,
+and a postorder tree walk prints the root after the values in its subtrees.) To use
+the following procedure to print all the elements in a binary search tree 7’, we call
+INORDER-TREE-WALK (T. roof).
+

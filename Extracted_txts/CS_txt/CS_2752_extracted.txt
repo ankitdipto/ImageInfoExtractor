@@ -1,0 +1,49 @@
+13.1 Properties of red-black trees 309
+
+Figure 13.1(a) shows an example of a red-black tree.
+
+As a matter of convenience in dealing with boundary conditions in red-black
+tree code, we use a single sentinel to represent NIL (see page 238). For a red-black
+tree T, the sentinel T.nil is an object with the same attributes as an ordinary node
+in the tree. Its color attribute is BLACK, and its other attributes—p, /eft, right,
+and key—can take on arbitrary values. As Figure 13.1(b) shows, all pointers to NIL
+are replaced by pointers to the sentinel T.nil.
+
+We use the sentinel so that we can treat a NIL child of a node x as an ordinary
+node whose parent is x. Although we instead could add a distinct sentinel node
+for each NIL in the tree, so that the parent of each NIL is well defined, that ap-
+proach would waste space. Instead, we use the one sentinel T. nil to represent all
+the NILs—all leaves and the root’s parent. The values of the attributes p, left, right,
+and key of the sentinel are immaterial, although we may set them during the course
+of a procedure for our convenience.
+
+We generally confine our interest to the internal nodes of a red-black tree, since
+they hold the key values. In the remainder of this chapter, we omit the leaves when
+we draw red-black trees, as shown in Figure 13.1(c).
+
+We call the number of black nodes on any simple path from, but not including, a
+node x down to a leaf the black-height of the node, denoted bh(x). By property 5,
+the notion of black-height is well defined, since all descending simple paths from
+the node have the same number of black nodes. We define the black-height of a
+red-black tree to be the black-height of its root.
+
+The following lemma shows why red-black trees make good search trees.
+
+Lemma 13.1
+A red-black tree with 7 internal nodes has height at most 21g(n + 1).
+
+Proof We start by showing that the subtree rooted at any node x contains at least
+2%") _ | internal nodes. We prove this claim by induction on the height of x. If
+the height of x is 0, then x must be a leaf (7. nil), and the subtree rooted at x indeed
+contains at least 2°") — 1 = 2° — | = 0 intemal nodes. For the inductive step,
+consider a node x that has positive height and is an internal node with two children.
+Each child has a black-height of either bh(x) or bh(x) — 1, depending on whether
+its color is red or black, respectively. Since the height of a child of x is less than
+the height of x itself, we can apply the inductive hypothesis to conclude that each
+child has at least 2®"©)—! — ] internal nodes. Thus, the subtree rooted at x contains
+at least (2500-1 — 1) + (2e*)-1 1) 4 1 = 2%) _ | internal nodes, which proves
+the claim.
+
+To complete the proof of the lemma, let / be the height of the tree. According
+to property 4, at least half the nodes on any simple path from the root to a leaf, not
+

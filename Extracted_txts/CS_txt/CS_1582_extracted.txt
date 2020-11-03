@@ -1,0 +1,51 @@
+96 Chapter4 Processes
+
+Even if the user can execute only one program at a time, the operating system
+may need to support its own internal programmed activities, such as memory
+management. In many respects, all these activities are similar, so we call all of
+them processes.
+
+The terms job and process are used almost interchangeably in this text.
+Although we personally prefer the term process, much of operating-system
+theory and terminology was developed during a time when the major activity
+of operating systems was job processing. It would be misleading to avoid the use
+of commonly accepted terms that include the word job (such as job scheduling)
+simply because process has superseded job.
+
+4.1.1 The Process
+
+Informally, a process is a program in execution. A process is more than the
+program code, which is sometimes known as the text section. It also includes
+the current activity, as represented by the value of the program counter and the
+contents of the processor’s registers. In addition, a process generally includes
+the process stack, which contains temporary data (such as method parameters,
+return addresses, and local variables), and a data section, which contains global
+variables.
+
+We emphasize that a program by itself is not a process; a program is a
+passive entity, such as the contents of a file stored on disk, whereas a process
+is an active entity, with a program counter specifying the next instruction to
+execute and a set of associated resources.
+
+Although two processes may be associated with the same program, they
+are nevertheless considered two separate execution sequences. For instance,
+several users may be running different copies of the mail program, or the same
+user may invoke many copies of the editor program. Each of these is a separate
+process, and, although the text sections are equivalent, the data sections vary.
+It is also common to have a process that spawns many processes as it runs. We
+discuss such matters in Section 4.4.
+
+4.1.2 Process State
+As a process executes, it changes state. The state of a process is defined in
+part by the current activity of that process. Each process may be in one of the
+following states:
+
+« New: The process is being created.
+
+« Running; Instructions are being executed.
+
+© Waiting: The process is waiting for some event to occur (such as an I/O
+completion or reception of a signal).
+
+« Ready: The process is waiting to be assigned to a processor.
+

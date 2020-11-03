@@ -1,0 +1,58 @@
+342
+
+Chapter 11. Planning
+
+ 
+
+PLANNER
+
+will be useful to handle action sequences as well as single actions. We will use Resuli'(/,5) to
+mean the situation resulting from executing the sequence of actions / starting in s. Result’ is
+defined by saying that an empty sequence of actions has no effect on a situation, and the result
+ofa nonempty sequence of actions is the same as applying the first action, and then applying the
+rest of the actions from the resulting situation:
+
+Vs Result'({],9)=s
+Va.p,s Result'({alp],s)= Result (p, Result(a, s))
+
+A solution to the shopping problem is a plan p that when applied to the start state Sy yields a
+situation satisfying the goal query. In other words, a p such that
+
+At(Home, Result'(p, So)) A. Have(Milk,Result!(p, S)) A. Have(Bananas, Result! (p, So)
+A Have(Drill, Result'(p.So))
+
+If we hand this query to ASK, we end up with a solution such as
+
+pb = [Go(SuperMarket),Buy(Milk),Buy(Banana),
+Go(HardwareStore), Buy(Drill), Go(Home)]
+
+From the theoretical point of view, there is little more to say. We have a formalism for expressing
+goals and plans, and we can use the well-defined inference procedure of first-order logic to find
+plans. It is true that there are some limitations in the expressiveness of situation calculus, as
+discussed in Section 8.4, but situation calculus is sufficient for most planning domains.
+
+Unfortunately, a good theoretical solution does not guarantee a good practical solution.
+We saw in Chapter 3 that problem solving takes time that is exponential in the length of the
+solution in the worst case, and in Chapter 9, we saw that logical inference is only semidecidable
+If you suspect that planning by unguided logical inference would be inefficient, you're right
+Furthermore, the inference procedure gives us no guarantees about the resulting plan p other than
+that it achieves the goal. In particular, note that if achieves the goal, then so do [Nothing|p land
+[A,A7! \p], where Nothing is an action that makes no changes (or at least no relevant changes) to
+the situation, and A~' is the inverse of A (in the sense that s = Result(A~', Result(A,s))).So we
+may end up with a plan that contains irrelevant steps if we use unguided logical inference
+
+To make planning practical we need to do two things: (1) Restrict the language with which
+we define problems. With a restrictive language, there are fewer possible solutions to search
+through. (2) Use a special-purpose algorithm called a planner rather than a general-purpose
+theorem prover to search for a solution. The two go hand in hand: every time we define a new
+problem-description language, we need a new planning algorithm to process the language. The
+remainder of this chapter and Chapter 12 describe a series of planning languages of increasing
+complexity, along with planning algorithms for these languages. Although we emphasize the
+algorithms, it is important to remember that we are always dealing with a logic: a formal
+language with a well-defined syntax, semantics, and proof theory. The proof theory says what
+can be inferred about the results of action sequences, and therefore what the legal plans are. The
+algorithm enables us to find those plans. The idea is that the algorithm can be designed to process
+the restricted language more efficiently than a resolution theorem prover.
+
+ 
+

@@ -1,0 +1,60 @@
+Section 18.5.
+
+Learning General Logical Descriptions 545
+
+ 
+
+EXTENSION
+
+FALSE NEGATIVE
+
+predicate. Using C; to denote the candidate definition, each hypothesis H; is a sentence of the
+form Vx Q(x) < C(x). For example, the decision tree shown in Figure 18.8 expresses the
+following logical definition (which we will call H, for future reference):
+
+Vr WillWait(r) <=  Patrons(r, Some)
+V_ Patrpns(r, Full) A ~Hungry(r)A Type(r French)
+V_ Patrons(r, Full) A ~Hungry(r)A Type(r, Thai) A FrilSat(r)
+Vs Patrons(r, Full) A sHungry(r)A Type(r Burger)
+
+The hypothesis space is then the set ofall hypotheses that the learning algorithm is designed
+to entertain. For example, the DECISION-TREE-LEARNING algorithm can entertain any decision
+tree hypothesis defined in terms of the attributes provided; its hypothesis space therefore consists
+of all these decision trees. We will generically use the letter H to denote the hypothesis space
+{H),...,H,}. Presumably, the learning algorithm believes that one of the hypotheses is correct;
+that is, it believes the sentence
+
+Hy) VA2VH3V...VH, (18.1)
+Each hypothesis predicts that a certain set ofexamples—namely, those that satisfy its candidate
+definition—will be examples of the goal predicate. This set is called the extension of the
+predicate. Two hypotheses with different extensions are therefore logically inconsistent with
+each other, because they disagree on their predictions for at least one example. If they have the
+same extension, they are logically equivalent.
+
+Examples
+
+Logically speaking, an example is an object to which the goal concept may or may not apply,
+and that has some logical description. Let us generically call the ith example X;. Its description
+will be the sentence Dj(X;), where D; can be any logical expression taking a single argument.
+The classification will be given by a sentence Q(X,)if the example is positive, and ~Q(X))if
+the example is negative. For instance, the first example from Figure 18.5 is described by the
+sentences
+
+Alternate(X)A 7Bar(X\) A >FrilSat(X))A Hungry(X))A ...
+and the classification
+
+WillWait(X;)
+The complete training set is then just the conjunction of all these sentences. A hypothesis agrees
+with all the examples if and only if it is logically consistent with the training set; ideally, we
+would like to find such a hypothesis.
+
+Let us examine this notion of consistency more carefully. Obviously, if hypothesis H; is
+
+consistent with the entire training set, it has to be consistent with each example. What would it
+mean for it to be inconsistent with an example? This can happen in one of two ways:
+
++ An example can be a false negative for the hypothesis, ifthe hypothesis says it should be
+negative but in fact it is positive. For instance, the new example X)3 described by
+
+Patrons(X13,Full)A Wait(X,3.0-10)\ —Hungry(Xi3)A ... A WillWait(X\3)
+

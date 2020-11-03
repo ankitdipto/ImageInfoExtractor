@@ -1,0 +1,46 @@
+1036
+
+Chapter 33 Computational Geometry
+
+be either in the interior of the triangle formed by po, p;, and p; or ona side of
+this triangle (but it is not a vertex of the triangle). Clearly, since p; is within a
+triangle formed by three other points of Q;, it cannot be a vertex of CH(Q)).
+Since p; is not a vertex of CH(Q;), we have that
+
+CH(Q; — {P;}) = CH(Q;) - (33.1)
+
+Let P; be the set of points that were popped during iteration 7 of the for loop.
+Since the equality (33.1) applies for all points in P;, we can apply it repeatedly
+to show that CH(Q; — P;) = CH(Q;). But Q; — P; = Q; U {p;}, and so we
+conclude that CH(Q; U {p;}) = CH(Q; — P;) = CH(Q)).
+
+We have shown that once we push p;, stack S contains exactly the vertices
+of CH(Q;) in counterclockwise order from bottom to top. Incrementing / will
+then cause the loop invariant to hold for the next iteration.
+
+Termination: When the loop terminates, we have i = m + 1, and so the loop
+invariant implies that stack S consists of exactly the vertices of CH(Q,,), which
+is CH(Q), in counterclockwise order from bottom to top. This completes the
+proof. .
+
+We now show that the running time of GRAHAM-SCAN is O(n lgn), where
+n = |Q|. Line | takes @(n) time. Line 2 takes O(n lg) time, using merge sort
+or heapsort to sort the polar angles and the cross-product method of Section 33.1
+to compare angles. (We can remove all but the farthest point with the same polar
+angle in total of O(n) time over all n points.) Lines 3-6 take O(1) time. Because
+m <n-—1, the for loop of lines 7-10 executes at most n — 3 times. Since PUSH
+takes O(1) time, each iteration takes O(1) time exclusive of the time spent in the
+while loop of lines 8-9, and thus overall the for loop takes O() time exclusive of
+the nested while loop.
+
+We use aggregate analysis to show that the while loop takes O() time overall.
+For i = 0,1,...,m, we push each point p; onto stack S exactly once. As in the
+analysis of the MULTIPOP procedure of Section 17.1, we observe that we can pop at
+most the number of items that we push. At least three points— po, p1, and p,,—are
+never popped from the stack, so that in fact at most m — 2 Pop operations are
+performed in total. Each iteration of the while loop performs one Pop, and so
+there are at most m — 2 iterations of the while loop altogether. Since the test in
+line 8 takes O(1) time, each call of Pop takes O(1) time, and m <n — 1, the total
+time taken by the while loop is O(1). Thus, the running time of GRAHAM-SCAN
+is O(nlgn).
+

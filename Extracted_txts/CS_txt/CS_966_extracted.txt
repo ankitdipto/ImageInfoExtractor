@@ -1,0 +1,49 @@
+Chapter 8: Arrays 287
+
+ 
+
+int i;
+for (i=O;i<=n-1; i++)
+
+printf ( "\nelement = %d", *j) ;
+j++; /° increment pointer to point to next element “/
+}
+}
+
+Here, the display() function is used to print out the array
+elements. Note that the address of the zeroth element is being
+passed to the display() function. The for loop is same as the one
+used in the earlier program to access the array elements using
+pointers. Thus, just passing the address of the zeroth element of the
+array to a function is as good as passing the entire array to the
+function. It is also necessary to pass the total number of elements
+in the array, otherwise the display() function would not know
+when to terminate the for loop. Note that the address of the zeroth
+element (many a times called the base address) can also be passed
+by just passing the name of the array. Thus, the following two
+function calls are same:
+
+display ( &num[0}, 6) ;
+display (num, 6 ) ;
+
+The Real Thing
+
+If you have grasped the concept of storage of array elements in
+memory and the arithmetic of pointers, here is some real food for
+thought. Once again consider the following array.
+
+ 
+
+ 
+
+24 34 12 44 56 17
+65512 65514 65516 65518 65520 65522
+
+ 
+
+ 
+
+ 
+
+Figure 8.3
+

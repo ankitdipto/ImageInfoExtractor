@@ -1,0 +1,61 @@
+restoring method
+
+comparison and
+nonrestoring method
+
+SECTION 10-4 Division Algorithms 353
+
+words of n bits, Since an operand must be stored with its sign, one bit of the
+word will be occupied by the sign and the magnitude will consist of n-1 bits.
+
+‘A divide-overflow condition is tested by subtracting the divisor in B from
+half of the bits of the dividend stored in A. If A = B, the divide-overflow
+flip-flop DVF is set and the operation is terminated prematurely. If A < B,
+no divide overflow occurs so the value of the dividend is restored by adding
+BtoA.
+
+The division of the magnitudes starts by shifting the dividend in AQ to
+the left with the high-order bit shifted into E If the bit shifted into E is 1, we
+know that EA > B because EA consists of a 1 followed by n~1 bits while B
+consists of only n—1 bits. In this case, B must be subtracted from EA and 1
+inserted into Q, for the quotient bit. Since register A is missing the high-order
+bit of the dividend (which isin B), its value is EA — 2°. Adding to this value
+the 2's complement of B results in
+
+ 
+
+(EA - 27) + (2 - B= EA-B
+
+The carry from this addition is not transferred to E if we want E to remain
+al.
+
+If the shift-left operation inserts a 0 into E, the divisor is subtracted by
+adding its 2’s complement value and the carry is transferred into E. If E = 1,
+it signifies that A > B; therefore, Q,is set to 1. If E = 0, it signifies that A < B
+and the original number is restored by adding B to A. In thelatter case weleave
+a0 in Q, (0 was inserted during the shift).
+
+This process is repeated again with register A holding the partial remain-
+der. Aftern ~ 1 times, the quotient magnitude is formed in register Qand the
+remainder is found in register A. The quotient sign is in Q, and the sign of the
+remainder in A, is the same as the original sign of the dividend.
+
+Other Algorithms
+
+The hardware method just described is called the restoring method. The reason
+for this name is that the partial remainder is restored by adding the divisor to
+the negative difference. Two other methods are available fordividingnumbers,
+thecomparison method andthe nonrestoring method. In the comparison method
+‘A and B are compared prior to the subtraction operation. Then if A > B, Bis
+subtracted from A. If A < B nothing is done. The partial remainders shifted
+left and the numbers are compared again. The comparison can be determined
+prior to the subtraction by inspecting the end-carry out of the parallel-adder
+prior to its transfer to register E.
+
+In the nonrestoring method, B is not added if the difference is negative
+but instead, the negative difference is shifted left and then B is added. To see
+why this is possible consider the case when A < B. From the flowchart in Fig.
+9-11 we note that the operations performed are A — B + B; that is, Bis sub-
+
+ 
+

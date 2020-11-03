@@ -1,0 +1,53 @@
+exponent
+
+normalization
+
+SECTION 3-4 Floating-Point Representation 83
+
+3-4 Floating-Point Representation
+
+The floating-point representation of a number has two parts. The first part
+represents a signed, fixed-point number called the mantissa. The second part
+designates the position of the decimal (or binary) point and is called the
+exponent. The fixed-point mantissa may be a fraction or an integer. For exam-
+ple, the decimal number +6132.789 is represented in floating-point with a
+fraction and an exponent as follows:
+
+Fraction Exponent
++0.6132789 +04
+
+The value of the exponent indicates that the actual position of the decimal point
+is four positions to the right of the indicated decimal point in the fraction. This
+representation is equivalent to the scientific notation +0.6132789 x 10*4,
+
+Floating-point is always interpreted to represent a number in the follow-
+ing form:
+
+mx
+
+Only the mantissa m and the exponent ¢ are physically represented in the
+register (including their signs). The radix r and the radix-point position of the
+mantissa are always assumed. The circuits that manipulate the floating, point
+numbers in registers conform with these two assumptions in order to provide
+the correct computational results.
+
+A floating-point binary number is represented in a similar manner except
+that it uses base 2 for the exponent. For example, the binary number +1001.11
+is represented with an 8-bit fraction and 6-bit exponent as follows:
+
+Fraction Exponent
+1001110 000100
+
+The fraction has a in the lef most position to denote positive. The binary point
+of the fraction follows the sign bitbutis not shown in the register. The exponent
+has the equivalent binary number +4. The floating-point number is equivalent
+to
+
+m x 2 = +(.1001110): x 2
+
+A floating-point number is said to be normalized if the most significant
+digit of the mantissa is nonzero. For example, the decimal number 350 is
+normalized but 00035 is not. Regardless of where the position of the radix point
+is assumed to be in the mantissa, the number is normalized only ifits leftmost
+digit is nonzero. For example, the &-bit binary number 00011010 is not normal
+

@@ -1,0 +1,38 @@
+5.4 Probabilistic analysis and further uses of indicator random variables 133
+
+E[X]
+
+Il Il
+M> =,
+iM iM
+aw ih
+& &
+
+When k(k — 1) > 2n, therefore, the expected number of pairs of people with the
+same birthday is at least 1. Thus, if we have at least /2n +1 individuals in a room,
+we can expect at least two to have the same birthday. For n = 365, if k = 28, the
+expected number of pairs with the same birthday is (28 - 27)/(2 - 365) ~ 1.0356.
+Thus, with at least 28 people, we expect to find at least one matching pair of birth-
+days. On Mars, where a year is 669 Martian days long, we need at least 38 Mar-
+tians.
+
+The first analysis, which used only probabilities, determined the number of peo-
+ple required for the probability to exceed 1/2 that a matching pair of birthdays
+exists, and the second analysis, which used indicator random variables, determined
+the number such that the expected number of matching birthdays is 1. Although
+the exact numbers of people differ for the two situations, they are the same asymp-
+totically: O(./n).
+
+5.4.2 Balls and bins
+
+Consider a process in which we randomly toss identical balls into b bins, numbered
+1,2,..., b. The tosses are independent, and on each toss the ball is equally likely
+to end up in any bin. The probability that a tossed ball lands in any given bin is 1/b.
+Thus, the ball-tossing process is a sequence of Bernoulli trials (see Appendix C.4)
+with a probability 1/b of success, where success means that the ball falls in the
+given bin. This model is particularly useful for analyzing hashing (see Chapter 11),
+and we can answer a variety of interesting questions about the ball-tossing process.
+(Problem C-1 asks additional questions about balls and bins.)
+
+ 
+

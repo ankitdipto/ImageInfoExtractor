@@ -1,0 +1,50 @@
+7.8 OSSynchronization 223
+
+7.8 = OS Synchronization
+
+We next describe the synchronization mechanisms provided by the Solaris and
+Windows 2000 operating systems.
+
+7.8.1 Synchronization in Solaris 2
+
+The Solaris 2 operating system was designed to provide real-time computing,
+be multithreaded, and support multiple processors. To control access to critical
+sections, Solaris 2 provides adaptive mutexes, condition variables, semaphores,
+reader—writer locks, and turnstiles. Solaris 2 implements semaphores and con-
+dition variables in the same way as they have been fundamentally presented in
+Sections 7.4 and 7.7. In this section we describe the adaptive mutexes, reader—
+writer locks, and turnstiles.
+
+An adaptive mutex protects access to every critical data item. On a mul-
+tiprocessor system, an adaptive mutex starts as a standard semaphore imple-
+mented as a spinlock. If the data are locked and therefore already in use, the
+adaptive mutex does one of two things. If the lock is held by a thread that is
+currently running on another CPU, the thread spins while waiting for the lock
+to become available because the thread holding the lock is likely to be done
+soon. If the thread holding the lock is not currently in run state, the thread
+blocks, going to sleep until it is awakened by the lock being released. It is put to
+sleep so that it will avoid spinning when the lock will not be freed reasonably
+quickly. A lock held by a sleeping thread is likely to be in this category. Ona
+uniprocessor system, the thread holding the lock is never running if the lock
+is being tested by another thread, because only one thread can run at a time.
+Therefore, on a uniprocessor system, threads always sleep rather than spin if
+they encounter a lock. We use the adaptive-mutex method to protect only those
+data that are accessed by short code segments. That is, a mutex is used if a lock
+will be held for less than a few hundred instructions. If the code segment is
+longer than that, spin waiting will be exceedingly inefficient. For longer code
+segments, condition variables and semaphores are used. If the desired lock is
+already held, the thread issues a wait and sleeps. Whena thread frees the lock, it
+issues a signal to the next sleeping thread in the queue. The extra cost of putting
+a thread to sleep and waking it, and of the associated context switches, is less
+than the cost of wasting several hundred instructions waiting in a spinlock.
+
+The readers—writers locks are used to protect data that are accessed
+frequently, but usually only in a read-only manner. In these circumstances,
+teaders—writers locks are more efficient than semaphores, because multiple
+threads may be reading data concurrently, whereas semaphores would always
+serialize access to the data. Readers—writers locks are relatively expensive to
+implement, so again they are used on only long sections of code.
+
+Solaris 2 uses turnstiles to order the list of threads waiting to acquire either
+an adaptive mutex or a reader—writer lock. A turnstile is a queue structure
+

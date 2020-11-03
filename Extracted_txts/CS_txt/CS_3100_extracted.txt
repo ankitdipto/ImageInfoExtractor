@@ -1,0 +1,56 @@
+ 
+
+MAKING SIMPLE
+
+DECISIONS
+
+ 
+
+ 
+
+ 
+
+In which we see how an agent should make decisions so that it gets what it wants—on
+average, at least.
+
+In this chapter, we return to the idea of utility theory that was introduced in Chapter 14 and show
+how it is combined with probability theory to yield a decision-theoretic agent—one that can make
+rational decisions based on what it believes and what it wants. Such an agent can make decisions
+in contexts where uncertainty and conflicting goals leave a logical agent with no way to decide.
+
+Section 16.1 introduces the basic principle ofdecision theory: the maximization ofexpected
+utility. Section 16.2 shows that the behavior of any rational agent can be captured by supposing a
+utility function that is being maximized. Section 16.3 discusses the nature of utility functions in
+more detail, and in particular their relation to individual quantities such as money. Section 16.4
+shows how to handle utility functions that depend on several quantities. In Section 16.5, we
+describe the implementation of decision-making systems. In particular, we introduce a formalism
+called decision networks (also known as influence diagrams) that extends belief networks by
+incorporating actions and utilities. The remainder of the chapter discusses issues that arise in
+applications of decision theory to expert systems.
+
+ 
+
+161__ COMBINING BELIEFS AND DESIRES UNDER UNCERTAINTY
+
+ 
+
+ 
+
+ 
+
+In the Port-Royal Logic, written in 1662, the French philosopher Arnauld stated that
+
+ 
+
+To judge what one must do to obtain a good or avoid an evil, it is necessary to consider not
+only the good and the evil in itself, but also the probability that it happens or does not happen;
+
+and to view geometrically the proportion that all these things have together.
+
+These days, it is more common in scientific texts to talk of utility rather than good and evil, but
+the principle is exactly the same. An agent's preferences between world states are captured by a
+utility function, which assigns a single number to express the desirability of a state. Utilities are
+combined with the outcome probabilities for actions to give an expected utility for each action.
+
+471
+

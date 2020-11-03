@@ -1,0 +1,63 @@
+70 =~ CHAPTER THREE Data Representation
+
+A275 43 Octal
+10101111011 00011 Binary
+A F 6 3 Hexadecimal
+
+Figure 3-2 Binary, octal, and hexadecimal conversion.
+
+register as composed of 16 binary storage cells, with each cell capable of
+holding eithera 1 ora 0. Suppose that the bit configuration stored in the register
+is as shown in Fig. 3-2. Since a binary number consists of a string of I’s and
+O's, the 16-bit register can be used to store any binary number from 0 to 2" — 1.
+For the particular example shown, the binary number stored in the register is
+the equivalent of decimal 44899. Starting from the low-order bit, we partition
+the register into groups of three bits each (the sixteenth bit remains in a group
+by itself). Each group of three bits is assigned its octal equivalent and placed
+on top of the register. The string of octal digits so obtained represents the octal
+equivalent of the binary number.
+
+Conversion from binary to hexadecimal is similar except that the bits are
+divided into groups of four. The corresponding hexadecimal digit for each
+group of four bits is written as shown below the register of Fig. 3-2. The string
+of hexadecimal digits so obtained represents the hexadecimal equivalent of the
+binary number. The corresponding octal digit for each group of three bits is
+easily remembered after studying the first eight entries listed in Table 3-1. The
+correspondence between a hexadecimal digit and its equivalent bit code can
+be found in the first 16 entries of Table 3-2.
+
+TABLE 3-1 Binary-Coded Octal Numbers
+
+ 
+
+Octal —Binary-coded Decimal
+
+number octal equivalent
+
+0 00 0 |
+1 001 1
+
+2 10 2 Code
+3 o11 3 for one
+4 100 4 octal
+
+5 101 5 digit
+
+6 0 6
+
+1 ul 1 |
+
+10 001 000 8
+
+1 001 001 9
+
+2 001 010 10
+
+24 10 100 20
+
+a 110 010 50
+
+143001 100 011 9
+
+370 O11 111 000 248
+

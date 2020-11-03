@@ -1,0 +1,44 @@
+432 Let Us C
+
+ 
+
+}
+
+And here is the output of the program...
+
+Enter name, age and basic salary: Sunil 34 1250.50
+Add another record (Y/N) Y
+
+Enter name, age and basic salary: Sameer 21 1300.50
+Add another record (Y/N) Y
+
+Enter name, age and basic salary: Rahul 34 1400.55
+Add another record (Y/N) N
+
+In this program we are just reading the data into a structure
+variable using scanf( ), and then dumping it into a disk file using
+fprintf( ). The user can input as many records as he desires. The
+procedure ends when the user supplies ‘N’ for the question ‘Add
+another record (Y/N)’.
+
+The key to this program is the function fprintf(), which writes the
+values in the structure variable to the file. This function is similar
+to printf( ), except that a FILE pointer is included as the first
+argument. As in printf( ), we can format the data in a variety of
+ways, by using fprintf( ). In fact all the format conventions of
+printf() function work with fprintf() as well.
+
+Perhaps you are wondering what for have we used the function
+fflush( ). The reason is to get rid of a peculiarity of scanf(). After
+supplying data for one employee, we would hit the enter key. What
+scanf( ) does is it assigns name, age and salary to appropriate
+variables and keeps the enter key unread in the keyboard buffer.
+So when it’s time to supply Y or N for the question ‘Another
+employee (Y/N)’, getch( ) will read the enter key from the buffer
+thinking that user has entered the enter key. To avoid this problem
+we use the function fflush( ). It is designed to remove or ‘flush
+out’ any data remaining in the buffer. The argument to fflush( )
+must be the buffer which we want to flush out. Here we have used
+‘stdin’, which means buffer related with standard imput
+device—keyboard.
+

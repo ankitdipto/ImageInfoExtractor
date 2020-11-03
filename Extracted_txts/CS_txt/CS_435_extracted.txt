@@ -1,0 +1,52 @@
+section 5.8.
+
+Summary 143
+
+A group working at Los Alamos (Kister et al., 1957) designed and ran a program that
+played a full game of a variant of chess using a 6 x 6 board. Alex Bemstein wrote the first
+program to play a full game of standard chess (Bernstein and Roberts, 1958; Bernstein et al.,
+1958), unless possibly this feat was accomplished by the Russian BESM program mentioned in
+Newell et al. (1958), about which little information is available
+
+John McCarthy conceived the idea ofalpha-beta search in 1956, although he did not publish
+it. The NSS chess program (Newell ef a/., 1958) used a simplified version of alpha-beta; it was
+the first chess program to do so. According to Nilsson (1971), Arthur Samuel's checkers program
+(Samuel, 1959; Samuel, 1967) also used alpha-beta, although Samuel did not mention it in the
+published reports on the system. Papers describing alpha-beta were published in the early 1960s
+(Hart and Edwards, 1961; Brudno, 1963; Slagle, 1963b). An implementation of full alpha-beta
+is described by Slagle and Dixon (1969) in a program for playing the game ofkalah. Alpha-beta
+was also used by the “Kotok-McCarthy” chess program written by a student of John McCarthy
+(Kotok, 1962) and by the MacHack 6 chess program (Greenblatt ef al., 1967). MacHack 6 was
+the first chess program to compete successfully with humans, although it fell considerably short
+of Herb Simon's prediction in 1957 that a computer program would be world chess champion
+within 10 years (Simon and Newell, 1958). Knuth and Moore (1975) provide a history of alpha-
+beta, along with a proof of its correctness and a time complexity analysis. Further analysis of
+the effective branching factor and time complexity ofalpha-beta is given by Pearl (1982b). Pearl
+shows alpha-beta to be asymptotically optimal among all game-searching algorithms.
+
+It would be a mistake to infer that alpha-beta’'s asymptotic optimality has completely
+suppressed interest in other game-searching algorithms. The best-known alternatives are probably
+the B* algorithm (Berliner, 1979), which attempts to maintain interval bounds on the possible
+value of a node in the game tree, rather than giving it a single point-valued estimate as minimax
+and alpha-beta do, and SSS* (Stockman, 1979), which dominates alpha-beta in the sense that
+the set of nodes in the tree that it examines is a (sometimes proper) subset of those examined by
+alpha-beta. Palay (1985) uses probability distributions in place of the point values of alpha-beta
+or the intervals of B*. David McAllester's (1988) conspiracy number search is an interesting
+generalization of alpha-beta. MGSS* (Russell and Wefald, 1989) uses the advanced decision-
+theoretic techniques of Chapter 16 to decide which nodes to examine next, and was able to
+outplay an alpha-beta algorithm at Othello despite searching an order of magnitude fewer nodes.
+Individual games are subject to ad hoc mathematical analysis; a fascinating study of a huge
+number of games is given by Berlekamp et al. (1982).
+
+D. F. Beal (1980) and Dana Nau (1980; 1983) independently and simultaneously showed
+that under certain assumptions about the game being analyzed, any form of minimaxing, including
+alpha-beta, using an evaluation function, yields estimates that are actually /ess reliable than the
+direct use of the evaluation function, without any search at all! Heuristics (Pearl, 1984) gives
+a thorough analysis of alpha-beta and describes B*, SSS*, and other altemative game search
+algorithms. It also explores the reasons for the Beal/Nau paradox, and why it does not apply
+to chess and other games commonly approached via automated game-tree search. Pearl also
+describes AND/OR graphs (Slagle, 1963a), which generalize game-tree search but can be applied
+to other types of problems as well, and the AO* algorithm (Martelli and Montanari, 1973;
+Martelli and Montanari, 1978) for searching them. Kaindl (1990) gives another survey of
+sophisticated search algorithms.
+

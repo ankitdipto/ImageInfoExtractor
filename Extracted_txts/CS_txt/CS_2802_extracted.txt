@@ -1,0 +1,59 @@
+Section 11.8.
+
+Knowledge Engineering for Planning 359
+
+ 
+
+11.8 KNOWLEDGE ENGINEERING FOR PLannina
+
+The methodology for solving problems with the planning approach is very much like the general
+knowledge engineering guidelines of Section 8.2:
+
+* Decide what to talk about.
+
+* Decide on a vocabulary of conditions (literals), operators, and objects.
++ Encode operators for the domain.
+
++ Encode a description of the specific problem instance.
+
++ Pose problems to the planner and get back plans.
+
+We will cover each of these five steps, demonstrating them in two domains
+
+The blocks world
+
+What to talk about: The main consideration is that operators are so restricted in what they can
+express (although Chapter 12 relaxes some of the restrictions). In this section we show how to
+define knowledge for a classic planning domain: the blocks world. This domain consists of a set
+of cubic blocks sitting on a table. The blocks can be stacked, but only one block can fit directly
+on top of another. A robot arm can pick up a block and move it to another position, either on
+the table or on top of another block. The arm can only pick up one block at a time, so it cannot
+pick up a block that has another one on it. The goal will always be to build one or more stacks
+of blocks, specified in terms of what blocks are on top of what other blocks. For example, a goal
+might be to make two stacks, one with block 4 on B, and the other with C on D.
+
+Vocabulary: The objects in this domain are the blocks and the table. They are represented
+by constants. We will use On(b.x) to indicate that block b is on.x, where x is either another block
+or the table. The operator for moving block b from a position on top ofx to a position on top y
+will be Move(b, x,y). Now one of the preconditions on moving b is that no other block is on it.
+In first-order logic this would be -4.x On(x, b) or alternatively Vx —On(x, b). But our language
+does not allow either ofthese forms, so we have to think of something else. The trick is to invent
+a predicate to represent the fact that no block is on b, and then make sure the operators properly
+maintain this predicate. We will use Clear(x)to mean that nothing is on x.
+
+Operators: The operator Move moves a block b from. to y ifboth b andy are clear, and
+once the move is made, x becomes clear but y is clear no longer. The formal description of Move
+is as follows:
+
+Op(ACTION:Move(b,x, ¥),
+PRECOND:On(b,x)A Clear(b) A Clearly),
+EFFECT: On(b,y) A Clear(x)A 7On(b,x) A >Clear(y))
+
+  
+
+Unfortunately, this operator does not maintain Clear properly when x or y is the table. When
+x = Table, this operator has the effect Clear(Table), but the table should not become clear, and
+when y = Table, it has the precondition Clear(Table), but the table does not have to be clear to
+
+ 
+

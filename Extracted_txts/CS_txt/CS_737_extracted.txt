@@ -1,0 +1,54 @@
+SECTION 63 Assembly Language 181
+
+is placed at the end of the program to inform the assembler that the program
+is terminated. The other two pseudoinstructions specify the radix of the
+operand and tell the assembler how to convert the listed number to a binary
+number.
+
+The third field in a program is reserved for comments. A line of code may
+or may not have a comment, but if it has, it must be preceded by a slash for
+the assembler to recognize the beginning of a comment field. Comments are
+useful for explaining the program and are helpful in understanding the step-
+by-step procedure taken by the program. Comments are inserted for explana-
+tion purposes only and are neglected during the binary translation process.
+
+‘An Example
+
+The program of Table6-8 is an example of an assembly language program. The
+first line has the pseudoinstruction ORG to define the origin of the program
+at memory location (100). The next six lines define machine instructions, and
+the last four have pseudoinstructions. Three symbolic addresses have been
+used and each is listed in column 1 as a label and in column 2 as an address
+of a memory-reference instruction. Three of the pseudoinstructions specify
+operands, and the last one signifies the END of the program.
+
+When the program is translated into binary code and executed by the
+computer it will perform a subtraction between two numbers. The subtraction
+is performed by adding the minuend to the 2’s complement of the subtrahend.
+The subtrahend is a negative number. It is converted into a binary number in
+signed-2’s complement representation because we dictate that all negative
+numbers be in their 2’s complement form. When the 2’s complement of the
+subtrahend is taken (by complementing and incrementing the AC), —23 con-
+verts to +23 and the difference is 83 + (’s complement of —23) = 83+
+23 = 106.
+
+TABLE 6-8 Assembly Language Program to Subtract Two Numbers
+
+ORG 100 —_/Origin of program is location 100
+LDA SUB —_/Load subtrahend to AC
+
+CMA ‘sComplement AC
+
+INC ‘Mincrement AC
+
+ADD MIN /Add minuend to AC
+
+STADIF Store difference
+
+HLT ‘Halt computer
+MIN, DEC& = /Minuend
+SUB, DEC -23 — /Subtrahend
+DI, HEXO Mifference stored here
+
+END FEnd of symbolic program
+

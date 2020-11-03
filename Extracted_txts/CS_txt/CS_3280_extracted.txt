@@ -1,0 +1,72 @@
+634 Chapter 21. Knowledge in Learning
+
+ 
+
+from which to construct hypotheses concerning the target predicate. This statement can be
+proved by showing that a given determination is logically equivalent to a statement that the
+correct definition of the target predicate is one of the set ofall definitions expressible using the
+predicates in the left-hand side of the determination.
+
+Intuitively, it is clear that a reduction in the hypothesis space size should make it easier to
+learn the target predicate. Using the basic results of computational learning theory (Section 18.6),
+we can quantify the possible gains. First, recall that for Boolean functions, log(|H|) examples
+are required to converge to a reasonable hypothesis, where [H] is the size of the hypothesis space.
+Ifthe learner has n Boolean features with which to construct hypotheses, then, in the absence
+of further restrictions, H = O(2?"), so the number of examples is O(2"). If the determination
+contains d predicates in the left-hand side, the learner will require only O(2¢) examples, a
+reduction of O(2"~“), For biased hypothesis spaces, such as a conjunctively biased space, the
+reduction will be less dramatic but still significant
+
+ 
+
+Learning and using relevance information
+
+As we stated in the introduction to this chapter, prior knowledge is useful in learning, but it
+also has to be learned. In order to provide a complete story of relevance-based learning, we
+must therefore provide a learning algorithm for determinations. The learning algorithm we now
+present is based on a straightforward attempt to find the simplest determination consistent with
+the observations. A determination P > Q says that ifany examples match on P, then they must
+also match on Q. A determination is therefore consistent with a set of examples if every pair that
+matches on the predicates on the left-hand side also matches on the target predicate, that is, has
+the same classification. For example, suppose we have the following examples of conductance
+measurements on material samples:
+
+ 
+
+ 
+
+Sample | Mass | Temperature | Material | Size || Conductance
+st | 2 26 Copper | 3 0359
+st | 2 100 | Copper | 3 037
+s2 | 24 26 Copper | 6 039
+3 | 2 26 Lead | 2 0.05
+3 | 12 100 Lead | 2 0.04
+s4 | 24 26 Lead | 4 0.05
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The minimal consistent determination is Material A Temperature » Conductance. There is a
+nonminimal but consistent determination, namely, Mass A Size A Temperature > Conductance.
+This is consistent with the examples because mass and size determine density, and in our data
+set, we do not have two different materials with the same density. As usual, we would need a
+larger sample set in order to eliminate a nearly correct hypothesis.
+
+There are several possible algorithms for rinding minimal consistent determinations. The
+most obvious approach is to conduct a search through the space of determinations, checking all
+determinations with one predicate, two predicates, and so on, until a consistent determination is
+found. We will assume a simple attribute-based representation, like that used for decision-tree
+

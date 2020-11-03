@@ -1,0 +1,62 @@
+Chapter 2 Intelligent Agents
+
+ 
+
+INTERNAL STATE
+
+GOAL
+
+SEARCH
+PLANNING
+
+lights, brake lights, and turn-signal lights, and it is not always possible to tell ifthe car is braking.
+Thus, even for the simple braking rule, our driver will have to maintain some sort of internal
+state in order to choose an action. Here, the internal state is not too extensive—itjust needs the
+previous frame from the camera to detect when two red lights at the edge of the vehicle go on or
+off simultaneously. .
+
+Consider the following more obvious case: from time to time, the driver looks in the
+rear-view mirror to check on the locations of nearby vehicles. When the driver is not looking in
+the mirror, the vehicles in the next lane are invisible (.e., the states in which they are present and
+absent are indistinguishable); but in order to decide on a lane-change maneuver, the driver needs
+to know whether or not they are there.
+
+The problem illustrated by this example arises because the sensors do not provide access to
+the complete state ofthe world. In such cases, the agent may need to maintain some internal state
+information in order to distinguish between world states that generate the same perceptual input
+but nonetheless are significantly different. Here, "significantly different" means that different
+actions are appropriate in the two states.
+
+Updating this internal state information as time goes by requires two kinds of knowledge to
+be encoded in the agent program. First, we need some information about how the world evolves
+independently of the agent—for example, that an overtaking car generally will be closer behind
+than it was amoment ago. Second, we need some information about how the agent's own actions
+affect the world—for example, that when the agent changes lanes to the right, there is a gap (at
+least temporarily) in the lane it was in before, or that after driving for five minutes northbound
+on the freeway one is usually about five miles north of where one was five minutes ago.
+
+Figure 2.9 gives the structure of the reflex agent, showing how the current percept is
+combined with the old internal state to generate the updated description of the current state. The
+agent program is shown in Figure 2.10. The interesting part is the function UPDATE-STATE, which
+is responsible for creating the new internal state description. As well as interpreting the new
+percept in the light ofexisting knowledge about the state, it uses information about how the world
+evolves to keep track of the unseen parts ofthe world, and also must know about what the agent's
+actions do to the state ofthe world. Detailed examples appear in Chapters 7 and 17.
+
+Goal-based agents
+
+     
+  
+
+Knowing about the current state of the environment is not always enough to decide what to do. j
+For example, at a road junction, the taxi can turn left, right, or go straight on. The right decision]
+depends on where the taxi is trying to get to. In other words, as well as a current state description,
+the agent needs some sort of goal information, which describes situations that are desirable—
+for example, being at the passenger's destination. The agent program can combine this with
+information about the results of possible actions (the same information as was used to update
+internal state in the reflex agent) in order to choose actions that achieve the goal. Sometimes]
+this will be simple, when goal satisfaction results immediately from a single action; sometimes, j
+it will be more tricky, when the agent has to consider long sequences of twists and turns to find
+a way to achieve the goal. Search (Chapters 3 to 5) and planning (Chapters 11 to 13) are the
+subfields of AI devoted to finding action sequences that do achieve the agent's goals.
+

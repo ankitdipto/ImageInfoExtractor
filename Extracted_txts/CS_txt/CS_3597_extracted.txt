@@ -1,0 +1,51 @@
+562 Chapter 21 Data Structures for Disjoint Sets
+
+MAKE-SET(x) creates a new set whose only member (and thus representative)
+is x. Since the sets are disjoint, we require that x not already be in some other
+set.
+
+UNION(x, y) unites the dynamic sets that contain x and y, say Sy and Sy, into a
+new set that is the union of these two sets. We assume that the two sets are dis-
+joint prior to the operation. The representative of the resulting set is any member
+of Sx U Sy, although many implementations of UNION specifically choose the
+representative of either Sy or Sy as the new representative. Since we require
+the sets in the collection to be disjoint, conceptually we destroy sets S; and Sy,
+removing them from the collection 8. In practice, we often absorb the elements
+of one of the sets into the other set.
+
+FIND-SET(x) returns a pointer to the representative of the (unique) set contain-
+ing x.
+
+Throughout this chapter, we shall analyze the running times of disjoint-set data
+structures in terms of two parameters: n, the number of MAKE-SET operations,
+and m, the total number of MAKE-SET, UNION, and FIND-SET operations. Since
+the sets are disjoint, each UNION operation reduces the number of sets by one.
+After n — | UNION operations, therefore, only one set remains. The number of
+UNION operations is thus at most n — 1. Note also that since the MAKE-SET
+operations are included in the total number of operations m, we have m > n. We
+assume that the 7 MAKE-SET operations are the first 2 operations performed.
+
+An application of disjoint-set data structures
+
+One of the many applications of disjoint-set data structures arises in determin-
+ing the connected components of an undirected graph (see Section B.4). Fig-
+ure 21.1(a), for example, shows a graph with four connected components
+
+The procedure CONNECTED-COMPONENTS that follows uses the
+operations to compute the connected components of a graph. Once CONNECTED-
+COMPONENTS has preprocessed the graph, the procedure SAME-COMPONENT
+answers queries about whether two vertices are in the same connected component.'
+(In pseudocode, we denote the set of vertices of a graph G by G.V and the set of
+edges by G.E.)
+
+ 
+ 
+
+ 
+
+When the edges of the graph are static—not changing over time—we can compute the connected
+components faster by using depth-first search (Exercise 22.3-12). Sometimes, however, the edges
+are added dynamically and we need to maintain the connected components as each edge is added. In
+this case, the implementation given here can be more efficient than running a new depth-first search
+for each new edge.
+

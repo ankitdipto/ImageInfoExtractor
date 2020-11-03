@@ -1,0 +1,38 @@
+Chapter 2: The Decision Control Structure 57
+
+ 
+
+placed within a pair of braces as illustrated in the following
+example.
+
+Example 2.2: The current year and the year in which the
+employee joined the organization are entered through the
+keyboard. If the number of years for which the employee has
+served the organization is greater than 3 then a bonus of Rs. 2500/-
+is given to the employee. If the years of service are not greater
+than 3, then the program should do nothing.
+
+/* Calculation of bonus */
+main()
+{
+int bonus, cy, yoj, yr_of_ser ;
+
+printf ("Enter current year and year of joining " ) ;
+scanf ("%d %d", &cy, &yoj) ;
+
+yr_of_ser = cy - yoj;
+if ( yr_of_ser > 3)
+
+bonus = 2500 ;
+printf ( "Bonus = Rs. %d", bonus ) ;
+
+}
+
+Observe that here the two statements to be executed on satisfaction
+of the condition have been enclosed within a pair of braces. If a
+pair of braces is not used then the C compiler assumes that the
+programmer wants only the immediately next statement after the if
+to be executed on satisfaction of the condition. In other words we
+can say that the default scope of the if statement is the immediately
+next statement after it.
+

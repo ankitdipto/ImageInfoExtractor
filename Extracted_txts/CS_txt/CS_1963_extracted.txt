@@ -1,0 +1,43 @@
+412 Chapter12 File-System Implementation
+
+Rather than transferring a byte at a time, to improve 1/O efficiency, 1/O
+transfers between memory and disk are performed in units of blocks. Each block
+is one or more sectors. Depending on the disk drive, sectors vary from 32 bytes
+to 4,096 bytes; usually, they are 512 bytes.
+
+To provide an efficient and convenient access to the disk, the operating
+system imposes one or more file systems to allow the data to be stored, located,
+and retrieved easily. A file system poses two quite different design problems.
+The first problem is defining how the file system should look to the user. This
+task involves defining a file and its attributes, the operations allowed on a file,
+and the directory structure for organizing files. The second problem is creating
+algorithms and data structures to map the logical file system onto the physical
+secondary-storage devices.
+
+The file system itself is generally composed of many different levels. The
+structure shown in Figure 12.1 is an example of a layered design. Each level
+in the design uses the features of lower levels to create new features for use by
+higher levels.
+
+The lowest level, the I/O control, consists of device drivers and interrupt
+handlers to transfer information between the main memory and the disk sys-
+tem. A device driver can be thought of as a translator. Its input consists of
+high-level commands such as “retrieve block 123.” Its output consists of low-
+level, hardware-specific instructions that are used by the hardware controller,
+which interfaces the I/O device to the rest of the system. The device driver
+usually writes specific bit patterns to special locations in the 1/0 controller’s
+memory to tell the controller on which device location to act and what actions
+
+application programs
+
+logical file system
+file-organization module
+basic file system
+VO control
+
+4
+
+devices
+
+Figure 12.1 Layered file system.
+

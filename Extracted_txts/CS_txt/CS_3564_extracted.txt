@@ -1,0 +1,52 @@
+536
+
+Chapter 20 van Emde Boas Trees
+
+20.1-2
+Modify the data structures in this section to support keys that have associated satel-
+lite data.
+
+20.1-3
+
+Observe that, using the structures in this section, the way we find the successor and
+predecessor of a value x does not depend on whether x is in the set at the time.
+Show how to find the successor of x in a binary search tree when x is not stored in
+the tree.
+
+20.1-4
+
+Suppose that instead of superimposing a tree of degree /, we were to superim-
+pose a tree of degree w!/*, where k > 1 is a constant. What would be the height of
+such a tree, and how long would each of the operations take?
+
+ 
+
+20.2 A recursive structure
+
+In this section, we modify the idea of superimposing a tree of degree \/W on top of
+abit vector. In the previous section, we used a summary structure of size /W, with
+each entry pointing to another stucture of size ./v. Now, we make the structure
+recursive, shrinking the universe size by the square root at each level of recursion.
+Starting with a universe of size u, we make structures holding v7 = wu’? items,
+which themselves hold structures of u'/* items, which hold structures of u!/8 items,
+and so on, down to a base size of 2.
+
+For simplicity, in this section, we assume that vu = 2" for some integer k, so
+that v,w!/?, 4/4... are integers. This restriction would be quite severe in practice,
+allowing only values of u in the sequence 2, 4, 16, 256, 65536, .... We shall see in
+the next section how to relax this assumption and assume only that w = 2 for
+some integer k. Since the structure we examine in this section is only a precursor
+to the true van Emde Boas tree structure, we tolerate this restriction in favor of
+aiding our understanding.
+
+Recalling that our goal is to achieve running times of O(lglg u) for the oper-
+ations, let’s think about how we might obtain such running times. At the end of
+Section 4.3, we saw that by changing variables, we could show that the recurrence
+
+T(n) = 2T (| Vn |) + 1gn (20.1)
+
+has the solution T(n) = O(lgnlglgn). Let’s consider a similar, but simpler,
+recurrence:
+
+Tu) =T( Vu) + O11). (20.2)
+

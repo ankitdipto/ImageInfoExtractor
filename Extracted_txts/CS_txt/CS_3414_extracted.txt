@@ -1,0 +1,70 @@
+754
+
+Chapter 24. Perception
+
+ 
+
+GEOMETRIC
+INVARIANTS.
+
+ 
+
+function ALIGN(magefeature points, Modelfeature points) returns a solution or failure
+
+loop do
+choose an untried triplet p;,, pi. pi; from image
+if no untried triplets left then return failure
+while there are still untried model triplets left do
+choose an untried triplet j1j,, ., 1j, from model
+Q — FIND-TRANSFORM( Pi s Pins Piss My» Mis» His)
+if projection according to Q explains image then
+return (success, Q)
+end
+end
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 24.28 An informal description of the alignment algorithm.
+
+ 
+
+This is the basis of the algorithm ALIGN, which seeks to find the pose for a given model
+and return failure otherwise (see Figure 24.28). The worst-case time complexity of the algorithm
+is proportional to the number of combinations of model triplets and image triplets—this gives the
+number of times Q has to be computed—times the cost of verification. This gives () (’?) times
+the cost of verification. The cost of verification is m logn, as we must predict the image position
+of each of m model points, and find the distance to the nearest image point, a logn operation if
+the image points are arranged in an appropriate data structure. Thus, the worst-case complexity
+of the alignment algorithm is O(n*n*logn), where m and n are the number of model and image
+points, respectively.
+
+One can lower the time complexity by a number of ideas. One simple technique is to
+hypothesize matches only between pairs of image and model points. Given two image points
+and the edges at these points, a third virtual point can be constructed by extending the edges
+and finding the intersection. This lowers the complexity to O(m'n7logn). Techniques based on
+using pose clustering in combination with randomization (Olson, 1994) can be used to bring the
+complexity down to O(mn?). Results from the application of this algorithm to the stapler image
+are shown in Figure 24.29.
+
+Using projective invariants
+
+Alignment using outline geometry and recognition is considered successful if outline geometry
+in an image can be explained as a perspective projection ofthe geometric model of the object. A
+disadvantage is that this involves trying each model in the model library, resulting in a recognition
+complexity proportional to the number of models in the library.
+
+A solution is provided by using geometric invariants as the shape representation. These
+shape descriptors are viewpoint invariant, that is, they have the same value measured on the object
+or measured from a perspective image of the object, and are unaffected by object pose. The
+simplest example of a projective invariant is the "cross-ratio" of four points on a line, illustrated
+
+ 
+

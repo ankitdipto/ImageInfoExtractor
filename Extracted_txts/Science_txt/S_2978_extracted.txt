@@ -1,0 +1,112 @@
+RC Circuits
+
+In preceding modules we dealt only with circuits in which the currents did not
+vary with time. Here we begin a discussion of time-varying currents.
+
+Charging a Capacitor
+
+The capacitor of capacitance C in Fig. 27-15 is initially uncharged.To charge it, we
+close switch S on point a. This completes an RC series circuit consisting of the
+capacitor, an ideal battery of emf €, and a resistance R.
+
+From Module 25-1, we already know that as soon as the circuit is com-
+plete, charge begins to flow (current exists) between a capacitor plate and a
+battery terminal on each side of the capacitor. This current increases the
+charge q on the plates and the potential difference Ve (= q/C) across the ca-
+pacitor. When that potential difference equals the potential difference across
+the battery (which here is equal to the emf €), the current is zero. From Eq.
+25-1 (q = CV), the equilibrium (final) charge on the then fully charged capacitor
+is equal to C€.
+
+Here we want to examine the charging process. In particular we want to
+know how the charge q(t) on the capacitor plates, the potential difference V¢(t)
+across the capacitor, and the current i(f) in the circuit vary with time during the
+charging process. We begin by applying the loop rule to the circuit, traversing it
+clockwise from the negative terminal of the battery. We find
+
+q _
+€—iR C 0.
+The last term on the left side represents the potential difference across the capac-
+itor. The term is negative because the capacitor’s top plate, which is connected to
+the battery’s positive terminal, is at a higher potential than the lower plate. Thus,
+there is a drop in potential as we move down through the capacitor.
+
+We cannot immediately solve Eq. 27-30 because it contains two variables,
+
+i and q. However, those variables are not independent but are related by
+
+(27-30)
+
+- 44
+i= ae (27-31)
+Substituting this for iin Eq.27-30 and rearranging, we find
+dq 4 _
+R dt + C =€ (charging equation). (27-32)
+
+This differential equation describes the time variation of the charge q on the
+capacitor in Fig. 27-15. To solve it, we need to find the function q(t) that satisfies
+this equation and also satisfies the condition that the capacitor be initially
+uncharged; that is,q = O att = 0.
+
+We shall soon show that the solution to Eq. 27-32 is
+
+q=C€(1 —e"%°) (charging a capacitor). (27-33)
+
+(Here e is the exponential base, 2.718 ..., and not the elementary charge.)
+Note that Eq. 27-33 does indeed satisfy our required initial condition, because
+at ¢ = 0 the term e~"'*®¢ is unity; so the equation gives q = 0. Note also that as ¢
+goes to infinity (that is, a long time later), the term e~"® goes to zero; so
+the equation gives the proper value for the full (equilibrium) charge on the
+capacitor—namely, g = C. A plot of q(¢) for the charging process is given in
+Fig. 27-16a.
+The derivative of q(t) is the current i(t) charging the capacitor:
+
+d é
+j-4-(4
+
+ran Wr )e-me (charging a capacitor). (27-34)
+
+27-4 RC CIRCUITS
+
+789
+
+ 
+
+ 
+
+Figure 27-15 When switch S is closed on a,the
+capacitor is charged through the resistor.
+When the switch is afterward closed on b, the
+capacitor discharges through the resistor.
+
+The capacitor's charge
+grows as the resistors
+current dies out.
+
+40)
+
+ 
+
+0 2 4 6 8 10
+Time (ms)
+
+(a)
+
+(mA)
+
+ 
+
+2 4 6 8 10
+Time (ms)
+
+(d)
+
+Figure 27-16 (a) A plot of Eq.27-33, which
+shows the buildup of charge on the capaci-
+tor of Fig. 27-15. (b) A plot of Eq.27-34,
+which shows the decline of the charging
+current in the circuit of Fig. 27-15. The
+curves are plotted for R = 2000.0, C = 1 wF,
+and € = 10 V;the small triangles represent
+successive intervals of one time constant 7.
+

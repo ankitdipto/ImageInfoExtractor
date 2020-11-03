@@ -1,0 +1,52 @@
+RR
+
+500 Chapter 14 Mass-Storage Structure
+
+14.3.2 Boot Block
+
+For a computer to start running—for instance, when it is powered up or
+rebooted—it needs to have an initial program to run. This initial bootstrap
+program tends to be simple. It initializes all aspects of the system, from CPU
+registers to device controllers and the contents of main memory, and then starts
+the operating system. To do its job, the bootstrap program finds the operating-
+system kernel on disk, loads that kernel into memory, and jumps to an initial
+address to begin the operating-system execution.
+
+For most computers, the bootstrap is stored in read-only memory (ROM).
+This location is convenient, because ROM needs no initialization and is at a fixed
+location that the processor can start executing when powered up or reset. And,
+since ROM is read only, it cannot be infected by a computer virus. The problem
+is that changing this bootstrap code requires changing the ROM hardware chips.
+For this reason, most systems store a tiny bootstrap loader program in the boot
+ROM, whose only job is to bring in a full bootstrap program from disk. The
+full bootstrap program can be changed easily: A new version is simply written
+onto the disk. The full bootstrap program is stored in a partition called the boot
+blocks, at a fixed location on the disk. A disk that has a boot partition is called
+a boot disk or system disk.
+
+The code in the boot ROM instructs the disk controller to read the boot
+blocks into memory (no device drivers are loaded at this point), and then starts
+executing that code. The full bootstrap program is more sophisticated than the
+bootstrap loader in the boot ROM, it is able to load the entire operating system
+from a nonfixed location on disk, and to start the operating system running.
+Even so, the full bootstrap code may be small. For example, MS-DOS uses one
+512-byte block for its boot program (Figure 14.6).
+
+14.3.3 Bad Blocks
+
+Because disks have moving parts and small tolerances (recall that the disk head
+flies just above the disk surface), they are prone to failure. Sometimes the failure
+is complete, and the disk needs to be replaced, and its contents restored from
+backup media to the new disk. More frequently, one or more sectors become
+defective. Most disks even come from the factory with bad blocks. Depending
+on the disk and controller in use, these blocks are handled in a variety of ways.
+
+On simple disks, such as some disks with IDE controllers, bad blocks are
+handled manually. For instance, the MS-DOS format command does a logical
+format and, as a part of the process, scans the disk to find bad blocks. If format
+finds a bad block, it writes a special value into the corresponding FAT entry to
+tell the allocation routines not to use that block. If blocks go bad during normal
+operation, a special program (such as chkdsk) must be run manually to search
+for the bad blocks and to lock them away as before. Data that resided on the
+bad blocks usually are lost.
+

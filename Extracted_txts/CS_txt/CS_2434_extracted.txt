@@ -1,0 +1,45 @@
+52
+
+Chapter 3 Growth of Functions
+
+Symmetry:
+f(n) = O(g(n)) if and only if gin) = OCF).
+Transpose symmetry:
+
+S(n) = O(gin)) if andonly if gin) = Qf).
+S(n) = o(g(n)) if andonly if gin) = a( fn).
+
+Because these properties hold for asymptotic notations, we can draw an analogy
+between the asymptotic comparison of two functions f and g and the comparison
+of two real numbers a and b:
+
+f(n) = O(g(n)) islike a<b,
+fn) = Q(g(n)) islike a>b,
+f(n) = O(g(n)) islike a=b,
+f(n) = o(g(n))_ islike a<b,
+f(n) = o(g(n)) islike a>b.
+We say that f(1) is asymptotically smaller than g(n) if f(n) = o(g(n)), and f(n)
+is asymptotically larger than g(n) if f(n) = @(g(n)).
+One property of real numbers, however, does not carry over to asymptotic nota-
+tion:
+
+Trichotomy: For any two real numbers a and b, exactly one of the following must
+hold: a < b,a =b,ora>b.
+
+Although any two real numbers can be compared, not all functions are asymptot-
+ically comparable. That is, for two functions f(n) and g(n), it may be the case
+that neither f(n) = O(g(n)) nor f(n) = Q(g(n)) holds. For example, we cannot
+compare the functions 7 and n'**"” using asymptotic notation, since the value of
+the exponent in n'*5"” oscillates between 0 and 2, taking on all values in between.
+
+Exercises
+
+3.1-1
+Let f(n) and g(n) be asymptotically nonnegative functions. Using the basic defi-
+nition of ©-notation, prove that max(f(n), g(n)) = O(f(n) + g(n)).
+
+3.1-2
+Show that for any real constants a and b, where b > 0,
+
+(n+a)’ =0(n*). (G.2)
+

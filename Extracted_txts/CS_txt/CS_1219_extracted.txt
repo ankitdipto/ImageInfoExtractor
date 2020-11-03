@@ -1,0 +1,51 @@
+220 carrer sevEN Microprogrammed Control
+
+subroutine register
+
+The mapping function is sometimes implemented by means of an inte-
+grated circuit called programmable logic device or PLD. A PLD is similar to
+ROM inconcept except thatit uses AND and OR gates with internal electronic
+fuses. The interconnection between inputs, AND gates, OR gates, and outputs
+can be programmed as in ROM. A mapping function that can be expressed in
+terms of Boolean expressions can be implemented conveniently with a PLD.
+
+Subroutines
+
+Subroutines are programs that are used by other routines to accomplish a
+particular task. A subroutine can be called from any point within the main body
+of the microprogram. Frequently, many microprograms contain identical sec-
+tions of code. Microinstructions can be saved by employing subroutines that
+use common sections of microcode. For example, the sequence of microoper-
+ations needed to generate the effective address of the operand for an instruc-
+tion is common to all memory reference instructions. This sequence could be
+a subroutine that is called from within many other routines to execute the
+effective address computation.
+
+Microprogramsthat use subroutinesmust havea provision for storing the
+return address during a subroutine call and restoring the address during a
+subroutine return. This may be accomplished by placing the incremented
+output from the control address register into a subroutine register and branch-
+ing to the beginning of the subroutine. The subroutine register can then
+become the source for transferring the address for the return to the main
+routine The best way to structure a register file that stores addresses for
+subroutines is to organize the registers in a last-in, first-out (LIFO) stack. The
+use of a stack in subroutine calls and returns is explained in more detail in
+Sec. 8-7.
+
+73 roprogram Example
+
+(Once the configuration of a computer and its microprogrammed control unit
+isestablished, the designer's task is to generate the microcode for the control
+memory. This code generation is called microprogramming and is a process
+similar to conventional machine language programming. To appreciate this
+process, we present here a simple digital computer and show how it is mi-
+croprogrammed. The computer used here is similar but not identical to the
+basic computer introduced in Chap. 5.
+
+Computer Configuration
+
+The block diagram of the computer is shown in Fig. 7-4. It consists of two
+memory units: a main memory for storing instructions and data, and a control
+memory for storing the microprogram. Four registers are associated with the
+Processor unit and two with the control unit. The processor registers are
+

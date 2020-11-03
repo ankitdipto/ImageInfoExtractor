@@ -1,0 +1,58 @@
+820
+
+Chapter 28 Matrix Operations
+
+simply multiplying through), we can factor A as
+ay, w'
+vA’
+
+_ 1 0 ay wt
+~ (yan J 0 A -vwi/ay )° (28.8)
+
+The Os in the first and second matrices of equation (28.8) are row and col-
+umn (n —1)-vectors, respectively. The term vw'/ai1, formed by taking the
+outer product of v and w and dividing each element of the result by a1, is an
+(n — 1) x (n — 1) matrix, which conforms in size to the matrix A’ from which it is
+subtracted. The resulting (n — 1) x (m — 1) matrix
+
+A’—vw'/ay (28.9)
+is called the Schur complement of A with respect to a1.
+
+We claim that if A is nonsingular, then the Schur complement is nonsingular,
+too. Why? Suppose that the Schur complement, which is ( — 1) x (n — 1), is
+singular. Then by Theorem D.1, it has row rank strictly less than n — 1. Because
+the bottom 7 — | entries in the first column of the matrix
+
+ay wr
+0 A -vuT/ay
+
+are all 0, the bottom  — | rows of this matrix must have row rank strictly less
+than 2 — 1. The row rank of the entire matrix, therefore, is strictly less than n.
+Applying Exercise D.2-8 to equation (28.8), A has rank strictly less than n, and
+from Theorem D.1 we derive the contradiction that A is singular.
+
+Because the Schur complement is nonsingular, we can now recursively find an
+LU decomposition for it. Let us say that
+
+A'—vw'/ay, =L'U',~
+
+where L’ is unit lower-triangular and U’ is upper-triangular. Then, using matrix
+algebra, we have
+
+A= 1 0 au wt
+~ V/ayy Tn 0 A vwT/ay
+1 0 ay, wt
+
+via Ina )\ 0 LIU’
+
+_ 1 0 ay wt
+
+~~ v/ay L' 0 U'
+
+= LU,
+
+A
+
+thereby providing our LU decomposition. (Note that because L’ is unit lower-
+triangular, so is L, and because U’ is upper-triangular, so is U.)
+

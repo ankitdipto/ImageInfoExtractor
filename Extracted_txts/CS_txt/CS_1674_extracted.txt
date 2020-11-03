@@ -1,0 +1,71 @@
+6.6 Algorithm Evaluation 173
+
+6.6.1 Deterministic Modeling
+
+One major class of evaluation methods is called analytic evaluation. Analytic
+evaluation uses the given algorithm and the system workload to produce a
+formula or number that evaluates the performance of the algorithm for that
+workload.
+
+One type of analytic evaluation is deterministic modeling. This method
+takes a particular predetermined workload and defines the performance of each
+algorithm for that workload.
+
+For example, assume that we have the workload shown. All five processes
+arrive at time 0, in the order given, with the length of the CPU-burst time given
+in milliseconds:
+
+Process Burst Time
+
+Py 10
+P2 29
+P3 3
+Ps 7
+Ps 12
+
+Consider the FCFS, SJF, and RR (quantum = 10 milliseconds) scheduling algo-
+rithms for this set of processes. Which algorithm would give the minimum
+average waiting time?
+
+For the FCFS algorithm, we would execute the processes as
+
+ 
+
+ 
+
+Py | Po P3| Pa Ps
+0 10 39 «42 49 61
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+The waiting time is 0 milliseconds for process P;, 10 milliseconds for process
+P), 39 milliseconds for process P3, 42 milliseconds for process Py, and 49
+milliseconds for process Ps. Thus, the average waiting time is (0 + 10 + 39 +
+42 + 49)/5 = 28 milliseconds.
+
+With nonpreemptive SJF scheduling, we execute the processes as
+
+ 
+
+[2 P4 | Py | Ps | Po
+0 3 10 20 32 61
+
+ 
+
+ 
+
+ 
+
+The waiting time is 10 milliseconds for process P,, 32 milliseconds for process
+P2, 0 milliseconds for process P3, 3 milliseconds for process P4, and 20 millisec-
+onds for process P;. Thus, the average waiting time is (10 + 32 + 0 +3 + 20)/5=
+13 milliseconds.
+

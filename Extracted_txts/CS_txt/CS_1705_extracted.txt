@@ -1,0 +1,67 @@
+7.3. Synchronization Hardware 197
+
+do {
+
+ 
+
+choosing[i] = true;
+number [i] = max(number[0], number [1],..., number [n-1]) +1;
+choosing[i] = false;
+for (j=0; j <n; j++) {
+while (choosing[j]);
+while ((number[j] != 0) && (number [j,j] <number[i,i]));
+
+ 
+
+ 
+
+}
+
+ 
+
+critical section
+
+ 
+
+ 
+
+number[i] = 0;
+
+ 
+
+ 
+
+remainder section
+} while (1);
+Figure 7.5 The structure of process P; in the bakery algorithm.
+
+then (aumber [i] ,i) < (number [k] ,k). The proof of this algorithm is left to
+you in Exercise 7.3.
+
+Given this result, it is now simple to show that mutual exclusion is
+observed. Indeed, consider P; in its critical section and P; trying to enter the
+P, critical section. When process P; executes the second while statement for
+j == i, it finds that
+
+ 
+
+ 
+
+e number[i] != 0
+
+e (number [i] , i) < (number [k] ,k).
+
+Thus, it continues looping in the while statement until P; leaves the P;
+critical section.
+
+If we wish to show that the progress and bounded-waiting requirements
+are preserved, and that the algorithm ensures fairness, it is sufficient to observe
+that the processes enter their critical section on a first-come, first-served basis.
+
+7.3 = Synchronization Hardware
+
+As with other aspects of software, hardware features can make the program-
+ming task easier and improve system efficiency. In this section, we present
+some simple hardware instructions that are available on many systems, and
+show how they can be used effectively in solving the critical-section problem.
+

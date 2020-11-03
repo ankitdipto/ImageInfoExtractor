@@ -1,0 +1,53 @@
+362 Chapter10 Virtual Memory
+
+occurs to the specified address. However, this frame is now being used for a
+different page belonging to another process.
+
+There are two common solutions to this problem. One solution is never to
+execute I/O to user memory. Instead, data are always copied between system
+memory and user memory. I/O takes place only between system memory and
+the I/O device. To write a block on tape, we first copy the block to system
+memory, and then write it to tape.
+
+This extra copying may result in unacceptably high overhead. Another
+solution is to allow pages to be locked into memory. A lock bit is associated
+with every frame. If the frame is locked, it cannot be selected for replacement.
+Under this approach, to write a block on tape, we lock into memory the pages
+containing the block. The system can then continue as usual. Locked pages
+cannot be replaced. When the I/O is complete, the pages are unlocked.
+
+Frequently, some or all of the operating-system kernel is locked into mem-
+ory. Most operating systems cannot tolerate a page fault caused by the kernel.
+Consider the result of the page-replacement routine causing a page fault.
+
+Another use for a lock bit involves normal page replacement. Consider
+the following sequence of events. A low-priority process faults. Selecting a
+replacement frame, the paging system reads the necessary page into memory.
+Ready to continue, the low-priority process enters the ready queue and waits
+for the CPU. Since it is a low-priority process, it may not be selected by the
+CPU scheduler for a while. While the low-priority process waits, a high-priority
+process faults. Looking for a replacement, the paging system sees a page that
+is in memory but has not been referenced or modified: It is the page that the
+low-priority process just brought in. This page looks like a perfect replacement:
+It is clean and will not need to be written out, and it apparently has not been
+used for a long time.
+
+Whether the high-priority process should be able to replace the low-priority
+process is a policy decision. After all, we are simply delaying the low-priority
+process for the benefit of the high-priority process. On the other hand, we are
+wasting the effort spent to bring in the page of the low-priority process. If we
+decide to prevent replacing a newly brought-in page until it can be used at least
+once, then we can use the lock bit to implement this mechanism. When a page is
+selected for replacement, its lock bit is turned on; it remains on until the faulting
+process is again dispatched.
+
+Using a lock bit can be dangerous, however: The lock bit may get turned on
+but never turned off. Should this situation occur (due to a bug in the operating
+system, for example), the locked frame becomes unusable. The Macintosh
+Operating System provides a page-locking mechanism because it is a single-
+user system, and the overuse of locking would hurt only the user doing the
+locking. Multiuser systems must be less trusting of users. For instance, Solaris
+2 allows locking “hints,” but it is free to disregard these hints if the free-frame
+pool becomes too small or if an individual process requests that too many pages
+be locked in memory.
+

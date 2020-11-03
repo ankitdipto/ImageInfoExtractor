@@ -1,0 +1,73 @@
+278
+
+Chapter 9. Inference in First-Order Logic
+
+ 
+
+GENERALIZED
+RESOLUTION
+(DISJUNCTIONS)
+
+GENERALIZED
+LUTION,
+(IMPLICATIONS)
+
+COMUNCTIVE
+NORMAL FORM
+
+IMPLICATIVE:
+NORMAL FORM
+
+The rule can be understood in two ways. First, we can see it as reasoning by cases. If 3 is false,
+then from the first disjunction, a must be true; but if 3 is true, then from the second disjunction §
+~ must be true. Hence, either a or - must be true. The second way to understand it is as
+transitivity of implication: from two implications, we derive a third that links the premise of the
+first to the conclusion of the second. Notice that Modus Ponens does not allow us to derive new
+implications; it only derives atomic conclusions. Thus, the resolution rule is more powerful than
+Modus Ponens. In this section, we will see that a generalization of the simple resolution rule can
+serve as the sole inference rule in a complete inference procedure for first-order logic.
+
+The resolution inference rule
+
+In the simple form of the resolution rule, the premises have exactly two disjuncts. We can extend
+that to get a more general rule that says that for two disjunctions of any length, if one of the
+disjuncts in one clause (p;) unifies with the negation ofa disjunct in the other (qk), then infer the
+disjunction of all the disjuncts except for those two:
+
+0 Generalized Resolution {istunctions): For literals p; and 4,
+where UNIFY(p;, 794)
+
+ 
+
+P\ MV ss ph wee Pms
+giVere ge ---V Qn
+SuBst(9.4p) V --- pj 1 V Pit += Por V Qu = = Gk-0V det © V Gn)
+
+  
+
+Equivalently, we can rewrite this in terms of implications:
+
+< Generalized Resolution (implications): For atoms pj, gi, "1, 5;
+where UNIFY (pj.gx) = 0.
+
+PiNvee Pj ees APny TLV oe Pry
+SEN. ASpy > QV Vee eee V Guy
+SUBST (p1A.2)—1AP i APa, AS Rooting MV satin Vion dim Wain VV Ging)
+
+ 
+
+Canonical forms for resolution
+
+In the first version of the resolution rule, every sentence is a disjunction of literals. All the
+disjunctions in the KB are assumed to be joined in one big, implicit conjunction (as in a normal
+KB), so this form is called conjunctive normal form (or CNF), even though each individual
+sentence is a disjunction (confusing, isn't it?).
+
+In the second version of the resolution rule, each sentence is an implication with a conjunc-
+tion of atoms on the left and a disjunction of atoms on the right. We call this implicative normal
+form (or INF), although the name is not standard. We can transform the sentences in (9.40) into
+either of the two forms, as we now show. (Notice that we have standardized apart the variable
+names in these sentences.)
+
+ 
+

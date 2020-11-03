@@ -1,0 +1,84 @@
+496
+
+Chapter 18 B-Trees
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+T. “
+PE TTT TT)
+
+Figure 18.6 Splitting the root with = 4. Root node r splits in two, and a new root node s is
+created. The new root contains the median key of r and has the two halves of r as children. The
+B-tree grows in height by one when the root is split.
+
+B-TREE-INSERT-NONFULL (x, k)
+
+1 i=xn
+
+2 ifx.leaf
+
+3 while i > 1 and k < x. key;
+
+4 X. key; 4, = x. key;
+
+5 i=i-l
+
+6 X.keyj4, =k
+
+7 xXn=xn+1
+
+8 DISK-WRITE(x)
+
+9 else while i > 1 and k < x. key;
+
+10 i=i-l
+
+11 i=it+l
+
+12 DIsK-READ(x.c;)
+
+13 if x.c;.n==2t—1
+
+14 B-TREE-SPLIT-CHILD (x, i)
+15 ifk > x.key;
+
+16 i=i+l
+
+17 B-TREE-INSERT-NONFULL (x.¢;,k)
+
+The B-TREE-INSERT-NONFULL procedure works as follows. Lines 3-8 handle
+the case in which x is a leaf node by inserting key k into x. If x is not a leaf
+node, then we must insert k into the appropriate leaf node in the subtree rooted
+at internal node x. In this case, lines 9-11 determine the child of x to which the
+recursion descends. Line 13 detects whether the recursion would descend to a full
+child, in which case line 14 uses B-TREE-SPLIT-CHILD to split that child into two
+nonfull children, and lines 15—16 determine which of the two children is now the
+

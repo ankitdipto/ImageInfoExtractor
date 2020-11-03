@@ -1,0 +1,57 @@
+Section 5.8. Summary 145
+
+ 
+
+the first program to defeat a human world champion at a major classic game (Berliner, 1980a),
+although Berliner was the first to acknowledge that this was a very short exhibition match (not a
+world championship match) and that BKG was very lucky with the dice.
+
+The first Go-playing programs were developed somewhat later than those for checkers and
+chess (Lefkovitz, 1960; Remus, 1962) and have progressed more slowly. Ryder (1971) used a
+search-based approach similar to that taken by most chess programs but with more selectivity to
+overcome the enormous branching factor. Zobrist (1970) used a pattem-recognition approach.
+Reitman and Wilcox (1979) used condition-action rules based on complex patterns, combined
+with highly selective localized search. The Go Explorer and its successors (Kierulfet a/., 1990)
+continue to evolve along these lines. YUGO (Shirayanagi, 1990) places heavy emphasis on
+knowledge representation and pattern knowledge. The Computer Go Newsletter, published by
+the Computer Go Association, describes current developments.
+
+ 
+
+EXERCISES
+
+5.1 This problem exercises the basic concepts of game-playing using Tic-Tac-Toe (noughts and
+crosses) as an example. We define X,, as the number ofrows, columns, or diagonals with exactly
+nX’sand no O's, Similarly, O,, is the number ofrows, columns, or diagonals withjust n O's. The
+utility function thus assigns +1 to any position with X; = J and —1 to any position with Os - I.
+All other terminal positions have utility 0. We will use a linear evaluation function defined as
+
+Eval = 3X2 +X; — (302 + 01)
+
+a. Approximately how many possible games of Tic-Tac-Toe are there?
+Show the whole game tree starting from an empty board down to depth 2, (i-e., one X and
+one O on the board), taking symmetry into account. You should have 3 positions at level
+1 and 12 at level 2
+
+c. Mark on your tree the evaluations of all the positions at level 2.
+
+d. Mark on your tree the backed-up values for the positions at levels 1 and 0, using the
+minimax algorithm, and use them to choose the best starting move.
+
+e. Circle the nodes at level 2 that would not be evaluated if alpha-beta pruning were applied,
+assuming the nodes are generated in the optimal order for alpha-beta pruning.
+
+5.2 Implement a general game-playing agent for two-player deterministic games, using alpha-
+beta search. You can assume the game is accessible, so the input to the agent is a complete
+description of the state.
+
+ 
+
+53 Implement move generators and evaluation functions for one or more of the following
+games: kalah, Othello, checkers, chess. Exercise your game-playing agent using the implemen-
+tation. Compare the effect of increasing search depth, improving move ordering, and improving
+the evaluation function. How close does your effective branching factor come to the ideal case
+of perfect move ordering?
+
+ 
+

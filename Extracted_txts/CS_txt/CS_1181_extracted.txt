@@ -1,0 +1,51 @@
+Chapter 12: File Input/Output 461
+
+ 
+
+)
+
+®
+
+float amount ;
+};
+
+The parameter trans_type contains D/W indicating deposit or
+withdrawal of amount. Write a program to update
+“‘CUSTOMER.DAT’ file, ie. if the trans_type is ‘D’ then
+update the balance of ‘CUSTOMER.DAT’ by adding
+amount to balance for the corresponding aceno. Similarly, if
+trans_type is ‘W’ then subtract the amount from balance.
+However, while subtracting the amount make sure that the
+amount should not get overdrawn, i.e. at least 100 Rs. Should
+remain in the account.
+
+There are 100 records present in a file with the following
+structure:
+
+struct date
+{
+
+hs;
+
+intd,m, y;
+
+struct employee
+
+int empcode[6] ;
+char empname[20] ;
+struct date join_date ;
+float salary ;
+
+};
+
+Write a program to read these records, arrange them in
+ascending order of join_date and write them in to a target
+file.
+
+A hospital keeps a file of blood donors in which each record
+has the format:
+
+Name: 20 Columns
+
+Address: 40 Columns
+

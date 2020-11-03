@@ -1,0 +1,45 @@
+4.5 Interprocess Communication 113
+
+* Create a new mailbox.
+© Send and receive messages through the mailbox.
+
+© Delete a mailbox.
+
+The process that creates a new mailbox is that mailbox’s owner by default.
+Initially, the owner is the only process that can receive messages through this
+mailbox. However, the ownership and receive privilege may be passed to other
+processes through appropriate system calls. Of course, this provision could
+result in multiple receivers for each mailbox.
+
+4.5.3 Synchronization
+
+Communication between processes takes place by calls to send and receive
+primitives. There are different design options for implementing each primitive.
+Message passing may be either blocking or nonblocking—also known as
+synchronous and asynchronous.
+
+Blocking send: The sending process is blocked until the message is
+received by the receiving process or by the mailbox.
+
+¢ Nonblocking send: The sending process sends the message and resumes
+operation.
+
+Blocking receive: The receiver blocks until a message is available.
+
+Nonblocking receive: The receiver retrieves either a valid message or a
+null.
+
+Different combinations of send and receive are possible. When both the
+send and receive are blocking, we have a rendezvous between the sender
+and the receiver.
+
+45.4 Buffering
+
+Whether the communication is direct or indirect, messages exchanged by com-
+municating processes reside in a temporary queue. Basically, such a queue can
+be implemented in three ways:
+
+¢ Zero capacity: The queue has maximum length 0; thus, the link cannot
+have any messages waiting in it. In this case, the sender must block until
+the recipient receives the message.
+

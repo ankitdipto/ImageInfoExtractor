@@ -1,0 +1,76 @@
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Section 10.6. Frame Systems and Semantic Networks 319
+Link Type Semantics Example
+A Subset B ACB Cats C Mammals
+A Menber B AEB Bill G Cats
+ARB R(A,B) Bill Ase 12
+AZ B YxxeA = ROB) Birds!
+aGls Vx dy x€A = yEBAR(x,y) Birds!" \ Birds
+Figure 108 Link types in semantic networks, and their meanings.
+
+DEFAULT VALUE
+
+ 
+
+ 
+
+ 
+
+Inheritance with exceptions
+
+As we saw in Chapter 8, natural kinds are full ofexceptions. The diagram in Figure 10.7 says that
+mammals have 4 legs, but it also says that bats, which are mammals, have 2 legs. According to
+the straightforward logical semantics, this is a contradiction. To fix the problem, we will change
+the semantic translation of a boxed-R link from A to B to mean that every member ofA must have
+an R relation to B unless there is some intervening A! for which Rel(R, A’, B'). Then Figure 10.7
+will unambiguously mean that bats have 2 legs, not 4. Notice that Rel(R, A, B) no longer means
+that every 4 is related by R to B; instead it means that B is a default value for the R relation for
+members of 4, but the default can be overridden by other information.
+
+It may be intuitive to think of inheritance with exceptions by following links in a diagram,
+but it is also possible—and instructive—to define the semantics in first-order logic. The first step
+in the logical translation is to reify relations: arelation R becomes an object, not a predicate. That
+means that Rel(R,A, B) is just an ordinary atomic sentence, not an abbreviation for a complex
+sentence. It also means that we can no longer write R(x, B), because R is an object, not a predicate.
+We will use Val(R.x,B)to mean that the equivalent of an R(x, B) relation is explicitly asserted
+in the semantic network, and Holds(R,x, B)to mean that R(x, B) can be inferred. We then can
+define Holds by saying that a relation R holds between x and b if either there is an explicit Val
+predication or there is a Ref on some parent class p of which x is an element, and there is no Re/
+on any intervening class i. (A class i is intervening ifx is an element of i and 7 is a subset of p.)
+In other words:
+
+Vr.x,b Holds(r,x,b) =
+Val(r,x,b) V (3p x pA Rel(r,p, b) A sInterveningRel(x, p,r))
+Vx,p.r InterveningRel(x,p,r) =
+3 Intervening(x,i,p) A 35! Rel(r, i, b')
+Va,i,p Intervening(x,i,p) <= (xi) ACC py
+Note that the C symbol means proper subset (e.g., / C p means that z is a subset of p and is
+not equal to p). The next step is to recognize that it is important not only to know what Rel
+and Val relations hold, but also what ones do not hold. Suppose we are trying to find the 7
+that satisfies Holds(Legs, Opus, n). We know Rel(Legs, Birds, 2) and we know Opus is a bird,
+but the definition of Holds does not allow us to infer anything unless we can prove there is no
+Rel(Legs,i, b) for 1= Penguins or any other intervening category. If the knowledge base only
+

@@ -1,0 +1,69 @@
+27.1 The basics of dynamic multithreading 789
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1[ x=0
+aN step ox r" r
+2[m=x 4[ max 1 oO - =
+\ Y 2 0 0 -
+3 | iner r; 5 [ iner r, 3.0 1
+Y Y 4 0 1 0
+7[ x= 6 [x= 5 0 1 1
+NY 6 1 1 1
+8 | print 7 1 1 1
+
+ 
+
+ 
+
+ 
+
+(a) (b)
+
+Figure 27.5 _ Illustration of the determinacy race in RACE-EXAMPLE. (a) A computation dag show-
+ing the dependencies among individual instructions. The processor registers are ry and rz. Instruc-
+tions unrelated to the race, such as the implementation of loop control, are omitted. (b) An execution
+sequence that elicits the bug, showing the values of x in memory and registers ry and r2 for each
+step in the execution sequence.
+
+printed. Conversely, if the effect were that processor 2 executed all its instructions
+before processor 1, the value 2 would still be printed. When the instructions of the
+two processors execute at the same time, however, it is possible, as in this example
+execution, that one of the updates to x is lost.
+
+Of course, many executions do not elicit the bug. For example, if the execution
+order were (1, 2, 3, 7, 4, 5, 6, 8) or (1, 4, 5, 6, 2, 3. 7, 8), we would get the cor-
+rect result. That’s the problem with determinacy races. Generally, most orderings
+produce correct results—such as any in which the instructions on the left execute
+before the instructions on the right, or vice versa. But some orderings generate
+improper results when the instructions interleave. Consequently, races can be ex-
+tremely hard to test for. You can run tests for days and never see the bug, only to
+experience a catastrophic system crash in the field when the outcome is critical.
+
+Although we can cope with races in a variety of ways, including using mutual-
+exclusion locks and other methods of synchronization, for our purposes, we shall
+simply ensure that strands that operate in parallel are independent: they have no
+determinacy races among them. Thus, in a parallel for construct, all the iterations
+should be independent. Between a spawn and the corresponding syne, the code
+of the spawned child should be independent of the code of the parent, including
+code executed by additional spawned or called children. Note that arguments to a
+spawned child are evaluated in the parent before the actual spawn occurs, and thus
+the evaluation of arguments to a spawned subroutine is in series with any accesses
+to those arguments after the spawn.
+

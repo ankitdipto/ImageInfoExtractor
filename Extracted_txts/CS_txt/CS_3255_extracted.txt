@@ -1,0 +1,61 @@
+Section 20.5.
+
+Exploration
+
+611
+
+ 
+
+ 
+
+ 
+
+ 
+
+EXPLORATION AND BANDITS
+
+In Las Vegas, a one-armed bandit is a slot machine. A gambler can insert a coin, pull
+the lever, and collect the winnings (ifany). An n-armed bandit has n levers. The
+gambler must choose which lever to play on each successive coin—the one that has
+paid off best, or maybe one that has not been tried?
+
+The n-armed bandit problem is a formal model for real problems in many vi-
+tally important areas, such as deciding on the annual budget for AI research and
+development. Each am corresponds to an action (such as allocating $20 million for
+development of new AI textbooks) and the payoff from pulling the arm corresponds
+to the benefits obtained from taking the action (immense). Exploration, whether it is
+exploration of a new research field or exploration of a new shopping mall, is risky,
+expensive, and has uncertain payoffs; on the other hand, failure to explore at all means
+that one never discovers any actions that are worthwhile.
+
+To formulate a bandit problem properly, one must define exactly what is meant by
+optima] behavior. Most definitions in the literature assume that the aim is to maximize
+the expected total reward obtained over the agent's lifetime. These definitions require
+that the expectation be taken over the possible worlds that the agent couldbe in, as well
+as over the possible results ofeach action sequence in any given world. Here, a "world"
+is defined by the transition model M¢. Thus, in order to act optimally, the agent needs
+a prior distribution over the possible models. The resulting optimization problems
+are usually wildly intractable. In some cases, however, appropriate independence
+assumptions enable the problem to be solved in closed form. With a row of real slot
+machines, for example, the rewards in successive time steps and on different machines
+can be assumed to be independent. It turns out that the fraction of one's coins invested
+in a given machine should drop off proportionally to the probability that the machine
+is in fact the best, given the observed distributions of rewards.
+
+The formal results that have been obtained for optimal exploration policies apply
+only to the case in which the agent represents the transition model as an explicit table
+and is not able to generalize across states and actions. For more realistic problems,
+it is possible to prove only convergence to a correct model and optimal behavior in
+the limit of infinite experience. This is easily obtained by acting randomly on some
+fraction of steps, where that fraction decreases appropriately over time.
+
+One can use the theory of n-armed bandits to argue for the reasonableness of the
+selection strategy in genetic algorithms (see Section 20.8). If you consider each arm
+in an n-armed bandit problem to be a possible string of genes, and the investment of a
+coin in one arm to be the reproduction of those genes, then genetic algorithms allocate
+coins optimally, given an appropriate set of independence assumptions.
+
+ 
+
+ 
+

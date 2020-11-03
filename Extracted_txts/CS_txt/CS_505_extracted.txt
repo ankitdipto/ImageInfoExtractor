@@ -1,0 +1,48 @@
+1050
+
+Chapter 34 NP-Completeness
+
+Informally, a problem is in the class NPC—and we refer to it as being NP-
+complete —if it is in NP and is as “hard” as any problem in NP. We shall formally
+define what it means to be as hard as any problem in NP later in this chapter.
+In the meantime, we will state without proof that if any NP-complete problem
+can be solved in polynomial time, then every problem in NP has a polynomial-
+time algorithm. Most theoretical computer scientists believe that the NP-complete
+problems are intractable, since given the wide range of NP-complete problems
+that have been studied to date—without anyone having discovered a polynomial-
+time solution to any of them—it would be truly astounding if all of them could
+be solved in polynomial time. Yet, given the effort devoted thus far to proving
+that NP-complete problems are intractable—without a conclusive outcome—we
+cannot rule out the possibility that the NP-complete problems are in fact solvable
+in polynomial time.
+
+To become a good algorithm designer, you must understand the rudiments of the
+theory of NP-completeness. If you can establish a problem as NP-complete, you
+provide good evidence for its intractability. As an engineer, you would then do
+better to spend your time developing an approximation algorithm (see Chapter 35)
+or solving a tractable special case, rather than searching for a fast algorithm that
+solves the problem exactly. Moreover, many natural and interesting problems that
+on the surface seem no harder than sorting, graph searching, or network flow are
+in fact NP-complete. Therefore, you should become familiar with this remarkable
+class of problems.
+
+Overview of showing problems to be NP-complete
+
+The techniques we use to show that a particular problem is NP-complete differ
+fundamentally from the techniques used throughout most of this book to design
+and analyze algorithms. When we demonstrate that a problem is NP-complete,
+we are making a statement about how hard it is (or at least how hard we think it
+is), rather than about how easy it is. We are not trying to prove the existence of
+an efficient algorithm, but instead that no efficient algorithm is likely to exist. In
+this way, NP-completeness proofs bear some similarity to the proof in Section 8.1
+of an Q(n lgn)-time lower bound for any comparison sort algorithm; the specific
+techniques used for showing NP-completeness differ from the decision-tree method
+used in Section 8.1, however.
+We rely on three key concepts in showing a problem to be NP-complete:
+
+Decision problems vs. optimization problems
+
+Many problems of interest are optimization problems, in which each feasible (i.e.,
+“Jegal”) solution has an associated value, and we wish to find a feasible solution
+with the best value. For example, in a problem that we call SHORTEST-PATH,
+

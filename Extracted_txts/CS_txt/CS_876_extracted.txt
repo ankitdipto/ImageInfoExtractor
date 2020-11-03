@@ -1,0 +1,43 @@
+214 Let Us C
+
+ 
+
+three varieties—char, int, and float. It may seem odd to
+
+many, how C programmers manage with such a tiny set of
+data types. Fact is, the C programmers aren’t really deprived. They
+can derive many data types from these three types. In fact, the
+number of data types that can be derived in C, is in principle,
+unlimited. A C programmer can always invent whatever data type
+he needs.
+
+\ s seen in the first chapter the primary data types could be of
+
+Not only this, the primary data types themselves could be of
+several types. For example, a char could be an unsigned char or a
+signed char. Or an int could be a short int or a long int.
+Sufficiently confusing? Well, let us take a closer look at these
+variations of primary data types in this chapter.
+
+To fully define a variable one needs to mention not only its type
+but also its storage class. In this chapter we would be exploring the
+different storage classes and their relevance in C programming.
+
+Integers, Jong and short
+
+We had seen earlier that the range of an Integer constant depends
+upon the compiler. For a 16-bit compiler like Turbo C or Turbo
+C++ the range is 32768 to 32767. For a 32-bit compiler the range
+would be —2147483648 to +2147483647. Here a 16-bit compiler
+means that when it compiles a C program it generates machine
+language code that is targeted towards working on a 16-bit
+microprocessor like Intel 8086/8088. As against this, a 32-bit
+compiler like VC++ generates machine language code that is
+targeted towards a 32-bit microprocessor like Intel Pentium. Note
+that this does not mean that a program compiled using Turbo C
+would not work on 32-bit processor. It would run successfully but
+at that time the 32-bit processor would work as if it were a 16-bit
+processor. This happens because a 32-bit processor provides
+support for programs compiled using 16-bit compilers. If this
+backward compatibility support is not provided the 16-bit program
+

@@ -1,0 +1,155 @@
+Chapter 32 String Matching 987
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+     
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+y
+
+ 
+
+ 
+
+ 
+
+(a) (b) (©)
+
+Figure 32.3 A graphical proof of Lemma 32.1. We suppose that x 7] z and y 7 z. The three parts
+of the figure illustrate the three cases of the lemma. Vertical lines connect matching regions (shown
+shaded) of the strings. (a) If |x] < |y|, then x 3 y. (b) If |x] > |y|, then y x. (©) If |x| = [y|,
+then x = y.
+
+ 
+
+Also note that C and 2 are transitive relations. The following lemma will be useful
+later.
+
+Lemma 32.1 (Overlapping-suffix lemma)
+Suppose that x, y, and z are strings such that x 4 z and y 3 z. If |x| < |y|,
+then x 4 y. If |x| > |y|, then y 3 x. If |x| = |y|, thenx = y.
+
+Proof See Figure 32.3 for a graphical proof. .
+
+For brevity of notation, we denote the k-character prefix P[1..k] of the pattem
+P[l..m] by Py. Thus, Po = € and P,, = P = P[1..m]. Similarly, we denote
+the k-character prefix of the text T by 7;. Using this notation, we can state the
+string-matching problem as that of finding all shifts s in the range 0 < s <n—m
+such that P 4 Ty4im-
+
+In our pseudocode, we allow two equal-length strings to be compared for equal-
+ity as a primitive operation. If the strings are compared from left to right and the
+comparison stops when a mismatch is discovered, we assume that the time taken
+by such a test is a linear function of the number of matching characters discovered.
+To be precise, the test “x == y” is assumed to take time @(t + 1), where f is the
+length of the longest string z such that z © x and z C y. (We write O(r + 1)
+rather than @(f) to handle the case in which t = 0; the first characters compared
+do not match, but it takes a positive amount of time to perform this comparison.)
+

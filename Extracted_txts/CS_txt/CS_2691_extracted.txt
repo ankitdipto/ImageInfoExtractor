@@ -1,0 +1,66 @@
+  
+
+Section 11.5.
+
+A Partial-Order Planning Example 349
+
+ 
+
+     
+    
+ 
+
+SOLUTION
+
+COMPLETE PLAN
+ACHIEVED
+
+CONSISTENT PLAN
+
+Solutions
+
+A solution is a plan that an agent can execute, and that guarantees achievement of the goal. If
+we wanted to make it really easy to check that a plan is a solution, we could insist that only fully
+instantiated, totally ordered plans can be solutions. But this is unsatisfactory for three reasons.
+First, for problems like the one in Figure 11.5, it is more natural for the planner to return a
+partial-order plan than to arbitrarily choose one of the many linearizations of it. Second, some
+agents are capable of performing actions in parallel, so it makes sense to allow solutions with
+parallel actions. Lastly, when creating plans that may later be combined with other plans to
+solve larger problems, it pays to retain the flexibility afforded by the partial ordering of actions.
+Therefore, we allow partially ordered plans as solutions using a simple definition: a solution is
+a complete, consistent plan. We need to define these terms.
+
+A complete plan is one in which every precondition of every step is achieved by some
+other step. A step achieves a condition if the condition is one of the effects of the step, and
+if no other step can possibly cancel out the condition. More formally, a step S, achieves a
+precondition c of the step Sj if (1) 5;~<Sj and c G EFFECTS(S;); and (2) there is no step 5; such
+that (+c) G EFFECTS(S,), where S; ~< 5; ~< Sj in some linearization of the plan.
+
+A consistent plan is one in which there are no contradictions in the ordering or binding
+constraints. A contradiction occurs when both S;~< Sj and S; <5; hold or both v= and v=B
+hold (for two different constants 4 and B). Both ~ and = are transitive, so, for example, a plan
+with S, < Sp, Sp < $3, and S; < S| is inconsistent.
+
+The partial plan in Figure 11.5 is a solution because all the preconditions are achieved.
+From the preceding definitions, it is easy to see that any linearization of a solution is also a
+solution. Hence the agent can execute the steps in any order consistent with the constraints, and
+still be assured of achieving the goal.
+
+11.5 A PARTIAL-ORDER PLANNING EXAMPLE
+
+In this section, we sketch the outline of a partial-order regression planner that searches through
+plan space. The planner starts with an initial plan representing the start and finish steps, and
+on each iteration adds one more step. If this leads to an inconsistent plan, it backtracks and
+tries another branch of the search space. To keep the search focused, the planner only considers
+adding steps that serve to achieve a precondition that has not yet been achieved. The causal links
+are used to keep track of this.
+
+We illustrate the planner by returning to the problem of getting some milk, a banana, and a
+drill, and bringing them back home. We will make some simplifying assumptions. First, the Go
+action can be used to travel between any two locations. Second, the description ofthe Buy action
+ignores the question of money (see Exercise 11.2). The initial state is defined by the following
+operator, where HWS means hardware store and SM means supermarket:
+
+Op(ACTION:Start, EFFECT:AK Home). Sells(HWS, Drill)
+A Sells(SM Milk), Sells(SM,Banana))
+

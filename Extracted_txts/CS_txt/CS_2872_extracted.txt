@@ -1,0 +1,51 @@
+408
+
+Chapter 15 Dynamic Programming
+
+arbitrary locations in the two sequences (including at either end) so that the result-
+ing sequences x’ and y’ have the same length but do not have a space in the same
+position (i.e., for no position j are both x’[j] and y’[j] a space). Then we assign a
+“score” to each position. Position j receives a score as follows:
+
+* +1 ifx’[j] = y’[/] and neither is a space,
++ —1ifx’[j] 4 y’[/] and neither is a space,
++ —2 if either x’[j] or y’[/] is a space.
+
+The score for the alignment is the sum of the scores of the individual positions. For
+example, given the sequences x = GATCGGCAT and y = CAATGTGAATC, one
+alignment is
+
+G ATCG GCAT
+CAAT GTGAATC
+mattatatitte
+
+A + under a position indicates a score of +1 for that position, a - indicates a score
+of —1, and a x indicates a score of —2, so that this alignment has a total score of
+6-1-2-1-4.2=-4.
+
+b. Explain how to cast the problem of finding an optimal alignment as an edit
+distance problem using a subset of the transformation operations copy, replace,
+delete, insert, twiddle, and kill.
+
+15-6 Planning a company party
+
+Professor Stewart is consulting for the president of a corporation that is planning
+a company party. The company has a hierarchical structure; that is, the supervisor
+relation forms a tree rooted at the president. The personnel office has ranked each
+employee with a conviviality rating, which is a real number. In order to make the
+party fun for all attendees, the president does not want both an employee and his
+or her immediate supervisor to attend.
+
+Professor Stewart is given the tree that describes the structure of the corporation,
+using the left-child, right-sibling representation described in Section 10.4. Each
+node of the tree holds, in addition to the pointers, the name of an employee and
+that employee’s conviviality ranking. Describe an algorithm to make up a guest
+list that maximizes the sum of the conviviality ratings of the guests. Analyze the
+running time of your algorithm.
+
+15-7 Viterbi algorithm
+
+We can use dynamic programming on a directed graph G = (V, E) for speech
+recognition. Each edge (u,v) € E is labeled with a sound o(u,v) from a fi-
+nite set © of sounds. The labeled graph is a formal model of a person speaking
+

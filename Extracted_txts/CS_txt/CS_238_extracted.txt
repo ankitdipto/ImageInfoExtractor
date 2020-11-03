@@ -1,0 +1,44 @@
+28.3 Symmetric positive-definite matrices and least-squares approximation 833
+
+prove several other important properties of symmetric positive-definite matrices
+and show an interesting application to curve fitting by a least-squares approxima-
+tion.
+
+The first property we prove is perhaps the most basic.
+
+Lemma 28.3
+Any positive-definite matrix is nonsingular.
+
+Proof Suppose that a matrix A is singular. Then by Corollary D.3, there exists a
+nonzero vector x such that Ax = 0. Hence, x'Ax = 0, and A cannot be positive-
+definite. /
+
+The proof that we can perform LU decomposition on a symmetric positive-
+definite matrix A without dividing by 0 is more involved. We begin by proving
+properties about certain submatrices of A. Define the kth leading submatrix of A
+to be the matrix A, consisting of the intersection of the first k rows and first k
+columns of A.
+
+Lemma 28.4
+If A is a symmetric positive-definite matrix, then every leading submatrix of A is
+symmetric and positive-definite.
+
+Proof That each leading submatrix Ax is symmetric is obvious. To prove that Ax
+is positive-definite, we assume that it is not and derive a contradiction. If Ax is not
+positive-definite, then there exists a k-vector xz # 0 such that XpARXE <0. Let A
+be n xn, and
+
+A= (3 ©) (28.14)
+
+for submatrices B (which is (n —k) xk) and C (which is (n —k) x (n—k)). Define
+the n-vector x = (xj 0)", where n — k Os follow xx. Then we have
+
+T — (xT Ay BTY\( xe
+XTAX = (x 0)( BoC 0
+T Akxk
+(xe 0 i( Bxx
+= xgAexK
+< 0,
+
+which contradicts A being positive-definite. .
+

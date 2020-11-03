@@ -1,0 +1,44 @@
+Chapter 12: File Input/Output 429
+
+ 
+
+I" Reads strings from the file and displays them on screen */
+#include "stdio.h"
+
+main()
+
+{
+FILE “fp;
+char s[80] ;
+
+fp = fopen ("POEM.TXT’, "t") ;
+if (fp == NULL)
+{
+
+puts ("Cannot open file" ) ;
+exit() ;
+}
+
+while ( fgets (s, 79, fp) != NULL )
+printf ("%s", s) ;
+
+fclose (fp) ;
+}
+
+And here is the output...
+
+Shining and bright, they are forever,
+so true about diamonds,
+
+more so of memories,
+
+especially yours !
+
+The function fgets() takes three arguments. The first is the address
+where the string is stored, and the second is the maximum length
+of the string. This argument prevents fgets( ) from reading in too
+long a string and overflowing the array. The third argument, as
+usual, is the pointer to the structure FILE. When all the lines from
+the file have been read, we attempt to read one more line, in which
+case fgets() returns a NULL.
+

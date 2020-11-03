@@ -1,0 +1,54 @@
+28.3 Symmetric positive-definite matrices and least-squares approximation 837
+
+ 
+
+  
+
+dir _<
+=)‘2 —yi | ain =0. 28.18
+ey »u 2 yi) ai (28.18)
+The n equations (28.18) for k = 1,2,..., n are equivalent to the single matrix
+equation
+(Ac—y)"A =0
+
+or, equivalently (using Exercise D.1-2), to
+
+A™(Ac—y) =0,
+
+which implies
+
+A'Ac = A'y. (28.19)
+
+In statistics, this is called the normal equation. The matrix A™A is symmetric
+by Exercise D.1-2, and if A has full column rank, then by Theorem D.6, ATA
+is positive-definite as well. Hence, (ATA)~! exists, and the solution to equa-
+tion (28.19) is
+
+(474) 14) y
+
+Aty, (28.20)
+
+c
+
+where the matrix A+ = ((ATA)~!A?) is the pseudoinverse of the matrix A. The
+pseudoinverse naturally generalizes the notion of a matrix inverse to the case in
+which A is not square. (Compare equation (28.20) as the approximate solution to
+Ac = y with the solution A~'d as the exact solution to Ax = b.)
+
+As an example of producing a least-squares fit, suppose that we have five data
+points
+
+iy) = (-1,2),
+(%2.y2) = C.D.
+(%3.y3) = (2.1),
+
+(x4,¥4) = (3,0).
+(X5.¥s) = (5.3).
+
+shown as black dots in Figure 28.3. We wish to fit these points with a quadratic
+polynomial
+
+F(x) = Cy + Cox +.63x?
+
+We start with the matrix of basis-function values
+

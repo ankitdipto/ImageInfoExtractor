@@ -1,0 +1,50 @@
+590 Let UsC
+
+ 
+
+Once we are through with drawing the shapes the old brush is
+selected back in the DC and then the brush created by us is deleted
+using DeleteObject( ) function.
+
+Types of Pens
+
+In the previous program we have used the default solid black pen
+of thickness 1 pixel. We can create pens of different style, color
+and thickness to do our drawing. The following OnPaint( )
+handler shows how this can be achieved.
+
+void OnPaint ( HWND hWnd )
+{
+HDC hdc ;
+PAINTSTRUCT ps ;
+HPEN hpen ;
+HGDIOBJ holdpen ;
+
+hdc = BeginPaint ( hWnd, &ps ) ;
+
+hpen = CreatePen (PS_DASH, 1, RGB ( 255, 0,0) );
+holdpen = SelectObject ( hdc, hpen ) ;
+
+MoveToEx (hdc, 10, 10, NULL ) ;
+LineTo ( hdc, 500, 10) ;
+
+SelectObject ( hdc, holdpen ) ;
+DeleteObject ( hpen ) ;
+
+hpen = CreatePen (PS_DOT, 1, RGB (255, 0,0));
+holdpen = SelectObject (hdc, hpen ) ;
+
+MoveToEx (hdc, 10, 60, NULL ) ;
+LineTo ( hdc, 500, 60) ;
+
+SelectObject ( hdc, holdpen ) ;
+DeleteObject ( hpen ) ;
+
+ 
+
+ 
+
+ 
+
+ 
+

@@ -1,0 +1,44 @@
+1072
+
+ 
+
+Chapter 34 NP-Completeness
+
+ 
+
+(a) (b)
+
+Figure 34.8 Two instances of the circuit-satisfiability problem. (a) The assignment (x1 =1,
+x2 = 1, x3 =0) to the inputs of this circuit causes the output of the circuit to be 1. ‘The circuit
+is therefore satisfiable. (b) No assignment to the inputs of this circuit can cause the output of the
+circuit to be 1. The circuit is therefore unsatisfiable.
+
+A truth assignment for a boolean combinational circuit is a set of boolean input
+values. We say that a one-output boolean combinational circuit is satisfiable if it
+has a satisfying assignment: a truth assignment that causes the output of the circuit
+to be 1. For example, the circuit in Figure 34.8(a) has the satisfying assignment
+(x1 = 1, x2 = 1, x3 = 0), and so it is satisfiable. As Exercise 34.3-1 asks you to
+show, no assignment of values to x1, X2, and x3 causes the circuit in Figure 34.8(b)
+to produce a | output; it always produces 0, and so it is unsatisfiable.
+
+The circuit-satisfiability problem is, “Given a boolean combinational circuit
+composed of AND, OR, and NOT gates, is it satisfiable?” In order to pose this
+question formally, however, we must agree on a standard encoding for circuits.
+The size of a boolean combinational circuit is the number of boolean combina-
+tional elements plus the number of wires in the circuit. We could devise a graphlike
+encoding that maps any given circuit C into a binary string (C) whose length is
+polynomial in the size of the circuit itself. As a formal language, we can therefore
+define
+
+CIRCUIT-SAT = {(C) : C is asatisfiable boolean combinational circuit} .
+
+The circuit-satisfiability problem arises in the area of computer-aided hardware
+optimization. If a subcircuit always produces 0, that subcircuit is unnecessary;
+the designer can replace it by a simpler subcircuit that omits all logic gates and
+provides the constant 0 value as its output. You can see why we would like to have
+a polynomial-time algorithm for this problem.
+
+Given a circuit C, we might attempt to determine whether it is satisfiable by
+simply checking all possible assignments to the inputs. Unfortunately, if the circuit
+has k inputs, then we would have to check up to 2“ possible assignments. When
+

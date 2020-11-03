@@ -1,0 +1,41 @@
+Chapter 5: Functions & Pointers 189
+
+ 
+
+the change effective in main(). That is why when the control
+returns from the function areaperi() we are able to output the
+values of area and perimeter.
+
+Thus, we have been able to indirectly return two values from a
+called function, and hence, have overcome the limitation of the
+return statement, which can return only one value from a function
+at a time.
+
+Conclusions
+
+From the programs that we discussed here we can draw the
+following conclusions:
+
+(a) Ifwe want that the value of an actual argument should not get
+changed in the function being called, pass the actual argument
+by value.
+
+(b) If we want that the value of an actual argument should get
+changed in the function being called, pass the actual argument
+by reference.
+
+(c) Ifa function is to be made to return more than one value at a
+time then return these values indirectly by using a call by
+reference.
+
+Recursion
+
+In C, it is possible for the functions to call themselves. A function
+is called ‘recursive’ if a statement within the body of a function
+calls the same function. Sometimes called ‘circular definition’,
+recursion is thus the process of defining something in terms of
+itself.
+
+Let us now see a simple example of recursion. Suppose we want to
+calculate the factorial value of an integer. As we know, the
+

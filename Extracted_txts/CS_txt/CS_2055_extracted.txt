@@ -1,0 +1,41 @@
+Chapter 14
+
+MASS-
+STORAGE
+STRUCTURE
+
+ 
+
+ 
+
+The file system can be viewed logically as consisting of three parts. In Chapter
+11, we saw the user and programmer interface to the file system. In Chapter 12,
+we described the internal data structures and algorithms used by the operating
+system to implement this interface. In this chapter, we discuss the lowest
+level of the file system: the secondary and tertiary storage structures. We first
+describe disk-scheduling algorithms that schedule the order of disk I/Os to
+improve performance. Next, we discuss disk formatting and management of
+boot blocks, damaged blocks, and swap space. We examine secondary storage
+structure, covering disk reliability and stable-storage implementation. We
+conclude with a brief description of tertiary storage devices, and the problems
+that arise when an operating system uses tertiary storage.
+
+14.1 = Disk Structure
+
+Disks provide the bulk of secondary storage for modern computer systems.
+Magnetic tape was used as an early secondary-storage medium, but the access
+time is much slower than for disks. Thus, tapes are currently used mainly
+for backup, for storage of infrequently used information, as a medium for
+transferring information from one system to another, and for storing quantities
+of data so large that they are impractical as disk systems. Tape storage is
+described in Section 14.8.
+
+Modern disk drives are addressed as large one-dimensional arrays of log-
+ical blocks, where the logical block is the smallest unit of transfer. The size
+
+491
+
+ 
+
+|
+

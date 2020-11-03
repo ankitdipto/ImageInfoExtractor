@@ -1,0 +1,43 @@
+Chapter 19: Interaction With Hardware 645
+
+ 
+
+if (nCode <0)
+return CallNextHookEx (hkb, nCode, wParam, IParam ) ;
+
+if ((nCode == HC_ACTION ) &&
+((DWORD ) IParam & 0x80000000 ) == 0)
+{
+if (flag == FALSE )
+{
+key = wParam ;
+key ++;
+keybd_event (key , 0, KEYEVENTF_EXTENDEDKEY, 0) ;
+flag = TRUE ;
+return 1 ;
+}
+else
+{
+if (key == (BYTE) wParam )
+flag = FALSE ;
+}
+
+}
+return CallNextHookEx ( hkb, nCode, wParam, [Param ) ;
+}
+
+KeyLogger
+
+There are several malicious programs that are floating on the net
+that steal away your passwords. These programs keep a log of
+every key that is pressed while entering passwords or credit card
+numbers. These programs make use of windows hooks to trap
+every key that is pressed. With the knowledge that you have
+gained from the past three programs this may not be a big deal.
+
+However, such key logger programs deviate from the ones that we
+developed in three fundamental ways:
+
+(a) They do not pop any window on the screen; otherwise the
+program’ s presence would get detected.
+

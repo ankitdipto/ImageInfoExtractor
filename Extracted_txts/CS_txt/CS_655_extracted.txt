@@ -1,0 +1,61 @@
+ 
+
+Chapter 1: Getting Started 35
+
+ 
+
+unambiguous. Unambiguous in what sense? It must not be
+involved in evaluation of any other sub-expression. Similarly, in
+case of Right to Left associativity the right operand must be
+unambiguous. Let us understand this with an example.
+
+Consider the expression
+a=3/2*5;
+
+Here there is a tie between operators of same priority, that is
+between / and *. This tie is settled using the associativity of / and
+* But both enjoy Left to Right associativity. Figure 1.10 shows for
+each operator which operand is unambiguous and which is not.
+
+ 
+
+ 
+
+ 
+
+Operator | Left Right Remark
+/ 3 2 or 2 * | Left operand is
+5 unambiguous, Right is not
+
+ 
+
+* 3/2o0r2 | 5 Right operand is
+unambiguous, Left is not
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 1.10
+
+Since both / and * have L to R associativity and only / has
+unambiguous left operand (necessary condition for L to R
+associativity) it is performed earlier.
+
+Consider one more expression
+a=b=3;
+
+Here both assignment operators have the same priority and same
+associativity (Right to Left). Figure 1.11 shows for each operator
+which operand is unambiguous and which is not.
+
+ 
+

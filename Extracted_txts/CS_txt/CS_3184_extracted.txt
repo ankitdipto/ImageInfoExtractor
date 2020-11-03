@@ -1,0 +1,63 @@
+548
+
+DROPPING
+CONDITIONS
+
+Chapter 18. Learning from Observations
+
+Patrons(x, Some), then one possible generalization is given by Cy(x) = Patrons(x, Some). This is
+called dropping conditions. Intuitively, it generates a weaker definition and therefore allows a
+larger set of positive examples. There are a number of other generalization operations, depending
+on the language being operated on. Similarly, we can specialize a hypothesis by adding extra
+conditions to its candidate definition or by removing disjuncts from a disjunctive definition. Let
+us see how this works on the restaurant example, using the data in Figure 18.5.
+
++ The first example X\ is positive. Alrernate(X1) is true, so let us assume an initial hypothesis
+Hy: Wx WillWait(x) <= Alternate(x)
+
++ The second example X? is negative. H. predicts it to be positive, so it is a false positive.
+Therefore, we need to specialize H,. This can be done by adding an extra condition that
+will rule out X2. One possibility is
+
+Vx WillWait(x)<+ Alternate(x) A Patrons(x, Some)
+
+ 
+
+The third example X3 is positive. H predicts it to be negative, so it is a false negative.
+Therefore, we need to generalize H>. This can be done by dropping the A/rernare condition,
+yielding
+
+3: Vx WillWait(x) <= Patrons(x, Some)
+
+The fourth example X, is positive. H predicts it to be negative, so it is a false negative.
+We therefore need to generalize H;. We cannot drop the Patrons condition, because that
+would yield an all-inclusive hypothesis that would be inconsistent with X>. One possibility
+is to add a disjunct:
+
+Hy: Vx WillWait(x) <= Patrons(x, Some) V (Patrons(x,Full) A FrifSat(x))
+
+Already, the hypothesis is starting to look reasonable. Obviously, there are other possibilities
+consistent with the first four examples; here are two of them:
+
+Hi: Vx WillWait(x) <> —WaitEstimate(x,30-60)
+
+i: Wx WillWait(x) <> Patrons(x, Some)
+V(Patrons(xFull) A WaitEstimate(x,10-30))
+
+TheCURRENT-BEST-LEARNINGalgorithmis describednondeterministically, becauseatany point,
+there may be several possible specializations or generalizations that can be applied. The choices
+that are made will not necessarily lead to the simplest hypothesis, and may lead to an unrecoverable
+situation where no simple modification of the hypothesis is consistent with all of the data. In
+such cases, the program must backtrack to a previous choice point.
+
+TheCURRENT-BEST-LEARNINGalgorithmand its variantshave been used inamany machine
+learning systems, starting with Patrick Winston's (1970) "arch-learning" program. With a large
+number of instances and a large space, however, some difficulties arise:
+
+1. Checking all the previous instances over again for each modification is very expensive.
+
+2. It is difficult to find good search heuristics, and backtracking all over the place can take
+forever. As we saw earlier, hypothesis space can be a doubly exponentially large place.
+
+ 
+

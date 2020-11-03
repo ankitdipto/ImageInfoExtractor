@@ -1,0 +1,63 @@
+Chapter 6. Agents that Reason Logically
+
+ 
+
+below the line. The letters a, ;3, etc., are intended to match any sentence, not just individual
+proposition symbols. If there are several sentences, in either the premise or the conclusion, they
+are separated by commas. Figure 6.13 gives a list of seven commonly used inference rules. ~
+
+An inference rule is sound if the conclusion is true in all cases where the premises are true.
+To verify soundness, we therefore construct a truth table with one line for each possible model
+ofthe proposition symbols in the premise, and show that in all models where the premise is true,
+the conclusion is also true. Figure 6,14 shows the truth table for the resolution rule
+
+ 
+
+< Modus Ponens or Implication-Elimination: (From an implication and the
+premise of the implication, you can infer the conclusion.)
+a= 8, a
+3
+ And-Elimination: (From a conjunction, you can infer any of the conjuncts.)
+ay AQAA... AQn
+ay
+~ And-Introduction: (From a list of sentences, you can infer their conjunction.)
+1,02, eee, On
+arAQ2A...AQn
+0 Or-Introduction: (From a sentence, you can infer its disjunction with anything
+else at all.)
+a
+ay VarV... Van
+~ Double-Negation Elimination: (From a doubly negated sentence, you can infer
+
+a positive sentence.)
+a
+
+a
+Unit Resolution: (From a disjunction, if one of the disjuncts is false, then you
+can infer the other one is true.)
+av ZB, ao
+a
+Resolution: (This is the most difficult. Because 0 cannot be both true and false,
+one of the other disjuncts must be true in one of the premises. Or equivalently,
+implication is transitive.)
+ave, “ONT or equivalently rash Boy
+avy aa > 7
+
+ 
+
+ 
+
+ 
+
+Figure 6.13 Seven inference rules for propositional logic. The unit resolution rule is a special
+case of the resolution ule, which in tum is a special case of the full resolution rule for first-order
+Togic discussed in Chapter 9.
+
+ 
+
+ 
+
+ 
+
+ 
+

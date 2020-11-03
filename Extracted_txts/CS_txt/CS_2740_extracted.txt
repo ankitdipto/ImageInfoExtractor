@@ -1,0 +1,50 @@
+300
+
+Chapter 12 Binary Search Trees
+
+tree varies, however, as items are inserted and deleted. If, for example, the 7 items
+are inserted in strictly increasing order, the tree will be a chain with height n — 1.
+On the other hand, Exercise B.5-4 shows that h > |[IgnJ. As with quicksort, we
+can show that the behavior of the average case is much closer to the best case than
+to the worst case.
+
+Unfortunately, little is known about the average height of a binary search tree
+when both insertion and deletion are used to create it. When the tree is created
+by insertion alone, the analysis becomes more tractable. Let us therefore define a
+randomly built binary search tree on n keys as one that arises from inserting the
+keys in random order into an initially empty tree, where each of the 7! permutations
+of the input keys is equally likely. (Exercise 12.4-3 asks you to show that this notion
+is different from assuming that every binary search tree on n keys is equally likely.)
+In this section, we shall prove the following theorem.
+
+Theorem 12.4
+The expected height of a randomly built binary search tree on n distinct keys is
+Ollgn).
+
+Proof We start by defining three random variables that help measure the height
+of a randomly built binary search tree. We denote the height of a randomly built
+binary search on” keys by X,,, and we define the exponential height Y, = 2*".
+When we build a binary search tree on n keys, we choose one key as that of the
+root, and we let R,, denote the random variable that holds this key’s rank within
+the set of 7 keys; that is, R,, holds the position that this key would occupy if the
+set of keys were sorted. The value of R,, is equally likely to be any element of the
+set {1,2,..., n}. If R, = 7, then the left subtree of the root is a randomly built
+binary search tree on i — | keys, and the right subtree is a randomly built binary
+search tree on n —i keys. Because the height of a binary tree is 1 more than the
+larger of the heights of the two subtrees of the root, the exponential height of a
+binary tree is twice the larger of the exponential heights of the two subtrees of the
+root. If we know that R,, = i, it follows that
+
+Y, = 2+max(¥i-1, Yn-i) «
+
+As base cases, we have that Y; = 1, because the exponential height of a tree with 1
+node is 2° = 1 and, for convenience, we define Yy = 0.
+Next, define indicator random variables Z,.1, Zn,2,..+. Znn, Where
+
+Zn = {Ry =i} «
+
+Because R,, is equally likely to be any element of {1,2,....n}, it follows that
+Pr{R, =i} = 1/n fori = 1,2,...,n, and hence, by Lemma 5.1, we have
+
+E[Z,i]=1/n, (12.1)
+

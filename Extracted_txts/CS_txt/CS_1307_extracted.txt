@@ -1,0 +1,46 @@
+Chapter 17: Windows Programming 575
+
+ 
+
+Program Instances
+
+Windows allows you to run more than one copy of a program at a
+time. This is handy for cutting and pasting between two copies of
+Notepad or when running more than one terminal session with a
+terminal emulator program. Each running copy of a program is
+called a ‘program instance’.
+
+Windows performs an interesting memory optimization trick. It
+shares a single copy of the program’s code between all running
+instances. For example, if you get three instances of Notepad
+running, there will only be one copy of Notepad’s code in
+memory. All three instances share the same code, but will have
+separate memory areas to hold the text data being edited. The
+difference between handling of the code and the data is logical, as
+each instance of Notepad might edit a different file, so the data
+must be unique to each instance. The program logic to edit the files
+is the same for every instance, so there is no reason why a single
+copy of Notepad’s code cannot be shared.
+
+Summary
+
+(a) A message box can be displayed by calling the
+MessageBox ) API function.
+
+(b) Message boxes are often used to ascertain the flow of a
+program.
+
+(c) Appearance of a message box can be customized.
+
+(d) The CreateWindow( ) API function creates the window in
+memory.
+
+(e) The window that is created in memory is displayed using the
+ShowWindow( ) API function.
+
+(f) A ‘window class’ specifies various properties of the window
+that we are creating.
+
+(g) The header file ‘Windows.h’ contains declaration of several
+macros used in Windows programming.
+

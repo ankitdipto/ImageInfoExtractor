@@ -1,0 +1,51 @@
+1126
+
+Chapter 35 Approximation Algorithms
+
+APPROX-MIN-WEIGHT-VC(G, w)
+1 C=9
+
+2 compute X, an optimal solution to the linear program in lines (35.17)-(35.20)
+3 for each v € V
+
+4 if X(v) > 1/2
+
+5 C=CU{r}
+
+6 returnC
+
+The APPROX-MIN-WEIGHT-VC procedure works as follows. Line 1 initial-
+izes the vertex cover to be empty. Line 2 formulates the linear program in
+lines (35.17)-(35.20) and then solves this linear program. An optimal solution
+gives each vertex v an associated value X¥(v), where 0 < X(v) < 1. We use this
+value to guide the choice of which vertices to add to the vertex cover C in lines 3-5.
+If x(v) => 1/2, we add v to C; otherwise we do not. In effect, we are “rounding”
+each fractional variable in the solution to the linear program to 0 or | in order to
+obtain a solution to the 0-1 integer program in lines (35.14)-(35.16). Finally, line 6
+returns the vertex cover C.
+
+Theorem 35.7
+Algorithm APPROX-MIN-WEIGHT- VC is a polynomial-time 2-approximation al-
+gorithm for the minimum-weight vertex-cover problem.
+
+Proof Because there is a polynomial-time algorithm to solve the linear program
+in line 2, and because the for loop of lines 3-5 runs in polynomial time, APPROX -
+MIN-WEIGHT-VC is a polynomial-time algorithm.
+
+Now we show that APPROX-MIN-WEIGHT-VC is a 2-approximation algo-
+rithm. Let C* be an optimal solution to the minimum-weight vertex-cover prob-
+lem, and let z* be the value of an optimal solution to the linear program in
+lines (35.17)-(35.20). Since an optimal vertex cover is a feasible solution to the
+linear program, z* must be a lower bound on w(C*), that is,
+
+z* <w(C*). (35.21)
+
+Next, we claim that by rounding the fractional values of the variables X(v), we
+produce a set C that is a vertex cover and satisfies w(C) < 2z*. To see that C is
+a vertex cover, consider any edge (u,v) € E. By constraint (35.18), we know that
+x(u) + x(v) = 1, which implies that at least one of ¥(u) and X(v) is at least 1/2.
+Therefore, at least one of u and v is included in the vertex cover, and so every edge
+is covered.
+
+Now, we consider the weight of the cover. We have
+

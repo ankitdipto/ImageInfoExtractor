@@ -1,0 +1,61 @@
+Section 25.5.
+
+Configuration Spaces: A Framework for Analysis 791
+
+ 
+
+ 
+
+CONFIGURATION
+SPACE
+
+coordinates. It is therefore impossible to apply standard search algorithms in any straightforward
+way because the numbers of states and actions are infinite. Much ofthe work in robot planning
+has dealt with ways to tame these continuous state spaces.
+
+Suppose that we have a robot with k degrees of freedom. Then the state or configuration
+of the robot can be described with k real values g),...,q,. For the PUMA robot, this would be a
+list of six joint angles 6,,..., 0. The k values can be considered as a pointp in a k-dimensional
+space called the configuration space of the robot. We use C to refer to the configuration space
+of the robot itself. This description is convenient because it lets us describe the complex three-
+dimensional shape of the robot with a single k-dimensional point. In other words, from the six
+joint angles, we can determine the exact shape of the entire PUMA robot. This works because the
+individual robot links are rigid—they rotate when the joint angles change, but they do not change
+size or shape.
+
+Configuration space can be used to determine if there is a path by which a robot can move
+from one position to another. Consider the problem of getting the PUMA hand to replace a spark
+plug in a car. We have to find a path through three-dimensional physical space that will lead
+the hand to the right spot, without bumping into anything. But that is not enough—we need to
+make sure that the other links of the robot do not bump into anything either. This is a difficult
+problem to visualize in physical space, but it is easy to visualize in configuration space. We start
+by considering the points in C for which any part of the robot bumps into something. This set of
+points is called the configuration space obstacle, or (. The set difference C - © is called free
+space, orF, and is the set of configurations in which the robot can move safely. (Note that we
+also have to worry about the robot bumping into itself, or over-twisting power and data cables
+that pass through its joints. For these reasons, there are upper and lower limits on thejoint angles
+of most robots, and corresponding bounds on the size of configuration space.)
+
+Assume we have an initial point c\ and a destination point cz in configuration space. The
+robot can safely move between the corresponding points in physical space ifand onlyif there is a
+continuous path between c\ and C2 that lies entirely in ¥. This idea is illustrated in Figure 25.11.
+A two-link robot is shown at the left of the figure, and its two-dimensional configuration space
+at the right. The configuration obstacle is the shaded region, and configurations c\ and cz are
+shown in both domains, with a safe path drawn in C between them. Even in this simple example,
+the advantage of searching for a safe path in C is clear.
+
+We humans have it much easier than the PUMA, because our shoulderjoint has three degrees
+of freedom, while the PUMA'S only has two. That gives the human am seven degrees of freedom
+overall, one more than is needed to reach any point. This extra or redundant degree of freedom
+allows the arm to clear obstacles while keeping the hand in one spot, a wonderful facility that
+helped our ancestors climb around in trees, and helps us change spark plugs.
+
+We should emphasize that configuration space and free space are mathematical tools
+for designing and analyzing motion-planning algorithms. The algorithms themselves need not
+explicitly construct or search a configuration space; nonetheless, any motion-planningmethod or
+control mechanism can be interpreted as seeking a safe path nF. Configuration-space analysis
+can be used to establish whether or not a given mechanism is complete and correct, and can be
+used to analyze the complexity of the underlying problems.
+
+ 
+

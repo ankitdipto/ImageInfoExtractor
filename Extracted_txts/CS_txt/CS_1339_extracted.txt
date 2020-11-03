@@ -1,0 +1,42 @@
+600 Let UsC
+
+ 
+
+Let us now discuss each mouse handler. When the
+WM_LBUTTONDOWN message arrives the WndProc( )
+function calls the handler OnLButtonDown( ). While doing so,
+we have passed the mouse coordinates where the click occurred.
+These coordinates are obtained in [Param in WndProc( ). In
+IParam the low order 16 bits contain the current x - coordinate of
+the mouse whereas the high order 16 bits contain the y -
+coordinate. The LOWORD and HIWORD macros have been
+used to separate out these x and y - coordinates from IParam.
+
+In OnLButtonDown( ) we have preserved the starting point of
+freehand in global variables x1 and y1.
+
+When OnMouseMove( ) gets called it checks whether the left
+mouse button stands depressed. If it stands depressed then the
+flags variable contains MK _LBUTTON. If it does, then the
+current mouse coordinates are set up in the global variables x2, y2.
+A line is then drawn between x1, y1 and x2, y2 using the functions
+MoveToEx( ) and LineTo( ). Next time around x2, y2 should
+become the starting of the next line. Hence the current values of
+x2, y2 are stored in x1, y1.
+
+Note that here we have obtained the DC handle using the API
+function GetDC( ). This is because we are cazrying out the
+drawing activity in reaction to a message other than WM_PAINT.
+Also, the handle obtained using GetDC() should be released using
+a call to ReleaseDC( ) function.
+
+You can try using BeginPaint( ) / EndPaint( ) in mouse handlers
+
+and GetDC( ) / ReleaseDC( ) in OnPaint( ). Can you draw any
+conclusions?
+
+Capturing the Mouse
+
+If in the process of drawing the freehand the mouse cursor goes
+outside the client area then the window below our window would
+

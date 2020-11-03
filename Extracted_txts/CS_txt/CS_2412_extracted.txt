@@ -1,0 +1,53 @@
+34
+
+Chapter 2. Getting Started
+
+To see that the MERGE procedure runs in @(7) time, where n =r — p +1,
+observe that each of lines 1-3 and 8-11 takes constant time, the for loops of
+lines 4-7 take O(n, + 12) = O(n) time,’ and there are n iterations of the for
+loop of lines 12-17, each of which takes constant time.
+
+We can now use the MERGE procedure as a subroutine in the merge sort al-
+gorithm. The procedure MERGE-SoRT(A, p,r) sorts the elements in the subar-
+ray A[p..r]. If p = r, the subarray has at most one element and is therefore
+already sorted. Otherwise, the divide step simply computes an index q that par-
+titions A[p..r] into two subarrays: A[p..q], containing [n/2] elements, and
+Alq + 1..r], containing [n/2] elements.*
+
+MERGE-SorrT(A, p.1')
+
+1 ifp<r
+
+2 q =p +r)/2)
+
+3 MERGE-SorT(A, p,q)
+
+4 MERGE-Sort(A,q + 1,r)
+5 MERGE(A, p.q.1)
+
+To sort the entire sequence A = (A[1], A[2]...., Aln]), we make the initial call
+MERGE-Sort(A, |, A.length), where once again A./ength = n. Figure 2.4 il-
+lustrates the operation of the procedure bottom-up when 71 is a power of 2. The
+algorithm consists of merging pairs of 1-item sequences to form sorted sequences
+of length 2, merging pairs of sequences of length 2 to form sorted sequences of
+length 4, and so on, until two sequences of length n/2 are merged to form the final
+sorted sequence of length n.
+
+2.3.2 Analyzing divide-and-conquer algorithms
+
+When an algorithm contains a recursive call to itself, we can often describe its
+running time by a recurrence equation or recurrence, which describes the overall
+running time on a problem of size 7 in terms of the running time on smaller inputs.
+We can then use mathematical tools to solve the recurrence and provide bounds on
+the performance of the algorithm.
+
+ 
+
+7 We shall see in Chapter 3 how to formally interpret equations containing ©-notation.
+
+8The expression [x] denotes the least integer greater than or equal to x, and |x| denotes the greatest
+integer less than or equal to x. These notations are defined in Chapter 3. The easiest way to verify
+that setting q to [(p +r)/2] yields subarrays A[p. .q] and A[g + 1 ..r] of sizes [n/2] and [n/2],
+respectively, is to examine the four cases that arise depending on whether each of p and r is odd or
+even.
+

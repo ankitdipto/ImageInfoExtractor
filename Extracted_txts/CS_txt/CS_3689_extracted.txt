@@ -1,0 +1,50 @@
+638
+
+Chapter 23 Minimum Spanning Trees
+
+by at most 1. Let E, be the set of edges that are incident only on vertices in V;, and
+let E> be the set of edges that are incident only on vertices in V2. Recursively solve
+a minimum-spanning-tree problem on each of the two subgraphs G; = (Vi, £1)
+and Gz = (V2, E2). Finally, select the minimum-weight edge in E that crosses the
+cut (V;, V2), and use this edge to unite the resulting two minimum spanning trees
+into a single spanning tree.
+
+Either argue that the algorithm correctly computes a minimum spanning tree
+of G, or provide an example for which the algorithm fails.
+
+ 
+
+Problems
+
+23-1 Second-best minimum spanning tree
+Let G = (V,E) be an undirected, connected graph whose weight function is
+w: E —R, and suppose that || > |V| and all edge weights are distinct.
+
+We define a second-best minimum spanning tree as follows. Let J be the set
+of all spanning trees of G, and let T’ be a minimum spanning tree of G. Then
+a second-best minimum spanning tree is a spanning tree T such that w(T) =
+mingverqr} {w(T")}.
+
+a. Show that the minimum spanning tree is unique, but that the second-best mini-
+mum spanning tree need not be unique.
+
+b. Let T be the minimum spanning tree of G. Prove that G contains edges
+(u,v) € T and (x,y) ¢ T such that T — {(u,v)} U {(x, y)} is a second-best
+minimum spanning tree of G.
+
+c. Let T bea spanning tree of G and, for any two vertices u,v € V, let max[u, v]
+denote an edge of maximum weight on the unique simple path between u and v
+in T. Describe an O(V?)-time algorithm that, given 7, computes max[u, v] for
+allu.veV.
+
+d. Give an efficient algorithm to compute the second-best minimum spanning tree
+of G.
+
+23-2. Minimum spanning tree in sparse graphs
+
+For a very sparse connected graph G = (V, £), we can further improve upon the
+O(E + V 1gV) running time of Prim’s algorithm with Fibonacci heaps by prepro-
+cessing G to decrease the number of vertices before running Prim’s algorithm. In
+particular, we choose, for each vertex u, the minimum-weight edge (u,v) incident
+on u, and we put (u,v) into the minimum spanning tree under construction. We
+

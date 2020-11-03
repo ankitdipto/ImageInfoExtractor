@@ -1,0 +1,47 @@
+29.4 Duality 879
+
+29.3-6
+Solve the following linear program using SIMPLEX:
+maximize 5x; — 3X2
+subject to
+xX) -— x < 1
+2x, + XX < 2
+X1.X2 > 0.
+
+29.3-7
+Solve the following linear program using SIMPLEX:
+
+minimize Xy + X + X3
+subject to
+
+2x, + 75x. + 3x3 = 10000
+20x. + 5x2 + 10x3 > 30000
+X1,X2,X3 > 0.
+
+29.3-8
+In the proof of Lemma 29.5, we argued that there are at most ci") ways to choose
+a set B of basic variables. Give an example of a linear program in which there are
+
+strictly fewer than ("i") ways to choose the set B.
+
+ 
+
+29.4 Duality
+
+We have proven that, under certain assumptions, SIMPLEX terminates. We have not
+yet shown that it actually finds an optimal solution to a linear program, however.
+In order to do so, we introduce a powerful concept called linear-programming
+duality.
+
+Duality enables us to prove that a solution is indeed optimal. We saw an exam-
+ple of duality in Chapter 26 with Theorem 26.6, the max-flow min-cut theorem.
+Suppose that, given an instance of a maximum-flow problem, we find a flow f
+with value | f |. How do we know whether f is a maximum flow? By the max-flow
+min-cut theorem, if we can find a cut whose value is also | /'|, then we have ver-
+ified that f is indeed a maximum flow. This relationship provides an example of
+duality: given a maximization problem, we define a related minimization problem
+such that the two problems have the same optimal objective values.
+
+Given a linear program in which the objective is to maximize, we shall describe
+how to formulate a dual linear program in which the objective is to minimize and
+

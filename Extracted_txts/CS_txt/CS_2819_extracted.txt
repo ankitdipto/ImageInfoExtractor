@@ -1,0 +1,41 @@
+364
+
+Chapter 15 Dynamic Programming
+
+ 
+
+Figure 15.3. The recursion tree showing recursive calls resulting from a call Cut-Rop(p,n) for
+n = 4. Each node label gives the size n of the corresponding subproblem, so that an edge from
+a parent with label s to a child with label ¢ corresponds to cutting off an initial piece of size s — 1
+and leaving a remaining subproblem of size t. A path from the root to a leaf corresponds to one of
+the 2”—! ways of cutting up a rod of length . In general, this recursion tree has 2” nodes and 2”!
+leaves.
+
+nol
+Tn) =1+ )°T(). (15.3)
+j=0
+The initial 1 is for the call at the root, and the term T(j) counts the number of calls
+(including recursive calls) due to the call CUT-ROD(p,n —i), where j =n —i.
+As Exercise 15.1-1 asks you to show,
+
+T(n) =2", (15.4)
+
+and so the running time of CUT-RoD is exponential in 1.
+
+In retrospect, this exponential running time is not so surprising. CUT-ROD ex-
+plicitly considers all the 2"~! possible ways of cutting up a rod of length n. The
+tree of recursive calls has 2”! leaves, one for each possible way of cutting up the
+rod. The labels on the simple path from the root to a leaf give the sizes of each
+remaining right-hand piece before making each cut. That is, the labels give the
+corresponding cut points, measured from the right-hand end of the rod.
+
+Using dynamic programming for optimal rod cutting
+
+We now show how to convert CUT-RobD into an efficient algorithm, using dynamic
+programming.
+
+The dynamic-programming method works as follows. Having observed that a
+naive recursive solution is inefficient because it solves the same subproblems re-
+peatedly, we arrange for each subproblem to be solved only once, saving its solu-
+tion. If we need to refer to this subproblem’s solution again later, we can just look it
+

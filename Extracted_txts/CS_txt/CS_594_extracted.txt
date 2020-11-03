@@ -1,0 +1,48 @@
+1122
+
+Chapter 35 Approximation Algorithms
+
+Corollary 35.5
+GREEDY-SET-COVER is a polynomial-time (In |X | + 1)-approximation algorithm.
+
+Proof Use inequality (A.14) and Theorem 35.4. .
+
+In some applications, max {|S'| : S € F} is a small constant, and so the solution
+returned by GREEDY-SET-COVER is at most a small constant times larger than
+optimal. One such application occurs when this heuristic finds an approximate
+vertex cover for a graph whose vertices have degree at most 3. In this case, the
+solution found by GREEDY-SET-COVER is not more than H(3) = 11/6 times as
+large as an optimal solution, a performance guarantee that is slightly better than
+that of APPROX-VERTEX-COVER.
+
+Exercises
+
+35.3-1
+
+Consider each of the following words as a set of letters: {arid,dash, drain,
+heard, lost, nose, shun, slate, snare, thread}. Show which set cover
+GREEDY-SET-COVER produces when we break ties in favor of the word that ap-
+pears first in the dictionary.
+
+35.3-2
+Show that the decision version of the set-covering problem is NP-complete by
+reducing it from the vertex-cover problem.
+
+35.3-3
+Show how to implement GREEDY-SET-COVER in such a way that it runs in time
+
+O(Dses ISI):
+
+35.34
+Show that the following weaker form of Theorem 35.4 is trivially true:
+
+JE] < Je*|max {|S]:S¢F}.
+
+353-5
+
+GREEDY-SET-COVER can return a number of different solutions, depending on
+how we break ties in line 4. Give a procedure BAD-SET-COVER-INSTANCE (11)
+that returns an 1-element instance of the set-covering problem for which, depend-
+ing on how we break ties in line 4, GREEDY-SET-COVER can return a number of
+different solutions that is exponential inn.
+

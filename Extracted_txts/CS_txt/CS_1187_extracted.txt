@@ -1,0 +1,43 @@
+466 Let Us C
+
+ 
+
+done in C. There are still some more issues related with
+input/output that remain to be understood. These issues help in
+making the I/O operations more elegant.
+
+E: Chapters 11 and 12 we saw how Console I/O and File I/O are
+
+Using argc and argv
+
+To execute the file-copy programs that we saw in Chapter 12 we
+are required to first type the program, compile it, and then execute
+it. This program can be improved in two ways:
+
+(a) There should be no need to compile the program every time to
+use the file-copy utility. It means the program must be
+executable at command prompt (A> or C> if you are using
+MS-DOS, Start | Run dialog if you are using Windows and $
+prompt if you are using Unix).
+
+(b) Instead of the program prompting us to enter the source and
+target filenames, we must be able to supply them at command
+prompt, in the form:
+
+filecopy PR1.C PR2.C
+
+where, PR1.C is the source filename and PR2.C is the target
+filename.
+
+The first improvement is simple. In MS-DOS, the executable file
+(the one which can be executed at command prompt and has an
+extension .EXE) can be created in Turbo C/C++ by using the key
+F9 to compile the program. In VC++ compiler under Windows
+same can be done by using F7 to compile the program. Under Unix
+this is not required since in Unix every time we compile a program
+we always get an executable file.
+
+The second improvement is possible by passing the source
+filename and target filename to the function main( ). This is
+illustrated below:
+

@@ -1,0 +1,48 @@
+226 Chapter7 Process Synchronization
+
+techniques and models available from database research. For instance, many
+of the ad hoc techniques used in operating systems to manage files could be
+more flexible and powerful if more formal database methods were used in their
+place. In Sections 7.9.2 to 7.9.4, we describe what these database techniques are
+and how they can be used by operating systems.
+
+7.9.1 System Model
+
+A collection of instructions (or operations) that performs a single logical func-
+tion is called a transaction. A major issue in processing transactions is the
+preservation of atomicity despite the possibility of failures within the computer
+system. In this section, we describe various mechanisms for ensuring transac-
+tion atomicity. We do so by first considering an environment where only one
+transaction can be executing at a time. Then, we consider the case where multi-
+ple transactions are active simultaneously. A transaction is a program unit that
+accesses and possibly updates various data items that may reside on the disk
+within some files. From our point of view, a transaction is simply a sequence
+of read and write operations, terminated by either a commit operation or an
+abort operation. A commit operation signifies that the transaction has termi-
+nated its execution successfully, whereas an abort operation signifies that the
+transaction had to cease its normal execution due to some logical error. A ter-
+minated transaction that has completed its execution successfully is committed;
+otherwise, it is aborted. The effect of a committed transaction cannot be undone
+by abortion of the transaction.
+
+A transaction may also cease its normal execution due to a system failure. In
+either case, since an aborted transaction may have already modified the various
+data that it has accessed, the state of these data may not be the same as it would
+be had the transaction executed atomically. So that the atomicity property is
+ensured, an aborted transaction must have no effect on the state of the data
+that it has already modified. Thus, the state of the data accessed by an aborted
+transaction must be restored to what it was just before the transaction started
+executing. We say that such a transaction has been rolled back. It is part of the
+responsibility of the system to ensure this property.
+
+To determine how the system should ensure atomicity, we need first to
+identify the properties of devices used for storing the various data accessed
+by the transactions. Various types of storage media are distinguished by their
+relative speed, capacity, and resilience to failure.
+
+Volatile Storage: Information residing in volatile storage does not usually
+survive system crashes. Examples of such storage are main and cache
+memory. Access to volatile storage is extremely fast, both because of
+the speed of the memory access itself and because it is possible to access
+directly any data item in volatile storage.
+

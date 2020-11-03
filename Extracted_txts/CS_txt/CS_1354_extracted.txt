@@ -1,0 +1,43 @@
+Chapter 18: Graphics Under Windows 613
+
+ 
+
+generate true random numbers. To ensure that we do get true
+random numbers, somehow we need to tie the random number
+generation with time, as time of each execution of our
+program would be different. This has been achieved by
+making the call
+
+srand (time (NULL )) ;
+
+Here time( ) is function that returns the time. We have further
+passed this time to the srand() function.
+
+(f) To be able to use rand( ) and srand( ) functions include the
+file ‘stdlib.h’. Similarly for time( ) function to work include
+the file ‘time.h’.
+
+(g) In the call to the PlaySound( ) function the first parameter is
+the name of the wave file that is to be played. If first
+parameter is filename then the second has to be NULL. The
+third parameter is a set of flags. SND_FILENAME indicates
+that the first parameter is the filename, whereas
+SND_ASYNC indicates that the sound should be played in
+the background.
+
+(a) To be able to use the PlaySound( ) function we need to link
+the library ‘winmm.lib’. This is done by using ‘Project |
+Settings’ menu item. On selection of this item a dialog pops
+up. In the ‘Link’ tab of this dialog mention the name
+‘winmm. lib’ in the ‘Object / Library modules’ edit box.
+
+@) When the application terminates we have to instruct Windows
+not to send WM_TIMER messages to our application any
+more. For this we have called the KillTimer( ) API function
+passing to it the ID of the timer.
+
+Windows, the Endless World...
+
+The biggest hurdle in Windows programming is a sound
+understanding of its programming model. In this chapter and in the
+

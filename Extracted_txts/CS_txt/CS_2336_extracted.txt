@@ -1,0 +1,59 @@
+316
+
+Chapter 10. Logical Reasoning Systems
+
+ 
+
+ARCHITECTURES
+
+* Specificity. Prefer rules that are more specific.> For example, the second of these two rules
+would be preferred:
+Mammal(x) => add Legs(x, 4)
+Mammal(x)A Human(x) => add Legs(x, 2)
+* Operation priority. Prefer actions with higher priority, as specified by some ranking. For
+example, the second ofthe following two mules should probably have a higher priority:
+
+ControlPanel(p)A Dusty(p) => Action(Dust(p))
+ControlPanel(pyA. MeltdownLightOn(p) => Action(Evacuate)
+
+Practical uses of production systems
+
+Forward-chaining production systems formed the foundation of much early work in AI. In par-
+ticular, the XCON system (originally called R1 (McDemott, 1982)) was built using a production
+system (rule-based) architecture. XCON contains several thousand rules for designing configura-
+tions of computer components for customers of the Digital Equipment Corporation. It was one of
+the first clear commercial successes in the emerging field of expert systems. Many other similar
+systems have been built using the same underlying technology, which has been implemented
+in the general-purpose language Ops-5. A good deal of work has gone into designing match-
+ing algorithms for production system languages, as we have seen; implementations on parallel
+hardware have also been attempted (Acharya et al., 1992).
+
+Production systems are also popular in cognitive architectures—that is, models ofhuman
+reasoning—such as ACT (Anderson, 1983) and SOAR (Laird ef a/., 1987). In such systems, the
+“working memory" of the system models human short-term memory, and the productions are
+part of long-term memory. Both ACT and SOAR have sophisticated mechanisms for conflict
+resolution, and for saving the results of expensive reasoning in the form of new productions.
+These can be used to avoid reasoning in future situations (see also Section 21.2).
+
+10.6__ FRAME SYSTEMS AND SEMANTIC NETWORKS
+
+EXISTENTIAL
+GRAPHS
+
+ 
+
+ 
+
+In 1896,seven years after Peano developed what is now the standard notation for first-order logic,
+Charles Peirce proposed a graphical notation called existential graphs that he called "the logic
+of the future." Thus began a long-running debate between advocates of "logic" and advocates
+of "semantic networks." What is unfortunate about this debate is that it obscured the underlying
+unity of the field. It is now accepted that every semantic network or frame system could just
+as well have been defined as sentences in a logic, and most accept that it could be first-order
+Jogic.® (We will show how to execute this translation in detail.) The important thing with any
+representation language is to understand the semantics, and the proof theory; the details of the
+syntax are less important. Whether the language uses strings or nodes and links, and whether it
+
+5 Formore on the use of specificity to implement default reasoning, see Chapter 14.
+© There are a few problems having to do with handling exceptions, but they too can be handled with a little care.
+

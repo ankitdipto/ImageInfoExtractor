@@ -1,0 +1,55 @@
+    
+  
+   
+
+386 Chapter 12. Practical Planning 4
+
+125 RESOURCE CONSTRAINTS
+
+In Chapter | 1, we tackled the problem of shopping, but ignored money. In this section, we consider
+how to handle money and other resources properly. To do this, we need a language in which we
+can express a precondition such as Have($ 1.89), and we need a planning algorithm that will handle
+this efficiently. The former is theoretically possible with what we already have. We can represent
+each coin and bill in the world in the initial state: Dollar(d,) A Dollar(dz)A Quarter(q,)A
+
+We can then add decomposition methods to enumerate the ways it is possible to have a dollar. We
+have to be careful about inequality constraints, because we would not want the goal Have($2.00)
+to be satisfied by Have(d;) A Have(d;). The final representation would be a little unintuitive and
+extremely verbose, but we could do it.
+
+The problem is that the representation is totally unsuited for planning. Let us say we pose
+the problem Have($1,000, 000), and the best the planner can come up with is a plan that generates
+$1000. The planner would then backtrack looking for another plan. For every step that achieved, “
+say, Have(d;), the planner would have to consider Have(d2) instead. The planner would end up
+generating all combinations of all the coins and bills in the world that total $1000. Clearly, this :
+is a waste of search time, and it fails to capture the idea that it is the quantity of money you have
+that is important, not the identity ofthe coins and bills. 4
+
+Using measures in planning
+
+The solution is to introduce numeric-valued measures (see Chapter 8). Recall that a measure
+is an amount of something, such as money or volume. Measures can be referred to by logical
+terms such as $( 1.50) or Gallons(6)or GasLevel. Measure functions such as Volume apply to
+objects such as Gas/nCarto yield measures: GasLevel = Volume(GasInCar)= Gallons(6). In |
+planning problems, we are usually interested in amounts that change over time. A situation
+calculus representation would therefore include a situation argument (¢.g., GasLevel(s)), but as 3
+usual in planning we will leave the situation implicit. We will call expressions such as GasLevel }
+MEASURE FLUENTS = measure fluents.
+
+Planners that use measures typically require them to be "declared" up front with associated
+range information. For example, in a shopping problem, we might want to state that the amount
+ofmoney the agent has, Cash, must be nonnegative; that the amount of gas in the tank, GasLevel, '
+can range up to 15 gallons; that the price of gas ranges from $1.00 to $1.50 per gallon; and that
+the price of milk ranges from $ 1.00 to $1.50 per quart:
+
+$(0) < Cash
+
+Gallons(0) < GasLevel < Gallons(15)
+
+$(1.00) < UnitPrice(Gas)x Gallons(1)< $(1.50)
+$(1.00) < UnitPrice(Milk) x Quarts(1)< $(1.50)
+
+Measures such as the price of gas are realities with which the planner must deal, but over which it
+RESOURCES has little control. Other measures, such as Cash and GasLevel, are treated as resources that cat:
+be produced and consumed. That is, there are operators such as Drive that require and consume
+

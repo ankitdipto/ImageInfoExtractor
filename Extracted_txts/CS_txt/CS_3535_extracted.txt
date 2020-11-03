@@ -1,0 +1,45 @@
+512
+
+Chapter 19 Fibonacci Heaps
+
+Fip-HEAP-UNION (A1, H2)
+
+H = MAKE-FIB-HEAP()
+
+H.min = H,.min
+
+concatenate the root list of Hz with the root list of H
+
+if (H,.min == NIL) or (H>.min # NIL and Hy.min. key < H,.min.key)
+H.min = H>.min
+
+H.n = H,.n+ Hp.n
+
+return
+
+YAWkWNE
+
+Lines 1-3 concatenate the root lists of H; and H> into a new root list H. Lines
+2, 4, and 5 set the minimum node of H, and line 6 sets H.n to the total number
+of nodes. Line 7 returns the resulting Fibonacci heap H. As in the FIB-HEAP-
+INSERT procedure, all roots remain roots.
+
+The change in potential is
+
+(A) —(®(A)) + O(A2))
+= (t(H) + 2m(H)) — (tA) + 2m(A1)) + (Ha) + 2m(H)))
+= 0.
+
+because t(H) = t(H,) + t(H>) and m(H) = m(A,) + m(Ap). The amortized
+cost of FIB-HEAP-UNION is therefore equal to its O(1) actual cost.
+
+Extracting the minimum node
+
+The process of extracting the minimum node is the most complicated of the oper-
+ations presented in this section. It is also where the delayed work of consolidating
+trees in the root list finally occurs. The following pseudocode extracts the mini-
+mum node. The code assumes for convenience that when a node is removed from
+a linked list, pointers remaining in the list are updated, but pointers in the extracted
+node are left unchanged. It also calls the auxiliary procedure CONSOLIDATE,
+which we shall see shortly.
+

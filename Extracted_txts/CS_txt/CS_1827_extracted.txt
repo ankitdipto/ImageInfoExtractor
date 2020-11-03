@@ -1,0 +1,102 @@
+298 Chapter? Memory Management
+
+where p; is an index into the outer page table and p2 is the displacement within
+the page of the outer page table. The address-translation method for this
+architecture is shown in Figure 9.13. Because address translation works from
+the outer page table inwards, this scheme is also known as a forward-mapped
+page table. The Pentium-II uses this architecture.
+
+The VAX architecture also supports a variation of two-level paging. The
+VAX is a 32-bit machine with page size of 512 bytes. The logical-address space of
+a process is divided into four equal sections, each of which consists of 2°° bytes.
+Each section represents a different part of the logical-address space of a process.
+The first 2 high-order bits of the logical address designate the appropriate
+section. The next 21 bits represent the logical page number of that section, and
+the final 9 bits represent an offset in the desired page. By partitioning the page
+table in this manner, the operating system can leave partitions unused until a
+process needs them. An address on the VAX architecture is as follows:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+section page offset
+5 P a
+2 21 9
+
+where s designates the section number, p is an index into the page table, and d
+is the displacement within the page.
+
+The size of a one-level page table for a VAX process using one section still
+is 2” bits « 4 bytes per entry = 8 MB. So that main-memory use is reduced even
+further, the VAX pages the user-process page tables.
+
+For a system with a 64-bit logical-address space, a two-level paging scheme
+is no longer appropriate. To illustrate this point, let us suppose that the page
+size in such a system is 4 KB (2!2). In this case, the page table will consist of
+up to 2° entries. If we use a two-level paging scheme, then the inner page
+tables could conveniently be one page long, or contain 2'° 4-byte entries. The
+addresses would look like:
+
+logical address
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+af
+
+ 
+
+ 
+
+ 
+
+ 
+
+outer-page
+table
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+page of
+page table
+
+ 
+
+ 
+
+ 
+
+Figure 9.13 Address translation for a two-level 32-bit paging architecture.
+

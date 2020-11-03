@@ -1,0 +1,50 @@
+Problems for Chapter 33 1045
+
+33-2. Maximal layers
+Let Q be a set of m points in the plane. We say that point (x, y) dominates
+point (x’, y’) if x > x’ and y > y’. A point in Q that is dominated by no other
+points in Q is said to be maximal. Note that Q may contain many maximal points,
+which can be organized into maximal layers as follows. The first maximal layer L;
+is the set of maximal points of Q. Fori > 1, the ith maximal layer L; is the set of
+maximal points in @ — Uj) Lj.
+
+Suppose that Q has k nonempty maximal layers, and let y; be the y-coordinate
+of the leftmost point in L; fori = 1,2,..., k. For now, assume that no two points
+in Q have the same x- or y-coordinate.
+
+a. Show that y, > y2 > +++ > Ve.
+
+Consider a point (x, y) that is to the left of any point in Q and for which y is
+distinct from the y-coordinate of any point in Q. Let O’ = QU {(x, y)}.
+
+b. Let j be the minimum index such that y; < y, unless y < yg, in which case
+we let j = k + 1. Show that the maximal layers of Q' are as follows:
+
++ If j <k, then the maximal layers of Q’ are the same as the maximal layers
+of Q, except that L; also includes (x, y) as its new leftmost point.
+
+* If j =k +1, then the first k maximal layers of Q’ are the same as for Q, but
+in addition, Q’ has a nonempty (k + 1)st maximal layer: Ly4, = {(x, y)}.
+
+c. Describe an O(n lgn)-time algorithm to compute the maximal layers of a set 0
+of n points. (Hint: Move a sweep line from right to left.)
+
+d. Do any difficulties arise if we now allow input points to have the same x- or
+y-coordinate? Suggest a way to resolve such problems.
+
+33-3 Ghostbusters and ghosts
+A group of n Ghostbusters is battling n ghosts. Each Ghostbuster carries a proton
+pack, which shoots a stream at a ghost, eradicating it. A stream goes in a straight
+line and terminates when it hits the ghost. The Ghostbusters decide upon the fol-
+lowing strategy. They will pair off with the ghosts, forming n Ghostbuster-ghost
+pairs, and then simultaneously each Ghostbuster will shoot a stream at his cho-
+sen ghost. As we all know, it is very dangerous to let streams cross, and so the
+Ghostbusters must choose pairings for which no streams will cross.
+
+Assume that the position of each Ghostbuster and each ghost is a fixed point in
+the plane and that no three positions are colinear.
+
+a. Argue that there exists a line passing through one Ghostbuster and one ghost
+such that the number of Ghostbusters on one side of the line equals the number
+of ghosts on the same side. Describe how to find such a line in O(n 1g) time.
+

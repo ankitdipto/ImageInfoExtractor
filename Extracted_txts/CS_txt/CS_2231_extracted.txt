@@ -1,0 +1,55 @@
+388 cuarren even Input-Output Organization
+
+10P
+
+isolated HO
+
+memory-mapped
+
+Inthe first method, the computer has independent sets of data, address,
+and controlbuses, one for accessingmemory and the otherfor /O. Thisis done
+in computers that provide a separate /O processor (IOP) in addition to the
+central processing unit (CPU). The memory communicates with both the CPU
+and the IOP through amemory bus. The IOP communicates also withthe input
+and output devices through a separate /O bus with its own address, data and
+control lines. The purpose of the IOP is to provide an independent pathway
+for the transfer of information between external devices and internal memory.
+The /O processor is sometimes called a data channel. In Sec. 11-7 we discuss
+the function of the IOP in more detail.
+
+Isolated versus Memory-Mapped /O
+
+Many computers use one common bus to transfer information between mem-
+ory or /O and the CPU. The distinction between a memory transfer and /O
+transfer is made through separate read and write lines. The CPU specifies
+whether the address on the address lines is for a memory word or for an
+interface register by enabling one of two possible read or write lines. The I/O
+read and I/O write control lines are enabled during an UO transfer. The memory
+read and memory write control lines are enabled during a memory transfer. This,
+configuration isolates all /O interface addresses from the addresses assigned
+to memory and is referred to as the isolated I/O method for assigning addresses
+in a common bus.
+
+In the isolated VO configuration, the CPU has distinct input and output
+instructions, and each of these instructions is associated with the address of
+an interface register. When the CPU fetches and decodes the operation code
+of an input or output instruction, it places the address associated with the
+instruction into the common address lines. At the same time, it enables the /O
+read (for input) or UO write (for output) control line. This informs the external
+components that are attached to the common bus that the address in the
+address lines is for an interface register and not for a memory word. On the
+other hand, when the CPU is fetching an instruction or an operand from
+memory, it places the memory address on the address lines and enables the
+memory read or memory write control line. This informs the external compo-
+nents that the address is fora memory word and not for an U/O interface.
+
+The isolated JO method isolates memory and LO addresses so that
+memory address values are not affected by interface address assignment since
+each has its ownaddress space. The other alternativeis to use the same address
+space forboth memory and VO. This is the case in computers that employ only
+ne set of read and write signals and do not distinguish between memory and
+VO addresses. This configuration is referred to as memory-mapped 1/0. The
+computer treats an interface register as being part of the memory system. The
+assigned addresses for interface registers cannot be used for memory words,
+which reduces the memory address range available.
+

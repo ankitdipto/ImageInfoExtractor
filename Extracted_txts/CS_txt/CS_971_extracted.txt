@@ -1,0 +1,50 @@
+200
+
+(CHAPTER Six Programming the Basic Computer
+
+location SH4 because this is an indirect address instruction What is found in
+location SH4 is the return address 102 which was previously stored there by
+the BSA instruction. The computer returns to execute the instruction in loca-
+tion 102. The main program continues by storing the shifted number into
+location X. A new number is then loaded into the AC from location Y, and
+another branch is made to the subroutine. This time location SH4 will contain
+the return address 105 since thisis now the location of the next instruction after
+BSA. The new operand is shifted and the subroutine returns to the main
+program at location 105.
+
+From this example we see that the first memory location of each sub-
+routine serves as a link between the main program and the subroutine. The
+procedure for branching to a subroutine and returning to the main program
+is referred to as a subroutine linkage. The BSA instruction performs an opera-
+tion commonly called subroutine call. The last instruction of the subroutine
+performs an operation commonly called subroutine return.
+
+The procedure used in the basic computer for subroutine linkage is
+commonly found in computers with only one processor register. Many com-
+puters have multiple processor registers and some of them are assigned the
+name index registers. In such computers, an index register is usually employed
+to implement the subroutine linkage. A branch-to-subroutine instruction
+stores the return address in an index register. A return-from-subroutine in-
+struction is effected by branching to the address presently stored in the index
+register.
+
+Subroutine Parameters and Data Linkage
+When asubroutineis called, the main program must transfer the data it wishes
+the subroutine to work with. In the previous example, the data were trans-
+ferred through the accumulator. The operand was loaded into the AC prior to
+the branch. The subroutine shifted the number and left it there to be accepted
+by the main program. In general, it is necessary for the subroutine to have
+access to data from the calling program and to return results to that program.
+The accumulator can be used for a single input parameter and a single output
+parameter. In computers with multiple processor registers, more parameters
+can be transferred this way. Another way to transfer data to a subroutine is
+throughthe memory. Data are often placed in memory locations following the
+call. They can also be placed in a block of storage. The first address of the block
+isthen placed in thememorylocation following the call. In any case, the return
+address always gives the link information for transferring data between the
+main program and the subroutine.
+
+‘As an illustration, consider a subroutine that performs the logic OR
+operation. Two operands must be transferred to the subroutine and the sub-
+routine must retum the result of the operation. The accumulator can be used
+

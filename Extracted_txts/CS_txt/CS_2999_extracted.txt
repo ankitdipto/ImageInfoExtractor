@@ -1,0 +1,55 @@
+Section 12.3
+
+Analysis of Hierarchical Decomposition 379
+
+ 
+
+cRITICS
+
+it is worthwhile to do some preprocessing of the decomposition methods to put them in a form
+that satisfies the unique main subaction condition so that we can freely cut off search when we
+hit an inconsistent abstract plan without fear of missing any solutions.
+
+It is important to remember that even when the upward solution property fails to hold, it is
+still a reasonable heuristic to prefer applications of decomposition to consistent plans rather than
+inconsistent ones. Similarly, even when the downward solution property is violated, it makes
+more sense to pursue the refinement of abstract solutions than that of inconsistent plans, even
+though the abstract solution may not lead to a real solution. (Exercise 12.4 asks you to find an
+example of the violation of the downward solution property.)
+
+Decomposition and sharing
+
+In CHOOSE-DECOMPOSITION, We just merge each step ofthe decomposition into the existing plan.
+This is appropriate for a divide-and-conquer approach—we solve each subproblem separately,
+and then combine it into the rest ofthe solution. But often the only solution to a problem involves
+combining the two solutions by sharing steps rather than by joining distinct sets of steps. For
+example, consider the problem "enjoy a honeymoon and raise a baby." A planner might choose
+the decomposition "get married and go on honeymoon" for the first subproblem and "get married
+and have a baby" for the second, but the planner could get into a lot of trouble ifthe two "get
+married" steps are different. Indeed, if a precondition to "get married" is "not married," and
+divorce is not an option, then there is no way that a planner can merge the two subplans without
+sharing steps. Hence a sharing mechanism is required for a hierarchical planner to be complete
+
+Sharing can be implemented by adding a choice point in CHOOSE-DECOMPOSITION for
+every operator in a decomposition: either a new step is created to instantiate the operator or an
+existing step is used. This is exactly analogous tothe existing choice pointin CHOOSE-OPERATOR.
+Although this introduces a lot of additional choice points, many of them will have only a single
+alternative if no operators are available for sharing. Furthermore, it is a reasonable heuristic to
+prefer sharing to non-sharing.
+
+Many hierarchical planners use a different mechanism to handle this problem: they merge
+decompositions without sharing but allow critics to modify the resulting plan. A critic is a
+function that takes a plan as input and returns a modified plan with some conflict or other
+anomaly corrected. Theoretically, using critics is no more or less powerful than putting in all the
+choice points, but it can be easier to manage the search space with a well-chosen set of critics.
+
+Note that the choice of sharing versus merging steps has an effect on the efficiency of
+planning, as well as on completeness. An interesting example of the costs and benefits of sharing
+occurs in optimizing compilers. Consider the problem of compiling sin(x)+cos(x) for a sequential
+computer. Most compilers accomplish this by merging two separate subroutine calls in a trivial
+way: all the steps of sin come before any ofthe steps of cos (or vice versa). If we allowed sharing
+instead of merging, we could actually get a more efficient solution, because the two computations
+have many steps in common. Most compilers do not do this because it would take too much
+time to consider all the possible shared plans. Instead, most compilers take the critic approach:
+a peephole optimizer is just a kind of critic.
+

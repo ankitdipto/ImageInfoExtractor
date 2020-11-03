@@ -1,0 +1,52 @@
+SECTION 104 Division Algorithms 351
+
+are alike, the sign of the quotient is plus. If they are unalike, the sign is minus.
+The sign of the remainder is the same as the sign of the dividend.
+
+Divide Overflow
+
+The division operation may result in a quotient with an overflow. This is not
+a problem when working with paper and pencil but is critical when the
+operation is implemented with hardware This is because the length of regis-
+ters is finite and will not hold a number that exceeds the standard length. To
+see this, consider a system that has 5-bit registers. We use one register to hold
+the divisor and two registers to hold the dividend From the example of
+Fig, 10-11 we note that the quotient will consist of six bits if the five most
+significant bits of the dividend constitute a number greater than the divisor.
+The quotient is to be stored in a standard 5-bit register, so the overflow bit will
+require one more flip-flop for storing the sixth bit. This divide-overflow condi-
+tion must be avoided in normal computer operations because the entire quo-
+tient will be too long for transfer into amemory unit that has words of standard
+length, that is, the same as the length of registers. Provisions to ensure that
+this condition is detected must be included in either the hardware or the
+software of the computer, or in a combination of the two.
+
+When the dividend is twice as long as the divisor, the condition for
+overflow can be stated as follows A divide-overflow condition occurs if the
+high-order half bits of the dividend constitute a number greater than or equal
+to the divisor. Another problem associated with division is the fact that a
+division by zero must be avoided. The divide-overflow condition takes care of
+this condition as well. This occurs because any dividend will be greater than
+or equal to a divisor which is equal to zero. Overflow condition is usually
+detected when a special flip-flop is set. We will call ita divide-overflow flip-flop
+and label it DVF.
+
+The occurrence of a divide overflow can be handled in a variety of ways.
+In some computers it is the responsibility of the programmers to check if DVF
+is set after each divide instruction. They then can branch to a subroutine that
+takes acorrective measure such as rescaling the data to avoid overflow. In some
+older computers, the occurrence of a divide overflow stopped the computer
+and this condition was referred to as a divide stop. Stopping the operation of
+the computer is not recommended because it is time consuming. The proce-
+dure in most computers is to provide an interrupt request when DVF is set.
+The interrupt causes the computer to suspend the current program and branch
+to a service routine to take a corrective measure. The most common corrective
+measure is to remove the program and type an error message explaining the
+reason why the program could not be completed. It is then the responsibility
+of the user who wrote the program to rescale the data or take any other
+corrective measure. The best way to avoid a divide overflow is to use floating-
+point data. We will see in Sec. 10-5 that a divide overflow can be handled very
+simply if numbers are in floating-point representation.
+
+  
+

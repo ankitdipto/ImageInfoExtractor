@@ -1,0 +1,62 @@
+302 Chapter 10. Logical Reasoning Systems
+
+ 
+
+ 
+
+Predicate?
+
+a
+
+First arg?
+
+a
+
+wy
+
+ 
+
+ 
+
+Figure 10.2 Tree-based indexing organizes a knowledge base into a nested series of hash
+tables. Each node in the tree is a hash table indexed by the value at a particular sentence position.
+
+ 
+
+ 
+
+ 
+
+2" combined indices, where n is the number of symbol positions in the sentences being stored.
+When sentences include complex terms, n can easily grow quite large. At some point, the extra
+storage needed for the indices and the extra work that STORE must do to maintain them outweigh
+the benefits. We can respond by adopting a fixed policy, such as maintaining indices only on keys
+composed of predicate plus each argument; or by using an adaptive policy that creates indices to
+meet the demands of the kinds of queries being asked.
+
+CROSS-INDEXING The cross-indexing strategy indexes entries in several places, and when faced with a query
+chooses the most promising place for retrieval. Suppose we have the query
+
+FETCH(Taxpayer(p, 02138, 20000, 3))
+
+and the four available indices key on Taxpayer plus each of the four argument positions
+separately. A sentence matching the query will be indexed under Taxpayer(-.02138, .-),
+Taxpayer(_._, 20000, _), and Taxpayer(__,_,3). The best strategy is usually to search through
+whichever of these collections of sentences is smallest.
+
+The unification algorithm
+
+In Section 9.3 we showed how two statements such as
+
+Knows(John,x) = Hates(John,x)
+Knows(John, Jane)
+
+can be combined to infer Hates(John, Jane). The key to this Modus Ponens inference is to
+unify Knows(John, xyand Know's(John, Jane). This unification yields as a result the substitution
+{x/Jane},which can then be applied to Hates(John, x) to give the solution Hates(John, Jane).
+We have seen that by clever indexing, we can reduce the number of calls to the unification
+algorithm, but this number still can be quite large. Thus, the unification algorithm should be
+efficient. The algorithm shown in Figure 10.3 is reasonably simple. It recursively explores the
+
+ 
+

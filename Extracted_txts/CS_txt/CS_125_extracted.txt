@@ -1,0 +1,56 @@
+Section 4.5. Summary WIS
+
+ 
+
+45. SUMMARY.
+
+This chapter has examined the application of heuristics to reduce search costs. We have looked
+at number of algorithms that use heuristics, and found that optimality comes at a stiff price in
+terms of search cost, even with good heuristics.
+
+* Best-first search is just GENERAL-SEARCH where the minimum-cost nodes (according to
+some measure) are expanded first
+
+If we minimize the estimated cost to reach the goal, h(n), we get greedy search. The
+search time is usually decreased compared to an uninformed algorithm, but the algorithm
+is neither optimal nor complete.
+
+Minimizing f(n) = gin) + h(n) combines the the advantages of uniform-cost search and
+greedy search. If we handle repeated states and guarantee that h(n) never overestimates,
+we get A* search.
+
+A* is complete, optimal, and optimally efficient among all optimal search algorithms. Its
+space complexity is still prohibitive
+
+The time complexity of heuristic algorithms depends on the quality ofthe heuristic function.
+Good heuristics can sometimes be constructed by examining the problem definition or by
+generalizing from experience with the problem class.
+
+We can reduce the space requirement of A* with memory-bounded algorithms such as
+IDA* (iterative deepening A*) and SMA* (simplified memory-bounded A*).
+
+Iterative improvement algorithms keep only a single state in memory, but can get stuck
+on local maxima. Simulated annealing provides a way to escape local maxima, and is
+complete and optimal given a long enough cooling schedule
+
+For constraint satisfaction problems, variable and value ordering heuristics can provide
+huge performance gains. Current algorithms often’solve very large problems very quickly.
+
+eS
+BIBLIOGRAPHICAL AND HISTORICAL NOTES
+
+The same paper that introduced the phrase "heuristic search" (Newell and Emst, 1965) also
+introduced the concept of an evaluation function, understood as an estimate of the distance to
+the goal, to guide search; this concept was also proposed in the same year by Lin (1965). Doran
+and Michie (1966) did extensive experimental studies of heuristic search as applied to a number
+of problems, especially the 8-puzzle and the 15-puzzle. Although Doran and Michie carried out
+theoretical analyses of path length and “penetrance” (the ratio of path length to the total number
+of nodes examined so far) in heuristic search, they appear to have used their heuristic functions as
+the sole guiding element in the search, ignoring the information provided by current path length
+that is used by uniform-cost search and by A*
+
+The A* algorithm, incorporating the current path length into heuristic search, was developed
+by Hart, Nilsson, and Raphael (1968). Certain subtle technical errors in the original presentation
+
+ 
+

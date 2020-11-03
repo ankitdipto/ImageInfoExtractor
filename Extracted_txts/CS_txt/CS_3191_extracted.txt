@@ -1,0 +1,57 @@
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+554 Chapter 18. Leaming from Observations
+H
+Hoa
+€
+f
+Figure 18.15 Schematic diagram of hypothesis space, showing the “¢-ball” around the true
+function f.
+agrees with any given example is < (1 — <). The bound for m examples is
+P(hb agrees with m examples) < (1 — ¢)"
+For Hpag to contain a consistent hypothesis, at least one of the hypotheses in Hj.q must be
+consistent. The probability ofthis occurring is bounded by the sum ofthe individual probabilities:
+P(Hj,a contains a consistent hypothesis) <_ |Hpau{(1 - 6)”
+< |Hjd-0"
+We would like to reduce the probability of this event below some small number 6:
+[HJ -o" <6
+We can achieve this if we allow the algorithm to see
+1
+m> 7 Ine + InlH| (18.2)
+examples. Thus, ifa leaming algorithm returns a hypothesis that is consistent with this many
+examples, then with probability at least 1 - 6, it has error at most. In other words, it is probably
+approximately correct. The number of required examples, as a function ofe and 6, is called the
+any sample complexity of the hypothesis space.
+
+Tt appears, then, that the key question is the size of the hypothesis space. As we saw
+earlier, if H is the set of all Boolean functions on » attributes, then [H| = 2”. Thus. the sample
+complexity of the space grows as 2". Because the number of possible examples is also 2", this
+says that any leaming algorithm for the space of all Boolean functions will do no better than a
+lookup table, ifit merely returns a hypothesis that is consistent with all known examples. Another
+way to see this is to observe that for any unseen example, the hypothesis space will contain as
+many consistent hypotheses predicting a positive outcome as predict a negative outcome.
+
+ 
+

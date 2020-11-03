@@ -1,0 +1,69 @@
+600
+
+Chapter 20. Reinforcement Leaming
+
+An agent that learns utility functions must also have a model of the environment in order to make
+decisions, because it must know the states to which its actions will lead. For example, in order
+to make use of a backgammon evaluation function, a backgammon program must know what
+its legal moves are and how they affect the board position. Only in this way can it apply the
+utility function to the outcome states. An agent that learns an action-value function, on the other
+hand, need not have such a model. As long as it knows its legal moves, it can compare their
+values directly without having to consider their outcomes. Action-value learners therefore can
+be slightly simpler in design than utility leamers. On the other hand, because they do not know
+where their actions lead, they cannot look ahead; this can seriously restrict their ability to leam,
+as we shall see.
+
+We first address the problem of learning utility functions, which has been studied in AT
+since the earliest days of the field. (See the discussion of Samuel's checker player in Chapter 5.)
+We examine increasingly complex versions of the problem, while keeping initially to simple
+state-based representations. Section 20.6 discusses the learning of action-value functions, and
+Section 20.7 discusses how the learner can generalize across states. Throughout this chapter,
+we will assume that the environment is nondeterministic. At this point the reader may wish to
+review the basics of decision making in complex, nondeterministic environments, as covered in
+Chapter 17.
+
+20.2 _ PASSIVE LEARNING IN A KNOWN ENVIRONMENT
+
+TRAINING
+‘SEQUENCE
+
+To keep things simple, we start with the case of a passive learning agent using a state-based
+representation in aknown, accessible environment. In passive learning, the environment generates
+state transitions and the agent perceives them.' Consider an agent trying to leam the utilities of
+the states shown in Figure 20.1 (a). We assume, for now, that it is provided with a model My
+giving the probability ofa transition from state ito statej, as in Figure 20.1(b). In each training
+sequence, the agent starts in state (1,1) and experiences a sequence of state transitions until it
+reaches one of the terminal states (3,2) or (3,3), where it receives a reward.” A typical set of’
+training sequences might look like this:
+
+GQ, DSC, 2), 3), 2, SC, YC, YC, 2) (2, 2) 3, 2)
+
+C1, DC, 2), 3) (2, 3) (2, 2) (2, NB, 3) 41
+
+dG, Dd. 2—-C,. D-(1,2)-, D2, D2, 2) (2, 3) GB, 3) 41
+
+CDC, 2-2, (1,2), 3) (2, 3) =, 3) 2, 3) +B, 3) 41
+
+CL, DQ, D222, DU, DC, 2), NZ, 2, 2G, 2)“
+
+CL, DS2, D0, D+, 2)+(2, 2), 2) =1
+The object is to use the information about rewards to learn the expected utility U(i) associated
+with each nonterminal state i We will make one big simplifying assumption: the utility ofa
+sequence is the sum of the rewards accumulated in the states of the sequence. That is, the utility
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1 Another way to think of a passive leamer is as an agent with a fixed policy trying to determine its benefits
+
+2 The period from initial state to terminal state is often called an epoch.
+
+ 
+

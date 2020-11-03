@@ -1,0 +1,51 @@
+192
+
+pointer
+
+‘auPTER SIX Programming the Basic Computer
+
+symbolized by SUM (in line 17) for storing the value of this variable at the
+termination of the loop.
+
+The program loop specified by the DO statement is translated to the
+sequence of instructions listed in lines 7 through 10. Line7 specifies an indirect
+ADD instruction because it has the symbol I. The address of the current
+operand is stored in location PTR. When this location is addressed indirectly
+the computer takes the content of PTR to be the address of the operand. As
+aresult, the operand in location 150 is added to the accumulator. Location PTR
+is then incremented with the ISZ instruction in line 8, so its value changes to
+the value of the address of the next sequential operand. Location CTR is
+incremented in line 9, andif tis not zero, the computer does not skip the next
+instruction. The next instruction is a branch (BUN) instruction to the beginning
+of the loop, so the computer returns to repeat the loop once again. When
+location CTR reaches zero (after the loop is executed 100 times), the next
+instruction is skipped and the computer executes the instructions in lines 11
+and 12. The sum formedinthe accumulatorisstored inSUM and the computer
+halts. The halt instruction isinserted here forclarity;actually, the program will
+branch to a location where it will continue to execute the rest of the program
+or branch to the beginning of another program. Note that ISZ.in line 8 is used
+merely to add 1 to the address pointer PTR. Since the address is a positive
+number, a skip will never occur.
+
+The program of Table 6-13 introdufces the idea of a pointer and a counter
+which can be used, together with the indirect address operation, to form a
+program loop. The pointer points to the address of the current operand and
+the counter counts the number of times that the program loop is executed. In
+this example we use two memory locations for these functions. In computers
+with more than one processor register, it is possible to use one processor
+registeras a pointer, another as acounter, and a third asan accumulator. When
+processor registers are used as pointers and counters they are called index
+registers. Index registers are discussed in Sec. 8-5.
+
+6-6 Programming Arithmetic
+and Logic Operations
+
+‘The number of instructions available in a computer may be a few hundred in
+a large system or a few dozen ina small one. Some computers perform a given
+operation with one machine instruction; others may require a large number of
+machine instructions to perform the same operation. As an illustration, con-
+sider the four basic arithmetic operations. Some computers have machine
+instructions to add, subtract, multiply, and divide Others, such as the basic
+computer, have only onearithmeticinstruction, suchas ADD. Operations not
+included inthe set of machine instructions mustbe implementedby a program.
+

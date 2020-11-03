@@ -1,0 +1,61 @@
+450
+
+Chapter 15. Probabilistic Reasoning Systems
+
+ 
+
+We compute P(X|E%) by considering all the possible configurations of the parents of X,
+and how likely they are given Ef. Given each configuration, we know the probability of Y
+directly from the CPT; we then average those probabilities, weighted by the likelihood of each
+configuration. To say this formally, let U be the vector of parents Ul, .... U,,, and let u be an
+assignment of values to them.* Then we have
+
+P(X|EX) = > P(X |u, EX) PulEX)
+
+Now U d-separates XY from £%, so we can simplify the first term to P(X|u). We can simplify the
+second term by noting that £f d-separates each U; from the others, and by remembering that the
+probability of a conjunction of independent variables is equal to the product of their individual
+probabilities. This gives us
+
+POXIEX) = 2 Pw) TT Poul EX)
+o i
+The final step is to simplify the last term of this equation by partitioning EX into Ey,\x,* *- .Ey,\x
+
+(the separate boxes in Figure 15.7) and using the fact that Ey,\x d-separates U; from all the other
+evidence in EY. So that gives us
+
+PCX|EX) = > P(X|u) [] PlEvx)
+v i
+which we can plug into our earlier equation to yield
+
+PORE) = oPCEXIX) D> PCX|w) T] PUi|Ew\x) (15.3)
+m i
+
+Finally, this is starting to look like an algorithm: P(X{u) is a lookup in the conditional probability
+table of X, and P(U;|Ey,\x) is arecursive instance of the original problem, which was to compute
+P(X|E)— that is, P(X|E\ ). Note that the set of evidence variables in the recursive call is a proper
+subset of those in the original call—a good sign that the algorithm will terminate
+
+Now we return to P(£,|X), with an eye toward coming up with another recursive solution.
+In this case we average over the values of Y;, the children of X, but we will also need to include -
+Y;’sparents. We let Z; be the parents of Y, other than X, and let z; be an assignment of values to
+the parents. The derivation is similar to the previous one. First, because the evidence in each ¥r
+box is conditionally independent of the others given X, we get
+
+P(EX |X) = T] P(Ey,\x|X)
+Averaging over Y, and z; yields
+
+PCEY [X) = n E E P(Ey\dX yi. 2:)PO%, 2: |X)
+
+iy wy
+Breaking Ey,\y into the two independent components Fy, and Ey, \xt
+
+P(Ey IX) = 0 E E PCE |X, 91.2) PCE} ylX, ve, 20PO1, 21X)
+
+boy &
+
+ 
+
+4 For example, if there are two Boolean parents, Uy and Up, then u ranges over four possible assignments, of which ~
+Tirue, false] is one
+

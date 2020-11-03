@@ -1,0 +1,46 @@
+21.4 Analysis of union by rank with path compression 581
+
+Because path compression will make x and y have the same parent, we know
+that after path compression, x.p.rank = y.p.rank and that the path compression
+does not decrease y.p.rank. Since x. rank does not change, after path compression
+we have that x.p.rank > AC (crank). Thus, path compression will cause ei-
+ther iter(x) to increase (to at least i + 1) or level(x) to increase (which occurs if
+iter(x) increases to at least x. rank + 1). In either case, by Lemma 21.10, we have
+bq(X) < Gq-1(X) — 1. Hence, x’s potential decreases by at least 1.
+
+The amortized cost of the FIND-SET operation is the actual cost plus the change
+in potential. The actual cost is O(s), and we have shown that the total potential
+decreases by at least max(0,s — (@(n) + 2)). The amortized cost, therefore, is at
+most O(s) — (s — (a(n) + 2)) = O(s) —s + O(a(n)) = O(a(n)), since we can
+scale up the units of potential to dominate the constant hidden in O(s). .
+
+Putting the preceding lemmas together yields the following theorem.
+
+Theorem 21.14
+
+A sequence of m MAKE-SET, UNION, and FIND-SET operations, n of which are
+MAKE-SET operations, can be performed on a disjoint-set forest with union by
+rank and path compression in worst-case time O(n a(n)).
+
+Proof Immediate from Lemmas 21.7, 21.11, 21.12, and 21.13. :
+
+Exercises
+
+21.4-1
+Prove Lemma 21.4.
+
+21.4-2
+Prove that every node has rank at most [Ig7].
+
+21.4-3
+In light of Exercise 21.4-2, how many bits are necessary to store x.rank for each
+node x?
+
+21.4-4
+Using Exercise 21.4-2, give a simple proof that operations on a disjoint-set forest
+with union by rank but without path compression run in O(m lgn) time.
+
+21.4-5
+Professor Dante reasons that because node ranks increase strictly along a simple
+path to the root, node levels must monotonically increase along the path. In other
+

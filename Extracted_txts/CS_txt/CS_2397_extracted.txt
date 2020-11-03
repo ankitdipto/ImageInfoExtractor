@@ -1,0 +1,50 @@
+2.1 Insertion sort 21
+
+counter in each iteration, and we use the keyword downto when a for loop
+decrements its loop counter. When the loop counter changes by an amount
+greater than 1, the amount of change follows the optional keyword by.
+
+* The symbol “//” indicates that the remainder of the line is a comment.
+
+* Amultiple assignment of the formi = j = e assigns to both variables i and j
+the value of expression e; it should be treated as equivalent to the assignment
+J = e followed by the assignment i = j.
+
+* Variables (such as i, j, and key) are local to the given procedure. We shall not
+use global variables without explicit indication.
+
+* We access array elements by specifying the array name followed by the in-
+dex in square brackets. For example, A[i] indicates the ith element of the
+array A. The notation “..” is used to indicate a range of values within an ar-
+ray. Thus, A[l.. j] indicates the subarray of A consisting of the j elements
+A{l], A[2]..... A[j].
+
+* We typically organize compound data into objects, which are composed of
+attributes. We access a particular attribute using the syntax found in many
+object-oriented programming languages: the object name, followed by a dot,
+followed by the attribute name. For example, we treat an array as an object
+with the attribute /ength indicating how many elements it contains. To specify
+the number of elements in an array A, we write A./ength.
+
+We treat a variable representing an array or object as a pointer to the data rep-
+resenting the array or object. For all attributes f of an object x, setting y = x
+causes y.f to equal x.f. Moreover, if we now set x.f = 3, then afterward not
+only does x.f equal 3, but y.f equals 3 as well. In other words, x and y point
+to the same object after the assignment y = x.
+
+Our attribute notation can “cascade.” For example, suppose that the attribute f
+is itself a pointer to some type of object that has an attribute g. Then the notation
+x.f.g is implicitly parenthesized as (x./).g. In other words, if we had assigned
+y = x.f, then x.f.g is the same as y.g.
+
+Sometimes, a pointer will refer to no object at all. In this case, we give it the
+special value NIL.
+
+* We pass parameters to a procedure by value: the called procedure receives its
+own copy of the parameters, and if it assigns a value to a parameter, the change
+is not seen by the calling procedure. When objects are passed, the pointer to
+the data representing the object is copied, but the object’s attributes are not. For
+example, if x is a parameter of a called procedure, the assignment x = y within
+the called procedure is not visible to the calling procedure. The assignment
+x.f = 3, however, is visible. Similarly, arrays are passed by pointer, so that
+

@@ -1,0 +1,60 @@
+Section 24.7. Speech Recognition 757
+
+ 
+
+24.7 SPEECH RECOGNITION
+
+In this section, we turn from vision to another type of percept—speech. Speech is the dominant
+modality for communication between humans, and promises to be important for communication
+
+EE SCMTION between humans and machines, ifit canjust be made a little more reliable. Speech recognition
+is the task of mapping from a digitally encoded acoustic signal to a string of words. Speech
+understanding is the task of mapping from the acoustic signal all the way to an interpretation of
+the meaning of the utterance. A speech understanding system must answer three questions:
+
+1. What speech sounds did the speaker utter?
+2. What words did the speaker intend to express with those speech sounds?
+
+3. What meaning did the speaker intend to express with those words?
+
+To answer question 1, we have to first decide what a speech sound is. It turns out that all
+
+PHONES human languages use a limited repertoire of about 40 or 50 sounds, called phones. Roughly
+speaking, a phone is the sound that corresponds to a single vowel or consonant, but there are
+some complications: combinations of letters such as “th” and “ng” produce single phones, and
+some letters produce different phones in different contexts (for example, the "a" in rat and rate.
+Figure 24.32 lists all the phones in English with an example of each. Once we know what the
+possible sounds are, we need to characterize them in terms of features that we can pick out of the
+acoustic signal, such as the frequency or amplitude of the sound waves.
+
+Question 2 is conceptually much simpler. You can think of it as looking up words in a
+dictionary that is arranged by pronunciation. We get a sequence of three phones, /k/, [@/], and
+{t], and find in the dictionary that this is the pronunciation for the word "cat." Two things make
+
+HOMOPHONES this difficult. The first is the existence of homophones, different words that sound the same,
+
+‘SEGMENTATION like "two" and “too."' The second is segmentation, the problem of deciding where one word
+ends and the next begins. Anyone who has tried to learn a foreign language will appreciate this
+problem; at first all the words seem to run together. Gradually, one learns to pick out words from
+the jumble of sounds. In this case, first impressions are correct; a spectrographic analysis shows
+that in fluent speech, the words really do run together with no silence between them. We learn to
+identify word boundaries despite the lack of silence.
+
+Question 3 we already know how to answer—use the parsing and analysis algorithms
+described in Chapter 22. Some speech understanding systems extract the most likely string of
+words and pass them directly to an analyzer. Other systems have a more complex control structure
+that considers multiple possible word interpretations so that understanding can be achieved even
+ifsome individual words are not recognized correctly.
+
+We will shortly define a model that answers questions 1 and 2, but first we will explain a
+little about how the speech signal is represented.
+
+  
+
+ 
+
+' Iris also true that one word can be pronounced several ways—you say tow-may-tow and I say tow-mah-tow. This
+makes it more tedious to construct the pronunciation dictionary, but it does not make it any harder to look up a word.
+
+ 
+

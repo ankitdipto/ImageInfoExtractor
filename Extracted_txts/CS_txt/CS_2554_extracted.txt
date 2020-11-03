@@ -1,0 +1,46 @@
+Part I Sorting and Order Statistics 149
+
+ 
+
+In this part, we shall introduce two more algorithms that sort arbitrary real num-
+bers. Heapsort, presented in Chapter 6, sorts m numbers in place in O(n Ign) time.
+It uses an important data structure, called a heap, with which we can also imple-
+ment a priority queue.
+
+Quicksort, in Chapter 7, also sorts n numbers in place, but its worst-case running
+time is ©(n?). Its expected running time is O(7 1g n), however, and it generally
+outperforms heapsort in practice. Like insertion sort, quicksort has tight code, and
+so the hidden constant factor in its running time is small. It is a popular algorithm
+for sorting large input arrays.
+
+Insertion sort, merge sort, heapsort, and quicksort are all comparison sorts: they
+determine the sorted order of an input array by comparing elements. Chapter 8 be-
+gins by introducing the decision-tree model in order to study the performance limi-
+tations of comparison sorts. Using this model, we prove a lower bound of Q(n lg)
+on the worst-case running time of any comparison sort on 7 inputs, thus showing
+that heapsort and merge sort are asymptotically optimal comparison sorts.
+
+Chapter 8 then goes on to show that we can beat this lower bound of Q(n lg n)
+if we can gather information about the sorted order of the input by means other
+than comparing elements. The counting sort algorithm, for example, assumes that
+the input numbers are in the set {0,1,...,}. By using array indexing as a tool
+for determining relative order, counting sort can sort n numbers in @(k + 7) time.
+Thus, when kK = O(n), counting sort runs in time that is linear in the size of the
+input array. A related algorithm, radix sort, can be used to extend the range of
+counting sort. If there are n integers to sort, each integer has d digits, and each
+digit can take on up to k possible values, then radix sort can sort the numbers
+in @(d(n +k)) time. When d is a constant and k is O(n), radix sort runs in
+linear time. A third algorithm, bucket sort, requires knowledge of the probabilistic
+distribution of numbers in the input array. It can sort 7 real numbers uniformly
+distributed in the half-open interval [0, 1) in average-case O(n) time.
+
+The following table summarizes the running times of the sorting algorithms from
+Chapters 2 and 6-8. As usual, n denotes the number of items to sort. For counting
+sort, the items to sort are integers in the set {0,1,...,k}. For radix sort, each item
+is a d-digit number, where each digit takes on k possible values. For bucket sort,
+we assume that the keys are real numbers uniformly distributed in the half-open
+interval [0, 1). The rightmost column gives the average-case or expected running
+time, indicating which it gives when it differs from the worst-case running time.
+We omit the average-case running time of heapsort because we do not analyze it in
+this book.
+

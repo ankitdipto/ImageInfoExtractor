@@ -1,0 +1,46 @@
+Notes for Chapter 27 sil
+
+d. Give pseudocode for a multithreaded algorithm for this simple stencil calcu-
+lation that achieves ©(n/ gn) parallelism. Argue using notions of work and
+span that the problem, in fact, has @(7) inherent parallelism. As it turns out,
+the divide-and-conquer nature of our multithreaded pseudocode does not let us
+achieve this maximal parallelism.
+
+27-6 Randomized multithreaded algorithms
+
+Just as with ordinary serial algorithms, we sometimes want to implement random-
+ized multithreaded algorithms. This problem explores how to adapt the various
+performance measures in order to handle the expected behavior of such algorithms.
+It also asks you to design and analyze a multithreaded algorithm for randomized
+quicksort.
+
+a. Explain how to modify the work law (27.2), span law (27.3), and greedy sched-
+uler bound (27.4) to work with expectations when Tp, T;, and Ty, are all ran-
+dom variables.
+
+b. Consider a randomized multithreaded algorithm for which 1% of the time we
+have T, = 10* and Tyo.000 = 1, but for 99% of the time we have T, =
+Tio,.000 = 10°. Argue that the speedup of a randomized multithreaded algo-
+rithm should be defined as E[7;] /E [Tp], rather than E[T,/ Tp].
+
+c. Argue that the parallelism of a randomized multithreaded algorithm should be
+defined as the ratio E[T;] /E[T].
+
+d. Multithread the RANDOMIZED-QUICKSORT algorithm on page 179 by using
+nested parallelism. (Do not parallelize RANDOMIZED-PARTITION.) Give the
+pseudocode for your P-RANDOMIZED-QUICKSORT algorithm.
+
+e. Analyze your multithreaded algorithm for randomized quicksort. (Hint: Re-
+view the analysis of RANDOMIZED-SELECT on page 216.)
+
+ 
+
+Chapter notes
+
+Parallel computers, models for parallel computers, and algorithmic models for par-
+allel programming have been around in various forms for years. Prior editions of
+this book included material on sorting networks and the PRAM (Parallel Random-
+Access Machine) model. The data-parallel model [48, 168] is another popular al-
+gorithmic programming model, which features operations on vectors and matrices
+as primitives.
+

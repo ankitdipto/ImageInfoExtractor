@@ -1,0 +1,57 @@
+84  Chapter3 Operating-System Structures
+
+complex the machine being emulated, the more difficult it is to build anaccurate
+virtual machine, and the slower that virtual machine runs.
+
+A more recent example can be shown with the growth of the Linux oper-
+ating system. Virtual machines now exist that allow Windows applications to
+run on Linux-based computers. The virtual machine runs both the Windows
+application and the Windows operating system.
+
+One of the key features of Java is that it runs on a virtual machine, thereby
+allowing a Java program to run on any computer system that has a Java virtual
+machine.
+
+3.6.3 Java
+
+Java is a very popular object-oriented language introduced by Sun Microsys-
+tems in late 1995. In addition to a language specification and a large AP! library,
+Java also provides a specification for a Java virtual machine (JVM).
+
+Java objects are specified with the class construct; a Java program con-
+sists of one or more classes. For each Java class, the Java compiler produces
+an architecture-neutral bytecode output (.class) file that will run on any
+implementation of the JVM.
+
+The JVM is a specification for an abstract computer. The JVM consists
+of a class loader, a class verifier, and a Java interpreter that executes the
+architecture-neutral bytecodes. The class loader loads . class files from both
+the Java program and the Java API for execution by the Java interpreter. After a
+class is loaded, the verifier checks that the class file is valid Java bytecode and
+does not overflow or underflow the stack. It also ensures that the bytecode does
+not perform pointer arithmetic, which could potentially provide illegal memory
+access. If the class passes verification, it is run by the Java interpreter. The
+JVM also automatically manages memory by performing garbage collection—
+the practice of reclaiming memory from objects no longer in use and returning
+it to the system. Much research focuses on garbage collection algorithms for
+increasing the performance of Java programs in the virtual machine.
+
+The Java interpreter may be a software module that interprets the byte-
+codes one at a time, or it may be a just-in-time (JIT) compiler that turns the
+architecture-neutral bytecodes into native machine language for the host com-
+puter. Most implementations of the JVM use a JIT compiler for enhanced per-
+formance. In other instances, the interpreter may be implemented in hardware
+that executes Java bytecodes natively. The JVM is presented in Figure 3.12.
+
+The JVM makes it possible to develop programs that are architecture neutral
+and portable. The implementation of the JVM is specific for each system—such
+as Windows or UNIX—and it abstracts the system in a standard way to the Java
+program, providing a clean, architecture-neutral interface. This interface allows
+a .Class file to run on any system that has implemented the JVM according to
+the specification.
+
+Java takes advantage of the complete environment that a virtual machine
+implements. Its virtual-machine design provides a secure, efficient, object-
+
+ 
+

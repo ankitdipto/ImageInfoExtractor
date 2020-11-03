@@ -1,0 +1,50 @@
+556
+
+Chapter 20 van Emde Boas Trees
+
+line 15 to occur, the test on line 14 must show that x’s cluster is empty. The only
+way that x’s cluster can be empty is if x was the only element in its cluster when
+we made the recursive call on line 13. But if x was the only element in its cluster,
+then that recursive call took O(1) time, because it executed only lines 1-3. Thus,
+we have two mutually exclusive possibilities:
+
+* The recursive call on line 13 took constant time.
+
+* The recursive call on line 15 did not occur.
+
+In either case, recurrence (20.4) characterizes the running time of VEB-TREE-
+DELETE, and hence its worst-case running time is O(lg lgu).
+
+Exercises
+
+20.3-1
+Modify vEB trees to support duplicate keys.
+
+20.3-2
+Modify vEB trees to support keys that have associated satellite data.
+
+20.3-3
+Write pseudocode for a procedure that creates an empty van Emde Boas tree.
+
+20.3-4
+
+What happens if you call VEB-TREE-INSERT with an element that is already in
+the vEB tree? What happens if you call VEB-TREE-DELETE with an element that
+is not in the vEB tree? Explain why the procedures exhibit the behavior that they
+do. Show how to modify vEB trees and their operations so that we can check in
+constant time whether an element is present.
+
+20.3-5
+
+Suppose that instead of <(/i clusters, each with universe size 4/W, we constructed
+vEB trees to have u!/* clusters, each with universe size u!—!/*, where k > Lisa
+constant. If we were to modify the operations appropriately, what would be their
+running times? For the purpose of analysis, assume that w!/* and u!~"/* are always
+integers.
+
+20.3-6
+
+Creating a vEB tree with universe size u requires O(u) time. Suppose we wish to
+explicitly account for that time. What is the smallest number of operations 1 for
+which the amortized time of each operation in a vEB tree is O(lglgu)?
+

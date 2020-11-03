@@ -1,0 +1,99 @@
+transmitter
+
+SECTION 11-3 Asynchronous Data Transfer 399.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+_Biiecional | pas ‘Trarsit
+data bus buffers ‘Transmitter Shift ata
+weaster [| reper [——
+Teasmiter
+‘Controt Transmiter | lock
+Chip select register cont
+pecker i andelock
+Register select. —
+Sees mg | Reever | ster
+a Sts fontol pe
+a seis a
+Voresd wp ono lock
+Woecie, = WR Receive:
+Reeser sat |,
+rater register
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+0 x | x | None: data bus inhighimpedance
+10] wr | Transmiter register
+wr | Control regiser
+
+1 0 | RD _ | Receiver register
+
+ 
+
+11 | RD | Status register
+
+Figure 11-8 Block diagram of a typical asynchronous communication interface.
+
+used to indicate whether the transmitter register is empty and another bit is
+used to indicate whether the receiver register is full.
+
+The operation of the transmitter portion of the interface is as follows. The
+CPU reads the status register and checks the flag to see if the transmitter
+register is empty. Ifitis empty, the CPU transfers a character to the transmitter
+register and the interface clears the flag to mark the register full. The first bit
+in the transmitter shift register is set to 0 to generate a start bit. The character
+is transferred in parallel from the transmitter register to the shift register and
+the appropriate number of stop bits are appended into the shift register. The
+transmitterregisteris then marked empty. The character can now be transmit-
+ted one bit at a time by shifting the data in the shift register at the specified
+
+ 
+

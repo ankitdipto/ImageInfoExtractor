@@ -1,0 +1,42 @@
+148
+
+Chapter 5. Game Playing
+
+ 
+
+5.11 Describe and/or implement state descriptions, move generators, and evaluation functions
+for one or more of the following games: backgammon, Monopoly, Scrabble, bridge (declarer
+play is easiest).
+
+5.12 Consider carefully the interplay of chance events and partial information in each of the
+games in Exercise 5.11. .
+
+a. For which is the standard expectiminimax model appropriate? Implement the algorithm
+and run it in your game-playing agent, with appropriate modifications to the game-playing
+environment.
+
+b. For which would the scheme described in Exercise 5.7 be appropriate?
+
+c. Discuss how you might deal with the fact that in some of the games, the players do not
+have the same knowledge of the current state
+
+5.13 The Chinook checkers program makes extensive use of endgame databases, which provide
+exact values for every position within 6 moves ofthe end ofthe game. How might such databases
+be generated efficiently?
+
+5.14 Discuss how well the standard approach to game playing would apply to games such as
+tennis, pool, and croquet, which take place in a continuous, physical state space.
+
+5.15 For a game with which you are familiar, describe how an agent could be defined with
+condition-action rules, subgoals (and their conditions for generation), and action-utility rules,
+instead of by minimax search.
+
+5.16 The minimax algorithm returns the best move for MAX under the assumption that MIN
+plays optimally. What happens when MIN plays suboptimally?
+
+5.17 We have assumed that the rules of each game define a utility function that is used by both
+players, and that a utility ofx for MAX means a utility of ~x for MIN. Games with this property
+are called zero-sum games. Describe how the minimax and alpha-beta algorithms change when
+we have nonzero-sum games—that is, when each player has his or her own utility function. You
+may assume that each player knows the other's utility function.
+

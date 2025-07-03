@@ -1,6 +1,11 @@
 # ImageInfoExtractor
 
-An AI-powered tool that processes images to distinguish scanned documents from regular pictures, and then classifies those documents into their respective domains. This project automates the management of large collections of images and documents by intelligently sorting them.
+This project is a _proof-of-concept_ for an intelligent pipeline designed to process and classify images. The primary objective is to automatically determine if an image is a scanned document and, if so, to identify its subject matter.
+
+The core idea is to create a system that can:
+1.  **Identify Documents:** Read an image and apply Optical Character Recognition (OCR) to extract text. If text is present, the image is treated as a scanned document.
+2.  **Enhance Text Quality:** Apply a spelling correction model to the extracted text to improve its accuracy.
+3.  **Classify Content:** Use Natural Language Processing (NLP) techniques to classify the document's topic. For this proof-of-concept, the classification is focused on distinguishing between "Basic Sciences" and "Computer Science".
 
 The pipeline consists of three main components: an **OCR Engine**, a **Spell Checker**, and a **Document Classifier**.
 
@@ -64,7 +69,7 @@ The project operates in a three-stage pipeline:
 
 ## How to Use
 
-Since there is no main entrypoint script, the components can be run individually.
+Since there is no main entrypoint script, the components need to be run individually.
 
 1.  **Extract Text from an Image:**
     -   Place your image in the `OCR/` directory.
